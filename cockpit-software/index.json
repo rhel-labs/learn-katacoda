@@ -27,6 +27,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "bash"
+    "imageid": "rhel8"
   }
 }
