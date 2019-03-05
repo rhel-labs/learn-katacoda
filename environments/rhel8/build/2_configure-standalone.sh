@@ -20,3 +20,7 @@ firewall-cmd --zone=public --permanent --add-service=ssh
 
 service firewalld stop
 systemctl disable firewalld
+
+# Enable Web Console
+systemctl start cockpit
+systemctl enable cockpit
