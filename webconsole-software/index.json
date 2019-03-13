@@ -1,0 +1,34 @@
+{
+  "title": "Using Web Console to Manage Updates",
+  "description": "Goal: After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux systems",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showdashboard": true,
+    "dashboards":[{"name": "Web Console", "port": 9090}]
+  },
+  "backend": {
+    "imageid": "rhel8"
+  }
+}
