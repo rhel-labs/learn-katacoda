@@ -26,8 +26,7 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboards":[{"name": "Web Console", "port": 9090}],
-       "uilayout": "terminal-iframe" 
+    "dashboards":[{"name": "Web Console", "port": 9090}]
   },
   "backend": {
     "imageid": "rhel8"
