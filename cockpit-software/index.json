@@ -1,6 +1,6 @@
 {
-  "title": "Using Cockpit to Install Software and Manage Updates",
-  "description": "Goal: After completing this scenario, users will be able to install new software packages and apply system updates to Red Hat Enterprise Linux systems",
+  "title": "Using Web Console to Manage Updates",
+  "description": "Goal: After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux systems",
   "details": {
     "steps": [
       {
@@ -24,7 +24,9 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal",
+    "showdashboard": true,
+    "dashboards":[{"name": "Web Console", "href": "https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com:9090"}] 
   },
   "backend": {
     "imageid": "rhel8"
