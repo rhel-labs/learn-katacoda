@@ -7,4 +7,4 @@ Once the login page is presented, use the following credentials to log into the 
 Username: *rhel
 Password: *redhat
 
-![Web Console Login](/cockpit-software/assets/Web-console-login.png)
+![Web Console Login](/smcbrien/cockpit-software/assets/Web-console-login.png)
