@@ -26,7 +26,8 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboards":[{"name": "Web Console", "href": "https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com"}] 
+    "dashboards":[{"name": "Web Console iframe", "port": 9090},
+                  {"name": "Web Console", "href": "https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com"}] 
   },
   "backend": {
     "imageid": "rhel8"
