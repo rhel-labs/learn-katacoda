@@ -2,6 +2,7 @@
 
 show_progress()
 {
+  echo "WAIT!!!  Just need to finish up some post-launch configuration..."
   echo -n "Starting"
   local -r pid="${1}"
   local -r delay='0.75'
@@ -38,6 +39,7 @@ show_progress()
   printf "    \b\b\b\b"
   echo ""
   echo "Configured"
+  echo "You may now continue with the scenario instructions."
 }
 
 show_progress
