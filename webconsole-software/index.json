@@ -23,16 +23,10 @@
     "intro": {
       "text": "intro.md",
       "courseData": "background.sh",
-      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
     },
-    "assets": {
-        "host01": [
-            {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
-        ]
-    }
   },
   "files": [],
   "environment": {
