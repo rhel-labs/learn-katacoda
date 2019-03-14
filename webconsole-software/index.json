@@ -22,13 +22,12 @@
     ],
     "intro": {
       "text": "intro.md",
-      "courseData": "background.sh",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
     }
   },
-  "files": [],
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
