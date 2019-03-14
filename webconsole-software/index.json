@@ -20,6 +20,11 @@
         "text": "step4.md"
       }
     ],
+    "assets": {
+        "host01": [
+            {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        ]
+    },
     "intro": {
       "text": "intro.md",
       "courseData": "background.sh",
@@ -29,6 +34,7 @@
       "text": "finish.md"
     }
   },
+  "files": [],
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
