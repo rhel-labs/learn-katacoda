@@ -15,4 +15,8 @@ Can this be done on a single machine? The more complex the environment, the hard
 2. **Keep it short.**    
 Can the target audience complete this exercise within 10-15 minutes? If no, consider splitting the exercise into multiple scenarios.
 3. **Is everything in the scenario important to the concepts covered in the scenario?**   
-For example, one of the steps in the scenario transfers data from one place to another; it takes five minutes.  Is the scenario about data transfer?  Is this five minutes of the participants time well spent (because the time waiting for the transfer is an important part of the scenario)?  Instead, can you have the user kick-off the transfer, work on some other stuff, and come back to it in a later step?  Could you pre-populate most of the data on the target system and use rsync to reduce the transfer time?
+For example, one of the steps in the scenario transfers data from one place to another; it takes five minutes.    
+Is the scenario about data transfer?   
+Is this five minutes of the participants time well spent (because the time waiting for the transfer is an important part of the scenario)?    
+Instead, can you have the user kick-off the transfer, work on some other stuff, and come back to it in a later step?    
+Could you pre-populate most of the data on the target system and use rsync to reduce the transfer time?
