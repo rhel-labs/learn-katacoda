@@ -18,6 +18,5 @@ Can the target audience complete this exercise within 10-15 minutes? If no, cons
 For example, one of the steps in the scenario transfers data from one place to another; it takes five minutes.    
 Is the scenario about data transfer?   
 Is this five minutes of the participants time well spent (because the time waiting for the transfer is an important part of the scenario)?    
-
-Instead, can you have the user kick-off the transfer, work on some other stuff, and come back to it in a later step?    
+**Instead**, can you have the user kick-off the transfer, work on some other stuff, and come back to it in a later step?    
 Could you pre-populate most of the data on the target system and use rsync to reduce the transfer time?
