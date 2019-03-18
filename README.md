@@ -4,7 +4,7 @@ This is the content that appears on https://github.com/rhel-labs/learn-katacoda 
 # Contributions
 For each scenario, please do the following:
 1. Submit your idea: https://goo.gl/forms/Fr4Ej4cqg2xJn2Gw2
-2. Work on the scenario, try it out in your own environment
+2. Work on the scenario, try it out in your own environment (here are some Katacoda docs for getting started: https://katacoda.com/scenario-examples )
 3. When you're satisfied, send in a pull request mentioning the request you created in step (1).
 4. Get a review and approval from the team members
 5. Once your merge has been completed, validate the scenario [including running the instructions on the Katacoda provided system(s)].  https://www.katacoda.com/smcbrien (this link will change when a portal is available)
