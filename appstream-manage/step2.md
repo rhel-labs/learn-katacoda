@@ -1,18 +1,18 @@
-Install nodejs version 8.
+Install postgresql version 9.6.
 
-`yum -y module install nodejs:8`{{execute}} 
+`yum -y module install postgresql:9.6`{{execute}} 
 
-After the installation is complete, verify that nodejs version 8 is installed on the system.
+After the installation is complete, verify that postgresql version 9.6 is installed on the system.
 
-`yum module list nodejs`{{execute}}
+`yum module list postgresql`{{execute}}
 
 <pre class="file">
 Red Hat Enterprise Linux 8 for x86_64 - AppStream Beta (RPMs)
-Name                Stream             Profiles                                               Summary
-nodejs              10 [d]             development, minimal, s2i, default [d]                 Javascript runtime
-nodejs              8 [e]              development, minimal, s2i, default [d] [i]             Javascript runtime
+Name                 Stream              Profiles                         Summary
+postgresql           10 [d]              client, default [d]              postgresql module
+postgresql           9.6 [e]             client, default [d] [i]          postgresql module
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
-Notice that version 8 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for nodejs.
+Notice that version 9.6 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for postgresql.
