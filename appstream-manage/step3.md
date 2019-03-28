@@ -8,7 +8,7 @@ To start off with, remove postgresql 9.6.
 
 Take a look at the Application Stream information for the machine to validate the removal.
 
-`yum list module postgresql`{{execute}}
+`yum  module list postgresql`{{execute}}
 
 <pre class="file">
 Red Hat Enterprise Linux 8 for x86_64 - AppStream Beta (RPMs)

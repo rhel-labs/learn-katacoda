@@ -18,7 +18,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 Notice that version 9.6 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for postgresql.
 
 Finally, run the postgres command to inspect the version it reports.
-`postgres --version`
+`postgres --version`{{execute}}
 <pre class=file>
 postgres (PostgreSQL) 9.6.10
 </pre>
