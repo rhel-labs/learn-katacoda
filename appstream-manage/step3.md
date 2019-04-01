@@ -20,3 +20,5 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
 Verify that postgresql version 9.6 is no longer flagged as [i]nstalled
+
+**Please Note:** The instructions to move the data from postgresql 9.6 to 10 are not included in this scenario, but would likely be needed if an administrator or developer was moving a live machine from using postgresql 9.6 to postgresql 10.
