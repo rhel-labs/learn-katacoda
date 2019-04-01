@@ -11,3 +11,6 @@ After completing this scenario, users will be able to choose which version of a 
 # Example Usecase:
 
 A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql database version 9.6.  Later, the application is updated and requires postgresql version 10 be available on the machine.
+
+**Please Note:** The instructions to move the database stored data from postgresql 9.6 to 10 are not included in this scenario, but would likely be needed if an administrator or developer was moving a production system from using postgresql 9.6 to postgresql 10.
+
