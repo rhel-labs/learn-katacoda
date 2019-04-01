@@ -1,4 +1,4 @@
-Install postgresql version 9.6.
+To support the web application deployed on this machine, install postgresql version 9.6.
 
 `yum -y module install postgresql:9.6`{{execute}} 
 
