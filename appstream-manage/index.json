@@ -1,6 +1,6 @@
 {
   "title": "Managing Software in an Application Stream",
-  "description": "Goal: After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an Application Stream",
+  "description": "Goal: After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an application stream",
   "details": {
     "steps": [
       {
@@ -22,6 +22,10 @@
       {
         "title": "Step 5",
         "text": "step5.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step6.md"
       }
     ],
     "intro": {
