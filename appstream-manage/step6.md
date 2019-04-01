@@ -1,6 +1,6 @@
 Lastly, inspect all software managed as application streams.
 
-`yum -y module list`{{execute}}
+`yum module list`{{execute}}
 
 <pre class="file">
 Red Hat Enterprise Linux 8 for x86_64 - AppStream Beta (RPMs)
