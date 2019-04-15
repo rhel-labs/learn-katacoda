@@ -4,16 +4,16 @@ device will exist as a file in /tmp.
 
 The truncate command can be used to create the file.
 
-truncate -s 10g /tmp/vdo.trunc {{execute}}
+`truncate -s 10g /tmp/vdo.trunc`{{execute}}
 
 Now, the vdo.trunc file will be used to create the loopback
 device.  losetup is used to associate a loop device with a file.
 
-losetup  /dev/loop1 /tmp/vdo.trunc {{execute}}
+`losetup  /dev/loop1 /tmp/vdo.trunc`{{execute}}
 
 View the loopback device using lsblk.
 
-lsblk {{execute}}
+`lsblk`{{execute}}
 
 <pre class="file">
 # lsblk

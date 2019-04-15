@@ -1,7 +1,7 @@
 Change directories to /data and start using
 the filesystem
 
-cd /data {{execute}}
+`cd /data`{{execute}}
 
 To show the power of deduplication and how it can reduce storage costs 
 in your data center,  we will create a file of random data, then make 
@@ -9,12 +9,12 @@ several copies of it.
 
 This dd command will generate a unique 1GB file.
 
-dd if=/dev/urandom of=/data/file.1 bs=1M count=1000 {{execute}}
+`dd if=/dev/urandom of=/data/file.1 bs=1M count=1000`{{execute}}
 
 When the file completes, we can check the output of          
 VDO stats.
 
-vdostats --human-readable {{execute}}
+`vdostats --human-readable`{{execute}}
 
 <pre class="file">
 # vdostats --human-readable
