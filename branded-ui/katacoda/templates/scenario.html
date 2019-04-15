@@ -1,0 +1,22 @@
+{{ template "templates/header.html" . }}
+{{ template "templates/banner.html" . }}
+
+<section class="text-center">
+  <div>
+    <div>
+      <div id="katacoda-terminal"
+        data-katacoda-id="{{.Site.KatacodaUser}}/{{ .Name }}"
+        data-katacoda-ctatext="Continue Training" data-katacoda-ctaurl="http://{{.Site.VirtualHost}}/"
+        data-katacoda-color="#226aa6"
+        data-katacoda-secondary="#c00"
+        data-katacoda-background="#fff"
+        data-katacoda-font="Open Sans"
+        style="height: calc(100vh - 114px);">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{ template "templates/footer.html" . }}

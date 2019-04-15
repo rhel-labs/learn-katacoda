@@ -1,0 +1,11 @@
+web:
+  build: .
+  environment:
+    VIRTUAL_HOST: 'example-portal.katacoda.com'
+    KATACODA_HOST: 'http://localhost:3000'
+    KATACODA_USER: 'portal'
+  ports:
+    - 8080:3000
+  restart: always
+
+  
