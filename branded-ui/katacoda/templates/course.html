@@ -1,0 +1,19 @@
+{{ template "templates/header.html" . }}
+{{ template "templates/banner.html" . }}
+
+{{ template "templates/master-header.html" . }}
+
+<section class="text-center">
+  <div class="container">
+    <div class="row">
+      <div id="katacoda-dashboard"
+        data-katacoda-id="{{.Site.KatacodaUser}}/{{ .Name }}/dashboard"
+        data-katacoda-color="#226aa6"
+        data-katacoda-secondary="#c00"
+        data-katacoda-background="#fff"
+        data-katacoda-font="Open Sans"
+        data-katacoda-fontheader="Open Sans" style="height:400px;">
+      </div>
+    </div>
+  </div>
+</section>
