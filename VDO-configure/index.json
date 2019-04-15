@@ -1,5 +1,5 @@
 {
-  "title": "Configure Virtual Data Optimizer (VDO)",
+  "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
   "description": "Goal: After completing this scenario, users will be able to configure Virtual Data Optimizer (VDO) to make use of block level deduplication and compression to conserve disk space",
   "details": {
     "steps": [
