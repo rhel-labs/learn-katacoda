@@ -19,13 +19,13 @@ VDO is comprised of:
 
 Detailed information on VDO can be found in the man page
 
-man vdo {{execute}}
+`man vdo` {{execute}}
 
 Use the 'q' key to exit the man page.
 
 Also, each of the statistics for vdostats can be found in the man page.
 
-man vdostats {{execute}}
+`man vdostats` {{execute}}
 
 Use the 'q' key to exit the man page.
 
