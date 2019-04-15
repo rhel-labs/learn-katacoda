@@ -9,14 +9,11 @@ compression, and thin provisioning.  VDO is currently delivered as two packages:
 VDO can be used with local or cloud storage, to be the backing storage for products, 
 such as, Filesystems, Ceph, iSCSI, and fibre channel.
 
-VDO is comprised of:
-  Two Kernel modules
-  
-    kvdo     - manages block storage and compression
-    uds      - manages the deduplication index  
+VDO is comprised of two Kernel modules
+    * kvdo     - manages block storage and compression
+    * uds      - manages the deduplication index  
     
   User space utilities
-  
     * vdo      - vdo manager used to create, remove or modify volumes
     * vdostats - view volume statistics
 
