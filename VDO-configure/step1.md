@@ -6,6 +6,7 @@ VDO provides block level, inline data reduction for Linux in the form of dedupli
 compression, and thin provisioning.  VDO is currently delivered as two packages: 
 * kmod-kvdo (kernel modules),
 * vdo (user-space utilities).  
+
 VDO can be used with local or cloud storage, to be the backing storage for products, 
 such as, Filesystems, Ceph, iSCSI, and fibre channel.
 
@@ -13,7 +14,7 @@ VDO is comprised of two Kernel modules
 * kvdo     - manages block storage and compression,
 * uds      - manages the deduplication index.  
     
-  User space utilities
+User space utilities
 * vdo      - vdo manager used to create, remove or modify volumes,
 * vdostats - view volume statistics.
 
