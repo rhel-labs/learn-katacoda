@@ -1,11 +1,11 @@
 Run the sync command to flush any data in the file system’s page cache 
 to VDO.
 
-sync {{execute}}
+`sync {{execute}}`
 
 Review the output of df -h and vdostats to see the space savings.          
 
-df -h|grep vdo {{execute}}
+`df -h|grep vdo` {{execute}}
 
 <pre class="file">
 # df -h|grep vdo
@@ -16,7 +16,7 @@ We can see that df is reporting 5.7G used from the 5, 1G files created.
 
 Now to look at the output of vdostats.
 
-vdostats --human-readable {{execute}}
+`vdostats --human-readable` {{execute}}
 
 <pre class="file">
 # vdostats --human-readable
@@ -26,4 +26,3 @@ Device                    Size      Used Available Use% Space saving%
 
 The Used amount hasn’t changed, since the creation of the first file.
 The space savings is now reporting 80%!  
-
