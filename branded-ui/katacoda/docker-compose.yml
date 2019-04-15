@@ -1,8 +1,8 @@
 web:
   build: .
   environment:
-    VIRTUAL_HOST: 'rhellabs.katacoda.com'
-    CTA: 'https://rhellabs.katacoda.com'
+    VIRTUAL_HOST: 'rhel-labs.katacoda.com'
+    CTA: 'https://rhel-labs.katacoda.com'
     KATACODA_HOST: 'https://katacoda.com'
     KATACODA_USER: 'smcbrien'
   restart: always
