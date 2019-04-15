@@ -12,8 +12,8 @@ such as, Filesystems, Ceph, iSCSI, and fibre channel.
 VDO is comprised of:
   Two Kernel modules
   
-    * kvdo     - manages block storage and compression
-    * uds      - manages the deduplication index  
+    kvdo     - manages block storage and compression
+    uds      - manages the deduplication index  
     
   User space utilities
   
