@@ -14,7 +14,10 @@ metadata.
 
 Create 5 duplicate copies of the file
 `cp file.1 file.2` {{execute}}
+
 `cp file 1 file 3` {{execute}}
+
 `cp file 1 file 4` {{execute}}
+
 `cp file 1 file 5` {{execute}}
 
