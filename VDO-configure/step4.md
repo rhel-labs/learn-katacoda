@@ -8,6 +8,7 @@ during the format.
 
 Create a directory to mount our new filesystem.
 
+
 `mkdir /data`{{execute}}
 
 Mount the file system. 
