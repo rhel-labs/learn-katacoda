@@ -13,11 +13,12 @@ VDO is comprised of:
   Two Kernel modules
     * kvdo     - manages block storage and compression
     * uds      - manages the deduplication index  
-  User space utilities
-    vdo      - vdo manager used to create, remove or modify volumes
-    vdostats - view volume statistics
+    
+  User space utilities:
+    * vdo      - vdo manager used to create, remove or modify volumes
+    * vdostats - view volume statistics
 
-Detailed information on VDO can be found in the man page
+Detailed information on VDO can be found in the man page.
 
 `man vdo` {{execute}}
 
