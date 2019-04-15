@@ -1,4 +1,4 @@
-te the VDO volume.  
+Create the VDO volume.  
 
 VDO uses thin-provisioning to help achieve space 
 savings. VDO will need to present a device to the
@@ -11,7 +11,7 @@ vdoLogicalSize to an amount larger than 10GB, such as,
 In this example we will set the VDO volume to be
 10X the size of /dev/loop1, or 100GB.
 
-vdo create --name=vdo1 --device=/dev/loop1 --vdoLogicalSize=100G {{execute}}
+`vdo create --name=vdo1 --device=/dev/loop1 --vdoLogicalSize=100G` {{execute}}
 
 <pre class="file">
 # vdo create --name=vdo1 --device=/dev/loop1 --vdoLogicalSize=100G
@@ -24,7 +24,7 @@ VDO instance 1 volume is ready at /dev/mapper/vdo1
 VDO volume has been created at /dev/mapper/vdo1. View the volume
 using vdostats --human-readable
   
-vdostats --human-readable {{execute}}
+`vdostats --human-readable` {{execute}}
 
 <pre class=”file”>
 # vdostats --human-readable
