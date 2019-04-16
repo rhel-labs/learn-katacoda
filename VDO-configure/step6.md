@@ -13,5 +13,7 @@ metadata.
 /dev/mapper/vdo1       100G  1.8G   99G   2% /data
 </pre>
 
-`for i in 2 3 4 5; do cp file.1 file.$i; done`{{execute}}
+Make 4 copies of the file to demonstrate having duplicate data 
+in the filesystem.
 
+`for i in 2 3 4 5; do echo "copy $i";cp file.1 file.$i; done`{{execute}}
