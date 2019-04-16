@@ -6,7 +6,7 @@ to VDO.
 
 Review the output of df -h and vdostats to see the space savings.          
 
-`df -h|grep vdo`{{execute}}
+`df -h /dev/mapper/vdo1`{{execute}}
 
 <pre class="file">
 # df -h|grep vdo

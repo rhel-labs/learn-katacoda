@@ -3,7 +3,7 @@
 
 After completing this scenario, users will be able to configure VDO to make
 
-use of block level deduplication and compression to save space.
+use of block level deduplication, compression, thin-provisioning to save space.
 
 
 # Concepts included in this scenario:
