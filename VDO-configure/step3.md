@@ -5,7 +5,7 @@ savings. VDO is able to present a device to the
 filesystem that is larger than the physical size, since 
 deduplication maps multiple (duplicate) logical blocks
 to the same physical block. To do this set the 
-vdoLogicalSize to an amount larger than 10GB, such as,
+vdoLogicalSize to an amount larger than 10GB, such as
 100GB.
 
 In this example we will set the VDO volume to be
