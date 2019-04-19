@@ -1,9 +1,9 @@
 Create the VDO volume.  
 
 VDO uses thin-provisioning to help achieve space 
-savings. VDO will need to present a device to the
+savings. VDO is able to present a device to the
 filesystem that is larger than the physical size, since 
-deduplication will map multiple (duplicate) logical blocks
+deduplication maps multiple (duplicate) logical blocks
 to the same physical block. To do this set the 
 vdoLogicalSize to an amount larger than 10GB, such as,
 100GB.
