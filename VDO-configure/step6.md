@@ -1,8 +1,8 @@
 We can see that the Used went up from 4.0G to 5.0G
 and the Space saving is 4%.
 
-The output of df show 1.8G being used. 1G is from the new file
-That was just created and the 800M was from the filesystems
+The output of df shows 1.8G being used. 1G is from the new file
+that was just created and the 800M is from the filesystem's
 metadata.
 
 
