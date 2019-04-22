@@ -1,5 +1,5 @@
 {
-  "title": "Kernel Tracing with eBPF",
+  "title": "Kernel Tracing with eBPF [Technology Preview]",
   "description": "Goal: After completing this scenario, users will be able to trace disk latency with eBPF",
   "details": {
     "steps": [
