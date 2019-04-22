@@ -1,19 +1,19 @@
 {
-  "title": "rhel-labs.katacoda.com",
+  "title": "RHEL8 Labs",
   "private": true,
   "courses": [
     {
-      "external_link": "https://rhel-labs.katacoda.com/webconsole-software",
+      "external_link": "https://lab.redhat.com/webconsole-software",
       "title": "Managing system updates using the web console",
       "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
     },
     {
-      "external_link": "https://rhel-labs.katacoda.com/appstream-manage",
+      "external_link": "https://lab.redhat.com/appstream-manage",
       "title": "Managing software from an application stream",
       "description": "Learn how to choose versions of popular and supported open source languages and offer them to users through an application stream."
     },
     {
-      "external_link": "https://rhel-labs.katacoda.com/podman",
+      "external_link": "https://lab.redhat.com/podman",
       "title": "Deploying containers using Podman",
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
     }
