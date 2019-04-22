@@ -26,5 +26,5 @@ Device                    Size      Used Available Use% Space saving%
 /dev/mapper/vdo1         10.0G      5.0G      5.0G  49%           80%
 </pre>
 
-The Used amount hasn’t changed, since the creation of the first file.
+The Used amount hasn’t changed since the creation of the first file.
 The space savings is now reporting 80%!  

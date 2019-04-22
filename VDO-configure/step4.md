@@ -16,7 +16,7 @@ Mount the file system.
 `mount -o discard /dev/mapper/vdo1 /data`{{execute}}
 
 "-o discard" option lets the filesystem know to send
-disards to the thin-provisioned layer when a file is
+discards to the thin-provisioned layer when a file is
 deleted.  Discards are required to accurately report
 space savings.
 
