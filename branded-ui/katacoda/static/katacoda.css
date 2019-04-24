@@ -57,10 +57,10 @@ h1, .h1 {
 .masterheader {
   min-height: 300px;
   background-color: #e4e6ef;
-  background-position: center;
+  background-position: top;
   background-attachment: scroll;
   background-size: cover;
-  background-image: url(/static/background.png);
+  background-image: url(/static/background.jpg);
   background-repeat: no-repeat;
   color: #fff;
 }
@@ -76,7 +76,7 @@ h1, .h1 {
 }
 
 .navbar {
-  background: #e4e6ef;
+  background-image: url(/static/background-color.jpg);
 }
 
 .masterheader .container {
