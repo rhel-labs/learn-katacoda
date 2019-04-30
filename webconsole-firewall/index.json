@@ -1,6 +1,6 @@
 {
-  "title": "Using Web Console to Manage Updates",
-  "description": "Goal: After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux systems",
+  "title": "Using Web Console to Manage Firewall Settings",
+  "description": "Goal: After completing this scenario, users will be able to easily open ports in the firewall for services they want to make network accessible.",
   "details": {
     "steps": [
       {
