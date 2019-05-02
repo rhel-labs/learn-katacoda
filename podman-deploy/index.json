@@ -1,6 +1,6 @@
 {
   "title": "Deploying Containers with Container Tools",
-  "description": "TBD",
+  "description": "Goal: After completing this scenario, users will be able to deploy an existing container image using the utilities included in the Red Hat Enterprise Linux Container Tools.",
   "details": {
     "steps": [
       {
