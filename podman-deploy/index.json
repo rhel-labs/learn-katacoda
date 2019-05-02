@@ -26,10 +26,6 @@
   "environment": {
     "showdashboard":true,
     "dashboards":[{"name": "Container Web Server", "port": 8081}],
-    "terminals": [
-      {"name": "Terminal 1"},
-      {"name": "Terminal 2"}
-    ],
     "uilayout":"terminal-terminal"
   },
   "backend": {
