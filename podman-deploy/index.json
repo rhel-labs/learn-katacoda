@@ -27,7 +27,7 @@
     "showdashboard":true,
     "dashboards":[{"name": "Container Web Server", "port": 8081}],
     "terminals": [
-       {"name": "Terminal 1", "target": "T2"},
+       {"name": "Terminal 1", "target": "T2"}
     ],
     "uilayout":"terminal"
   },
