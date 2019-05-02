@@ -1,6 +1,7 @@
 {
   "title": "Managing Software in an Application Stream",
   "description": "Goal: After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an application stream",
+  "time": "5 minutes",
   "details": {
     "steps": [
       {
