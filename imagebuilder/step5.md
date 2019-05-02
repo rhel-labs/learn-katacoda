@@ -1,7 +1,5 @@
-# Add a package
+# Navigate to the Edit Blueprint page
 
-Find the **nodejs** package in the filtered list of **Available Components**. You can either click the package list item to view more details and options available for the package, or you can click the Add icon button for the list item to add the latest version. 
+You can see in the **Image Builder** application that there are several blueprints available. When you are ready, go to the edit page for the **example-http-server** blueprint by clicking the **Edit Blueprint** button.
 
-Add the package **nodejs** to the blueprint.
-
-![Add Component](/smcbrien/scenarios/webconsole-software/assets/Add-Component.png)
+![Navigate to Edit Blueprint](/smcbrien/scenarios/imagebuilder/assets/Nav-Edit.png)
