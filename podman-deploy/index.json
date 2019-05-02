@@ -26,11 +26,7 @@
   "environment": {
     "showdashboard":true,
     "dashboards":[{"name": "Container Web Server", "port": 8081}],
-    "terminals": [
-       {"name": "Terminal 2", "target": "T2"},
-       {"name": "Terminal 3", "target": "T3"}
-    ],
-    "uilayout":"terminal"
+    "uilayout":"terminal,terminal"
   },
   "backend": {
     "imageid": "rhel8"
