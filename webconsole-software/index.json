@@ -1,6 +1,7 @@
 {
   "title": "Using Web Console to Manage Updates",
   "description": "Goal: After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux systems",
+  "time": "5 minutes",
   "details": {
     "steps": [
       {
