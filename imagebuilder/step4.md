@@ -1,6 +1,7 @@
-# Filter the list of available components
-On the **Edit Blueprint** page, you can see contents that are already included in the blueprint in the panel labeled **Blueprint Components**. The panel labeled **Available Components** includes contents that can be added to the blueprint.
+# Navigate to Image Builder application
+Now that you are logged into the Web Console with the Image Builder role added to your user account,
+Navigate to the **Image Builder** application.
 
-Filter the list of **Available Components** by "nodejs" to find the **nodejs** package.
 
-![Filter Available Components](/smcbrien/scenarios/webconsole-software/assets/Filter-Components.png)
+
+![Navigate to Image Builder](/smcbrien/scenarios/imagebuilder/assets/Nav-ImageBuilder.png)
