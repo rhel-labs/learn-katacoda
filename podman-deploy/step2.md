@@ -1,16 +1,16 @@
-The *rhel8-httpd* container includes a bash shell.  In this step, you will
-deploy the container in an interactive fashion, which will allow you to run commands within the deployed container.
+The __rhel8-httpd__ container includes a bash shell.  In this step, you will
+deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. Use the top terminal.
 
-`podman run -it rhel8-httpd /bin/bash`{{execute}}
+`podman run -it rhel8-httpd /bin/bash`{{execute HOST1}}
 
 You should now be looking at a generic bash shell prompt:
 <pre class="file">
 bash-4.4#
 </pre>
 
-This shell is running inside the container image, not the host operating system.To confirm this, take a look at the mounted filesystems:
+In the top terminal, this shell is running inside the container image, not the host operating system.To confirm this, take a look at the mounted filesystems:
 
-`df -hP`{{execute}}
+`df -hP`{{execute HOST1}}
 
 <pre class="file">
 Filesystem      Size  Used Avail Use% Mounted on
@@ -26,11 +26,9 @@ tmpfs           915M     0  915M   0% /sys/firmware
 
 You will notice that all of the filesystem contents are either memory-based (tmpfs, shm) or the overlay file associated with this runtime of the container image (overlay).
 
-*Switch to the second terminal offered.*
+From the bottom terminal, you can verify that the container is running:
 
-From this second shell, you can verify that the container is running:
-
-`podman ps -a`{{execute}}
+`podman ps -a`{{execute HOST2}}
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS                    PORTS                   NAMES
 df54b664f133  localhost/rhel8-httpd:latest  /bin/bash             34 seconds ago  Up 33 seconds ago                                 heuristic_cray
