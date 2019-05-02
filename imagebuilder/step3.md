@@ -1,5 +1,9 @@
-# Navigate to the Edit Blueprint page
+# Add Image Builder Role to User Account
+On the **Accounts** page, select the user **rhel** to open the settings page for the user account. Select the **Image Builder** checkbox to add the user account to the weldr group.
 
-You can see in the **Image Builder** application that there are several blueprints available. When you are ready, go to the edit page for the **example-http-server** blueprint by clicking the **Edit Blueprint** button.
+This change requires you to log out and back in again. Use the same credentials to log into the Web Console:
 
-![Navigate to Edit Blueprint](/smcbrien/scenarios/webconsole-software/assets/Nav-Edit.png)
+Username: **rhel**   
+Password: **redhat**
+
+![Image Builder Role](/smcbrien/scenarios/imagebuilder/assets/Account-ImageBuilder.png)
