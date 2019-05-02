@@ -24,9 +24,12 @@
     }
   },
   "environment": {
-    "uilayout":"terminal-terminal",
+    "uilayout":"terminal",
     "showdashboard":true,
-    "dashboards":[{"name": "Container Web Server", "port": 8081}]
+    "dashboards":[
+      {"name": "Terminal 1", "terminal":"T1"},
+      {"name": "Terminal 2", "terminal":"T2"},
+      {"name": "Container Web Server", "port": 8081}]
   },
   "backend": {
     "imageid": "rhel8"
