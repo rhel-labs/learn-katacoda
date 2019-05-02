@@ -24,8 +24,6 @@
     }
   },
   "environment": {
-    "showdashboard":true,
-    "dashboards":[{"name": "Container Web Server", "port": 8081}],
     "uilayout": "terminal-terminal"
   },
   "backend": {
