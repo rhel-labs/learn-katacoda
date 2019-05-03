@@ -1,7 +1,7 @@
-# Commit changes
+# Create image
 
-Now that you have updated the contents of the blueprint, spend some time exploring the organization of the blueprint contents. Note that blueprint contents can also be filtered, and when contents are added, their dependencies are automatically pulled in. Try filtering the blueprint contents by "npm" to see if it was automatically included in the blueprint as a dependency. Or click the Undo button to see how the number of dependencies changed when you added nodejs.
+Click the **Create Image** button to open the dialog. Select which type to create then click the **Create** button.
 
-When you are ready, click the **Commit** button to commit your changes.
+Images that are created for a blueprint can be found under the **Images** tab on the blueprint page. You can navigate to this page by clicking the blueprint name in the breadcrumb.
 
-![Commit Changes](/smcbrien/scenarios/imagebuilder/assets/Commit-Changes.png)
+![Create Image](/smcbrien/scenarios/imagebuilder/assets/Create-Image.png)
