@@ -1,4 +1,4 @@
-# Navigate to Accounts in Web Console
-Now that you are logged into the Web Console, navigate to the **Accounts** page of the Web Console.
+# Navigate to Image Builder application
+Now that you are logged into the Web Console, navigate to the **Image Builder** application.
 
-![Navigate to Accounts](/smcbrien/scenarios/imagebuilder/assets/Nav-Accounts.png)
+![Navigate to Image Builder](/smcbrien/scenarios/imagebuilder/assets/Nav-ImageBuilder.png)

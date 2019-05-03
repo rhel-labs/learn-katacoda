@@ -1,7 +1,7 @@
-# Add a package
+# Verify pending changes
 
-Find the **nodejs** package in the filtered list of **Available Components**. You can either click the package list item to view more details and options available for the package, or you can click the Add icon button for the list item to add the latest version. 
+The **Changes Pending Commit** dialog will list all changes you have made since you last committed your changes. 
 
-Add the package **nodejs** to the blueprint.
+When you are ready, click the **Commit** button in the dialog to commit your changes.
 
-![Add Component](/smcbrien/scenarios/imagebuilder/assets/Add-Component.png)
+![Changes Pending Commit](/smcbrien/scenarios/imagebuilder/assets/Changes-Pending-Commit.png)
