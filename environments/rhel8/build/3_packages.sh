@@ -7,6 +7,8 @@ sudo yum install -y gcc llvm-libs gcc-c++ cpp binutils
 
 sudo systemctl enable cockpit
 sudo systemctl start cockpit
+
+adduser rhel
 sudo usermod -aG wheel rhel
 echo redhat | sudo passwd --stdin rhel
 
