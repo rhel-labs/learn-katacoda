@@ -9,14 +9,13 @@ yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_pla
 
 # Clean up yum cache
 if [ -d "${scratchmnt}" ]; then
-    rm -rf "${scratchmnt}"/var/cache/yum
-  fi
-
-  # configure container label and entrypoint
-  buildah config --label name=rhel8-httpd ${newcontainer}
-  buildah config --port 80 --cmd "/usr/sbin/httpd -DFOREGROUND" ${newcontainer}
-
-  # commit the image
-  buildah unmount ${newcontainer}
-  buildah commit ${newcontainer} rhel8-httpd
+  rm -rf "${scratchmnt}"/var/cache/yum
 fi
+
+# configure container label and entrypoint
+buildah config --label name=rhel8-httpd ${newcontainer}
+buildah config --port 80 --cmd "/usr/sbin/httpd -DFOREGROUND" ${newcontainer}
+
+# commit the image
+buildah unmount ${newcontainer}
+buildah commit ${newcontainer} rhel8-httpd
