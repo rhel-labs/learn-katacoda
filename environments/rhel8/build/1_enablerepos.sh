@@ -22,5 +22,8 @@ echo "baseurl=file:///run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64/AppStream" >> 
 echo "gpgcheck=0" >> /etc/yum.repos.d/installer.repo
 echo "enabled=1" >> /etc/yum.repos.d/installer.repo
 
+echo "Mount ISO"
 mkdir -p /run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64
 mount /dev/sr0 /run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64
+echo "/dev/sr0 /run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64 iso9660 ro,user,auto  0 0  " >> /etc/fstab
+
