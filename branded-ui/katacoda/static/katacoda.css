@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  margin-bottom: 60px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
@@ -55,7 +54,7 @@ h1, .h1 {
 }
 
 .masterheader {
-  min-height: 300px;
+  min-height: 360px;
   background-color: #e4e6ef;
   background-position: top;
   background-attachment: scroll;
@@ -64,6 +63,28 @@ h1, .h1 {
   background-repeat: no-repeat;
   color: #fff;
 }
+
+@media screen and (min-width: 1600px) {
+  .masterheader {
+    background-image: url(/static/background-desktop.jpg);
+    min-height: 470px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .masterheader {
+    background-image: url(/static/background-desktop.jpg);
+    min-height: 470px;
+  }
+
+  .masterheader h1 {
+    font-size: 60px;
+  }
+
+  .masterheader h2 {
+    font-size: 32px;
+  }
+}
+
 
 .container h3 {
   text-align: left;
