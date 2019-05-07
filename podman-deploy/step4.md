@@ -2,11 +2,11 @@ Running an interactive container is all well and good, however, if the container
 
 The __rhel8-httpd__ container, for example, is configured with an Apache web server running within it.  You will create a new instance of this container in a detached mode.  Further, the command provided will configure port forwarding for the Apache web server so that connections to the host's port 8081 will redirect to the running container's port 80 (Apache service).
 
-`podman run -dt -p 127.0.0.1:8081:80/tcp rhel8-httpd`{{execute HOST1}}
+`podman run -dt -p 127.0.0.1:8081:80/tcp rhel8-httpd`{{execute T1}}
 
 You can verify the state of the container using __podman ps__
 
-`podman ps -a`{{execute HOST2}}
+`podman ps -a`{{execute T2}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS             PORTS                   NAMES

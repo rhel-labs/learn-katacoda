@@ -5,7 +5,7 @@ sudo yum install -y buildah podman wget vim emacs git sudo tmux cockpit ca-certi
 # To speed up installation of bcc-tools lets pre-install some dependencies
 sudo yum install -y gcc llvm-libs gcc-c++ cpp binutils
 
-sudo systemctl enable cockpit
+sudo systemctl enable --now cockpit.socket
 sudo systemctl start cockpit
 
 adduser rhel

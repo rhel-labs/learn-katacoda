@@ -1,12 +1,12 @@
 Unlike interactive containers, detached containers are stopped using __podman stop <CONTAINER ID>__.
 
-`podman stop $(podman ps -a | grep Up | cut -d" " -f1)`{{execute HOST2}}
+`podman stop $(podman ps -a | grep Up | cut -d" " -f1)`{{execute T2}}
 
 In the command above, we use a bit of bash scripting to determine the __CONTAINER ID__ as it is going to be a value unique to each container image.
 
 You can verify that the container is now exited:
 
-`podman ps -a`{{execute HOST2}}
+`podman ps -a`{{execute T2}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS                     PORTS                   NAMES

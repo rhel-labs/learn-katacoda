@@ -2,7 +2,7 @@ Now that the Postgres version 10 stream is enabled, install it on the system.
 
 `yum -y module install postgresql:10`{{execute}}
 
-The Postgres 10 stream shoul dnow be listed as [i]nstalled.
+The Postgres 10 stream should now be listed as [i]nstalled.
 
 `yum module list postgresql`{{execute}}
 
@@ -20,5 +20,5 @@ Finally, check the version reported by the postgres command.
 `postgres --version`{{execute}}
 
 <pre class="file">
-postgres (PostgreSQL) 10.5
+postgres (PostgreSQL) 10.6
 </pre>
