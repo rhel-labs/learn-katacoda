@@ -35,7 +35,7 @@
     "uilayout": "terminal",
     "dashboards": [{"name":"Container Service", "port": "8081", "host": "locahost"}],
     "showdashboard":true,
-    "terminals": [{"name": "Terminal 2", "target": "host02"}]
+    "terminals": [{"name": "Terminal 2", "target": "host01"}]
   },
   "backend": {
     "imageid": "rhel8"
