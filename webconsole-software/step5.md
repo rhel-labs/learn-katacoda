@@ -7,3 +7,6 @@ When you are ready, apply the available updates by clicking the __Install All Up
 ![Apply All Software Updates](/smcbrien/scenarios/webconsole-software/assets/Apply-All-Updates.png)
 
 Again you are asked to restart the system, this time, you can, if you choose to do so.
+
+Now your system reports that it is up to date!
+![Apply All Software Updates](/smcbrien/scenarios/webconsole-software/assets/Up-to-date.png)
