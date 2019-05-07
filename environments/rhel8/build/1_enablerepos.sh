@@ -8,7 +8,7 @@ echo $token
 subscription-manager attach --pool=$token
 
 subscription-manager repos --list
-subscription-manager repos --enable=ansible-2.8-for-rhel-8-x86_64
+subscription-manager repos --enable=ansible-2.8-for-rhel-8-x86_64-rpms
 subscription-manager repos --enable=rhel-8-for-x86_64-supplementary-rpms
 
 echo "[BaseOS]" >> /etc/yum.repos.d/installer.repo
