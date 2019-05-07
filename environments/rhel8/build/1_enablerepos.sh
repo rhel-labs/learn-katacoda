@@ -1,14 +1,15 @@
 set -e
 
-# subscription-manager refresh
-# subscription-manager list --all --available
-# export token=$(subscription-manager list --all --available --matches '*Red Hat Enterprise Linux Server*' | grep "Pool ID" | head -n1 | cut -d ':' -f 2 | xargs)
+subscription-manager refresh
+subscription-manager list --all --available
+export token=$(subscription-manager list --all --available --matches '*Red Hat Enterprise Linux Server*' | grep "Pool ID" | head -n1 | cut -d ':' -f 2 | xargs)
 # export token=$(subscription-manager list --all --available --matches '*Red Hat Enterprise Linux Developer Suite*' | grep "Pool ID" | head -n1 | cut -d ':' -f 2 | xargs)
-# echo $token
-# subscription-manager attach --pool=$token
+echo $token
+subscription-manager attach --pool=$token
 
-# subscription-manager repos --list
-# subscription-manager repos --enable=*
+subscription-manager repos --list
+subscription-manager repos --enable=ansible-2.8-for-rhel-8-x86_64
+subscription-manager repos --enable=rhel-8-for-x86_64-supplementary-rpms
 
 echo "[BaseOS]" >> /etc/yum.repos.d/installer.repo
 echo "name=BaseOS" >> /etc/yum.repos.d/installer.repo
