@@ -1,5 +1,5 @@
 echo "Installing RHEL8 Packages"
-sudo yum update
+sudo yum update -y
 sudo yum install -y buildah podman wget vim emacs git sudo tmux cockpit ca-certificates
 
 # To speed up installation of bcc-tools lets pre-install some dependencies
