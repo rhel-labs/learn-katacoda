@@ -15,4 +15,4 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 
 Observe that the __STATUS__ is __Up__ and there is a new section in the output __PORTS__ that indicates the port forwarding defined for the container.
 
-You can also now connect to the web server running on the container by using the __Web Service__ tab at the top of your lab interface.  This tab should now display the Apache test page, being served by the httpd daemon running in the container.
+You can also now connect to the web server running on the container by using the __Container Service__ tab at the top of your lab interface.  This tab should now display the Apache test page, being served by the httpd daemon running in the container.
