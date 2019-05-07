@@ -13,6 +13,6 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 2b2571efec6f  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  13 seconds ago  Up 12 seconds ago  8081->80/tcp  priceless_mahavira
 </pre>
 
-Note the __STATUS__ is __Up__ and there is a new section in the output __PORTS__ that indicates the port forwarding defined for the container.
+Observe that the __STATUS__ is __Up__ and there is a new section in the output __PORTS__ that indicates the port forwarding defined for the container.
 
-You can also now connect to the web server running on the container by using the __Web Service__ tab at the top of your lab interface.  This tab should now display the Apache test page.
+You can also now connect to the web server running on the container by using the __Web Service__ tab at the top of your lab interface.  This tab should now display the Apache test page, being served by the httpd daemon running in the container.

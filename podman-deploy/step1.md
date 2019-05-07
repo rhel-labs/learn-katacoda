@@ -1,6 +1,6 @@
 Using the top terminal session, view the container images available.
 
-`podman images`{{execute HOST1}}
+`podman images`{{execute T1}}
 
 <pre class=file>
 REPOSITORY              TAG      IMAGE ID       CREATED        SIZE
