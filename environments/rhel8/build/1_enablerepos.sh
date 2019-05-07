@@ -14,13 +14,13 @@ echo "[BaseOS]" >> /etc/yum.repos.d/installer.repo
 echo "name=BaseOS" >> /etc/yum.repos.d/installer.repo
 echo "baseurl=file:///run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64/BaseOS" >> /etc/yum.repos.d/installer.repo
 echo "gpgcheck=0" >> /etc/yum.repos.d/installer.repo
-echo "enabled=1" >> /etc/yum.repos.d/installer.repo
+echo "enabled=0" >> /etc/yum.repos.d/installer.repo
 echo "" >> /etc/yum.repos.d/installer.repo
 echo "[AppStream]" >> /etc/yum.repos.d/installer.repo
 echo "name=Application Stream" >> /etc/yum.repos.d/installer.repo
 echo "baseurl=file:///run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64/AppStream" >> /etc/yum.repos.d/installer.repo
 echo "gpgcheck=0" >> /etc/yum.repos.d/installer.repo
-echo "enabled=1" >> /etc/yum.repos.d/installer.repo
+echo "enabled=0" >> /etc/yum.repos.d/installer.repo
 
 echo "Mount ISO"
 mkdir -p /run/media/smcbrien/RHEL-8-0-0-BaseOS-x86_64
