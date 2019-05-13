@@ -23,15 +23,14 @@
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
     },
     {
-      "external_link": "https://lab.redhat.com/ebpf-tracing",
-      "title": "Kernel Tracing with eBPF [Technology Preview]",
-      "description": "Troubleshoot disk performance and latency using eBPF tools.  This is a Tech Preview feature in Red Hat Enterprise Linux."
-
-    },
-    {
       "external_link": "https://lab.redhat.com/imagebuilder",
       "title": "Using Web Console to build virtual machine images",
       "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
+    },
+    {
+      "external_link": "https://lab.redhat.com/ebpf-tracing",
+      "title": "Kernel Tracing with eBPF [Technology Preview]",
+      "description": "Troubleshoot disk performance and latency using eBPF tools.  This is a Tech Preview feature in Red Hat Enterprise Linux."
     }
   ]
 }
