@@ -29,11 +29,6 @@
 
     },
     {
-      "external_link": "https://lab.redhat.com/webconsole-firewall",
-      "title": "Using Web Console to manage firewall settings",
-      "description": "Learn how to manage firewall settings using Web Console."
-    },
-    {
       "external_link": "https://lab.redhat.com/imagebuilder",
       "title": "Using Web Console to build virtual machine images",
       "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
