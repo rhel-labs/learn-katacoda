@@ -15,12 +15,7 @@
       }
     ],
     "assets": {
-      "host01": [
-        {
-          "file": "index.html",
-          "target": "~/"
-        }
-      ]
+      "host01": [{"file": "index.html", "target": "~/"}]
     },
     "intro": {
       "text": "intro.md",
@@ -33,7 +28,7 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard":true,
-    "dashboards": [{"name":"Container httpd", "port": "80", "host": "locahost"}],
+    "dashboards": [{"name":"Container httpd", "port": "80", "host": "locahost"}]
   },
   "backend": {
     "imageid": "rhel8"
