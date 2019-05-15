@@ -43,101 +43,9 @@ This container is very complete, including tools like `yum` and `systemd`.  You 
 `buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
 
 ```
-Updating Subscription Management repositories.
-Unable to read consumer identity
-Subscription Manager is operating in container mode.
-Red Hat Enterprise Linux 8 for x86_64 - AppStre 248  B/s | 512  B     00:02    
-Red Hat Enterprise Linux 8 for x86_64 - AppStre 3.5 MB/s | 7.0 MB     00:02    
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS  533  B/s | 512  B     00:00    
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS  4.9 MB/s | 3.7 MB     00:00    
-Red Hat Universal Base Image 8 (RPMs) - AppStre 622 kB/s | 1.1 MB     00:01    
-Red Hat Universal Base Image 8 (RPMs) - BaseOS  446 kB/s | 723 kB     00:01    
-Dependencies resolved.
-================================================================================
- Package            Arch   Version       Repository                        Size
-================================================================================
-Installing:
- httpd              x86_64 2.4.37-11.module+el8.0.0+2969+90015743
-                                         rhel-8-for-x86_64-appstream-rpms 1.4 M
-Installing dependencies:
- apr                x86_64 1.6.3-9.el8   rhel-8-for-x86_64-appstream-rpms 125 k
- apr-util           x86_64 1.6.1-6.el8   rhel-8-for-x86_64-appstream-rpms 105 k
- httpd-tools        x86_64 2.4.37-11.module+el8.0.0+2969+90015743
-                                         rhel-8-for-x86_64-appstream-rpms 101 k
- httpd-filesystem   noarch 2.4.37-11.module+el8.0.0+2969+90015743
-                                         rhel-8-for-x86_64-appstream-rpms  34 k
- mod_http2          x86_64 1.11.3-2.module+el8.0.0+2969+90015743
-                                         rhel-8-for-x86_64-appstream-rpms 156 k
- mailcap            noarch 2.1.48-3.el8  rhel-8-for-x86_64-baseos-rpms     39 k
- redhat-logos-httpd noarch 80.7-1.el8    rhel-8-for-x86_64-baseos-rpms     25 k
-Installing weak dependencies:
- apr-util-openssl   x86_64 1.6.1-6.el8   rhel-8-for-x86_64-appstream-rpms  27 k
- apr-util-bdb       x86_64 1.6.1-6.el8   rhel-8-for-x86_64-appstream-rpms  25 k
-Enabling module streams:
- httpd                     2.4                                                 
-
 Transaction Summary
-================================================================================
+======================
 Install  10 Packages
-
-Total download size: 2.0 M
-Installed size: 5.5 M
-Downloading Packages:
-(1/10): apr-util-bdb-1.6.1-6.el8.x86_64.rpm      15 kB/s |  25 kB     00:01    
-(2/10): apr-1.6.3-9.el8.x86_64.rpm               64 kB/s | 125 kB     00:01    
-(3/10): apr-util-openssl-1.6.1-6.el8.x86_64.rpm  12 kB/s |  27 kB     00:02    
-(4/10): apr-util-1.6.1-6.el8.x86_64.rpm         117 kB/s | 105 kB     00:00    
-(5/10): httpd-tools-2.4.37-11.module+el8.0.0+29 101 kB/s | 101 kB     00:01    
-(6/10): httpd-filesystem-2.4.37-11.module+el8.0  38 kB/s |  34 kB     00:00    
-(7/10): mod_http2-1.11.3-2.module+el8.0.0+2969+ 158 kB/s | 156 kB     00:00    
-(8/10): httpd-2.4.37-11.module+el8.0.0+2969+900 1.7 MB/s | 1.4 MB     00:00    
-(9/10): mailcap-2.1.48-3.el8.noarch.rpm          28 kB/s |  39 kB     00:01    
-(10/10): redhat-logos-httpd-80.7-1.el8.noarch.r  18 kB/s |  25 kB     00:01    
---------------------------------------------------------------------------------
-Total                                           417 kB/s | 2.0 MB     00:04     
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1
-  Installing       : apr-1.6.3-9.el8.x86_64                                1/10
-  Running scriptlet: apr-1.6.3-9.el8.x86_64                                1/10
-  Installing       : apr-util-bdb-1.6.1-6.el8.x86_64                       2/10
-  Installing       : apr-util-1.6.1-6.el8.x86_64                           3/10
-  Running scriptlet: apr-util-1.6.1-6.el8.x86_64                           3/10
-  Installing       : apr-util-openssl-1.6.1-6.el8.x86_64                   4/10
-  Installing       : httpd-tools-2.4.37-11.module+el8.0.0+2969+90015743    5/10
-  Installing       : redhat-logos-httpd-80.7-1.el8.noarch                  6/10
-  Installing       : mailcap-2.1.48-3.el8.noarch                           7/10
-  Running scriptlet: httpd-filesystem-2.4.37-11.module+el8.0.0+2969+900    8/10
-  Installing       : httpd-filesystem-2.4.37-11.module+el8.0.0+2969+900    8/10
-  Installing       : mod_http2-1.11.3-2.module+el8.0.0+2969+90015743.x8    9/10
-  Installing       : httpd-2.4.37-11.module+el8.0.0+2969+90015743.x86_6   10/10
-  Running scriptlet: httpd-2.4.37-11.module+el8.0.0+2969+90015743.x86_6   10/10
-  Verifying        : apr-util-openssl-1.6.1-6.el8.x86_64                   1/10
-  Verifying        : apr-util-bdb-1.6.1-6.el8.x86_64                       2/10
-  Verifying        : apr-1.6.3-9.el8.x86_64                                3/10
-  Verifying        : apr-util-1.6.1-6.el8.x86_64                           4/10
-  Verifying        : httpd-tools-2.4.37-11.module+el8.0.0+2969+90015743    5/10
-  Verifying        : httpd-filesystem-2.4.37-11.module+el8.0.0+2969+900    6/10
-  Verifying        : mod_http2-1.11.3-2.module+el8.0.0+2969+90015743.x8    7/10
-  Verifying        : httpd-2.4.37-11.module+el8.0.0+2969+90015743.x86_6    8/10
-  Verifying        : mailcap-2.1.48-3.el8.noarch                           9/10
-  Verifying        : redhat-logos-httpd-80.7-1.el8.noarch                 10/10
-Installed products updated.
-
-Installed:
-  httpd-2.4.37-11.module+el8.0.0+2969+90015743.x86_64                           
-  apr-util-openssl-1.6.1-6.el8.x86_64                                           
-  apr-util-bdb-1.6.1-6.el8.x86_64                                               
-  apr-1.6.3-9.el8.x86_64                                                        
-  apr-util-1.6.1-6.el8.x86_64                                                   
-  httpd-tools-2.4.37-11.module+el8.0.0+2969+90015743.x86_64                     
-  httpd-filesystem-2.4.37-11.module+el8.0.0+2969+90015743.noarch                
-  mod_http2-1.11.3-2.module+el8.0.0+2969+90015743.x86_64                        
-  mailcap-2.1.48-3.el8.noarch                                                   
-  redhat-logos-httpd-80.7-1.el8.noarch                                          
 
 Complete!
 ```
@@ -149,6 +57,11 @@ Set `httpd` to start using systemd
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 ```
+
+Copy the `index.html` into the web server
+
+`buildah copy ubi-init-working-container index.html /var/www/html`{{execute T1}}
+
 Configure the port map and set cmd to systemd
 
 `buildah config --port 80 --cmd "/sbin/init" ubi-init-working-container`{{execute T1}}

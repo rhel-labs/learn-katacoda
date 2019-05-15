@@ -1,6 +1,8 @@
 {
   "title": "Creating images with buildah",
   "description": "Goal: After completing this scenario, users will be able to build containers from scratch or base images.",
+  "difficulty": "beginner",
+  "time": "5-10 minutes",
   "details": {
     "steps": [
       {
@@ -12,6 +14,14 @@
         "text": "step2.md"
       }
     ],
+    "assets": {
+      "host01": [
+        {
+          "file": "index.html",
+          "target": "~/"
+        }
+      ]
+    },
     "intro": {
       "text": "intro.md",
       "courseData": "background.sh"
@@ -22,7 +32,8 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "showdashboard":true
+    "showdashboard":true,
+    "dashboards": [{"name":"Container httpd", "port": "80", "host": "locahost"}],
   },
   "backend": {
     "imageid": "rhel8"
