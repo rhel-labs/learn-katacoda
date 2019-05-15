@@ -15,8 +15,7 @@ PASSING TO EDITOR INTERFACE REQUIRES HTML TAG:
 bash-4.4#
 </pre>
 
-podman pull registry.access.redhat.com/ubi8/ubi-init
-setsebool -P container_manage_cgroup true
+
 
 # Creating an application image from an existing base
 
@@ -26,22 +25,22 @@ In *Terminal 1*, inspect the RHEL 8 base image on the host system:
 
 ```
 IMAGE NAME                                               IMAGE TAG            IMAGE ID             CREATED AT             SIZE
-registry.redhat.io/ubi8-init                             latest               8c376a94293d         Apr 29, 2019 07:42     231 MB
+registry.access.redhat.com/ubi8/ubi-init                            latest               8c376a94293d         Apr 29, 2019 07:42     231 MB
 ```
 
 We can create a working container from this image.  A working container is an temporary container used as targets for buildah commands.  
 
-`buildah from registry.redhat.io/ubi8-init`{{execute T1}}
+`buildah from registry.access.redhat.com/ubi8/ubi-init`{{execute T1}}
 
 ```
-ubi8-init-working-container
+ubi-init-working-container
 ```
 
 Buildah will append `-working-container` to the image name used.  If that name already exists, a number will also be appended.
 
 This container is very complete, including tools like `yum` and `systemd`.  You can install `httpd` using the `run` subcommand.  This acts like the RUN directive in an OCIFile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
 
-`buildah run ubi8-init-working-container -- yum -y install httpd`{{execute T1}}
+`buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
 
 ```
 Updating Subscription Management repositories.
@@ -145,18 +144,18 @@ Complete!
 
 Set `httpd` to start using systemd
 
-`buildah run ubi8-init-working-container -- systemctl enable httpd`{{execute T1}}
+`buildah run ubi-init-working-container -- systemctl enable httpd`{{execute T1}}
 
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 ```
 Configure the port map and set cmd to systemd
 
-`buildah config --port 80 --cmd "/sbin/init" ubi8-init-working-container`{{execute T1}}
+`buildah config --port 80 --cmd "/sbin/init" ubi-init-working-container`{{execute T1}}
 
 Create an image from the working container
 
-`buildah commit ubi8-init-working-container el-httpd1`{{execute T1}}
+`buildah commit ubi-init-working-container el-httpd1`{{execute T1}}
 
 ```
 Getting image source signatures
@@ -209,3 +208,4 @@ Inspecting the image, you can see the layers for each of the `buildah` commands 
     ]
 },
 ```
+`podman stop -a`{{execute T1}}
