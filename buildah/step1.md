@@ -1,22 +1,3 @@
-# KATACODA Markdown additions
-More examples available on [Katacoda GitHub] (https://github.com/katacoda/scenario-examples)
-
-EXECUTING MARKDOWN CODE BLOCKS ADDS COMMAND AND TARGET *Terminal 1*.
-
-`podman run -it rhel8-httpd /bin/bash`{{execute T1}}
-
-ALLOWING MARKDOWN CODE BLOCKS TO BE COPIED ADDS COMMAND
-
-`podman run -it rhel8-httpd /bin/bash`{{copy}}
-
-PASSING TO EDITOR INTERFACE REQUIRES HTML TAG:
-
-<pre class="file">
-bash-4.4#
-</pre>
-
-
-
 # Creating an application image from an existing base
 
 In *Terminal 1*, inspect the RHEL 8 base image on the host system:
