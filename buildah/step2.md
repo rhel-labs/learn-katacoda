@@ -25,9 +25,9 @@ Starting from an existing base container isn't the only option available to buil
 working-container
 ```
 
-We can start working with the scratch container using tools on the host by mounting the overlay filesystem.
+We can start working with the scratch container using tools on the host by mounting the overlay filesystem.  We capture the output of the `buildah` command in a variable to make it easier to work with in these exercises.
 
-`buildah mount working-container`{{execute T1}}
+`scratchmnt=$(buildah mount working-container)`{{execute T1}}
 
 ```
 /var/lib/containers/storage/overlay/b469dd468110ed394288e140a359eb1b96d7429de99fe104720be6d379f706cb/merged
@@ -35,7 +35,7 @@ We can start working with the scratch container using tools on the host by mount
 
 Right now, that directory is empty.
 
-`ls -l /var/lib/containers/storage/overlay/b469dd468110ed394288e140a359eb1b96d7429de99fe104720be6d379f706cb/merged`{{execute T1}}
+`ls -l ${scratchmnt}`{{execute T1}}
 
 ```
 total 0
@@ -43,7 +43,7 @@ total 0
 
 In order to install `httpd` in the scratch container, use `yum` with the `installroot` option targeting the mount point of the container's filesystem.
 
-`yum install --installroot /var/lib/containers/storage/overlay/b469dd468110ed394288e140a359eb1b96d7429de99fe104720be6d379f706cb/merged httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y`{{execute T1}}
+`yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y`{{execute T1}}
 
 ```
 Installed:
@@ -218,8 +218,7 @@ Many more packages required than using the base image, but we have httpd and sys
 
 To set up `httpd` to start with systemd, we can use the container mount point like a normal `chroot`.
 
-`chroot /var/lib/containers/storage/overlay/b469dd468110ed394288e140a359eb1b96d7429de99fe104720be6d379f706cb/merged systemctl enable httpd
-`{{execute T1}}
+`chroot ${scratchmnt} systemctl enable httpd`{{execute T1}}
 
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
