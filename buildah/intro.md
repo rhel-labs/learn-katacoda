@@ -7,4 +7,4 @@ After completing this scenario, users will be able to build images from scratch 
 * Creating a final image from a working container
 
 # Example Usecase:
-Using podman with OCIFile or Dockerfile input is a common way to build containers, but can create images that have extra packages not needed by the application.  The creation of a layer for each directive in an OCIFile can mean extra storage space consumed by final images.  Using buildah to create images provides better control over layer creation and image contents.
+Using *podman* with OCIFile or Dockerfile input is a common way to build containers, but can create images that have extra packages not needed by the application.  The creation of a layer for each directive in an OCIFile can mean extra storage space consumed by final images.  Using **buildah** to create images provides better control over layer creation and image contents.
