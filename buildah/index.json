@@ -1,5 +1,5 @@
 {
-  "title": "Creating images with buildah",
+  "title": "Creating images with the container tools",
   "description": "Goal: After completing this scenario, users will be able to build containers from scratch or base images.",
   "difficulty": "beginner",
   "time": "5-10 minutes",
