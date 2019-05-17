@@ -4,13 +4,26 @@ The `ubi-init` image is very complete, including tools like `yum` and `systemd`.
 
 `buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
 
-```
-Transaction Summary
-======================
-Install  10 Packages
+<pre>
+Updating Subscription Management repositories.
+Unable to read consumer identity
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
+Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
+Last metadata expiration check: 0:00:01 ago on Fri 17 May 2019 03:41:34 PM EDT.
+Dependencies resolved.
+=======================================================================================================
+ Package                 Arch   Version                         Repository                        Size
+=======================================================================================================
+Installing:
+ httpd                   x86_64 2.4.37-11.module+el8.0.0+2969+90015743
+                                                                rhel-8-for-x86_64-appstream-rpms 1.4 M
+
+<< OUTPUT ABRIDGED >>
 
 Complete!
-```
+</pre>
 
 This subcommand acts like the RUN directive in an OCIFile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
 

@@ -6,14 +6,26 @@ In order to install `httpd` in the scratch container, use `yum` on the host with
 
 `yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y`{{execute T1}}
 
-```
-Transaction Summary
-======================
-Install 162 Packages
+<pre>
+Updating Subscription Management repositories.
+Unable to read consumer identity
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
+Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
+Last metadata expiration check: 0:00:01 ago on Fri 17 May 2019 03:41:34 PM EDT.
+Dependencies resolved.
+=======================================================================================================
+ Package                 Arch   Version                         Repository                        Size
+=======================================================================================================
+Installing:
+ httpd                   x86_64 2.4.37-11.module+el8.0.0+2969+90015743
+                                                                rhel-8-for-x86_64-appstream-rpms 1.4 M
+
+<< OUTPUT ABRIDGED >>
 
 Complete!
-
-```
+</pre>
 
 Many more packages required than using the base image, but we have `httpd` and `systemd` but not other tools like `yum`.  
 
