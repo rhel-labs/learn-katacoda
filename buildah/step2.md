@@ -39,7 +39,7 @@ Inspecting the image, you can see the layers for each of the `buildah` commands 
 },
 ```
 
-Click on the *Container httpd* tab to see the index.html deployed into the application container.
+Click on the ***Container httpd*** tab to see the index.html deployed into the application container.
 
 Stop all running containers before moving to the next step:
 

@@ -41,7 +41,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 
 Deploying web content to the container image can be done using the `buildah copy` subcommand.  This acts like the COPY directive in an OCIFile.  
 
-`buildah copy ubi-init-working-container index.html /var/www/html`{{execute T1}}
+`buildah copy ubi-init-working-container index1.html /var/www/html/index.html`{{execute T1}}
 
 To expose a port, set an entry point or command for the container, modify the metadata with the `buildah config` subcommand.  These are equivalent to the EXPOSE, ENTRYPOINT, or CMD directives in an OCIFile.  As we're using systemd to start the service, use the `--cmd` option not `--entrypoint`.
 
