@@ -31,9 +31,9 @@ Once the packages are installed in the working container, enable `httpd` to star
 
 `buildah run ubi-init-working-container -- systemctl enable httpd`{{execute T1}}
 
-```
+<pre class="file">
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
-```
+</pre>
 
 Deploying web content to the container image can be done using the `buildah copy` subcommand.  
 
@@ -53,7 +53,7 @@ Once the contents of the working container are complete, and the metadata has be
 
 `buildah commit ubi-init-working-container el-httpd1`{{execute T1}}
 
-```
+<pre class="file">
 Getting image source signatures
 Skipping fetch of repeat blob sha256:24d85c895b6b870f6b84327a5e31aa567a5d30588de0a0bdd9a669ec5012339c
 Skipping fetch of repeat blob sha256:c613b100be1645941fded703dd6037e5aba7c9388fd1fcb37c2f9f73bc438126
@@ -65,6 +65,6 @@ Copying config sha256:b04fe2c73b034e657da2fee64c340c56086a38265777556fa8a02c5f12
 Writing manifest to image destination
 Storing signatures
 b04fe2c73b034e657da2fee64c340c56086a38265777556fa8a02c5f12896e66
-```
+</pre>
 
 In this example, each previous `buildah` subcommand results in a separate layer, much like building using an OCIFile.
