@@ -4,7 +4,7 @@ The `ubi-init` image is very complete, including tools like `yum` and `systemd`.
 
 `buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
 
-<pre>
+<pre class="file">
 Updating Subscription Management repositories.
 Unable to read consumer identity
 This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.

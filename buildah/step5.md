@@ -6,7 +6,7 @@ In order to install `httpd` in the scratch container, use `yum` on the host with
 
 `yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y`{{execute T1}}
 
-<pre>
+<pre class="file">
 Updating Subscription Management repositories.
 Unable to read consumer identity
 This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
