@@ -37,7 +37,7 @@
     "uilayout": "terminal-iframe",
     "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
     "showdashboard":true,
-    "dashboards": "Container httpd"
+    "dashboard": "Container httpd"
   },
   "backend": {
     "imageid": "rhel8",
