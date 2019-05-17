@@ -1,11 +1,11 @@
 # KATACODA Markdown additions
 More examples available on [Katacoda GitHub] (https://github.com/katacoda/scenario-examples)
 
-EXECUTING MARKDOWN CODE BLOCKS ADDS COMMAND AND TARGET *Terminal 1*.
+EXECUTING MARKDOWN CODE BLOCKS NEEDS COMMAND AND TARGET *Terminal 1*.
 
 `podman run -it rhel8-httpd /bin/bash`{{execute T1}}
 
-ALLOWING MARKDOWN CODE BLOCKS TO BE COPIED ADDS COMMAND
+ALLOWING MARKDOWN CODE BLOCKS TO BE COPIED TO CLIPBOARD
 
 `podman run -it rhel8-httpd /bin/bash`{{copy}}
 
