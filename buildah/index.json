@@ -34,11 +34,13 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
+    "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
     "showdashboard":true,
-    "dashboards": [{"name":"Container httpd", "port": "80", "host": "locahost"}]
+    "dashboards": "Container httpd"
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel8",
+    "port": 80
   }
 }
