@@ -37,9 +37,9 @@ After installing packages and adding the index file, unmount the filesystem with
 b0ace0c1867f080c790357dd0c606c6919c163c308065c2323d3ddc148740eb1
 ```
 
-TTo expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.  
+To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.  
 
-`buildah config --port 80 --cmd "/usr/sbin/init" ubi-init-working-container`{{execute T1}}
+`buildah config --port 80 --cmd "/usr/sbin/init" working-container`{{execute T1}}
 
 These options to `buildah config` are equivalent to the EXPOSE and CMD directives in an OCIFile.
 
