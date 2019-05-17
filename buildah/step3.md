@@ -11,6 +11,7 @@ working-container
 We can start working with the scratch container using tools on the host by mounting the overlay filesystem.  We capture the output of the `buildah` command in the variable *scratchmnt* to make it easier to work with the filesystem path in these exercises.
 
 `scratchmnt=$(buildah mount working-container)`{{execute T1}}
+
 `echo ${scratchmnt}`{{execute T1}}
 
 ```
