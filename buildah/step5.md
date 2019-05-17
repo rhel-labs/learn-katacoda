@@ -33,9 +33,9 @@ To enable `httpd` to start when the container is run using systemd, we can use t
 
 `chroot ${scratchmnt} systemctl enable httpd`{{execute T1}}
 
-```
+<pre class="file">
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
-```
+</pre>
 
 Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point.
 
@@ -45,9 +45,9 @@ After installing packages and adding the index file, unmount the filesystem with
 
 `buildah unmount working-container`{{execute T1}}
 
-```
+<pre class="file">
 b0ace0c1867f080c790357dd0c606c6919c163c308065c2323d3ddc148740eb1
-```
+</pre>
 
 To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.  
 
@@ -61,7 +61,7 @@ Once the contents of the working container are complete, and the metadata has be
 
 `buildah commit working-container el-httpd2`{{execute T1}}
 
-```
+<pre class="file">
 Getting image source signatures
 Copying blob sha256:273497ce3451052db7cc333d8e90c259314f9cb8d6d4f7a5b865656f65c24083
  162.17 MiB / 162.17 MiB [==================================================] 6s
@@ -70,6 +70,6 @@ Copying config sha256:a3c678a7d7c63edbac6e57a86da11ff4d916c0734bcbea9cfd55ae2b51
 Writing manifest to image destination
 Storing signatures
 a3c678a7d7c63edbac6e57a86da11ff4d916c0734bcbea9cfd55ae2b515275b9
-```
+</pre>
 
 In this example, all operations were done directly to the container filesystem, resulting in a single layer.  The `buildah commit` step can be run at any point where a layer is needed, for example to cache a common set of packages across multiple applications.

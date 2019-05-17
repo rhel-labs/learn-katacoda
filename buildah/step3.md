@@ -5,11 +5,12 @@ More information on managing containers with `podman` can be found in the ["Depl
 Inspect the images available on the host using `podman images`
 
 `podman images`{{execute T1}}
-```
+
+<pre class="file">
 REPOSITORY                                 TAG      IMAGE ID       CREATED          SIZE
 localhost/el-httpd1                        latest   b04fe2c73b03   24 seconds ago   279 MB
 registry.access.redhat.com/ubi8/ubi-init   latest   8c376a94293d   2 weeks ago      231 MB
-```
+</pre>
 
 Note the name matches what was set using `buildah commit`.
 
@@ -17,25 +18,26 @@ Note the name matches what was set using `buildah commit`.
 
 `podman run -d -p 80:80 el-httpd1`{{execute T1}}
 
-```
+<pre class="file">
 f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
-```
+</pre>
 
 Check the status of the application container using `podman`.  
 
 `podman ps`{{execute T1}}
 
-```
+<pre class="file">
 CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS             PORTS               NAMES
 f4d9db69e9b5  localhost/el-httpd1:latest  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
-```
+</pre>
 
 Note the ports and command match the metadata set using `buildah config`.  
 
 Inspect the image metadata for the application container using `buildah inspect`.
 
 `buildah inspect localhost/el-httpd1`{{execute T1}}
-```
+
+<pre class="file">
 "rootfs": {
     "type": "layers",
     "diff_ids": [
@@ -45,7 +47,7 @@ Inspect the image metadata for the application container using `buildah inspect`
         "sha256:2aa09f066ed0ce8aad332cbefe237cbe05777f5790bccfdcda439aff5f5f7509"
     ]
 },
-```
+</pre>
 
 Look for the `rootfs` section in the JSON output. You will see layers for each of the `buildah` subcommands run.  
 
