@@ -38,4 +38,4 @@ Inspecting the image, you can see there's only one layer since we executed all t
         },
 ```
 
-Click on the ***Container httpd*** tab to see the index.html deployed into the application container.
+Click on the ***Container httpd*** tab to see the index.html deployed into the application container.  You may need to hit the *refresh* icon to see the new page.
