@@ -50,7 +50,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 ```
 Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point.
 
-`cp index.html ${scratchmnt}/var/www/html`{{execute T1}}
+`cp index2.html ${scratchmnt}/var/www/html/index.html`{{execute T1}}
 
 After installing packages and adding the index file, unmount the filesystem with the `buildah unmount` subcommand.
 
