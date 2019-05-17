@@ -34,12 +34,14 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
+    "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
     "showdashboard":true,
-    "dashboards": [{"name":"WEB SERVICE: REMOVE IF NOT NEEDED", "port": "8081", "host": "locahost"}],
+    "dashboard": "WEB SERVICE: REMOVE IF NOT NEEDED",
     "terminals": [{"name": "TERMINAL 2: REMOVE IF NOT NEEDED", "target": "host01"}]
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel8",
+    "port": "80"
   }
 }
