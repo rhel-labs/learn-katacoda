@@ -23,8 +23,8 @@
       }
     ],
     "assets": {
-      "host01": [{"file": "index1.html", "target": "~/"}],
-      "host01": [{"file": "index2.html", "target": "~/"}]
+      "host01": [{"file": "index1.html", "target": "~/index1.html"}],
+      "host01": [{"file": "index2.html", "target": "~/index2.html"}]
     },
     "intro": {
       "text": "intro.md",
