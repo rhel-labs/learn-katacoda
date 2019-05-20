@@ -1,6 +1,6 @@
 # Creating an application image from an existing base
 
-The `ubi-init` image is very complete, including tools like `yum` and `systemd`.  You can install `httpd` via `yum` using the `buildah run` subcommand.  
+The `ubi-init` image is very complete, including tools like `yum` and `systemd`.  You can install `httpd` via `yum` in the container using the `buildah run` subcommand.  
 
 `buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
 

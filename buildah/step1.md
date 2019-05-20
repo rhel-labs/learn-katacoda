@@ -1,17 +1,14 @@
 # Creating an application image from an existing base
 
-In the terminal, list the container images available on the host.  
+**Buildah** has two main ways to create images:
+* Using subcommands to modify contents
+* Using host tools to modify a container filesystem
 
-`buildah images`{{execute T1}}
+First, we'll look at using subcommands to modify the container contents before saving an image.  Many **buildah** subcommands act like directives from an OCIfile.  This allows for a familiar experience while automating builds.
 
-<pre class="file">
-IMAGE NAME                                               IMAGE TAG            IMAGE ID             CREATED AT             SIZE
-registry.access.redhat.com/ubi8/ubi-init                            latest               8c376a94293d         Apr 29, 2019 07:42     231 MB
-</pre>
+The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
 
-The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point.
-
-To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  
+To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
 
 `buildah from registry.access.redhat.com/ubi8/ubi-init`{{execute T1}}
 
@@ -19,6 +16,6 @@ To build an application container from the `ubi-init` base image, we will create
 ubi-init-working-container
 </pre>
 
-A working container is a temporary container used as the target for buildah commands.
+This subcommand acts like the FROM directive in an OCIFile and makes the source image available on the host.
 
 Buildah will append `-working-container` to the image name used.  If that name already exists, a number will also be appended.
