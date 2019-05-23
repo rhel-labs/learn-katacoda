@@ -7,7 +7,7 @@ this task.
 Use the __Web Console__ tab in your lab environment to log into the Web
 Console for the system.  You should use the following credentials:
 
-Username: __rhel__
-Password: __redhat__
+Username: **rhel**
+Password: **redhat**
 
 ![Web Console Login](/smcbrien/scenarios/session-recording-tlog/assets/Web-console-login.png)
