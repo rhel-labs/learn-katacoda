@@ -13,7 +13,7 @@ Installed:
 Complete!
 </pre>
 
-The first package, `cockpit-sessin-recording` will add an additional feature
+The first package, `cockpit-session-recording` will add an additional feature
 Web Console which you will be using to enable and configure session recording.
 The `tlog` package will provide the tools which will be used to both record 
 and view the recorded terminal sessions.
