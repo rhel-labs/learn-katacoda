@@ -7,9 +7,9 @@ Session Recording and review recorded sessions.
 * Enabling and recording terminal sessions
 * List recorded sessions
 * Replay recorded sessions using Web Console
-* Replay recorded sessions using the `tlog` command
+* Replay recorded sessions using the __tlog__ command
 
-* Example Usecase:
+# Example Usecase:
 An administrator on your team is having difficulty performing a task on a
 machine.  You would like to review what has been done to see the state of
 the machine and task.
