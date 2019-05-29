@@ -1,6 +1,6 @@
 Install bcc-tools
 
-`yum install -y bcc-tools`{{execute}}
+`yum install -y bcc-tools kernel-devel-4.18.0-80.el8`{{execute}}
 
 eBPF is a modern mechanism which allows instrumenting of kernel in secure
 restrictred environment without loading kernel modules. Technicaly eBPF is
