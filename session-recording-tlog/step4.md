@@ -23,7 +23,7 @@ You can inspect this file as well, if desired.
 `cat /etc/tlog/tlog-rec-session.conf`{{execute}}
 
 <pre class=file>
-<OUTPUT ABRIDGED>
+<<OUTPUT ABRIDGED>>
 
 // "notice" : "\nATTENTION! Your session is being recorded!\n\n",
 
