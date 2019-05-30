@@ -16,6 +16,6 @@ Now that you are logged into the Web console, and because you have installed
 the `cockpit-session-recording` rpm package, you can now select the
 __Session Recording__ option in the left-side navigation menu.
 
-![Web Console Navigation](/smcbrien/scenarios/terminal-session-recording/assets/session-recording-option.png)
+![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-option.png)
 
 
