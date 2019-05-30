@@ -17,9 +17,15 @@ ATTENTION! Your session is being recorded!
 </pre>
 
 Run some commands in the __rhel__ user's session.
-`ls /tmp`{{execute}} `who`{{execute}} `df -hP`{{execute}} `yum list installed`{{execute}}
+`ls /tmp`{{execute}}   
+   
+`who`{{execute}}   
+   
+`df -hP`{{execute}}   
+   
+`yum list installed`{{execute}}
 
 Now that you have some data in a recorded session, you can log out of the
-user's ssh session.
+user's ssh session.  
 `exit`{{execute}}
 
