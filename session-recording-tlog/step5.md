@@ -5,11 +5,11 @@ Recall that the __rhel__ user's password is __redhat__.
 
 `ssh rhel@localhost`{{execute}}
 
-You will notice that when the ssh session starts, the __rhel__ user receives
+You will notice that when the `ssh` session starts, the __rhel__ user receives
 the notice message configured in the __tlog__ configuration.
 
 <pre class=file>
-rhel@localhost's password:
+rhel@localhost's password: <b>redhat</b>
 
 ATTENTION! Your session is being recorded!
 
@@ -17,6 +17,7 @@ ATTENTION! Your session is being recorded!
 </pre>
 
 Run some commands in the __rhel__ user's session.  
+
 `ls /tmp`{{execute}}   
    
 `who`{{execute}}   
@@ -26,6 +27,6 @@ Run some commands in the __rhel__ user's session.
 `yum list installed`{{execute}}
 
 Now that you have some data in a recorded session, you can log out of the
-user's ssh session.  
+user's `ssh` session.  
 `exit`{{execute}}
 

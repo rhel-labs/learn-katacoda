@@ -3,7 +3,9 @@
 Switch back to the Terminal in your lab environment.
 
 As mentioned on the previous step, the Web Console actions have written a
-small configuration file for sssd, __/etc/sssd/conf.d/sssd-session-recording.conf__  You can review it to verify that the scope has been set to __all__ so that
+small configuration file for sssd, 
+__/etc/sssd/conf.d/sssd-session-recording.conf__  You can review it to verify 
+that the scope has been set to __all__ so that
 all sessions for all users and groups will be recorded.
 
 `cat /etc/sssd/conf.d/sssd-session-recording.conf`{{execute}}
