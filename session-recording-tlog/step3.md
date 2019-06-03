@@ -1,7 +1,7 @@
 # Configuring and enabling session recording
 
 The *Session Recording* application is initially blank, reporting 
-___No recorded sessions__.  Click the *gear icon* in the upper right-hand 
+__No recorded sessions__.  Click the *gear icon* in the upper right-hand 
 corner to be taken to the configuration settings for session recording.
 
 ![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-initial.png)
