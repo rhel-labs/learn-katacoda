@@ -23,6 +23,11 @@
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
     },
     {
+      "external_link": "https://lab.redhat.com/session-recording-tlog",
+      "title": "Configuring Terminal Session recording",
+      "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
+    },
+    {
       "external_link": "https://lab.redhat.com/vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
