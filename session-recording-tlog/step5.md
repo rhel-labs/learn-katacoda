@@ -5,7 +5,7 @@ Recall that the __rhel__ user's password is __redhat__.
 
 `ssh rhel@localhost`{{execute}}
 
-You will notice that when the ssh session starts, the __rhel__ user recieves
+You will notice that when the ssh session starts, the __rhel__ user receives
 the notice message configured in the __tlog__ configuration.
 
 <pre class=file>
@@ -16,7 +16,7 @@ ATTENTION! Your session is being recorded!
 [rhel@somehost ~]$
 </pre>
 
-Run some commands in the __rhel__ user's session.
+Run some commands in the __rhel__ user's session.  
 `ls /tmp`{{execute}}   
    
 `who`{{execute}}   
