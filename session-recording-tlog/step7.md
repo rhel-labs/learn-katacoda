@@ -24,7 +24,7 @@ the log message displayed above, the command would look like:
 Your session identifier is going to be different, the following command will
 use some shell tools to isolate the first recording from your journal.
 
-`tlog-play -r journal -M TLOG_REC=\`journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2\``{{execute}}
+`tlog-play -r journal -M TLOG_REC=$(journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2 | head -n 1 | sed -e s/\"//g)`{{execute}}
 
 The above command will replay the session to completion, in real-time.
 
