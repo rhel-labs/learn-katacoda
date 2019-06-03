@@ -12,17 +12,20 @@ string, plus the identifier included in that message.
 
 `journalctl -o verbose | grep -P "\"rec\".*?\,"`{{execute}}
 
-![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/log-message.png)
-
-Above, is an example of one of those messages, but there will likely be more 
+Below, is an example of one of those messages, but there will likely be more 
 than one message associated with each session.
+
+![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/log-message.png)
 
 To replay the session, you run `tlog-play` with the session identifier, using
 the log message displayed above, the command would look like:  
 `tlog-play -r journal -M TLOG_REC=de1645090e34a4220b8f2d237614c9731-518b-70b124`
 
 Your session identifier is going to be different, the following command will
-use some shell tools to isolate the first recording from your journal.
+use some shell tools to isolate the first recording from your journal.  As you
+replay the session, your existing terminal session will be used for the replay.
+once the replay is complete, your session will be returned to your control.  You
+can interrupt the playback with a <CTRL>-C.
 
 `tlog-play -r journal -M TLOG_REC=$(journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2 | head -n 1 | sed -e s/\"//g)`{{execute}}
 
