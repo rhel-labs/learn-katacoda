@@ -1,4 +1,4 @@
-﻿# Troubleshooting and resolving the issues to comply with the crypto policy
+﻿#Resolve Apache service issues to comply with crypto policy 
 
 Regenerate a new RSA key of 4096 bit length - when prompted for values just hit the *enter* key and go with defaults
 `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout /etc/pki/tls/private/localhost-new.key -out /etc/pki/tls/certs/localhost-new.crt`{{execute T1}}
