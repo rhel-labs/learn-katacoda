@@ -1,4 +1,4 @@
-﻿# Validate Environment 
+﻿#Validate Environment 
 Using the top terminal session, validate the initial environment.
 
 The first step is to verify that Apache server is running- 
