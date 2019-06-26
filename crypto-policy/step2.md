@@ -1,4 +1,5 @@
 ﻿# Updating the crypto policies and discover service issues
+
 Now imagine that the security team within your organization sends out a memo recommending using more stringent crypto policies to make it harder for attackers to break into the system. The security team is recommending disallowing SHA-1 signature algorithm, and RSA keys larger than 3071-bits. This means setting the crypto policy to FUTURE.
 
 To further protect the security of the system, CSO team is recommending to set crypto policy to future
