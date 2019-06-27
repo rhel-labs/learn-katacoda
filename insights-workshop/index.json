@@ -29,7 +29,7 @@
     "dashboards":[{"name": "cloud.redhat.com", "url": "https://cloud.redhat.com/insights/overview"}]
   },
   "backend": {
-    "imageid": "rhel8",
+    "imageid": "rhel8"
   }
 
 }
