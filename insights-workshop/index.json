@@ -30,7 +30,7 @@
   },
   "backend": {
     "imageid": "rhel8",
-    "url": "https://cloud.redhat.com/insights/overview"
+    "url": "https://cloud.redhat.com"
   }
 
 }
