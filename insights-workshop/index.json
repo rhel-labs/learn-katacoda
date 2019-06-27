@@ -26,11 +26,10 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboard":"cloud.redhat.com"
+    "dashboards":[{"name": "cloud.redhat.com", "url": "https://cloud.redhat.com/insights/overview"}]
   },
   "backend": {
     "imageid": "rhel8",
-    "url": "https://cloud.redhat.com/insights/overview"
   }
 
 }
