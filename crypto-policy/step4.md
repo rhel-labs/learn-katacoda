@@ -8,11 +8,13 @@ Check the bit-length of the certificate to verify that it is 4096 bits
 
 Update the Apache Server TLS configuration file
 
-Open */etc/httpd/conf.d/ssl.conf* in your favorite editor and make the following changes
+Edit */etc/httpd/conf.d/ssl.conf* to change a few key file paths to point to the new key files
 <pre class="file">
 SSLCertificateFile /etc/pki/tls/certs/localhost-new.crt
 SSLCertificateKeyFile /etc/pki/tls/private/localhost-new.key
 </pre>
+`sed -i 's+/etc/pki/tls/certs/localhost.crt+/etc/pki/tls/certs/localhost-new.crt+g' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
+`sed -i 's+/etc/pki/tls/private/localhost.key+/etc/pki/tls/private/localhost-new.key+g' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
 
 Restart Apache server to pick up the new crypto policy
 `systemctl restart httpd.service`{{execute T1}}
