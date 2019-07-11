@@ -1,15 +1,11 @@
 echo "Installing RHEL8 Packages"
-sudo yum update -y
 sudo yum install -y buildah podman wget vim emacs git sudo tmux cockpit ca-certificates httpd mod_ssl
 
 # To speed up installation of bcc-tools lets pre-install some dependencies
 sudo yum install -y gcc llvm-libs gcc-c++ cpp binutils
 
-sudo systemctl enable --now cockpit.socket
 
-firewall-cmd --zone=public --add-service=https --permanent
-firewall-cmd --reload
-sudo systemctl enable --now httpd.service
+sudo systemctl enable --now cockpit.socket
 
 adduser rhel
 sudo usermod -aG wheel rhel
