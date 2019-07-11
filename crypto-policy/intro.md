@@ -10,7 +10,7 @@ policy.  The scenario uses the Apache web server as the example application.
 * Troubleshoot applications after a cryptographic policy update
 * Modify application settings to comply with stronger cryptograpic policies
 
-# Example Use case 
+# Example Use case:
 Your security team requires using stronger cryptography algorithms with
 applications and is no longer allowing weaker algorithms, such as SHA-1.
 
