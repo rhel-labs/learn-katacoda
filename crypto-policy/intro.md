@@ -5,7 +5,6 @@ policy.  The scenario uses the Apache web server as the example application.
 
 
 # Concepts included in this scenario:
-
 * Verify the current system-wid cryptographic policy setting
 * Change the current cryptographic policy setting
 * Troubleshoot applications after a cryptographic policy update
