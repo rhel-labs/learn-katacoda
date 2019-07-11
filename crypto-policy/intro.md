@@ -12,5 +12,6 @@ policy.  The scenario uses the Apache web server as the example application.
 * Modify application settings to comply with stronger cryptograpic policies
 
 # Example Use case 
-Your security team is recommending using more stringent crypto policies and is disallowing SHA-1 signature algorithm. 
+Your security team requires using stronger cryptography algorithms with
+applications and is no longer allowing weaker algorithms, such as SHA-1.
 
