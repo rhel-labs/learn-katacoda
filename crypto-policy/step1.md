@@ -1,20 +1,63 @@
 # Validate the Environment 
-Using the top terminal session, validate the initial environment.
+Using the provided system terminal session, validate the initial environment.   
 
-The first step is to verify that Apache server is running   
+First, verify that Apache server is running.   
+
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
-Assuming that Apache is successfully running, check the default certificate 
-in Apache configuration file    
+<pre class="file">
+<< OUTPUT ABRIDGED >>
+
+Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+
+<< OUTPUT ABRIDGED >>
+</pre>
+
+Verify that the Active status is __active (running)__.   
+
+Next, check the location of the default certificate in Apache 
+ssl.conf configuration file.   
+
 `grep '^SSLCertificateFile' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
 
-Check the length of the cipher in the certificate file. By default Apache 
-uses a certificate with bit length of 2048.   
+<pre class="file">
+SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+</pre>
+
+By default, Apache stores the automatically created SSL self-signed
+certificate at /etc/pki/tls/certs/localhost.crt.   
+
+Verify the length of the cipher in the automatically created certificate 
+file.    
+
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
-Connect to Apache over port over the default Apache https port (443) and show 
-that the settings have been inherited   
-`echo -n |openssl s_client -connect localhost:443 | grep '^Server public key'`{{execute T1}}
+<pre class="file">
+                RSA Public-Key: (2048 bit)
+</pre>
 
-Next, verify the current default crypto policy   
+By default, Apache uses a certificate with bit length of 2048.   
+
+Use `curl`, a command-line http and ftp client, to Apache on the https port 
+(443) and show that the service is using this certificate.   
+
+`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
+
+<pre class="file">
+Server public key is 2048 bit
+</pre>
+
+Client browsers are provided the 2048 bit SSL certificate by the Apache service
+to encrypt their connection.   
+
+Lastly, verify the current system-wide cryptographic policy.   
+
 `update-crypto-policies --show`{{execute T1}}
+
+<pre class="file">
+DEFAULT
+</pre>
+
+The default configuration on Red Hat Enterprise Linux for the system-wide
+cryptograpic policy (sometimes referred to as simply crypto policy) is a
+policy named `DEFAULT`.
