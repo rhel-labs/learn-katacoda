@@ -15,7 +15,7 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 
 Verify that the Active status is __active (running)__.   
 
-Next, check the location of the default certificate in Apache 
+Next, check the location of the default SSL certificate in the Apache 
 ssl.conf configuration file.   
 
 `grep '^SSLCertificateFile' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
@@ -24,10 +24,10 @@ ssl.conf configuration file.
 SSLCertificateFile /etc/pki/tls/certs/localhost.crt
 </pre>
 
-By default, Apache stores the automatically created SSL self-signed
+By default, Apache stores the automatically created, SSL self-signed
 certificate at /etc/pki/tls/certs/localhost.crt.   
 
-Verify the length of the cipher in the automatically created certificate 
+Verify the length of the cipher in the automatically created SSL certificate 
 file.    
 
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
@@ -36,7 +36,7 @@ file.
                 RSA Public-Key: (2048 bit)
 </pre>
 
-By default, Apache uses a certificate with bit length of 2048.   
+By default, Apache uses a certificate with a 2048 bit cypher.   
 
 Use `curl`, a command-line http and ftp client, to connect to Apache on the 
 https port (443) and show that the service is using this certificate.   
