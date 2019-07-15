@@ -1,7 +1,7 @@
 # Validate the Environment 
 Using the provided system terminal session, validate the initial environment.   
 
-First, verify that Apache server is running.   
+First, verify that the Apache service is running.   
 
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
@@ -38,8 +38,8 @@ file.
 
 By default, Apache uses a certificate with bit length of 2048.   
 
-Use `curl`, a command-line http and ftp client, to Apache on the https port 
-(443) and show that the service is using this certificate.   
+Use `curl`, a command-line http and ftp client, to connect to Apache on the 
+https port (443) and show that the service is using this certificate.   
 
 `echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
@@ -59,5 +59,5 @@ DEFAULT
 </pre>
 
 The default configuration on Red Hat Enterprise Linux for the system-wide
-cryptograpic policy (sometimes referred to as simply crypto policy) is a
+cryptograpic policy (sometimes referred to as "crypto policy") is a
 policy named `DEFAULT`.
