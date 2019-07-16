@@ -1,7 +1,7 @@
 #Set system-wide cryptographic policy to FUTURE
 
 The Chief Security Office sends out the following e-mail:
-<pre>
+<pre class="file">
 Application and Infrastructure Administrators,
 
 Applications and services offered by our organization must now use a
