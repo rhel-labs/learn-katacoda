@@ -1,10 +1,37 @@
-﻿#Set crypto policies to FUTURE
+#Set system-wide cryptographic policy to FUTURE
 
-Now imagine that the security team within your organization sends out a memo recommending using more stringent crypto policies to make it harder for attackers to break into the system. The security team is recommending disallowing SHA-1 signature algorithm, and RSA keys larger than 3071-bits. This means setting the crypto policy to FUTURE.
+The Chief Security Office sends out the following e-mail:
+<pre>
+Application and Infrastructure Administrators,
 
-To further protect the security of the system, CSO team is recommending to set crypto policy to future
+Applications and services offered by our organization must now use a
+cryptographic algorithm strong enough to provide security that is
+believed to withstand any near-term future attacks (128-bit security).
+
+These changes will allow client data to transit the internet in a more
+secure fashion.
+
+-CSO
+</pre>
+
+In order to comply with the new organization policy, you will first update
+the system to use the **FUTURE** cryptographic policy.  Changing to the
+**FUTURE** policy will configure the machine to no longer permit SHA1
+algorithm certificates, as SHA1 uses less than 128-bit encryption.   
+
 `update-crypto-policies --set FUTURE`{{execute T1}}
 
-Now, verify that the crypto policy has been updated
+<pre class="file">
+Setting system policy to FUTURE
+Note: System-wide crypto policies are applied on application start-up.
+It is recommended to restart the system for the change to policies
+to fully take place.
+</pre>
+
+You can now verify that the new policy, FUTURE, has been applied to the system.   
+
 `update-crypto-policies --show`{{execute T1}}
 
+<pre class="file">
+FUTURE
+</pre>
