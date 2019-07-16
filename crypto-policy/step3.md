@@ -20,6 +20,8 @@ specific error message in the SSL error log for Apache.
 [Tue Jul 16 15:13:25.580860 2019 ] [ssl:emerg] [pid 8869:tid 140233336588544] SSL Library Error: error: 140AB18F: SSL routines: SSL_CTX_use_certificate:ee key too small
 </pre>
 
+> **NOTE:** Your log date, time, process ID, or other metadata may be different.  The important part is the message at the end of the entries.
+
 From the log data, the error causing Apache to not start is caused by the
 /etc/pki/tls/certs/localhost.crt file.  Recall from the first step, Validate 
 the Environment, that this file contained a certificate that used a 2048 bit
