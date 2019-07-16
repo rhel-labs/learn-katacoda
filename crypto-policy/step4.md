@@ -4,7 +4,7 @@ To comply with the system-wide cryptographic policy of FUTURE, you will need
 to generate a replacement SSL certificate using an RSA key of 4096 bit 
 length. 
 
-`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost-new.key -out /etc/pki/tls/certs/localhost-new.crt`{{execute T1}}$
+`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost-new.key -out /etc/pki/tls/certs/localhost-new.crt`{{execute T1}}
 
 <pre class="file">
 Genarating a RSA private key
@@ -27,7 +27,7 @@ update the Apache service configuration to use the new certificate files.
 
 The __SSLCertificateFile__ parameter in the __/etc/httpd/conf.d/ssl.conf__ 
 file needs to be updated to point to the newly created certificate crt file.
-`sed -i 's+/etc/pki/tls/certs/localhost.crt+/etc/pki/tls/certs/localhost-new.crt+g' /etc/httpd/conf.d/ssl.conf; grep '^SSLCertificateFile' /etc/httpd/httpd.conf/ssl.conf`{{execute T1}}
+`sed -i 's+/etc/pki/tls/certs/localhost.crt+/etc/pki/tls/certs/localhost-new.crt+g' /etc/httpd/conf.d/ssl.conf; grep '^SSLCertificateFile' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
 
 <pre class="file">
 SSLCertificateFile /etc/pki/tls/certs/localhost-new.crt
