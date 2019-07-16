@@ -1,4 +1,4 @@
-#Set system-wide cryptographic policy to FUTURE
+# Set system-wide cryptographic policy to FUTURE
 
 The Chief Security Office sends out the following e-mail:
 <pre class="file">
