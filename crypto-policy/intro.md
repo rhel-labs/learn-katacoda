@@ -4,7 +4,7 @@ troubleshoot changes to Red Hat Enterprise Linux's system-wide cryptographic
 policy.  The scenario uses the Apache web server as the example application.
 
 # Concepts included in this scenario:
-* Verify the current system-wid cryptographic policy setting
+* Verify the current system-wide cryptographic policy setting
 * Change the current cryptographic policy setting
 * Troubleshoot applications after a cryptographic policy update
 * Modify application settings to comply with stronger cryptograpic policies
