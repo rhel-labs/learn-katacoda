@@ -52,7 +52,7 @@
   "environment": {
     "uilayout": "terminal-iframe",
     "showdashboard": true,
-    "dashboards":"Web Console"
+    "dashboard":"Web Console"
   },
   "backend": {
     "imageid": "rhel8",
