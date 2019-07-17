@@ -4,10 +4,6 @@
   "details": {
     "steps": [
       {
-        "title": "Step 0",
-        "text": "step0.md"
-      },
-      {
         "title": "Step 1",
         "text": "step1.md"
       },
@@ -38,6 +34,10 @@
       {
         "title": "Step 8",
         "text": "step8.md"
+      },
+      {
+        "title": "Step 9",
+        "text": "step9.md"
       }
     ],
     "intro": {
