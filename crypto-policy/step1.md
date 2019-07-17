@@ -51,7 +51,7 @@ certificate to encrypt the connection with the service.  You will verify that
 the client browser is utilizing the 2048 bit Public-Key certificate viewed
 above.   
 
-`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
+`openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
 <pre class="file">
 Server public key is 2048 bit
