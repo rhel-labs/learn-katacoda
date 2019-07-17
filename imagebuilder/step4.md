@@ -3,4 +3,4 @@ On the **Edit Blueprint** page, you can see contents that are already included i
 
 Filter the list of **Available Components** by __nodejs__ to find the nodejs package.
 
-![Filter Available Components](/smcbrien/scenarios/imagebuilder/assets/Filter-Components.png)
+![Filter Available Components](/rhel-labs/scenarios/imagebuilder/assets/Filter-Components.png)

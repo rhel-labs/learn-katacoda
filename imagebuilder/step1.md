@@ -8,4 +8,4 @@ Once the login page is presented, use the following credentials to log into the 
 Username: __rhel__   
 Password: __redhat__
 
-![Web Console Login](/smcbrien/scenarios/imagebuilder/assets/Web-console-login.png)
+![Web Console Login](/rhel-labs/scenarios/imagebuilder/assets/Web-console-login.png)

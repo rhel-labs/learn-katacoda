@@ -4,4 +4,4 @@ Find the **nodejs** package in the filtered list of **Available Components**. Yo
 
 Add the package **nodejs** to the blueprint.
 
-![Add Component](/smcbrien/scenarios/imagebuilder/assets/Add-Component.png)
+![Add Component](/rhel-labs/scenarios/imagebuilder/assets/Add-Component.png)

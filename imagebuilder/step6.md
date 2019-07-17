@@ -4,4 +4,4 @@ Now that you have updated the contents of the blueprint, spend some time explori
 
 When you are ready, click the **Commit** button to commit your changes.
 
-![Commit Changes](/smcbrien/scenarios/imagebuilder/assets/Commit-Changes.png)
+![Commit Changes](/rhel-labs/scenarios/imagebuilder/assets/Commit-Changes.png)
