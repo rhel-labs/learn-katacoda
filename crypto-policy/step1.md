@@ -1,7 +1,25 @@
 # Validate the Environment 
 Using the provided system terminal session, validate the initial environment.   
 
-First, verify that the Apache service is running.   
+First, verify the current system-wide cryptographic policy.   
+
+`update-crypto-policies --show`{{execute T1}}
+
+<pre class="file">
+DEFAULT
+</pre>
+
+The default configuration on Red Hat Enterprise Linux for the system-wide
+cryptograpic policy (sometimes referred to as "crypto policy") is a
+policy named `DEFAULT`.   
+
+Secure Socket Layer (SSL) is one of the cryptography methods managed by
+the system-wide cryptograpy policy.  Throughout the exercise, you will
+work with Apache as it is a service that utilizes SSL.  Hence, changes
+to how SSL is managed will potentially impact those services that utilize
+those cryptography frameworks.
+
+Verify that Apache is running on the machine.
 
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
@@ -39,14 +57,3 @@ Server public key is 2048 bit
 Client browsers are provided the 2048 bit SSL certificate by the Apache service
 to encrypt their connection.   
 
-Lastly, verify the current system-wide cryptographic policy.   
-
-`update-crypto-policies --show`{{execute T1}}
-
-<pre class="file">
-DEFAULT
-</pre>
-
-The default configuration on Red Hat Enterprise Linux for the system-wide
-cryptograpic policy (sometimes referred to as "crypto policy") is a
-policy named `DEFAULT`.
