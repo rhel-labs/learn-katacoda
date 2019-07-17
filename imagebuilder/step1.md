@@ -1,11 +1,17 @@
-# Log in to the Web Console
+# Prerequisite setup
+Prior to getting started with image builder, the software must first be 
+installed.
 
-Click on the tab titled **Web Console** at the top of  your lab system interface.
-Selecting this tab will open the lab system's web console.
+`yum install -y cockpit-composer lorax-composer composer-cli`{{execute}}
 
-Once the login page is presented, use the following credentials to log into the web console:
+Now that the software is installed, restart the web console so that it picks up
+the newly installed plugin for image builder.  Also, you will enable the 
+service that manages the build queue and other aspects of image builder.
 
-Username: __rhel__   
-Password: __redhat__
+`systemctl restart cockpit; systemctl enable --now lorax-composer.service`{{execute}}
 
-![Web Console Login](/rhel-labs/scenarios/imagebuilder/assets/Web-console-login.png)
+Lastly, in the next steps, you will use a non-administrative user, __rhel__, to 
+manage the image blueprints and build machine images.  This user must belong to
+the __weldr__ group.
+
+`usermod -a -G weldr rhel`{{execute}}
