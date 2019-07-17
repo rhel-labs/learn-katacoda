@@ -22,7 +22,7 @@ Now that the service is running and certificates used comply with the FUTURE
 system-wide cryptogrophy policy, connect to the Apache service and validate 
 that the new certificate is being offered to client browsers.   
 
-`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
+`openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
 <pre class="file">
 Server public key is 4096 bit
