@@ -3,7 +3,7 @@ Using the provided system terminal session, validate the initial environment.
 
 First, verify that the Apache service is running.   
 
-`systemctl status httpd.service --no-pager`{{execute T1}}
+`systemctl status httpd.service --no-pager; echo`{{execute T1}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -18,7 +18,7 @@ Verify that the Active status is __active (running)__.
 Next, check the location of the default SSL certificate in the Apache 
 ssl.conf configuration file.   
 
-`grep '^SSLCertificateFile' /etc/httpd/conf.d/ssl.conf`{{execute T1}}
+`grep '^SSLCertificateFile' /etc/httpd/conf.d/ssl.conf; echo`{{execute T1}}
 
 <pre class="file">
 SSLCertificateFile /etc/pki/tls/certs/localhost.crt
@@ -30,7 +30,7 @@ certificate at /etc/pki/tls/certs/localhost.crt.
 Verify the length of the cipher in the automatically created SSL certificate 
 file.    
 
-`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
+`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit; echo`{{execute T1}}
 
 <pre class="file">
                 RSA Public-Key: (2048 bit)
@@ -41,7 +41,7 @@ By default, Apache uses a certificate with a 2048 bit cypher.
 Use `curl`, a command-line http and ftp client, to connect to Apache on the 
 https port (443) and show that the service is using this certificate.   
 
-`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
+`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'; echo`{{execute T1}}
 
 <pre class="file">
 Server public key is 2048 bit
@@ -52,7 +52,7 @@ to encrypt their connection.
 
 Lastly, verify the current system-wide cryptographic policy.   
 
-`update-crypto-policies --show`{{execute T1}}
+`update-crypto-policies --show; echo`{{execute T1}}
 
 <pre class="file">
 DEFAULT
