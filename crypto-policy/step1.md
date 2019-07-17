@@ -46,7 +46,10 @@ cipher in the automatically created self-signed SSL certificate file.
 By default, Apache uses a certificate with a 2048 bit cypher.   
 
 Use `curl`, a command-line http and ftp client, to connect to Apache on the 
-https port (443) and show that the service is using this certificate.   
+https port (443).  As part of this connection, curl will recieve a copy of the
+certificate to encrypt the connection with the service.  You will verify that
+the client browser is utilizing the 2048 bit Public-Key certificate viewed
+above.   
 
 `echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
