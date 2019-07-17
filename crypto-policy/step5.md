@@ -1,11 +1,29 @@
 # Start Apache service with updated certificate
 
-Start Apache server to pick up the new crypto policy
-`systemctl start httpd.service`{{execute T1}}
+Start the Apache service now that the certificates used comply with the
+system-wide crypto policy.  Now that the service complies with the policy,
+it should start without further issue.
 
-Check whether Apache server is started
+`systemctl restart httpd.service`{{execute T1}}
+
+You can verify the Apache service is now running again.   
+
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
-Connect to Apache over port over the default Apache https port (443) and show that the settings have been inherited
-`echo -n |openssl s_client -connect localhost:443 | grep '^Server public key'`{{execute T1}}
+<pre class="file">
+<< OUTPUT ABRIDGED >>
 
+Active: active (running) since Wed 2019-07-17 09:54:40 EDT; 2s ago
+
+<< OUTPUT ABRIDGED >>
+</pre>
+
+Now that the service is running and certificates used comply with the FUTURE
+system-wide cryptogrophy policy, connect to the Apache service and validate 
+that the new certificate is being offered to client browsers.   
+
+`echo -n |openssl s_client -connect localhost:443 2>/dev/null | grep '^Server public key'`{{execute T1}}
+
+<pre class="file">
+Server public key is 4096 bit
+</pre>
