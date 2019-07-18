@@ -36,10 +36,11 @@ Note: System-wide crypto policies are applied on application start-up.
 It is recommended to restart the system for the change to policies
 to fully take place.
 </pre>
+
 The change will no longer permit some encryption algorithms to be used on the 
 machine.  Additionally, some algorithms may support a higher encryption 
 strength, but may not be currently configured to meet the 128 bit excryption 
-strenth requirement now in effect.
+strenth requirement now in effect.   
 
 You can now verify that the new policy, FUTURE, has been applied to the system.    
 
