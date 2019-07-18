@@ -41,7 +41,7 @@ machine.  Additionally, some algorithms may support a higher encryption
 strength, but may not be currently configured to meet the 128 bit excryption 
 strenth requirement now in effect.
 
-You can now verify that the new policy, FUTURE, has been applied to the system.   
+You can now verify that the new policy, FUTURE, has been applied to the system.    
 
 `update-crypto-policies --show`{{execute T1}}
 
@@ -50,6 +50,6 @@ FUTURE
 </pre>
 
 If you are interested in more details about the cryptographic policies that
-ship with Red Hat Enterprise Linux 8:   
+ship with Red Hat Enterprise Linux 8:    
 
-`man update-crypto-policies`{{execute}}
+`man update-crypto-policies`{{execute T1}}
