@@ -4,6 +4,19 @@ To comply with the system-wide cryptographic policy of FUTURE, you will need
 to generate a replacement SSL certificate using an RSA key of 3072 bit length,
 or longer. 
 
+Before you create the updated SSL certificate, make a backup of your existing
+certificate files.
+
+`cp /etc/pki/tls/private/localhost.key /etc/pki/tls/private/localhost.key.orig`{{execute T1}}
+
+`cp /etc/pki/tls/certs/localhost.crt /etc/pki/tls/certs/localhost.crt.orig`{{execute T1}}
+
+Now that you have a backup of your original certifcates, and could revert to
+them if something unexpected happens, generate a new, replacement SSL
+certificate and public key.  In order to meet the encryption security level
+of 128 bit, you will need to generate an RSA certificate using a public key
+of a minimum bit-length of 3072.
+
 `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:3072 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.crt`{{execute T1}}
 
 <pre class="file">
@@ -14,7 +27,7 @@ writing new private key to '/etc/pki/tls/private/localhost.key'
 -----
 </pre>
 
-Check the bit-length of the key to verify that it is configured for 3072.
+Verify the bit-length of the key to confirm that it is 3072 bit.
 
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
