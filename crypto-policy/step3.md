@@ -3,6 +3,10 @@
 You will need to restart the Apache service after changing the system-wide
 crypto policy so that it runs under the new policy.   
 
+> **NOTE:** Red Hat recommends rebooting the system for all services to be
+initialized with the new cryptographic policy, however, for this exercise you
+will be individually working with the Apache web service.
+
 `systemctl restart httpd.service`{{execute T1}}
 
 <pre class="file">
@@ -24,10 +28,16 @@ specific error message in the SSL error log for Apache.
 
 From the log data, the error causing Apache to not start is caused by the
 /etc/pki/tls/certs/localhost.crt file.  Recall from the first step, Validate 
-the Environment, that this file contained a certificate that used a 2048 bit
-encryption key.  However, due to the new FUTURE policy, the certificate will
-need to be updated to use a more complex cryptography algorithm.  The second
-error message indicates this, key too small.  
+the Environment, that this file contained an RSA certificate that used a 2048 
+bit public key, which has a security level of 112 bit.  However, due to 
+the new FUTURE policy, algorigthms need to meet a minimum security level of
+128 bit.   
 
 The FUTURE system-wide crypto policy is stopping Apache from starting because
-running with the existing certificate would vilate the policy settings.
+running with the existing certificate, and public key, would violate the policy
+settings.   
+
+For more information on encryption security level:   
+https://en.wikipedia.org/wiki/Security_level 
+and   
+https://en.wikipedia.org/wiki/Key_size

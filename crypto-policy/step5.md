@@ -25,5 +25,5 @@ that the new certificate is being offered to client browsers.
 `openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
 <pre class="file">
-Server public key is 4096 bit
+Server public key is 3072 bit
 </pre>
