@@ -19,7 +19,7 @@ Active: active (running) since Wed 2019-07-17 09:54:40 EDT; 2s ago
 </pre>
 
 Now that the service is running and certificates used comply with the FUTURE
-system-wide cryptogrophy policy, connect to the Apache service and validate 
+system-wide cryptographic policy, connect to the Apache service and validate 
 that the new certificate is being offered to client browsers.   
 
 `openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
