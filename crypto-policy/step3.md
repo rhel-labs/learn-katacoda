@@ -14,8 +14,10 @@ Job for httpd.service failed because the control process exited with error code.
 See "systemctl status httpd.service" and "journalctl -xe" for details.
 </pre>
 
-Unfortunately, the Apache service fails to restart.  You can see a more
-specific error message in the SSL error log for Apache.
+The Apache service fails to restart.  You can see a more specific error 
+message in the SSL error log for Apache.  You will further diagnose this
+using the error messages from the command below and reconcile this in 
+additional steps in the exercise.
 
 `tail -2 /var/log/httpd/ssl_error_log`{{execute T1}}
 
