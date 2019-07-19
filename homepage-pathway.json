@@ -18,14 +18,19 @@
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
     },
     {
-      "external_link": "https://lab.redhat.com/buildah",
-      "title": "Creating images with buildah",
-      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
+      "external_link": "https://lab.redhat.com/crypto-policy",
+      "title": "Configuring the system-wide cryptographic policy",
+      "description": "Enforce more complex ciphers, protocol versions, and usable ciphers across all services running on your machines."
     },
     {
       "external_link": "https://lab.redhat.com/session-recording-tlog",
       "title": "Configuring Terminal Session Recording",
       "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
+    },
+    {
+      "external_link": "https://lab.redhat.com/buildah",
+      "title": "Creating images with buildah",
+      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
     },
     {
       "external_link": "https://lab.redhat.com/vdo-configure",
