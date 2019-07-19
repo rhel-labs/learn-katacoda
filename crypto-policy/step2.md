@@ -10,9 +10,9 @@ that our Applications and services should be using.  Specifically, we
 should disable some less-secure encryption algorithms and enforce some
 minimum strength used by others.
 
-Those of you that have applications and services that utilize asymetric
+Those of you that have applications and services that utilize asymmetric
 encryption through RSA based certificates, your certificates should use
-at least a 3072 bit public key for their cypher.
+at least a 3072 bit public key for their cipher.
 
 TLS connections should only be offered to clients using TLS version 1.2 
 or higher.  TLS 1.0 and 1.1 should no longer be used for encrypted
