@@ -10,11 +10,11 @@ DEFAULT
 </pre>
 
 The default configuration on Red Hat Enterprise Linux for the system-wide
-cryptograpic policy (sometimes referred to as "crypto policy") is a
+cryptographic policy (sometimes referred to as "crypto policy") is a
 policy named `DEFAULT`.   
 
 Secure Socket Layer (SSL) is one of the cryptography methods managed by
-the system-wide cryptograpy policy.  Throughout the exercise, you will
+the system-wide cryptography policy.  Throughout the exercise, you will
 work with Apache as it is a service that utilizes SSL.  Hence, changes
 to how SSL is managed will potentially impact those services that utilize
 those cryptography frameworks.
@@ -35,7 +35,8 @@ Verify that the Active status is __active (running)__.
 
 By default, Apache stores the automatically created, SSL self-signed
 certificate at /etc/pki/tls/certs/localhost.crt. Verify the length of the 
-cipher in the automatically created self-signed SSL certificate file.    
+RSA public key used by the automatically created, self-signed SSL certificate 
+file.    
 
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
@@ -43,10 +44,10 @@ cipher in the automatically created self-signed SSL certificate file.
                 RSA Public-Key: (2048 bit)
 </pre>
 
-By default, Apache uses a certificate with a 2048 bit cypher.   
+By default, Apache uses a certificate with a 2048 bit public key.   
 
 Use `openssl` to connect to Apache on the https port (443).  As part of this 
-connection, openssl will recieve a copy of the certificate to encrypt the 
+connection, openssl will receive a copy of the certificate to encrypt the 
 connection with the service.  You will verify that a client web browser is 
 utilizing the 2048 bit Public-Key certificate viewed above.   
 
@@ -56,6 +57,6 @@ utilizing the 2048 bit Public-Key certificate viewed above.
 Server public key is 2048 bit
 </pre>
 
-Client browsers are provided the 2048 bit SSL certificate by the Apache service
-to encrypt their connection.   
+Client browsers are provided the 2048 bit key and SSL certificate by the 
+Apache service to encrypt their connection.   
 
