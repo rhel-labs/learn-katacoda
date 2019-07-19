@@ -13,9 +13,8 @@ certificate files.
 
 Now that you have a backup of your original certifcates, and could revert to
 them if something unexpected happens, generate a new, replacement SSL
-certificate and public key.  In order to meet the encryption security level
-of 128 bit, you will need to generate an RSA certificate using a public key
-of a minimum bit-length of 3072.
+certificate and public key.  The new RSA certificate will use a public key
+of of 3072 bits.
 
 `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:3072 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.crt`{{execute T1}}
 
@@ -36,8 +35,7 @@ Verify the bit-length of the key to confirm that it is 3072 bit.
 </pre>
 
 Now that a new SSL certificate has been created using a larger public key, 
-it complies with the encryption security level of 128 bit required by the
-FUTURE cryptographic policy.
+it complies with the requirements of the  FUTURE cryptographic policy.
 
 > **NOTE:** It is recommended practice to use Certificate Authority (CA) issued
 certificates.  If you were using a certificate from a Certificate Authority,
