@@ -29,15 +29,9 @@ specific error message in the SSL error log for Apache.
 From the log data, the error causing Apache to not start is caused by the
 /etc/pki/tls/certs/localhost.crt file.  Recall from the first step, Validate 
 the Environment, that this file contained an RSA certificate that used a 2048 
-bit public key, which has a security level of 112 bit.  However, due to 
-the new FUTURE policy, algorigthms need to meet a minimum security level of
-128 bit.   
+bit public key.  However, due to the new FUTURE policy, RSA certificates now
+require a public key of at least 3072 bits.
 
 The FUTURE system-wide crypto policy is stopping Apache from starting because
 running with the existing certificate, and public key, would violate the policy
-settings.   
-
-For more information on encryption security level:   
-https://en.wikipedia.org/wiki/Security_level   
-and   
-https://en.wikipedia.org/wiki/Key_size
+settings.  In the next steps, you will resolve this issue.
