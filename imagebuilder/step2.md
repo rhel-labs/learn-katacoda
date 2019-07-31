@@ -1,4 +1,11 @@
-# Navigate to Image Builder application
-Now that you are logged into the Web Console, navigate to the **Image Builder** application.
+# Log in to the Web Console
 
-![Navigate to Image Builder](/smcbrien/scenarios/imagebuilder/assets/Nav-ImageBuilder.png)
+Click on the tab titled **Web Console** at the top of  your lab system interface.
+Selecting this tab will open the lab system's web console.
+
+Once the login page is presented, use the following credentials to log into the web console:
+
+Username: __rhel__   
+Password: __redhat__
+
+![Web Console Login](/rhel-labs/scenarios/imagebuilder/assets/Web-console-login.png)

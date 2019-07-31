@@ -33,7 +33,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits": "__Author:__ Dennis Keefe, Software Engineering Manager (Red Hat)"
     },
     "finish": {
       "text": "finish.md"

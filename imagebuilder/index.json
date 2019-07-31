@@ -4,10 +4,6 @@
   "details": {
     "steps": [
       {
-        "title": "Step 0",
-        "text": "step0.md"
-      },
-      {
         "title": "Step 1",
         "text": "step1.md"
       },
@@ -38,10 +34,15 @@
       {
         "title": "Step 8",
         "text": "step8.md"
+      },
+      {
+        "title": "Step 9",
+        "text": "step9.md"
       }
     ],
     "intro": {
       "text": "intro.md",
+      "credits": "__Author:__ Jenn Giardino, Interaction Designer (Red Hat)",
       "courseData": "background.sh"
     },
     "finish": {
@@ -49,12 +50,13 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
     "showdashboard": true,
-    "dashboards":[{"name": "Web Console", "port": 9090}]
+    "dashboard":"Web Console"
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel8",
+    "port": 9090
   }
 
 }

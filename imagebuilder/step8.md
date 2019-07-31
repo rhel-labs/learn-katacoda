@@ -1,7 +1,12 @@
-# Create image
+# Verify pending changes
 
-Click the **Create Image** button to open the dialog. Select which type to create then click the **Create** button.
+The **Changes Pending Commit** dialog will list all changes you have made since you last committed your changes. 
 
-Images that are created for a blueprint can be found under the **Images** tab on the blueprint page. You can navigate to this page by clicking the blueprint name in the breadcrumb.
+When you are ready, click the **Commit** button in the dialog to commit your changes.
 
-![Create Image](/smcbrien/scenarios/imagebuilder/assets/Create-Image.png)
+![Changes Pending Commit](/rhel-labs/scenarios/imagebuilder/assets/Changes-Pending-Commit.png)
+
+You will see a confirmation message appear in the top, right side of the 
+web console window.
+
+![Blueprint Update Confirmation](/rhel-labs/scenarios/imagebuilder/assets/Blueprint-change-confirm.png)

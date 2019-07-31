@@ -1,18 +1,45 @@
-﻿#Resolve Apache service issues to comply with crypto policy 
+# Regenerate SSL certificate
 
-Regenerate a new RSA key of 4096 bit length - when prompted for values just hit the *enter* key and go with defaults
-`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout /etc/pki/tls/private/localhost-new.key -out /etc/pki/tls/certs/localhost-new.crt`{{execute T1}}
+To comply with the system-wide cryptographic policy of FUTURE, you will need 
+to generate a replacement SSL certificate using an RSA key of 3072 bit length,
+or longer. 
 
-Check the bit-length of the certificate to verify that it is 4096 bits
-`openssl x509 -in /etc/pki/tls/certs/localhost-new.crt -text | grep ‘bit’`{{execute T1}}
+Before you create the updated SSL certificate, make a backup of your existing
+certificate files.
 
-Update the Apache Server TLS configuration file
-Open /etc/httpd/conf.d/ssl.conf in your favorite editor and make the following changes
-SSLCertificateFile /etc/pki/tls/certs/localhost-new.crt
-SSLCertificateKeyFile /etc/pki/tls/private/localhost-new.key
+`cp /etc/pki/tls/private/localhost.key /etc/pki/tls/private/localhost.key.orig`{{execute T1}}
 
-Restart Apache server to pick up the new crypto policy
-`systemctl restart httpd.service`{{execute T1}}
+`cp /etc/pki/tls/certs/localhost.crt /etc/pki/tls/certs/localhost.crt.orig`{{execute T1}}
 
-Check whether Apache server is started
-`systemctl status httpd.service`{{execute T1}}
+Now that you have a backup of your original certificates, and could revert to
+them if something unexpected happens, generate a new, replacement SSL
+certificate and public key.  The new RSA certificate will use a public key
+of of 3072 bits.
+
+`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:3072 -subj='/C=XX/O=Default' -keyout /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.crt`{{execute T1}}
+
+<pre class="file">
+Generating a RSA private key
+.......................................++++
+....................+++
+writing new private key to '/etc/pki/tls/private/localhost.key'
+-----
+</pre>
+
+Verify the bit-length of the key to confirm that it is 3072 bit.
+
+`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
+
+<pre class="file">
+                RSA Public-Key: (3072 bit)
+</pre>
+
+Now that a new SSL certificate has been created using a larger public key, 
+it complies with the requirements of the  FUTURE cryptographic policy.
+
+> **NOTE:** It is recommended practice to use Certificate Authority (CA) issued
+certificates.  If you were using a certificate from a Certificate Authority,
+you would need to generate a new Certificate Signature Request (csr) and
+submit it to your CA.  When you receive the signed certificate from your CA,
+you would then position it, and update any configuration files needed to
+reference it.

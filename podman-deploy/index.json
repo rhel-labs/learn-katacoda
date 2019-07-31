@@ -25,7 +25,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
