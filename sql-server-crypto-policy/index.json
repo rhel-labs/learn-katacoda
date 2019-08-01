@@ -19,7 +19,8 @@
      "intro": {
       "text": "intro.md",
       "credits": "__Author:__ Don Pinto, Technical Content Manager (Red Hat)",
-      "courseData": "background.sh"
+      "courseData": "background.sh",
+      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
