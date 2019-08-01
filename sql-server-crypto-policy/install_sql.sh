@@ -38,7 +38,9 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
      /opt/mssql/bin/mssql-conf -n setup accept-eula
 
 echo Installing mssql-tools and unixODBC developer...
-sudo ACCEPT_EULA=Y yum install -y mssql-tools unixodbc-dev
+curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
+sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
+
 
 # Add SQL Server tools to the path by default:
 echo Adding SQL Server tools to your path...
