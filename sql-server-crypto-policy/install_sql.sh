@@ -23,6 +23,7 @@ echo Installing Python and OpenSSL
 sudo yum install python2 compat-openssl10 -y
 
 echo Running apt-get update -y...
+sleep 10
 sudo yum update -y
 
 echo Setting default python version
@@ -49,14 +50,9 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 
 # Configure firewall to allow TCP port 1433:
-#echo Configuring UFW to allow traffic on port 1433...
-#sudo ufw allow 1433/tcp
-#sudo ufw reload
-
-# Optional example of post-installation configuration.
-# Trace flags 1204 and 1222 are for deadlock tracing.
-# echo Setting trace flags...
-# sudo /opt/mssql/bin/mssql-conf traceflag 1204 1222 on
+echo Configuring firewall-rules to allow traffic on port 1433...
+sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
+sudo firewall-cmd --reload
 
 # Restart SQL Server after installing:
 echo Restarting SQL Server...
