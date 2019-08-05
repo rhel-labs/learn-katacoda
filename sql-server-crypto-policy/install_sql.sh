@@ -24,6 +24,7 @@ sudo yum install python2 compat-openssl10 -y
 
 echo Running apt-get update -y...
 sleep 10
+sudo yum clean all
 sudo yum update -y
 
 echo Setting default python version
