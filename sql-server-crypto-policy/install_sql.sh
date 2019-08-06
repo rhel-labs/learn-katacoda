@@ -67,15 +67,11 @@ sudo systemctl restart mssql-server
 # Connect to server and get the version:
 counter=1
 errstatus=1
-while [ $counter -le 5 ] && [ $errstatus = 1 ]
+while [ $counter -le 10 ] && [ $errstatus = 1 ]
 do
   echo Waiting for SQL Server to start...
   sleep 3s
-  /opt/mssql-tools/bin/sqlcmd \
-    -S localhost \
-    -U SA \
-    -P $MSSQL_SA_PASSWORD \
-    -Q "SELECT @@VERSION" 2>/dev/null
+  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 1Password! -Q "Select @@version"
   errstatus=$?
   ((counter++))
 done
