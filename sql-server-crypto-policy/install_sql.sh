@@ -39,16 +39,20 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
      MSSQL_PID=$MSSQL_PID \
      /opt/mssql/bin/mssql-conf -n setup accept-eula
 
+#RedHat Enterprise Server 8
 echo Installing mssql-tools and unixODBC developer...
-curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
-sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
+curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
 
-
-# Add SQL Server tools to the path by default:
-echo Adding SQL Server tools to your path...
-echo PATH="$PATH:/opt/mssql-tools/bin" >> ~/.bash_profile
+exit
+sudo yum remove unixODBC-utf16 unixODBC-utf16-devel #to avoid conflicts
+sudo ACCEPT_EULA=Y yum install msodbcsql17
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y yum install mssql-tools
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
+# optional: for unixODBC development headers
+sudo yum install unixODBC-devel
 
 # Configure firewall to allow TCP port 1433:
 echo Configuring firewall-rules to allow traffic on port 1433...
