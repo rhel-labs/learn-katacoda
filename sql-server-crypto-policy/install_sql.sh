@@ -16,6 +16,10 @@ then
   exit 1
 fi
 
+echo Running apt-get update -y...
+sleep 10
+sudo yum clean all
+
 echo Adding Microsoft repositories...
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
 
