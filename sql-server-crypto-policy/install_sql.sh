@@ -43,10 +43,11 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
      MSSQL_PID=$MSSQL_PID \
      /opt/mssql/bin/mssql-conf -n setup accept-eula
 
-#RedHat Enterprise Server 8
+#Installing client tools
 echo Installing mssql-tools and unixODBC developer...
-sudo yum remove unixODBC-utf16 unixODBC-utf16-devel #to avoid conflicts
-sudo ACCEPT_EULA=Y yum install mssql-tools unixODBC-devel
+curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
+sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
+
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
