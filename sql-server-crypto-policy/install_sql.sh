@@ -51,6 +51,8 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 
+ln -s /usr/lib64/libssl.so.10 /opt/mssql/lib/libssl.so
+ln -s /usr/lib64/libcrypto.so.10 /opt/mssql/lib/libcrypto.so
 
 # Configure firewall to allow TCP port 1433:
 echo Configuring firewall-rules to allow traffic on port 1433...
