@@ -46,9 +46,8 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
 #RedHat Enterprise Server 8
 echo Installing mssql-tools and unixODBC developer...
 curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
-
-exit
 sudo yum remove unixODBC-utf16 unixODBC-utf16-devel #to avoid conflicts
+
 sudo ACCEPT_EULA=Y yum install msodbcsql17
 # optional: for bcp and sqlcmd
 sudo ACCEPT_EULA=Y yum install mssql-tools
