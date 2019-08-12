@@ -16,6 +16,10 @@ then
   exit 1
 fi
 
+echo Running apt-get update -y...
+sleep 10
+sudo yum clean all
+
 echo Adding Microsoft repositories...
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
 
@@ -23,6 +27,8 @@ echo Installing Python and OpenSSL
 sudo yum install python2 compat-openssl10 -y
 
 echo Running apt-get update -y...
+sleep 10
+sudo yum clean all
 sudo yum update -y
 
 echo Setting default python version
@@ -37,26 +43,22 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
      MSSQL_PID=$MSSQL_PID \
      /opt/mssql/bin/mssql-conf -n setup accept-eula
 
+#Installing client tools
 echo Installing mssql-tools and unixODBC developer...
 curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
 sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
 
-
-# Add SQL Server tools to the path by default:
-echo Adding SQL Server tools to your path...
-echo PATH="$PATH:/opt/mssql-tools/bin" >> ~/.bash_profile
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 
-# Configure firewall to allow TCP port 1433:
-#echo Configuring UFW to allow traffic on port 1433...
-#sudo ufw allow 1433/tcp
-#sudo ufw reload
+ln -s /usr/lib64/libssl.so.10 /opt/mssql/lib/libssl.so
+ln -s /usr/lib64/libcrypto.so.10 /opt/mssql/lib/libcrypto.so
 
-# Optional example of post-installation configuration.
-# Trace flags 1204 and 1222 are for deadlock tracing.
-# echo Setting trace flags...
-# sudo /opt/mssql/bin/mssql-conf traceflag 1204 1222 on
+# Configure firewall to allow TCP port 1433:
+echo Configuring firewall-rules to allow traffic on port 1433...
+sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
+sudo firewall-cmd --reload
 
 # Restart SQL Server after installing:
 echo Restarting SQL Server...
@@ -65,15 +67,11 @@ sudo systemctl restart mssql-server
 # Connect to server and get the version:
 counter=1
 errstatus=1
-while [ $counter -le 5 ] && [ $errstatus = 1 ]
+while [ $counter -le 10 ] && [ $errstatus = 1 ]
 do
   echo Waiting for SQL Server to start...
   sleep 3s
-  /opt/mssql-tools/bin/sqlcmd \
-    -S localhost \
-    -U SA \
-    -P $MSSQL_SA_PASSWORD \
-    -Q "SELECT @@VERSION" 2>/dev/null
+  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 1Password! -Q "Select @@version"
   errstatus=$?
   ((counter++))
 done
