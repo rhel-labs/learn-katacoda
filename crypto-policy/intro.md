@@ -1,12 +1,14 @@
-﻿After completing this scenario, users will be able to explain the basics of Red Hat Enterprise Linux's crypto policy using an example application (such as Apache Server). They will be able to look through the system and application logs, and modify the application configuration to meet the crypto policies.
+# Goal:
+After completing this scenario, users will be able to use, modify, and
+troubleshoot changes to Red Hat Enterprise Linux's system-wide cryptographic
+policy.  The scenario uses the Apache web server as the example application.
 
-**Concepts included in this scenario:**
+# Concepts included in this scenario:
+* Verify the current system-wide cryptographic policy setting
+* Change the current cryptographic policy setting
+* Troubleshoot applications after a cryptographic policy update
+* Modify application settings to comply with stronger cryptograpic policies
 
- 1. How to check the current crypto policy setting
- 2. How to modify the current crypto policy setting
- 3. How to look through the application error files and detect the reason of the failure 
- 4. How to make the application compliant and restart the application successfully
-
-# Example Use case 
-Your security team is recommending using more stringent crypto policies and is disallowing SHA-1 signature algorithm. 
-
+# Example Use case:
+Your security team requires using stronger cryptography algorithms with
+applications and is no longer allowing weaker algorithms, such as SHA-1.

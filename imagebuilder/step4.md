@@ -1,6 +1,5 @@
-# Filter the list of available components
-On the **Edit Blueprint** page, you can see contents that are already included in the blueprint in the panel labeled **Blueprint Components**. The panel labeled **Available Components** includes contents that can be added to the blueprint.
+# Navigate to the Edit Blueprint page
 
-Filter the list of **Available Components** by "nodejs" to find the **nodejs** package.
+You can see in the **Image Builder** application that there are several blueprints available. When you are ready, go to the edit page for the **example-http-server** blueprint by clicking the **Edit Blueprint** button.
 
-![Filter Available Components](/smcbrien/scenarios/imagebuilder/assets/Filter-Components.png)
+![Navigate to Edit Blueprint](/rhel-labs/scenarios/imagebuilder/assets/Nav-Edit.png)

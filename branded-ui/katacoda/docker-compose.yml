@@ -4,5 +4,5 @@ web:
     VIRTUAL_HOST: 'rhel-labs.katacoda.com, lab.redhat.com'
     CTA: 'https://lab.redhat.com'
     KATACODA_HOST: 'https://katacoda.com'
-    KATACODA_USER: 'smcbrien'
+    KATACODA_USER: 'rhel-labs'
   restart: always
