@@ -34,5 +34,5 @@
   "backend": {
     "imageid": "rhel8-highmem",
     "port": 9090
-  
+  }
 }
