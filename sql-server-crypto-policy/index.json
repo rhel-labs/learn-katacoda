@@ -27,9 +27,12 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal-iframe",
+    "showdashboard": true,
+    "dashboard":"Web Console"
   },
   "backend": {
-    "imageid": "rhel8-highmem"
-  }
+    "imageid": "rhel8-highmem",
+    "port": 9090
+  
 }
