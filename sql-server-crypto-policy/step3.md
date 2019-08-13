@@ -12,7 +12,7 @@ will be individually working with Microsoft SQL Server.
 Now that SQL Server has restarted, let's try connecting to it using -N option of sqlcmd to 
 indicate that we want to request an encrypted connection to the server.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -N`{{execute T1}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -N`{{execute T1}}
 
 <pre class="file">
 Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : SSL Provider: [error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed:EE certificate key too weak]
