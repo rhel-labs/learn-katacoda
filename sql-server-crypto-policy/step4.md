@@ -6,7 +6,7 @@ length, or longer.
 
 The new RSA certificate will use a public key of 4096 bits.
 
-`openssl req -x509 -nodes -newkey rsa:4096 -subj "CN=hostname --all-fqdns" -keyout mssql.key -out mssql.pem -days 365`{{execute T1}}
+`openssl req -x509 -nodes -newkey rsa:4096 -subj "/CN=${HOSTNAME}" -keyout mssql.key -out mssql.pem -days 365`{{execute T1}}
 
 <pre class="file">
 Generating a RSA private key
