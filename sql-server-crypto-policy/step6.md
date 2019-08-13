@@ -1,4 +1,4 @@
-# Working with TDE to encrypt TestDB
+# Working with Transparent Data Encryption in SQL Server
 
 The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. Use master database to setup the master encryption key
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -d master -N -C -Q "CREATE MASTER KEY ENCRYPTION BY PASSWORD = ''1TestPassword!''"`{{execute T1}}
