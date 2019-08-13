@@ -1,16 +1,5 @@
 # Connect to SQL Server with updated certificate
 
-Chmod the key files so that the mssql user can access it
-`chmod 444 mssql.pem mssql.key`{{execute T1}} 
-
-Move the files into the respective folders for SQL Server to access
-* Make directory for private key
-    * `mkdir /etc/ssl/private/`{{execute T1}} 
-* Copy private key to folder
-    * `mv mssql.key /etc/ssl/private/`{{execute T1}} 
-* Copy public key to folder
-    * `mv mssql.pem /etc/ssl/certs/`{{execute T1}} 
-
 Tune SQL Server configuration to read the new key files, and force encryption only from client
 * Set the network.tlscert configuration variable to point to the public key
     * `/opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem`{{execute T1}} 
