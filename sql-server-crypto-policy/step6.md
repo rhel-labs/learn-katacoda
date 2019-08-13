@@ -4,7 +4,7 @@ The master database contains all of the system level information for SQL Server.
 
 ![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/MasterKey.png)
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C -Q "CREATE MASTER KEY ENCRYPTION BY PASSWORD = 1Password!"`{{execute T1}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C -Q "CREATE MASTER KEY ENCRYPTION BY PASSWORD = ''1Password!''"`{{execute T1}}
 
 > **NOTE:** It is recommended practice to backup the master key as soon as it is created, and store the backup in a secure, off-site location. To backup the master key, use the *BACKUP MASTER KEY* statement in SQL Server.
 
@@ -12,7 +12,7 @@ Create a certificate in the master database
 
 ![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/Certificate.png)
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C -Q "CREATE CERTIFICATE MyServerCert WITH SUBJECT = \'My Database Encryption Key Certificate\'"`{{execute T1}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C -Q "CREATE CERTIFICATE MyServerCert WITH SUBJECT = ''My Database Encryption Key Certificate''"`{{execute T1}}
 
 Create a database called TestDB to be encrypted 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -N -C -Q "CREATE DATABASE TestDB"`{{execute T1}}
