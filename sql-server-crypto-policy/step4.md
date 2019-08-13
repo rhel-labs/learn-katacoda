@@ -20,7 +20,7 @@ writing new private key to 'mssql.key'
 
 Verify the bit-length of the key to confirm that it is 4096 bit.
 
-`openssl x509 -in mssql.pem -text | grep bit`{{execute T1}}
+`openssl x509 -in /etc/ssl/certs/mssql.pem -text | grep bit`{{execute T1}}
 
 <pre class="file">
                 RSA Public-Key: (4096 bit)
