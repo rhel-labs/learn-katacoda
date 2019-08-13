@@ -19,7 +19,7 @@ Tune SQL Server configuration to read the new key files, and force encryption on
 * Set the network.forceencryption configuration variable to 0 (initiated by client)
     * `/opt/mssql/bin/mssql-conf set network.forceencryption 0`{{execute T1}} 
 
-Restart SQL Server
+Restart the SQL Server service
 `systemctl restart mssql-server.service`{{execute T1}}
 
 Now that the service certificates comply with the policy, the client should be able to connect
