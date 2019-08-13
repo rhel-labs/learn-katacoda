@@ -71,7 +71,7 @@ while [ $counter -le 10 ] && [ $errstatus = 1 ]
 do
   echo Waiting for SQL Server to start...
   sleep 3s
-  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 1Password! -Q "Select @@version"
+  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $MSSQL_SA_PASSWORD -Q "Select @@version"
   errstatus=$?
   ((counter++))
 done
