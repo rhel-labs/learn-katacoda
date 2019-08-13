@@ -3,7 +3,7 @@
 # Use the following variables to control your install:
 
 # Password for the SA user (required)
-MSSQL_SA_PASSWORD='1Password!'
+MSSQL_SA_PASSWORD='Redhat1!'
 
 # Product ID of the version of SQL server you're installing
 # Must be evaluation, developer, express, web, standard, enterprise, or your 25 digit product key
