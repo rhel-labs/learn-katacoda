@@ -4,14 +4,20 @@ Chmod the key files so that the mssql user can access it
 `chmod 444 mssql.pem mssql.key`{{execute T1}} 
 
 Move the files into the respective folders for SQL Server to access
-`mkdir /etc/ssl/private/`{{execute T1}} 
-`mv mssql.key /etc/ssl/private/`{{execute T1}} 
-`mv mssql.pem /etc/ssl/certs/`{{execute T1}} 
+* Make directory for private key
+    * `mkdir /etc/ssl/private/`{{execute T1}} 
+* Copy private key to folder
+    * `mv mssql.key /etc/ssl/private/`{{execute T1}} 
+* Copy public key to folder
+    * `mv mssql.pem /etc/ssl/certs/`{{execute T1}} 
 
 Tune SQL Server configuration to read the new key files, and force encryption only from client
-`/opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem`{{execute T1}} 
-`/opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key`{{execute T1}} 
-`/opt/mssql/bin/mssql-conf set network.forceencryption 0`{{execute T1}} 
+* Set the network.tlscert configuration variable to point to the public key
+    * `/opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem`{{execute T1}} 
+* Set the network.tlskey configuration variable to point to the private key
+    * `/opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key`{{execute T1}} 
+* Set the network.forceencryption configuration variable to 0 (initiated by client)
+    * `/opt/mssql/bin/mssql-conf set network.forceencryption 0`{{execute T1}} 
 
 Restart SQL Server
 `systemctl restart mssql-server.service`{{execute T1}}
