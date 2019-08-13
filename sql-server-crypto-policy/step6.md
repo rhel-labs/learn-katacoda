@@ -45,3 +45,5 @@ List the databases that are encrypted. Encrypted_state = 3 means these databases
 `SELECT a.name from sys.dm_database_encryption_keys b join sys.databases a on a.database_id = b.database_id WHERE encryption_state = 3`{{execute T1}}
 `GO`{{execute T1}}
 
+You can exit the sqlcmd command shell using the exit statement
+`exit`{{execute T1}}
