@@ -37,7 +37,7 @@ By default, SQL Server does not encrypt connections unless specified by client o
 using the forceencryption setting. You can verify that the connection is encrypted by querying the
 system dmv.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -Q \"select session_id, encrypt_option from sys.dm_exec_connections where session_id = @@spid\"`{{execute T1}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -Q "select session_id, encrypt_option from sys.dm_exec_connections where session_id = @@spid"`{{execute T1}}
 
 <pre class="file">
 session_id  encrypt_option
