@@ -4,7 +4,7 @@ To comply with the system-wide cryptographic policy of FUTURE, you will need
 to generate a replacement SSL certificate using an RSA key of at least 3072 bit 
 length, or longer. 
 
-The new RSA certificate will use a public key of 3072 bits.
+The new RSA certificate will use a public key of 4096 bits.
 
 `openssl req -x509 -nodes -newkey rsa:4096 -subj '/CN='\`hostname --all-fqdns\` -keyout mssql.key -out mssql.pem -days 365`{{execute T1}}
 
