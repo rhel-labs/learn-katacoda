@@ -18,6 +18,9 @@ writing new private key to 'mssql.key'
 -----
 </pre>
 
+Change the owner of the key files to the mssql user and group
+`chown mssql:mssql /etc/ssl/private/mssql.key /etc/ssl/certs/mssql.pem`{{execute T1}}
+
 Verify the bit-length of the key to confirm that it is 4096 bit.
 
 `openssl x509 -in /etc/ssl/certs/mssql.pem -text | grep bit`{{execute T1}}
