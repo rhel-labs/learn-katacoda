@@ -43,3 +43,5 @@ Turn ON database encryption
 
 List the databases that are encrypted. Encrypted_state = 3 means these databases are in encrypted state
 `SELECT a.name from sys.dm_database_encryption_keys b join sys.databases a on a.database_id = b.database_id WHERE encryption_state = 3`{{execute T1}}
+`GO`{{execute T1}}
+
