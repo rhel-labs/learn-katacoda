@@ -30,12 +30,14 @@ Switch to the TestDB database
 `USE TestDB`{{execute T1}}
 `GO`{{execute T1}}
 
-Create database encryption key with AES_256 algorithm and encrypted by server certificate
+Create database encryption key (DEK) with AES_256 algorithm and encrypted by server certificate. The DEK is designed to actually encrypt and decrypt the data in your data, log and backup files when you use TDE. The DEK is protected with a certificate. This can be a purchased or self-signed certificate, but in either case, the certificate must reside in the master database of the instance hosting the TDE encrypted database such as the certificate created in the previous step.
 
 ![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/DEK.png)
 
 `CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = AES_256 ENCRYPTION BY SERVER CERTIFICATE MyServerCert`{{execute T1}}
 `GO`{{execute T1}}
+
+> **NOTE:** It is recommended practice to backup the master key as soon as it is created, and store the backup in a secure, off-site location. To backup the master key, use the *BACKUP MASTER KEY* statement in SQL Server.
 
 Turn ON database encryption
 `ALTER DATABASE TestDB SET ENCRYPTION ON`{{execute T1}}
