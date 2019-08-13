@@ -30,7 +30,7 @@ without any issue, and the connection should be encrypted
 <pre class="file">
 session_id  encrypt_option
 ----------- ----------------------------------------
-         51 TRUE
+         XX TRUE
 
 (1 rows affected)
 </pre>
