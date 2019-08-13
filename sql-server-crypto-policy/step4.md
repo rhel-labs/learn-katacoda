@@ -4,9 +4,11 @@ To comply with the system-wide cryptographic policy of FUTURE, you will need
 to generate a replacement SSL certificate using an RSA key of at least 3072 bit 
 length, or longer. 
 
-The new RSA certificate will use a public key of 4096 bits.
+Make directory for private key
+`mkdir /etc/ssl/private/`{{execute T1}} 
 
-`openssl req -x509 -nodes -newkey rsa:4096 -subj "/CN=${HOSTNAME}" -keyout mssql.key -out mssql.pem -days 365`{{execute T1}}
+The new RSA certificate will use a public key of 4096 bits.
+`openssl req -x509 -nodes -newkey rsa:4096 -subj "/CN=${HOSTNAME}" -keyout /etc/ssl/private/mssql.key -out /etc/ssl/certs/mssql.pem -days 365`{{execute T1}}
 
 <pre class="file">
 Generating a RSA private key
