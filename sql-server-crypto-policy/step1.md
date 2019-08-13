@@ -34,8 +34,8 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 Verify that the Active status is __active (running)__.
 
 By default, SQL Server does not encrypt connections unless specified by client or configured on the server
-using the forceencryption setting. You can verify that the connection is encrypted by querying the
-system dmv.
+using the forceencryption setting. You can verify that the connection is not encrypted by querying the
+system DMV in SQL Server(sys.dm_exec_connections).
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -Q "select session_id, encrypt_option from sys.dm_exec_connections where session_id = @@spid"`{{execute T1}}
 
