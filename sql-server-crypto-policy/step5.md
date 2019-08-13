@@ -1,14 +1,25 @@
-# Start Apache service with updated certificate
+# Connect to SQL Server with updated certificate
 
-Start the Apache service now that the certificates used comply with the
-system-wide crypto policy.  Now that the service complies with the policy,
-it should start without further issue.
+Chmod the key files so that the mssql user can access it
+`chmod 444 mssql.pem mssql.key`{{execute T1}} 
 
-`systemctl restart httpd.service`{{execute T1}}
+Move the files into the respective folders for SQL Server to access
+`mkdir /etc/ssl/private/`{{execute T1}} 
+`mv mssql.key /etc/ssl/private/`{{execute T1}} 
+`mv mssql.pem /etc/ssl/certs/`{{execute T1}} 
 
-You can verify the Apache service is now running again.   
+Tune SQL Server configuration to read the new key files, and force encryption only from client
+`/opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem`{{execute T1}} 
+`/opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key`{{execute T1}} 
+`/opt/mssql/bin/mssql-conf set network.forceencryption 0`{{execute T1}} 
 
-`systemctl status httpd.service --no-pager`{{execute T1}}
+Restart SQL Server
+`systemctl restart mssql-server.service`{{execute T1}}
+
+Now that the service certificates comply with the policy, the client should be able to connect
+without any issue, and the connection should be encrypted
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 1Password! -N -C -Q "select session_id, encrypt_option from sys.dm_exec_connections where session_id = @@spid"`{{execute T1}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -16,14 +27,4 @@ You can verify the Apache service is now running again.
 Active: active (running) since Wed 2019-07-17 09:54:40 EDT; 2s ago
 
 << OUTPUT ABRIDGED >>
-</pre>
-
-Now that the service is running and certificates used comply with the FUTURE
-system-wide cryptographic policy, connect to the Apache service and validate 
-that the new certificate is being offered to client browsers.   
-
-`openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
-
-<pre class="file">
-Server public key is 3072 bit
 </pre>
