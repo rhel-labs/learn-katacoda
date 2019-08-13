@@ -2,7 +2,7 @@
 
 The Chief Security Officer sends out the following e-mail:
 <pre class="file">
-Application and Infrastructure Administrators,
+Database and Infrastructure Administrators,
 
 I recently returned from an industry security conference, and at that
 conference, I learned of some recommended security industry practices
@@ -14,21 +14,16 @@ Those of you that have applications and services that utilize asymmetric
 encryption through RSA based certificates, your certificates should use
 at least a 3072 bit public key for their cipher.
 
-TLS connections should only be offered to clients using TLS version 1.2 
-or higher.  TLS 1.0 and 1.1 should no longer be used for encrypted
-connection to services or applications.
-
-Application and services should now be configured to not use SHA1 for
-digital signatures.
-
-These changes will allow client data to transit the internet in a more
-secure fashion.
+Additionally, please ensure that sensitive data in databases is encrypted 
+at rest for additional protection.
 
 -CSO
 </pre>
 
-As it happens, all of these requirements can be configured and enforced using
-system-wide cryptographic policies that come with Red Hat Enterprise Linux.
+As it happens, these requirements can be configured and enforced using
+system-wide cryptographic policies that come with Red Hat Enterprise Linux, and 
+additional database security controls like TDE in SQL Server.
+
 In order to comply with the new organization policy, you will update the 
 system to use the **FUTURE** cryptographic policy.  Changing to the **FUTURE** 
 policy will configure the cryptography libraries and services used on the
@@ -43,11 +38,6 @@ Note: System-wide crypto policies are applied on application start-up.
 It is recommended to restart the system for the change to policies
 to fully take place.
 </pre>
-
-The change will no longer permit some encryption algorithms to be used on the 
-machine, SHA1 for digital signatures.  Additionally, RSA based certificates
-require a public key of at least 3072 bits.  The machine will also now only
-offer TLS connections at TLS 1.2 or higher.   
 
 You can now verify that the new policy, FUTURE, has been applied to the system.    
 
