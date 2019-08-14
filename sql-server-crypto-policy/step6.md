@@ -24,8 +24,6 @@ Create a certificate in the master database
 `CREATE CERTIFICATE MyServerCert WITH SUBJECT = 'My Database Encryption Key Certificate'`{{execute T1}}
 `GO`{{execute T1}}
 
-> **NOTE:** In order protect the data from failure event; make sure that back-up the certificate. It is recommended practice to backup the certificate as soon as it is created, and store the backup in a secure, off-site location. To backup the certificate, use the *BACKUP CERTIFICATE* statement in SQL Server.
-
 Create a database called TestDB to be encrypted 
 `CREATE DATABASE TestDB`{{execute T1}}
 `GO`{{execute T1}}
@@ -38,6 +36,8 @@ Create database encryption key (DEK) with AES_256 algorithm and encrypted by ser
 
 `CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = AES_256 ENCRYPTION BY SERVER CERTIFICATE MyServerCert`{{execute T1}}
 `GO`{{execute T1}}
+
+> **NOTE:** You will notice a warning message after creating the DEK to backup the certificate. In order protect the data from a failure event; make sure to back-up the certificate. It is recommended practice to backup the certificate as soon as it is created, and store the backup in a secure, off-site location. To backup the certificate, use the *BACKUP CERTIFICATE* statement in SQL Server.
 
 Turn ON database encryption
 `ALTER DATABASE TestDB SET ENCRYPTION ON`{{execute T1}}
