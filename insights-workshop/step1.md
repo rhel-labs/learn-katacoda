@@ -32,6 +32,8 @@ For future reference, make note of your system hostname.
 a06560c57e40
 </pre>
 
+>_NOTE:_ Your hostname will be different than the one listed in the output above
+
 At any time in the future, you can get information about Insights registration
 by using the `--status` sub-command of insights-client.
 
