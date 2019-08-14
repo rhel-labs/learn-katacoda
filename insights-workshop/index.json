@@ -24,12 +24,13 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
     "showdashboard": true,
-    "dashboards":[{"name":"cloud.redhat.com","url": "https://cloud.redhat.com"}]
+    "dashboard":"cloud.redhat.com"
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel8",
+    "url": "https://cloud.redhat.com"
   }
 
 }
