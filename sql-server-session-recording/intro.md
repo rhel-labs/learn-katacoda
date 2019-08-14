@@ -1,15 +1,16 @@
 # Goal:
-After completing this scenario, users will be able to enable Terminal 
-Session Recording and review recorded sessions.
+After completing this scenario, users will be able to enable review recorded sessions in Red Hat Enterprise Linux, and track activity inside SQL Server using SQL Server's auditing feature.
 
 # Concepts included in this scenario:
 * Installing software for Terminal Session Recording
 * Enabling and recording terminal sessions
 * List recorded sessions
 * Replay recorded sessions using Web Console
-* Replay recorded sessions using the __tlog__ command
+* Enabling SQL Server auditing
+* Viewing the audit events in the SQL Server audit log file
 
 # Example Usecase:
-An administrator on your team is having difficulty performing a task on a
-machine.  You would like to review what has been done to see the state of
-the machine and task.
+Your compliance officer needs to have session recording across all OS and database
+activity for high privileged users. The session recording can be used to review all 
+the actions carried out at the OS level, while SQL Server's auditing feature can be 
+used to record database actions.
