@@ -24,7 +24,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
+    "uilayout": "terminal",
     "showdashboard": true,
     "dashboard":"cloud.redhat.com"
   },
