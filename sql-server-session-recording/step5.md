@@ -1,32 +1,30 @@
-# Recording a session
+# Reviewing a recorded session in Web Console
 
-Create a shell as the __rhel__ user so that the session can be recorded.
-Recall that the __rhel__ user's password is __redhat__.
+Navigate back over to the *Web Console* tab in your lab environment.
 
-`ssh rhel@localhost`{{execute}}
+If you are not already on the *Session Recording* page, please navigate
+there.
 
-You will notice that when the `ssh` session starts, the __rhel__ user receives
-the notice message configured in the __tlog__ configuration.
+You should now see a recorded session available.
 
-<pre class=file>
-rhel@localhost's password: <b>redhat</b>
+![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session.png)
 
-ATTENTION! Your session is being recorded!
+After selecting the session, you will be taken to a page with an integrated
+player through which you can watch the session.  Press the *Play* button to
+review the session.
 
-[rhel@somehost ~]$
-</pre>
+![Session Recording Playback](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session-playback.png)
 
-Run some commands in the __rhel__ user's session.  
+The session was recorded in real-time, so if you started the `ssh` connection,
+but did not start running commands immediately, you will see that wait time
+reflected in the recorded session as well.  
 
-`ls /tmp`{{execute}}   
-   
-`who`{{execute}}   
-   
-`df -hP`{{execute}}   
-   
-`yum list installed`{{execute}}
+In addition to some standard video player functionality, the buttons on the
+right side of the player will allow you to zoom in and out to get a closer,
+or further away, look at the content.  Also, the search function located at
+the bottom of the player window will search the recorded session for text
+and report time codes at which that string is found.  Those time codes are
+links, which will change the location of the playback in the player.
 
-Now that you have some data in a recorded session, you can log out of the
-user's `ssh` session.  
-`exit`{{execute}}
-
+Below the player is additional metadata about this session as well as the
+log entries for the session.
