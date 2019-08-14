@@ -35,7 +35,7 @@ a06560c57e40
 At any time in the future, you can get information about Insights registration
 by using the `--status` sub-command of insights-client.
 
-`insights-client --status`
+`insights-client --status`{{execute}}
 
 <pre class=file>
 System is registered locally via .registered file. Registered at 2019-08-14T14:12:37.638768
