@@ -1,12 +1,16 @@
 # Working with Transparent Data Encryption in SQL Server
 
+Before we explore Transparent Data Encryption (TDE) in SQL Server, it's important to understand the
+underlying key hierarchy used by SQL Server. Each layer is encrypted by the one above it – the user data is encrypted by the database encryption key (DEK), which is a symmetric key, and the DEK is encrypted by the certificate, whose private key portion is encrypted by the master key, which is encrypted with a user-specified password.
+
+![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/Image-TDE.png)
+
+
 Let's first open up the sqlcmd shell prompt connected to the master database. The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. 
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C`{{execute T1}}
 
 Use master database to setup the master encryption key.
-
-![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/MasterKey.png)
 
 `CREATE MASTER KEY ENCRYPTION BY PASSWORD = '1Password!'`{{execute T1}}
 
@@ -16,8 +20,6 @@ The GO keyword is the default batch terminator in SQL Server, allowing a set of 
 > **NOTE:** It is recommended practice to backup the master key as soon as it is created, and store the backup in a secure, off-site location. To backup the master key, use the *BACKUP MASTER KEY* statement in SQL Server.
 
 Create a certificate in the master database 
-
-![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/Certificate.png)
 
 `CREATE CERTIFICATE MyServerCert WITH SUBJECT = 'My Database Encryption Key Certificate'`{{execute T1}}
 `GO`{{execute T1}}
@@ -33,8 +35,6 @@ Switch to the TestDB database
 `GO`{{execute T1}}
 
 Create database encryption key (DEK) with AES_256 algorithm and encrypted by server certificate. The DEK is designed to actually encrypt and decrypt the data in your data, log and backup files when you use TDE. The DEK is protected with a certificate. This can be a purchased or self-signed certificate, but in either case, the certificate must reside in the master database of the instance hosting the TDE encrypted database such as the certificate created in the previous step.
-
-![Navigate to Image Builder](/rhel-labs/scenarios/sql-server-crypto-policy/assets/DEK.png)
 
 `CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = AES_256 ENCRYPTION BY SERVER CERTIFICATE MyServerCert`{{execute T1}}
 `GO`{{execute T1}}
