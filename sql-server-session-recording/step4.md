@@ -1,32 +1,31 @@
-# Reviewing the configuration
+# Recording a session
 
-Switch back to the Terminal in your lab environment.
+Create a shell as the __rhel__ user so that the session can be recorded.
+Recall that the __rhel__ user's password is __redhat__.
 
-As mentioned on the previous step, the Web Console actions have written a
-small configuration file for sssd, 
-__/etc/sssd/conf.d/sssd-session-recording.conf__  You can review it to verify 
-that the scope has been set to __all__ so that
-all sessions for all users and groups will be recorded.
+`ssh rhel@localhost`{{execute}}
 
-`cat /etc/sssd/conf.d/sssd-session-recording.conf`{{execute}}
+You will notice that when the `ssh` session starts, the __rhel__ user receives
+the notice message configured in the __tlog__ configuration.
 
 <pre class=file>
-[session_recording]
-scope=all
-users=
-groups=
+rhel@localhost's password: <b>redhat</b>
+
+ATTENTION! Your session is being recorded!
+
+[rhel@somehost ~]$
 </pre>
 
-Changes to the other configuration options displayed by Web Console would have 
-stored those changes in __/etc/tlog/tlog-rec-session.conf__.  For example, the
-__notice__ message displayed to users who are having their session recorded.
-You can inspect this file as well, if desired.
+Run some commands in the __rhel__ user's session.  
 
-`cat /etc/tlog/tlog-rec-session.conf`{{execute}}
+`ls /tmp`{{execute}}   
+   
+`who`{{execute}}   
+   
+`df -hP`{{execute}}   
+   
+`yum list installed`{{execute}}
 
-<pre class=file>
-<<OUTPUT ABRIDGED>>
-
-// "notice" : "\nATTENTION! Your session is being recorded!\n\n",
-
-</pre>
+Now that you have some data in a recorded session, you can log out of the
+user's `ssh` session.  
+`exit`{{execute}}
