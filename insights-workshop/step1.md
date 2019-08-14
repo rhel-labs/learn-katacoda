@@ -35,7 +35,7 @@ a06560c57e40
 >_NOTE:_ Your hostname will be different than the one listed in the output above
 
 At any time in the future, you can get information about Insights registration
-by using the `--status` sub-command of insights-client.
+by using the `--status` option to `insights-client`.
 
 `insights-client --status`{{execute}}
 
