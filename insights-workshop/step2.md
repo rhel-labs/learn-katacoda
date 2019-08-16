@@ -1,3 +1,5 @@
+# Logging into Red Hat Insights service   
+
 Open the <a href="https://cloud.redhat.com" target="_blank">cloud.redhat.com</a>
 software as a service web portal.
 
