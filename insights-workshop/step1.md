@@ -1,3 +1,5 @@
+# Registering a machine to the Red Hat Insights service
+
 In most Red Hat Enterprise Linux 8 installations, the insights-client
 software will be installed by default.  However, the minimal package
 set does not include it and other versions of Red Hat Enterprise Linux,
