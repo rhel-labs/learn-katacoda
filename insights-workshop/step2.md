@@ -3,14 +3,14 @@ software as a service web portal.
 
 Click the **Log in to your Red Hat account** button.
 
-![cloud.redhat.com Login](/rhel-labs/insights-workshop/assets/cloud.redhat.com-homepage.png)
+![cloud.redhat.com Login](/insights-workshop/assets/cloud.redhat.com-homepage.png)
 
 Login using the credentials provided by your workshop facilitator.
 
-![Red Hat Login screen](/rhel-labs/insights-workshop/assets/redhat-login.png)
+![Red Hat Login screen](/insights-workshop/assets/redhat-login.png)
 
 Once you are logged in, using the credentials provided by your workshop
 facilitator, navigate to the **Red Hat Insights** application.
 
-![cloud.redhat.com Homepage](/rhel-labs/insights-workshop/assets/cloud.redhat.com-homepage-postlogin.png)
+![cloud.redhat.com Homepage](/insights-workshop/assets/cloud.redhat.com-homepage-postlogin.png)
 
