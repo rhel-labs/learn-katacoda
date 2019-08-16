@@ -6,7 +6,7 @@ registered to your organization.
 ![Insights Homepage](/rhel-labs/scenarios/insights-workshop/assets/insights-homepage.png)
 
 For the purposes of this exercise, you are working with a single machine
-registered to the Insights service.  Click on the **Inventory** link on
+registered to the Insights service.  Click on the _Inventory_ link on
 the left navigation bar.
 
 ![Navigate to Inventory](/rhel-labs/scenarios/insights-workshop/assets/insights-homepage-inventory-highlight.png)
@@ -17,6 +17,6 @@ found your machine hostname with the `hostname` command.
 
 ![View your machine](/rhel-labs/scenarios/insights-workshop/assets/inventory-homepage.png)
 
->_NOTE:_ Your host may not be the first one listed, as depicted in the graphic above.  You may find it necessary to use the **Find system by name** search function at the top of the list of hosts to more quickly find your system.
+>_NOTE:_ Your host may not be the first one listed, as depicted in the graphic above.  You may find it necessary to use the _Find system by name_ search function at the top of the list of hosts to more quickly find your system.
 
 
