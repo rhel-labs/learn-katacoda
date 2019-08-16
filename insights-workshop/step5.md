@@ -12,9 +12,9 @@ First, verify the value for __ClientAliveInterval__:
 ClientAliveInterval 900
 </pre>
 
-Next, you will edit the file to update the value.  `sed` is the stream editor
-utitlity used in this lab, but you could also use another editor to make the
-change.
+Next, you will edit the file to update the __ClientAliveInterval__ value to 300.  
+`sed` is the stream editor utility used in this lab, but you could also use 
+another editor to make the change.
 
 `sed -ie 's/^ClientAliveInterval 900/ClientAliveInterval 300/' /etc/ssh/sshd_config`{{execute}}
 
