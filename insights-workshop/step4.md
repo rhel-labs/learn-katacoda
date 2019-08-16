@@ -1,6 +1,6 @@
 # Reviewing system Insights
 
-After selecting your system from the _Inventory_ page and reviewing some
+After selecting your system from the Inventory page and reviewing some
 overall data about it, click on the _Insights_ tab to view the Red Hat
 Insights data that applies to this host.
 
