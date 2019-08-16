@@ -31,9 +31,16 @@ sshd daemon so that it uses the updated value.
 
 `systemctl restart sshd`{{execute}}
 
-Finally, force a Red Hat Insights checkin so that a new batch of system data
-is uploaded to the Insights service.  Then reload the system page in your
-web browser to verify that the OpenSSH insight is no longer displayed for
-your machine.
+Force a Red Hat Insights checkin so that a new batch of system data
+is uploaded to the Insights service.
 
-`insights-client`{{execute}}
+`insights-client`{{execute}}  
+
+<pre class=file>
+Starting to collect Insights data for a06560c57e40
+Uploading Insights data.
+Successfully uploaded report from a06560c57e40 to account 6227255.
+</pre>
+
+Finally, reload the system page in your web browser to verify that the OpenSSH 
+Insight is no longer displayed for your machine.
