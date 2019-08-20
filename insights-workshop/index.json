@@ -25,7 +25,9 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits" : "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -33,7 +35,7 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
-    "showdashboard": true,
+    "showdashboard": false,
     "dashboard":"cloud.redhat.com"
   },
   "backend": {
