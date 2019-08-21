@@ -1,0 +1,12 @@
+After completing this scenario, users will be able to deploy and control an already defined container image.
+
+#Concepts included in this scenario:
+* List available container images
+* Deploy a container image into an interactive container runtime
+* Deploy a container image into a detached container runtime
+* View deployed containers
+* Stop a container instances
+* Remove deployed container instances
+
+# Example Usecase:
+You have been asked to deploy a container running a web based application onto a server in your environment.  In addition to deploying it, you need to be able to start alternate copies and remove any non-running containers.
