@@ -1,12 +1,12 @@
-After completing this scenario, users will be able to deploy and control an already defined container image.
+このシナリオを実施すると、既存のコンテナイメージをデプロイして制御することができるようになります。
 
-#Concepts included in this scenario:
-* List available container images
-* Deploy a container image into an interactive container runtime
-* Deploy a container image into a detached container runtime
-* View deployed containers
-* Stop a container instances
-* Remove deployed container instances
+#このシナリオで扱うコンセプトは:
+* 利用可能なコンテナイメージの一覧を見る
+* コンテナイメージを対話的にコンテナランタイムへデプロイする
+* コンテナイメージを非対話的にコンテナランタイムへデプロイする
+* デプロイされたコンテナを見る
+* コンテナを停止する
+* デプロイされたコンテナを削除する
 
-# Example Usecase:
-You have been asked to deploy a container running a web based application onto a server in your environment.  In addition to deploying it, you need to be able to start alternate copies and remove any non-running containers.
+# 利用例:
+あなたの環境にWebベースアプリケーションのコンテナをデプロイするように頼まれました。デプロイするだけでなく、別のコピーを実行したり、動いていないコンテナを削除できる必要があります。

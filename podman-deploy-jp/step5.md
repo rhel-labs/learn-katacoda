@@ -1,10 +1,10 @@
-Unlike interactive containers, detached containers are stopped using __podman stop <CONTAINER ID>__.
+対話的なコンテナと異なり、非対話的なコンテナは  __podman stop <CONTAINER ID>__ で停止します。
 
 `podman stop $(podman ps -a | grep Up | cut -d" " -f1)`{{execute T1}}
 
-In the command above, we use a bit of bash scripting to determine the __CONTAINER ID__ as it is going to be a value unique to each container image.
+上のコマンドでは、コンテナに特有の __CONTAINER ID__ を抜きだすbashスクリプトを使っています。
 
-You can verify that the container is now exited:
+コンテナが終了していることを確認しましょう:
 
 `podman ps -a`{{execute T1}}
 
@@ -13,4 +13,4 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 2b2571efec6f  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  9 minutes ago  Exited (0) 50 seconds ago  127.0.0.1:8081->80/tcp  priceless_mahavira
 </pre>
 
-Also, if you access the __Container Service__ tab in the lab interface, it will now report unable to connect; as the container offering the Apache web server is no longer available.
+コンテナが提供していたApache webサーバが既に存在しませんので、__Container Service__ タブを見ると、接続できない旨が表示されます。
