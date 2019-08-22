@@ -1,8 +1,8 @@
-Switch back to *Terminal 1*.  Exit the container's shell
+*Terminal 1*に戻り、コンテナのシェルを終了します。
 
 `exit`{{execute T1}}
 
-When the process on an interactive container is closed, the container stops running.  You can verify this by looking at the list of container processes:
+対話的なコンテナのプロセスが終了すると、コンテナは実行を停止します。コンテナの一覧を見ることで確認できます:
 
 `podman ps -a`{{execute T1}}
 
@@ -11,10 +11,10 @@ CONTAINER ID  IMAGE                         COMMAND    CREATED      STATUS      
 df54b664f133  localhost/rhel8-httpd:latest  /bin/bash  2 hours ago  Exited (0) 5 seconds ago         heuristic_cray
 </pre>
 
-Notice the __STATUS__ field is now reported as Exited.
+__STATUS__ の欄が Exited となっていることがわかります。
 
-A container in this state can be resumed, however, this one will no longer be used.  You will remove it from the system. using __podman rm <CONTAINER ID>__.  In the command below, we use a bit of bash scripting to determine the CONTAINER ID as it is unique to each container image.
+この状態のコンテナをレジュームすることもできますが、今回はもう使いません。システムから削除してしまいましょう。 __podman rm <CONTAINER ID>__ とします。以下のコマンドでは、各コンテナイメージに特有の CONTAINER ID を抜きだすbashスクリプトを使っています。
 
 `podman rm $(podman ps -a | grep Exited | cut -d" " -f1)`{{execute T1}}
 
-The output of this removal is the full CONTAINER ID which was removed from the system.
+この削除操作の出力は、システムから削除されたコンテナの CONTAINER ID です。

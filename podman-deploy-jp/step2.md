@@ -1,14 +1,16 @@
-The __rhel8-httpd__ container includes a bash shell.  In this step, you will
-deploy the container in an interactive fashion, which will allow you to run commands within the deployed container. Use the *Terminal 1*.
+__rhel8-httpd__ コンテナはbashシェルを含んでいます。
+このステップではコンテナを対話的にデプロイします。この方法ではデプロイされたコンテナの中でコマンドを実行できます。
+*Terminal 1* を使いましょう。
 
 `podman run -it rhel8-httpd /bin/bash`{{execute T1}}
 
-You should now be looking at a generic bash shell prompt:
+普通のbashプロンプトがあらわれます:
 <pre class="file">
 bash-4.4#
 </pre>
 
-In *Terminal 1*, the displayed shell is running inside the container image, not the host operating system.  To confirm this, take a look at the mounted filesystems:
+*Terminal 1*で表示されているシェルは、ホストオペレーティングシステムではなく、コンテナの中で実行されています。
+これを確認するため、マウントされているファイルシステムを見てみましょう:
 
 `df -hP`{{execute T1}}
 
@@ -24,9 +26,9 @@ tmpfs           915M     0  915M   0% /proc/scsi
 tmpfs           915M     0  915M   0% /sys/firmware
 </pre>
 
-You will notice that all of the filesystem contents are either memory-based (tmpfs, shm) or the overlay file associated with this runtime of the container image (overlay).
+全てのファイルシステムがメモリベース(tmpfs, shm)か、コンテナイメージをもとにこのコンテナ用に作られたオーバレイ(overlay)であることがわかります。
 
-Switch to *Terminal 2*.  *Terminal 2* is running on the host system.  Use this shell to verify that the container is running:
+*Terminal 2*に切りかえましょう。*Terminal 2*はホストシステムで動いています。このシェルで実行中のコンテナを確認します:
 
 `podman ps -a`{{execute T2}}
 <pre class="file">
@@ -34,4 +36,4 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 df54b664f133  localhost/rhel8-httpd:latest  /bin/bash             34 seconds ago  Up 33 seconds ago                                 heuristic_cray
 </pre>
 
-__Note:__ Your CONTAINER ID and NAMES will be different than the output displayed above as each container is assigned a unique ID and Name.
+__Note:__ CONTAINER ID と NAMES はそれぞれユニークなものが付与されるので、実際の出力とは異なります。
