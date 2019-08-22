@@ -1,6 +1,6 @@
 {
   "title": "Deploying Containers with Container Tools [JP]",
-  "description": "Goal: After completing this scenario, users will be able to deploy an existing container image using the utilities included in the Red Hat Enterprise Linux Container Tools.",
+  "description": "Goal: このシナリオでRed Hat Enterprise Linuxのコンテナツールで既存のコンテナイメージをデプロイできるようになります。",
   "details": {
     "steps": [
       {
@@ -26,7 +26,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)__Traslated by:__ Kazuo Moriawaka, (title) (Red Hat)"
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)__Traslated by:__ Kazuo Moriawaka, Solution Architect (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
