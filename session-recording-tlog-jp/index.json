@@ -1,0 +1,55 @@
+{
+  "title": "Configuring Terminal Session Recording",
+  "description": "Goal: After completing this scenario, users will be able to enable Terminal Session Recording and review recorded sessions.",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step6.md"
+      },
+      {
+        "title": "Step 7",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal-iframe",
+    "showdashboard": true,
+    "dashboard":"Web Console"
+  },
+  "backend": {
+    "imageid": "rhel8",
+    "port": 9090
+  }
+
+}
