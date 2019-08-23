@@ -1,11 +1,11 @@
-# Examine available updates
+# 利用可能なアップデートを確認する
 
-You can see on the **Software Updates** application that there are several updates available for your system.
+**ソフトウェア更新**アプリケーションでは、いくつかのアップデートが利用可能であることがわかります。
 
 ![Available Software Updates](/smcbrien/scenarios/webconsole-software/assets/Available-Updates.png)
 
-In addition to the software package names and versions, the update type is indicated in the **Severity** field.  In the **Details** section, you see the first entry in the software's changelog. 
+パッケージ名とバージョンに加えて、アップデートのタイプが **重大度** 欄に示されています。**詳細** 欄で、ソフトウェアの変更履歴の冒頭部分を読むことができます。
 
-If you mouse-over and toggle-open the listing of an update, you'll be able to inspect additional information such as complete changelog entries from the package developer, Common Vulnerability and Exposures (CVE) number [if applicable], and more. 
+アップデート一覧の上でマウスをクリックすることで、完全な変更履歴や、(もしあれば)Common Vulnerability and Exposures (CVE)番号などの追加の情報を見ることができます。
 
-Once you have explored the information provided with the updates, please move to the next step.
+更新の情報を見てまわったら、次のステップに進みましょう。

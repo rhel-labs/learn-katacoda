@@ -1,9 +1,9 @@
-# Log in to the Web Console
+# Web Consoleにログインする
 
-Click on the tab titled **Web Console** at the top of  your lab system interface.
-Selecting this tab will open the lab system's Web Console.
+ラボインタフェース上部にある**Web Console**タブをクリックします。
+このタブを選択するとラボシステムのWeb Consoleのタブが開きます。
 
-Once the login page is presented, use the following credentials to log into the Web Console:
+ログインページが表示されたら、以下の認証情報でWeb Consoleにログインします:
 
 Username: **rhel**   
 Password: **redhat**
