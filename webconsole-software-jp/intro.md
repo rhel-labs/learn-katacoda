@@ -1,8 +1,7 @@
 # Goal:
-After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux 8 systems.
+このシナリオでRed Hat Enterprise Linux 8システムにアップデートを適用できるようになります。
 
-# Concepts included in this scenario:
-* Authenticating to the **Web Console**
-* Inspect available updates using the **Software Updates** application
-* Apply software updates using the **Software Updates** application
-
+# このシナリオで扱うコンセプトは:
+* **Web Console** に認証する
+* **ソフトウェア更新** アプリケーションを使って利用可能なアップデートを参照する
+* **ソフトウェア更新** アプリケーションを使ってアップデートを適用する

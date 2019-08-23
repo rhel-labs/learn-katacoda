@@ -1,12 +1,12 @@
-# Apply remaining available updates
+# 残りの利用可能なアップデートを適用する
 
-In addition to targeting security updates, you may also apply all the updates on the system.  
+セキュリティの更新に加えて、全てのアップデートをシステムに適用することができます。
 
-When you are ready, apply the available updates by clicking the __Install All Updates__ button.
+__すべてのアップデートをインストール__ ボタンをクリックして利用可能なアップデートを適用します。
 
 ![Apply All Software Updates](/smcbrien/scenarios/webconsole-software/assets/Apply-All-Updates.png)
 
-Again you are asked to restart the system, this time, you can, if you choose to do so.
+ふたたびシステムの再起動を求められます。今回は作業が終わっていますので、実施します。
 
-Now your system reports that it is up to date!
+システムが最新の状態になりました!
 ![Apply All Software Updates](/smcbrien/scenarios/webconsole-software/assets/Up-to-date.png)

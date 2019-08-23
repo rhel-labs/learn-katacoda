@@ -1,14 +1,12 @@
-# Apply security updates
-Notice that there are a mix of updates available for the system.  Some of these
-are identified as __Security Updates__ by the shield icon in the __Severity__ field.
+# セキュリティアップデートを適用する
+システムには色々なアップデートが適用できます。一部のものには重大度欄で盾のアイコンがあり __セキュリティの修正__ であることを示しています。
 
-Also, you will notice that there is a button in the upper left corner entitled
-__Install Security Updates__.
+そして、上に __セキュリティアップデートのインストール__ というボタンがあります。
 
-Use the __Install Security Updates__ button to apply this set of updates.
+__セキュリティアップデートのインストール__ ボタンを使ってセキュリティの修正を適用します。
 
 ![Apply Software Updates](/smcbrien/scenarios/webconsole-software/assets/Apply-Security-Updates.png)
 
-After the security updates are applied, you are prompted to restart the system so that the updates take effect.  We are not yet finished applying updates, so, for now, please __Ignore__ the restart request.
+セキュリティの修正が適用されたあと、アップデートが反映されるようシステムを再起動するよう表示されます。まだアップデートの適用は終わっていないので、再起動の表示は __無視してください__。
 
 ![Ignore Restart Request](/smcbrien/scenarios/webconsole-software/assets/Restart-request.png)
