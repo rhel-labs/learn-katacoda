@@ -1,25 +1,5 @@
 # Registering a machine to the Red Hat Insights service
 
-First, register your system with Red Hat Subscription Manager.  When
-prompted, use the following credentials:
-
-Username: **Provided by workshop facilitator**
-Password: **Redhat1!**
-
-`subscription-manager register`{{execute}}
-
-<pre class=file>
-Registering to: subscription.rhsm.redhat.com:443/subscription
-Username: **<Provided by workshop facilitator>** 
-Password: **RedHat1!**
-The system has been registered with ID: ab3c439f-4957-4be5-a1c0-7c90f1ba3aa2
-The registered system name is: 7e34ba28d1fd
-</pre>
-
-Red Hat Subscription Manager is what tracks and manages subscription
-usage.  It also manages software repositories made available to the
-system.   
-
 In most Red Hat Enterprise Linux 8 installations, the insights-client
 software will be installed by default.  However, the minimal package
 set does not include installing the insights-client package and other 
