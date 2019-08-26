@@ -1,3 +1,2 @@
 #!/bin/bash
 
-subscription-manager unregister
