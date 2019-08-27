@@ -1,14 +1,12 @@
 # Goal:
-After completing this scenario, users will be able to use, modify, and
-troubleshoot changes to Red Hat Enterprise Linux's system-wide cryptographic
-policy.  The scenario uses the Apache web server as the example application.
+このシナリオを実施することで暗号化ポリシーの確認、把握、変更ができるようになります。
+Apache web serverをアプリケーション例として利用します。
 
-# Concepts included in this scenario:
-* Verify the current system-wide cryptographic policy setting
-* Change the current cryptographic policy setting
-* Troubleshoot applications after a cryptographic policy update
-* Modify application settings to comply with stronger cryptograpic policies
+# このシナリオで扱うコンセプトは:
+* 現在のシステム全体の暗号化ポリシーを確認する
+* 現在のシステム全体の暗号化ポリシーを変更する
+* 暗号化ポリシーを変更したあと、アプリケーションで発生するトラブルの確認
+* アプリケーションの設定を強力な暗号化ポリシーに準拠させるよう変更する
 
-# Example Use case:
-Your security team requires using stronger cryptography algorithms with
-applications and is no longer allowing weaker algorithms, such as SHA-1.
+# 利用例:
+セキュリティチームが強力な暗号化アルゴリズムをアプリケーションで利用するように指示し、SHA-1のような弱いアルゴリズムを禁止する必要がある。

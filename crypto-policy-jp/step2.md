@@ -1,39 +1,25 @@
-# Set system-wide cryptographic policy to FUTURE
+# システム全体の暗号化ポリシーを FUTURE に設定する
 
-The Chief Security Officer sends out the following e-mail:
+ある日、CSO (Chief Security Officer)が以下のメールを遅ります:
 <pre class="file">
-Application and Infrastructure Administrators,
+アプリケーションおよびインフラストラクチャ管理者各位、
 
-I recently returned from an industry security conference, and at that
-conference, I learned of some recommended security industry practices
-that our Applications and services should be using.  Specifically, we
-should disable some less-secure encryption algorithms and enforce some
-minimum strength used by others.
+先日参加したセキュリティカンファレンスで、アプリケーションとサービスに適用されるセキュリティ業界の推奨を学びました。具体的には、安全性の低い暗号化アルゴリズムを無効にし、他の暗号化アルゴリズムについて最小強度を強制する必要があります。
 
-Those of you that have applications and services that utilize asymmetric
-encryption through RSA based certificates, your certificates should use
-at least a 3072 bit public key for their cipher.
+RSAベースの証明書を介して非対称暗号化を利用するアプリケーションおよびサービスでは、証明書に少なくとも3072ビットの公開鍵を使用する必要があります。
 
-TLS connections should only be offered to clients using TLS version 1.2 
-or higher.  TLS 1.0 and 1.1 should no longer be used for encrypted
-connection to services or applications.
+TLS接続は、TLSバージョン1.2以降のみを提供します。 TLS 1.0および1.1は、サービスまたはアプリケーションへの暗号化された接続には使用すべきではありません。
 
-Application and services should now be configured to not use SHA1 for
-digital signatures.
+アプリケーションとサービスは、デジタル署名にSHA1を使用しないよう設定する必要があります。
 
-These changes will allow client data to transit the internet in a more
-secure fashion.
+これらの変更によりクライアントのデータをインターネット経由で転送する場合より安全になります。
 
 -CSO
 </pre>
 
-As it happens, all of these requirements can be configured and enforced using
-system-wide cryptographic policies that come with Red Hat Enterprise Linux.
-In order to comply with the new organization policy, you will update the 
-system to use the **FUTURE** cryptographic policy.  Changing to the **FUTURE** 
-policy will configure the cryptography libraries and services used on the
-machine or by applications running on the machine such that they comply with
-the requirements set forth by the Chief Security Officer above.   
+これらの要件は Red Hat Enterprise Linux のシステム全体の暗号化ポリシーで設定できます。
+新しい組織のポリシーに従うには、システムで **FUTURE** 暗号化ポリシーを利用するよう更新します。
+**FUTURE** へ変更することで、システムで利用する暗号化ライブラリ、サービス、およびアプリケーションを上のメールで CSO が指定した要件に適合させます。
 
 `update-crypto-policies --set FUTURE`{{execute T1}}
 
@@ -44,12 +30,9 @@ It is recommended to restart the system for the change to policies
 to fully take place.
 </pre>
 
-The change will no longer permit some encryption algorithms to be used on the 
-machine, SHA1 for digital signatures.  Additionally, RSA based certificates
-require a public key of at least 3072 bits.  The machine will also now only
-offer TLS connections at TLS 1.2 or higher.   
+この変更により、デジタル署名へのSHA1の利用など、いくつかの暗号化アルゴリズムは許可されなくなります。さらにRSAベースの証明書は3072 bit以上の公開鍵を必要とします。このシステムはTLS接続について、TLS 1.2以上のみを受けつけます。
 
-You can now verify that the new policy, FUTURE, has been applied to the system.    
+以下のコマンドで新しいポリシーの FUTURE が適用されていることを確認できます。
 
 `update-crypto-policies --show`{{execute T1}}
 
@@ -57,7 +40,6 @@ You can now verify that the new policy, FUTURE, has been applied to the system.
 FUTURE
 </pre>
 
-If you are interested in more details about the cryptographic policies that
-ship with Red Hat Enterprise Linux 8:    
+Red Hat Enterprise Linux 8 で出荷されている暗号化ポリシーについてより詳細を知りたい場合は:
 
 `man crypto-policies`{{execute T1}}

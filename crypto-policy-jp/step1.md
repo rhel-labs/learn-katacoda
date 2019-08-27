@@ -1,7 +1,7 @@
-# Validate the Environment 
-Using the provided system terminal session, validate the initial environment.   
+# 環境を確認する
+このターミナルセッションで、初期の環境を確認します。
 
-First, verify the current system-wide cryptographic policy.   
+まず、現在のシステム全体の暗号化ポリシーを確認しましょう。
 
 `update-crypto-policies --show`{{execute T1}}
 
@@ -9,17 +9,11 @@ First, verify the current system-wide cryptographic policy.
 DEFAULT
 </pre>
 
-The default configuration on Red Hat Enterprise Linux for the system-wide
-cryptographic policy (sometimes referred to as "crypto policy") is a
-policy named `DEFAULT`.   
+Red Hat Enterprise Linuxのデフォルトのシステム全体の暗号化ポリシー(cryptographic policyまたはcrypto policy)は `DEFAULT` です。
 
-Secure Socket Layer (SSL) is one of the cryptography methods managed by
-the system-wide cryptography policy.  Throughout the exercise, you will
-work with Apache as it is a service that utilizes SSL.  Hence, changes
-to how SSL is managed will potentially impact those services that utilize
-those cryptography frameworks.
+Secure Socket Layer (SSL)は暗号化ポリシーで管理される暗号化手法のひとつです。この演習では、ApacheがSSLを利用してサービスを行います。SSL をどう管理するかが変更されると、その暗号化フレームワークを利用するサービスに影響する可能性があります。
 
-Verify that Apache is running on the machine.
+マシンでApacheが動作していることを確認しましょう。
 
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
@@ -31,12 +25,9 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 << OUTPUT ABRIDGED >>
 </pre>
 
-Verify that the Active status is __active (running)__.   
+現在の状態が __active (running)__ であることを確認します。
 
-By default, Apache stores the automatically created, SSL self-signed
-certificate at /etc/pki/tls/certs/localhost.crt. Verify the length of the 
-RSA public key used by the automatically created, self-signed SSL certificate 
-file.    
+デフォルトでは、Apacheは /etc/pki/tls/certs/localhost.crt に自動的に生成される自己署名証明書を利用します。この証明書ファイルで使われているRSA公開鍵の長さを確認しましょう。
 
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
@@ -44,12 +35,9 @@ file.
                 RSA Public-Key: (2048 bit)
 </pre>
 
-By default, Apache uses a certificate with a 2048 bit public key.   
+デフォルトでは、Apacheは2048 bitの公開鍵を利用した証明書を使っていることがわかります。
 
-Use `openssl` to connect to Apache on the https port (443).  As part of this 
-connection, openssl will receive a copy of the certificate to encrypt the 
-connection with the service.  You will verify that a client web browser is 
-utilizing the 2048 bit Public-Key certificate viewed above.   
+`openssl` を使ってApacheのhttpsポート(443)に接続してみましょう。この接続をする中で、opensslはサービスとの通信を暗号化するために証明書のコピーを受けとります。上で見た2048 bitの公開鍵を使う証明書がクライアント(webブラウザなど)でも使われることを確認できます。
 
 `openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
@@ -57,6 +45,4 @@ utilizing the 2048 bit Public-Key certificate viewed above.
 Server public key is 2048 bit
 </pre>
 
-Client browsers are provided the 2048 bit key and SSL certificate by the 
-Apache service to encrypt their connection.   
-
+クライアントは 2048 bitの公開鍵と証明書をApacheサービスから受けとり、暗号化に利用します。
