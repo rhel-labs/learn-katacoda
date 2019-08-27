@@ -1,11 +1,8 @@
-# Reconcile service issues
+# サービスの問題に対応する
 
-You will need to restart the Apache service after changing the system-wide
-crypto policy so that it runs under the new policy.   
+システム全体の暗号化ポリシーを変更したあと、新しいポリシーを適用するためにApacheサーバを再起動する必要があります。
 
-> **NOTE:** Red Hat recommends rebooting the system for all services to be
-initialized with the new cryptographic policy, however, for this exercise you
-will be individually working with the Apache web service.
+> **NOTE:** Red Hat は新しい暗号化ポリシーを適用したあとのシステム全体の再起動を推奨しますが、この演習ではApache webサーバを個別に再起動します。
 
 `systemctl restart httpd.service`{{execute T1}}
 
@@ -14,10 +11,8 @@ Job for httpd.service failed because the control process exited with error code.
 See "systemctl status httpd.service" and "journalctl -xe" for details.
 </pre>
 
-The Apache service fails to restart.  You can see a more specific error 
-message in the SSL error log for Apache.  You will further diagnose this
-using the error messages from the command below and reconcile this in 
-additional steps in the exercise.
+Apacheの再起動に失敗しました。より具体的にはApacheのSSL errorログにエラーメッセージが出力されています。
+以下のコマンドでエラーメッセージを確認し、このあとのステップで対処していきます。
 
 `tail -2 /var/log/httpd/ssl_error_log`{{execute T1}}
 
@@ -26,14 +21,8 @@ additional steps in the exercise.
 [Tue Jul 16 15:13:25.580860 2019 ] [ssl:emerg] [pid 8869:tid 140233336588544] SSL Library Error: error: 140AB18F: SSL routines: SSL_CTX_use_certificate:ee key too small
 </pre>
 
-> **NOTE:** Your log date, time, process ID, or other metadata may be different.  The important part is the message at the end of the entries.
+> **NOTE:** ログの日付、時刻、プロセスIDやその他のメタデータは異なるoとがあります。重要なのは後部にあるメッセージです。
 
-From the log data, the error causing Apache to not start is caused by the
-/etc/pki/tls/certs/localhost.crt file.  Recall from the first step, Validate 
-the Environment, that this file contained an RSA certificate that used a 2048 
-bit public key.  However, due to the new FUTURE policy, RSA certificates now
-require a public key of at least 3072 bits.
+このログデータから、Apacheが起動しない原因となるエラーは /etc/pki/tls/certs/localhost.crt ファイルにより起きていることがわかります。最初に環境を確認したステップを思いだすと、このファイルには 2048 bitの公開鍵を使った証明書が含まれていました。しかし現在は FUTURE ポリシーを適用しているので、証明書には 3072 bit 以上のRSA公開鍵が必要です。
 
-The FUTURE system-wide crypto policy is stopping Apache from starting because
-running with the existing certificate, and public key, would violate the policy
-settings.  In the next steps, you will resolve this issue.
+システム全体の暗号化ポリシー FUTURE に対して、既存の証明書が利用する公開鍵の長さがポリシーに違反しているため、Apacheの起動に失敗しています。次のステップでは、この問題を解決します。

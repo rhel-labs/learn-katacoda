@@ -1,12 +1,11 @@
-# Start Apache service with updated certificate
+# 更新された証明書でApacheサービスを起動する
 
-Start the Apache service now that the certificates used comply with the
-system-wide crypto policy.  Now that the service complies with the policy,
-it should start without further issue.
+システム全体の暗号化ポリシーに準拠した証明書を使って、Apacheサービスを起動しましょう。
+サービスはポリシーに従っているので今度は問題なく起動するはずです。
 
 `systemctl restart httpd.service`{{execute T1}}
 
-You can verify the Apache service is now running again.   
+Apacheサービスが起動していることを確認できます。
 
 `systemctl status httpd.service --no-pager`{{execute T1}}
 
@@ -18,9 +17,8 @@ Active: active (running) since Wed 2019-07-17 09:54:40 EDT; 2s ago
 << OUTPUT ABRIDGED >>
 </pre>
 
-Now that the service is running and certificates used comply with the FUTURE
-system-wide cryptographic policy, connect to the Apache service and validate 
-that the new certificate is being offered to client browsers.   
+サービスが実行中(running)で、証明書が FUTURE 暗号化ポリシーに準拠していることがわかります。
+Apacheサービスに接続して、クライアントブラウザに示される証明書を確認しましょう。
 
 `openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 

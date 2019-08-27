@@ -1,6 +1,6 @@
 {
   "title": "Configuring Red Hat Enterprise Linux System-Wide Crypto Policy [JP]",
-  "description": "Goal: After completing this scenario, users will be able to check, look through, and modify crypto policies.",
+  "description": "Goal: このシナリオを実施することで暗号化ポリシーの確認、把握、変更ができるようになります。",
   "details": {
     "steps": [
       {
