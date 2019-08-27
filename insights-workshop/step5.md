@@ -41,6 +41,3 @@ Starting to collect Insights data for a06560c57e40
 Uploading Insights data.
 Successfully uploaded report from a06560c57e40 to account 6227255.
 </pre>
-
-Finally, reload the system page in your web browser to verify that the OpenSSH 
-Insight is no longer displayed for your machine.
