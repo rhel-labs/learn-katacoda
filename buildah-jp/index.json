@@ -1,6 +1,6 @@
 {
   "title": "Creating images with the container tools [JP]",
-  "description": "Goal: After completing this scenario, users will be able to build containers from scratch or base images.",
+  "description": "Goal: このシナリオでコンテナイメージをスクラッチまたはベースイメージから作成できるようになります。",
   "difficulty": "beginner",
   "time": "5-10 minutes",
   "details": {

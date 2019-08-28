@@ -1,8 +1,8 @@
-# Launching and inspecting the application container
+# アプリケーションコンテナの立ちあげと情報取得
 
-More information on managing containers with `podman` can be found in the ["Deploying containers with container tools"](https://lab.redhat.com/podman-deploy) scenario.
+`podman` でコンテナを管理する方法については ["Deploying containers with container tools (JP)"](https://lab.redhat.com/podman-deplo-jp) シナリオもご覧ください。
 
-Inspect the images available on the host using `podman images`
+`podman images` でイメージの情報を取得します。
 
 `podman images`{{execute T1}}
 
@@ -13,9 +13,9 @@ localhost/el-httpd1                        latest   b04fe2c73b03   6 minutes ago
 registry.access.redhat.com/ubi8-init       latest   8c376a94293d   2 weeks ago          231 MB
 </pre>
 
-Note the name matches what was set using `buildah commit`.
+名前が `buildah commit` で指定したものと同じことがわかります。
 
-`Podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.  
+`podman` と `buildah` はホスト上で同じストレージを利用しているので、構築したイメージはすぐに `podman` から実行できます。
 
 `podman run -d -p 80:80 el-httpd2`{{execute T1}}
 
@@ -23,7 +23,7 @@ Note the name matches what was set using `buildah commit`.
 561019c2a69fd3826bcaf4a62240ba2b5edd542e664bd2fee0381da746d58d95
 </pre>
 
-Check the status of the application container using `podman`.  
+`podman` でアプリケーションコンテナの状態を見てみましょう。
 
 `podman ps`{{execute T1}}
 
@@ -32,9 +32,9 @@ CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS    
 561019c2a69f  localhost/el-httpd2:latest  /sbin/init  13 seconds ago  Up 13 seconds ago  0.0.0.0:80->80/tcp  suspicious_sammet
 </pre>
 
-Note the ports and command match the metadata set using `buildah config`.  
+ポートとコマンドが `buildah config` で指定したメタデータに一致していることがわかります。
 
-Inspect the image metadata for the application container using `buildah inspect`.
+アプリケーションコンテナのイメージのメタデータは、 `buildah inspect` で参照できます。
 
 `buildah inspect localhost/el-httpd2`{{execute T1}}
 
@@ -47,8 +47,8 @@ Inspect the image metadata for the application container using `buildah inspect`
         },
 </pre>
 
-Look for the `rootfs` section in the JSON output. You will see the single layer created by the `buildah commit` subcommand.
+JSON出力の `rootfs` セクションを見ます。`buildah commit` サブコマンドで作成された1レイヤだけが存在します。
 
-Click on the ***Container httpd*** tab to see the index.html deployed into the application container.  
+***Container httpd*** タブをクリックして、アプリケーションコンテナにデプロイされた index.html を見てみましょう。
 
->_NOTE:_ You may need to hit the *refresh* icon to see the new page.
+>_NOTE:_ 新しいページを見る前に *refresh* アイコンを押す必要があるかもしれません

@@ -1,14 +1,14 @@
-# Creating an application image from an existing base
+# 既存のベースイメージからアプリケーションイメージを作成する
 
-**Buildah** has two main ways to create images:
-* Using subcommands to modify contents
-* Using host tools to modify a container filesystem
+**buildah** でイメージを作成するには2つの方法があります:
+* サブコマンドを利用して内容を変更する
+* ホストツールを利用してコンテナのファイルシステムを変更する
 
-First, we'll look at using subcommands to modify the container contents before saving an image.  Many **buildah** subcommands act like directives from an OCIfile.  This allows for a familiar experience while automating builds.
+まず、サブコマンドを使ってコンテナの中身を(保存せず)変更していく方法を見ましょう。多くの **buildah** サブコマンドは OCIFileの命令と同様に動作します。このため自動化する時にも簡単です。
 
-The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
+Red Hat Enterprise Linux のパッケージを利用したコンテナを作る開始点として、Red Hat Universal Base Image 8 が提供されています。UBIについて詳しくは[紹介blog記事](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)を参照ください。
 
-To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
+アプリケーションイメージを `ubi-init` ベースイメージから作るため、`buildah`で作業用コンテナをを作ります。作業用コンテナはbuildahコマンドの対象となる一時的なコンテナです。
 
 `buildah from registry.access.redhat.com/ubi8/ubi-init`{{execute T1}}
 
@@ -16,6 +16,6 @@ To build an application container from the `ubi-init` base image, we will create
 ubi-init-working-container
 </pre>
 
-This subcommand acts like the FROM directive in an OCIFile and makes the source image available on the host.
+このサブコマンドは OCIFile の FROM命令と同じように動作し、ソースイメージをホストで利用できるようにします。
 
-Buildah will append `-working-container` to the image name used.  If that name already exists, a number will also be appended.
+buildahは作業用コンテナの名前として、イメージの名前のあとに `-working-container` をついけたものを利用します。もし同じ名前のコンテナが既にあれば、名前に数字を追加します。
