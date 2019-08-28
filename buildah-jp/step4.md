@@ -1,8 +1,8 @@
-# Creating an application image from scratch
+# スクラッチからアプリケーションイメージを作成する
 
-Starting from an existing base container isn't the only option available to `buildah`.  `Buildah` can create a minimal container image that contains metadata and a filesystem stub.   
+`buildah` では既存のイメージから始める以外の方法もあります。`buildah`は、メタデータと空のファイルシステムを持つ最小限のイメージを作ることができます。
 
-To create this style of image use the `scratch` special target for `buildah from`.
+このスタイルのイメージを作るには `buildah from` に  `scratch` という特別なターゲットを指定します。
 
 `buildah from scratch`{{execute T1}}
 
@@ -10,11 +10,11 @@ To create this style of image use the `scratch` special target for `buildah from
 working-container
 </pre>
 
-Since there's no starting image, the working container will be called `working-container`.
+もととなるイメージがないため、作業用コンテナは `working-container` という名前になります。
 
-We can start working with the scratch container using tools on the host by mounting the container filesystem on the host using `buildah mount`.
+スクラッチコンテナに対してホストのツールを使って作業をするため、コンテナのファイルシステムを `buildah mount` でマウントすることができます。
 
-> _NOTE:_ We capture the output of the `buildah` command in the variable *scratchmnt* to make it easier to work with the filesystem path in these exercises.
+> _NOTE:_ このあとの作業を簡単にするため、 `buildah` コマンドの出力を *scratchmnt* 変数に保存します。
 
 `scratchmnt=$(buildah mount working-container)`{{execute T1}}
 
@@ -24,7 +24,7 @@ We can start working with the scratch container using tools on the host by mount
 /var/lib/containers/storage/overlay/5199b9cbf441fe93e3629f9d6336fd7008858b9b6e23629a724ccc2f567f3feb/merged
 </pre>
 
-Right now, that directory is empty.
+ディレクトリは現在、空の状態です。
 
 `ls -l ${scratchmnt}`{{execute T1}}
 

@@ -1,12 +1,13 @@
-After completing this scenario, users will be able to build images from scratch or existing base images using **buildah** and other host based tools.
+このシナリオでコンテナイメージをスクラッチまたはベースイメージから **buildah** などのツールを使って作成できるようになります。
 
-# Concepts included in this scenario:
-* Initializing a working container for image building
-* Using buildah commands to modify a working container
-* Modfiying a working container with standard system tools
-* Creating an application image from a working container
+# このシナリオで扱うコンセプトは:
 
-# Example Usecase:
-Using *podman* with OCIFile or Dockerfile input is a common way to build containers from base images. However, this   Building containers with **buildah** provides better control over layer creation and image contents.
+* イメージ作成用の作業用コンテナを初期化する
+* buildahコマンドを使って作業用コンテナの内容を変更する
+* 標準的なシステムツールで作業用コンテナの内容を変更する
+* 作業用コンテナからアプリケーションイメージを作成する
 
-> _NOTE:_ Throughout these steps there are UUIDs in output blocks that may not match your output exactly.
+# 利用例
+ベースイメージからコンテナイメージを作成する典型的な方法は*podman*にOCIFileまたはDockerfileを入力として渡すことですが、 **buildah** による手法でレイヤ作成やイメージの内容をより細かく制御できます。
+
+> _NOTE:_ 出力例のUUIDはラボでの出力と完全に一致しない場合があります

@@ -1,8 +1,8 @@
-# Creating an application image from scratch
+# アプリケーションイメージをスクラッチから作成する
 
-In order to install `httpd` in the scratch container, use `yum` on the host with the `installroot` option targeting the mount point of the container's filesystem.  
+`httpd`をスクラッチコンテナに導入するには、ホストの `yum` に `installroot` オプションをつけてコンテナファイルシステムのマウントポイントを指定します。
 
-> _NOTE:_ Setting the `releasever` and `module_platform_id` are required as this will be operating in a chroot environment where `yum` config files are not available.
+> _NOTE:_ `releasever` と `module_platform_id` は、chroot環境には `yum`の設定ファイルが存在しないため必要です。
 
 `yum install --installroot ${scratchmnt} httpd --releasever 8 --setopt=module_platform_id="platform:el8" -y`{{execute T1}}
 
@@ -27,9 +27,9 @@ Installing:
 Complete!
 </pre>
 
-Many more packages required than using the base image, but we have `httpd` and `systemd` but not other tools like `yum`.  
+ベースイメージを使う場合より多くのパッケージが必要になりますが、`httpd`と`systemd`以外の `yum`などは含まれません。
 
-To enable `httpd` to start when the container is run using systemd, we can use the container mount point like a normal `chroot`.
+コンテナ実行時にsystemdを使って`httpd`を起動するためenableします。コンテナのマウントポイントに対して`chroot`を使い、以下のようにします。
 
 `chroot ${scratchmnt} systemctl enable httpd`{{execute T1}}
 
@@ -37,11 +37,11 @@ To enable `httpd` to start when the container is run using systemd, we can use t
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 </pre>
 
-Deploying web content to the container image can be done using a `cp` command on the host to the working container mount point.
+コンテナイメージにコンテンツをデプロイするには、ホストの`cp`コマンドで作業用コンテナのマウントポイントへコピーします。
 
 `cp index2.html ${scratchmnt}/var/www/html/index.html`{{execute T1}}
 
-After installing packages and adding the index file, unmount the filesystem with the `buildah unmount` subcommand.
+パッケージをインストールし、indexファイルを追加したら、ファイルシステムを `buildah unmount` サブコマンドでアンマウントします。
 
 `buildah unmount working-container`{{execute T1}}
 
@@ -49,15 +49,15 @@ After installing packages and adding the index file, unmount the filesystem with
 b0ace0c1867f080c790357dd0c606c6919c163c308065c2323d3ddc148740eb1
 </pre>
 
-To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.  
+Webサーバのポートを外に見せ、コンテナの実行時にsystemdを起動するよう、`buildah config` サブコマンドでメタデータを変更します。
 
 `buildah config --port 80 --cmd "/usr/sbin/init" working-container`{{execute T1}}
 
-These options to `buildah config` are equivalent to the EXPOSE and CMD directives in an OCIFile.
+これらの `buildah config` のオプションは、OCIFileの EXPOSE と CMD 命令に対応します。
 
-> _NOTE:_  As we're using systemd to start the service, use the `--cmd` option not `--entrypoint`.
+> _NOTE:_  systemdをサービスの起動に使っているので、`--entrypoint` ではなく `--cmd` オプションを利用します。
 
-Once the contents of the working container are complete, and the metadata has been updated, save the working container as the target application image using `buildah commit`.
+作業用コンテナの内容が完成し、メタデータの更新が終わったら、`buildah commit` で作業用コンテナをアプリケーションイメージとして保存します。
 
 `buildah commit working-container el-httpd2`{{execute T1}}
 
@@ -72,4 +72,4 @@ Storing signatures
 a3c678a7d7c63edbac6e57a86da11ff4d916c0734bcbea9cfd55ae2b515275b9
 </pre>
 
-In this example, all operations were done directly to the container filesystem, resulting in a single layer.  The `buildah commit` step can be run at any point where a layer is needed, for example to cache a common set of packages across multiple applications.
+この例では、全ての操作がコンテナのファイルシステムに対して直接行われたため、1つのレイヤだけが作成されます。 `buildah commit` ステップはレイヤを必要とするタイミングで実行できるため、複数アプリケーションに共通するパッケージ群を入れた状態をレイヤとするようなことも可能です。
