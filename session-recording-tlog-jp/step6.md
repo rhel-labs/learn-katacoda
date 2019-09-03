@@ -1,30 +1,19 @@
-# Reviewing a recorded session in Web Console
+# Web Consoleでセッション記録をレビューする
 
-Navigate back over to the *Web Console* tab in your lab environment.
+ラボ環境の *Web Console* タブに戻ります。
 
-If you are not already on the *Session Recording* page, please navigate
-there.
+既に *Session Recording* ページにいるのでなければ、移動します。
 
-You should now see a recorded session available.
+記録されたセッションが1つ利用可能になっているはずです。
 
 ![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session.png)
 
-After selecting the session, you will be taken to a page with an integrated
-player through which you can watch the session.  Press the *Play* button to
-review the session.
+セッションを選択すると、セッションを再生できるプレイヤーを統合したページに繊維します。*Play* ボタンを押してセッションをレビューします。
 
 ![Session Recording Playback](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session-playback.png)
 
-The session was recorded in real-time, so if you started the `ssh` connection,
-but did not start running commands immediately, you will see that wait time
-reflected in the recorded session as well.  
+セッションはリアルタイムで記録されています。`ssh`接続を開始したあとすぐにコマンドを打っていない場合には、記録されたセッションでの待機時間をそのまま再生でも待つことになります。
 
-In addition to some standard video player functionality, the buttons on the
-right side of the player will allow you to zoom in and out to get a closer,
-or further away, look at the content.  Also, the search function located at
-the bottom of the player window will search the recorded session for text
-and report time codes at which that string is found.  Those time codes are
-links, which will change the location of the playback in the player.
+標準的なビデオプレイヤーの機能に加えて、右側のボタンで拡大縮小をして、コンテンツを見ることができます。また、プレーヤーウィンドウの下部にある検索機能では記録されたセッション内のテキストを検索し、その文字列が見つかった時刻をレポートします。それぞれの時刻はリンクになっていて、プレーヤーの再生位置をその時刻へ変更します。
 
-Below the player is additional metadata about this session as well as the
-log entries for the session.
+プレーヤの下にはこのセッションについての追加のメタデータとセッションの情報を含むログのエントリが表示されます。

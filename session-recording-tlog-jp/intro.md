@@ -1,15 +1,12 @@
 # Goal:
-After completing this scenario, users will be able to enable Terminal 
-Session Recording and review recorded sessions.
+このシナリオでは、端末のセッション記録を有効にして、記録されたセッションをレビューできます。
 
-# Concepts included in this scenario:
-* Installing software for Terminal Session Recording
-* Enabling and recording terminal sessions
-* List recorded sessions
-* Replay recorded sessions using Web Console
-* Replay recorded sessions using the __tlog__ command
+# このシナリオに含まれるコンセプト:
+* 端末セッション記録に必要なソフトウェアをインストールする
+* 端末セッション記録を有効にする
+* 記録されたセッションを一覧する
+* 記録されたセッションをWeb Consoleで再生する
+* 記録されたセッションを __tlog__ コマンドで再生する
 
-# Example Usecase:
-An administrator on your team is having difficulty performing a task on a
-machine.  You would like to review what has been done to see the state of
-the machine and task.
+# 使用例:
+あなたのチームにいる管理者が作業中に困っています。何をやっていたのか作業とマシンの状態をレビューしてみたい。

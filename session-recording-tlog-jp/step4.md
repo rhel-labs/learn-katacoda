@@ -1,12 +1,9 @@
-# Reviewing the configuration
+# 設定のレビュー
 
-Switch back to the Terminal in your lab environment.
+ラボ環境の端末タブに戻ります。
 
-As mentioned on the previous step, the Web Console actions have written a
-small configuration file for sssd, 
-__/etc/sssd/conf.d/sssd-session-recording.conf__  You can review it to verify 
-that the scope has been set to __all__ so that
-all sessions for all users and groups will be recorded.
+前のステップで触れたように、Web Consoleはsssd用に小さな設定ファイル __/etc/sssd/conf.d/sssd-session-recording.conf__  を出力しています。対象が __all__ となっていて全ユーザとグループの全セッションが記録されることを確認しましょう。
+
 
 `cat /etc/sssd/conf.d/sssd-session-recording.conf`{{execute}}
 
@@ -17,10 +14,7 @@ users=
 groups=
 </pre>
 
-Changes to the other configuration options displayed by Web Console would have 
-stored those changes in __/etc/tlog/tlog-rec-session.conf__.  For example, the
-__notice__ message displayed to users who are having their session recorded.
-You can inspect this file as well, if desired.
+他に表示されていた設定オプションは __/etc/tlog/tlog-rec-session.conf__ に記録されています。たとえば、セッションが記録されるユーザに対して __notice__ で指定したメッセージが出力されます。必要ならこのファイルも確認することができます。
 
 `cat /etc/tlog/tlog-rec-session.conf`{{execute}}
 

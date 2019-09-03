@@ -1,33 +1,24 @@
-# Reviewing a recorded session from the command-line
+# 記録されたセッションをコマンドラインでレビューする
 
-The command to use to review recorded sessions from the command-line is
-`tlog-play`, which takes a session identifier to determine which session data
-to replay.  
+記録されたセッションをコマンドラインでレビューするためには `tlog-play` コマンドを使います。どのセッションをリプレイするか指定するためセッションのIDを引数にとります。
 
-In the default configuration, recorded session data is sent to the 
-__journald__ managed log.  As a result, to determine the available session
-data, you will use the `journalctl`.  The following command will search
-through the journal log and locate strings that contain the <pre>"rec"</pre>
-string, plus the identifier included in that message.
+デフォルトの設定では、記録されたセッションデータは __journald__に送られます。そのため利用可能なセッションデータを見つけるには `journalctl` を利用します。以下のコマンドでjournalログを探して <pre>"rec"</pre> という文字列とIDを含むメッセージを表示します。
 
 `journalctl -o verbose | grep -P "\"rec\".*?\,"`{{execute}}
 
-Below, is an example of one of those messages, but there will likely be more 
-than one message associated with each session.
+以下は該当するメッセージの例です。通常は1つではなく複数のメッセージがそれぞれのセッションに存在します。
 
 ![Journal Log Message](/smcbrien/scenarios/session-recording-tlog/assets/log-message.png)
 
-To replay the session, you run `tlog-play` with the session identifier, using
-the log message displayed above, the command would look like:   
+セッションをリプレイするには `tlog-play` にセッションのIDをつけて実行します。上で表示されたメッセージから、コマンドは以下のようになります。
+
 `tlog-play -r journal -M TLOG_REC=de1645090e34a4220b8f2d237614c9731-518b-70b124`
 
-Your session identifier is going to be different, the following command will
-use some shell tools to isolate the first recording from your journal.  As you
-replay the session, your existing terminal session will be used for the replay.
-once the replay is complete, your session will be returned to your control.  You
-can interrupt the playback with a <CTRL>-C.
+あなたのセッションIDは異なるでしょうから、以下のコマンド例ではシェルを使ってjournalに記録された最初の記録を表示します。
+セッションをリプレイすると、現在の端末セッションはリプレイのために占有されます。一端リプレイが完了すると、セッションに制御が戻ります。 <CTRL>-C で再生を止めることもできます。
 
 `tlog-play -r journal -M TLOG_REC=$(journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2 | head -n 1 | sed -e s/\"//g)`{{execute}}
 
-The above command will replay the session to completion, in real-time.
+上記のコマンドはセッション完了までリアルタイムで再生を行います。
+
 

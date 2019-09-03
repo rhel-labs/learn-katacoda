@@ -1,20 +1,16 @@
-# Logging in and navigating Web Console 
+# Web Consoleにログインして操作する
 
-Now that the required software is installed, it is time to configure and
-enable terminal session recording.  You will use the Web Console to perform
-this task.
+必要なソフトウェアがインストールされたので、端末セッション記録の設定をしましょう。
+Web Consoleを使ってこの作業を行います。
 
-Use the *Web Console* tab in your lab environment to log into the Web
-Console for the system.  You should use the following credentials:
+ラボ環境の "Web Console" タブを使って、Web Consoleにログインします。以下の認証情報を使います。
 
-Username: __rhel__  
-Password: __redhat__  
+Username: __rhel__
+Password: __redhat__
 
 ![Web Console Login](/smcbrien/scenarios/session-recording-tlog/assets/Web-console-login.png)
 
-Now that you are logged into the Web console, and because you have installed
-the __cockpit-session-recording__ rpm package, you can now select the
-*Session Recording* option in the left-side navigation menu.
+Web Consoleにログインしたら、*Session Recording* オプションが左側のナビゲーションメニューにあるのでこれを選びます。さきほど __cockpit-session-recording__ rpmパッケージをインストールしたのでメニューが追加されています。
 
 ![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-option.png)
 

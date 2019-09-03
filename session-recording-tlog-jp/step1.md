@@ -1,6 +1,6 @@
-# Installing software
+# ソフトウェアのインストール
 
-Install two rpm packages, __cockpit-session-recording__ and __tlog__.
+__cockpit-session-recording__ と __tlog__ の2つのrpmパッケージをインストールします。
 
 `yum -y install cockpit-session-recording tlog`{{execute}}
 
@@ -13,9 +13,7 @@ Installed:
 Complete!
 </pre>
 
-The first package, __cockpit-session-recording__ will add an additional feature
-Web Console which you will be using to enable and configure session recording.
-The __tlog__ package will provide the tools which will be used to both record 
-and view the recorded terminal sessions.
+最初のパッケージ __cockpit-session-recording__ は、Web Consoleに端末セッション記録の有効化と設定をする機能を追加するものです。 __tlog__ パッケージは端末セッションの記録と再生の両方に利用されるツールを提供します。
+
 
 
