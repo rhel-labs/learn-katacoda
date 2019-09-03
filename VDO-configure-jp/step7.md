@@ -1,10 +1,8 @@
-Run the sync command to flush any data in the file system’s page cache 
-to VDO.
-
+syncコマンドを実行して全データをファイルシステムのページキャッシュからVDOへ掃き出します。
 
 `sync`{{execute}}
 
-Review the output of df -h and vdostats to see the space savings.          
+df -h と vdostats の出力を参照し、スペースの節約を確認します。
 
 `df -h /dev/mapper/vdo1`{{execute}}
 
@@ -13,10 +11,9 @@ Review the output of df -h and vdostats to see the space savings.
 /dev/mapper/vdo1       100G  5.7G   95G   6% /data
 </pre>
 
-We can see that df is reporting 5.7G used from the 5, 1G files created.
+dfでは、1GBのファイルを5つ作成したことで5.7GBが消費されていることがわかります。
 
-Now to look at the output of vdostats.
-
+vdostatsを見てみましょう。
 
 `vdostats --human-readable`{{execute}}
 
@@ -26,5 +23,4 @@ Device                    Size      Used Available Use% Space saving%
 /dev/mapper/vdo1         10.0G      5.0G      5.0G  49%           80%
 </pre>
 
-The Used amount hasn’t changed since the creation of the first file.
-The space savings is now reporting 80%!  
+Used の量は最初のファイルを作成したときから変わらず、Space saving が 80% になっています!

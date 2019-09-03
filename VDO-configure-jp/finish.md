@@ -1,2 +1,2 @@
-Task completed.  Thank you for taking the time to learn about Virtual Data Optimizer (VDO).
+これで完了です。Virtual Data Optimizer(VDO)を学習してくれてありがとう。
 

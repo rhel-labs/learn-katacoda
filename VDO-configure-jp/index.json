@@ -1,6 +1,6 @@
 {
   "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO) [JP]",
-  "description": "Goal: After completing this scenario, users will be able to configure Virtual Data Optimizer (VDO) to make use of block level deduplication and compression to conserve disk space",
+  "description": "Goal: このシナリオを実施すると、Virtual Data Optimizer (VDO) を設定し、ブロックレベルの重複排除と圧縮をおこなってディスクスペースを節約できるようになります。",
   "details": {
     "steps": [
       {

@@ -1,19 +1,14 @@
-A free block device is required to create the VDO volume.  We can use a 
-temporary loopback device for this scenario.  The data for our backing 
-device will exist as a file in /tmp.
+VDOボリュームを作成するには未使用のブロックデバイスが必要です。このシナリオではテンポラリなループバックデバイスを作成して利用します。実デバイスに書き込まれるデータは /tmp 内の1ファイルとして保存されます。
 
-The truncate command can be used to create the file.
-
+ファイルを作成するためにtruncateコマンドを利用します。
 
 `truncate -s 10g /tmp/vdo.trunc`{{execute}}
 
-Now, the vdo.trunc file will be used to create the loopback
-device.  losetup is used to associate a loop device with a file.
-
+vdo.truncファイルを使ってループバックデバイスを作ります。losetupを使ってループバックデバイスとファイルを関連づけます。
 
 `losetup  /dev/loop1 /tmp/vdo.trunc`{{execute}}
 
-View the loopback device using lsblk.
+ループバックデバイスをlsblkで確認します。
 
 `lsblk`{{execute}}
 
@@ -29,5 +24,5 @@ vda           252:0    0 39.1G  0 disk
   └─rhel-swap 253:1    0  3.9G  0 lvm  [SWAP]
 </pre>
 
-The device named loop1 is first in the list and has a size of 10G.
+最初の行にあらわれる loop1 という名前のデバイスで、サイズは10GBあります。
 
