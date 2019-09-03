@@ -1,8 +1,8 @@
-Now that the Postgres version 10 stream is enabled, install it on the system.
+postgresql バージョン 10のストリームが有効なので、インストールを実施します。
 
 `yum -y module install postgresql:10`{{execute}}
 
-The Postgres 10 stream should now be listed as [i]nstalled.
+postgresql 10のストリームが [i]nstalled になっているはずです。
 
 `yum module list postgresql`{{execute}}
 
@@ -15,7 +15,7 @@ postgresql           9.6                 client, default [d]              postgr
 Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
-Finally, check the version reported by the postgres command.
+postgresコマンドでもバージョンを確認しましょう。
 
 `postgres --version`{{execute}}
 

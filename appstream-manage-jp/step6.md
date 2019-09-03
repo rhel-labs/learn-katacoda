@@ -1,4 +1,4 @@
-Lastly, inspect all software managed as application streams.
+最後に、Application Streamとして管理される全てのソフトウェアを一覧してみます。
 
 `yum module list`{{execute}}
 
