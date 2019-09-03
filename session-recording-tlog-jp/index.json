@@ -1,6 +1,6 @@
 {
   "title": "Configuring Terminal Session Recording [JP]",
-  "description": "Goal: After completing this scenario, users will be able to enable Terminal Session Recording and review recorded sessions.",
+  "description": "Goal: このシナリオでは、端末のセッション記録と記録されたセッションのレビューができます。",
   "time": "10 minutes",
   "details": {
     "steps": [
