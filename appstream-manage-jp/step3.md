@@ -1,12 +1,12 @@
-An update to the web application running on this system requires features available in postgresql version 10.
-To accomplish this you will ultimately remove postgresql 9.6 and install postgresql 10, however, there are some
-additional Application Stream settings to apply to the system configuration as well.
+このシステムで動作しているwebアプリケーションがアップデートされ、postgresql 10での新機能が必要になりました。
+この条件を満たすためpostgresql 9.6を削除して、postgresql 10をインストールします。しかし、そのためには
+Application Streamの設定をいくつか行う必要があります。
 
-To start off with, remove postgresql 9.6.
+まずは、postgresql 9.6を削除しましょう。
 
 `yum -y module remove postgresql:9.6`{{execute}}
 
-Take a look at the Application Stream information for the machine to validate the removal.
+Application Streamの情報を満て、削除されていることを確認します。
 
 `yum  module list postgresql`{{execute}}
 
@@ -19,4 +19,4 @@ postgresql           9.6 [e]             client, default [d]              postgr
 Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
-Verify that postgresql version 9.6 is no longer flagged as [i]nstalled
+postgresql 9.6に、[i]nstalledのフラグがないことがわかります。

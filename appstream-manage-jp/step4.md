@@ -1,14 +1,12 @@
-Prior to installing the newer version of postgresql that is available, first, the older (now removed) version of the software
-should be disabled.
+新しいバージョンを利用可能にする前に、古い(今削除した)バージョンを無効にする必要があります。
 
 `yum -y module disable postgresql:9.6`{{execute}}
 
-Likewise, version 10, while it is the default, should be enabled.
+同じように、バージョン10を(デフォルトですが)enableします。
 
 `yum -y module enable postgresql:10`{{execute}}
 
-Take a look at the Application Stream information to verify that postgresql version 10 is now the enabled
-version.
+Application Streamの情報を満て、postgresql バージョン 10 が有効になっていることを確認しましょう。
 
 `yum  module list postgresql`{{execute}}
 
@@ -21,4 +19,4 @@ postgresql           9.6                 client, default [d]              postgr
 Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
-The [e]nabled flag is now present for postgresql version 10.
+postgresql バージョン 10に [e]nabled フラグがついていることがわかります。

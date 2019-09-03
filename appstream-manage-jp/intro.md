@@ -1,16 +1,15 @@
 # Goal:
 
-After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an application stream.
+このシナリオでは、Application Streamからどのバージョンのソフトウェアを利用するか選択できるようになります。
 
-# Concepts included in this scenario:
-* Verify the availability of an application stream
-* Install software managed as an application stream
-* Change to a different version of software from an application stream
-* List all available software managed as application streams
+# このシナリオで扱うコンセプトは:
+* Application Streamが利用できることを確認する
+* Application Streamとして管理されているソフトウェアをインストールする
+* Application Streamを異なるバージョンに変更する
+* Application Streamとして管理されている全ソフトウェアを一覧する
 
-# Example Usecase:
+# 利用例:
 
-A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql database version 9.6.  Later, the application is updated and requires postgresql version 10 be available on the machine.
+Red Hat Enterprise Linux 8 に postgresql 9.6 が必要なwebアプリケーションをデプロイしました。その後、アプリケーションがアップデートされてpostgresql 10を必要とするようになりました。
 
-**Please Note:** The instructions to move the database stored data from postgresql 9.6 to 10 are not included in this scenario, but would likely be needed if an administrator or developer was moving a production system from using postgresql 9.6 to postgresql 10.  Additional administrative activities may be required when performing a move from one version of software to another, including, but not limited to: scheduling a maintenance for the system, notifying users/stakeholders, backing up data, testing post-change, etc.
-
+**注意:** このシナリオにはデータベースに保存されたデータをpostgresql 9.6から10に移行する手順は含まれていませんが、実際に管理者または開発者としてプロダクションシステムをpostgresql 9.6から10に移行する場合には必要となります。ソフトウェアのバージョンを変更する際に追加で必要となる作業としては、一般に以下のようなものがあります(これに限定されるものではありません): システムメンテナンスのための停止をスケジュールする、ユーザや関係者に通知する、データのバックアップをとる、更新後のテストなど

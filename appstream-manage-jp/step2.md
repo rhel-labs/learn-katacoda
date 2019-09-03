@@ -1,8 +1,8 @@
-To support the web application deployed on this machine, install postgresql version 9.6.
+このマシンにデプロイされているアプリケーションの要件にあわせて、postgresql 9.6をインストールします。
 
 `yum -y module install postgresql:9.6`{{execute}} 
 
-After the installation is complete, verify that postgresql version 9.6 is installed on the system.
+インストールが終わったら、postgresql 9.6 がインストールされたことを確認しましょう。
 
 `yum module list postgresql`{{execute}}
 
@@ -15,9 +15,10 @@ postgresql           9.6 [e]             client, default [d] [i]          postgr
 Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 </pre>
 
-Notice that version 9.6 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for postgresql.
+バージョン9.6のストリームに [e]nabled のマークがついていて、プロファイルの欄に [i]nstalled のマークがついていることが確認できます。
 
-Finally, run the postgres command to inspect the version it reports.
+ねんのため、postgresコマンドでバージョンを確認してみましょう。
+
 `postgres --version`{{execute}}
 <pre class=file>
 postgres (PostgreSQL) 9.6.10
