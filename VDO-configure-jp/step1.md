@@ -1,36 +1,35 @@
-# Install vdo
+# VDOをインストールする
 
 `yum install -y vdo-6.2.0.293-10.el8 kmod-kvdo-6.2.0.293-50.el8`{{execute}}
 
-VDO provides block level, inline data reduction for Linux in the form of deduplication,
-compression, and thin provisioning.  
+VDOは、Linuxのブロックレベルで、重複排除、圧縮、シンプロビジョニングによりインラインのデータ節減を行います。
 
-VDO is currently delivered as two packages: 
-* kmod-kvdo (kernel modules),
-* vdo (user-space utilities).  
+VDOは現在2つのパッケージとして出荷されます:
+* kmod-kvdo (カーネルモジュール)
+* vdo (ユーザ空間のユーティリティ)
 
-VDO can be used for local or cloud storage.  VDO can benefit Filesystems,
-Ceph, hypervisors, and container environments.  
+VDOはローカルでもクラウドストレージでも利用できます。VDOはファイルシステム、Ceph、ハイパーバイザ、コンテナ環境で活用できます。
 
-VDO is comprised of:
+VDOは以下で構成されます:
 
-Two Kernel modules
-* kvdo     - manages block storage and compression,
-* uds      - manages the deduplication index.  
-    
-User space utilities
-* vdo      - vdo manager used to create, remove or modify volumes,
-* vdostats - view volume statistics.
+2つのカーネルモジュール
+* kvdo     - ブロックストレージと圧縮を管理する
+* uds      - 重複排除のインデックスを管理する
 
-Detailed information on VDO can be found in the man page.
+ユーザ空間のユーティリティ
+* vdo      - VDOマネージャ。ボリュームの作成、削除、変更に利用する
+* vdostats - ボリュームの統計情報を見る。
+
+VDOについての詳細な情報はman pageを参照ください。
 
 `man vdo`{{execute}}
 
-Use the 'q' key to exit the man page.
+man pageを終了するには 'q' キーを押します。
 
-Also, each of the statistics for vdostats can be found in the man page.
+vdostatsが出力する統計情報それぞれについてもman pageを参照ください。
 
 `man vdostats`{{execute}}
 
-Use the 'q' key to exit the man page.
+man pageを終了するには 'q' キーを押します。
+
 

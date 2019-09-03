@@ -1,27 +1,16 @@
 # Goal:
 
-
-After completing this scenario, users will be able to configure VDO to make
-
-use of block level deduplication, compression, thin-provisioning to save space.
+このシナリオを完了すると、VDOを使ってブロックレベルの重複排除と圧縮、シンプロビジョニングをしてストレージを節約できます。
 
 
-# Concepts included in this scenario:
+# このシナリオに含まれるコンセプト:
 
-* Install VDO
-
-* Create a VDO volume for an XFS filesystem
-
-* Create and write duplicate files to VDO 
-
-* View VDO statistics to see the data efficiency 
+* VDOをインストールする
+* VDOボリュームを作り、XFSファイルシステムを作成する
+* VDO上でファイルを複製する
+* VDOの統計情報を見てデータの効率を見る
 
 
-# Example Use Case:
+# 利用例:
 
-
-To reduce the amount of operational and storage costs in data centers, 
-
-we use the deduplication and compression features in VDO to decrease 
-
-the footprint of data.
+データセンタの運用コストとストレージのコストを削減するため、VDOの重複排除と圧縮を使ってデータのフットプリントを削減する。

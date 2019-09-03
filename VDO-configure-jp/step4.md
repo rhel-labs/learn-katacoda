@@ -1,22 +1,15 @@
-The VDO volume will need to be formatted with XFS to demonstrate 
-space savings in this setup.
+スペースの節約を行うデモンストレーションのため、VDOボリュームをXFSでフォーマットします。
 
 `mkfs.xfs -K /dev/mapper/vdo1`{{execute}}
 
-"-K" options tells mkfs to not send discards to VDO
-during the format.
+"-K"オプションを指定することで、mkfsがフォーマット時にVDOに対してブロックの破棄(discard)を指示しなくなります。
 
-Create a directory to mount our new filesystem.
-
+新しいファイルシステムをマウントするためのディレクトリを作ります。
 
 `mkdir /data`{{execute}}
 
-Mount the file system. 
+ファイルシステムをマウントします。
 
 `mount -o discard /dev/mapper/vdo1 /data`{{execute}}
 
-"-o discard" option lets the filesystem know to send
-discards to the thin-provisioned layer when a file is
-deleted.  Discards are required to accurately report
-space savings.
-
+"-o discard" オプションにより、ファイルシステムはファイルが削除されるとシンプロビジョニングレイヤへブロックの破棄(discard)を送ります。ブロックの破棄はスペースの節約を精確にレポートするために必要です。
