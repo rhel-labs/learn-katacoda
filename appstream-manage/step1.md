@@ -12,7 +12,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
 
 </pre>
 
-There are two versions of postgresql available in the Application Stream, version 9.6 and version 10.   
+There are two versions of postgresql available as modules in the Application Stream, version 9.6 and version 10.   
 
 postgresql version 10 is set as the default, meaning if someone installed postgresql with no specific options or arguments, version 10 would be the one installed.
 
