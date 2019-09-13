@@ -6,7 +6,7 @@ First, verify that SQL Server is running on the machine.
 
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
-On the terminal, you should see something like the following showing that the mssql-server.service is running
+On the terminal, you should see something like below indicating that the mssql-server.service is running
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
