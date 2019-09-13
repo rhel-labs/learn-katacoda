@@ -31,6 +31,10 @@ Create a database called TestDB and the schema for our objects
 `CREATE DATABASE TestDB`{{execute T1}}
 `GO`{{execute T1}}
 
+Change context to use TestDB database
+`USE TestDB`{{execute T1}}
+`GO`{{execute T1}}
+
 `CREATE SCHEMA DataSchema`{{execute T1}}
 `GO`{{execute T1}}
 
@@ -54,7 +58,7 @@ Select from sensitive data table
 `GO`{{execute T1}}
 
 Check for audit records
-`SELECT * FROM fn_get_audit_file('/var/opt/mssql/data/audit/*.sqlaudit',default,default)`{{execute T1}}
+`SELECT @@spid, session_id, statement, event_time FROM fn_get_audit_file('/var/opt/mssql/data/audit/*.sqlaudit',default,default)`{{execute T1}}
 `GO`{{execute T1}}
 
 You can exit the sqlcmd shell using the exit statement
