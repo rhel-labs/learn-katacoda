@@ -2,7 +2,15 @@
 
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events that occur on the Database Engine. SQL Server audit lets you create server audits, which can contain server audit specifications for server level events, and database audit specifications for database level events. Audited events can be written to the event logs or to audit files.
 
-Let's first open up the sqlcmd shell prompt connected to the master database. The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. 
+Before we connect into SQL Server, let's create the folders to store the audit files
+
+`mkdir /var/opt/mssql/data/audit`{{execute T1}}
+
+Next, let's change ownership of the folder to the mssql user
+
+`chown mssql:mssql /var/opt/mssql/data/audit`{{execute T1}}
+
+Now, let's open up the sqlcmd shell prompt connected to the master database. The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. 
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C`{{execute T1}}
 
@@ -34,7 +42,7 @@ Create the database tables
 `GO`{{execute T1}}
 
 Enable the database audit corresponding to the server audit
-`CREATE DATABASE AUDIT SPECIFICATION [FilterForSensitiveData] FOR SERVER AUDIT [AuditDataAccess] ADD (SELECT, INSERT ON DataSchema.SensitiveData by dbo) WITH (STATE = ON)`{{execute T1}}
+`CREATE DATABASE AUDIT SPECIFICATION [FilterForSensitiveData] FOR SERVER AUDIT [AuditDataAccess] ADD (SELECT, INSERT ON DataSchema.SensitiveData by public) WITH (STATE = ON)`{{execute T1}}
 `GO`{{execute T1}}
 
 Insert into sensitive data table
@@ -46,7 +54,7 @@ Select from sensitive data table
 `GO`{{execute T1}}
 
 Check for audit records
-`SELECT * FROM fn_get_audit_file('/var/opt/mssql/data/audit*.sqlaudit',default,default)`{{execute T1}}
+`SELECT * FROM fn_get_audit_file('/var/opt/mssql/data/audit/*.sqlaudit',default,default)`{{execute T1}}
 `GO`{{execute T1}}
 
 You can exit the sqlcmd shell using the exit statement
