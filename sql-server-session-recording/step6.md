@@ -8,9 +8,13 @@ Let's first open up the sqlcmd shell prompt connected to the master database. Th
 
 Use master database to create a server audit specification
 
-`CREATE SERVER AUDIT AuditDataAccess TO FILE ( FILEPATH ='/var/opt/mssql/data/audit' ) WITH ( QUEUE_DELAY = 1000,  ON_FAILURE = CONTINUE) WHERE object_name = 'SensitiveData'`{{execute T1}}
+`CREATE SERVER AUDIT AuditDataAccess TO FILE ( FILEPATH ='/var/opt/mssql/data/audit' ) WITH ( QUEUE_DELAY = 0,  ON_FAILURE = CONTINUE) WHERE object_name = 'SensitiveData'`{{execute T1}}
 
 The GO keyword is the default batch terminator in SQL Server, allowing a set of commands to run as a batch.
+`GO`{{execute T1}}
+
+Enable the server audit
+`ALTER SERVER AUDIT AuditDataAccess WITH (STATE = ON)`{{execute T1}}
 `GO`{{execute T1}}
 
 Next, let's create our table objects and database audit specification in our TestDB database
@@ -29,18 +33,20 @@ Create the database tables
 `CREATE TABLE DataSchema.SensitiveData (ID int PRIMARY KEY, DataField varchar(50) NOT NULL)`{{execute T1}}  
 `GO`{{execute T1}}
 
-Enable the server audit
-
-
--- Enable the server audit
-ALTER SERVER AUDIT AuditDataAccess WITH (STATE = ON) ;
-GO
-
-`CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = AES_256 ENCRYPTION BY SERVER CERTIFICATE MyServerCert`{{execute T1}}
+Enable the database audit corresponding to the server audit
+`CREATE DATABASE AUDIT SPECIFICATION [FilterForSensitiveData] FOR SERVER AUDIT [AuditDataAccess] ADD (SELECT, INSERT ON DataSchema.SensitiveData by dbo) WITH (STATE = ON)`{{execute T1}}
 `GO`{{execute T1}}
 
-List the databases that are encrypted. Encrypted_state = 3 means these databases are in encrypted state
-`SELECT a.name from sys.dm_database_encryption_keys b join sys.databases a on a.database_id = b.database_id WHERE encryption_state = 3`{{execute T1}}
+Insert into sensitive data table
+`INSERT into DataSchema.SensitiveData values (1, '1234')`{{execute T1}}
+`GO`{{execute T1}}
+
+Select from sensitive data table
+`SELECT * from DataSchema.SensitiveData`{{execute T1}}
+`GO`{{execute T1}}
+
+Check for audit records
+`SELECT * FROM fn_get_audit_file('/var/opt/mssql/data/audit*.sqlaudit',default,default)`{{execute T1}}
 `GO`{{execute T1}}
 
 You can exit the sqlcmd shell using the exit statement
