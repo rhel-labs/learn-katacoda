@@ -31,7 +31,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)<br>__Translated by:__ Kazuo Moriawaka, Solution Architect (Red Hat)"
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)<br>__Translated by:__ Kazuo Moriwaka, Solution Architect (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
