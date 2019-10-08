@@ -16,7 +16,7 @@ then
   exit 1
 fi
 
-echo Running apt-get update -y...
+echo Running yum clean all
 sleep 10
 sudo yum clean all
 
@@ -26,9 +26,8 @@ sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/c
 echo Installing Python and OpenSSL
 sudo yum install python2 compat-openssl10 -y
 
-echo Running apt-get update -y...
+echo Running yum update -y...
 sleep 10
-sudo yum clean all
 sudo yum update -y
 
 echo Setting default python version
