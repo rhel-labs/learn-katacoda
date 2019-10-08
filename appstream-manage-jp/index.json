@@ -1,6 +1,7 @@
 {
-  "title": "Using Red Hat Insights [Workshop Only]",
-  "description": "Goal: After completing this scenario, users will be able to register Red Hat Enterprise Linux systems with Red Hat Insights as well as use cloud.redhat.com to apply Insights.",
+  "title": "Managing Software in an Application Stream [JP]",
+  "description": "Goal: このシナリオでは、Application Streamからどのバージョンのソフトウェアを利用するか選択できるようになります。",
+  "time": "5 minutes",
   "details": {
     "steps": [
       {
@@ -30,20 +31,16 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits" : "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)<br>__Translated by:__ Kazuo Moriwaka, Solution Architect (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
-    "showdashboard": false,
-    "dashboard":"cloud.redhat.com"
+    "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8",
-    "url": "https://cloud.redhat.com"
+    "imageid": "rhel8"
   }
-
 }

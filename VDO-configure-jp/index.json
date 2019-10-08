@@ -1,6 +1,6 @@
 {
-  "title": "Using Red Hat Insights [Workshop Only]",
-  "description": "Goal: After completing this scenario, users will be able to register Red Hat Enterprise Linux systems with Red Hat Insights as well as use cloud.redhat.com to apply Insights.",
+  "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO) [JP]",
+  "description": "Goal: このシナリオを実施すると、Virtual Data Optimizer (VDO) を設定し、ブロックレベルの重複排除と圧縮をおこなってディスクスペースを節約できるようになります。",
   "details": {
     "steps": [
       {
@@ -26,24 +26,24 @@
       {
         "title": "Step 6",
         "text": "step6.md"
+      },
+      {
+        "title": "Step 7",
+        "text": "step7.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits" : "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
+      "credits": "__Author:__ Dennis Keefe, Software Engineering Manager (Red Hat)<br>__Translated by:__ Kazuo Moriwaka, Solution Architect (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
-    "showdashboard": false,
-    "dashboard":"cloud.redhat.com"
+    "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8",
-    "url": "https://cloud.redhat.com"
+    "imageid": "rhel8"
   }
-
 }

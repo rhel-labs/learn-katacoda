@@ -1,20 +1,23 @@
 # Installing software
 
 When you start this demo, SQL Server installation will start on the machine. 
-You should see the message like the one below as a confirmation that the installation 
-is complete.
+
+First, verify that SQL Server is running on the machine.
+
+`systemctl status mssql-server.service --no-pager`{{execute T1}}
+
+On the terminal, you should see something like below indicating that the mssql-server.service is running
 
 <pre class="file">
------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Microsoft SQL Server 2017 (RTM-CU16) (KB4508218) - 14.0.3223.3 (X64)
-        Jul 12 2019 17:43:08
-        Copyright (C) 2017 Microsoft Corporation
-        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.0 (Ootpa))
+<< OUTPUT ABRIDGED >>
 
-(1 rows affected)
+Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+
+<< OUTPUT ABRIDGED >>
 </pre>
 
-Install two rpm packages, __cockpit-session-recording__ and __tlog__.
+
+Next, install two rpm packages, __cockpit-session-recording__ and __tlog__ for the web console
 
 `yum -y install cockpit-session-recording tlog`{{execute}}
 

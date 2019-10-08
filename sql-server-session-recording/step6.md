@@ -1,30 +1,76 @@
-# Reviewing a recorded session in Web Console
+# Configuring auditing in SQL Server 
 
-Navigate back over to the *Web Console* tab in your lab environment.
+Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events that occur on the Database Engine. SQL Server audit lets you create server audits, which can contain server audit specifications for server level events, and database audit specifications for database level events. Audited events can be written to the event logs or to audit files.
 
-If you are not already on the *Session Recording* page, please navigate
-there.
+Before we connect into SQL Server, let's create the folders to store the audit files
 
-You should now see a recorded session available.
+`mkdir /var/opt/mssql/data/audit`{{execute T1}}
 
-![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session.png)
+Next, let's change ownership of the folder to the mssql user
 
-After selecting the session, you will be taken to a page with an integrated
-player through which you can watch the session.  Press the *Play* button to
-review the session.
+`chown mssql:mssql /var/opt/mssql/data/audit`{{execute T1}}
 
-![Session Recording Playback](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session-playback.png)
+Now, let's open up the sqlcmd shell prompt connected to the master database. The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. 
 
-The session was recorded in real-time, so if you started the `ssh` connection,
-but did not start running commands immediately, you will see that wait time
-reflected in the recorded session as well.  
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -d master -N -C`{{execute T1}}
 
-In addition to some standard video player functionality, the buttons on the
-right side of the player will allow you to zoom in and out to get a closer,
-or further away, look at the content.  Also, the search function located at
-the bottom of the player window will search the recorded session for text
-and report time codes at which that string is found.  Those time codes are
-links, which will change the location of the playback in the player.
+Use master database to create a server audit specification
 
-Below the player is additional metadata about this session as well as the
-log entries for the session.
+`CREATE SERVER AUDIT AuditDataAccess TO FILE ( FILEPATH ='/var/opt/mssql/data/audit' ) WITH ( QUEUE_DELAY = 0,  ON_FAILURE = CONTINUE) WHERE object_name = 'SensitiveData'`{{execute T1}}
+
+The GO keyword is the default batch terminator in SQL Server, allowing a set of commands to run as a batch.
+`GO`{{execute T1}}
+
+Enable the server audit
+`ALTER SERVER AUDIT AuditDataAccess WITH (STATE = ON)`{{execute T1}}
+`GO`{{execute T1}}
+
+Next, let's create our table objects and database audit specification in our TestDB database
+
+Create a database called TestDB and the schema for our objects
+`CREATE DATABASE TestDB`{{execute T1}}
+`GO`{{execute T1}}
+
+Change context to use TestDB database
+`USE TestDB`{{execute T1}}
+`GO`{{execute T1}}
+
+`CREATE SCHEMA DataSchema`{{execute T1}}
+`GO`{{execute T1}}
+
+Create the database tables
+`CREATE TABLE DataSchema.GeneralData (ID int PRIMARY KEY, DataField varchar(50) NOT NULL)`{{execute T1}}  
+`GO`{{execute T1}}  
+
+`CREATE TABLE DataSchema.SensitiveData (ID int PRIMARY KEY, DataField varchar(50) NOT NULL)`{{execute T1}}  
+`GO`{{execute T1}}
+
+Enable the database audit corresponding to the server audit
+`CREATE DATABASE AUDIT SPECIFICATION [FilterForSensitiveData] FOR SERVER AUDIT [AuditDataAccess] ADD (SELECT, INSERT ON DataSchema.SensitiveData by public) WITH (STATE = ON)`{{execute T1}}
+`GO`{{execute T1}}
+
+Insert into sensitive data table
+`INSERT into DataSchema.SensitiveData values (1, '1234')`{{execute T1}}
+`GO`{{execute T1}}
+
+Select from sensitive data table
+`SELECT * from DataSchema.SensitiveData`{{execute T1}}
+`GO`{{execute T1}}
+
+Check for audit records
+`SELECT @@spid, session_id, statement FROM fn_get_audit_file('/var/opt/mssql/data/audit/*.sqlaudit',default,default)`{{execute T1}}
+`GO`{{execute T1}}
+
+Verify that the output has 2 records indicating that INSERT, and SELECT statements were executed against the SensitiveData table
+
+<pre class="file">
+<< OUTPUT ABRIDGED >>
+
+<active-session-id>  <session-id> INSERT into DataSchema.SensitiveData values (1, '1234')
+<active-session-id>  <session-id> SELECT * from DataSchema.SensitiveData
+
+<< OUTPUT ABRIDGED >>
+</pre>
+
+You can exit the sqlcmd shell using the exit statement
+`exit`{{execute T1}}

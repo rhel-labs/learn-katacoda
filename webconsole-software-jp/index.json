@@ -1,6 +1,7 @@
 {
-  "title": "Using Red Hat Insights [Workshop Only]",
-  "description": "Goal: After completing this scenario, users will be able to register Red Hat Enterprise Linux systems with Red Hat Insights as well as use cloud.redhat.com to apply Insights.",
+  "title": "Using Web Console to Manage Updates [JP]",
+  "description": "Goal: このシナリオでRed Hat Enterprise Linuxシステムにアップデートを適用できるようになります。",
+  "time": "5 minutes",
   "details": {
     "steps": [
       {
@@ -22,15 +23,12 @@
       {
         "title": "Step 5",
         "text": "step5.md"
-      },
-      {
-        "title": "Step 6",
-        "text": "step6.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits" : "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)<br>__Translated by:__ Kazuo Moriwaka, Solution Architect (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -38,12 +36,12 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
-    "showdashboard": false,
-    "dashboard":"cloud.redhat.com"
+    "showdashboard": true,
+    "dashboard":"Web Console"
   },
   "backend": {
     "imageid": "rhel8",
-    "url": "https://cloud.redhat.com"
+    "port": 9090
   }
 
 }

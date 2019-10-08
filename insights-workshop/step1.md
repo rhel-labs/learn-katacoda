@@ -1,8 +1,11 @@
+# Registering a machine to the Red Hat Insights service
+
 In most Red Hat Enterprise Linux 8 installations, the insights-client
 software will be installed by default.  However, the minimal package
-set does not include it and other versions of Red Hat Enterprise Linux,
-while the package is available, will likely need it installed.  Install
-the insights-client package on the machine.
+set does not include installing the insights-client package and other 
+versions of Red Hat Enterprise Linux, while the package is available, 
+will likely need it installed.  Install the insights-client package on 
+the machine.
 
 `yum -y install insights-client`{{execute}}
 
@@ -35,7 +38,7 @@ a06560c57e40
 >_NOTE:_ Your hostname will be different than the one listed in the output above
 
 At any time in the future, you can get information about Insights registration
-by using the `--status` sub-command of insights-client.
+by using the `--status` option to `insights-client`.
 
 `insights-client --status`{{execute}}
 
