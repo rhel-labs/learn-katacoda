@@ -17,15 +17,15 @@ then
 fi
 
 echo Reading command line parameter to break setup and trigger insights
-if [ "$1" != "1" ] 
+if [ "$1" == "1" ] 
 then
     echo "Positional parameter 1 contains 1"
 
-elif [ "$1" != "2" ]
+elif [ "$1" == "2" ]
 then
     echo "Positional parameter 1 contains 2"
 
-elif [ "$1" != "3" ]
+elif [ "$1" == "3" ]
 then
     echo "Positional parameter 1 contains 3"
 fi
