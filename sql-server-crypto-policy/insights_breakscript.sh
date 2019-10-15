@@ -31,8 +31,11 @@ then
 fi
 
 # Restart SQL Server after installing:
-echo Restarting SQL Server...
-sudo systemctl restart mssql-server
-sudo systemctl status mssql-server
+if [ "$1" != "" ]
+then
+  echo Restarting SQL Server...
+  sudo systemctl restart mssql-server
+  sudo systemctl status mssql-server
+fi
 
 echo Done!
