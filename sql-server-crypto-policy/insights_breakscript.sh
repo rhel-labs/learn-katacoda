@@ -12,7 +12,7 @@ MSSQL_PID='evaluation'
 
 if [ -z $MSSQL_SA_PASSWORD ]
 then
-  echo Environment variable MSSQL_SA_PASSWORD must be set for unattended install
+  echo "Environment variable MSSQL_SA_PASSWORD must be set for unattended install"
   exit 1
 fi
 
