@@ -6,3 +6,8 @@ sudo chmod +x ./insights_breakscript.sh
 
 sudo ./install_sql.sh
 export HOSTNAME=`hostname --all-fqdns`
+
+echo Install insights client
+sudo yum install -y insights-client
+
+sudo subscription-manager register --force
