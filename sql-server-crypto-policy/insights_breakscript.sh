@@ -13,7 +13,14 @@ then
 fi
 
 echo Reading command line parameter to break setup and trigger insights
-if [ "$1" == "1" ] 
+if [ "$1" == "0" ] 
+then
+    echo Positional parameter 1 contains 0
+    echo Setting up insights
+    sudo yum install -y insights-client
+    sudo subscription-manager register --force
+    
+elif [ "$1" == "1" ] 
 then
     echo Positional parameter 1 contains 1
 
@@ -33,6 +40,14 @@ then
   echo Restarting SQL Server...
   sudo systemctl restart mssql-server
   sudo systemctl status mssql-server --no-pager
+  
+  echo Submit insights report
+  if [ "$1" == "0" ]
+  then
+    sudo insights-client --register
+  else
+    sudo insights-client
+  fi
 fi
 
 echo Done!
