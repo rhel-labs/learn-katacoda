@@ -32,7 +32,7 @@ if [ "$1" != "" ]
 then
   echo Restarting SQL Server...
   sudo systemctl restart mssql-server
-  sudo systemctl status mssql-server
+  sudo systemctl status mssql-server --no-pager
 fi
 
 echo Done!
