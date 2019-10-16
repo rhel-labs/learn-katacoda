@@ -62,25 +62,6 @@ sudo firewall-cmd --reload
 # Restart SQL Server after installing:
 echo Restarting SQL Server...
 sudo systemctl restart mssql-server
-
-# Connect to server and get the version:
-#counter=1
-#errstatus=1
-#while [ $counter -le 10 ] && [ $errstatus = 1 ]
-#do
-#  echo Waiting for SQL Server to start...
-#  sleep 3s
-#  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $MSSQL_SA_PASSWORD -Q "Select @@version"
-#  errstatus=$?
-#  ((counter++))
-#done
-sudo systemctl status mssql-server
-
-# Display error if connection failed:
-#if [ $errstatus = 1 ]
-#then
-#  echo Cannot connect to SQL Server, installation aborted
-#  exit $errstatus
-#fi
+sudo systemctl status mssql-server --no-pager
 
 echo Done!
