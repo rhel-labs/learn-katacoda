@@ -1,0 +1,69 @@
+{
+  "title": "RHEL8 Labs[JP]",
+  "private": true,
+  "courses": [
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/webconsole-software-jp",
+      "course_id": "webconsole-software-jp",
+      "title": "Managing system updates using the web console[JP]",
+      "description": "Goal: このシナリオでRed Hat Enterprise Linuxシステムにアップデートを適用できるようになります。 "
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/appstream-manage-jp",
+      "course_id": "appstream-manage-jp",
+      "title": "Managing software from an application stream[JP]",
+      "description": "Goal: このシナリオでは、Application Streamからどのバージョンのソフトウェアを利用するか選択できるようになります。 "
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/podman-deploy-jp",
+      "course_id": "podman-deploy-jp",
+      "title": "Deploying containers using Podman[JP]",
+      "description": "Goal: このシナリオでRed Hat Enterprise Linuxのコンテナツールで既存のコンテナイメージをデプロイできるようになります。"
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/crypto-policy-jp",
+      "course_id": "crypto-policy-jp",
+      "title": "Configuring the system-wide cryptographic policy[JP]",
+      "description": "Goal: このシナリオを実施することで暗号化ポリシーの確認、把握、変更ができるようになります。 "
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/session-recording-tlog-jp",
+      "course_id": "session-recording-tlog-jp",
+      "title": "Configuring Terminal Session Recording[JP]",
+      "description": "Goal: このシナリオでは、端末のセッション記録と記録されたセッションのレビューができます。 "
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/buildah-jp",
+      "course_id": "buildah-jp",
+      "title": "Creating images with buildah[JP]",
+      "description": "Goal: このシナリオでコンテナイメージをスクラッチまたはベースイメージから作成できるようになります。 "
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/vdo-configure-jp",
+      "course_id": "vdo-configure-jp",
+      "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)[JP]",
+      "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/imagebuilder",
+      "course_id": "imagebuilder",
+      "title": "Using Web Console to build virtual machine images",
+      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
+    },
+    {
+      "pathway_id": "RHEL Workshop",
+      "id": "workshop/insights-workshop",
+      "course_id": "insights-workshop",
+      "title": "Using Red Hat Insights [Workshop Only]",
+      "description": "Configure systems to use Red Hat Insights and detect issues before they become problems."
+    }
+  ]
+}
