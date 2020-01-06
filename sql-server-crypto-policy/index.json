@@ -1,5 +1,5 @@
 {
-  "title": "Red Hat Enterprise Linux Crypto Policy and Transparent Disk Encryption (TDE) With SQL Server",
+  "title": "Red Hat Enterprise Linux Crypto Policy and Transparent Data Encryption (TDE) With SQL Server",
   "description": "Goal: Users will be able to use Microsoft SQL Server with RHEL system-wide crypto policies and configure TDE",
   "details": {
     "steps": [
