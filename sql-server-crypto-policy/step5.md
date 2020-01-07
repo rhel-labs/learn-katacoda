@@ -5,8 +5,8 @@ Tune SQL Server configuration to read the new key files, and force encryption on
     * `/opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem`{{execute T1}} 
 * Set the network.tlskey configuration variable to point to the private key
     * `/opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key`{{execute T1}} 
-* Set the network.forceencryption configuration variable to 0 (initiated by client)
-    * `/opt/mssql/bin/mssql-conf set network.forceencryption 0`{{execute T1}} 
+* Set the network.forceencryption configuration variable to 1 (initiated by client)
+    * `/opt/mssql/bin/mssql-conf set network.forceencryption 1`{{execute T1}} 
 
 Restart the SQL Server service
 `systemctl restart mssql-server.service`{{execute T1}}
