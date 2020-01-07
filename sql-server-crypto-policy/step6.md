@@ -48,9 +48,13 @@ List the databases that are encrypted. Encrypted_state = 3 means these databases
 `GO`{{execute T1}}
 
 <pre class="file">
+name
+-----------------------------------------------
+tempdb
+TestDB
 </pre>
 
-The TempDB system database will be encrypted if any other database on the instance of SQL Server is encrypted by using TDE. This is because query processing in SQL Server could use TempDB  for sort spills and hash joins. In such cases, you also want TempDB to be encrypted.
+The **tempdb** system database will be encrypted if any other database on the instance of SQL Server is encrypted by using TDE. This is because query processing in SQL Server could use tempdb  for sort spills and hash joins. In such cases, you also want tempdb to be encrypted along with the other encrypted databases.
 
 You can exit the sqlcmd shell using the exit statement
 `exit`{{execute T1}}
