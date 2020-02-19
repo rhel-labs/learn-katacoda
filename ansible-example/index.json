@@ -17,7 +17,9 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits": "__Author:__ Sean Cavanaugh, Ansible Contributor (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -27,6 +29,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel81"
   }
 }
