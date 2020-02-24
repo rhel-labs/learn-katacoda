@@ -1,29 +1,23 @@
-Lets now verify that killsnoop is using eBPF for kill() syscall tracing.
+In just a moment, we will start the yum update in Terminal 1, but first let's note what we want to observe:
 
-Install bpftool utility:
+In terminal 2, we are running gethostlatency, and this is going to give us latency statistics on the getaddrinfo() and gethostbyname() system calls. Effectively, we'll get to see how long these take and which hostnames our applications need IP addresses for. This can be useful for discovering interesting connections that you may not be aware your applications are making.
 
-`yum install -y bpftool`{{execute T1}}
+In terminal 3, we are running tcplife and this will tell us a lot of data about established tcp connections, and the total time that the connection was alive. When yum is finished downloading packages, we should get entries in tcplife for the exact amount of time that yum spent downloading packages over the tcp connections that it established for this activity.
 
-Run bpftool to verify that no eBPF programs are currently loaded in the kernel:
+In terminal 4, we are going to see applications accessing files in realtime, so this will get pretty busy.
 
-`bpftool prog list`{{execute T2}}
+In terminal 5, we probably won't see much until yum update starts installing the packages. Once it starts to install the packages, it's going to push the boundaries of what our virtual machine's storage can keep up with while delivering <10ms latency on XFS operations. You will see operations taking longer than 10ms and the files these operations were operating on.
 
-In the first terminal run the killsnoop tool:
+In terminal 6, we will get to see in real time our hits and misses on the Linux memory cache. The second column is misses and the third column is hits. We should have mostly 0 misses for the first part of the yum update. Once we get to the installation of packages, we should see our misses start to increase.
 
-`/usr/share/bcc/tools/killsnoop`{{execute T1}}
+Now that we have established what we want to observe, let's run:
+`yum update -y`{{execute T1}}
 
-Switch to the Terminal 2 and use bpftool to verify that two BPF programs are now loaded in the kernel, one for execution of kernel function 'syscall__kill' and the other for return form this function.
+Time to begin observing what happens on the system during the different states of the yum update:
 
-`bpftool prog list`{{execute T2}}
+* Updating repository metadata
+* Determining what packages on the system need to be updated.
+* Downloading the appropriate packages for updates.
+* Installing the updates and removing old packages.
+* Verifying the updates have been successful.
 
-<pre class="file">
-# bpftool prog list
- 1: kprobe  name syscall__kill  tag f0fd0853ce76deb8  gpl
-	loaded_at 2019-04-10T16:56:19+0200  uid 0
-	xlated 344B  jited 221B  memlock 4096B  map_ids 59
- 2: kprobe  name do_ret_sys_kill  tag 4559f36196876a23  gpl
-	loaded_at 2019-04-10T16:56:19+0200  uid 0
-	xlated 384B  jited 245B  memlock 4096B  map_ids 59,60
-</pre>
-
-Finally don't forget to go back to the first terminal and exit killsnoop by pressing CTRL+C.
