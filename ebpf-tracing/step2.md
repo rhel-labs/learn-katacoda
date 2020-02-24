@@ -1,31 +1,20 @@
-Read a man page of the first of the tools:
+Install bpftool utility:
 
-`man killsnoop`{{execute}}
+`yum install -y bpftool`{{execute T1}}
 
-Use key 'q' to exit manpage.
-Run the killsnoop tool without any arguments:
+Run bpftool to verify that no eBPF programs are currently loaded in the kernel:
 
-`/usr/share/bcc/tools/killsnoop`{{execute T1}}
+`bpftool prog list`{{execute T1}}
 
-Now lets open a new terminal and in this new terminal send couple of signals:
+Now let's launch some bcc-tools in separate terminals to get started observing yum update:
 
-`kill $$`{{execute T2}}
-`kill $$`{{execute T2}}
-`kill -2 $$`{{execute T2}}
-`kill -2 $$`{{execute T2}}
+`/usr/share/bcc/tools/gethostlatency`{{execute T2}}
+`/usr/share/bcc/tools/tcplife`{{execute T3}}
+`/usr/share/bcc/tools/filetop`{{execute T4}}
+`/usr/share/bcc/tools/xfsslower`{{execute T5}}
+`/usr/share/bcc/tools/cachestat`{{execute T6}}
 
-Note that $$ is the pid of current process, thus we are sending signals 15 and 2 to our current shell.
-Go back to the first terminal and verify this was reported by the killsnoop tool:
+Let's now use bpftool to verify what we have loaded in the kernel:
 
-<pre class="file">
-# /usr/share/bcc/tools/killsnoop
-TIME      PID    COMM             SIG  TPID   RESULT
-15:49:37  8405   bash             15   8405   0
-15:49:37  8405   bash             15   8405   0
-15:49:38  8405   bash             2    8405   0
-15:49:39  8405   bash             2    8405   0
-</pre>
+`bpftool prog list`{{execute T1}}
 
-Exit the killsnoop tool by pressing CTRL+C in the terminal:
-
-eBPF allows access to all kernel data including syscalls (and their arguments) executed by all processes.
