@@ -29,7 +29,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "gethostlatency", "target":"host01"},{"name":"tcplife","target":"host01"},{"name":"filetop","target":"host01"},{"name":xfsslower","target":"host01"},{"name":"cachestat","target":"host01"}]
+    "terminals": [{"name": "gethostlatency", "target":"host01"},{"name":"tcplife","target":"host01"},{"name":"filetop","target":"host01"},{"name":"xfsslower","target":"host01"},{"name":"cachestat","target":"host01"}]
   },
   "backend": {
     "imageid": "rhel8"
