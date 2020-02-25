@@ -58,7 +58,7 @@ We should see output similar to:
         loaded_at 2020-02-19T19:07:30-0500  uid 0
         xlated 64B  jited 61B  memlock 4096B
 
-<<OUTPUT ABRIDGED>>
+<< OUTPUT ABRIDGED >>
 </pre>
 
 This shows us all the bpf programs presently loaded.
