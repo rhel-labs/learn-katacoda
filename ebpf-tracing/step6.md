@@ -6,7 +6,7 @@ Let's take a look at how many tools are provided by bcc-tools:
 
 <pre class="file">
 # ls -l /usr/share/bcc/tools | wc -l
-101
+107
 </pre>
 
 These tools can be easily inspected or even modified since they are actually Python scripts:

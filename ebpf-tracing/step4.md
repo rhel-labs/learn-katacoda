@@ -33,7 +33,7 @@ Let's also look at the cachestat terminal and we should see output similar to:
 
 This shows that we are operating entirely out of cache and not having to go all the way to main memory at this point. 
 
-If we look at our tcplife terminal, we will see output similar to:
+If we look at our tcplife terminal when yum has finished downloading packages, we will see output similar to:
 
 <pre class="file">
 PID   COMM       LADDR           LPORT RADDR           RPORT TX_KB RX_KB MS
