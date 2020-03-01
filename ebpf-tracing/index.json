@@ -1,5 +1,5 @@
 {
-  "title": "Kernel Tracing with eBPF",
+  "title": "Performance observability in practice with bcc-tools",
   "description": "Goal: After completing this scenario, users will better understand observability tools provided with eBPF",
   "details": {
     "steps": [
