@@ -3,9 +3,9 @@
   "private": true,
   "courses": [
     {
-      "external_link": "https://lab.redhat.com/webconsole-software",
-      "title": "Managing system updates using the web console",
-      "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
+      "external_link": "https://lab.redhat.com/imagebuilder",
+      "title": "Using Web Console to build virtual machine images",
+      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
     },
     {
       "external_link": "https://lab.redhat.com/appstream-manage",
@@ -14,13 +14,18 @@
     },
     {
       "external_link": "https://lab.redhat.com/podman-deploy",
-      "title": "Deploying containers using Podman",
+      "title": "Deploying containers using Container Tools [podman]",
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
     },
     {
-      "external_link": "https://lab.redhat.com/crypto-policy",
-      "title": "Configuring the system-wide cryptographic policy",
-      "description": "Enforce more complex ciphers, protocol versions, and usable ciphers across all services running on your machines."
+      "external_link": "https://lab.redhat.com/ebpf-tracing",
+      "title": "Performance observability in practice with bcc-tools",
+      "description": "Collect data on various system activities, such as disk performance, latency, and more using the bcc-tools.  This data can help identify issues with application performance."
+    },
+    {
+      "external_link": "https://lab.redhat.com/buildah",
+      "title": "Creating images with Container Tools [buildah]",
+      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
     },
     {
       "external_link": "https://lab.redhat.com/session-recording-tlog",
@@ -28,24 +33,19 @@
       "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
     },
     {
-      "external_link": "https://lab.redhat.com/buildah",
-      "title": "Creating images with buildah",
-      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
+      "external_link": "https://lab.redhat.com/webconsole-software",
+      "title": "Managing system updates using the web console",
+      "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
+    },
+    {
+      "external_link": "https://lab.redhat.com/crypto-policy",
+      "title": "Configuring the system-wide cryptographic policy",
+      "description": "Enforce more complex ciphers, protocol versions, and usable ciphers across all services running on your machines."
     },
     {
       "external_link": "https://lab.redhat.com/vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
-    },
-    {
-      "external_link": "https://lab.redhat.com/imagebuilder",
-      "title": "Using Web Console to build virtual machine images",
-      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
-    },
-    {
-      "external_link": "https://lab.redhat.com/ebpf-tracing",
-      "title": "Kernel Tracing with eBPF [Technology Preview]",
-      "description": "Troubleshoot disk performance and latency using eBPF tools.  This is a Tech Preview feature in Red Hat Enterprise Linux."
     }
   ]
 }
