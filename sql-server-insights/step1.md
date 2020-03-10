@@ -59,4 +59,4 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 << OUTPUT ABRIDGED >>
 </pre>
 
-Verify that the Active status is __active (running)__.
+Verify that the Active status is __NOT active (NOT running)__.
