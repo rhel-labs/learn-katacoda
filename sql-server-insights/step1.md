@@ -54,9 +54,9 @@ Verify that SQL Server is running on the machine.
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
-
+Active: failed (Result: exit-code) since Tue 2020-03-10 03:29:37 EDT; 8min ago
+ 
 << OUTPUT ABRIDGED >>
 </pre>
 
-Verify that the Active status is __NOT active (NOT running)__.
+Verify that the Active status is __Failed (NOT running)__.
