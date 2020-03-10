@@ -9,7 +9,7 @@ First, verify the user and group for __/var/opt/mssql__:
 `stat -c "%U %G" /var/opt/mssql`{{execute}}
 
 <pre class=file>
-ClientAliveInterval 900
+root root
 </pre>
 
 Next, you will change the user and group ownership of __/var/opt/mssql__ from root to mssql.  
@@ -21,7 +21,7 @@ Verify that the user and group ownership is now updated:
 `stat -c "%U %G" /var/opt/mssql`{{execute}}
 
 <pre class=file>
-ClientAliveInterval 300
+mssql mssql
 </pre>
 
 Now that the ownership of the mssql-server directory is updated, restart the
