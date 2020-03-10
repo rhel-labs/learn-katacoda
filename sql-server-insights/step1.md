@@ -46,3 +46,17 @@ by using the `--status` option to `insights-client`.
 System is registered locally via .registered file. Registered at 2019-08-14T14:12:37.638768
 Insights API confirms registration.
 </pre>
+
+Verify that SQL Server is running on the machine.
+
+`systemctl status mssql-server.service --no-pager`{{execute T1}}
+
+<pre class="file">
+<< OUTPUT ABRIDGED >>
+
+Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+
+<< OUTPUT ABRIDGED >>
+</pre>
+
+Verify that the Active status is __active (running)__.
