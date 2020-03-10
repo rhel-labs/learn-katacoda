@@ -47,7 +47,7 @@ System is registered locally via .registered file. Registered at 2019-08-14T14:1
 Insights API confirms registration.
 </pre>
 
-Verify that SQL Server is running on the machine.
+Check whether or not SQL Server is running on the machine. 
 
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
@@ -59,4 +59,4 @@ Active: failed (Result: exit-code) since Tue 2020-03-10 03:29:37 EDT; 8min ago
 << OUTPUT ABRIDGED >>
 </pre>
 
-Verify that the Active status is __Failed (NOT running)__.
+Verify that the Active status is __Failed (NOT running)__. Let's have insights tell us why this might be an issue.
