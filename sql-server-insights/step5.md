@@ -1,35 +1,33 @@
 # Remediating the reported Insight
 
-The reported Insight for OpenSSH had a suggested resolution of 
-changing the sshd value for __ClientAliveInterval__ from 900 to
-300.
+The reported Insight for mssql-server service had a suggested resolution of 
+changing ownership or group of the Microsoft SQL Server directory __/var/opt/mssql__ from root to
+mssql.
 
-First, verify the value for __ClientAliveInterval__:
+First, verify the user and group for __/var/opt/mssql__:
 
-`grep '^ClientAliveInterval' /etc/ssh/sshd_config`{{execute}}
-
-<pre class=file>
-ClientAliveInterval 900
-</pre>
-
-Next, you will edit the file to update the __ClientAliveInterval__ value to 300.  
-`sed` is the stream editor utility used in this lab, but you could also use 
-another editor to make the change.
-
-`sed -ie 's/^ClientAliveInterval 900/ClientAliveInterval 300/' /etc/ssh/sshd_config`{{execute}}
-
-Verify that the value is now updated:
-
-`grep '^ClientAliveInterval' /etc/ssh/sshd_config`{{execute}}
+`stat -c "%U %G" /var/opt/mssql`{{execute}}
 
 <pre class=file>
-ClientAliveInterval 300
+root root
 </pre>
 
-Now that the value in the configuration file is updated, restart the
-sshd daemon so that it uses the updated value.
+Next, you will change the user and group ownership of __/var/opt/mssql__ from root to mssql.  
 
-`systemctl restart sshd`{{execute}}
+`chown -R mssql:mssql /var/opt/mssql`{{execute}}
+
+Verify that the user and group ownership is now updated:
+
+`stat -c "%U %G" /var/opt/mssql`{{execute}}
+
+<pre class=file>
+mssql mssql
+</pre>
+
+Now that the ownership of the mssql-server directory is updated, restart the
+SQL Server service.
+
+`systemctl restart mssql-server.service`{{execute}}
 
 Force a Red Hat Insights checkin so that a new batch of system data
 is uploaded to the Insights service.
