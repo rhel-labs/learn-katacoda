@@ -12,5 +12,4 @@ list until you reach the one entitled _The mssql-server service will fail to sta
 From the _Detected issues_ section of the rule, you can see that this Insight
 is being triggered by the machine running Microsoft SQL Server with incorrect ownership or group of /var/opt/mssql.  
 
-In the _Steps to resolve_ section of the Insight, there is a command to run to change ownership of the /var/opt/mssql folder
-to the correct user and group which is mssql. 
+In the _Steps to resolve_ section of the Insight, there is a command to fix the issue. We will fix this in the next step.
