@@ -59,4 +59,4 @@ Active: failed (Result: exit-code) since Tue 2020-03-10 03:29:37 EDT; 8min ago
 << OUTPUT ABRIDGED >>
 </pre>
 
-Verify that the Active status is __Failed (NOT running)__. Let's have insights tell us why this might be an issue.
+Verify that the Active status is __Failed (NOT running)__. Let's have insights tell us what might be the issue here.
