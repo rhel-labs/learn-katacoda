@@ -1,0 +1,42 @@
+{
+  "title": "Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux using Ansible",
+  "description": "Goal: Users will be able to use Ansible playbooks to install and configure Microsoft SQL Server on Red Hat Enterprise Linux",
+  "details": {
+    "steps": [
+      {
+        "title": "Download the ansible playbook",
+        "text": "step1.md"
+      },
+      {
+        "title": "View and edit the ansible playbook",
+        "text": "step2.md"
+      },
+      {
+        "title": "Run the ansible playbook",
+        "text": "step3.md"
+      },
+      {
+	"title": "Verify that Microsoft SQL Server is installed on the RHEL machine",
+	"text": "step4.md"
+      },
+      {
+	"title": "Login to SQL Server using the user credentials setup in the ansible playbook",
+	"text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "__Author:__ Don Pinto, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "rhel8-highmem"
+  }
+}

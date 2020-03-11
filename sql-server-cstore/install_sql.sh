@@ -21,8 +21,8 @@ sleep 10
 sudo yum clean all
 
 echo Adding Microsoft repositories...
-#2017 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
-sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
+sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
+#sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019-gdr.repo
 
 echo Installing Python and OpenSSL
 sudo yum install python2 compat-openssl10 -y
@@ -45,8 +45,7 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
 
 #Installing client tools
 echo Installing mssql-tools and unixODBC developer...
-curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/msprod.repo
-
+curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
 sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
 
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile

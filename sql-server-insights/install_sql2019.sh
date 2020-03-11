@@ -45,8 +45,7 @@ sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD \
 
 #Installing client tools
 echo Installing mssql-tools and unixODBC developer...
-curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/msprod.repo
-
+curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
 sudo ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel
 
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
