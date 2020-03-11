@@ -4,6 +4,10 @@
   "details": {
     "steps": [
       {
+        "title": "Enable ansible software version",
+        "text": "step0.md"
+      },
+      {
         "title": "Download the ansible playbook",
         "text": "step1.md"
       },
