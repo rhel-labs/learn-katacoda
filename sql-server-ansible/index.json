@@ -34,8 +34,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "/root/tutorial"
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "rhel8-highmem"
