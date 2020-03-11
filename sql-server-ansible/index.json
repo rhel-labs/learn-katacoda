@@ -4,27 +4,27 @@
   "details": {
     "steps": [
       {
-        "title": "Validate the environment",
+        "title": "Step 1",
         "text": "step1.md"
       },
       {
-        "title": "Download the ansible playbook",
+        "title": "Step 2",
         "text": "step2.md"
       },
       {
-        "title": "View and edit the ansible playbook",
+        "title": "Step 3",
         "text": "step3.md"
       },
       {
-        "title": "Run the ansible playbook",
+        "title": "Step 4",
         "text": "step4.md"
       },
       {
-	"title": "Verify that Microsoft SQL Server is installed on the RHEL machine",
+	"title": "Step 5",
 	"text": "step5.md"
       },
       {
-	"title": "Login to SQL Server using the user credentials setup in the ansible playbook",
+	"title": "Step 6",
 	"text": "step6.md"
       }
     ],
