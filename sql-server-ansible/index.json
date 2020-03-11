@@ -1,0 +1,34 @@
+{
+  "title": "An example Katacoda with using Ansible",
+  "description": "An example Katacoda with using Ansible",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "__Author:__ Sean Cavanaugh, Ansible Contributor (Red Hat)",
+      "courseData": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "rhel8"
+  }
+}
