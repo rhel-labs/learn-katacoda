@@ -11,6 +11,6 @@ to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL)
 
 # Example Use case:
 Your IT team requires a uniform and streamlined way to install Microsoft SQL Server
-across multiple RHEL servers. The SQL Server instances must also setup using a uniform 
-configuration throughout, and the installation process must be repeatable when more servers
-come online in the future.
+across multiple RHEL servers. The SQL Server instances must also be setup using a uniform 
+configuration, and the installation process must be repeatable when more servers
+come online.
