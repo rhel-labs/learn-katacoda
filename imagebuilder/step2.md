@@ -11,6 +11,7 @@ Password: __redhat__
 ![Web Console Login](/rhel-labs/scenarios/imagebuilder/assets/Web-console-login.png)
 
 >**NOTE:** Problems accessing the Web Console or logging in?  Try popping
-the Web Console page into a stand alone window by clicking this icon:
+the Web Console page into a stand alone window by clicking this icon on the
+Web Console tab in the lab interface:
 
 ![Web Console Login](/rhel-labs/scenarios/imagebuilder/assets/pop-out.png)
