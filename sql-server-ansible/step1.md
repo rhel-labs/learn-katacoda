@@ -14,3 +14,30 @@ Run the ansible command with the --version flag to see not only the version of A
 </pre>
 
 This output will become more useful the deeper you get into Ansible.
+
+In this demo you have access to one host named host01. To let Ansible know about it, put its hostname in an inventory file.
+
+1. We'll call our inventory file myhosts, and you'll add one group called group1:
+
+`echo "[group1]" > myhosts`{{execute}}
+
+2. Then, add the host to the group, while also passing the username to use for SSH access, as an inventory parameter.
+
+`echo "host01 ansible_ssh_user=cent" >> myhosts`{{execute}}
+
+3. You can use your terminal to verify that myhosts has been created: `cat myhosts`{{execute}}
+
+4. You can also run the following command to verify that your inventory is working properly:
+
+`ansible all -i myhosts -m ping`{{execute}}
+
+The response should look be:
+
+<pre class="file">
+host01 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
+
+So, now that we have confirmed Ansible is properly configured, let's look at Ansible Playbooks.
