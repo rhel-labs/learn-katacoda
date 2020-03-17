@@ -1,0 +1,7 @@
+---
+- name: Setup SQL server
+  hosts: node2
+  become: true
+
+  roles:
+    - sql-server
