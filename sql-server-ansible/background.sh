@@ -7,4 +7,4 @@ echo "installing ansible" >> /root/post-run.log
 yum -y install ansible &>> /root/post-run.log
 
 echo "Setting hostname env" >> /root/post-run.log
-export HOST=`hostname` &>> /root/post-run.log
+export HOSTNAME=`hostname --all-fqdns` &>> /root/post-run.log
