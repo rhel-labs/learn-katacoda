@@ -1,5 +1,8 @@
 !#/bin/bash
 
+wget https://github.com/rhel-labs/learn-katacoda/blob/master/sql-server-ansible/site.yml
+wget https://github.com/rhel-labs/learn-katacoda/blob/master/sql-server-ansible/ansible.cfg
+
 echo "adding ansible repo" > /root/post-run.log
 subscription-manager repos --enable=ansible-2.9-for-rhel-8-x86_64-rpms &>> /root/post-run.log
 
@@ -8,3 +11,5 @@ yum -y install ansible &>> /root/post-run.log
 
 echo "Setting hostname env" >> /root/post-run.log
 export HOSTNAME=`hostname --all-fqdns` &>> /root/post-run.log
+
+
