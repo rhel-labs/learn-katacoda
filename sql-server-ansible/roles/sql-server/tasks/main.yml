@@ -1,0 +1,84 @@
+---
+- name: Clean yum repos
+  command: yum clean all
+
+- name: Add MSFT yum repositories
+  yum_repository:
+    name: packages-microsoft-com-mssql-server-2019-gdr
+    description: packages-microsoft-com-mssql-server-2019-gdr
+    baseurl: https://packages.microsoft.com/rhel/8/mssql-server-2019/
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: true
+
+- name: Install SQL package
+  yum:
+    name: mssql-server
+    state: present
+  register: install
+
+- name: Install MSFT repo
+  yum_repository:
+    name: packages-microsoft-com-prod
+    description: Microsoft packages
+    baseurl: https://packages.microsoft.com/rhel/8/prod/
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: true
+
+- name: Install client tools
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - mssql-tools 
+    - unixODBC-devel
+  environment:
+    - ACCEPT_EULA: Y
+
+- name: Install python and openssl
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - python2
+    - compat-openssl10
+  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+
+- name: Update all packages
+  yum:
+    name: "*"
+    state: latest
+
+- name: Set default python
+  alternatives:
+    name: python
+    path: /usr/bin/python2
+  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+
+# - name: Check if MSSQL is already configured
+#   command: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q "SELECT @@VERSION"
+#   register: sqlcmd
+#   ignore_errors: true
+
+- name: Run mssql-conf setup
+  command: /opt/mssql/bin/mssql-conf -n setup accept-eula
+  environment:
+    - MSSQL_SA_PASSWORD: "{{ MSSQL_SA_PASSWORD }}"
+    - MSSQL_PID: "{{ MSSQL_PID }}"
+  when: install is changed
+
+- name: Add mssql-tools to $PATH
+  lineinfile:
+    path: "{{ item }}"
+    line: export PATH="$PATH:/opt/mssql-tools/bin"
+  loop:
+    - ~/.bash_profile
+    - ~/.bashrc
+
+- name: Create symlinks
+  file:
+    src: "{{ item.target }}"
+    dest: "{{ item.name }}"
+    state: link
+  loop:
+    - { target: '/usr/lib64/libssl.so.10', name: '/opt/mssql/lib/libssl.so' }
+    - { target: '/usr/lib64/libcrypto.so.10', name: '/opt/mssql/lib/libcrypto.so' }
