@@ -15,19 +15,17 @@ Run the ansible command with the --version flag to see not only the version of A
 
 This output will become more useful the deeper you get into Ansible.
 
-In this demo you have access to one host named host01. To let Ansible know about it, put its hostname in an inventory file.
+The inventory file 'hosts' defines the nodes in which SQL Server should be configured. In this example, we will call our inventory file myhosts, and we will add one group called [[sqlgroup]]:
 
-1. We'll call our inventory file myhosts, and you'll add one group called group1:
+`echo "[sqlgroup]" > myhosts`{{execute}}
 
-`echo "[group1]" > myhosts`{{execute}}
+Next, add the host to the group.
 
-2. Then, add the host to the group, while also passing the username to use for SSH access, as an inventory parameter.
+`echo ``$HOSTNAME`` >> myhosts`{{execute}}
 
-`echo $HOST ansible_ssh_user=cent" >> myhosts`{{execute}}
+You can use your terminal to verify that myhosts has been created: `cat myhosts`{{execute}}
 
-3. You can use your terminal to verify that myhosts has been created: `cat myhosts`{{execute}}
-
-4. You can also run the following command to verify that your inventory is working properly:
+You can also run the following command to verify that your inventory is working properly:
 
 `ansible all -i myhosts -m ping`{{execute}}
 
