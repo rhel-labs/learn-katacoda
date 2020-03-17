@@ -38,7 +38,8 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/roles/"
   },
   "backend": {
     "imageid": "rhel8-highmem"
