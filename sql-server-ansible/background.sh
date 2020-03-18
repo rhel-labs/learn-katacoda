@@ -9,17 +9,15 @@ wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-serve
 echo "adding ansible repo" >> /root/post-run.log
 subscription-manager repos --enable=ansible-2.9-for-rhel-8-x86_64-rpms &>> /root/post-run.log
 
-echo "installing ansible" >> /root/post-run.log
-yum -y install ansible &>> /root/post-run.log
-
 echo "Setting hostname env" >> /root/post-run.log
 export HOSTNAME=`hostname --all-fqdns` &>> /root/post-run.log
 
+echo "Setting hostname as localhost in site.yml"
 sed -i -e "s/host1/localhost/g" site.yml &>> /root/post-run.log
 #sed -i -e "s/host1/$HOSTNAME/g" site.yml &>> /root/post-run.log
 
-echo "installing pip3" >> /root/post-run.log
-yum -y install python3 &>> /root/post-run.log
+echo "installing ansible and pip3" >> /root/post-run.log
+yum -y install ansible python3 &>> /root/post-run.log
 
 #while [ ! -f /app-files/docker-compose.yml ]; do sleep 2; done
 #The environment is prepared! You can now start the activity.
