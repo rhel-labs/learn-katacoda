@@ -16,4 +16,4 @@ Verify that the Active status is __active (running)__.
 
 Now, let's open up the sqlcmd shell prompt connected to the testDB database. testDB should be created by Ansible playbook, and the sa password credentials is the password setup in the playbook variables. If you haven't changed the sa password in the previous step, you should be able to successfully execute the command below. 
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssWORD! -d testDB -N -C`{{execute}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssWORD! -d testDB -N -C -i ./InstPubs.sql`{{execute}}
