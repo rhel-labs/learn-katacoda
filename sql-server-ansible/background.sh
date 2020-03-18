@@ -22,3 +22,5 @@ yum -y install ansible python3 &>> /root/post-run.log
 #while [ ! -f /app-files/docker-compose.yml ]; do sleep 2; done
 #The environment is prepared! You can now start the activity.
 
+until (ansible --version &> /dev/null); do sleep 1; done
+
