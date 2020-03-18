@@ -5,8 +5,7 @@
     "steps": [
       {
         "title": "Step 1",
-        "text": "step1.md",
-	"verify": "step1-verify.sh"
+        "text": "step1.md"
       },
       {
         "title": "Step 2",
@@ -32,8 +31,7 @@
     "intro": {
       "text": "intro.md",
       "credits": "__Author:__ Colin McNaughton (Red Hat), and Don Pinto (Red Hat)",
-      "courseData": "background.sh",
-      "verify": "step1-verify.sh"
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -41,7 +39,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/roles/dpredhat.ansible_role_mssql/vars"
+    "uieditorpath": "/root/roles"
   },
   "backend": {
     "imageid": "rhel8-highmem"
