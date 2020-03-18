@@ -17,21 +17,17 @@ You should see output like below -
 </pre>
 
 
-In Ansible, the inventory represents machines that Ansible will manage. Without an inventory, you would have a set of playbooks that define your desired system state, but wouldn’t know which machines you needed to run them against.
-
-By default, Ansible will read /etc/ansible/hosts as its default inventory file. 
-
-In this example, we will create a inventory file called 'myhosts' and add one group called [[sqlgroup]]. You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
+In Ansible, the inventory represents machines that Ansible will manage. In this example, we will create a inventory file called 'myhosts' and add one group called [[sqlgroup]]. 
 
 `echo "[sqlgroup]" > myhosts`{{execute}}
 
-Next, add the host to the group.
+Next, add the host to the group.You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
 
 `echo localhost ansible_connection=local >> myhosts`{{execute}}
 
-You can use your terminal to verify that myhosts has been created: `cat myhosts`{{execute}}
+Verify that the myhosts file has been created: `cat myhosts`{{execute}}
 
-You can also run the following command to verify that your inventory is working properly:
+Next, use the ping command to verify that your inventory is working properly:
 
 `ansible all -i myhosts -m ping`{{execute}}
 
