@@ -32,7 +32,10 @@ You can also run the following command to verify that your inventory is working 
 The response should look be:
 
 <pre class="file">
-<hostname> | SUCCESS => {
+localhost | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
     "changed": false,
     "ping": "pong"
 }
