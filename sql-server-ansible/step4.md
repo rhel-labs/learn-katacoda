@@ -1,8 +1,8 @@
 # Run the Ansible Playbook
 
-Now, let's run our ansible playbook defined in the site.yml file
+Now, let's run our ansible playbook defined in the site.yml file and pass it the list of hosts
 
-`ansible-playbook site.yml`{{execute}}
+`ansible-playbook -i myhosts site.yml`{{execute}}
 
 The playbook has several tasks, and some tasks could take a bit longer than usual.
 
