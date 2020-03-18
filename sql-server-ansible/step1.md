@@ -1,5 +1,5 @@
-# Validate the Environment
-Using the provided system terminal session, validate the initial environment. For this scenario, we have started installing ansible in the background.
+# Validate the environment using terminal session
+For this scenario, we have started installing ansible in the background.
 
 > The background task will take between 2-5 minutes to complete. 
 
@@ -17,11 +17,11 @@ You should see output like below -
 </pre>
 
 
-In Ansible, the inventory represents the machines that Ansible will manage. Without an inventory, you would have a set of playbooks that define your desired system state, but wouldn’t know which machines you needed to run them against.
+In Ansible, the inventory represents machines that Ansible will manage. Without an inventory, you would have a set of playbooks that define your desired system state, but wouldn’t know which machines you needed to run them against.
 
 By default, Ansible will read /etc/ansible/hosts as its default inventory file. 
 
-In this example, we will create a inventory file called 'myhosts' that defines the machines in which SQL Server should be configured. In this example, we will call our inventory file myhosts, and we will add one group called [[sqlgroup]]:
+In this example, we will create a inventory file called 'myhosts' and add one group called [[sqlgroup]]. You can have multiple machines under a group, but for this scenario we will have only one machine (i.e. localhost).
 
 `echo "[sqlgroup]" > myhosts`{{execute}}
 
