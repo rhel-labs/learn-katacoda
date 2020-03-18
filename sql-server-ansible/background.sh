@@ -21,3 +21,6 @@ sed -i -e "s/host1/localhost/g" site.yml &>> /root/post-run.log
 echo "installing pip3" >> /root/post-run.log
 yum -y install python3 &>> /root/post-run.log
 
+#while [ ! -f /app-files/docker-compose.yml ]; do sleep 2; done
+#The environment is prepared! You can now start the activity.
+
