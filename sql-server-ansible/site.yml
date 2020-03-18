@@ -11,7 +11,11 @@
       wait_for:
         port: 1433
         timeout: 30
-    - name: Create new db
+    - name: Create New Database 
       include_role:
         name: dpredhat.ansible_role_mssql
         tasks_from: new_db
+    - name: Import SQL file 
+      include_role:
+        name: dpredhat.ansible_role_mssql
+        tasks_from: import_db
