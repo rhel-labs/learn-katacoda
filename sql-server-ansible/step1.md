@@ -21,7 +21,7 @@ The inventory file 'hosts' defines the nodes in which SQL Server should be confi
 
 Next, add the host to the group.
 
-`echo ``$HOSTNAME`` >> myhosts`{{execute}}
+`echo localhost ansible_connection=local >> myhosts`{{execute}}
 
 You can use your terminal to verify that myhosts has been created: `cat myhosts`{{execute}}
 
