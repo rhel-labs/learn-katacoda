@@ -1,7 +1,6 @@
 # Download the Ansible Role
 
-**Ansible Role**
-Ansible uses the concept of roles to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from. 
+Ansible uses the concept of **roles** to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from. 
 
 Ansible makes it easily share roles with the community or download roles that have been created by other members of the community with Ansible Galaxy (https://galaxy.ansible.com/).
 
