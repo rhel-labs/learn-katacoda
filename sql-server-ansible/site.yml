@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - sql-server
+    - ansible_role_mssql
