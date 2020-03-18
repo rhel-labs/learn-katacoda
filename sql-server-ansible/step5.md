@@ -14,8 +14,3 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 
 Verify that the Active status is __active (running)__.
 
-Now, let's open up the sqlcmd shell prompt connected to the **pubs** database. There is a task in the Ansible playbook to create this database, and the sa password credentials is the password setup in the playbook variables. 
-
-If you haven't changed the sa password in the previous step, you should be able to successfully execute the command below and run the script to install the pubs data in the testDB database. 
-
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssWORD! -d pubs -N -C -i ./InstPubs.sql`{{execute}}
