@@ -1,6 +1,6 @@
 # Connect to SQL Server and Query Data
 
-Now, let's open up the sqlcmd shell prompt connected to the **pubs** database. There is a task in the Ansible playbook to create this database, and the sa password credentials is the password setup in the playbook variables. 
+Now, let's open up the sqlcmd shell prompt connected to the **pubs** database created by the ansible playbook in SQL Server.
 
 If you haven't changed the sa password in the previous step, you should be able to successfully execute the command below and run the script to install the pubs data in the testDB database. 
 
