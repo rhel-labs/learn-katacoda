@@ -1,6 +1,6 @@
 ---
 - name: Setup SQL server
-  hosts: node
+  hosts: host
   become: true
 
   roles:
