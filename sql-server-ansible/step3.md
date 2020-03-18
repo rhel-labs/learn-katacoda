@@ -7,9 +7,9 @@ A play is a set of tasks mapped to a set of hosts.
 
 **Editing variables in a playbook**
 
-In this example, you can edit `root/roles/dpredhat.ansible_role_mssql/vars/main.yml`{{open}} file.
+Click to edit ``root/roles/dpredhat.ansible_role_mssql/vars/main.yml``{{open}} in the inline editor.
 
-This file has several variables, and one example variable that you might want to change is the sa user password.
+This file has several variables, and one example variable that you might optionally want to change is the database sa password. 
 <pre class="file">
 ...
 db_password: P@ssWORD!
