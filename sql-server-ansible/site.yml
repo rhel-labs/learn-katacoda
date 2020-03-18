@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - ansible_role_mssql
+    - dpredhat.ansible_role_mssql
