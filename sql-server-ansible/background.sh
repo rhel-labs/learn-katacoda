@@ -14,5 +14,5 @@ yum -y install ansible &>> /root/post-run.log
 echo "Setting hostname env" >> /root/post-run.log
 export HOSTNAME=`hostname --all-fqdns` &>> /root/post-run.log
 
-sed -i -e "s/host/localhost/g" site.yml &>> /root/post-run.log
-#sed -i -e "s/host/$HOSTNAME/g" site.yml &>> /root/post-run.log
+sed -i -e "s/host1/localhost/g" site.yml &>> /root/post-run.log
+#sed -i -e "s/host1/$HOSTNAME/g" site.yml &>> /root/post-run.log
