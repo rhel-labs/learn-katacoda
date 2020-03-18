@@ -15,7 +15,11 @@ Run the ansible command with the --version flag to see not only the version of A
 
 This output will become more useful the deeper you get into Ansible.
 
-The inventory file 'hosts' defines the nodes in which SQL Server should be configured. In this example, we will call our inventory file myhosts, and we will add one group called [[sqlgroup]]:
+In Ansible, the inventory represents the machines that Ansible will manage. Without an inventory, you would have a set of playbooks that define your desired system state, but wouldn’t know which machines you needed to run them against.
+
+By default, Ansible will read /etc/ansible/hosts as its default inventory file. 
+
+In this example, we will create a inventory file called 'myhosts' that defines the machines in which SQL Server should be configured. In this example, we will call our inventory file myhosts, and we will add one group called [[sqlgroup]]:
 
 `echo "[sqlgroup]" > myhosts`{{execute}}
 
