@@ -4,7 +4,7 @@ Using the provided system terminal session, validate the initial environment.
 Before we start this scenario, we need to install ansible. We have started installing ansible in the background. To check if ansible installation is complete, we can use the following command -
 `ansible --version`{{execute}}
 
-> The script will take between 2-5 minutes to complete. Don't worry if you see error messages.
+> The command will take between 2-5 minutes to complete. Don't worry if you see error messages. Please retry in a few minutes.
 
 After ansible is installed, you can retry running `ansible --version`{{execute T1}}.
 
