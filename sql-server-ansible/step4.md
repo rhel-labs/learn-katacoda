@@ -7,5 +7,9 @@ Now, let's run our ansible playbook defined in the site.yml file and pass it the
 The playbook has several tasks, and some tasks could take a bit longer than usual.
 
 <pre class="file">
-TBD
+PLAY [Setup SQL server] ************************************************************************
+
+TASK [Gathering Facts] *************************************************************************
+...
+
 </pre>
