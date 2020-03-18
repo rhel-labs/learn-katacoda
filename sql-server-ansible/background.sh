@@ -16,3 +16,7 @@ export HOSTNAME=`hostname --all-fqdns` &>> /root/post-run.log
 
 sed -i -e "s/host1/localhost/g" site.yml &>> /root/post-run.log
 #sed -i -e "s/host1/$HOSTNAME/g" site.yml &>> /root/post-run.log
+
+echo "installing pip3" >> /root/post-run.log
+yum -y install python3 &>> /root/post-run.log
+
