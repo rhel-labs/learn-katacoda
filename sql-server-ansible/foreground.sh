@@ -1,2 +1,6 @@
 !#/bin/bash
-[-a /root/post-run.log.done] && echo "Environment is ready to use"
+while [ ! -f /root/post-run.log.done ] ;
+do
+      sleep 2
+done
+echo "Ready to start your scenario"
