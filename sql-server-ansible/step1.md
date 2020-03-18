@@ -1,9 +1,14 @@
 # Validate the Environment
 Using the provided system terminal session, validate the initial environment. 
 
-Run the ansible command with the --version flag to see not only the version of Ansible that's installed, but also a few other key details:
-
+Before we start this scenario, we need to install ansible. We have started installing ansible in the background. To check if ansible installation is complete, we can use the following command -
 `ansible --version`{{execute}}
+
+> The script will take between 2-5 minutes to complete. Don't worry if you see error messages.
+
+After ansible is installed, you can retry running `ansible --version`{{execute T1}}.
+
+You should see output like below -
 
 <pre class="file">
   config file = /etc/ansible/ansible.cfg
@@ -13,7 +18,6 @@ Run the ansible command with the --version flag to see not only the version of A
   python version = 3.6.8 (default, Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]
 </pre>
 
-This output will become more useful the deeper you get into Ansible.
 
 In Ansible, the inventory represents the machines that Ansible will manage. Without an inventory, you would have a set of playbooks that define your desired system state, but wouldn’t know which machines you needed to run them against.
 
