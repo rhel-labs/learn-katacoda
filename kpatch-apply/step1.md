@@ -1,3 +1,5 @@
+# Getting started with Live Kernel Patching
+
 When a Critical severity Common Vulnerability and Exposure (CVE) is
 announced, Red Hat produces updated software package that include fixes for
 the CVE.  However, historically, to apply an updated kernel package,
