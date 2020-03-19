@@ -1,6 +1,9 @@
 !#/bin/bash
 
 n=1
+GREEN='\033[0;32m' 
+NC='\033[0m' # No Color
+
 while [ ! -f /root/post-run.log.done ] ;
 do
       if test "$n" = "1"
@@ -13,4 +16,4 @@ do
       sleep 2
 done
 clear
-printf "Ready to start your scenario\n"
+echo -e "${GREEN}Ready to start your scenario${NC}"
