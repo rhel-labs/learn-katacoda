@@ -5,10 +5,10 @@ while [ ! -f /root/post-run.log.done ] ;
 do
       if test "$n" = "1"
       then
-	      clear
+	    clear
             n=$(( n+1 ))	 # increments $n
       else
-	      printf "."
+	    printf "."
       fi
       sleep 2
 done
