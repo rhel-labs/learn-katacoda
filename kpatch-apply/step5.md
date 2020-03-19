@@ -6,7 +6,7 @@ patchset and which CVE it applies.  You can view the changelog by using the
 command-line scripting to make sure that the package referenced for the
 changelog is the one you installed earlier.
 
-`rpm -q --changelog $(rpm -qa | grep kpatch-patch)`
+`rpm -q --changelog $(rpm -qa | grep kpatch-patch)`{{execute}}
 
 <pre class="file">
 * Tue Dec 03 2019 Joe Lawrence <joe.lawrence@redhat.com> [1-4.el8]
@@ -21,19 +21,32 @@ changelog is the one you installed earlier.
 In the above sample output, you can see that the latest entry, the first one
 listed, in the patchset was to resolve CVE-2018-12207.
 
-#Additional resources from Red Hat
+# Supporting Live Kernel Patches
+
+Red Hat will maintain a patchset for a kernel until the next update release
+is produced (usually about six months).  Or, in the case of customers with 
+Extended Update Support, for up to a year.
+
+Systems are not meant to run with Live Kernel Patched kernels forever.  The
+goal is to provide an alternative to emergency kernel maintenance events for
+the mitigation of Critical CVEs.  It is expected that after an organization
+has live patched a running kernel that they will, at some point, schedule a
+maintenance window to apply the updated kernel package to the system and
+perform a system reboot.  Kernel Live Patching allows the organization to
+determine when this window occurs rather than the release of a fix for a
+Critical CVE.
+
+# Additional resources from Red Hat
 
 In this lab, you worked with the commands and steps to list, apply, and
 validate applying a Live Kernel Patch to a system.  How would an administrator
 know that this was needed or available for a system?
 
 The Red Hat Product Security team maintains a list of CVEs affecting Red Hat
-products.  
-[Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
+products.  [Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
 
 Each listed CVE will have a page used for additional information and resources
-to go with it.
-[Page for CVE-2018-12207](https://access.redhat.com/security/cve/cve-2019-19339)
+to go with it.  [Page for CVE-2018-12207](https://access.redhat.com/security/cve/cve-2019-19339)
 
 On the above linked page, in addition to more information about the CVE and
 the effect on systems or services, Red Hat may provide additional resources
