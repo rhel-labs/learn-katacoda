@@ -29,11 +29,11 @@ know that this was needed or available for a system?
 
 The Red Hat Product Security team maintains a list of CVEs affecting Red Hat
 products.  
-[Vulnerability Responses]: https://access.redhat.com/security/vulnerabilities
+[Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
 
 Each listed CVE will have a page used for additional information and resources
 to go with it.
-[Page for CVE-2018-12207]: https://access.redhat.com/security/cve/cve-2019-19339
+[Page for CVE-2018-12207](https://access.redhat.com/security/cve/cve-2019-19339)
 
 On the above linked page, in addition to more information about the CVE and
 the effect on systems or services, Red Hat may provide additional resources
