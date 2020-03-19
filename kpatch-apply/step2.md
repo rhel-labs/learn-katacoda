@@ -29,6 +29,7 @@ Linux repos.
 <pre class='file'>
 << OUTPUT ABRIDGED >>
 
+Available Packages
 kpatch-patch-4_18_0-147.x86_64                                     1-4.el8                                   rhel-8-for-x86_64-baseos-rpms
 kpatch-patch-4_18_0-147_0_2.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
 kpatch-patch-4_18_0-147_0_3.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
