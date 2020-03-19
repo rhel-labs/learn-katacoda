@@ -1,3 +1,5 @@
+# Determine what Live Kernel Patches are available
+
 When Live Kernel Patches are applied to the kernel, functions within the
 kernel are re-routed from their initial instructions to instead use the
 functions provided by the kpatch.  The following diagram provides a bit
