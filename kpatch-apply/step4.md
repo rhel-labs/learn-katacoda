@@ -4,7 +4,7 @@ To validate that you have properly applied the Live Kernel Patch, run the
 same `kpatch list` command you ran on the first step.  You will notice that
 this time the output is no longer blank.
 
-`kpatch list`
+`kpatch list`{{execute}}
 
 <pre class="file">
 
