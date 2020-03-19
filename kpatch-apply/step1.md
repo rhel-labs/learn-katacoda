@@ -28,4 +28,4 @@ Installed patch modules:
 
 </pre>
 
-As expected, no patch modules are loaded or installed.
+As expected, no patch modules are loaded or installed on the machine ... yet.
