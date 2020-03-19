@@ -31,14 +31,16 @@
     "intro": {
       "text": "intro.md",
       "credits": "__Author:__ Colin McNaughton (Red Hat), and Don Pinto (Red Hat)",
-      "courseData": "background.sh"
+      "courseData": "background.sh",
+      "code": "foreground.sh"    
     },
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/roles"
   },
   "backend": {
     "imageid": "rhel8-highmem"

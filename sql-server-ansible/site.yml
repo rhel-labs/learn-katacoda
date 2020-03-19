@@ -1,7 +1,17 @@
 ---
 - name: Setup SQL server
-  hosts: node2
+  hosts: host1
   become: true
 
   roles:
-    - sql-server
+    - dpredhat.ansible_role_mssql
+    
+  tasks:
+    - name: Wait up to 30 seconds for server to become available after creation
+      wait_for:
+        port: 1433
+        timeout: 30
+    - name: Create New Database 
+      include_role:
+        name: dpredhat.ansible_role_mssql
+        tasks_from: new_db
