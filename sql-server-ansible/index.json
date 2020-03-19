@@ -42,7 +42,6 @@
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/roles/dpredhat.ansible_role_mssql"
   },
-  "files": [ "/vars/main.yml" ],
   "backend": {
     "imageid": "rhel8-highmem"
   }
