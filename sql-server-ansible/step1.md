@@ -25,7 +25,7 @@ Next, add the host to the group.You can have multiple machines under a group, bu
 
 Verify that the myhosts file has been created: `cat myhosts`{{execute}}
 
-Next, use the ping command to verify that your inventory is working properly:
+Next, use the ping module to verify that your inventory is working properly:
 
 `ansible all -i myhosts -m ping`{{execute}}
 
