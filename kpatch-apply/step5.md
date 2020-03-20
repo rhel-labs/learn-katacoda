@@ -23,9 +23,9 @@ listed, in the patchset was to resolve CVE-2018-12207.
 
 # Supporting Kernel Live Patches
 
-Red Hat will maintain a patchset for a kernel until the next update release
-is produced (usually about six months).  Or, in the case of customers with 
-Extended Update Support, for up to a year.
+Red Hat will maintain a patchset for Extended Update Support (EUS) releases
+for up to a year.  Kernel Live Patches are made for selected Important and
+Critical severity CVEs.
 
 Systems are not meant to run with Kernel Live Patched kernels forever.  It is 
 expected that after an organization has live patched a running kernel that 
