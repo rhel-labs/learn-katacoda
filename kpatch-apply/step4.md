@@ -1,6 +1,6 @@
-# Verifying a Live Kernel Patch
+# Verifying a Kernel Live Patch
 
-To validate that you have properly applied the Live Kernel Patch, run the
+To validate that you have properly applied the Kernel Live Patch, run the
 same `kpatch list` command you ran on the first step.  You will notice that
 this time the output is no longer blank.
 

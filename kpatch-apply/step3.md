@@ -1,4 +1,4 @@
-# Applying a Live Kernel Patch
+# Applying a Kernel Live Patch
 
 You could now install the specific kpatch-patch package you discovered from the
 previous step.  However, if you were wanting to do this action on a population

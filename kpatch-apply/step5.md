@@ -21,25 +21,23 @@ changelog is the one you installed earlier.
 In the above sample output, you can see that the latest entry, the first one
 listed, in the patchset was to resolve CVE-2018-12207.
 
-# Supporting Live Kernel Patches
+# Supporting Kernel Live Patches
 
 Red Hat will maintain a patchset for a kernel until the next update release
 is produced (usually about six months).  Or, in the case of customers with 
 Extended Update Support, for up to a year.
 
-Systems are not meant to run with Live Kernel Patched kernels forever.  The
-goal is to provide an alternative to emergency kernel maintenance events for
-the mitigation of Critical CVEs.  It is expected that after an organization
-has live patched a running kernel that they will, at some point, schedule a
-maintenance window to apply the updated kernel package to the system and
-perform a system reboot.  Kernel Live Patching allows the organization to
-determine when this window occurs rather than the release of a fix for a
-Critical CVE.
+Systems are not meant to run with Kernel Live Patched kernels forever.  It is 
+expected that after an organization has live patched a running kernel that 
+they will, at some point, schedule a maintenance window to apply the updated 
+kernel package to the system and perform a system reboot.  Kernel Live 
+Patching allows the organization to determine when this window occurs rather 
+than the release of a fix for a Critical CVE.
 
 # Additional resources from Red Hat
 
 In this lab, you worked with the commands and steps to list, apply, and
-validate applying a Live Kernel Patch to a system.  How would an administrator
+validate applying a Kernel Live Patch to a system.  How would an administrator
 know that this was needed or available for a system?
 
 The Red Hat Product Security team maintains a list of CVEs affecting Red Hat
