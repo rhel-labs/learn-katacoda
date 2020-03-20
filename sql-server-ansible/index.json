@@ -40,7 +40,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/roles"
+    "uieditorpath": "/root/roles/dpredhat.ansible_role_mssql"
   },
   "backend": {
     "imageid": "rhel8-highmem"

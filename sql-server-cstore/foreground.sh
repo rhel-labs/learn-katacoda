@@ -1,5 +1,19 @@
-curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-crypto-policy/install_sql2019.sh 
-sudo chmod +x ./install_sql.sh
+!#/bin/bash
 
-sudo ./install_sql.sh
-export HOSTNAME=`hostname --all-fqdns`
+n=1
+GREEN='\033[0;32m' 
+NC='\033[0m' # No Color
+
+while [ ! -f /root/post-run.log.done ] ;
+do
+      if test "$n" = "1"
+      then
+	    clear
+            n=$(( n+1 ))	 # increments $n
+      else
+	    printf "."
+      fi
+      sleep 2
+done
+clear
+echo -e "${GREEN}Ready to start your scenario${NC}"
