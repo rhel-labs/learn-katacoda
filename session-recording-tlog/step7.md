@@ -25,7 +25,7 @@ Your session identifier is going to be different, the following command will
 use some shell tools to isolate the first recording from your journal.  As you
 replay the session, your existing terminal session will be used for the replay.
 once the replay is complete, your session will be returned to your control.  You
-can interrupt the playback with a &lt;CTRL&gt;-C.
+can interrupt the playback with a `<CTRL>-C`.
 
 `tlog-play -r journal -M TLOG_REC=$(journalctl -o verbose | grep -P "\"rec\".*?\." | cut -d, -f3 | cut -d: -f2 | head -n 1 | sed -e s/\"//g)`{{execute}}
 
