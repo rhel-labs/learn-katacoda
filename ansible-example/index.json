@@ -1,6 +1,6 @@
 {
   "title": "An example Katacoda with using Ansible",
-  "description": "An example Katacoda with using Ansible",
+  "description": "This environment contains 3 x Red Hat Enterprise Linux nodes",
   "details": {
     "steps": [
       {
@@ -25,10 +25,22 @@
       "text": "finish.md"
     }
   },
+  "assets": {
+      "client": [
+        {
+          "file": "ansible.cfg",
+          "target": "/etc/ansible/ansible.cfg"
+        }
+        {
+          "file": "hosts",
+          "target": "/etc/ansible/hosts"
+        }
+      ]
+  },
   "environment": {
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8"
+    "imageid": "rhel8-cluster3"
   }
 }
