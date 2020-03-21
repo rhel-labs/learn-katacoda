@@ -28,11 +28,7 @@
   "assets": {
       "client": [
         {
-          "file": "ansible.cfg",
-          "target": "~/"
-        },
-        {
-          "file": "hosts",
+          "file": "*",
           "target": "~/"
         }
       ]
