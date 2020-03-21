@@ -29,11 +29,11 @@
       "client": [
         {
           "file": "ansible.cfg",
-          "target": "/etc/ansible/ansible.cfg"
+          "target": "~/"
         }
         {
           "file": "hosts",
-          "target": "/etc/ansible/hosts"
+          "target": "~/"
         }
       ]
   },
