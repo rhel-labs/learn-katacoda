@@ -30,7 +30,7 @@
         {
           "file": "ansible.cfg",
           "target": "~/"
-        }
+        },
         {
           "file": "hosts",
           "target": "~/"
