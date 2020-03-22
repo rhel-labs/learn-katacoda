@@ -26,5 +26,10 @@ Finally, verify that you can connect to SQL Server
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q "select @@version"`{{execute T1}}
 
 <pre class="file">
-TBD
+Microsoft SQL Server 2019 (RTM-CU3) (KB4538853) - 15.0.4023.6 (X64)
+        Mar  4 2020 00:59:26
+        Copyright (C) 2019 Microsoft Corporation
+        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.1 (Ootpa)) <X64>
+
+(1 rows affected)
 </pre>
