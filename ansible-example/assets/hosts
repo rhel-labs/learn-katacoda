@@ -3,5 +3,5 @@ ansible_user=root
 ansible_ssh_pass=katacoda
 
 [web]
-host2 ansible_host=172.17.0.24
-host3 ansible_host=172.17.0.25
+host2 ansible_host=`[[HOST2_IP]]`
+host3 ansible_host=`[[HOST3_IP]]`
