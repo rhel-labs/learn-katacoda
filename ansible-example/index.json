@@ -19,8 +19,12 @@
     "assets": {
         "client": [
           {
-            "file": "*",
-            "target": "~/"
+            "file": "ansible.cfg",
+            "target": "/root/"
+          },
+          {
+            "file": "hosts",
+            "target": "/root/"
           }
         ]
     },
