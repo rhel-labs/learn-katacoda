@@ -16,6 +16,14 @@
         "text": "step3.md"
       }
     ],
+    "assets": {
+        "client": [
+          {
+            "file": "*",
+            "target": "~/"
+          }
+        ]
+    },
     "intro": {
       "text": "intro.md",
       "credits": "__Author:__ Sean Cavanaugh, Ansible Contributor (Red Hat)",
@@ -24,14 +32,6 @@
     "finish": {
       "text": "finish.md"
     }
-  },
-  "assets": {
-      "host01": [
-        {
-          "file": "*",
-          "target": "~/"
-        }
-      ]
   },
   "environment": {
     "uilayout": "terminal"
