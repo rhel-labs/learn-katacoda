@@ -1,5 +1,7 @@
 # Reconcile service issues
 
+[root@1d3bc7606f7f ~]# /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CS.sql | grep "columnstore index"
+
 You will need to restart the Microsoft SQL Server service after changing the system-wide
 crypto policy so that it runs under the new policy.   
 
