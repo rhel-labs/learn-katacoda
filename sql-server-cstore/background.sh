@@ -4,7 +4,8 @@
 touch /root/post-run.log
 
 #Download the WWImporters database
-curl -o /root/WW.bak https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak
+wget https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak
+mv WideWorldImporters-Full.bak WW.bak
 mv /root/WW.bak /var/opt/mssql/data/
 
 #Download the install script and run it
