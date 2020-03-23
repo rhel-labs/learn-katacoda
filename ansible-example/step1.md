@@ -8,13 +8,19 @@ In this lab you work in a pre-configured lab environment. You will have access t
 | Managed host 1       | host02         | `[[HOST2_IP]]` |
 | Managed host 2       | host03         | `[[HOST3_IP]]` |
 
-# Examine Ansible software version
+All three nodes are running Red Hat Enterprise Linux 8
 
-Run the ansible command with the --version flag to see not only the version of Ansible that's installed, but also a few other key details:
+`cat /etc/*release`{{execute}}
 
-`ansible --version`{{execute}}
+# Examining /etc/hosts
 
-Take note of the config file
-```
-config file = /root/ansible.cfg
-```
+For this lab environment we are using DNS to resolve hostnames.
+
+`cat /etc/hosts`{{execute}}
+
+If you want to manually login to each host the password is `katacoda`
+
+`ssh host02`{{execute}}
+
+type in the password or click here
+`katacoda`{{execute}}
