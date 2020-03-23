@@ -21,7 +21,7 @@ Next we have two groups, one of the control node, just containing *host01*
 host01
 ```
 
-Finally we have our two managed hosts in a group named *web*
+and one group named *web* with our two managed hosts
 
 ```
 [web]
