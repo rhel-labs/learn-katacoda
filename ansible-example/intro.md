@@ -1,6 +1,6 @@
 # Objective
 
-This first exercise is about exploring and understanding the lab environment, and the various parts that go into successfully running your first Ansible playook. This exercise will cover:
+This exercise is about exploring and understanding the lab environment, and the various parts that go into successfully running your first Ansible Playbook. This exercise will cover:
 
 - Determining the Ansible version running on the control node
 - Locating and understanding the Ansible configuration file - (ansible.cfg)

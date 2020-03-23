@@ -20,11 +20,11 @@
         "client": [
           {
             "file": "ansible.cfg",
-            "target": "/root/"
+            "target": "/root"
           },
           {
             "file": "hosts",
-            "target": "/root/"
+            "target": "/root"
           }
         ]
     },
