@@ -9,6 +9,8 @@ Take note of the config file
 config file = /root/ansible.cfg
 ```
 
+We always know from our current working directory which Ansible Configuration file we are using and in turn, which inventory we are parsing.
+
 # Intro to Ad-Hoc commands
 
 We are going to run some ad-hoc commands to help you get a feel for how Ansible works.  Ansible Ad-Hoc commands enable you to perform tasks on remote nodes without having to write a playbook.  
@@ -30,3 +32,5 @@ We can also use modules to perform ad-hoc tasks.  The most common example is usi
 The `-m` option defines which Ansible module to use
 
 `ansible web -m ping`{{execute}}
+
+You will see green return values in the terminal window with the hostname and **SUCCESS**.

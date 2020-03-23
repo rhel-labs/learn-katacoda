@@ -18,9 +18,8 @@ For this lab environment we are using DNS to resolve hostnames.
 
 `cat /etc/hosts`{{execute}}
 
-If you want to manually login to each host the password is `katacoda`
+If you want to manually login to each host you can ssh to their DNS name.
 
 `ssh host02`{{execute}}
 
-type in the password or click here
-`katacoda`{{execute}}
+`ssh host03`{{execute}}
