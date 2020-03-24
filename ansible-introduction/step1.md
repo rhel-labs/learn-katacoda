@@ -18,12 +18,23 @@ For this lab environment we are using DNS to resolve hostnames.
 
 `cat /etc/hosts`{{execute}}
 
+
+# Connecting to hosts
+
 If you want to manually login to each host you can ssh to their DNS name.
+
+To connect to `host02` use the Linux `ssh` command:
 
 `ssh host02`{{execute}}
 
+Type exit to return back to the control node.
+
+`exit`{{execute}}
+
+To connect to `host03` use the Linux `ssh` command:
+
 `ssh host03`{{execute}}
 
-type exit to return back to the control node.
+Type exit to return back to the control node.
 
 `exit`{{execute}}

@@ -45,16 +45,26 @@ To verify the hostname did indeed change, login to each host:
 
 ### host02
 
+SSH to host02 using the linux command `ssh`:
+
 `ssh host02`{{execute}}
 
-type exit to return back to the control node.
+Verify that the hostname has changed, you should use 
+`[root@host02 ~]#`
+
+Type exit to return back to the control node.
 
 `exit`{{execute}}
 
 ### host03
 
+SSH to host03 using the linux command `ssh`:
+
 `ssh host03`{{execute}}
 
-type exit to return back to the control node.
+Verify that the hostname has changed, you should use
+`[root@host03 ~]#`
+
+Type exit to return back to the control node.
 
 `exit`{{execute}}
