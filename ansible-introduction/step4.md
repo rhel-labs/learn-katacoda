@@ -11,7 +11,7 @@ config file = /root/ansible.cfg
 
 We always know from our current working directory which Ansible Configuration file we are using and in turn, which inventory we are parsing.
 
-# Intro to Ad-Hoc commands
+# Intro to ad-hoc commands
 
 We are going to run some ad-hoc commands to help you get a feel for how Ansible works.  Ansible Ad-Hoc commands enable you to perform tasks on remote nodes without having to write a playbook.  
 
@@ -23,7 +23,7 @@ now compare this to
 
 `ansible all --list-hosts`{{execute}}
 
-You will notice that the group web only contains *host02* and *host03* whereas all also contains *host01*
+You will notice that the group web only contains `host02` and `host03` whereas all also contains `host01`
 
 # Determining	connectivity
 
