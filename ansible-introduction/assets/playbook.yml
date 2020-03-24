@@ -4,6 +4,6 @@
   become: true
   tasks:
 
-  - name: change hostnames for device
-    yum:
+  - name: change hostname for device
+    hostname:
       name: "control"

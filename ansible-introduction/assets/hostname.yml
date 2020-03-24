@@ -5,5 +5,5 @@
   tasks:
 
   - name: change hostnames for device
-    yum:
+    hostname:
       name: "{{inventory_hostname}}"

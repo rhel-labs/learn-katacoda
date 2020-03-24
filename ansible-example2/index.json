@@ -1,31 +1,11 @@
 {
-  "title": "Ansible Introduction",
-  "description": "Simple walkthrough of command-line Ansible and executing your first Ansible Playbook",
+  "title": "Ansible web servers",
+  "description": "please delete me sean",
   "details": {
     "steps": [
       {
         "title": "Step 1",
         "text": "step1.md"
-      },
-      {
-        "title": "Step 2",
-        "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      },
-      {
-        "title": "Step 4",
-        "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
-      },
-      {
-        "title": "Step 6",
-        "text": "step6.md"
       }
     ],
     "assets": {
@@ -39,16 +19,12 @@
             "target": "/root"
           },
           {
-            "file": "playbook.yml",
+            "file": "apache.yml",
             "target": "/root"
           },
           {
-            "file": "hostname.yml",
+            "file": "index.html",
             "target": "/root"
-          },
-          {
-            "file": "config",
-            "target": "/root/.ssh"
           }
         ]
     },
