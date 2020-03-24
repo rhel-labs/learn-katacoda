@@ -50,6 +50,9 @@ To verify the hostname took place:
 You will see the following output:
 `Static hostname: control`
 
-To see this change on ther terminal window re-login to the control node:
+To see this change on the terminal window re-login to the control node:
 
 `ssh localhost`{{execute}}
+
+Verify that the hostname has changed, you should use
+`[root@control ~]#`

@@ -3,7 +3,7 @@ ansible_user=root
 ansible_ssh_pass=katacoda
 
 [control_node]
-host01
+host01 ansible_host=localhost ansible_connection=local
 
 [web]
 host02

@@ -18,8 +18,13 @@ ansible_ssh_pass=katacoda
 Next we have two groups, one of the control node, just containing `host01`
 ```
 [control_node]
-host01
+host01 ansible_host=localhost ansible_connection=local
 ```
+
+The `host01` node has two host vars (or variables specific to this individual host).
+
+- `ansible_host` this is an optional variable where if your Ansible inventory name does not match your DNS name you can hardcode the DNS name or an IP address.
+- `ansible_connection` - this means the host is using the local connection rather than the default SSH.  Other value include `network_cli` for network devices like a Cisco Router or `winrm` to run tasks over Microsoft's WinRM.  For a full list [check the documentation.](https://docs.ansible.com/ansible/latest/plugins/connection.html)
 
 and one group named `web` with our two managed hosts
 
