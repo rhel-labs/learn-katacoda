@@ -49,4 +49,4 @@ GROUP BY ol.StockItemID, [Description]
 OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX);
 
 PRINT 'Without nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
-GO
+GO 100
