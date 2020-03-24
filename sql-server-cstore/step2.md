@@ -1,4 +1,28 @@
-# Set system-wide cryptographic policy to FUTURE
+# All about tuned profiles
+
+* Check the currently active tuned profile
+`tuned-adm active`
+
+* List all the tuned profiles that can be set
+`tuned-adm active`
+
+* Get the tuned profile for SQL Server
+`subscription-manager repos --enable=rhel-8-for-x86_64-baseos-htb-rpms`{{execute}}
+`yum install tuned-profiles-mssql`{{execute}}
+
+* List all the tuned profiles that can be set
+`tuned-adm active`
+
+Notice that mssql tuned profile is now available to be used
+
+Updates to the mssql tuned profile optimize tuning for decision support workloads
+`tuned-adm profile mssql`{{execute}}
+
+If you are interested in more details about the RHEL tuned profiles that
+ship with Red Hat Enterprise Linux 8:    
+
+`man tuned-adm`{{execute T1}}
+
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q "RESTORE FILELISTONLY FROM DISK= '/var/opt/mssql/backup/WW.bak'" | tr -s ' ' | cut -d ' ' -f 1-2`{{execute}}
 
