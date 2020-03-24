@@ -1,0 +1,9 @@
+---
+- name: change hostname
+  hosts: control_node
+  become: true
+  tasks:
+
+  - name: change hostnames for device
+    yum:
+      name: "control"

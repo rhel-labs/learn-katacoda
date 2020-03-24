@@ -18,6 +18,10 @@
       {
         "title": "Step 4",
         "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
       }
     ],
     "assets": {
@@ -28,6 +32,14 @@
           },
           {
             "file": "hosts",
+            "target": "/root"
+          },
+          {
+            "file": "playbook.yml",
+            "target": "/root"
+          },
+          {
+            "file": "hostname.yml",
             "target": "/root"
           }
         ]

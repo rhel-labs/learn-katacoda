@@ -15,13 +15,13 @@ There is an implicit group named `[all]`.  This means all hosts are part of the 
 ansible_user=root
 ansible_ssh_pass=katacoda
 ```
-Next we have two groups, one of the control node, just containing *host01*
+Next we have two groups, one of the control node, just containing `host01`
 ```
 [control_node]
 host01
 ```
 
-and one group named *web* with our two managed hosts
+and one group named `web` with our two managed hosts
 
 ```
 [web]
