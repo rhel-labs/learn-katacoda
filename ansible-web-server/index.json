@@ -1,6 +1,6 @@
 {
-  "title": "An example Katacoda with using Ansible",
-  "description": "This environment contains 3 x Red Hat Enterprise Linux nodes",
+  "title": "Ansible web servers",
+  "description": "Simple walkthrough of building web servers with Ansible on Red Hat Enterprise Linux",
   "details": {
     "steps": [
       {

@@ -26,27 +26,11 @@ This exercise has provided an already complete Ansible Playbook.  To examine thi
 
 `cat playbook.yml`{{execute}}
 
-Lets examine the play:
-
-```yaml
----
-- name: change hostname
-  hosts: control_node
-  become: true
-  tasks:
-```
-
-- `---` identifies this file as YAML
-- `- name: change hostname` is a description of this Ansible Playbook printed to the terminal window
-- `hosts: control_node` means this playbook will execute against the group `[control_node]` which contains one host, `host01`
-- `become: true` gives this Ansible Playbook to run with privilege escalation, by default this is root
-- `tasks:` starts where a list of tasks will be provided.
-
 This Ansible Playbook has one task.
 
 ```yaml
-  - name: change hostnames for device
-    yum:
+  - name: change hostname for device
+    hostname:
       name: "control"
 ```
 
@@ -59,3 +43,13 @@ This Ansible Playbook has one task.
 Use the `ansible-playbook` command to execute the playbook:
 
 `ansible-playbook playbook.yml`{{execute}}
+
+To verify the hostname took place:
+`hostnamectl`{{execute}}
+
+You will see the following output:
+`Static hostname: control`
+
+To see this change on ther terminal window re-login to the control node:
+
+`ssh localhost`{{execute}}
