@@ -1,6 +1,7 @@
 ---
 - name: Apache server installed
   hosts: web
+  gather_facts: false
   become: yes
   tasks:
 

@@ -1,8 +1,10 @@
 # Objective
 
-This exercise is about exploring and understanding the lab environment, and the various parts that go into successfully running your first Ansible Playbook. This exercise will cover:
+This exercise covers using Ansible to build two Apache web servers on Red Hat Enterprise Linux. This exercise covers the following Ansible fundamentals:
 
-- Determining the Ansible version running on the control node
-- Locating and understanding the Ansible configuration file - (ansible.cfg)
-- Locating and understanding an ini formatted inventory file
-- Running your first Ansible Playbook
+- Understanding Ansible Module parameters
+- Understanding and using the following modules
+  - [yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
+  - [service module](https://docs.ansible.com/ansible/latest/modules/service_module.html)
+  - [copy module](https://docs.ansible.com/ansible/latest/modules/copy_module.html)
+- Understanding [Idempotence](https://en.wikipedia.org/wiki/Idempotence) and how Ansible Modules can be idempotent  
