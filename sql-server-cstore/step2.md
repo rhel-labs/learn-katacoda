@@ -1,27 +1,55 @@
 # All about tuned profiles
 
-* Check the currently active tuned profile
-`tuned-adm active`
+Check the currently active tuned profile
+`tuned-adm active`{{execute}}
 
-* List all the tuned profiles that can be set
-`tuned-adm active`
+<pre class="file">
+TBD
+</pre>
 
-* Get the tuned profile for SQL Server
-`subscription-manager repos --enable=rhel-8-for-x86_64-baseos-htb-rpms`{{execute}}
+List all the tuned profiles that can be set
+`tuned-adm list`{{execute}}
+
+<pre class="file">
+TBD
+</pre>
+
+Install the tuned profile for Microsoft SQL Server (tuned-profiles-mssql), which can be used to optimize tuning for decision support workloads
 `yum install tuned-profiles-mssql`{{execute}}
 
-* List all the tuned profiles that can be set
-`tuned-adm active`
+<pre class="file">
+TBD
+</pre>
 
-Notice that mssql tuned profile is now available to be used
+Again, list all the tuned profiles that can be set
+`tuned-adm list`{{execute}}
+
+<pre class="file">
+TBD
+</pre>
+
+Notice that MSSQL tuned profile is now available and can be used.
 
 Updates to the mssql tuned profile optimize tuning for decision support workloads
 `tuned-adm profile mssql`{{execute}}
 
-If you are interested in more details about the RHEL tuned profiles that
-ship with Red Hat Enterprise Linux 8:    
+<pre class="file">
+TBD
+</pre>
 
+You can now verify that the tuned profile for MSSQL, has been applied to the system.    
+`tuned-adm active`{{execute}}
+
+<pre class="file">
+TBD
+</pre>
+
+If you are interested in more details about the RHEL tuned profiles that ship with Red Hat Enterprise Linux 8:    
 `man tuned-adm`{{execute T1}}
+
+<pre class="file">
+TBD
+</pre>
 
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q "RESTORE FILELISTONLY FROM DISK= '/var/opt/mssql/backup/WW.bak'" | tr -s ' ' | cut -d ' ' -f 1-2`{{execute}}
