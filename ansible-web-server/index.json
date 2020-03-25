@@ -43,6 +43,10 @@
             "target": "/root"
           },
           {
+            "file": "config",
+            "target": "/root/.ssh"
+          },
+          {
             "file": "index.html",
             "target": "/root"
           }
