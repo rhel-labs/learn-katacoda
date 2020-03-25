@@ -1,17 +1,33 @@
-# Ansible Playbook Overview
+# Exploring and understanding the lab environment
 
-Playbooks are Ansible’s configuration, deployment, and orchestration language. They can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process.
+In this lab you work in a pre-configured lab environment. You will have access to the following hosts:
 
-## Examine the Ansible Playbook
+| Role                 | Inventory name | IP Address     |
+| ---------------------| ---------------| ---------------|
+| Ansible Control node | host01         | `[[HOST1_IP]]` |
+| Managed host 1       | host02         | `[[HOST2_IP]]` |
+| Managed host 2       | host03         | `[[HOST3_IP]]` |
 
-This exercise has provided an already complete Ansible Playbook.  To examine this playbook use the Linux `cat` command
+A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8.  To see what version of Red Hat Enterprise is running on the server use the Linux `cat` command to examine the `/etc/redhat-release` file.  
 
-`cat apache.yml`{{execute}}
+`cat /etc/redhat-release`{{execute}}
 
-This Ansible Playbook has three tasks:
+# Connecting to hosts
 
-  - First step: Install httpd package
+If you want to manually login to each host you can ssh to their DNS name.
 
-  - Second step: Enable/start httpd service
+To connect to `host02` use the Linux `ssh` command:
 
-  - Third step: Copy over an index.html file to each web host
+`ssh host02`{{execute}}
+
+Type exit to return back to the control node.
+
+`exit`{{execute}}
+
+To connect to `host03` use the Linux `ssh` command:
+
+`ssh host03`{{execute}}
+
+Type exit to return back to the control node.
+
+`exit`{{execute}}

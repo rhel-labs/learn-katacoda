@@ -8,7 +8,7 @@ In this lab you work in a pre-configured lab environment. You will have access t
 | Managed host 1       | host02         | `[[HOST2_IP]]` |
 | Managed host 2       | host03         | `[[HOST3_IP]]` |
 
-A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8.  
+A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8. To see what version of Red Hat Enterprise is running on the server use the Linux `cat` command to examine the `/etc/redhat-release` file.    
 
 `cat /etc/redhat-release`{{execute}}
 
