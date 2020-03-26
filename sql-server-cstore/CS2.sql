@@ -20,11 +20,17 @@ FROM a, a AS b, a AS c, a AS d, a AS e, a AS f, a AS g, a AS h;
 
 CREATE CLUSTERED COLUMNSTORE INDEX columnstoreindex ON Orders;
 
+DBCC FREEPROCCACHE;
+GO
+                                                                               
 DECLARE @StartingTime datetime2(7) = SYSDATETIME();
 
 SELECT SUM(Price) FROM Orders;
 
 PRINT 'Using nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
+                                                                                                                    
+DBCC FREEPROCCACHE;
+GO
 
 SET @StartingTime = SYSDATETIME();
 
