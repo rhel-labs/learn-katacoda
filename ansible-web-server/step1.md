@@ -1,6 +1,6 @@
 # Exploring and understanding the lab environment
 
-In this lab you work in a pre-configured lab environment. You will have access to the following hosts:
+You have access to the following hosts:
 
 | Role                 | Inventory name | IP Address     |
 | ---------------------| ---------------| ---------------|

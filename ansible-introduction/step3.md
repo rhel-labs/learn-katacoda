@@ -1,37 +1,20 @@
-# Ansible Inventory
+# The Ansible Configuration File
 
-This step will have you locate and understand an ini formatted inventory file.
+This step will help you locate and understand the Ansible configuration file (`ansible.cfg`)
 
-Examine the hosts file in the home directory
+The behavior of Ansible can be customized by modifying settings in Ansible’s ini-style configuration file.
 
-`cat hosts`{{execute}}
+For this lab environment there is already a provided `ansible.cfg` configured in the home directory on the control node:
 
-For the purposes of this exercise the passwords are provided here in plain-text.  In production you can use the Red Hat Ansible Platform to encrypt passwords using [credential management](https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html).  Credential management with Ansible can also be fully integrated into CyberArk or Vault by HashiCorp.
+`cat ansible.cfg`{{execute}}
 
-There is an implicit group named `[all]`.  This means all hosts are part of the **all** group. To define variables in a group you can use the `:vars` which will apply these variables to all members of the group.
-
+Here is an abridged output:
 ```
-[all:vars]
-ansible_user=root
-ansible_ssh_pass=katacoda
-```
-Next we have two groups, one of the control node, just containing `host01`
-```
-[control_node]
-host01 ansible_host=localhost ansible_connection=local
+inventory = hosts
+<< OUTPUT ABRIDGED >>
 ```
 
-The `host01` node has two host vars (or variables specific to this individual host).
+ - `inventory`: shows the location of the Ansible Inventory being used
 
-- `ansible_host` this is an optional variable where if your Ansible inventory name does not match your DNS name you can hardcode the DNS name or an IP address.
-- `ansible_connection` - this means the host is using the local connection rather than the default SSH.  Other values include `network_cli` for network devices like a Cisco Router or `winrm` to run tasks over Microsoft's WinRM.  For a full list [check the documentation.](https://docs.ansible.com/ansible/latest/plugins/connection.html)
 
-and finally there is one group named `web` with our two managed hosts
-
-```
-[web]
-host02
-host03
-```
-
-Please move on to step 4
+For a full list of all Ansible configuration settings please refer to the [documentation](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings)
