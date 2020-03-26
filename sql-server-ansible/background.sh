@@ -21,4 +21,3 @@ yum -y install ansible python3 &>> /root/post-run.log
 
 #Create a done file to signal we have finished
 touch /root/post-run.log.done
-

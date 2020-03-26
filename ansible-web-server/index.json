@@ -43,6 +43,10 @@
             "target": "/root"
           },
           {
+            "file": "config",
+            "target": "/root/.ssh"
+          },
+          {
             "file": "index.html",
             "target": "/root"
           }
@@ -51,7 +55,8 @@
     "intro": {
       "text": "intro.md",
       "credits": "__Author:__ Sean Cavanaugh, Ansible Contributor (Red Hat)",
-      "courseData": "background.sh"
+      "courseData": "background.sh",
+      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
