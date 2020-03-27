@@ -1,4 +1,4 @@
-# Validate the Environment
+# Validate the SQL Environment
 >For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
 
 To check if ansible installation is complete, we can use the following command -
