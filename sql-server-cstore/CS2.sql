@@ -17,6 +17,7 @@ a.a * 10 AS Price,
 CONCAT(a.a, N' ', b.a, N' ', c.a, N' ', d.a, N' ', e.a, N' ', f.a, N' ', g.a, N' ', h.a) AS ProductName
 INTO Orders 
 FROM a, a AS b, a AS c, a AS d, a AS e, a AS f, a AS g, a AS h; 
+GO
                                                                                
 CREATE NONCLUSTERED COLUMNSTORE INDEX [columnstoreindex] ON Orders
 (
@@ -25,10 +26,9 @@ CREATE NONCLUSTERED COLUMNSTORE INDEX [columnstoreindex] ON Orders
 GO
 
 DBCC DROPCLEANBUFFERS;
-GO
                                                                                
 DECLARE @StartingTime datetime2(7) = SYSDATETIME();
-
+                                                                               
 SELECT SUM(Price), AVG(Price) FROM Orders;
 
 PRINT 'Using nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
@@ -39,3 +39,5 @@ SELECT SUM(Price), AVG(Price) FROM Orders
 OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX);
 
 PRINT 'Without nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
+
+GO 10
