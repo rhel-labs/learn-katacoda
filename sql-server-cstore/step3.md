@@ -1,4 +1,4 @@
-# All about tuned profiles
+# Loading data and creating Columnstore Indexes in SQL Server
 
 Check the currently active tuned profile
 `tuned-adm active`{{execute}}
