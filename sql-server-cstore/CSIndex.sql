@@ -26,18 +26,12 @@ CREATE NONCLUSTERED COLUMNSTORE INDEX [columnstoreindex] ON Orders
 GO
 
 DBCC DROPCLEANBUFFERS;
+GO
                                                                                
 DECLARE @StartingTime datetime2(7) = SYSDATETIME();
                                                                                
 SELECT SUM(Price), AVG(Price) FROM Orders;
 
 PRINT 'Using nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
-
-SET @StartingTime = SYSDATETIME();
-
-SELECT SUM(Price), AVG(Price) FROM Orders 
-OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX);
-
-PRINT 'Without nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
 
 GO 10
