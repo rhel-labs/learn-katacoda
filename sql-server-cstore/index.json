@@ -40,7 +40,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "Main Terminal", "target":"host01"},{"name":"SQL Terminal","target":"host01"},{"name":"cpudist","target":"host01"}]  
+    "terminals": [{"name":"SQL Shell","target":"host01"},{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
     "imageid": "rhel8-highmem",
