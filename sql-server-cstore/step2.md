@@ -1,27 +1,13 @@
-# Get a baseline
+# All about tuned profiles for SQL Server
 
-First, check the currently active tuned profile
+First, check the currently active tuned profile :
 `tuned-adm active`{{execute}}
 
 <pre class="file">
 Current active profile: virtual-guest
 </pre>
 
-List all the tuned profiles that can be set
-`tuned-adm list`{{execute}}
-
-<pre class="file">
-
-</pre>
-
-Install the tuned profile for Microsoft SQL Server (tuned-profiles-mssql), which can be used to optimize tuning for decision support workloads
-`yum install tuned-profiles-mssql`{{execute}}
-
-<pre class="file">
-TBD
-</pre>
-
-Again, list all the tuned profiles that can be set
+List all the tuned profiles that can be set:
 `tuned-adm list`{{execute}}
 
 <pre class="file">
@@ -38,12 +24,12 @@ Available profiles:
 - virtual-host                - Optimize for running KVM guests
 </pre>
 
-RHEL has a tuned profile for Microsoft SQL Server called mssql. 
+RHEL has a tuned profile for Microsoft SQL Server called mssql. Note that this profile is not available to be used yet.
 
 Next, let's install the tuned profile for mssql
 `yum install -y tuned-profiles-mssql`{{execute}}
 
-Again, list all the tuned profiles that can be set
+Again, list all the tuned profiles that can be set and notice that you have the mssql profile now available
 `tuned-adm list`{{execute}}
 
 <pre class="file">
