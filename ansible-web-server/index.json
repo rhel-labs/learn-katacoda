@@ -63,7 +63,12 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal-iframe",
+    "terminals": [{"name": "control", "target":"host01"},{"name":"host02","target":"host02"},{"name":"host03","target":"host03"}],
+    "showdashboard": true,
+    "dashboards": [
+        {"name": "https://host02", "href": "https://[[HOST2_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"},
+        {"name": "https://host03", "href": "https://[[HOST3_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}]
   },
   "backend": {
     "imageid": "rhel8-cluster3"

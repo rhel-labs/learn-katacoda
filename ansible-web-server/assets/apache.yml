@@ -20,3 +20,11 @@
     copy:
       src: index.html
       dest: /var/www/html/
+
+  - name: open up https
+    firewalld:
+      zone: public
+      service: https
+      permanent: true
+      immediate: true
+      state: enabled

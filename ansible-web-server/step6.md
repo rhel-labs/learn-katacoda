@@ -1,27 +1,22 @@
-# Understanding idempotency
+# 4. Open up https web traffic on firewalld
 
-A Playbook should be **idempotent**, so if a playbook is run once to put the hosts in the correct state, it should be safe to run it a second time and it should make no further changes to the hosts.
+The final task makes sure the firewalld has opened up port 443 for https traffic. This task uses the [firewalld module](https://docs.ansible.com/ansible/latest/modules/firewalld_module.html).  We are using five parameters for this module:
 
-To validate the concept of idempotency, re-run the playbook exactly like you did in step 2.  Use the `ansible-playbook` command to execute the playbook `apache.yml`:
+- `zone` -  The firewalld zone to add/remove to/from.  We provide `public` to allow public web traffic to reach this web server.
+- `service` - Name of a service to add/remove to/from firewalld.
+The service must be listed in output of firewall-cmd --get-services.  We are providing this with `https`
+- `permanent` - This task has provided `true` so this configuration will persist across reboots.
+- `immediate` - `true` means this configuration will be applied immediately.  No restart of the service or host is necessary.
+- `state` - `enabled` means accept for this type of connection.
 
-`ansible-playbook apache.yml`{{execute}}
+Here is the task correctly formatted in YAML syntax:
 
-The Ansible Playbook will execute the three tasks on the two Red Hat Linux Enterprise web servers `host02` and `host03`.
-
-However this time all three tasks will say **<font color="green">ok</font>** versus **changed**.  Re-running the Ansible Playbook multiple times will result in the same exact output, with **ok=4** and **change=0**.  
-
-Unless another operator or process removes or modifies the existing configuration on rtr1, this Ansible Playbook will just keep reporting **ok=4**  in the **PLAY RECAP** indicating that the application is installed, started, enabled and the configuration already exists on the web server device.  
-
-Try re-running the Ansible Playbook again ti illustrate this concept again:
-
-`ansible-playbook apache.yml`{{execute}}
-
-# Verify the web server is setup
-
-To access the webserver on `host02`, visit:
-https://[[HOST_SUBDOMAIN]]-80-[[host02]].environments.katacoda.com
-
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
-
-To access the webserver on `host03`, visit:
-https://[[HOST_SUBDOMAIN]]-80-[[host03]].environments.katacoda.com
+```
+ - name: open up https
+    firewalld:
+      zone: public
+      service: https
+      permanent: true
+      immediate: true
+      state: enabled
+```

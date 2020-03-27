@@ -31,6 +31,9 @@ The play looks like this:
 
      3. Copy over an index.html file to each web host
 
+     4. Open up https web traffic on firewalld
+
+
 We will examine each of these tasks in the following steps.  
 
 First, execute the Ansible Playbook.
