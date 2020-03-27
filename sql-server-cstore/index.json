@@ -1,6 +1,6 @@
 {
-  "title": "Red Hat Enterprise Linux With SQL Server Column Stores",
-  "description": "Goal: Users will be able to use Microsoft SQL Server Column Stores with RHEL tuned profiles",
+  "title": "Red Hat Enterprise Linux With SQL Server Columnstores",
+  "description": "Goal: Users will be able to use Microsoft SQL Server Columnstores with RHEL tuned profiles",
   "details": {
     "steps": [
       {
