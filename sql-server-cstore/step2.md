@@ -26,11 +26,11 @@ Available profiles:
 
 RHEL has a tuned profile for Microsoft SQL Server called mssql. Note that this profile is not available to be used yet.
 
-Next, let's install the tuned profile for mssql
+Next, let's install the mssql tuned profile:  
 `yum install -y tuned-profiles-mssql`{{execute T1}}
 
-Again, list all the tuned profiles that can be set and notice that you have the mssql profile now available
-`tuned-adm list`{{execute}}
+Again, list all the tuned profiles that can be set and notice that you have the mssql profile now available: 
+`tuned-adm list`{{execute T1}}
 
 <pre class="file">
 Available profiles:
