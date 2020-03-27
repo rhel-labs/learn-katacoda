@@ -21,8 +21,8 @@ For this lab environment we will be using hostnames.  This is accomplished via h
 Take note of the two following lines:
 
 ```
-`[[HOST2_IP]]` host02 node01
-`[[HOST3_IP]]` host03 node02
+[[HOST2_IP]] host02 node01
+[[HOST3_IP]] host03 node02
 ```
 
 - The hostname `host02` or `node01` will resolve to `[[HOST2_IP]]`
