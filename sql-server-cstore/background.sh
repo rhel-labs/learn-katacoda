@@ -9,7 +9,9 @@ touch /root/post-run.log
 
 #Download the SQL Query script
 #wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CS.sql
-wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CS2.sql
+#wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CS2.sql
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSIndex.sql
+
 
 #Download the install script and run it
 curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-crypto-policy/install_sql2019.sh
