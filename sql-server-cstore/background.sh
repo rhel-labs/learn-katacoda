@@ -3,14 +3,9 @@
 #Create an output file
 touch /root/post-run.log
 
-#Download the WWImporters database
-#wget https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak
-#mv WideWorldImporters-Full.bak WW.bak
-
 #Download the SQL Query script
-#wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CS.sql
-#wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CS2.sql
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSIndex.sql
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSNoIndex.sql
 
 
 #Download the install script and run it
