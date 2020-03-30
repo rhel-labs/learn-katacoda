@@ -39,7 +39,8 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/",
     "terminals": [{"name":"SQL Shell","target":"host01"},{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
