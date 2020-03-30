@@ -1,6 +1,6 @@
 # Columnstore Indexes in SQL Server
 
-> Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. Typical compression rates can be 90%. They are best used for analytics queries, and are default for many data warehouse schemas. 
+> Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. They are best suited for analytical use-cases.
 
 **Switch to terminal 'cpudist'**
 
@@ -25,9 +25,11 @@ Next, inspect the content of the bcc-tools package to see some of the pre-built 
 
 **Switch back to the main terminal**
 
-Now, let's look at the performance of SQL Server with and without using columnstore indexes.
+Now, let's look at the performance of SQL Server without using column store indexes.
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T1}}
+
+Now, let's run the same query using column store indexes. 
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}
 
