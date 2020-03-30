@@ -2,35 +2,33 @@
 
 > Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. Typical compression rates can be 90%. They are best used for analytics queries, and are default for many data warehouse schemas. 
 
-In our query example, we are 
+First, install the kernel-devel package for your currently running kernel and the bcc-tools packages.  
 
-Check the currently active tuned profile
-`tuned-adm active`{{execute}}
+`yum install -y kernel-devel-$(uname -r) bcc-tools`{{execute T1}}
 
-<pre class="file">
-TBD
-</pre>
+>**Note:** In the command above, we embed the `uname -r` command to automatically determine, and embed, the version of the currently running kernel.
 
-List all the tuned profiles that can be set
-`tuned-adm list`{{execute}}
+Next, inspect the content of the bcc-tools package to see some of the pre-built tool catalog that is provided.  Each of these tools has a `man` page which provides details on what data the tool produces as well as any options that may be used when running the tool.
+
+`rpm -ql bcc-tools | grep /usr/share/bcc/tools/`{{execute T1}}
 
 <pre class="file">
-TBD
+/usr/share/bcc/tools/argdist
+/usr/share/bcc/tools/bashreadline
+/usr/share/bcc/tools/biolatency
+/usr/share/bcc/tools/biosnoop
+
+<< OUTPUT ABRIDGED >>
 </pre>
 
-Install the tuned profile for Microsoft SQL Server (tuned-profiles-mssql), which can be used to optimize tuning for decision support workloads
-`yum install tuned-profiles-mssql`{{execute}}
+Now, let's look at the performance of SQL Server with and without using columnstore indexes.
 
-<pre class="file">
-TBD
-</pre>
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CSNoIndex.sql`{{execute}}
 
-Again, list all the tuned profiles that can be set
-`tuned-adm list`{{execute}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CSNoIndex.sql`{{execute}}
 
-<pre class="file">
-TBD
-</pre>
+
+
 
 Notice that MSSQL tuned profile is now available and can be used.
 
