@@ -40,7 +40,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/",
+    "uieditorpath": "/root/Scripts",
     "terminals": [{"name":"SQL Shell","target":"host01"},{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
