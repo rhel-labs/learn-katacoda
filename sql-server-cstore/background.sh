@@ -7,6 +7,9 @@ touch /root/post-run.log
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSIndex.sql
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSNoIndex.sql
 
+mkdir /root/Scripts/
+mv CSIndex.sql /root/Scripts/
+mv CSNoIndex.sql /root/Scripts/
 
 #Download the install script and run it
 curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-crypto-policy/install_sql2019.sh
