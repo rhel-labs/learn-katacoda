@@ -21,9 +21,5 @@ firewall-cmd --reload
 
 systemctl --now enable httpd
 
-#Move files to backup folder under /var/opt/mssql
-mkdir /var/opt/mssql/backup/
-mv /root/WW.bak /var/opt/mssql/backup/
-
 #Create a done file to signal we have finished
 touch /root/post-run.log.done
