@@ -8,7 +8,7 @@ context switching (e.g. a common shared lock for multiple threads), uneven workl
 **Switch to terminal 'cpudist'**
 First, lets start cpudist to measure CPU performance around the SQL Server process. 
 
-`./cpudist -p ``systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18`{{execute T2}}
+`/usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18`` `{{execute T2}}
 
 >**Note:** In the command above, we pass as an argument to cpudist, the process id (pid) of the SQL Server process.
 
