@@ -2,6 +2,8 @@
 
 > Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. Typical compression rates can be 90%. They are best used for analytics queries, and are default for many data warehouse schemas. 
 
+**Switch to terminal 'cpudist'**
+
 First, install the kernel-devel package for your currently running kernel and the bcc-tools packages.  
 
 `yum install -y kernel-devel-$(uname -r) bcc-tools`{{execute T3}}
@@ -20,6 +22,8 @@ Next, inspect the content of the bcc-tools package to see some of the pre-built 
 
 << OUTPUT ABRIDGED >>
 </pre>
+
+**Switch to terminal 'SQL Shell'**
 
 Now, let's look at the performance of SQL Server with and without using columnstore indexes.
 
