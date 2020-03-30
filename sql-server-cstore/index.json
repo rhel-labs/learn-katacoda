@@ -39,7 +39,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor",
+    "uilayout": "terminal",
     "terminals": [{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
