@@ -24,15 +24,15 @@ listed, in the patchset was to resolve CVE-2018-12207.
 # Supporting Kernel Live Patches
 
 Red Hat will maintain a patchset for Extended Update Support (EUS) releases
-for up to a year.  Kernel Live Patches are made for selected Important and
-Critical severity CVEs.
+for up to one year. (see the [Red Hat Enterprise Linux 8 Life Cycle](https://access.redhat.com/support/policy/updates/errata#RHEL8_Life_Cycle) for more details)
+Kernel Live Patches are made for selected Important and Critical severity CVEs.
 
 Systems are not meant to run with Kernel Live Patched kernels forever.  It is 
 expected that after an organization has live patched a running kernel that 
-they will, at some point, schedule a maintenance window to apply the updated 
-kernel package to the system and perform a system reboot.  Kernel Live 
-Patching allows the organization to determine when this window occurs rather 
-than the release of a fix for a Critical CVE.
+they will, at some point, schedule a maintenance window to apply an updated 
+kernel package to the system and perform a system reboot, thus normalizing the
+system.  Kernel Live Patching allows the organization to determine when this 
+window occurs rather than the release of a fix for a Critical CVE.
 
 # Additional resources from Red Hat
 
