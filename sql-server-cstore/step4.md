@@ -15,9 +15,8 @@ First, lets start cpudist to measure CPU performance around the SQL Server proce
 Tracing on-CPU time... Hit Ctrl-C to end.
 </pre>
 
->**Note:** Hit Ctrl-C to end tracing.
+>**Note:** Hit Ctrl-C to end tracing. You should not see any output yet since there is no workload running in SQL Server.
 
-**Switch to main terminal**
-Now, let's run the column store query and trace the CPU performance. We are running sqlcmd as a background task.
+Let's retry, by running the column store query and tracing the CPU performance. In the command below, we are running sqlcmd as a background task, and monitoring CPU performance using cpudist.
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &; /usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
