@@ -1,6 +1,8 @@
 # Columnstore Indexes in SQL Server
 
-In-Memory Columnstore gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. Typical compression rates can be 90%. They are best used for analytics queries, and are default for many data warehouse schemas. When paired with Nonclustered indexes, they can support OLTP queries efficiently as well.
+> Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. Typical compression rates can be 90%. They are best used for analytics queries, and are default for many data warehouse schemas. 
+
+In our query example, we are 
 
 Check the currently active tuned profile
 `tuned-adm active`{{execute}}
