@@ -34,6 +34,9 @@ kernel package to the system and perform a system reboot, thus normalizing the
 system.  Kernel Live Patching allows the organization to determine when this 
 window occurs rather than the release of a fix for a Critical CVE.
 
+For the most exact guidance for what is supported by Red Hat, check out this
+[Is live kernel patch (kpatch) supported in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/2206511) Knowledge Base article.
+
 # Additional resources from Red Hat
 
 In this lab, you worked with the commands and steps to list, apply, and
