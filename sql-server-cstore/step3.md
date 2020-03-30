@@ -27,8 +27,8 @@ Next, inspect the content of the bcc-tools package to see some of the pre-built 
 
 Now, let's look at the performance of SQL Server with and without using columnstore indexes.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CSNoIndex.sql | grep 'columnstore index'`{{execute T2}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T2}}
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CSIndex.sql | grep 'columnstore index'`{{execute T2}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T2}}
 
 >**Note:** The query performance of running an analytical query on top of 5 million rows with columnstore is better than without using columnstore indexes. 
