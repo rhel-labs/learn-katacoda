@@ -6,11 +6,11 @@ the CVE.  However, historically, to apply an updated kernel package,
 organizations needed to schedule a system maintenance as the procedure for
 applying a new kernel included a system reboot.
 
-Kernel Live Patching is a service provided with a Red Hat Enterprise Linux
-subscription.  Red Hat packages Kernel Live Patches (kpatches) for all Critical
-severity CVEs, which organizations can apply to their running Red Hat 
-Enterprise Linux systems to update the system without scheduling a system
-downtime to apply a kernel update to address the CVE.
+Kernel Live Patching is a service intended for use with Red Hat Enterprise Linux
+Extended Update Support (EUS) versions.  Red Hat packages Kernel Live Patches 
+(kpatches) for selected CVEs, which organizations can apply to their running 
+Red Hat Enterprise Linux systems to update the system without scheduling a 
+system downtime to apply a kernel update to address the CVE.
 
 To get started, install the `kpatch` package:
 
