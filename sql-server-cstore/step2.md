@@ -51,5 +51,30 @@ Available profiles:
 Current active profile: virtual-guest
 </pre>
 
+Now, let's understand the contents of the mssql tuned profile. 
+`cat /usr/lib/tuned/mssql/tuned.conf`{{execute T1}}
+
+<pre class="file">
+<< OUTPUT ABRIDGED >>
+...
+[main]
+summary=Optimize for MS SQL Server
+include=throughput-performance
+
+[vm]
+transparent_hugepage.defrag=always
+
+[sysctl]
+vm.max_map_count=800000
+kernel.numa_balancing=0
+kernel.sched_latency_ns=60000000
+kernel.sched_min_granularity_ns=15000000
+kernel.sched_wakeup_granularity_ns=2000000
+..
+<< OUTPUT ABRIDGED >>
+</pre>
+
+The mssql tuned profile has several kernel CPU scheduler settings modified that increase the CPU quantum.
+
 If you are interested in more details about the tuned-adm tool that ships with RHEL :  
 `man tuned-adm`{{execute T1}}
