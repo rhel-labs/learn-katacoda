@@ -1,5 +1,7 @@
-# Report an issue with the lab
+# Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
 
-# Provide additional comments or ratings (not issues)
+
+# Provide additional comments or ratings:
 [Complete a survey about the lab](https://forms.gle/vipkbKFYcKx9YYSs6)
+
