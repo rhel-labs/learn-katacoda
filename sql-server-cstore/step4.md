@@ -18,7 +18,6 @@ Tracing on-CPU time... Hit Ctrl-C to end.
 >**Note:** Hit Ctrl-C to end tracing.
 
 **Switch to main terminal**
-Now, let's run the same query using column store indexes. 
+Now, let's run the column store query and trace the CPU performance. We are running sqlcmd as a background task.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}
-
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &; /usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
