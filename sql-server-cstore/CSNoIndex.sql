@@ -10,6 +10,9 @@ GO
 SET NOCOUNT ON
 GO
 
+DBCC DROPCLEANBUFFERS;
+GO
+
 WITH a AS (SELECT * FROM (VALUES(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)) AS a(a)) 
 SELECT TOP(5000000) ROW_NUMBER() OVER (ORDER BY a.a) AS OrderItemId, 
 a.a + b.a + c.a + d.a + e.a + f.a + g.a + h.a AS OrderId,
@@ -19,12 +22,10 @@ INTO Orders
 FROM a, a AS b, a AS c, a AS d, a AS e, a AS f, a AS g, a AS h; 
 GO
                                                                                
-DBCC DROPCLEANBUFFERS;
-GO
-                                                                               
 DECLARE @StartingTime datetime2(7) = SYSDATETIME();
                                                                                
-SELECT SUM(Price), AVG(Price) FROM Orders;
+SELECT SUM(Price), AVG(Price) FROM Orders 
+OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)
 
 PRINT 'Not using columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
 
