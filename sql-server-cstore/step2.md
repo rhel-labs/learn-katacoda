@@ -38,13 +38,16 @@ Available profiles:
 - desktop                     - Optimize for the desktop use-case
 - hpc-compute                 - Optimize for HPC compute workloads
 - latency-performance         - Optimize for deterministic performance at the cost of increased power consumption
-- **mssql**                       - Optimize for MS SQL Server
+
+- mssql                       - Optimize for MS SQL Server
+
 - network-latency             - Optimize for deterministic performance at the cost of increased power consumption, focused on low latency network performance
 - network-throughput          - Optimize for streaming network throughput, generally only necessary on older CPUs or 40G+ networks
 - powersave                   - Optimize for low power consumption
 - throughput-performance      - Broadly applicable tuning that provides excellent performance across a variety of common server workloads
 - virtual-guest               - Optimize for running inside a virtual guest
 - virtual-host                - Optimize for running KVM guests
+
 Current active profile: virtual-guest
 </pre>
 
