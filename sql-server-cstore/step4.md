@@ -1,14 +1,11 @@
-# Regenerate SSL certificate
+# Measure CPU performance impact with tuned profiles
 
-To comply with the system-wide cryptographic policy of FUTURE, you will need 
-to generate a replacement SSL certificate using an RSA key of at least 3072 bit 
-length, or longer. 
+To measure CPU performance, we will be using a bcc-tool called cpudist. 
 
-Make directory for private key
-`mkdir /etc/ssl/private/`{{execute T1}} 
+The cpudist program summarizes task on-CPU time as a histogram, showing how long tasks spent on the CPU before being descheduled. Results can indicate oversubscription (too many tasks for too few processors), overhead due to excessive 
+context switching (e.g. a common shared lock for multiple threads), uneven workload distribution, too-granular tasks, and more.
 
-The new RSA certificate will use a public key of 4096 bits.
-`openssl req -x509 -nodes -newkey rsa:4096 -subj "/CN=${HOSTNAME}" -keyout /etc/ssl/private/mssql.key -out /etc/ssl/certs/mssql.pem -days 365`{{execute T1}}
+First, lets start cpudist to measure CPU performance around the SQL Server process
 
 <pre class="file">
 Generating a RSA private key
