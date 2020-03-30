@@ -25,11 +25,11 @@ Next, inspect the content of the bcc-tools package to see some of the pre-built 
 
 **Switch back to the main terminal**
 
-Now, let's look at the performance of SQL Server without using column store indexes.
+Now, let's look at the performance of SQL Server without using column store indexes. The script queries the table 10 times outputting the time it takes for the query to finish returning the result set each time.
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T1}}
 
-Now, let's run the same query using column store indexes. 
+Now, let's run the same query using column store indexes. The script queries the table 10 times outputting the time it takes for the query to finish returning the result set each time. Each time, the query processor uses the column store index. 
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}
 
