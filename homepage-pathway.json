@@ -46,6 +46,11 @@
       "external_link": "https://lab.redhat.com/vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
+    },
+    {
+      "external_link": "https://lab.redhat.com/kpatch-apply",
+      "title": "Reducing unplanned maintenance with Kernel Live Patching",
+      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
     }
   ]
 }
