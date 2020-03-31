@@ -36,7 +36,7 @@ Now, lets start cpudist to measure CPU performance around the SQL Server process
     131072 -> 262143     : 4        |                                        |
 </pre>
 
-Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distrubution in the first cpudist result. 
+Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distribution in the first cpudist result. 
 
 Now, let's switch the tuned profile to mssql
 `tuned-adm profile mssql`{{execute T2}}
