@@ -7,7 +7,7 @@ To measure CPU performance, we will be using a bcc-tool called `cpudist`.
 **Switch to terminal 'cpudist'**
 Now, lets start cpudist to measure CPU performance around the SQL Server process. We are running sqlcmd as a background task, and monitoring CPU performance using cpudist.
 
-`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
+`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null & --no-pager`{{execute T2}}
 
 `/usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
@@ -24,7 +24,7 @@ Now, let's switch the tuned profile to mssql
 
 Let's rerun the CPU performance measurement around the SQL Server process. 
 
-`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
+`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null & --no-pager`{{execute T2}}
 
 `/usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
