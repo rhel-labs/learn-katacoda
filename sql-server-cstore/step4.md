@@ -5,6 +5,7 @@ To measure CPU performance, we will be using a bcc-tool called `cpudist`.
 > cpudist summarizes task on-CPU time as a histogram, showing how long tasks spent on the CPU before being descheduled. Results show CPU oversubscription (too many tasks for too few processors), overhead due to excessive context switching (e.g. a common shared lock for multiple threads), uneven workload distribution, too-granular tasks, and more.
 
 **Switch to terminal 'cpudist'**
+
 Now, lets start cpudist to measure CPU performance around the SQL Server process. We are running sqlcmd as a background task, and monitoring CPU performance using cpudist.
 
 `nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
