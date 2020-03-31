@@ -7,14 +7,32 @@ To measure CPU performance, we will be using a bcc-tool called `cpudist`.
 **Switch to terminal 'cpudist'**
 Now, lets start cpudist to measure CPU performance around the SQL Server process. We are running sqlcmd as a background task, and monitoring CPU performance using cpudist.
 
-`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null & --no-pager`{{execute T2}}
+`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
 
 `/usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
 >**Note:** In the command above, we pass as an argument to cpudist, the process id (pid) of the SQL Server process.
 
 <pre class="file">
-TBD 1
+     usecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 5        |                                        |
+         8 -> 15         : 45       |*******                                 |
+        16 -> 31         : 30       |*****                                   |
+        32 -> 63         : 5        |                                        |
+        64 -> 127        : 1        |                                        |
+       128 -> 255        : 2        |                                        |
+       256 -> 511        : 4        |                                        |
+       512 -> 1023       : 0        |                                        |
+      1024 -> 2047       : 1        |                                        |
+      2048 -> 4095       : 0        |                                        |
+      4096 -> 8191       : 227      |****************************************|
+      8192 -> 16383      : 102      |*****************                       |
+     16384 -> 32767      : 24       |****                                    |
+     32768 -> 65535      : 15       |**                                      |
+     65536 -> 131071     : 9        |*                                       |
+    131072 -> 262143     : 4        |                                        |
 </pre>
 
 >**Note:** Hit Ctrl-C to end tracing. 
@@ -24,12 +42,29 @@ Now, let's switch the tuned profile to mssql
 
 Let's rerun the CPU performance measurement around the SQL Server process. 
 
-`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null & --no-pager`{{execute T2}}
+`nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
 
 `/usr/share/bcc/tools/cpudist -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
 <pre class="file">
-TBD 2
+     usecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 9        |                                        |
+         4 -> 7          : 89       |**                                      |
+         8 -> 15         : 310      |*******                                 |
+        16 -> 31         : 401      |*********                               |
+        32 -> 63         : 499      |************                            |
+        64 -> 127        : 894      |*********************                   |
+       128 -> 255        : 1375     |*********************************       |
+       256 -> 511        : 1645     |****************************************|
+       512 -> 1023       : 134      |***                                     |
+      1024 -> 2047       : 158      |***                                     |
+      2048 -> 4095       : 569      |*************                           |
+      4096 -> 8191       : 13       |                                        |
+      8192 -> 16383      : 9        |                                        |
+     16384 -> 32767      : 16       |                                        |
+     32768 -> 65535      : 20       |                                        |
+     65536 -> 131071     : 19       |                                        |
 </pre>
 
 Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distrubution in the first cpudist result. When the CPU scheduler is tuned appropriately using the mssql tuned profile, there is less descheduling because of increased CPU quantum assigned by the kernel.
