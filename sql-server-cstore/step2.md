@@ -1,4 +1,4 @@
-# All about tuned profiles for SQL Server
+# All about mssql tuned profile
 
 First, check the currently active tuned profile :
 `tuned-adm active`{{execute T1}}
