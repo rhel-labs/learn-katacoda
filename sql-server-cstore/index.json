@@ -18,14 +18,6 @@
       {
 	"title": "Step 4",
 	"text": "step4.md"
-      },
-      {
-	"title": "Step 5",
-	"text": "step5.md"
-      },
-      {
-	"title": "Step 6",
-	"text": "step6.md"
       }
    ],
      "intro": {
@@ -39,9 +31,8 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "/root/Scripts",
-    "terminals": [{"name":"SQL Shell","target":"host01"},{"name":"cpudist","target":"host01"}]  
+    "uilayout": "terminal",
+    "terminals": [{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
     "imageid": "rhel8-highmem",
