@@ -20,7 +20,7 @@ running in the evironment.
 Now, launch some bcc-tools applications in the separate, provided terminals.
 You will use these to observe our sample workload in a following step.
 
-Start by running `gethostlatency` in the **gethostlatency** terminal:
+Start by running `gethostlatency` in the *gethostlatency* terminal:
 
 `/usr/share/bcc/tools/gethostlatency`{{execute T2}}
 
@@ -31,14 +31,14 @@ indicating the tool is properly running:
 TIME      PID    COMM                  LATms HOST
 </pre>
 
-In the **gethostlatency** terminal, you are running the gethostlatency bcc-tool.
+In the *gethostlatency* terminal, you are running the gethostlatency bcc-tool.
 It is showing latency statistics on the `getaddrinfo()` and `gethostbyname()` 
 system calls. Effectively, you get to see how long these system calls take and 
 which hostnames the applications need IP addresses for. This can be useful for 
 discovering network connections that your applications are making.
 
 
-Next, run `tcplife` in the **tcplife** terminal:
+Next, run `tcplife` in the *tcplife* terminal:
 
 `/usr/share/bcc/tools/tcplife`{{execute T3}}
 

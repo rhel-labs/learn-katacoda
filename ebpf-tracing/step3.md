@@ -36,7 +36,7 @@ Lastly, run the cachestat tool in the cachestat terminal:
 You should see the following header in the cachestat terminal, indicating that the tool is properly running:
 
 <pre class="file">
-    HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
+    HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB
 </pre>
 
 In the cachestat terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `yum update` workload. However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
