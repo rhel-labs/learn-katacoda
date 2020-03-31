@@ -68,7 +68,7 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
-    "terminals": [{"name":"host02","target":"HOST2"},{"name":"host03","target":"HOST3"}],
+    "terminals": [{"name":"host02","target":"host02"},{"name":"host03","target":"host03"}],
     "showdashboard": true,
     "dashboards": [
         {"name": "https://host02", "href": "https://[[HOST2_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"},
