@@ -1,10 +1,10 @@
-Let's launch two more bcc-tools in separate terminals before you start observingthe sample workload:
+Let's launch two more bcc-tools in separate terminals before you start observing the sample workload:
 
-Run filetop in the filetop terminal:
+Run `filetop` in the *filetop* terminal:
 
 `/usr/share/bcc/tools/filetop`{{execute T4}}
 
-In the filetop terminal, you should see a top-like tool that refreshes every second with a header that looks like this example below:
+In the *filetop* terminal, you should see a top-like tool that refreshes every second with a header that looks like the example below:
 
 <pre class="file">
 09:08:28 loadavg: 0.26 0.48 0.72 1/817 76893
@@ -12,36 +12,36 @@ In the filetop terminal, you should see a top-like tool that refreshes every sec
 TID    COMM           READS  WRITES R_Kb     W_Kb    T FILE
 </pre>
 
-If you see this, you know that the tool is properly running.  This tool will track the volume of READS and WRITES as well as the size, R_Kb and W_Kb, respectively.  Additionally, it includes the type, T, of activity and the FILE itself thatis interacted with by the command, COMM.
+If you see this, you know that the tool is properly running.  This tool will track the volume of READS and WRITES as well as the size, R_Kb and W_Kb, respectively.  Additionally, it includes the type, T, of activity and the FILE itself that is interacted with by the command, COMM.
 
-In the filetop terminal, we are going to see applications accessing files in realtime, so this will get pretty busy.
+In the *filetop* terminal, you are going to see applications accessing files in realtime, so this will get pretty busy.
 
-Now run the xfsslower tool in the xfsslower terminal:
+Now run the `xfsslower` tool in the *xfsslower* terminal:
 
 `/usr/share/bcc/tools/xfsslower`{{execute T5}}
 
-You should see the header below in the xfsslower terminal, indicating that the tool is properly running:
+You should see the header below in the *xfsslower* terminal, indicating that the tool is properly running:
 
 <pre class="file">
 Tracing XFS operations slower than 10 ms
 TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
 </pre>
 
-In the xfsslower terminal, you probably will not see much until the sample workload, a `yum update`, begins. Once it starts to install the packages, it is going to start showing output operations taking longer than 10ms, LAT(ms), and the files, FILENAME, these operations are opperating upon.  The sample workload will push the boundaries of what our virtual machine's storage can keep up with which is why XFS operations will start taking over the 10ms latency threshold used by this tool for reporting slower operations.
+In the *xfsslower* terminal, you probably will not see much until the sample workload, a `yum update`, begins. Once it starts to install the packages, it is going to start showing output operations taking longer than 10ms, LAT(ms), and the files, FILENAME, these operations are operating upon.  The sample workload will push the boundaries of what our virtual machine's storage can keep up with which is why XFS operations will start taking over the 10ms latency threshold used by this tool for reporting slower operations.
 
-Lastly, run the cachestat tool in the cachestat terminal:
+Lastly, run the `cachestat` tool in the *cachestat* terminal:
 
 `/usr/share/bcc/tools/cachestat`{{execute T6}}
 
-You should see the following header in the cachestat terminal, indicating that the tool is properly running:
+You should see the following header in the *cachestat* terminal, indicating that the tool is properly running:
 
 <pre class="file">
     HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB
 </pre>
 
-In the cachestat terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `yum update` workload. However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
+In the *cachestat* terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `yum update` workload. However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
 
-Now that you have setup several tools, use bpftool to verify what you have loaded in the kernel:
+Now that you have setup several tools, use `bpftool` to verify what you have loaded in the kernel:
 
 `bpftool prog list`{{execute T1}}
 
