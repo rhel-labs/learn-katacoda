@@ -16,4 +16,4 @@ The 107 tools, counted in the example above, can be easily inspected or even mod
 /usr/share/bcc/tools/biolatency: Python script, ASCII text executable
 </pre>
 
-Each of the tools shipped in the bcc-tools package contains a portion written in C language which is the code of the eBPF program which, after compilation, is passed to the kernel via the bpf() system call and used for collection and analysis of the data. The Python script then reads output of this eBPF program and allows easy formating or further processing.
+Each of the tools shipped in the bcc-tools package contains a portion written in C language which is the code of the eBPF program which, after compilation, is passed to the kernel via the bpf() system call and used for collection and analysis of the data. The Python script then reads output of this eBPF program and allows easy formatting or further processing.
