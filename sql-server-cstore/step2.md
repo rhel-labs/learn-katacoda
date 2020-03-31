@@ -1,5 +1,7 @@
 # All about mssql tuned profile
 
+The tuned tuning service can adapt the operating system to perform better under certain workloads by setting a tuning profile. The tuned-adm command-line tool allows users to switch between different tuning profiles.
+
 First, check the currently active tuned profile :
 `tuned-adm active`{{execute T1}}
 
