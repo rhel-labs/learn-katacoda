@@ -5,7 +5,7 @@ sudo yum install -y buildah podman wget vim emacs git sudo tmux cockpit ca-certi
 sudo yum install -y gcc llvm-libs gcc-c++ cpp binutils
 
 #### added by Sean for native Ansible installation
-yum -y install ansible
+sudo yum -y install ansible
 ####
 
 sudo systemctl enable --now cockpit.socket
