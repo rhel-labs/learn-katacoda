@@ -4,6 +4,8 @@ n=1
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+echo -e "${GREEN}Installing Ansible${NC}"
+
 while [ ! -f /root/post-run.log.done ] ;
 do
       if test "$n" = "1"

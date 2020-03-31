@@ -26,6 +26,10 @@
       {
         "title": "Step 6",
         "text": "step6.md"
+      },
+      {
+        "title": "Step 7",
+        "text": "step7.md"
       }
     ],
     "assets": {
@@ -64,7 +68,7 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
-    "terminals": [{"name": "control", "target":"host01"},{"name":"host02","target":"host2"},{"name":"host03","target":"host3"}],
+    "terminals": [{"name":"host02","target":"HOST2"},{"name":"host03","target":"HOST3"}],
     "showdashboard": true,
     "dashboards": [
         {"name": "https://host02", "href": "https://[[HOST2_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"},
