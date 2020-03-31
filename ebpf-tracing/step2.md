@@ -3,7 +3,7 @@ an active workload on the system.  In the lab environment there are several
 additional terminal tabs across the top of the interface, the names correspond
 to tools that you will run in this, and following steps.
 
-First, though, we will validate the environment and that it is not currently
+First, though, you will validate the environment and that it is not currently
 using any eBPF calls.  To do this, you will install the `bpftool` utility.  
 
 `yum install -y bpftool`{{execute T1}}
@@ -31,7 +31,7 @@ indicating the tool is properly running:
 TIME      PID    COMM                  LATms HOST
 </pre>
 
-In the **gethostlatency** terminal, we are running the gethostlatency bcc-tool.
+In the **gethostlatency** terminal, you are running the gethostlatency bcc-tool.
 It is showing latency statistics on the `getaddrinfo()` and `gethostbyname()` 
 system calls. Effectively, you get to see how long these system calls take and 
 which hostnames the applications need IP addresses for. This can be useful for 

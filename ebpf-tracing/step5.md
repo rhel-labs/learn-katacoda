@@ -1,6 +1,6 @@
-Next, yum will begin installing the updates and removing old packages. To do this, yum is going to use our disk and memory resources and so we will monitor this with `filetop`, `xfsslower` and `cachestat`.
+Next, `yum` will begin installing the updates and removing old packages. To do this, `yum` is going to use the disk and memory resources; you will monitor this using `filetop`, `xfsslower` and `cachestat`.
 
-In the filetop terminal, we will start to actually see files being read and written to disk. As yum reads files from the rpm, it then writes them out to the disk. Here is what the reads look like:
+In the **filetop** terminal, you will start to see files being read and written to disk. As `yum` reads files from an rpm package, it writes them out to the disk. Below is what the read operations should look like:
 
 <pre class="file">
 TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
@@ -11,9 +11,9 @@ TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
 << OUTPUT ABRIDGED >>
 </pre>
 
-From the above output, we can see in the "T"ype column that these are "R"eads. Further, we see the counters in the "READS" column as greater than 0. This shows us in real time what yum is doing with files on the system.
+From the above output, you can see in the Type column(T) that these are reads(R). Further, you can see the counters in the READS column report greater than 0. This shows you in, real time, what `yum` is doing with files on the system.
 
-Further, on the xfsslower terminal, we will start to see XFS operations take longer than 10ms and these will start to show:
+Further, on the **xfsslower** terminal, you will start to see XFS operations take longer than the 10ms threshold and disk operations will start to be displayed:
 
 <pre class="file">
 Tracing XFS operations slower than 10 ms
@@ -28,9 +28,9 @@ TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
 << OUTPUT ABRIDGED >>
 </pre>
 
-In the above output, we see the file that yum was working on and the latency in the "LAT(ms)" column, which shows us that the longest latency was 567.45 milliseconds accessing packages.db-journal. If we wish to improve the speed of `yum update` on this system by reducing latency, we may want to look at upgrading the underlying storage of this system.
+In the above output, you see the file that `yum` is working on and the latency in the LAT(ms) column, the data above shows that the longest latency was 567.45 milliseconds while accessing the packages.db-journal file. If you wish to improve the speed of `yum update` on this system by reducing latency, you may want to look at upgrading the underlying storage of this system.
 
-Further, if we look at the cachestat terminal, we'll see that the number of misses on the cache has gone up during the installation procedure as we are starting to need access to memory locations that are not cached:
+If you look at the **cachestat** terminal, you will see that the number of misses on the cache has gone up during the `yum` package installation procedure as it is starting to need access to data that is not cached:
 
 <pre class="file">
     HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
@@ -45,5 +45,5 @@ Further, if we look at the cachestat terminal, we'll see that the number of miss
 << OUTPUT ABRIDGED >>
 </pre>
 
-If we keep watching cachestat, we'll notice that the number of misses goes back down to zero after the `yum update` is done. This is because when the `yum update` is finished, our virtual machine is idle and there is very little running that needs access to memory.
+If you keep watching the **cachestat** terminal, you will notice that the number of misses goes back down to zero after the `yum update` completes. This is because when the `yum update` is finished, the virtual machine returns to a more idle state and there is very little running that needs access to memory.
 

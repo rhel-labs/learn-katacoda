@@ -1,10 +1,10 @@
-Time to observe what happens when yum does an update from a system perspective! In our first terminal, let's run:
+Time to observe what happens when `yum` does an update from a system perspective! In your first terminal, labeled **Terminal**, run:
 
 `yum update -y`{{execute T1}}
 
-The first thing that yum does is updates repository metadata. This is going to create activity on our gethostlatency terminal and our tcplife terminal. We can look at those to see the network connections that yum establishes in real time.
+The first thing that `yum` does is updates repository metadata. This is going to create activity on your **gethostlatency** terminal and your **tcplife** terminal as the data is being downloaded from the Red Hat Content Delivery Network (CDN). You can look at those tool outputs to see the network connections that the `yum update` establishes in real time.
 
-We will see entries on our gethostlatency terminal similar to:
+You will see entries on our **gethostlatency** terminal similar to:
 
 <pre class="file">
 TIME      PID    COMM                  LATms HOST
@@ -16,24 +16,24 @@ TIME      PID    COMM                  LATms HOST
 08:45:40  75931  yum                   10.18 cdn.redhat.com
 </pre>
 
-that show `yum` looking up IP addresses for localhost, subscription.rhsm.redhat.com, and cdn.redhat.com. This makes it really easy to know what hosts our application is talking to.
+these show `yum` looking up IP addresses for localhost, subscription.rhsm.redhat.com, and cdn.redhat.com. `gethostlatency` makes it really easy to know what hosts our application is talking to.
 
-Let's also look at the cachestat terminal and we should see output similar to:
+Also look at the **cachestat** terminal and you should see output similar to:
 
 <pre class="file">
-    HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
-      14        0        0  100.00%            0       1681
-    2768        0        0  100.00%            0       1699
-     596        0        0  100.00%            0       1700
-    4143        0        0  100.00%            0       1708
-    3252        0        0  100.00%            0       1698
+    HITS   MISSES  DIRTIES  BUFFERS_MB  CACHED_MB
+      14        0        0           0       1681
+    2768        0        0           0       1699
+     596        0        0           0       1700
+    4143        0        0           0       1708
+    3252        0        0           0       1698
 
 << OUTPUT ABRIDGED >>
 </pre>
 
-This shows that we are operating entirely out of cache and not having to go all the way to main memory at this point. 
+This shows that you are operating entirely out of cache and not having to retrieve data from main memory at this point in the operation. 
 
-If we look at our tcplife terminal when yum has finished downloading packages, we will see output similar to:
+Look at your **tcplife** terminal when `yum` has finished downloading packages.  You will see output similar to the sample below:
 
 <pre class="file">
 PID   COMM       LADDR           LPORT RADDR           RPORT TX_KB RX_KB MS
@@ -43,5 +43,5 @@ PID   COMM       LADDR           LPORT RADDR           RPORT TX_KB RX_KB MS
 </pre>
 
 
-that show us that yum has established a connection on 443 to 2.16.30.83 and that connection lasted for 36375.04 milliseconds, or 36.37504 seconds. This correlates to the amount of time yum spent downloading packages.
+The output shows you that `yum` has established a connection on port 443 to IP address 2.16.30.83. Further, according to the sample output above, that connection lasted for 36375.04 milliseconds, or 36.37504 seconds. This correlates to the amount of time `yum` spent downloading packages.
 
