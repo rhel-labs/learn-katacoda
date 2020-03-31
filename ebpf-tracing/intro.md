@@ -1,6 +1,6 @@
 # Goal:
 
-After completing this scenario, users will better understand the observability tools provided in RHEL with BPF.
+After completing this scenario, users will better understand the performance observability tools provided in Red Hat Enterprise Linux 8.
 
 # Concepts included in this scenario:
 * Install bcc-tools
