@@ -6,7 +6,8 @@ For this step, we will be switching back to our *Terminal* tab.
 
 Let's first look at the performance of SQL Server without using columnstore indexes on a table with 5 million rows. The script queries the table 10 times outputting the time it takes for the query to finish returning the result set each time. The SELECT query calculates the total price, and average price from the orders table without using columnstore indexes. The *option* clause tells SQL Server to ignore the existing columnstore index when running this query.
 
-<pre class="file">                                                                                                            //The aggregation query over 5 million rows with SQL optimizer option to ignore columnstore index
+<pre class="file">
+//The aggregation query over 5 million rows with SQL optimizer option to ignore columnstore index
 SELECT SUM(Price), AVG(Price) FROM Orders 
 OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)
 </pre>
