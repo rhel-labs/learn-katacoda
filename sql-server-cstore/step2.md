@@ -1,4 +1,4 @@
-# Performance tuning in SQL Server
+# Performance tuning for SQL Server
 
 >**NOTE:** In this step we will be using the *cpudist* terminal to run tools and commands to optimize SQL Server on Red Hat Enterprise Linux. 
 
@@ -94,19 +94,6 @@ Install the kernel-devel package for your currently running kernel and the bcc-t
 
 >**NOTE:** In the command above, we embed the uname -r command to automatically determine, and embed, the version of the currently running kernel.
 
-Next, inspect the content of the bcc-tools package to see some of the pre-built tool catalog that is provided. Each of these tools has a man page which provides details on what data the tool produces as well as any options that may be used when running the tool.
-
-`rpm -ql bcc-tools | grep /usr/share/bcc/tools/`{{execute T2}}
-
-<pre class="file">
-<< OUTPUT ABRIDGED >>
-
-/usr/share/bcc/tools/argdist
-/usr/share/bcc/tools/bashreadline
-/usr/share/bcc/tools/biolatency
-/usr/share/bcc/tools/biosnoop
-..
-<< OUTPUT ABRIDGED >>
-</pre>
+To learn more about the bcc-tools in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://lab.redhat.com/ebpf-tracing)
 
 We will use the `cpudist` bcc-tool to monitor SQL Server performance in a later step.
