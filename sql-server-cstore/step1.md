@@ -1,9 +1,11 @@
 # Validate the SQL Environment
->For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
 
-We have setup 2 terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The cpudist terminal will be used for performance tracking using the cpudist bcc-tool explained later.
+>**Note:** For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
+
+We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The cpudist terminal will be used for performance tracking using the cpudist bcc-tool explained later.
 
 To check if ansible installation is complete, we can use the following command -
+
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
 <pre class="file">
@@ -28,3 +30,5 @@ Microsoft SQL Server 2019 (RTM-CU3) (KB4538853) - 15.0.4023.6 (X64)
 
 (1 rows affected)
 </pre>
+
+By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.1
