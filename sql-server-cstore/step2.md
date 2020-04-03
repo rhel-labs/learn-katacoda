@@ -49,7 +49,8 @@ Again, list all the tuned profiles that can be set and notice that you have the 
 << OUTPUT ABRIDGED >>
 </pre>
 
-Now, let's understand the contents of the mssql tuned profile. 
+Now, let's view the contents of the installed mssql tuned profile. 
+
 `cat /usr/lib/tuned/mssql/tuned.conf`{{execute T1}}
 
 <pre class="file">
@@ -72,8 +73,8 @@ kernel.sched_wakeup_granularity_ns=2000000
 << OUTPUT ABRIDGED >>
 </pre>
 
-The mssql tuned profile has several kernel CPU scheduler settings modified that increase the CPU quantum.
+The mssql tuned profile includes the througput-performance profile, and additionally tunes several other resources including the kernel CPU scheduler, transparent huge pages, and max virtual memory page count.
 
-If you are interested in more details about the tuned-adm tool that ships with RHEL :  
+By increasing the CPU scheduling granularity, it allows the kernel to more often evaluate whether a running job should be switched for another process. This allows the SQL Server processes to be consistently scheduled when they require CPU time, thus increasing the performance of the database application.
 
-`man tuned-adm`{{execute T1}}
+Check out `man tuned-adm` if you are interested in more details about the tuned-adm tool.
