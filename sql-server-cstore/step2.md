@@ -77,4 +77,4 @@ The mssql tuned profile includes the througput-performance profile, and addition
 
 By increasing the CPU scheduling granularity, it allows the kernel to more often evaluate whether a running job should be switched for another process. This allows the SQL Server processes to be consistently scheduled when they require CPU time, thus increasing the performance of the database application.
 
-Check out `man tuned-adm` if you are interested in more details about the tuned-adm tool.
+Check out `man tuned-adm` if you are interested in more details about the `tuned-adm` tool.
