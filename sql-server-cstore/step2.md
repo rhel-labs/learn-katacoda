@@ -41,9 +41,9 @@ Again, list all the tuned profiles that can be set and notice that you have the 
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
+
 - latency-performance         - Optimize for deterministic performance at the cost of increased power consumption
 - mssql                       - Optimize for MS SQL Server
-
 - network-latency             - Optimize for deterministic performance at the cost of increased power consumption, focused on low latency network performance
 
 << OUTPUT ABRIDGED >>
@@ -75,4 +75,5 @@ kernel.sched_wakeup_granularity_ns=2000000
 The mssql tuned profile has several kernel CPU scheduler settings modified that increase the CPU quantum.
 
 If you are interested in more details about the tuned-adm tool that ships with RHEL :  
+
 `man tuned-adm`{{execute T1}}
