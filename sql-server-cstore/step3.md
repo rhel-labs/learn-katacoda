@@ -14,7 +14,7 @@ OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T1}}
 
-Lets re-run the same query using column store indexes. The script queries the table 10 times outputting the time it takes for the query to return the result set using column store indexes.
+Lets re-run the same query using columnstore indexes. The script queries the table 10 times outputting the time it takes for the query to return the result set using columnstore indexes.
 
 <pre class="file">
 //The aggregation query over 5 million rows
