@@ -1,6 +1,6 @@
 # Tuning SQL Server on Red Hat Enterprise Linux
 
-In this step we will be using the `cpudist` terminal to run tools and commands to optimize SQL Server on Red Hat Enterprise Linux.
+>**NOTE:** In this step we will be using the *cpudist* terminal to run tools and commands to optimize SQL Server on Red Hat Enterprise Linux. Select the *cpudist* terminal to run commands in this step.
 
 The tuned tuning service can adapt the operating system to perform better under certain workloads by setting a tuning profile. The `tuned-adm` command-line tool allows users to switch between different tuning profiles.
 
