@@ -1,6 +1,6 @@
 # Columnstore Indexes in SQL Server
 
-> Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. They are best suited for analytical use-cases.
+Columnstore indexes in SQL Server gives great performance to queries that scan large sets of rows (millions of rows typically), and also provides huge savings in storage space. They are best suited for analytical use-cases.
 
 **Switch to terminal 'cpudist'**
 
