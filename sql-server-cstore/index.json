@@ -31,8 +31,8 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
-    "terminals": [{"name": "SQL", "target": "host01"},{"name":"cpudist","target":"host01"}]  
+    "uilayout": "terminal",
+    "terminals": [{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
     "imageid": "rhel8-highmem",
