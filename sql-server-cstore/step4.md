@@ -6,7 +6,7 @@ To measure CPU performance, we will be using a bcc-tool called `cpudist`.
 
 Switch to term *cpudist* terminal
 
-Now, lets start `cpudist` to measure CPU performance around the SQL Server process. We are running sqlcmd as a background task, and monitoring CPU performance using `cpudist`.
+Now, let's run the columnstore index workload using sqlcmd as a background task, and monitoring CPU performance using `cpudist`.
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &; /usr/share/bcc/tools/cpudist 1 10 -p $(systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18) `{{execute T2}}
 
