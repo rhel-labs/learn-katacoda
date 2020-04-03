@@ -10,7 +10,7 @@ Now, lets start cpudist to measure CPU performance around the SQL Server process
 
 `nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
 
-`/usr/share/bcc/tools/cpudist 1 10 -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
+`/usr/share/bcc/tools/cpudist 1 10 -O -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
 >**Note:** In the command above, we pass as an argument to cpudist, the process id (pid) of the SQL Server process.
 
@@ -36,7 +36,7 @@ Now, lets start cpudist to measure CPU performance around the SQL Server process
     131072 -> 262143     : 4        |                                        |
 </pre>
 
-Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distribution in the first cpudist result. 
+Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distribution in the first cpudist result. Most of the time, tasks were able to run between 4-16ms before being descheduled (likely due to CPU scheduling length). 
 
 Now, let's switch the tuned profile to mssql
 `tuned-adm profile mssql`{{execute T2}}
@@ -45,7 +45,7 @@ Let's rerun the CPU performance measurement around the SQL Server process.
 
 `nohup /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
 
-`/usr/share/bcc/tools/cpudist 1 10 -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
+`/usr/share/bcc/tools/cpudist 1 10 -O -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
 
 <pre class="file">
      usecs               : count     distribution
@@ -68,4 +68,4 @@ Let's rerun the CPU performance measurement around the SQL Server process.
      65536 -> 131071     : 19       |                                        |
 </pre>
 
->**Note:** When the CPU scheduler is tuned appropriately using the mssql tuned profile, there is less descheduling because of increased CPU quantum assigned by the kernel.
+>**Note:** When the CPU scheduler is tuned appropriately using the mssql tuned profile, there is more consistent scheduling because of increased CPU quantum assigned by the kernel.
