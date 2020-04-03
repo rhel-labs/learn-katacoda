@@ -1,15 +1,19 @@
 # All about mssql tuned profile
 
-The tuned tuning service can adapt the operating system to perform better under certain workloads by setting a tuning profile. The tuned-adm command-line tool allows users to switch between different tuning profiles.
+The tuned tuning service can adapt the operating system to perform better under certain workloads by setting a tuning profile. The `tuned-adm` command-line tool allows users to switch between different tuning profiles.
 
 First, check the currently active tuned profile :
+
 `tuned-adm active`{{execute T1}}
 
 <pre class="file">
 Current active profile: virtual-guest
 </pre>
 
+Tuned is enabled by default and auto selects a suitable profile. Since this machine is a VM, tuned selects the virtual-guest profile.
+
 List all the tuned profiles that can be set:
+
 `tuned-adm list`{{execute T1}}
 
 <pre class="file">
@@ -26,9 +30,12 @@ Available profiles:
 - virtual-host                - Optimize for running KVM guests
 </pre>
 
-RHEL has a tuned profile for Microsoft SQL Server called mssql. Note that this profile is not available to be used yet.
+RHEL has a tuned profile for Microsoft SQL Server called *mssql*. Note that this profile is not available to be used yet.
+
+[Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
 
 Next, let's install the mssql tuned profile:  
+
 `yum install -y tuned-profiles-mssql`{{execute T1}}
 
 Again, list all the tuned profiles that can be set and notice that you have the mssql profile now available: 
