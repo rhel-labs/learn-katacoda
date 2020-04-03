@@ -1,7 +1,8 @@
-# Tuning SQL Server on Red Hat Enterprise Linux
+# Performance tuning in SQL Server
 
 >**NOTE:** In this step we will be using the *cpudist* terminal to run tools and commands to optimize SQL Server on Red Hat Enterprise Linux. Select the *cpudist* terminal to run commands in this step.
 
+## RHEL tuned profiles ##
 The tuned tuning service can adapt the operating system to perform better under certain workloads by setting a tuning profile. The `tuned-adm` command-line tool allows users to switch between different tuning profiles.
 
 First, check the currently active tuned profile :
@@ -81,7 +82,11 @@ By increasing the CPU scheduling granularity, it allows the kernel to more often
 
 Check out `man tuned-adm` if you are interested in more details about the `tuned-adm` tool.
 
-First, install the kernel-devel package for your currently running kernel and the bcc-tools packages.
+## Monitoring performance using bcc-tools ##
+
+BCC is a toolkit for creating efficient kernel tracing and manipulation programs, and includes several useful tools and examples. 
+
+Install the kernel-devel package for your currently running kernel and the bcc-tools packages.
 
 `yum install -y kernel-devel-$(uname -r) bcc-tools`{{execute T2}}
 
@@ -101,3 +106,5 @@ Next, inspect the content of the bcc-tools package to see some of the pre-built 
 ..
 << OUTPUT ABRIDGED >>
 </pre>
+
+We will use the `cpudist` bcc-tool to monitor SQL Server performance in a later step.
