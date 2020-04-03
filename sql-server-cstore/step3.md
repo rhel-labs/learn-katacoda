@@ -16,7 +16,7 @@ OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)
 
 Lets re-run the same query using column store indexes. The script queries the table 10 times outputting the time it takes for the query to return the result set using column store indexes.
 
-<pre class="file">                                                               
+<pre class="file">
 //The aggregation query over 5 million rows
 SELECT SUM(Price), AVG(Price) FROM Orders;
 </pre>
