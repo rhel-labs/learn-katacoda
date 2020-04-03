@@ -8,7 +8,7 @@ Switch to term *cpudist* terminal
 
 Now, lets start `cpudist` to measure CPU performance around the SQL Server process. We are running sqlcmd as a background task, and monitoring CPU performance using `cpudist`.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &; /usr/share/bcc/tools/cpudist 1 10 -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &; /usr/share/bcc/tools/cpudist 1 10 -p $(systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18) `{{execute T2}}
 
 >**Note:** In the command above, we pass as an argument to `cpudist`, the process id (pid) of the SQL Server process.
 
