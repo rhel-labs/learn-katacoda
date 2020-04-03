@@ -30,9 +30,7 @@ Available profiles:
 - virtual-host                - Optimize for running KVM guests
 </pre>
 
-RHEL has a tuned profile for Microsoft SQL Server called *mssql*. Note that this profile is not available to be used yet.
-
-[Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
+RHEL has a tuned profile for Microsoft SQL Server called *mssql*. However, this profile is not available since we haven't installed this profile yet. To learn more about the tuned profiles listed above check [Monitoring and managing system status and performance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance#tuned-profiles-distributed-with-rhel_getting-started-with-tuned)
 
 Next, let's install the mssql tuned profile:  
 
