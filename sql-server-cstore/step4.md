@@ -10,7 +10,7 @@ Now, let's run the columnstore index workload using sqlcmd as a background task,
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &; /usr/share/bcc/tools/cpudist 1 10 -p $(systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18) `{{execute T2}}
 
->**Note:** In the command above, we pass as an argument to `cpudist`, the process id (pid) of the SQL Server process.
+>**Note:** In the command above, we pass as an argument to `cpudist`, the process id (pid) of the SQL Server process by using an embedded `systemctl` command.
 
 <pre class="file">
      usecs               : count     distribution
