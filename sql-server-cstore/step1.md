@@ -2,7 +2,7 @@
 
 >**Note:** For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
 
-We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The cpudist terminal will be used for performance tracking using the cpudist bcc-tool explained later.
+We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The *cpudist* terminal will be used for performance tracking using the cpudist bcc-tool explained later.
 
 To check if ansible installation is complete, we can use the following command -
 
