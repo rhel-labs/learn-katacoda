@@ -34,16 +34,15 @@ Now, let's run the columnstore index workload using sqlcmd as a background task,
     131072 -> 262143     : 4        |                                        |
 </pre>
 
-Without scheduler tuning, there are some tasks that are getting descheduled possibly due to resource contention. This is shown in the bi-modal distribution in the first `cpudist` result. Most of the time, tasks were able to run between 4-16ms before being descheduled (likely due to CPU scheduling length). 
+With default kernel CPU scheduler tuning,  tasks were able to run between 4096-16383 usecs (1usec = 1 microsecond) before being descheduled. This is shown in the bi-modal distribution in the `cpudist` result above. 
 
-Now, let's switch the tuned profile to mssql
+Now, switch the tuned profile to the mssql tuned profile, which will add more finer granularity to the kernel CPU scheduler 
+
 `tuned-adm profile mssql`{{execute T2}}
 
-Let's rerun the CPU performance measurement around the SQL Server process. 
+Re-run the CPU performance measurement around the SQL Server process 
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &`{{execute T2}}
-
-`/usr/share/bcc/tools/cpudist 1 10 -p ```systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18``` `{{execute T2}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &; /usr/share/bcc/tools/cpudist 1 10 -p $(systemctl status mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-18) `{{execute T2}}
 
 <pre class="file">
      usecs               : count     distribution
@@ -66,4 +65,7 @@ Let's rerun the CPU performance measurement around the SQL Server process.
      65536 -> 131071     : 19       |                                        |
 </pre>
 
->**Note:** When the CPU scheduler is tuned appropriately using the mssql tuned profile, there is more consistent scheduling because of increased CPU quantum assigned by the kernel.
+When the kernel CPU scheduler is tuned appropriately using the mssql tuned profile, there is more consistent scheduling because of increased CPU granularity assigned by the kernel. This is shown by the continous distribution in the `cpudist` result above.
+
+The mssql tuned profile enables Columnstores in SQL server to better utilize the CPU. This means that shorter tasks can be completed in shorter time windows, compared to previously where they had larger time windows and thus wasted unused CPU cycles.  
+
