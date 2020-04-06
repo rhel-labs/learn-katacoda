@@ -1,6 +1,6 @@
 # Installing software
 
-When you start this demo, SQL Server installation will start on the machine. 
+>**Note:** For this scenario, we have started installing SQL Server on the machine. The installation task will take between 2-5 minutes to complete.
 
 First, verify that SQL Server is running on the machine.
 
