@@ -51,6 +51,10 @@
       "external_link": "https://lab.redhat.com/kpatch-apply",
       "title": "Reducing unplanned maintenance with Kernel Live Patching",
       "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
+    },
+    {
+      "external_link": "https://lab.redhat.com/sql/",
+      "title": "Red Hat Enterprise Linux and SQL Server Labs"
     }
   ]
 }
