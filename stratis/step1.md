@@ -12,4 +12,4 @@ If these packages are not found, continue with the installation.
 
 You can check the stratis-cli version.
 
-`stratis --version`
+`stratis --version`{{execute}}

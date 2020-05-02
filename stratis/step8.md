@@ -14,11 +14,11 @@ Check that the files have been created.
 
 Create a snapshot of the filesystem. This snapshot will be named my_snapshot.
 
-`stratis filesystem snapshot my_pool my_fs my_snapshot` {{execute}}
+`stratis filesystem snapshot my_pool my_fs my_snapshot`{{execute}}
 
 Now, delete the first file and check that the file has been deleted.
 
-`rm -f /mnt/test_mnt/my_first_file` {{execute}}
+`rm -f /mnt/test_mnt/my_first_file`{{execute}}
 
 `ls /mnt/test_mnt`{{execute}}
 
