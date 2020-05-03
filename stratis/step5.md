@@ -8,7 +8,7 @@ Add /dev/loop2 as a data device to my_pool.
 
 Now list pools. You should see that my_pool has a size of 20GiB
 
-`stratis pool list` {{execute}}
+`stratis pool list`{{execute}}
 
 # List block devices
 

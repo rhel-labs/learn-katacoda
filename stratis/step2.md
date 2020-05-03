@@ -14,4 +14,4 @@ If a stratisd service in an active state is listed, then stratisd is running.
 
 You may also check the stratisd version.
 
-`stratis daemon version` {{execute}}
+`stratis daemon version`{{execute}}
