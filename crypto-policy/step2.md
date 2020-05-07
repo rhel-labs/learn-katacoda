@@ -60,4 +60,4 @@ FUTURE
 If you are interested in more details about the cryptographic policies that
 ship with Red Hat Enterprise Linux 8:    
 
-`man crypto-policies`{{execute T1}}
+`man crypto-policies`
