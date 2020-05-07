@@ -24,3 +24,7 @@ to **redhat**.
 
 `echo redhat | passwd --stdin rhel`{{execute}}
 
+<pre class="file">
+Changing password for user rhel.
+passwd: all authentication tokens updated successfully.
+</pre>
