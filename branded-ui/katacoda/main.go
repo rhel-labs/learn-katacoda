@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-
+	"strings"
 	rice "github.com/GeertJohan/go.rice"
 	"github.com/husobee/vestigo"
 )
