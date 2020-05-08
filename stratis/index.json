@@ -4,35 +4,35 @@
   "details": {
     "steps": [
       {
-        "title": "Getting Started",
+        "title": "Step 1",
         "text": "step1.md"
       },
       {
-	"title": "Enable and Start Stratis",
+	"title": "Step 2",
 	"text": "step2.md"
       },
       {
-        "title": "Locate Devices",
+        "title": "Step 3",
         "text": "step3.md"
       },
       {
-	"title": "Pool Operations",
+	"title": "Step 4",
         "text": "step4.md"
       },
       {
-        "title": "Adding a Data Device",
+        "title": "Step 5",
         "text": "step5.md"
       },
       {
-        "title": "Creating a Filesystem",
+        "title": "Step 6",
         "text": "step6.md"
       },
       {
-        "title": "Mounting a Filesystem",
+        "title": "Step 7",
         "text": "step7.md"
       },
       {
-        "title": "Creating a Snapshot",
+        "title": "Step 8",
         "text": "step8.md"
       }
     ],
