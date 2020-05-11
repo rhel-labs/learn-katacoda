@@ -6,14 +6,7 @@ Stratis provides a variety of storage management features by integrating layers 
 * the device mapper framework
 * the XFS filesystem
 
-Stratis consists of two components.
-
-First, the Stratis daemon, stratisd:
-* manages collections of block devices
-* provides a D-Bus API
-
-Second, the Stratis command-line interface, stratis-cli:
-* uses the D-Bus API to communicate with stratisd
+Stratis automates the management of local storage. On a system with just a single disk, Stratis can make it more convenient to logically separate /home from /usr, and enable snapshot with rollback on each separately. On larger configurations, Stratis can make it easier to create a multi-disk, multi-tiered storage pool, monitor the pool, and then manage the pool with less administrator effort.
 
 # Goal:
 
@@ -21,24 +14,12 @@ After completing this scenario, users will be able to manage local storage with 
 
 # Concepts included in this scenario:
 
-* Installing Stratis
-
-* Enabling and starting Stratis
-
-* Querying stratisd and stratis-cli versions
+* Installing, enabling, and starting Stratis
 
 * Locating empty block devices
 
 * Creating pools and filesystems
 
-* Listing pools and filesystems
-
-* Renaming filesystems
-
-* Mounting filesystems
-
 * Adding block devices to an existing pool
-
-* Listing block devices
 
 * Creating snapshots of a filesystem

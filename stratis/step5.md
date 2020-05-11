@@ -1,20 +1,34 @@
-# Add a block device as a data device to an existing pool
+# Add a block device to an existing pool
 
-All pools contain a Data Tier, which contains one or more blockdevs used to store data. The blockdev used to create the pool belongs to the pool's data tier. We can add additional blockdevs to a pool as data devices.
+All pools contain a data tier, which contains one or more block devices used to store data. The block devices used to create the pool belong to the pool's data tier.
 
-Add /dev/loop2 as a data device to my_pool.
+You can add additional block devices to a pool as data devices, thereby increasing the disk space provided to Stratis devices. This is helpful when you have exhaused the available space initially allocated to the pool.
+
+The pool you created, my_pool, has 10 GiB of space. Add /dev/loop2 as a data device to my_pool.
 
 `stratis pool add-data my_pool /dev/loop2`{{execute}}
 
-Now list pools. You should see that my_pool has a size of 20GiB
+Now list the pools.
 
 `stratis pool list`{{execute}}
 
+<pre class="file">
+ Name                     Total Physical
+ my_pool  20 GiB / 41.64 MiB / 19.96 GiB
+</pre>
+
+You should see that my_pool now has a size of 20GiB.
+
 # List block devices
 
-Query which block devices belong to a pool.
+Now that the pool consists of multiple block devices, it may be useful to find out which block devices belong to which pools.
 
-`stratis blockdev list my_pool`{{execute}}
+`stratis blockdev list`{{execute}}
 
-Note: Stratis also allows for an optional Cache Tier. This feature is not covered in the scope of this tutorial.
+<pre class="file">
+ Pool Name  Device Node  Physical Size  Tier
+ my_pool    /dev/loop1          10 GiB  Data
+ my_pool    /dev/loop2          10 GiB  Data
+</pre>
 
+You can see that both /dev/loop1 and /dev/loop2 belong to my_pool.
