@@ -20,6 +20,7 @@ Confirm that the filesystem has been mounted by running the mount command.
 
 <pre class="file">
  << OUTPUT ABRIDGED >>
+
  /dev/mapper/stratis-1-ab995c9fa31e43a281322465a744c911-thin-fs-0f808d165a264b779cb9108f7176c098 on /mnt/test_mnt type xfs (rw,relatime,seclabel,attr2,inode64,sunit=2048,swidth=2048,noquota)
 </pre>
 
