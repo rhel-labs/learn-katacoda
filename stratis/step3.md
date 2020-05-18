@@ -56,6 +56,8 @@ Check that the two devices are displayed.
  NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
  loop1           7:1    0   10G  0 loop
  loop2           7:2    0   10G  0 loop
+
+<< OUTPUT ABRIDGED >>
 </pre>
 
 You should now see loop1 and loop2 devices reported in the output of `lsblk`. These correspond to the two loopback device you configured with the `losetup` command. When these block devices are written to, the data will be stored in the /tmp/myfile1.trunc and /tmp/myfile2.truc files backing these loopback block devices.
