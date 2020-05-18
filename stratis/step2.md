@@ -13,7 +13,7 @@ At any point, you may also check the status of stratisd.
  Loaded: loaded (/usr/lib/systemd/system/stratisd.service; enabled; vendor preset: enabled)
  Active: active (running) since Thu 2020-05-07 15:11:21 EDT; 1s ago
 
- << OUTPUT ABRIDGED>>
+<< OUTPUT ABRIDGED >>
 </pre>
 
 If stratisd is running, you should see the Active: information report `active (running)` as it is shown in the above output from the `systemctl status` command.
