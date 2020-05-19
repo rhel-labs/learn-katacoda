@@ -17,14 +17,3 @@ The first package, __cockpit-session-recording__ will add an additional feature
 Web Console which you will be using to enable and configure session recording.
 The __tlog__ package will provide the tools which will be used to both record 
 and view the recorded terminal sessions.
-
-For this lab, you will be using an unprivileged user __rhel__ to update the
-system configuration settings using the Web Console.  Set this user's password
-to **redhat**.
-
-`echo redhat | passwd --stdin rhel`{{execute}}
-
-<pre class="file">
-Changing password for user rhel.
-passwd: all authentication tokens updated successfully.
-</pre>
