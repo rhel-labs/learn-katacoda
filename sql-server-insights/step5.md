@@ -29,7 +29,7 @@ SQL Server service.
 
 `systemctl restart mssql-server.service`{{execute}}
 
-Force a Red Hat Insights checkin so that a new batch of system data
+Force a Red Hat Insights check-in so that a new batch of system data
 is uploaded to the Insights service.
 
 `insights-client`{{execute}}  

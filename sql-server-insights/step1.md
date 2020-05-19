@@ -1,5 +1,7 @@
 # Registering a machine to the Red Hat Insights service
 
+Red Hat Insights is now included in every Red Hat Enterprise Linux subscription. 
+
 In most Red Hat Enterprise Linux 8 installations, the insights-client
 software will be installed by default.  However, the minimal package
 set does not include installing the insights-client package and other 

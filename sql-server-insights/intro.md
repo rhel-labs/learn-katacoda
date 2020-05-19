@@ -1,11 +1,11 @@
 After completing this scenario, users will be able to register a system with
-Red Hat Insights and resolve an Insight provided for Microsoft SQL Server running on the machine.
+Red Hat Insights and resolve an recommendation provided for Microsoft SQL Server running on the machine.
 
 # Concepts included in this scenario:
 * Register a system with Red Hat Insights
-* View Insights triggered for the system on cloud.redhat.com
-* Reconcile an Insight for the system running SQL Server
-* Validate resolution by running the commands suggested by insights
+* View recommendations triggered for the system on cloud.redhat.com
+* Remediate a recommendation for the system running SQL Server
+* Validate resolution by running the commands suggested by Insights
 * Confirm that SQL Server is running at the end of this exercise
 
 # Example Usecase:
