@@ -15,11 +15,7 @@ After completing this scenario, users will be able to manage local storage with 
 # Concepts included in this scenario:
 
 * Installing, enabling, and starting Stratis
-
 * Locating empty block devices
-
 * Creating pools and filesystems
-
 * Adding block devices to an existing pool
-
 * Creating snapshots of a filesystem
