@@ -36,14 +36,14 @@ Check that my_first_file has been deleted.
 
 You can see that my_first_file has been removed from the directory, and only my_second_file remains.
 
-You can now mount the snapshot and get access to both files, since the snapshot was created before the first file was deleted.
-First, unmount the filesystem, my_fs, from the mount point, /mnt/test_mnt.
+You can now mount the snapshot and get access to both files, since the snapshot was created before the file was deleted.
+First, create a new mountpoint to attach the snapshot into the filesystem, /mnt/test_mnt_snap.
 
-`umount /mnt/test_mnt`{{execute}}
+`mkdir /mnt/test_mnt_snap`{{execute}}
 
 Next, mount the snapshot, my_snapshot.
 
-`mount /stratis/my_pool/my_snapshot /mnt/test_mnt`{{execute}}
+`mount /stratis/my_pool/my_snapshot /mnt/test_mnt_snap`{{execute}}
 
 Confirm that the snapshot was mounted successfully.
 
@@ -51,46 +51,28 @@ Confirm that the snapshot was mounted successfully.
 
 <pre class="file">
  << OUTPUT ABRIDGED >>
- /dev/mapper/stratis-1-ab995c9fa31e43a281322465a744c911-thin-fs-cf5ac541bb7440a9b1cf5b2ebe936f05 on /mnt/test_mnt type xfs (rw,relatime,seclabel,attr2,inode64,sunit=2048,swidth=2048,noquota)
+ /dev/mapper/stratis-1-ab995c9fa31e43a281322465a744c911-thin-fs-cf5ac541bb7440a9b1cf5b2ebe936f05 on /mnt/test_mnt_snap type xfs (rw,relatime,seclabel,attr2,inode64,sunit=2048,swidth=2048,noquota)
 </pre>
 
-You can now see the snapshot mounted on /mnt/test_mnt.
+From the output above, the snapshot is mounted on /mnt/test_mnt_snap.
 
-List the files in /mnt/test_mnt to see that my_first_file has been recovered.
+List the files stored within the snapshot on /mnt/test_mnt_snap.
 
-`ls /mnt/test_mnt`{{execute}}
+`ls /mnt/test_mnt_snap`{{execute}}
 
 <pre class="file">
  my_first_file  my_second_file
 </pre>
 
-Both files are now listed!
+Both files are listed!
 
 # Copy the file back to the original filesystem
 
 Now that you have access to the previously deleted file, my_first_file, you may want to copy it back into the original filesystem, my_fs.
 
-To do this, copy the file, my_first_file into the home directory.
+To do this, copy the file, my_first_file back into the original filesytem.
 
-`cp /mnt/test_mnt/my_first_file ~`{{execute}}
-
-Check that the file has been successfully copied. 
-
-`ls ~`{{execute}}
-
-<pre class="file">
- anaconda-ks.cfg  my_first_file  openscap_data  original-ks.cfg
-</pre>
-
-Unmount the snapshot and mount the original filesystem.
-
-`umount /mnt/test_mnt`{{execute}}
-
-`mount /stratis/my_pool/my_fs /mnt/test_mnt`{{execute}}
-
-Copy the file, my_first_file to the filesystem, my_fs.
-
-`cp ~/my_first_file /mnt/test_mnt`{{execute}} 
+`cp /mnt/test_mnt_snap /my_first_file /mnt/test_mnt`{{execute}}
 
 Lastly, confirm that my_first_file has been copied to /mnt/test_mnt.
 
