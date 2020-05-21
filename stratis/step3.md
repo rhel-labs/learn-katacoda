@@ -19,7 +19,7 @@ vda           252:0    0 39.1G  0 disk
 
 From the above output, you can see that the two existing block devices on the machine, /dev/vda1 and /dev/vda2, are currently in use for /boot and logical volumes rhel-root and rhel-swap, respectively.
 
-Therefore, in this lab, you will instead create a 10g file within the existing root filesystem and access that space through the looback interface.
+Therefore, in this lab, you will instead create a 10 GiB file within the existing root filesystem and access that space through the looback interface.
 
 `truncate -s 10g /tmp/myfile.trunc`{{execute}}
 
