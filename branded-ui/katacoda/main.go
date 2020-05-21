@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-
+	"strings"
 	rice "github.com/GeertJohan/go.rice"
 	"github.com/husobee/vestigo"
 )
@@ -30,6 +30,33 @@ type ScenarioPageData struct {
 
 var templates = template.New("").Funcs(templateMap)
 var templateBox *rice.Box
+
+
+func redirectMiddleware(h http.HandlerFunc) http.HandlerFunc {
+	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+
+		if(req.URL.Scheme == "https" || req.Header.Get("x-forwarded-proto") == "https") {
+			h.ServeHTTP(w, req)
+		} else {
+			target := "https://" + req.Host + req.URL.Path
+
+			if len(req.URL.Query()) > 0 {
+				for k, _ := range req.URL.Query() {
+					if(string(k[0]) != ":") { //Remove vestigo parameters
+						if(strings.Contains(target, "?") == false) {
+							target += "?"
+						} else {
+							target += "&"
+						}
+						target += k + "=" + req.URL.Query().Get(k);
+					}
+				}
+			}
+			log.Printf("redirecting http %s to: %s", req.URL.Scheme, target)
+			http.Redirect(w, req, target, http.StatusTemporaryRedirect)
+		}
+	})
+}
 
 func newTemplate(path string, fileInfo os.FileInfo, _ error) error {
 	if path == "" {
@@ -93,15 +120,15 @@ func main() {
 
 	router := vestigo.NewRouter()
 
-	router.Get("/", index)
+	router.Get("/", redirectMiddleware(index))
 	router.Get("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))).ServeHTTP)
-	router.Get("/training", traininghome)
-	router.Get("/training/", traininghome)
-	router.Get("/training/:course", trainingcourse)
-	router.Get("/training/:course/", trainingcourse)
-	router.Get("/training/:course/:scenario", trainingscenario)
-	router.Get("/:scenario", scenario)
-	router.Get("/:scenario/", scenario)
+	router.Get("/training", redirectMiddleware(traininghome))
+	router.Get("/training/", redirectMiddleware(traininghome))
+	router.Get("/training/:course", redirectMiddleware(trainingcourse))
+	router.Get("/training/:course/", redirectMiddleware(trainingcourse))
+	router.Get("/training/:course/:scenario", redirectMiddleware(trainingscenario))
+	router.Get("/:scenario", redirectMiddleware(scenario))
+	router.Get("/:scenario/", redirectMiddleware(scenario))
 
 	http.Handle("/", router)
 
