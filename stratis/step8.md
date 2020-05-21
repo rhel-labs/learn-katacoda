@@ -72,7 +72,7 @@ Now that you have access to the previously deleted file, my_first_file, you may 
 
 To do this, copy the file, my_first_file back into the original filesytem.
 
-`cp /mnt/test_mnt_snap /my_first_file /mnt/test_mnt`{{execute}}
+`cp /mnt/test_mnt_snap/my_first_file /mnt/test_mnt`{{execute}}
 
 Lastly, confirm that my_first_file has been copied to /mnt/test_mnt.
 
