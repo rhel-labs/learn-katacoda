@@ -2,7 +2,7 @@
 
 All pools contain a data tier, which contains one or more block devices used to store data. The block devices used to create the pool belong to the pool's data tier.
 
-You can add additional block devices to a pool as data devices, thereby increasing the disk space provided to Stratis devices. This is helpful when you have exhaused the available space initially allocated to the pool.
+You can add additional block devices to a pool as data devices, thereby increasing the disk space provided to the Stratis pool. This is helpful when you have exhaused the available space initially allocated to the pool.
 
 The pool you created, my_pool, has 10 GiB of space. Add /dev/loop2 as a data device to my_pool.
 
@@ -17,7 +17,7 @@ Now list the pools.
  my_pool  20 GiB / 41.64 MiB / 19.96 GiB
 </pre>
 
-You should see that my_pool now has a size of 20GiB.
+You should see that my_pool now has a size of 20 GiB.
 
 # List block devices
 
