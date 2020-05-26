@@ -2,7 +2,7 @@
 
 Red Hat Insights is now included in every Red Hat Enterprise Linux subscription.
 
-In most Red Hat Enterprise Linux 8 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  
+In most Red Hat Enterprise Linux 8 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and it will likely need it installed.  
 
 Install the insights-client package on the machine.
 
@@ -21,10 +21,7 @@ Uploading Insights data.
 Successfully uploaded report from a06560c57e40 to account 6227255.
 </pre>
 
-From the above output, you can observe that the system has been successfully
-registered with the Red Hat Insights service.  As part of the registration,
-the machine also uploads a report to the Red Hat Insights service so that
-it may be analized for any Insights.
+From the above output, you can observe that the system has been successfully registered with the Red Hat Insights service.  As part of the registration, the machine also uploads a report to the Red Hat Insights service so that it may be analyzed for any Insights.
 
 For future reference, make note of your system hostname.
 
