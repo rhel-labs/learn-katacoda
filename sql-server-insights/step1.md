@@ -1,13 +1,10 @@
 # Registering a machine to the Red Hat Insights service
 
-Red Hat Insights is now included in every Red Hat Enterprise Linux subscription. 
+Red Hat Insights is now included in every Red Hat Enterprise Linux subscription.
 
-In most Red Hat Enterprise Linux 8 installations, the insights-client
-software will be installed by default.  However, the minimal package
-set does not include installing the insights-client package and other 
-versions of Red Hat Enterprise Linux, while the package is available, 
-will likely need it installed.  Install the insights-client package on 
-the machine.
+In most Red Hat Enterprise Linux 8 installations, the insights-client software will be installed by default.  However, the minimal package set does not include installing the insights-client package and other versions of Red Hat Enterprise Linux, while the package is available, will likely need it installed.  
+
+Install the insights-client package on the machine.
 
 `yum -y install insights-client`{{execute}}
 
@@ -49,7 +46,7 @@ System is registered locally via .registered file. Registered at 2019-08-14T14:1
 Insights API confirms registration.
 </pre>
 
-Check whether or not SQL Server is running on the machine. 
+Check whether or not SQL Server is running on the machine.
 
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
@@ -57,7 +54,7 @@ Check whether or not SQL Server is running on the machine.
 << OUTPUT ABRIDGED >>
 
 Active: failed (Result: exit-code) since Tue 2020-03-10 03:29:37 EDT; 8min ago
- 
+
 << OUTPUT ABRIDGED >>
 </pre>
 
