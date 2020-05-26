@@ -11,3 +11,5 @@ Using Image Builder to make system images would be a consistent, repeatable
 way to build the same installed system, but output the image to different
 cloud formats for use in a hybrid cloud environment.
 
+# Influence Imagebuilder with your feedback!
+[Imagebuilder Product Survey](https://https://redhatdg.co1.qualtrics.com/jfe/form/SV_aWQfWV5jrPSufCB?link=katacoda)

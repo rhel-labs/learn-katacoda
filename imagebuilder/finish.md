@@ -3,6 +3,10 @@
 * Built a custom Red Hat Enterprise Linux machine image
 * Monitored the image build process
 
+# Influence Imagebuilder with your feedback!
+[Imagebuilder Product Survey](https://https://redhatdg.co1.qualtrics.com/jfe/form/SV_aWQfWV5jrPSufCB?link=katacoda)
+
+
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
 
