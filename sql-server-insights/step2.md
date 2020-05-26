@@ -11,10 +11,9 @@ Click the _Log in to your Red Hat account_ button.
 ![cloud.redhat.com Login](/sql-server-insights/assets/cloud.redhat.com-homepage-new.png)
 
 
-Login using the credentials provided by your workshop facilitator, first by entering the assigned Red Hat login username followed by the password.
+Login using the credentials provided by your workshop facilitator, first by entering the assigned Red Hat login username, clicking _NEXT_, and then inputting the assigned password.
 
 ![Red Hat Login screen](/sql-server-insights/assets/redhat-login-new.png)
-
 
 Once you are logged in, using the credentials provided by your workshop facilitator, navigate to the _Red Hat Insights_ application, and click _Open_.
 
