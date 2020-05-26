@@ -1,5 +1,4 @@
-After completing this scenario, users will be able to register a system with
-Red Hat Insights and resolve an recommendation provided for Microsoft SQL Server running on the machine.
+After completing this scenario, users will be able to register a system with Red Hat Insights and resolve a recommendation provided for Microsoft SQL Server running on the machine.
 
 # Concepts included in this scenario:
 * Register a system with Red Hat Insights
@@ -9,6 +8,4 @@ Red Hat Insights and resolve an recommendation provided for Microsoft SQL Server
 * Confirm that SQL Server is running at the end of this exercise
 
 # Example Usecase:
-A system administrator running SQL Server on RHEL, is not yet familiar with all the best practices
-to run SQL Server on RHEL. The system administrator depends on insights to provide the proactive 
-insights to configure their SQL Server instance on RHEL.
+A system administrator running SQL Server on RHEL, is not yet familiar with all the best practices to run SQL Server on RHEL. The system administrator depends on insights to provide the proactive insights to configure their SQL Server instance on RHEL.
