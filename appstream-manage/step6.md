@@ -3,15 +3,17 @@ Lastly, inspect all software managed as application streams.
 `yum module list`{{execute}}
 
 <pre class="file">
-Red Hat Enterprise Linux 8 for x86_64 - AppStream Beta (RPMs)
-Name                 Stream              Profiles                         Summary
-389-ds               1.4                 default                          389 Directory Server (base)
-App-cpanminus        1.7044 [d]          default [d]                      Get, unpack, build and install CPAN modules
-DBD-MySQL            4.046 [d]           default [d]                      A MySQL interface for Perl
-DBD-Pg               3.7 [d]             default [d]                      A PostgreSQL interface for Perl
-DBD-SQLite           1.58 [d]            default [d]                      SQLite DBI driver
-DBI                  1.641 [d]           default [d]                      A database access API for Perl
-YAML                 1.24 [d]            default [d]                      Perl parser for YAML
-ant                  1.10 [d]            default [d]                      Java build tool
-... Output Truncated ...
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                 Stream       Profiles                          Summary
+389-ds               1.4                                            389 Directory Server (base)
+ant                  1.10 [d]     common [d]                        Java build tool
+container-tools      rhel8 [d][e] common [d]                        Common tools and dependencies for container runtimes
+container-tools      1.0          common [d]                        Common tools and dependencies for container runtimes
+container-tools      2.0          common [d]                        Common tools and dependencies for container runtimes
+freeradius           3.0 [d]      server [d]                        High-performance and highly configurable free RADIUS server
+gimp                 2.8 [d]      common [d], devel                 gimp module
+go-toolset           rhel8 [d]    common [d]                        Go
+httpd                2.4 [d][e]   common [d], devel, minimal        Apache HTTP Server
+
+<<< OUTPUT ABRIDGED >>>
 </pre>
