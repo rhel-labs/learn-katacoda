@@ -3,7 +3,7 @@ Determine the available versions of postgresql.
 `yum module list postgresql`{{execute}}
 
 <pre class=file>
-ed Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
 Name                        Stream                  Profiles                           Summary
 postgresql                  9.6                     client, server [d]                 PostgreSQL server and client module
 postgresql                  10 [d]                  client, server [d]                 PostgreSQL server and client module
