@@ -7,12 +7,13 @@ After the installation is complete, verify that postgresql version 9.6 is instal
 `yum module list postgresql`{{execute}}
 
 <pre class="file">
-Red Hat Enterprise Linux 8 for x86_64 - AppStream Beta (RPMs)
-Name                 Stream              Profiles                         Summary
-postgresql           10 [d]              client, default [d]              postgresql module
-postgresql           9.6 [e]             client, default [d] [i]          postgresql module
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                       Stream                 Profiles                              Summary
+postgresql                 9.6 [e]                client, server [d] [i]                PostgreSQL server and client module
+postgresql                 10 [d]                 client, server [d]                    PostgreSQL server and client module
+postgresql                 12                     client, server [d]                    PostgreSQL server and client module
 
-Hint: [d]efault, [e]nabled, [x]disabled, [i]installed
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
 
 Notice that version 9.6 is now marked as [e]nabled under the Stream column and is flagged as [i]nstalled in the Profiles column of the listing for postgresql.
