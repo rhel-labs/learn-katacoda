@@ -13,7 +13,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
 
 
-Application Streamの中に2つの利用可能なpostgresqlバージョンが存在しています。バージョン9.6と10です。
+Application Streamの中に2つの利用可能なpostgresqlバージョンが存在しています。バージョン9.6と10そして12です。
 
 postgresql バージョン10がデフォルトになっています。つまり特にオプションや引数を指定せずにpostgresqlをインストールすると、バージョン10がインストールされます。
 
