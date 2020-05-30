@@ -43,6 +43,6 @@
     "uieditorpath": "/root/roles/dpredhat.ansible_role_mssql"
   },
   "backend": {
-    "imageid": "rhel8-highmem"
+    "imageid": "rhel8-1-highmem"
   }
 }
