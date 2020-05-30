@@ -10,6 +10,10 @@ Password: __redhat__
 
 ![Web Console Login](/smcbrien/scenarios/session-recording-tlog/assets/Web-console-login.png)
 
+>**NOTE:** Web Console へのアクセスに失敗する場合には、ラボインタフェースの以下のアイコンをクリックしてWeb Consoleページを別のウィンドウで開いてみてください。
+
+![Web Console Login](/rhel-labs/scenarios/webconsole-software/assets/pop-out.png)
+
 Web Consoleにログインしたら、*Session Recording* オプションが左側のナビゲーションメニューにあるのでこれを選びます。さきほど __cockpit-session-recording__ rpmパッケージをインストールしたのでメニューが追加されています。
 
 ![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-option.png)
