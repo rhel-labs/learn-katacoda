@@ -56,6 +56,11 @@
       "external_link": "https://lab.redhat.com/sql-server-cstore",
       "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
       "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
+    },
+    {
+      "external_link": "https://lab.redhat.com/stratis",
+      "title": "Stratis, a new Red Hat Enterprise Linux Storage Technology",
+      "description": "Get started with Stratis, a pool-based storage technology included with Red Hat Enterprise Linux."
     }
   ]
 }
