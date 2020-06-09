@@ -1,6 +1,11 @@
-When postgresql version 9.6 was installed the enabled flag, [e], moved to apply to that version of the application stream.  The other versions of postgresql available as application streams are not able to be worked with on this machine while version 9.6 is the enabled version.  This is to ensure administrators do not accidentally remove or install other versions of the software unintentionally.
+When postgresql version 9.6 was installed the enabled flag, [e], moved to apply
+to that version of the application stream.  The other versions of postgresql 
+available as application streams are not active on this machine while version 
+9.6 is enabled.  This is to ensure administrators do not 
+accidentally remove or install other versions of the software unintentionally.
 
-However, you want to move to postgresql version 10.  First, you will disable the postgres application streams.
+However, you want to move to postgresql version 10.  First, you will disable 
+the postgresql application streams.
 
 `yum -y module disable postgresql`{{execute}}
 
