@@ -1,8 +1,14 @@
-Now that the Postgres version 10 stream is enabled, install it on the system.
+When postgresql version 9.6 was installed the enabled flag, [e], moved to apply to that version of the application stream.  The other versions of postgresql available as application streams are not able to be worked with on this machine while version 9.6 is the enabled version.  This is to ensure administrators do not accidentally remove or install other versions of the software unintentionally.
 
-`yum -y module install postgresql:10`{{execute}}
+However, you want to move to postgresql version 10.  First, you will disable the postgres application streams.
 
-The Postgres 10 stream should now be listed as [i]nstalled.
+`yum -y module disable postgresql`{{execute}}
+
+Now that no application streams for postgresql are available, you will enable the version you want to install on the machine.
+
+`yum -y module enable postgresql:10`{{execute}}
+
+You should now be able to review the list of postgresql application streams and see that the desired version, 10, is now enabled, making it available to be installed on the machine.
 
 `yum module list postgresql`{{execute}}
 
@@ -10,16 +16,9 @@ The Postgres 10 stream should now be listed as [i]nstalled.
 Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
 Name                      Stream                   Profiles                              Summary
 postgresql                9.6                      client, server [d]                    PostgreSQL server and client module
-postgresql                10 [d][e]                client, server [d] [i]                PostgreSQL server and client module
+postgresql                10 [d][e]                client, server [d]                    PostgreSQL server and client module
 postgresql                12                       client, server [d]                    PostgreSQL server and client module
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
 
-Finally, check the version reported by the postgres command.
-
-`postgres --version`{{execute}}
-
-<pre class="file">
-postgres (PostgreSQL) 10.6
-</pre>
