@@ -8,7 +8,7 @@ __cockpit-session-recording__ と __tlog__ の2つのrpmパッケージをイン
 << OUTPUT ABRIDGED >>
 
 Installed:
-  cockpit-session-recording-1-29.el8.noarch                      tlog-5-1.el8.x86_64
+  cockpit-session-recording-3-1.el8.noarch                                       tlog-7-2.el8.x86_64
 
 Complete!
 </pre>
