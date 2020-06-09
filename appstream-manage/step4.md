@@ -1,25 +1,25 @@
-Prior to installing the newer version of postgresql that is available, first, the older (now removed) version of the software
-should be disabled.
+Now that the Postgres version 10 stream is enabled, install it on the system.
 
-`yum -y module disable postgresql:9.6`{{execute}}
+`yum -y module install postgresql:10`{{execute}}
 
-Likewise, version 10, while it is the default, should be enabled.
+The Postgres 10 stream should now be listed as [i]nstalled.
 
-`yum -y module enable postgresql:10`{{execute}}
-
-Take a look at the Application Stream information to verify that postgresql version 10 is now the enabled
-version.
-
-`yum  module list postgresql`{{execute}}
+`yum module list postgresql`{{execute}}
 
 <pre class="file">
 Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
-Name                       Stream                    Profiles                           Summary
-postgresql                 9.6                       client, server [d]                 PostgreSQL server and client module
-postgresql                 10 [d][e]                 client, server [d]                 PostgreSQL server and client module
-postgresql                 12                        client, server [d]                 PostgreSQL server and client module
+Name                      Stream                   Profiles                              Summary
+postgresql                9.6                      client, server [d]                    PostgreSQL server and client module
+postgresql                10 [d][e]                client, server [d] [i]                PostgreSQL server and client module
+postgresql                12                       client, server [d]                    PostgreSQL server and client module
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
 
-The [e]nabled flag is now present for postgresql version 10.
+Finally, check the version reported by the postgres command.
+
+`postgres --version`{{execute}}
+
+<pre class="file">
+postgres (PostgreSQL) 10.6
+</pre>
