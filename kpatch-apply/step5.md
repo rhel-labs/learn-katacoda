@@ -9,17 +9,18 @@ changelog is the one you installed earlier.
 `rpm -q --changelog $(rpm -qa | grep kpatch-patch)`{{execute}}
 
 <pre class="file">
-* Tue Dec 03 2019 Joe Lawrence <joe.lawrence@redhat.com> [1-4.el8]
-- hw: [incomplete fix] Machine Check Error on Page Size Change (IFU) [1779250] {CVE-2018-12207}
+* Mon May 11 2020 Joe Lawrence <joe.lawrence@redhat.com> [1-2.el8]
+- Workaround kpatch ppc64le leaf functions in previous patch [1827332] {CVE-2020-10711}
 
-* Mon Nov 18 2019 Josh Poimboeuf <jpoimboe@redhat.com> [1-3.el8]
-- Fix sysfs reporting for MDS-affected systems [1766986] {CVE-2019-11135}
+* Fri May 08 2020 Joe Lawrence <joe.lawrence@redhat.com> [1-1.el8]
+- netlabel: cope with NULL catmap [1827332] {CVE-2020-10711}
 
-<< OUTPUT ABRIDGED >>
+* Fri Apr 10 2020 Joe Lawrence <joe.lawrence@redhat.com> [0-0.el8]
+- An empty patch to subscribe to kpatch stream for kernel-4.18.0-193.el8 [1822309]
 </pre>
 
 In the above sample output, you can see that the latest entry, the first one
-listed, in the patchset was to resolve CVE-2018-12207.
+listed, in the patchset was to resolve CVE-2020-10711.
 
 # Supporting Kernel Live Patches
 
@@ -47,7 +48,7 @@ The Red Hat Product Security team maintains a list of CVEs affecting Red Hat
 products.  [Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
 
 Each listed CVE will have a page used for additional information and resources
-to go with it.  [Page for CVE-2018-12207](https://access.redhat.com/security/cve/cve-2019-19339)
+to go with it.  [Page for CVE-2020-10711](https://access.redhat.com/security/cve/cve-2020-10711)
 
 On the above linked page, in addition to more information about the CVE and
 the effect on systems or services, Red Hat may provide additional resources

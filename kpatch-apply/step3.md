@@ -17,7 +17,7 @@ when making the decision of which kpatch to install:
  Package                                     Architecture               Version                     Repository                                         Size
 ============================================================================================================================================================
 Installing:
- kpatch-patch-4_18_0-147                     x86_64                     1-4.el8                     rhel-8-for-x86_64-baseos-rpms                      39 k
+ kpatch-patch-4_18_0-193                x86_64                1-2.el8                  rhel-8-for-x86_64-baseos-rpms                 14 k
 
 Transaction Summary
 ============================================================================================================================================================

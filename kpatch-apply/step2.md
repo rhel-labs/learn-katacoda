@@ -36,17 +36,18 @@ kpatch-patch-4_18_0-147_0_2.x86_64                                 0-0.el8_1    
 kpatch-patch-4_18_0-147_0_3.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
 kpatch-patch-4_18_0-147_3_1.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
 kpatch-patch-4_18_0-147_5_1.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
-
+kpatch-patch-4_18_0-193.x86_64                                     1-2.el8                                   rhel-8-for-x86_64-baseos-rpms
+kpatch-patch-4_18_0-193_1_2.x86_64                                 0-0.el8_2                                 rhel-8-for-x86_64-baseos-rpms
 </pre>
 
-From the above output, there are five different kpatch-patch patches available,
-but only one of them is the one intended for the kernel running on your system.
-The one needed for your system is `kpatch-patch-4_18_0-147.x86_64` because the
+From the above output, there are several different kpatch-patch patches 
+available, but only one of them is the one intended for the kernel running on 
+your system.  The one needed for your system is `kpatch-patch-4_18_0-193.x86_64` because the
 version information included in the kpatch-patch package matches the version
-of your kernel reported by `uname -r`, specifically, 4.18.0-147.
+of your kernel reported by `uname -r`, specifically, 4.18.0-193.el8.
 
-The second kpatch-patch package listed, `kpatch-patch-4_18_0-147_0_2.x86_64` is
-for another kernel, specifically, version 4.18.0-147.0.2.  You can see that
+The other kpatch-patch packages listed, like `kpatch-patch-4_18_0-147.x86_64` is
+for another kernel, specifically, version 4.18.0-147.  You can see that
 the additional listings are also for addtional kernel releases, __not__ the one
 running on your system.  
 

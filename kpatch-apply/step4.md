@@ -7,13 +7,11 @@ this time the output is no longer blank.
 `kpatch list`{{execute}}
 
 <pre class="file">
-
 Loaded patch modules:
-kpatch_4_18_0_147_1_4 [enabled]
+kpatch_4_18_0_193_1_2 [enabled]
 
 Installed patch modules:
-kpatch_4_18_0_147_1_4 (4.18.0-147.el8.x86_64)
-
+kpatch_4_18_0_193_1_2 (4.18.0-193.el8.x86_64)
 </pre>
 
 From the list output, you can see that the kpatch installed in the previous
