@@ -27,5 +27,5 @@ Install  1 Package
 </pre>
 
 The previous `yum` command, based on the result of the embedded uname -r
-command, installed kpatch-patch-4_18_0-147, which is what you had determined
+command, installed kpatch-patch-4_18_0-193-1-2, which is what you had determined
 on the previous step to be the patchset for this system.

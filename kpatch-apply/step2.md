@@ -15,11 +15,11 @@ the version of the kernel running on your target system.
 `uname -r`{{execute}}
 
 <pre class=file>
-4.18.0-147.el8.x86_64
+4.18.0-193.el8.x86_64
 </pre>
 
 Our lab system is running kernel version (also known as release, hence the -r 
-option used by uname) 4.18.0-147.el8.x86_64.
+option used by uname) 4.18.0-193.el8.x86_64.
 
 Now that you know the version of the kernel running on the lab machine, look
 at all of the aviailable kpatch packages avaiable from the Red Hat Enterprise
@@ -42,9 +42,9 @@ kpatch-patch-4_18_0-193_1_2.x86_64                                 0-0.el8_2    
 
 From the above output, there are several different kpatch-patch patches 
 available, but only one of them is the one intended for the kernel running on 
-your system.  The one needed for your system is `kpatch-patch-4_18_0-193.x86_64` because the
-version information included in the kpatch-patch package matches the version
-of your kernel reported by `uname -r`, specifically, 4.18.0-193.el8.
+your system.  The one needed for your system is 
+`kpatch-patch-4_18_0-193_1_2.x86_64` because it is the latest available for
+the version of your kernel reported by `uname -r`, specifically, 4.18.0-193.el8.
 
 The other kpatch-patch packages listed, like `kpatch-patch-4_18_0-147.x86_64` is
 for another kernel, specifically, version 4.18.0-147.  You can see that
