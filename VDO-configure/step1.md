@@ -1,6 +1,6 @@
 # Install vdo
 
-`yum install -y vdo kmod-kvdo-6.2.1.138-58.el8_1`{{execute}}
+`yum install -y vdo kmod-kvdo-6.2.2.117-65.el8`{{execute}}
 
 VDO provides block level, inline data reduction for Linux in the form of deduplication,
 compression, and thin provisioning.  
