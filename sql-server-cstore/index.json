@@ -35,7 +35,7 @@
     "terminals": [{"name":"cpudist","target":"host01"}]  
   },
   "backend": {
-    "imageid": "rhel8-1-highmem",
+    "imageid": "rhel8-2-highmem",
     "port": 9090
   }
 }
