@@ -52,7 +52,7 @@
     "dashboard": "Container httpd"
   },
   "backend": {
-    "imageid": "rhel8-1",
+    "imageid": "rhel8-2",
     "port": 80
   }
 }
