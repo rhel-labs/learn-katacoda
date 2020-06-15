@@ -33,11 +33,6 @@
       "description": "Collect data on various system activities, such as disk performance, latency, and more using the bcc-tools.  This data can help identify issues with application performance."
     },
     {
-      "external_link": "https://lab.redhat.com/imagebuilder",
-      "title": "Using Web Console to build virtual machine images",
-      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
-    },
-    {
       "external_link": "https://lab.redhat.com/buildah",
       "title": "Creating images with Container Tools [buildah]",
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
