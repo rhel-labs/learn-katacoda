@@ -11,7 +11,7 @@ TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
 << OUTPUT ABRIDGED >>
 </pre>
 
-From the above output, you can see in the Type column(T) that these are reads(R). Further, you can see the counters in the READS column report greater than 0. This shows you in, real time, what `yum` is doing with files on the system.
+From the above output, you can see in the Type column(T) that these are regular files(R). Further, you can see the counters in the READS column report greater than 0. This shows you in, real time, what `yum` is doing with files on the system.
 
 Further, on the *xfsslower* terminal, you will start to see XFS operations take longer than the 10ms threshold and disk operations will start to be displayed:
 
