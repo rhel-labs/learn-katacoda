@@ -12,7 +12,7 @@ In the *filetop* terminal, you should see a top-like tool that refreshes every s
 TID    COMM           READS  WRITES R_Kb     W_Kb    T FILE
 </pre>
 
-If you see this, you know that the tool is properly running.  This tool will track the volume of READS and WRITES as well as the size, R_Kb and W_Kb, respectively.  Additionally, it includes the type, T, of activity and the FILE itself that is interacted with by the command, COMM.
+If you see this, you know that the tool is properly running.  This tool will track the count of READS and WRITES as well as the size, R_Kb and W_Kb, respectively.  Additionally, it includes the type, T, of file and the FILE itself that is interacted with by the command, COMM.
 
 In the *filetop* terminal, you are going to see applications accessing files in realtime, so this will get pretty busy.
 
