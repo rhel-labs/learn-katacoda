@@ -31,7 +31,7 @@ Also look at the *cachestat* terminal and you should see output similar to:
 << OUTPUT ABRIDGED >>
 </pre>
 
-This shows that you are operating entirely out of cache and not having to retrieve data from main memory at this point in the operation. 
+This shows that you are operating entirely on system cache and not having to retrieve data from storage at this point in the operation. 
 
 Look at your *tcplife* terminal when `yum` has finished downloading packages.  You will see output similar to the sample below:
 
