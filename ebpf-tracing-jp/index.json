@@ -1,0 +1,34 @@
+{
+  "title": "Performance observability in practice with bcc-tools [JP]",
+  "description": "Goal: このシナリオを実施することで、eBPFをつかった観測ツールについて理解を深めることができます。",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step6.md"
+      }
+     
+    l  "backend": {
+    "imageid": "rhel8-1"
+  }
+}
