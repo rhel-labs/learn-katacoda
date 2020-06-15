@@ -3,14 +3,24 @@
   "private": true,
   "courses": [
     {
-      "external_link": "https://lab.redhat.com/imagebuilder",
-      "title": "Using Web Console to build virtual machine images",
-      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
+      "external_link": "https://lab.redhat.com/session-recording-tlog",
+      "title": "Configuring Terminal Session Recording",
+      "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
+    },
+    {
+      "external_link": "https://lab.redhat.com/kpatch-apply",
+      "title": "Reducing unplanned maintenance with Kernel Live Patching",
+      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
     },
     {
       "external_link": "https://lab.redhat.com/appstream-manage",
       "title": "Managing software from an application stream",
       "description": "Learn how to choose versions of popular and supported open source languages and offer them to users through an application stream."
+    },
+    {
+      "external_link": "https://lab.redhat.com/sql-server-cstore",
+      "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
+      "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
     },
     {
       "external_link": "https://lab.redhat.com/podman-deploy",
@@ -23,14 +33,14 @@
       "description": "Collect data on various system activities, such as disk performance, latency, and more using the bcc-tools.  This data can help identify issues with application performance."
     },
     {
+      "external_link": "https://lab.redhat.com/imagebuilder",
+      "title": "Using Web Console to build virtual machine images",
+      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
+    },
+    {
       "external_link": "https://lab.redhat.com/buildah",
       "title": "Creating images with Container Tools [buildah]",
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
-    },
-    {
-      "external_link": "https://lab.redhat.com/session-recording-tlog",
-      "title": "Configuring Terminal Session Recording",
-      "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
     },
     {
       "external_link": "https://lab.redhat.com/webconsole-software",
@@ -46,16 +56,6 @@
       "external_link": "https://lab.redhat.com/vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
-    },
-    {
-      "external_link": "https://lab.redhat.com/kpatch-apply",
-      "title": "Reducing unplanned maintenance with Kernel Live Patching",
-      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
-    },
-    {
-      "external_link": "https://lab.redhat.com/sql-server-cstore",
-      "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
-      "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
     },
     {
       "external_link": "https://lab.redhat.com/stratis",
