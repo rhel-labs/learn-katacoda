@@ -46,6 +46,7 @@ know that this was needed or available for a system?
 
 The Red Hat Product Security team maintains a list of CVEs affecting Red Hat
 products.  [Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)
+, [Red Hat CVE Database](https://access.redhat.com/security/security-updates/#/cve)
 
 Each listed CVE will have a page used for additional information and resources
 to go with it.  [Page for CVE-2020-10711](https://access.redhat.com/security/cve/cve-2020-10711)
