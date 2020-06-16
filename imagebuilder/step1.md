@@ -1,6 +1,7 @@
-# Prerequisite setup
+# Software installation and configuration
 Prior to getting started with image builder, the software must first be 
-installed.
+installed.  The packages are both the image builder applications and a plugin
+for web console.
 
 `yum install -y cockpit-composer lorax-composer composer-cli`{{execute}}
 
