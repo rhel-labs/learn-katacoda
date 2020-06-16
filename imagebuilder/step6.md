@@ -1,7 +1,7 @@
 # Create a virtual machine image
 
 After the previous step, you should see the **example-http-server** blueprint
-homepage.  On this page you can make somne additional customizations to the
+homepage.  On this page you can make some additional customizations to the
 blueprint (like adding a user account or hostname), view the packages included
 in the blueprint, view images made from this blueprint, or go back to edit the
 packages included in the blueprint.
