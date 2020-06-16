@@ -1,7 +1,21 @@
-# Commit changes
+# Monitor Image Builds
 
-Now that you have updated the contents of the blueprint, spend some time exploring the organization of the blueprint contents. Note that blueprint contents can also be filtered, and when contents are added, their dependencies are automatically pulled in. Try filtering the blueprint contents by "npm" to see if it was automatically included in the blueprint as a dependency. Or click the Undo button to see how the number of dependencies changed when you added nodejs.
+At this point, you have queued your image to be built.  You can monitor the
+progress of the build by looking at the **Images** tab on the 
+**example-http-server** page.
 
-When you are ready, click the **Commit** button to commit your changes.
+![Select Blueprint Images Tab](/rhel-labs/scenarios/imagebuilder/assets/Select-Images-Tab.png)
 
-![Commit Changes](/rhel-labs/scenarios/imagebuilder/assets/Commit-Changes.png)
+The **Images** tab contains a list of all the images built from this blueprint.
+You will see that the one you just created is still **Image build in progress**
+status, as pictured below.
+
+![Build In Progress](/rhel-labs/scenarios/imagebuilder/assets/Build-in-Progress.png)
+
+>**NOTE:** At anytime during or after the build, you can review the log messages by using the **Logs** button.  For example, if there is a problem with the build which causes it to fail.
+
+Once the build completes the status will update and the additional
+options will allow you to download the completed virtual machine image.
+
+![Build Completed](/rhel-labs/scenarios/imagebuilder/assets/Build-Complete.png)
+
