@@ -1,4 +1,4 @@
-# Monitor Image Builds
+# Monitor image builds
 
 At this point, you have queued your image to be built.  You can monitor the
 progress of the build by looking at the **Images** tab on the 
@@ -7,8 +7,8 @@ progress of the build by looking at the **Images** tab on the
 ![Select Blueprint Images Tab](/rhel-labs/scenarios/imagebuilder/assets/Select-Images-Tab.png)
 
 The **Images** tab contains a list of all the images built from this blueprint.
-You will see that the one you just created is still **Image build in progress**
-status, as pictured below.
+You will see that the one you just created is likely still **Image build pending** but should transition to **Image build in progress** status, as pictured 
+below.
 
 ![Build In Progress](/rhel-labs/scenarios/imagebuilder/assets/Build-in-Progress.png)
 
