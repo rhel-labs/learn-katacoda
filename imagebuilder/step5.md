@@ -1,6 +1,25 @@
-# Filter the list of available components
-On the **Edit Blueprint** page, you can see contents that are already included in the blueprint in the panel labeled **Blueprint Components**. The panel labeled **Available Components** includes contents that can be added to the blueprint.
+# Commit changes to the blueprint
 
-Filter the list of **Available Components** by __nodejs__ to find the nodejs package.
+Now that the packages associated with this blueprint have been updated, you
+should now see an option to **Commit** the change as well as a link to review
+the pending changes **1 Pending Change** and an option to discard changes
+made to to the blueprint, **Discard Changes**.
 
-![Filter Available Components](/rhel-labs/scenarios/imagebuilder/assets/Filter-Components.png)
+Select to **Commit** the change.
+
+![Commit Changes](/rhel-labs/scenarios/imagebuilder/assets/Commit-Changes.png)
+
+A dialog window will appear to confirm that you want to commit the change to
+the blueprint.  **Commit** the change.
+
+![Changes Pending Commit](/rhel-labs/scenarios/imagebuilder/assets/Changes-Pending-Commit.png)
+
+You should see a message displayed in the top, right-hand side of the page that
+confirms the change to the blueprint has been completed.
+
+![Blueprint Update Confirmation](/rhel-labs/scenarios/imagebuilder/assets/Blueprint-change-confirm.png)
+
+Lastly, to prepare for the next step, navigate to the **example-http-server**
+blueprint page.
+
+![Navigate to Blueprint Page](/rhel-labs/scenarios/imagebuilder/assets/Nav-to-Blueprint.png)
