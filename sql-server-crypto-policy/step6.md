@@ -3,7 +3,7 @@
 Before we explore Transparent Data Encryption (TDE) in SQL Server, it's important to understand the
 underlying key hierarchy used by SQL Server. Each layer is encrypted by the one above it – the user data is encrypted by the database encryption key (DEK), which is a symmetric key, and the DEK is encrypted by the certificate, whose private key portion is encrypted by the master key, which is encrypted with a user-specified password.
 
-![](/rhel-labs/scenarios/sql-server-crypto-policy/assets/Image-TDE.png)
+![](./assets/Image-TDE.png)
 
 
 Let's first open up the sqlcmd shell prompt connected to the master database. The master database contains all of the system level information for SQL Server. It gets created when the server instance of SQL Server is created. 
