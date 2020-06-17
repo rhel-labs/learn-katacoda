@@ -5,8 +5,8 @@
 
 __セキュリティアップデートのインストール__ ボタンを使ってセキュリティの修正を適用します。
 
-![Apply Software Updates](/smcbrien/scenarios/webconsole-software/assets/Apply-Security-Updates.png)
+![Apply Software Updates](./assets/Apply-Security-Updates.png)
 
 セキュリティの修正が適用されたあと、アップデートが反映されるようシステムを再起動するよう表示されます。まだアップデートの適用は終わっていないので、再起動の表示は __無視してください__。
 
-![Ignore Restart Request](/smcbrien/scenarios/webconsole-software/assets/Restart-request.png)
+![Ignore Restart Request](./assets/Restart-request.png)

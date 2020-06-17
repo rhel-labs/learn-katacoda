@@ -2,7 +2,7 @@
 
 **ソフトウェア更新**アプリケーションでは、いくつかのアップデートが利用可能であることがわかります。
 
-![Available Software Updates](/smcbrien/scenarios/webconsole-software/assets/Available-Updates.png)
+![Available Software Updates](./assets/Available-Updates.png)
 
 パッケージ名とバージョンに加えて、アップデートのタイプが **重大度** 欄に示されています。**詳細** 欄で、ソフトウェアの変更履歴の冒頭部分を読むことができます。
 
