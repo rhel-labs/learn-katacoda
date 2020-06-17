@@ -2,7 +2,7 @@
 
 Kernel Live Patchがカーネルに適用されると、カーネル内の関数は初期命令から再ルーティングされ、代わりに kpatch によって提供される関数が使用されます。 次の図は、このプロセスがどのように動作するかについてもう少し詳しく説明しています。
 
-![Web Console Login](/rhel-labs/scenarios/kpatch-apply/assets/rhel_kpatch_overview.png)
+![Web Console Login](./assets/rhel_kpatch_overview.png)
 Image from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_administration_guide/applying_patches_with_kernel_live_patching)
 
 
