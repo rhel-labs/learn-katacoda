@@ -4,4 +4,4 @@ You can see on the Firewall page that there are several services exposing the op
 
 All ports not listed here are closed to incoming traffic, ensuring the saftey of your system.
 
-![Available Software Updates](/smcbrien/scenarios/webconsole-firewall/assets/Firewall-Services.png)
+![Available Software Updates](./assets/Firewall-Services.png)
