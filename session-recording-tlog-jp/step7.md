@@ -8,7 +8,7 @@
 
 以下は該当するメッセージの例です。通常は1つではなく複数のメッセージがそれぞれのセッションに存在します。
 
-![Journal Log Message](/smcbrien/scenarios/session-recording-tlog/assets/log-message.png)
+![Journal Log Message](./assets/log-message.png)
 
 セッションをリプレイするには `tlog-play` にセッションのIDをつけて実行します。上で表示されたメッセージから、コマンドは以下のようになります。
 

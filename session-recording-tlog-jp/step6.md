@@ -6,11 +6,11 @@
 
 記録されたセッションが1つ利用可能になっているはずです。
 
-![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session.png)
+![Session Recording Homepage](./assets/recorded-session.png)
 
 セッションを選択すると、セッションを再生できるプレイヤーを統合したページに繊維します。*Play* ボタンを押してセッションをレビューします。
 
-![Session Recording Playback](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session-playback.png)
+![Session Recording Playback](./assets/recorded-session-playback.png)
 
 セッションはリアルタイムで記録されています。`ssh`接続を開始したあとすぐにコマンドを打っていない場合には、記録されたセッションでの待機時間をそのまま再生でも待つことになります。
 
