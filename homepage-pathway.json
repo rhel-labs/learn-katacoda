@@ -34,7 +34,7 @@
     },
     {
       "external_link": "https://lab.redhat.com/imagebuilder",
-      "title": "Using Web Console to build virtual machine images",
+      "title": "Using Web Console to build virtual machine images [Image Builder]",
       "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
     },
     {
