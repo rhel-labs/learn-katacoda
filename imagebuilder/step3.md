@@ -3,7 +3,7 @@ After logging into the Web Console, you are probably already looking at the
 Image Builder tab.  If, instead, you are looking at the **Host** tab, navigate 
 to the Image Builder tab, as shown below:
 
-![Navigate to Image Builder](/rhel-labs/scenarios/imagebuilder/assets/Nav-ImageBuilder.png)
+![Navigate to Image Builder](./assets/Nav-ImageBuilder.png)
 
 On the Image Builder tab, you can see that you can:
 * Create Blueprint

@@ -7,19 +7,19 @@ made to to the blueprint, **Discard Changes**.
 
 Select to **Commit** the change.
 
-![Commit Changes](/rhel-labs/scenarios/imagebuilder/assets/Commit-Changes.png)
+![Commit Changes](./assets/Commit-Changes.png)
 
 A dialog window will appear to confirm that you want to commit the change to
 the blueprint.  **Commit** the change.
 
-![Changes Pending Commit](/rhel-labs/scenarios/imagebuilder/assets/Changes-Pending-Commit.png)
+![Changes Pending Commit](./assets/Changes-Pending-Commit.png)
 
 You should see a message displayed in the top, right-hand side of the page that
 confirms the change to the blueprint has been completed.
 
-![Blueprint Update Confirmation](/rhel-labs/scenarios/imagebuilder/assets/Blueprint-change-confirm.png)
+![Blueprint Update Confirmation](./assets/Blueprint-change-confirm.png)
 
 Lastly, to prepare for the next step, navigate to the **example-http-server**
 blueprint page.
 
-![Navigate to Blueprint Page](/rhel-labs/scenarios/imagebuilder/assets/Nav-to-Blueprint.png)
+![Navigate to Blueprint Page](./assets/Nav-to-Blueprint.png)
