@@ -10,19 +10,19 @@ Console for the system.  You should use the following credentials:
 Username: __rhel__  
 Password: __redhat__  
 
-![Web Console Login](/smcbrien/scenarios/session-recording-tlog/assets/Web-console-login.png)
+![Web Console Login](./assets/Web-console-login.png)
 
 >**NOTE:** Problems accessing the Web Console or logging in?  Try popping
 the Web Console page into a stand alone window by clicking this icon on the
 Web Console tab in the lab interface:
 
-![Web Console Login](/rhel-labs/scenarios/session-recording-tlog/assets/pop-out.png)
+![Web Console Login](./assets/pop-out.png)
 
 
 Now that you are logged into the Web console, and because you have installed
 the __cockpit-session-recording__ rpm package, you can now select the
 *Session Recording* option in the left-side navigation menu.
 
-![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-option.png)
+![Web Console Navigation](./assets/session-recording-option.png)
 
 

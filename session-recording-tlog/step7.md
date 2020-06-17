@@ -15,7 +15,7 @@ string, plus the identifier included in that message.
 Below, is an example of one of those messages, but there will likely be more 
 than one message associated with each session.
 
-![Journal Log Message](/smcbrien/scenarios/session-recording-tlog/assets/log-message.png)
+![Journal Log Message](./assets/log-message.png)
 
 To replay the session, you run `tlog-play` with the session identifier, using
 the log message displayed above, the command would look like:   

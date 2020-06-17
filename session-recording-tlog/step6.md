@@ -7,13 +7,13 @@ there.
 
 You should now see a recorded session available.
 
-![Session Recording Homepage](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session.png)
+![Session Recording Homepage](./assets/recorded-session.png)
 
 After selecting the session, you will be taken to a page with an integrated
 player through which you can watch the session.  Press the *Play* button to
 review the session.
 
-![Session Recording Playback](/smcbrien/scenarios/session-recording-tlog/assets/recorded-session-playback.png)
+![Session Recording Playback](./assets/recorded-session-playback.png)
 
 The session was recorded in real-time, so if you started the `ssh` connection,
 but did not start running commands immediately, you will see that wait time
