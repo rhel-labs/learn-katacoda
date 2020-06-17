@@ -5,7 +5,7 @@ kernel are re-routed from their initial instructions to instead use the
 functions provided by the kpatch.  The following diagram provides a bit
 more detail on how this process operates.
 
-![Web Console Login](/rhel-labs/scenarios/kpatch-apply/assets/rhel_kpatch_overview.png)
+![Web Console Login](./assets/rhel_kpatch_overview.png)
 Image from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_administration_guide/applying_patches_with_kernel_live_patching)
 
 This means that a kpatch is produced and tied to a specific version of the 
