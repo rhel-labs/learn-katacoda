@@ -19,7 +19,7 @@ than one message associated with each session.
 
 To replay the session, you run `tlog-play` with the session identifier, using
 the log message displayed above, the command would look like:   
-`tlog-play -r journal -M TLOG_REC=de1645090e34a4220b8f2d237614c9731-518b-70b124`
+`tlog-play -r journal -M TLOG_REC=b9dd6a8391714e42be4f6f885875d48f-22ea-c2f05`
 
 Your session identifier is going to be different, the following command will
 use some shell tools to isolate the first recording from your journal.  As you
