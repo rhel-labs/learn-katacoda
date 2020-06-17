@@ -2,7 +2,7 @@
 
 After selecting your system from the Inventory page and reviewing some overall data about it, click on the _Advisor_ tab to view the recommendations that apply to this host.
 
-![Host Insights](/rhel-labs/scenarios/sql-server-insights/assets/host-homepage-new.png)
+![Host Insights](./assets/host-homepage-new.png)
 
 There are several recommendations offered for this system.  Scroll down through the list until you reach the one entitled _The mssql-server service will fail to start when the ownership or group of Microsoft SQL Server directory /var/opt/mssql is not correct_
 
