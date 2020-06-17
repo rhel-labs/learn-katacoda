@@ -16,6 +16,6 @@ Password: __redhat__
 
 Web Consoleにログインしたら、*Session Recording* オプションが左側のナビゲーションメニューにあるのでこれを選びます。さきほど __cockpit-session-recording__ rpmパッケージをインストールしたのでメニューが追加されています。
 
-![Web Console Navigation](/smcbrien/scenarios/session-recording-tlog/assets/session-recording-option.png)
+![Web Console Navigation](./assets/session-recording-option.png)
 
 
