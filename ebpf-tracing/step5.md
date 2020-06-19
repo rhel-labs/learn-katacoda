@@ -45,5 +45,5 @@ If you look at the *cachestat* terminal, you will see that the number of misses 
 << OUTPUT ABRIDGED >>
 </pre>
 
-If you keep watching the *cachestat* terminal, you will notice that the number of misses goes back down to zero after the `yum update` completes. This is because when the `yum update` is finished, the virtual machine returns to a more idle state and there is very little running that needs access to memory.
+If you keep watching the *cachestat* terminal, you will notice that the number of misses goes back down to zero after the `yum update` completes. This is because when the `yum update` is finished, the virtual machine returns to a more idle state and there is very little running that needs access to storage.
 
