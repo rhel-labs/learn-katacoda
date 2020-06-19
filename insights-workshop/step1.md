@@ -25,7 +25,7 @@ Successfully uploaded report from a06560c57e40 to account 6227255.
 From the above output, you can observe that the system has been successfully
 registered with Red Hat Insights.  As part of the registration,
 the machine also uploads a report to Red Hat Insights so that
-it may be syslyzed for any issues.
+it may be analyzed for any issues.
 
 For future reference, make note of your system hostname.
 
