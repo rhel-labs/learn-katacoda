@@ -1,6 +1,6 @@
 # Remediating the reported Insight
 
-The reported Insight for OpenSSH had a suggested resolution of 
+The reported recommendation for OpenSSH had a suggested resolution of 
 changing the sshd value for __ClientAliveInterval__ from 900 to
 300.
 
@@ -32,7 +32,7 @@ sshd daemon so that it uses the updated value.
 `systemctl restart sshd`{{execute}}
 
 Force a Red Hat Insights checkin so that a new batch of system data
-is uploaded to the Insights service.
+is uploaded to Insights.
 
 `insights-client`{{execute}}  
 
