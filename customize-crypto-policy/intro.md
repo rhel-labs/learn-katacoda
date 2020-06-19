@@ -10,6 +10,4 @@ The scenario uses the Apache web server as the example application.
 * Verify that the application settings to comply with the modified cryptograpic policies
 
 # Example Use case:
-Your security team requires using stronger cryptography algorithms that provide 
-forward secrecy. This means that RSA and PSK cipher keys are not accepted. In this 
-example we will be generating an ECC (Elliptic Curve Cryptography Key) for this purpose. 
+Due to weaknesses in the SHA-1 algorithm and to align to industry standards, your security team requires disallowing SHA1 hashes and signatures to improve security across your platform. 
