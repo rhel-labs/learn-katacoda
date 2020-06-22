@@ -16,7 +16,7 @@ Login using the username provided by your workshop facilitator.
 
 ![Red Hat Login screen](./assets/redhat-login-01.png)
 
-Enter the password Redhat1!
+Enter the password provided by your workshop facilitator (commonly this is __Redhat1!__).
 
 ![Red Hat Password screen](./assets/redhat-login-02.png)
 
