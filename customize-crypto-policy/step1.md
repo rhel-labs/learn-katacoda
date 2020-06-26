@@ -41,7 +41,7 @@ file.
 `openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
 <pre class="file">
-                RSA Public-Key: (2048 bit)
+RSA Public-Key: (2048 bit)
 </pre>
 
 By default, Apache uses a certificate with a 2048 bit public key.   
