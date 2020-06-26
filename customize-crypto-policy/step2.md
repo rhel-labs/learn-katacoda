@@ -4,13 +4,15 @@ The Chief Security Officer sends out the following e-mail:
 <pre class="file">
 Application and Infrastructure Administrators,
 
-I recently returned from an industry security conference, and at that
-conference, I learned of some recommended security industry practices
-that our Applications and services should be using. SHA-1 is a weak 
-hashing function and using it can result in a hash collision.   
+After my last email recommending 3072 bit public keys, I have received few 
+concerns that some applications would need additional time for migration.
 
-To continue supporting the applications running on our platform, we want 
-to incrementally remove support for SHA1 hashes, and signatures.  
+To continue supporting these applications running on our platform, and 
+to provide more time for these applications to upgrade, my recommendation 
+is to disallow TLS (1.0, and 1.1), and not allow SHA-1 hash usage.
+
+**NOTE** We should still allow 2048 bit ciphers usage for a certain period of 
+time until all applications can be upgraded to use 3072 bit keys.
 
 -CSO
 </pre>
@@ -20,14 +22,15 @@ system-wide cryptographic policies that come with Red Hat Enterprise Linux, by
 customizing it.
 
 In order to comply with the requirements set forth by the CSO above, you will 
-update the system to modify the **DEFAULT** policy using a policy modifier file to remove SHA1 hashes and signatures.  
+update the system to modify the **FUTURE** policy using a policy modifier file to allow 
+for shorter RSA keys.  
 
-Let us create a policy modifier module called **NOSHA-1.pmod** that can be used 
+Let us create a policy modifier module called **2048KEYS.pmod** that can be used 
 with our crypto policies : 
 
-`touch /etc/crypto-policies/policies/modules/NOSHA-1.pmod`{{execute T1}}
+`touch /etc/crypto-policies/policies/modules/2048KEYS.pmod`{{execute T1}}
 
-In the created policy modifier file, let us remove SHA1 hashes
+In the created policy modifier file, let us reduce the size of RSA and DH cipher lengths 
 
 `echo "hash = -SHA1" > /etc/crypto-policies/policies/modules/NOSHA-1.pmod`{{execute T1}}
 
