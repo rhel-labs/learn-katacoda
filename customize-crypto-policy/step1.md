@@ -33,14 +33,30 @@ Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 
 Verify that the Active status is __active (running)__.   
 
+By default, Apache stores the automatically created, SSL self-signed
+certificate at /etc/pki/tls/certs/localhost.crt. Verify the length of the 
+RSA public key used by the automatically created, self-signed SSL certificate 
+file.    
+
+`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
+
+<pre class="file">
+                RSA Public-Key: (2048 bit)
+</pre>
+
+By default, Apache uses a certificate with a 2048 bit public key.   
+
 Use `openssl` to connect to Apache on the https port (443).  As part of this 
 connection, openssl will receive a copy of the certificate to encrypt the 
 connection with the service.  You will verify that a client web browser is 
 utilizing the 2048 bit Public-Key certificate viewed above.   
 
-`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
+`openssl s_client -connect localhost:443 </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
 
 <pre class="file">
 Server public key is 2048 bit
 </pre>
+
+Client browsers are provided the 2048 bit key and SSL certificate by the 
+Apache service to encrypt their connection.   
 
