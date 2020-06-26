@@ -38,7 +38,7 @@ connection, openssl will receive a copy of the certificate to encrypt the
 connection with the service.  You will verify that a client web browser is 
 utilizing the 2048 bit Public-Key certificate viewed above.   
 
-`openssl s_client -connect localhost:443 -cipher RC4-SHA </dev/null 2>/dev/null | grep '^Server public key'`{{execute T1}}
+`openssl x509 -in /etc/pki/tls/certs/localhost.crt -text | grep bit`{{execute T1}}
 
 <pre class="file">
 Server public key is 2048 bit
