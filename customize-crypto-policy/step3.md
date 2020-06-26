@@ -31,6 +31,5 @@ the certificate is being offered to client browsers.
 Server public key is 2048 bit
 </pre>
 
-Let's test 128-bit cipher usage -
-
-`openssl s_client -connect localhost:443 -cipher MEDIUM </dev/null 2>/dev/null`{{execute T1}}
+We have now configured RHEL to enforce a modified **FUTURE** crypto policy that can support 2048-bit or higher 
+ciphers. Due to this setup, apache server can continue to run using a 2048-bit server key.
