@@ -48,9 +48,9 @@ See "systemctl status httpd.service" and "journalctl -xe" for details.
 </pre>
 
 The Apache service fails to restart.  You can see a more specific error 
-message in the SSL error log for Apache.  You will further diagnose this
-using the error messages from the command below and reconcile this in 
-additional steps in the exercise.
+message in the SSL error log for Apache. The error message indicates that the
+key length was too small which was expected because the **FUTURE** policy requires 
+a minimum of 3072-bit keys.
 
 `tail -2 /var/log/httpd/ssl_error_log`{{execute T1}}
 
@@ -60,11 +60,11 @@ additional steps in the exercise.
 </pre>
 
 Let us create a policy modifier module called **2048KEYS.pmod** that can be used 
-with our crypto policies : 
+with the FUTURE crypto policy. 
 
 `touch /etc/crypto-policies/policies/modules/2048KEYS.pmod`{{execute T1}}
 
-In the created policy modifier file, let us reduce the size of RSA and DH cipher lengths 
+In the policy modifier file, let us specify the minimum key size of RSA and DH keys - 
 
 `echo "min_dh_size = 2048" > /etc/crypto-policies/policies/modules/2048KEYS.pmod`{{execute T1}}
 
