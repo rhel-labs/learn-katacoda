@@ -9,10 +9,14 @@ will be individually working with the Apache web service.
 
 `systemctl restart httpd.service`{{execute T1}}
 
+Verify that Apache is running on the machine.
+
+`systemctl status httpd.service --no-pager`{{execute T1}}
+
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-Active: active (running) since Wed 2019-07-17 09:54:40 EDT; 2s ago
+Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
 
 << OUTPUT ABRIDGED >>
 </pre>
@@ -26,3 +30,7 @@ the certificate is being offered to client browsers.
 <pre class="file">
 Server public key is 2048 bit
 </pre>
+
+Let's test 128-bit cipher usage -
+
+`openssl s_client -connect localhost:443 -cipher MEDIUM </dev/null 2>/dev/null`{{execute T1}}
