@@ -10,4 +10,4 @@ The scenario uses the Apache web server as the example application.
 * Verify that the application settings to comply with the modified cryptograpic policies
 
 # Example Use case:
-Due to weaknesses in the SHA-1 algorithm and to align to industry standards, your security team requires disallowing SHA1 hashes and signatures to improve security across your platform. 
+Your security team wants to start using FUTURE crypto policy, but the applications still need time to catch up. Your team needs to modify the FUTURE crypto policy to balance the needs of the security and application teams.
