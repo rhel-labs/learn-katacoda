@@ -1,4 +1,4 @@
-# Modify the DEFAULT crypto policy
+# Modify the FUTURE crypto policy
 
 The Chief Security Officer sends out the following e-mail -
 <pre class="file">
@@ -16,10 +16,6 @@ time until all applications can be upgraded to use 3072 bit keys.
 
 -CSO
 </pre>
-
-As it happens, all of these requirements can be configured and enforced using
-system-wide cryptographic policies that come with Red Hat Enterprise Linux, by 
-customizing it.
 
 In order to comply with the requirements set forth by the CSO above, you will 
 update the system to modify the **FUTURE** policy to support shorter keys 

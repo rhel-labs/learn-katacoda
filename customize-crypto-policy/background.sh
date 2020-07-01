@@ -6,3 +6,6 @@ firewall-cmd --reload
 systemctl --now enable httpd
 
 update-crypto-policies --set FUTURE
+
+systemctl restart httpd.service
+
