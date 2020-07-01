@@ -29,7 +29,12 @@ You will now check the status of the apache service -
 
 `systemctl status httpd.service`{{execute T1}}
 
-The Apache service has not started.  You can see a more specific error 
+The Apache service is inactive. 
+
+You can also try restarting the apache service - 
+`systemctl restart httpd.service`{{execute T1}}
+
+The apache service fails to restart. You can see a more specific error 
 message in the SSL error log for Apache. The error message indicates that the
 key length was too small which was expected because the **FUTURE** policy requires 
 a minimum of 3072-bit keys.
