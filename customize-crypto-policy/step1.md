@@ -34,9 +34,7 @@ The Apache service has failed to start. You can also try restarting the Apache s
 `systemctl restart httpd.service`{{execute T1}}
 
 The Apache service fails to restart. You can see a more specific error 
-message in the SSL error log for Apache. The error message indicates that the
-key length was too small which was expected because the **FUTURE** policy requires 
-a minimum of 3072-bit keys.
+message in the SSL error log for Apache. 
 
 `tail -2 /var/log/httpd/ssl_error_log`{{execute T1}}
 
@@ -45,11 +43,14 @@ a minimum of 3072-bit keys.
 [Tue Jul 16 15:13:25.580860 2019 ] [ssl:emerg] [pid 8869:tid 140233336588544] SSL Library Error: error: 140AB18F: SSL routines: SSL_CTX_use_certificate:ee key too small
 </pre>
 
+The error message indicates that the key length was too small which was expected because 
+the **FUTURE** policy requires a minimum of 3072-bit keys.
+
 Now, you will create a policy modifier module called **2048KEYS.pmod** that can be used 
 with the FUTURE crypto policy. Policy modifiers are text files that include policy instructions 
 to the update-crypto-policies tool.  
 
-The naming of these files must follow the following convention : **<MODULE>.pmod**, where **<MODULE>** 
+The naming of these files must follow the following convention : **_MODULE_.pmod**, where **_MODULE_** 
 is the name of the modifier in uppercase without spaces, and .pmod is the file extension in lowercase. 
 
 Next, you will create a policy modifier called **2048KEYS.pmod** that will set the minimum key size to 2048 bits. 
