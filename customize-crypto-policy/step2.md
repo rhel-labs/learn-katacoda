@@ -31,5 +31,5 @@ the certificate is being offered to client browsers.
 Server public key is 2048 bit
 </pre>
 
-We have now configured RHEL to enforce a modified **FUTURE** crypto policy that can support 2048-bit or higher 
-ciphers. Due to this setup, apache server can continue to run using a 2048-bit server key.
+You have now configured RHEL to enforce a modified **FUTURE** crypto policy that can support 2048-bit or higher 
+ciphers. Due to this setup, Apache server can continue to run using a 2048-bit server key.
