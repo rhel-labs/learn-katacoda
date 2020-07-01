@@ -7,7 +7,7 @@ policy.  The scenario uses the Apache web server as the example application.
 * Verify the current system-wide cryptographic policy setting
 * Change the current cryptographic policy setting
 * Troubleshoot applications after a cryptographic policy update
-* Modify application settings to comply with stronger cryptograpic policies
+* Modify application settings to comply with stronger cryptographic policies
 
 # Example Use case:
 Your security team requires using stronger cryptography algorithms with

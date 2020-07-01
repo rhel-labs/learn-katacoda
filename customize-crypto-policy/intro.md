@@ -5,9 +5,9 @@ The scenario uses the Apache web server as the example application.
 
 # Concepts included in this scenario:
 * Verify the current system-wide cryptographic policy setting
-* Customize the current cryptographic policy setting
-* Restart applications after a cryptographic policy update
-* Verify that the application settings to comply with the modified cryptograpic policies
+* Make customizations to cryptography methods included in a policy
+* Restart applications after applying a policy modifier to named policy
+* Verify that the application settings comply with the modified cryptographic policies
 
 # Example Use case:
 Your security team wants to start using FUTURE crypto policy, but the applications still need time to catch up. Your team needs to modify the FUTURE crypto policy to balance the needs of the security and application teams.
