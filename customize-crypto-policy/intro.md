@@ -1,7 +1,7 @@
 # Goal:
-After completing this scenario, users will be able to use, and 
-customize Red Hat Enterprise Linux's system-wide cryptographic policy.  
-The scenario uses the Apache web server as the example application.
+After completing this scenario, you will be able to customize Red Hat Enterprise 
+Linux's system-wide cryptographic policies.  The scenario uses the Apache web server 
+as the example application.
 
 # Concepts included in this scenario:
 * Verify the current system-wide cryptographic policy setting
