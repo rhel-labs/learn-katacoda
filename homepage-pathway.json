@@ -53,6 +53,11 @@
       "description": "Enforce more complex ciphers, protocol versions, and usable ciphers across all services running on your machines."
     },
     {
+      "external_link": "https://lab.redhat.com/customize-crypto-policy",
+      "title": "Customize the system-wide cryptographic policy",
+      "description": "Create your own customized system-wide cryptographic policy.  Adjust the cyphers or requirements to suit your environment while still applying the policy to all applications that utilize the cryptographic libraries with Red Hat Enterprise Linux."
+    },
+    {
       "external_link": "https://lab.redhat.com/vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
