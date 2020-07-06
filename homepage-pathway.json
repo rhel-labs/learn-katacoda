@@ -55,7 +55,7 @@
     {
       "external_link": "https://lab.redhat.com/customize-crypto-policy",
       "title": "Customize the system-wide cryptographic policy",
-      "description": "Create your own customized system-wide cryptographic policy.  Adjust the cyphers or requirements to suit your environment while still applying the policy to all applications that utilize the cryptographic libraries with Red Hat Enterprise Linux."
+      "description": "Create your own customized system-wide cryptographic policy to suit your environment while still applying the policy to all applications that utilize the cryptographic libraries with Red Hat Enterprise Linux."
     },
     {
       "external_link": "https://lab.redhat.com/vdo-configure",
