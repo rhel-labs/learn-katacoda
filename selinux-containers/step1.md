@@ -1,4 +1,31 @@
-# Creating an application image from an existing base
+# Software installation and configuration
+Prior to getting started, we need certain packages such as Udica (which is a tool for generating 
+SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
+SELinux policy analysis). In this demo, the container runtime related packages are already installed.
+
+>_NOTE:_ We assume that you have a sound understanding of SELinux basics and container fundamentals. 
+
+First, install the udica and setools-console packages -
+
+`yum install -y udica setools-console`{{execute}}
+
+Use podman to list the available container images -
+`podman images`{{execute}}
+
+You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
+This image contains Apache server application. 
+
+
+`systemctl restart cockpit; systemctl enable --now lorax-composer.service`{{execute}}
+
+Lastly, in the next steps, you will use a non-administrative user, __rhel__, to
+manage the image blueprints and build machine images.  This user must belong to
+the __weldr__ group.
+
+`usermod -a -G weldr rhel`{{execute}}
+
+
+
 
 **Buildah** has two main ways to create images:
 * Using subcommands to modify contents
