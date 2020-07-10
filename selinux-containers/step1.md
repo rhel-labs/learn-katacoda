@@ -15,34 +15,19 @@ Use podman to list the available container images -
 You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
 This image contains Apache server application. 
 
-
-`systemctl restart cockpit; systemctl enable --now lorax-composer.service`{{execute}}
-
-Lastly, in the next steps, you will use a non-administrative user, __rhel__, to
-manage the image blueprints and build machine images.  This user must belong to
-the __weldr__ group.
-
-`usermod -a -G weldr rhel`{{execute}}
-
-
-
-
-**Buildah** has two main ways to create images:
-* Using subcommands to modify contents
-* Using host tools to modify a container filesystem
-
-First, we'll look at using subcommands to modify the container contents before saving an image.  Many **buildah** subcommands act like directives from an OCIfile.  This allows for a familiar experience while automating builds.
-
-The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
-
-To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
-
-`buildah from registry.access.redhat.com/ubi8/ubi-init`{{execute T1}}
+Now, run the container using podman 
+`podman run -d -p 80:80 localhost/rhel8-httpd`{{execute T1}}
 
 <pre class="file">
-ubi-init-working-container
+f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
 </pre>
 
-This subcommand acts like the FROM directive in an OCIFile and makes the source image available on the host.
+Check the status of the application container using `podman`.  
 
-Buildah will append `-working-container` to the image name used.  If that name already exists, a number will also be appended.
+`podman ps`{{execute T1}}
+
+<pre class="file">
+CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS             PORTS               NAMES
+f4d9db69e9b5  localhost/rhel8-httpd  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
+</pre>
+
