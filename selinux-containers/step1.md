@@ -9,7 +9,7 @@ First, install the udica and setools-console packages -
 
 `yum install -y udica setools-console`{{execute}}
 
-Use podman to list the available container images -
+Use `podman` to list the available container images -
 `podman images`{{execute}}
 
 You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
@@ -22,7 +22,7 @@ Now, run the container using podman
 f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
 </pre>
 
-Check the status of the application container using `podman`.  
+Check the status of the application container using podman.  
 
 `podman ps`{{execute T1}}
 
