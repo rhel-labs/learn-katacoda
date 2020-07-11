@@ -1,9 +1,12 @@
 # Software installation and configuration
+SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take 
+advantage of privilege escalation. 
+
+>_NOTE:_ This demo assume that you have a sound understanding of SELinux basics and container fundamentals. 
+
 Prior to getting started, we need certain packages such as Udica (which is a tool for generating 
 SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
-
->_NOTE:_ We assume that you have a sound understanding of SELinux basics and container fundamentals. 
 
 First, install the udica and setools-console packages -
 
@@ -27,7 +30,18 @@ Check the status of the application container using podman.
 `podman ps`{{execute T1}}
 
 <pre class="file">
-CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS             PORTS               NAMES
-f4d9db69e9b5  localhost/rhel8-httpd  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
+CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
+6fdbc37a72ef  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  2 seconds ago  Up 1 second ago  0.0.0.0:80->80/tcp  trusting_mclean
 </pre>
 
+By default, SELinux is enabled on RHEL, and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
+is set to enforcing.
+
+`sestatus`{{execute T1}}
+
+<pre class="file">
+SELinux status:                 **enabled**
+...
+Current mode:                   **enforcing**
+...
+</pre>
