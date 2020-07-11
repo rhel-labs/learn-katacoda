@@ -19,11 +19,9 @@ You should notice that there is already a container image available called **loc
 This image contains Apache server application. 
 
 Now, in terminal window 2, run the container using podman and open a shell inside the container
-`podman run -d -p 80:80 -it localhost/rhel8-httpd bash`{{execute T2}}
+`CONTAINERID=$(podman run -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
-<pre class="file">
-f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
-</pre>
+Now, in terminal window 2, attach to this containerid
 
 In terminal window 1, Check the status of the application container using podman.  
 
