@@ -43,9 +43,10 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
+    "terminals": [{"name":"Terminal 2", "target": "host01"}},
     "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
     "showdashboard":true,
-    "dashboard": "Container httpd"
+    "dashboard": [{"name":"Container httpd", "port":"80", "host":"localhost"}]
   },
   "backend": {
     "imageid": "rhel8-2",
