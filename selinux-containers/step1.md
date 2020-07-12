@@ -23,7 +23,7 @@ In terminal window 2, run the container using podman and open a shell inside the
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
-In terminal window 1, check the status of the application container using podman.  
+In terminal window 1, check the status of the application container using podman and get the running container id 
 
 `podman ps; CONTAINERID=$(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
 
