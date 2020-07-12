@@ -4,16 +4,14 @@ In terminal 2, attach to the running container
 `podman attach $CONTAINERID`{{execute T2}}
 
 Check whether container has access to the home directory
-`cd /home/`{{execute T2}}
-`ls`{{execute T2}}
+`cd /home/; ls`{{execute T2}}
 
 <pre class="file">
 ls: cannot open directory '.': Permission denied
 </pre>
 
 Check whether container has read access to the /var/spool/ directory
-`cd /var/spool/`{{execute T2}}
-`ls`{{execute T2}}
+`cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
 ls: cannot open directory '.': Permission denied
