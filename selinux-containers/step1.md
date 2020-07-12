@@ -18,8 +18,10 @@ Use `podman` to list the available container images -
 You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
 This image contains Apache server application. 
 
-In terminal window 2, run the container using podman and open a shell inside the container
+In terminal window 2, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
 `CONTAINERID=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
+
+>_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
 In terminal window 1, Check the status of the application container using podman.  
 
@@ -36,8 +38,10 @@ is set to enforcing.
 `sestatus`{{execute T1}}
 
 <pre class="file">
-SELinux status:                 **enabled**
-...
-Current mode:                   **enforcing**
-...
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+<< OUTPUT ABRIDGED >>
 </pre>
