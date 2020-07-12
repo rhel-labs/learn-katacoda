@@ -14,7 +14,7 @@ Udica has generated the policies, so install the policies
 So that the polcies take affect, stop the container and re-launch it
 `podman stop $CONTAINERID`{{execute T1}}
 
-`CONTAINERID=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T1}}
+`CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 Check the status of the application container using `podman`.  
 
@@ -38,5 +38,3 @@ Query the SELinux policy for network access
 `sesearch -A -s my_container.process -t port_type -c tcp_socket`
 
 There is an allow rule in place to only access port 80.
-
-
