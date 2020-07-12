@@ -1,8 +1,14 @@
-# Creating an application image from an existing base
+# Inspecting the running container
 
-The `ubi-init` image is very complete, including tools like `yum` and `systemd`.  You can install `httpd` via `yum` in the container using the `buildah run` subcommand.  
+In terminal 2, attach to the running container 
+`podman attach $CONTAINERID`{{execute T2}}
 
-`buildah run ubi-init-working-container -- yum -y install httpd`{{execute T1}}
+Check whether container has access to the home directory
+`cd /home/`{{execute T2}}
+`ls`{{execute T2}}
+
+
+
 
 <pre class="file">
 Updating Subscription Management repositories.
