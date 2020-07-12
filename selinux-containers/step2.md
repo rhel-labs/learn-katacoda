@@ -7,29 +7,26 @@ Check whether container has access to the home directory
 `cd /home/`{{execute T2}}
 `ls`{{execute T2}}
 
+<pre class="file">
+ls: cannot open directory '.': Permission denied
+</pre>
 
-
+Check whether container has read access to the /var/spool/ directory
+`cd /var/spool/`{{execute T2}}
+`ls`{{execute T2}}
 
 <pre class="file">
-Updating Subscription Management repositories.
-Unable to read consumer identity
-This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)               2.4 MB/s | 7.0 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                  1.3 MB/s | 3.7 MB     00:02
-Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs)            23 kB/s |  78 kB     00:03
-Last metadata expiration check: 0:00:01 ago on Fri 17 May 2019 03:41:34 PM EDT.
-Dependencies resolved.
-=======================================================================================================
- Package                 Arch   Version                         Repository                        Size
-=======================================================================================================
-Installing:
- httpd                   x86_64 2.4.37-11.module+el8.0.0+2969+90015743
-                                                                rhel-8-for-x86_64-appstream-rpms 1.4 M
-
-<< OUTPUT ABRIDGED >>
-
-Complete!
+ls: cannot open directory '.': Permission denied
 </pre>
+
+Check whether container has write access to the /var/spool/ directory
+`touch test`{{execute T2}}
+<pre class="file">
+touch: cannot touch 'test': Permission denied
+</pre>
+
+In terminal 1, query the SELinux policy to search for allow enforcement roles that are applied
+`sesearch -A -s container_t 
 
 This subcommand acts like the RUN directive in an OCIFile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
 
