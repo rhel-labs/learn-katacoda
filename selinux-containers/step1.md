@@ -25,7 +25,7 @@ In terminal window 2, run the container using podman and open a shell inside the
 
 In terminal window 1, check the status of the application container using podman.  
 
-`podman ps`{{execute T1}}
+`CONTAINERID = $(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
