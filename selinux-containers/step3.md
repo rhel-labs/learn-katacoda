@@ -19,7 +19,12 @@ For the policies to take effect, stop and re-launch the container
 In terminal 2, launch the container
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
->_NOTE:_ The the security label type that is assigned to the container. 
+Verify the SELinux type assigned to the running container is my_container.process.
+`ps -eZ | grep container_t`{{execute T1}}
+
+<pre class="file">
+system_u:system_r:container_t:s0:c356,c911 36471 pts/0 00:00:00 bash
+</pre>
 
 In terminal window 1, check the status of the application container using 'podman' and get the running container id 
 
