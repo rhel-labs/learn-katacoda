@@ -19,13 +19,13 @@ You should notice that there is already a container image available called **loc
 This image contains Apache server application. 
 
 In terminal window 2, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
-`CONTAINERID=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
+`CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
 In terminal window 1, check the status of the application container using podman.  
 
-`CONTAINERID = $(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
+`CONTAINERID=$(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
