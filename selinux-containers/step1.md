@@ -18,10 +18,8 @@ Use `podman` to list the available container images -
 You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
 This image contains Apache server application. 
 
-Now, in terminal window 2, run the container using podman and open a shell inside the container
+In terminal window 2, run the container using podman and open a shell inside the container
 `CONTAINERID=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
-
-Now, in terminal window 2, attach to this containerid
 
 In terminal window 1, Check the status of the application container using podman.  
 
@@ -32,7 +30,7 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
 6fdbc37a72ef  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  2 seconds ago  Up 1 second ago  0.0.0.0:80->80/tcp  trusting_mclean
 </pre>
 
-By default, SELinux is enabled on RHEL, and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
+By default, on the host RHEL system, SELinux is enabled and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
 is set to enforcing.
 
 `sestatus`{{execute T1}}
