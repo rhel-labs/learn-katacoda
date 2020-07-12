@@ -1,6 +1,7 @@
 # Software installation and configuration
 SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take 
-advantage of privilege escalation. 
+advantage of privilege escalation. Udica is a new tool which complements the containers tools (Podman, Skopeo, Buildah, etc.) 
+family supported by Red Hat to help improve the security of customers container environments.
 
 >_NOTE:_ This demo assume that you have a sound understanding of SELinux basics and container fundamentals. 
 
