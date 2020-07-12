@@ -16,27 +16,39 @@ Udica has generated the policies, so install the polices that are generated
 For the policies to take effect, stop and re-launch the container
 `podman stop $CONTAINERID`{{execute T1}}
 
+In terminal 2, launch the container
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
-Check the status of the application container using `podman`.  
+>_NOTE:_ The the security label type that is assigned to the container. 
 
-`podman ps`{{execute T1}}
+In terminal window 1, check the status of the application container using 'podman' and get the running container id 
+
+`podman ps; CONTAINERID=$(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS             PORTS               NAMES
 f4d9db69e9b5  localhost/el-httpd1:latest  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
 </pre>
 
-Query the SELinux policy to search for allow enforcement rules applied to access /home and /var/spool directories 
+Query the SELinux policy on the host to search for allow enforcement rules applied to access /home and /var/spool directories 
 `sesearch -A -s my_container.process -t home_root_t -c dir -p read`{{execute T1}}
 
+<pre class="file">
+TBD1
+</pre>
 There is an allow rule in place that allows read access to the root home folder.
 
 `sesearch -A -s my_container.process -t var_spool_t -c dir -p read`{{execute T1}}
 
+<pre class="file">
+TBD1
+</pre>
 There is an allow rule in place that allows read access to the var spool folder.
 
 Query the SELinux policy for network access 
 `sesearch -A -s my_container.process -t port_type -c tcp_socket`
 
+<pre class="file">
+TBD1
+</pre>
 There is an allow rule in place to only access port 80.
