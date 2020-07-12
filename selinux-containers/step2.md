@@ -1,4 +1,4 @@
-# Inspecting the running container
+# Inspecting container access and SELinux policies
 
 In terminal 2, attach to the running container 
 `podman attach $CONTAINER`{{execute T2}}
