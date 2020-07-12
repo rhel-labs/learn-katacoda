@@ -1,26 +1,13 @@
-# Launching and inspecting the application container
+# Crafting SELinux container policies with Udica
 
-More information on managing containers with `podman` can be found in the ["Deploying containers with container tools"](https://lab.redhat.com/podman-deploy) scenario.
+In terminal 1, inspect the running container using Udica
+`podman inspect $CONTAINERID | udica my_container`{{execute T1}}
 
-Inspect the images available on the host using `podman images`
-
-`podman images`{{execute T1}}
-
+Udica will inspect the running container, and will create an SELinux policy for that container. In this case the name of the SELinux security policy is 'my_container'
 <pre class="file">
-REPOSITORY                                 TAG      IMAGE ID       CREATED          SIZE
-localhost/el-httpd1                        latest   b04fe2c73b03   24 seconds ago   279 MB
-registry.access.redhat.com/ubi8/ubi-init   latest   8c376a94293d   2 weeks ago      231 MB
+Policy my_container with container id 37a3635afb8f created!
 </pre>
 
-Note the name matches what was set using `buildah commit`.
-
-`Podman` and `buildah` use the same storage locations on the host, which lets us immediately run the image we just built via `podman`.  
-
-`podman run -d -p 80:80 el-httpd1`{{execute T1}}
-
-<pre class="file">
-f4d9db69e9b512517f9490d3bcc5096e69cca5e9b3a50b3890430da39ae46573
-</pre>
 
 Check the status of the application container using `podman`.  
 
