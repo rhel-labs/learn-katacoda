@@ -3,35 +3,38 @@
 In terminal 2, attach to the running container 
 `podman attach $CONTAINER`{{execute T2}}
 
-Check whether container has access to the home directory
-`cd /home/; ls`{{execute T2}}
+Check the container's access to the '/home' directory
+`cd /home; ls`{{execute T2}}
 
 <pre class="file">
 ls: cannot open directory '.': Permission denied
 </pre>
 
-Check whether container has read access to the /var/spool/ directory
+Query the SELinux policy to search for allow enforcement rules applied to access /home directory
+`sesearch -A -s container_t -t home_root_t -c dir -p read`{{execute T1}}
+
+The search returns NO results. Since, there is no allow rule for container_t type to get read access to the /home directory, access 
+is blocked by SELinux.
+
+Check the container's access to the '/var/spool/' directory
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
 ls: cannot open directory '.': Permission denied
 </pre>
 
-Check whether container has write access to the /var/spool/ directory
+Check the container's write access to the '/var/spool/' directory
 `touch test`{{execute T2}}
+
 <pre class="file">
 touch: cannot touch 'test': Permission denied
 </pre>
 
-Query the SELinux policy to search for allow enforcement rules applied to access /home and /var/spool directories
-`sesearch -A -s container_t -t home_root_t -c dir -p read`{{execute T1}}
-
-The search returns no results because there is no allow rule for container_t type to get read access to the /home directory.
-
-Similarly, query the SELinux policy to search for allow rule for container_t type to get read access to the /var/spool directory
+Query the SELinux policy to search for allow enforcement rules applied to access /var/spool directory
 `sesearch -A -s container_t -t var_spool_t -c dir -p read`{{execute T1}}
 
-Again, the search returns no results because there is no allow rule configured. 
+The search returns NO results. Since, there is no allow rule for container_t type to get read access to the /var/spool/ directory, access 
+is blocked by SELinux.
 
 Query the SELinux policy for network access for container_t types
 `sesearch -A -s container_t -t port_type -c tcp_socket`{{execute T1}}
@@ -42,4 +45,4 @@ allow corenet_unconfined_type port_type:tcp_socket { name_bind name_connect recv
 allow sandbox_net_domain port_type:tcp_socket { name_bind name_connect recv_msg send_msg };
 </pre>
 
-This means that network access is completely allowed for all ports, and it would be great to restrict binding just on TCP port 80.
+This means that network access is completely allowed for all ports. However, it would be great to restrict binding just on TCP port 80.
