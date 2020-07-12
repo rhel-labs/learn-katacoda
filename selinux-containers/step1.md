@@ -19,7 +19,7 @@ You should notice that there is already a container image available called **loc
 This image contains Apache server application. 
 
 Now, in terminal window 2, run the container using podman and open a shell inside the container
-`CONTAINERID=$(podman run -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
+`CONTAINERID=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 Now, in terminal window 2, attach to this containerid
 
