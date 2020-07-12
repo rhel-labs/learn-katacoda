@@ -3,6 +3,10 @@
 In terminal 1, inspect the running container using Udica
 `podman inspect $CONTAINERID | udica my_container`{{execute T1}}
 
+Udica detects which Linux capabilities are required by the container and creates a SELinux rule. The network ports are a 
+similar situation, Udica uses SELinux userspace libraries to get the correct SELinux label of a port that is used by the 
+inspected container. 
+
 Udica will inspect the running container, and will create an SELinux policy for that container. In this case the name 
 of the SELinux security policy is 'my_container'
 
@@ -10,7 +14,7 @@ of the SELinux security policy is 'my_container'
 Policy my_container with container id 37a3635afb8f created!
 </pre>
 
-Udica has generated the policies, so install the polices that are generated 
+Install the policy files created by Udica 
 `semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}`{{execute T1}}
 
 For the policies to take effect, stop and re-launch the container
@@ -20,7 +24,7 @@ In terminal 2, launch the container
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 Verify the SELinux type assigned to the running container is my_container.process.
-`ps -eZ | grep container_t`{{execute T1}}
+`ps -eZ | grep my_container.process`{{execute T1}}
 
 <pre class="file">
 system_u:system_r:container_t:s0:c356,c911 36471 pts/0 00:00:00 bash
