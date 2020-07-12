@@ -1,17 +1,19 @@
-# Crafting SELinux container policies with Udica
+# Generating SELinux container policies with Udica
 
 In terminal 1, inspect the running container using Udica
 `podman inspect $CONTAINERID | udica my_container`{{execute T1}}
 
-Udica will inspect the running container, and will create an SELinux policy for that container. In this case the name of the SELinux security policy is 'my_container'
+Udica will inspect the running container, and will create an SELinux policy for that container. In this case the name 
+of the SELinux security policy is 'my_container'
+
 <pre class="file">
 Policy my_container with container id 37a3635afb8f created!
 </pre>
 
-Udica has generated the policies, so install the policies 
+Udica has generated the policies, so install the polices that are generated 
 `semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}`{{execute T1}}
 
-So that the polcies take affect, stop the container and re-launch it
+For the policies to take effect, stop and re-launch the container
 `podman stop $CONTAINERID`{{execute T1}}
 
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
