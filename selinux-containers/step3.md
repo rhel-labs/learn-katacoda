@@ -8,6 +8,13 @@ Udica will inspect the running container, and will create an SELinux policy for 
 Policy my_container with container id 37a3635afb8f created!
 </pre>
 
+Udica has generated the policies, so install the policies 
+`semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}`{{execute T1}}
+
+So that the polcies take affect, stop the container and re-launch it
+`podman stop $CONTAINERID`{{execute T1}}
+
+`CONTAINERID=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T1}}
 
 Check the status of the application container using `podman`.  
 
@@ -18,28 +25,18 @@ CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS    
 f4d9db69e9b5  localhost/el-httpd1:latest  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
 </pre>
 
-Note the ports and command match the metadata set using `buildah config`.  
+Query the SELinux policy to search for allow enforcement rules applied to access /home and /var/spool directories 
+`sesearch -A -s my_container.process -t home_root_t -c dir -p read`{{execute T1}}
 
-Inspect the image metadata for the application container using `buildah inspect`.
+There is an allow rule in place that allows read access to the root home folder.
 
-`buildah inspect localhost/el-httpd1`{{execute T1}}
+`sesearch -A -s my_container.process -t var_spool_t -c dir -p read`{{execute T1}}
 
-<pre class="file">
-"rootfs": {
-    "type": "layers",
-    "diff_ids": [
-        "sha256:24d85c895b6b870f6b84327a5e31aa567a5d30588de0a0bdd9a669ec5012339c",
-        "sha256:c613b100be1645941fded703dd6037e5aba7c9388fd1fcb37c2f9f73bc438126",
-        "sha256:188ab351dfda8afc656a38073df0004cdc5196fd5572960ff5499c17e6442223",
-        "sha256:2aa09f066ed0ce8aad332cbefe237cbe05777f5790bccfdcda439aff5f5f7509"
-    ]
-},
-</pre>
+There is an allow rule in place that allows read access to the var spool folder.
 
-Look for the `rootfs` section in the JSON output. You will see layers for each of the `buildah` subcommands run.  
+Query the SELinux policy for network access 
+`sesearch -A -s my_container.process -t port_type -c tcp_socket`
 
-Click on the ***Container httpd*** tab to see the index.html deployed into the application container.
+There is an allow rule in place to only access port 80.
 
-Stop all running containers before moving to the next step:
 
-`podman stop -a`{{execute T1}}
