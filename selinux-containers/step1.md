@@ -23,13 +23,20 @@ In terminal window 2, run the container using podman and open a shell inside the
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
-In terminal window 1, Check the status of the application container using podman.  
+In terminal window 1, check the status of the application container using podman.  
 
 `podman ps`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
 6fdbc37a72ef  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  2 seconds ago  Up 1 second ago  0.0.0.0:80->80/tcp  trusting_mclean
+</pre>
+
+When using SELinux, container processes get assigned a container type called 'container_t'. Verify the SELinux type assigned to the running container
+`ps -eZ | grep container_t`{{execute T1}}
+
+<pre class="file">
+system_u:system_r:container_t:s0:c356,c911 36471 pts/0 00:00:00 bash
 </pre>
 
 By default, on the host RHEL system, SELinux is enabled and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
