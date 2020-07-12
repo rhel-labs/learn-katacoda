@@ -10,27 +10,27 @@ Check the container's access to the '/home' directory
 ls: cannot open directory '.': Permission denied
 </pre>
 
-Query the SELinux policy to search for allow enforcement rules applied to access /home directory
+In terminal 1, query the SELinux policy to search for allow enforcement rules applied to access /home directory
 `sesearch -A -s container_t -t home_root_t -c dir -p read`{{execute T1}}
 
 The search returns NO results. Since, there is no allow rule for container_t type to get read access to the /home directory, access 
 is blocked by SELinux.
 
-Check the container's access to the '/var/spool/' directory
+In terminal 2, check the container's access to the '/var/spool/' directory
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
 ls: cannot open directory '.': Permission denied
 </pre>
 
-Check the container's write access to the '/var/spool/' directory
+In terminal 2, check the container's write access to the '/var/spool/' directory
 `touch test`{{execute T2}}
 
 <pre class="file">
 touch: cannot touch 'test': Permission denied
 </pre>
 
-Query the SELinux policy to search for allow enforcement rules applied to access /var/spool directory
+In terminal 1, query the SELinux policy to search for allow enforcement rules applied to access /var/spool directory
 `sesearch -A -s container_t -t var_spool_t -c dir -p read`{{execute T1}}
 
 The search returns NO results. Since, there is no allow rule for container_t type to get read access to the /var/spool/ directory, access 
