@@ -1,6 +1,6 @@
 {
-  "title": "Generating SELinux profiles for containers with Udica",
-  "description": "Goal: After completing this scenario, users will be able to run generate SELinux profiles customized for their containers using Udica", 
+  "title": "Generating SELinux policies for containers with Udica",
+  "description": "Goal: After completing this scenario, users will be able to run generate customized SELinux profiles for their containers using Udica", 
   "difficulty": "Intermediate",
   "time": "5-10 minutes",
   "details": {
