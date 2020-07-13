@@ -12,7 +12,7 @@ custom SELinux security policy is called 'my_container'
 `udica -j container.json my_container`{{execute T1}}
 
 <pre class="file">
-Policy my_container with container id 37a3635afb8f created!
+Policy my_container created!
 </pre>
 
 You just created a custom SELinux security policy for the container. Now you can load this policy into the kernel and make it active.
