@@ -21,7 +21,7 @@ You just created a custom SELinux security policy for the container. Now you can
 For the policies to take effect, stop and re-launch the container
 `podman stop $CONTAINERID`{{execute T1}}
 
-When re-launching the container pass into podman the security-opt label of type my_container
+Restart the container to allow the container engine to use the new custom policy:
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 Verify the SELinux type assigned to the running container is my_container.process.
