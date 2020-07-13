@@ -7,18 +7,18 @@ Check whether container has access to the home directory
 `cd /home/; ls`{{execute T2}}
 
 <pre class="file">
-TBD 1
+packer  rhel
 </pre>
 
 Check whether container has read access to the /var/spool/ directory
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
-TBD2
+anacron  cron  lpd  mail  plymouth  rhsm  up2date
 </pre>
 
 Check whether container has write access to the /var/spool/ directory
-`touch test`{{execute T2}}
+`touch test; ls`{{execute T2}}
 <pre class="file">
-TBD 3
+anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
 </pre>
