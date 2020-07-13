@@ -29,7 +29,7 @@ In terminal window 1, check the status of the application container using podman
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
-6fdbc37a72ef  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  2 seconds ago  Up 1 second ago  0.0.0.0:80->80/tcp  trusting_mclean
+e47a11d3e2c5  registry.access.redhat.com/ubi8/ubi:latest  /bin/bash  3 seconds ago  Up 2 seconds ago0.0.0.0:80->80/tcp  naughty_golick
 </pre>
 
 When using SELinux, container processes get assigned a container type called 'container_t'. Verify the SELinux type assigned to the running container
