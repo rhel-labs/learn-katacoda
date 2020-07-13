@@ -10,11 +10,10 @@ SELinux policies for containers), and setools-console (which is a set of tools t
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
 First, install the udica and setools-console packages -
-
 `yum install -y udica setools-console`{{execute T1}}
 
 Get the latest RHEL8 UBI image -
-`podman pull registry.access.redhat.com/ubi8/ubi:latest`{{execute T1}
+`podman pull registry.access.redhat.com/ubi8/ubi:latest`{{execute T1}}
 
 Use `podman` to list the available container images -
 `podman images`{{execute T1}}
