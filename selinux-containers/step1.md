@@ -11,22 +11,25 @@ SELinux policy analysis). In this demo, the container runtime related packages a
 
 First, install the udica and setools-console packages -
 
-`yum install -y udica setools-console`{{execute}}
+`yum install -y udica setools-console`{{execute T1}}
+
+Get the latest RHEL8 UBI image -
+`podman pull registry.access.redhat.com/ubi8/ubi:latest`{{execute T1}
 
 Use `podman` to list the available container images -
-`podman images`{{execute}}
+`podman images`{{execute T1}}
 
 You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
 This image contains Apache server application. 
 
 In terminal window 2, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
-`CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd)`{{execute T2}}
+`CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
 In terminal window 1, check the status of the application container using podman and get the running container id 
 
-`podman ps; CONTAINERID=$(podman ps | grep localhost/rhel8-httpd:latest | cut -b 1-12)`{{execute T1}}
+`podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com/ubi8/ubi:latest | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
