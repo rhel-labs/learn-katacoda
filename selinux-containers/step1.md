@@ -18,9 +18,6 @@ Get the latest RHEL8 UBI image -
 Use `podman` to list the available container images -
 `podman images`{{execute T1}}
 
-You should notice that there is already a container image available called **localhost/rhel8-httpd**. 
-This image contains Apache server application. 
-
 In terminal window 2, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
 `CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
 
