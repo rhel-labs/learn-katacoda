@@ -9,7 +9,7 @@ the virtual machine images.
 `yum -y install composer-cli lorax-composer`{{execute}}
 
 <pre class='file'>
-<<< Output Abridged >>>
+<<< OUTPUT ABRIDGED >>>
 
 ==========================================================================================================================================
  Package                            Arch      Version                                           Repository                           Size
@@ -20,7 +20,7 @@ Installing:
 Installing dependencies:
  anaconda-core                      x86_64    29.19.2.17-1.el8                                  rhel-8-for-x86_64-appstream-rpms    2.2 M
 
-<<< Output Abridged >>>
+<<< OUTPUT ABRIDGED >>>
 
 Complete!
 </pre>
