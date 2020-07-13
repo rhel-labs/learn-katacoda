@@ -21,14 +21,14 @@ You just created a custom SELinux security policy for the container. Now you can
 For the policies to take effect, stop and re-launch the container
 `podman stop $CONTAINERID`{{execute T1}}
 
-Restart the container to allow the container engine to use the new custom policy:
+Restart the container to allow the container engine to use the new custom policy
 `CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
 
 Verify the SELinux type assigned to the running container is my_container.process.
 `ps -eZ | grep my_container.process`{{execute T1}}
 
 <pre class="file">
-system_u:system_r:container_t:s0:c356,c911 36471 pts/0 00:00:00 bash
+system_u:system_r:my_container.process:s0:c163,c711 34982 pts/0 00:00:00 bash
 </pre>
 
 In terminal window 1, check the status of the application container using 'podman' and get the running container id 
