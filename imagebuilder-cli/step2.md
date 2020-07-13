@@ -1,4 +1,4 @@
-#Modifying a blueprint
+# Modifying a blueprint
 
 In this step, you will be taking an existing blueprint used to build a machine
 image and update it to include extra packages.

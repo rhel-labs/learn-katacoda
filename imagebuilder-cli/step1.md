@@ -1,4 +1,4 @@
-#Install and enable required software
+# Install and enable required software
 
 Before you start building images with Imagebuilder, the software required to
 perform the tasks must be installed on the system.  Specifically, the 

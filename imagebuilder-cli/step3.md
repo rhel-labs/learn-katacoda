@@ -1,4 +1,4 @@
-#Building a machine image
+# Building a machine image
 
 In this step you will build a machine image from the modified 
 example-http-server blueprint definition you made in the previous step.
