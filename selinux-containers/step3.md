@@ -22,7 +22,7 @@ For the policies to take effect, stop and re-launch the container
 `podman stop $CONTAINERID`{{execute T1}}
 
 Restart the container to allow the container engine to use the new custom policy
-`CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd /bin/bash)`{{execute T2}}
+`CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it localhost/rhel8-httpd)`{{execute T2}}
 
 Verify the SELinux type assigned to the running container is my_container.process.
 `ps -eZ | grep my_container.process`{{execute T1}}
