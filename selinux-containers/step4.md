@@ -1,7 +1,7 @@
 # Re-inspect the running container
 
-In terminal 2, attach to the running container 
-`podman attach $CONTAINER`{{execute T2}}
+In terminal 2, exec into the running container and start a bash shell 
+`podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
 Check whether container has access to the home directory
 `cd /home/; ls`{{execute T2}}
