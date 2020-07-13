@@ -53,7 +53,7 @@ associated with your most recent compose.
 
 `ls /var/lib/lorax/composer/results/$(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
 <pre class='file'>
-blueprint.toml  COMMIT  config.toml  deps.toml ext4-filesystem.ks final-kickstart.ks  frozen.toml  STATUS  times.toml
+blueprint.toml  COMMIT compose config.toml  deps.toml  ext4-filesystem.ks  final-kickstart.ks  frozen.toml logs  STATUS  times.toml
 </pre>
 The results directory stored metadata about the compose, such as the status, and
 will also be the location of the completed machine image that results from a
