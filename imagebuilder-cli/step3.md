@@ -39,7 +39,7 @@ can look at the status of the queue using `composer-cli compose status`.
 
 `composer-cli compose status`{{execute}}
 <pre class='file'>
-78915164-320d-4fc3-88d4-91fc40e5f0c8 RUNNING Mon Jul 13 19:42:14 2020 example-http-server 0.0.1 ext4-filesystem  
+78915164-320d-4fc3-88d4-91fc40e5f0c8 RUNNING Mon Jul 13 19:42:14 2020 example-http-server 0.0.2 ext4-filesystem  
 </pre>
 
 The status will display all queued (WAITING), running (RUNNING), and 

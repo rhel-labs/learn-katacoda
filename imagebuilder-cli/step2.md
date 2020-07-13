@@ -58,7 +58,9 @@ to the example-http-server blueprint.
 <pre class='file'>
 example-http-server
     2020-07-13T23:07:57Z  e4284083bad43ded8a4a9ea2947a5f45be72f8c4
-    Recipe example-http-server, version 0.0.1 saved.
+    Recipe example-http-server, version 0.0.2 saved.
+
+<<< OUTPUT ABRIDGED >>>
 </pre>
 
 From the above output, you can see that just now a new version of the 
@@ -76,7 +78,7 @@ blueprint instructions.
 <pre class='file'>
 name = "example-http-server"
 description = "An example http server with PHP and MySQL support."
-version = "0.0.1"
+version = "0.0.2"
 groups = []
 
 [[modules]]
