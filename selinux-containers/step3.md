@@ -44,21 +44,21 @@ Query the SELinux policy on the host to search for allow enforcement rules appli
 `sesearch -A -s my_container.process -t home_root_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
-TBD1
+allow my_container.process home_root_t:dir { getattr ioctl lock open read search };
 </pre>
 There is an allow rule in place that allows read access to the root home folder.
 
 `sesearch -A -s my_container.process -t var_spool_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
-TBD1
+allow my_container.process var_spool_t:dir { add_name getattr ioctl lock open read remove_name searchwrite };
 </pre>
 There is an allow rule in place that allows read access to the var spool folder.
 
 Query the SELinux policy for network access 
-`sesearch -A -s my_container.process -t port_type -c tcp_socket`
+`sesearch -A -s my_container.process -t port_type -c tcp_socket`{{execute T1}}
 
 <pre class="file">
-TBD1
+allow my_container.process http_port_t:tcp_socket { name_bind name_connect recv_msg send_msg };
 </pre>
 There is an allow rule in place to only access port 80.
