@@ -36,11 +36,7 @@ When using SELinux, container processes get assigned a container type called 'co
 `ps -eZ | grep container_t`{{execute T1}}
 
 <pre class="file">
-system_u:system_r:container_t:s0:c513,c573 24083 pts/0 00:00:00 httpd
-system_u:system_r:container_t:s0:c513,c573 24095 pts/0 00:00:00 httpd
-system_u:system_r:container_t:s0:c513,c573 24096 pts/0 00:00:00 httpd
-system_u:system_r:container_t:s0:c513,c573 24097 pts/0 00:00:00 httpd
-system_u:system_r:container_t:s0:c513,c573 24098 pts/0 00:00:00 httpd
+system_u:system_r:container_t:s0:c182,c1016 25755 pts/0 00:00:00 bash
 </pre>
 
 By default, on the host RHEL system, SELinux is enabled and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
