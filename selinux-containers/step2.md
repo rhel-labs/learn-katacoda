@@ -1,7 +1,7 @@
 # Inspecting container access and SELinux policies
 
-In terminal 2, attach to the running container 
-`podman attach $CONTAINER`{{execute T2}}
+In terminal 2, let's exec into the running container and run a bash shell 
+`podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
 Check the container's access to the '/home' directory
 `cd /home; ls`{{execute T2}}
