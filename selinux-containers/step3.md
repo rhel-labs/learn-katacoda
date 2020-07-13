@@ -40,14 +40,16 @@ CONTAINER ID  IMAGE                       COMMAND     CREATED         STATUS    
 f4d9db69e9b5  localhost/el-httpd1:latest  /sbin/init  16 seconds ago  Up 16 seconds ago  0.0.0.0:80->80/tcp  relaxed_wilson
 </pre>
 
-Query the SELinux policy on the host to search for allow enforcement rules applied to access /home and /var/spool directories 
+Query the SELinux policy on the host to search for allow enforcement rules applied to access /home directory
 `sesearch -A -s my_container.process -t home_root_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
 allow my_container.process home_root_t:dir { getattr ioctl lock open read search };
 </pre>
+
 There is an allow rule in place that allows read access to the root home folder.
 
+Query the SELinux policy on the host to search for allow enforcement rules applied to access /var/spool/ directory
 `sesearch -A -s my_container.process -t var_spool_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
