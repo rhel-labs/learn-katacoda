@@ -55,6 +55,7 @@ Query the SELinux policy on the host to search for allow enforcement rules appli
 <pre class="file">
 allow my_container.process var_spool_t:dir { add_name getattr ioctl lock open read remove_name searchwrite };
 </pre>
+
 There is an allow rule in place that allows read access to the var spool folder.
 
 Query the SELinux policy for network access 
