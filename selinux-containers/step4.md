@@ -1,33 +1,49 @@
-# Creating an application image from scratch
+# Re-inspect the running container
 
-Starting from an existing base container isn't the only option available to `buildah`.  `Buildah` can create a minimal container image that contains metadata and a filesystem stub.   
+In terminal 2, exec into the running container and start a bash shell 
+`podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
-To create this style of image use the `scratch` special target for `buildah from`.
-
-`buildah from scratch`{{execute T1}}
+Check whether container has access to the home directory
+`cd /home/; ls`{{execute T2}}
 
 <pre class="file">
-working-container
+packer  rhel
 </pre>
 
-Since there's no starting image, the working container will be called `working-container`.
-
-We can start working with the scratch container using tools on the host by mounting the container filesystem on the host using `buildah mount`.
-
-> _NOTE:_ We capture the output of the `buildah` command in the variable *scratchmnt* to make it easier to work with the filesystem path in these exercises.
-
-`scratchmnt=$(buildah mount working-container)`{{execute T1}}
-
-`echo ${scratchmnt}`{{execute T1}}
+Check whether container has read access to the /var/spool/ directory
+`cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
-/var/lib/containers/storage/overlay/5199b9cbf441fe93e3629f9d6336fd7008858b9b6e23629a724ccc2f567f3feb/merged
+anacron  cron  lpd  mail  plymouth  rhsm  up2date
 </pre>
 
-Right now, that directory is empty.
+Check whether container has write access to the /var/spool/ directory
+`touch test; ls`{{execute T2}}
+<pre class="file">
+anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
+</pre>
 
-`ls -l ${scratchmnt}`{{execute T1}}
+Install the nc package inside the container
+`yum install -y nc`{{execute T2}}
+
+Proof that SELinux allows binding to tcp/udp 80 port
+`nc -lvp 80`{{execute T2}}
 
 <pre class="file">
-total 0
+Ncat: Version 7.70 ( https://nmap.org/ncat )
+Ncat: Listening on :::80
+Ncat: Listening on 0.0.0.0:80
+Ncat: Connection from 172.17.0.3.
+Ncat: Connection from 172.17.0.3:38864.
+HEAD / HTTP/1.1
+Host: 2886795318-80-elsy03.environments.katacoda.com
+User-Agent: Go-http-client/1.1
+</pre>
+
+Proof that SELinux blocks binding to tcp/udp 8080 port
+`nc -lvp 8080`{{execute T2}}
+
+<pre class="file">
+Ncat: Version 7.70 ( https://nmap.org/ncat )
+Ncat: bind to :::8080: Permission denied. QUITTING.
 </pre>

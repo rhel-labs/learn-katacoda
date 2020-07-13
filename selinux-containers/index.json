@@ -1,6 +1,6 @@
 {
-  "title": "Generating SELinux profiles for containers with Udica",
-  "description": "Goal: After completing this scenario, users will be able to run generate SELinux profiles customized for their containers using Udica", 
+  "title": "Generating SELinux policies for containers with Udica",
+  "description": "Goal: After completing this scenario, users will be able to run generate customized SELinux profiles for their containers using Udica", 
   "difficulty": "Intermediate",
   "time": "5-10 minutes",
   "details": {
@@ -20,22 +20,8 @@
       {
         "title": "Step 4",
         "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
-      },
-      {
-        "title": "Step 6",
-        "text": "step6.md"
       }
     ],
-    "assets": {
-      "host01": [
-        {"file": "index1.html", "target": "~/"},
-        {"file": "index2.html", "target": "~/"}
-      ]
-    },
     "intro": {
       "text": "intro.md",
       "credits" : "__Author:__ Don Pinto, Technical Content Manager (Red Hat)",
@@ -47,9 +33,9 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
+    "terminals": [{"name":"Terminal 2", "target": "host01"}],
     "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
-    "showdashboard":true,
-    "dashboard": "Container httpd"
+    "showdashboard":false
   },
   "backend": {
     "imageid": "rhel8-2",

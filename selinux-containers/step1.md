@@ -1,21 +1,54 @@
-# Creating an application image from an existing base
+# Software installation and configuration
+SELinux is a technology to isolate processes/containers running on the system to mitigate attacks which take 
+advantage of privilege escalation. Udica is a new tool which complements the containers tools (Podman, Skopeo, Buildah, etc.) 
+family supported by Red Hat to help improve the security of customers container environments.
 
-**Buildah** has two main ways to create images:
-* Using subcommands to modify contents
-* Using host tools to modify a container filesystem
+>_NOTE:_ This demo assume that you have a sound understanding of SELinux basics and container fundamentals. 
 
-First, we'll look at using subcommands to modify the container contents before saving an image.  Many **buildah** subcommands act like directives from an OCIfile.  This allows for a familiar experience while automating builds.
+Prior to getting started, we need certain packages such as Udica (which is a tool for generating 
+SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
+SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
-The Red Hat Enterprise Linux 8 Universal Base Image is provided as the starting point for creating containers with Red Hat Enterprise Linux packages.  More information on UBI can be found in the [introductory blog post.](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
+First, install the udica and setools-console packages -
+`yum install -y udica setools-console`{{execute T1}}
 
-To build an application container from the `ubi-init` base image, we will create a working container with `buildah`.  A working container is a temporary container used as the target for buildah commands.
+Get the latest RHEL8 UBI image -
+`podman pull registry.access.redhat.com/ubi8/ubi:latest`{{execute T1}}
 
-`buildah from registry.access.redhat.com/ubi8/ubi-init`{{execute T1}}
+Use `podman` to list the available container images -
+`podman images`{{execute T1}}
+
+In terminal window 2, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
+`CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
+
+>_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
+
+In terminal window 1, check the status of the application container using podman and get the running container id 
+
+`podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com/ubi8/ubi:latest | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
-ubi-init-working-container
+CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
+e47a11d3e2c5  registry.access.redhat.com/ubi8/ubi:latest  /bin/bash  3 seconds ago  Up 2 seconds ago0.0.0.0:80->80/tcp  naughty_golick
 </pre>
 
-This subcommand acts like the FROM directive in an OCIFile and makes the source image available on the host.
+When using SELinux, container processes get assigned a container type called 'container_t'. Verify the SELinux type assigned to the running container
+`ps -eZ | grep container_t`{{execute T1}}
 
-Buildah will append `-working-container` to the image name used.  If that name already exists, a number will also be appended.
+<pre class="file">
+system_u:system_r:container_t:s0:c182,c1016 25755 pts/0 00:00:00 bash
+</pre>
+
+By default, on the host RHEL system, SELinux is enabled and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
+is set to enforcing.
+
+`sestatus`{{execute T1}}
+
+<pre class="file">
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+<< OUTPUT ABRIDGED >>
+</pre>
