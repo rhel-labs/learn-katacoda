@@ -61,4 +61,6 @@ Query the SELinux policy for network access
 <pre class="file">
 allow my_container.process http_port_t:tcp_socket { name_bind name_connect recv_msg send_msg };
 </pre>
-There is an allow rule in place to only access port 80.
+
+Retrieve the SELinux type associated with TCP port 80
+`semanage port -l | grep -w "80"`{{execute T1}}
