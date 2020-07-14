@@ -38,6 +38,11 @@
       "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
     },
     {
+      "external_link": "https://lab.redhat.com/imagebuilder-cli",
+      "title": "Design and build virtual machine images using commandline tools [Image Builder]",
+      "description": "Move into the Hybrid Cloud by building consistent virtual machines produced for virtualization or cloud providers with the composer-cli commandline tool."
+    },
+    {
       "external_link": "https://lab.redhat.com/buildah",
       "title": "Creating images with Container Tools [buildah]",
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
