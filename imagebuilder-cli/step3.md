@@ -44,19 +44,3 @@ can look at the status of the queue using `composer-cli compose status`.
 
 The status will display all queued (WAITING), running (RUNNING), and 
 completed (FINISHED) composes.
-
-As previously mentioned, each compose is tracked using a UUID number.  This
-UUID is not only used to track the compose, but a directory in 
-`/var/lib/lorax/composer/results/` is created with this UUID as well.  The
-command below uses the UUID included in the status output to list the directory
-associated with your most recent compose.
-
-`ls /var/lib/lorax/composer/results/$(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
-<pre class='file'>
-blueprint.toml  COMMIT compose config.toml  deps.toml  ext4-filesystem.ks  final-kickstart.ks  frozen.toml logs  STATUS  times.toml
-</pre>
-The results directory stored metadata about the compose, such as the status, and
-will also be the location of the completed machine image that results from a
-successful build.  Logs for the build are also stored here in a `logs` directory
-that is populated once the build begins.  When the compose is completed, a
-machine image is also written into the directory for the compose.
