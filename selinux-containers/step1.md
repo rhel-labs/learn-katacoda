@@ -20,13 +20,16 @@ Use `podman` to list the available container images
 
 `podman images`{{execute T1}}
 
-In the 'Terminal 2' tab of the lab interface, run the container using podman and open a shell inside the container and mount home and /var/spool directory 
+In the 'Terminal 2' tab of the lab interface, create a container runtime using podman which -
+runs an interactive shell (-it), passes in-container accesses to /home through to the host's /home read-only, 
+passes in-container accesses to /var/spool through to the host's /var/spool read-write, and binds the 
+host's port 80 to pass traffic to the container's port 80.
 
 `CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
-In the 'Terminal 1' tab of the lab interface,, check the status of the application container using podman and get the running container id 
+In the 'Terminal 1' tab of the lab interface, check the status of the application container using podman and get the running container id 
 
 `podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com/ubi8/ubi:latest | cut -b 1-12)`{{execute T1}}
 
