@@ -21,8 +21,8 @@ Use `podman` to list the available container images
 `podman images`{{execute T1}}
 
 In the 'Terminal 2' tab of the lab interface, create a container runtime using podman which -
-runs an interactive shell (-it), passes in-container accesses to /home through to the host's /home read-only, 
-passes in-container accesses to /var/spool through to the host's /var/spool read-write, and binds the 
+passes in-container accesses to /home through to the host's /home read-only, passes in-container 
+accesses to /var/spool through to the host's /var/spool read-write, and binds the 
 host's port 80 to pass traffic to the container's port 80.
 
 `CONTAINER=$(podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
@@ -46,8 +46,7 @@ When using SELinux, container processes get assigned a container type called 'co
 system_u:system_r:container_t:s0:c182,c1016 25755 pts/0 00:00:00 bash
 </pre>
 
-By default, on the host RHEL system, SELinux is enabled and you can confirm this by inspecting the SELinux status. Also, confirm that the enabled mode
-is set to enforcing.
+By default on Red Hat Enterprise Linux, SELinux is enabled and in enforcing mode.  You can confirm this by inspecting the output of  `sestatus` on the system.
 
 `sestatus`{{execute T1}}
 
