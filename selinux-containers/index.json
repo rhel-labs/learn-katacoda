@@ -34,8 +34,6 @@
   "environment": {
     "uilayout": "terminal",
     "terminals": [{"name": "Terminal 1", "target":"host01"},{"name":"Terminal 2","target":"host01"}],
-    "uimessage1": "\u001b[32mWelcome to Red Hat Enterprise Linux 8\u001b[m\r\n",
-    "showdashboard":false
   },
   "backend": {
     "imageid": "rhel8-2",
