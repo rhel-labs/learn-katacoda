@@ -52,4 +52,6 @@ allow corenet_unconfined_type port_type:tcp_socket { name_bind name_connect recv
 allow sandbox_net_domain port_type:tcp_socket { name_bind name_connect recv_msg send_msg };
 </pre>
 
-This means that network access is completely allowed for all ports. However, it would be great to restrict binding just on TCP port 80.
+Sandbox is the default process type (domain) in SELinux, and container is the domain used in the context of containers. The corenet type
+is typically used in the context of the Linux kernel. The output means that for eah of these domains, binding, connecting, sending and receiving 
+messages are allowed without TCP port restrictions.
