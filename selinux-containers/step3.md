@@ -4,7 +4,7 @@ To create the custom SELinux security policy, Udica scans the container JSON fil
 by the container. The network ports are a similar situation where Udica uses the SELinux userspace libraries to get the correct 
 SELinux label of a port that is used by the inspected container. 
 
-In terminal 1, inspect the running container using podman to generate a container inspection file in JSON format
+In *Terminal* window of the lab interface, inspect the running container using podman to generate a container inspection file in JSON format
 `podman inspect $CONTAINERID > container.json`{{execute T1}}
 
 Tell Udica to generate the custom SELinux security policy by using the container JSON file. In this case the name of the 
