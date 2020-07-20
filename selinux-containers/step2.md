@@ -53,5 +53,5 @@ allow sandbox_net_domain port_type:tcp_socket { name_bind name_connect recv_msg 
 </pre>
 
 Sandbox is the default process type (domain) in SELinux, and container is the domain used in the context of containers. The corenet type
-is typically used in the context of the Linux kernel. The output means that for eah of these domains, binding, connecting, sending and receiving 
+is typically used in the context of the Linux kernel. The output means that for each of these domains, binding, connecting, sending and receiving 
 messages are allowed without TCP port restrictions.
