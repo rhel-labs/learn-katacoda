@@ -9,8 +9,8 @@ Prior to getting started, we need certain packages such as Udica (which is a too
 SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
-There are 2 terminal tabs that will be used in this lab - the main terminal window (indicated by *Terminal*), and a second terminal
-window (indicated by *Terminal 2*).
+There are 2 terminal tabs that will be used in this lab - the main terminal tab (indicated by *Terminal*), and a second terminal
+tab (indicated by *Terminal 2*).
 
 First, install the udica and setools-console packages
 
