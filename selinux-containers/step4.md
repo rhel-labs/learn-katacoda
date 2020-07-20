@@ -1,10 +1,9 @@
 # Verifying the SELinux container policies with Udica
 
-To create the custom SELinux security policy, Udica scans the container JSON file to discover which Linux capabilities are required 
-by the container. The network ports are a similar situation where Udica uses the SELinux userspace libraries to get the correct 
-SELinux label of a port that is used by the inspected container. 
+You can verify the policies generated using Udica and enforced by SELinux for the container. 
 
-Query the SELinux policy on the host to search for allow enforcement rules applied to access /home directory
+Query the SELinux policy on the container host to search for allow enforcement rules applied to access /home directory
+
 `sesearch -A -s my_container.process -t home_root_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
@@ -13,7 +12,8 @@ allow my_container.process home_root_t:dir { getattr ioctl lock open read search
 
 There is an allow rule in place that allows read access to the root home folder.
 
-Query the SELinux policy on the host to search for allow enforcement rules applied to access /var/spool/ directory
+Query the SELinux policy on the container host to search for allow enforcement rules applied to access /var/spool/ directory
+
 `sesearch -A -s my_container.process -t var_spool_t -c dir -p read`{{execute T1}}
 
 <pre class="file">
@@ -22,7 +22,8 @@ allow my_container.process var_spool_t:dir { add_name getattr ioctl lock open re
 
 There is an allow rule in place that allows read access to the var spool folder.
 
-Query the SELinux policy for network access 
+Query the SELinux policy on the container host to check network access 
+
 `sesearch -A -s my_container.process -t port_type -c tcp_socket`{{execute T1}}
 
 <pre class="file">
@@ -30,4 +31,5 @@ allow my_container.process http_port_t:tcp_socket { name_bind name_connect recv_
 </pre>
 
 Retrieve the SELinux type associated with TCP port 80
+
 `semanage port -l | grep -w "80"`{{execute T1}}
