@@ -9,6 +9,9 @@ Prior to getting started, we need certain packages such as Udica (which is a too
 SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
+There are 2 terminal tabs that will be used in this lab - the main terminal window (indicated by *Terminal*), and a second terminal
+window (indicated by *Terminal 2*).
+
 First, install the udica and setools-console packages
 
 `yum install -y udica setools-console`{{execute T1}}
@@ -29,7 +32,7 @@ host's port 80 to pass traffic to the container's port 80.
 
 >_NOTE:_ The home directory is mounted with read-only access, and the /var/spool/ directory is mounted with read-write access.
 
-In the 'Terminal 1' tab of the lab interface, check the status of the application container using podman and get the running container id 
+In the 'Terminal' tab of the lab interface, check the status of the application container using podman and get the running container id 
 
 `podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com/ubi8/ubi:latest | cut -b 1-12)`{{execute T1}}
 
