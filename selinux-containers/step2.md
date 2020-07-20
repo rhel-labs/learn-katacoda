@@ -1,6 +1,6 @@
 # Inspecting container access and SELinux policies
 
-In 'Terminal 2' of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
+In 'Terminal 2' tab of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
 
 `podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
@@ -12,14 +12,14 @@ Check the container's access to the */home* directory
 ls: cannot open directory '.': Permission denied
 </pre>
 
-In 'Terminal' window of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */home* directory
+In 'Terminal' tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */home* directory
 
 `sesearch -A -s container_t -t home_root_t -c dir -p read`{{execute T1}}
 
 The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */home* directory, access 
 is blocked by SELinux.
 
-In 'Terminal' window of the lab interface, check the container's access to the */var/spool/* directory
+In 'Terminal' tab of the lab interface, check the container's access to the */var/spool/* directory
 
 `cd /var/spool/; ls`{{execute T2}}
 
@@ -27,7 +27,7 @@ In 'Terminal' window of the lab interface, check the container's access to the *
 ls: cannot open directory '.': Permission denied
 </pre>
 
-In 'Terminal 2' of the lab interface, check the container's write access to the */var/spool/* directory
+In 'Terminal 2' tab of the lab interface, check the container's write access to the */var/spool/* directory
 
 `touch test`{{execute T2}}
 
@@ -35,7 +35,7 @@ In 'Terminal 2' of the lab interface, check the container's write access to the 
 touch: cannot touch 'test': Permission denied
 </pre>
 
-In 'Terminal' window of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */var/spool* directory
+In 'Terminal' tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */var/spool* directory
 
 `sesearch -A -s container_t -t var_spool_t -c dir -p read`{{execute T1}}
 
