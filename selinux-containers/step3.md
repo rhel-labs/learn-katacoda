@@ -14,9 +14,13 @@ custom SELinux security policy is called 'my_container'
 `udica -j container.json my_container`{{execute T1}}
 
 <pre class="file">
- <<< OUTPUT ABRIDGED >>>
+
 Policy my_container created!
- <<< OUTPUT ABRIDGED >>>
+
+Please load these modules using:
+\# semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}
+
+Restart the container with: "--security-opt label=type:my_container.process" parameter
 </pre>
 
 You just created a custom SELinux security policy for the container. Now you can load this policy into the kernel and make it active.
