@@ -1,32 +1,37 @@
 # Re-inspect the running container
 
-In terminal 2, exec into the running container and start a bash shell 
+In *Terminal 2* of the lab interface, exec into the running container and start a bash shell 
 `podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
-Check whether container has access to the home directory
+Check whether container has access to the */home* directory
 `cd /home/; ls`{{execute T2}}
 
 <pre class="file">
 packer  rhel
 </pre>
 
-Check whether container has read access to the /var/spool/ directory
+This is now successful since there is an allow rule in place that tells SELinux to allow this action.
+
+Check whether container has read access to the */var/spool/* directory
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
 anacron  cron  lpd  mail  plymouth  rhsm  up2date
 </pre>
 
+Similarly, this is also successful because there is an allow rule in place that tells SELinux to allow this action.
+
 Check whether container has write access to the /var/spool/ directory
 `touch test; ls`{{execute T2}}
+
 <pre class="file">
 anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
 </pre>
-
-Install the nc package inside the container
+ 
+Install the netcat (nc) package inside the container to test for port bindings
 `yum install -y nc`{{execute T2}}
 
-Proof that SELinux allows binding to tcp/udp 80 port
+Tell nc to listen on port 80
 `nc -lvp 80`{{execute T2}}
 
 <pre class="file">
@@ -40,10 +45,14 @@ Host: 2886795318-80-elsy03.environments.katacoda.com
 User-Agent: Go-http-client/1.1
 </pre>
 
-Proof that SELinux blocks binding to tcp/udp 8080 port
+This is successful because there is a allow rule in place that tells SELinux to allow this network action on port 80.
+
+Tell nc to listen on port 8080 
 `nc -lvp 8080`{{execute T2}}
 
 <pre class="file">
 Ncat: Version 7.70 ( https://nmap.org/ncat )
 Ncat: bind to :::8080: Permission denied. QUITTING.
 </pre>
+
+This is unsuccessful because there is NO allow rule that tells SELinux to allow this network action on port 8080.
