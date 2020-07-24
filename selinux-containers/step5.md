@@ -1,9 +1,11 @@
 # Re-inspect the running container
 
 In *Terminal 2* of the lab interface, exec into the running container and start a bash shell 
+
 `podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
 
 Check whether container has access to the */home* directory
+
 `cd /home/; ls`{{execute T2}}
 
 <pre class="file">
@@ -13,6 +15,7 @@ packer  rhel
 This is now successful since there is an allow rule in place that tells SELinux to allow this action.
 
 Check whether container has read access to the */var/spool/* directory
+
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
@@ -22,6 +25,7 @@ anacron  cron  lpd  mail  plymouth  rhsm  up2date
 Similarly, this is also successful because there is an allow rule in place that tells SELinux to allow this action.
 
 Check whether container has write access to the /var/spool/ directory
+
 `touch test; ls`{{execute T2}}
 
 <pre class="file">
@@ -29,9 +33,11 @@ anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
 </pre>
  
 Install the netcat (nc) package inside the container to test for port bindings
+
 `yum install -y nc`{{execute T2}}
 
-Tell nc to listen on port 80
+Tell nc to listen on port 80 inside the container
+
 `nc -lvp 80`{{execute T2}}
 
 <pre class="file">
@@ -43,11 +49,14 @@ Ncat: Connection from 172.17.0.3:38864.
 HEAD / HTTP/1.1
 Host: 2886795318-80-elsy03.environments.katacoda.com
 User-Agent: Go-http-client/1.1
+<<< OUTPUT ABRIDGED >>>
 </pre>
 
-This is successful because there is a allow rule in place that tells SELinux to allow this network action on port 80.
+You can see from the above output that netcat was able to connect and listen on port 80. This is successful 
+because there is a allow rule in place that tells SELinux to allow this network action on port 80.
 
-Tell nc to listen on port 8080 
+Tell nc to listen on port 8080 inside the container
+
 `nc -lvp 8080`{{execute T2}}
 
 <pre class="file">
@@ -55,4 +64,5 @@ Ncat: Version 7.70 ( https://nmap.org/ncat )
 Ncat: bind to :::8080: Permission denied. QUITTING.
 </pre>
 
-This is unsuccessful because there is NO allow rule that tells SELinux to allow this network action on port 8080.
+You can see from the above output that netcat was NOT able to connect and listen on port 8090. There is no allow 
+rule in place that tells SELinux to allow this operation, and hence it was blocked by SELinux.
