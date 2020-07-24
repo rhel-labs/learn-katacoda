@@ -27,6 +27,8 @@ In 'Terminal' tab of the lab interface, check the container's access to the */va
 ls: cannot open directory '.': Permission denied
 </pre>
 
+SELinux is restricting access to the */var/spool* directory.
+
 In 'Terminal 2' tab of the lab interface, check the container's write access to the */var/spool/* directory
 
 `touch test`{{execute T2}}
