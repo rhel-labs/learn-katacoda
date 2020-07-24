@@ -38,8 +38,6 @@
   "environment": {
     "uilayout": "terminal",
     "terminals": [{"name":"Terminal 2","target":"host01"}],
-    "showdashboard":true,
-    "dashboard": [{"name":"Container httpd", "port":"80", "host":"localhost"}]
   },
   "backend": {
     "imageid": "rhel8-2",
