@@ -1,6 +1,6 @@
 # Verifying the SELinux container policies with Udica
 
-You can verify the policies generated using Udica and enforced by SELinux for the container. 
+You can verify the policies generated using Udica for the container and enforced by SELinux. 
 
 Query the SELinux policy on the container host to search for allow enforcement rules applied to access /home directory
 
