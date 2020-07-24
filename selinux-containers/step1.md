@@ -9,10 +9,10 @@ Prior to getting started, we need certain packages such as Udica (which is a too
 SELinux policies for containers), and setools-console (which is a set of tools that can facilitate 
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
-There are 2 terminal tabs that will be used in this lab - the main terminal tab (indicated by *Terminal*), and a second terminal
-tab (indicated by *Terminal 2*).
+There are 2 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), and a second terminal 
+where we will run the container (indicated by *Running Container*).
 
-First, install the udica and setools-console packages
+Install the udica and setools-console packages on the container host
 
 `yum install -y udica setools-console`{{execute T1}}
 
@@ -23,7 +23,7 @@ Use `podman` to list the available container images
 
 `podman images`{{execute T1}}
 
-In the 'Terminal 2' tab of the lab interface, create a container runtime using podman which -
+In the 'Running Container' tab of the lab interface, create a container runtime using podman which -
 passes in-container accesses to /home through to the host's /home read-only, passes in-container 
 accesses to /var/spool through to the host's /var/spool read-write, and binds the 
 host's port 80 to pass traffic to the container's port 80.
@@ -49,7 +49,8 @@ When using SELinux, container processes get assigned a container type called 'co
 system_u:system_r:container_t:s0:c182,c1016 25755 pts/0 00:00:00 bash
 </pre>
 
-By default on Red Hat Enterprise Linux, SELinux is enabled and in enforcing mode.  You can confirm this by inspecting the output of  `sestatus` on the system.
+On Red Hat Enterprise Linux, SELinux is enabled by default and in enforcing mode.  You can confirm this by inspecting the output of `sestatus` 
+on the system.
 
 `sestatus`{{execute T1}}
 
