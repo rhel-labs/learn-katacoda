@@ -10,7 +10,7 @@ SELinux policies for containers), and setools-console (which is a set of tools t
 SELinux policy analysis). In this demo, the container runtime related packages are already installed.
 
 There are 2 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), and a second terminal 
-where we will run the container (indicated by *Running Container*).
+where we will run the container (indicated by *Terminal 2*).
 
 Install the udica and setools-console packages on the container host
 
@@ -23,7 +23,7 @@ Use `podman` to list the available container images
 
 `podman images`{{execute T1}}
 
-In the 'Running Container' tab of the lab interface, create a container runtime using podman which -
+In 'Terminal 2' tab of the lab interface, create a container runtime using podman which -
 passes in-container accesses to /home through to the host's /home read-only, passes in-container 
 accesses to /var/spool through to the host's /var/spool read-write, and binds the 
 host's port 80 to pass traffic to the container's port 80.
