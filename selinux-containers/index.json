@@ -37,7 +37,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "Container Host", "target":"host01"},{"name":"Running Container","target":"host01"}]
+    "terminals": [{"name":"Running Container","target":"host01"}]
   },
   "backend": {
     "imageid": "rhel8-2",
