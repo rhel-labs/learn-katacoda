@@ -41,7 +41,7 @@ In 'Terminal' tab of the lab interface, query the SELinux policy to search for a
 
 `sesearch -A -s container_t -t var_spool_t -c dir -p read`{{execute T1}}
 
-The search returns NO results. Since, there is no allow rule for container_t type to get read access to the /var/spool/ directory, access 
+The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */var/spool/* directory, access 
 is blocked by SELinux.
 
 Query the SELinux policy for network access for container_t types
