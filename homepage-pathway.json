@@ -53,6 +53,11 @@
       "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
     },
     {
+      "external_link": "https://lab.redhat.com/selinux-containers",
+      "title": "Securing containers with SELinux [Udica]",
+      "description": "Protect your container isolation by applying SELinux policies to determine which host resources are available to a running container."
+    },
+    {
       "external_link": "https://lab.redhat.com/crypto-policy",
       "title": "Configuring the system-wide cryptographic policy",
       "description": "Enforce more complex ciphers, protocol versions, and usable ciphers across all services running on your machines."
