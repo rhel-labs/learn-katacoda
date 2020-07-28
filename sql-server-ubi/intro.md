@@ -1,16 +1,14 @@
 # Goal:
-After completing this scenario, users will be able to use Ansible playbooks 
-to install and configure Microsoft SQL Server on Red Hat Enterprise Linux (RHEL).
+After completing this scenario, users will be able to run Microsoft SQL Server 
+on Red Hat Enterprise Linux(RHEL) using UBI and Red Hat container tools.
 
 # Concepts included in this scenario:
-* Verify whether ansible is installed on the system
-* Downloading the ansible role for SQL Server from ansible galaxy
-* Viewing and editing the ansible playbook variables
-* Running the playbook to install and configure Microsoft SQL Server on RHEL 8
-* Login to SQL Server and query a table
+* Download the container image that contains Microsoft SQL Server 
+* Deploy the container image to run SQL Server on RHEL
+* Query data in SQL Server running in a container on RHEL
 
 # Example Use case:
-Your IT team requires a uniform and streamlined way to install Microsoft SQL Server
-across multiple RHEL servers. The SQL Server instances must also be setup using a uniform 
-configuration, and the installation process must be repeatable when more servers
-come online.
+Your infrastructure team is planning on using containerized applications, and this also means
+containerized databases. They have learnt that Microsoft SQL Server 2019 offers a container image
+for Red Hat Enterprise Linux (RHEL), and they want to start using it for building applications.
+
