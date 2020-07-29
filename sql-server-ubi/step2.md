@@ -1,11 +1,16 @@
-# Download the Ansible Role
+# Download the Microsoft SQL Server container image
 
-Ansible uses the concept of **roles** to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from. 
+Microsoft has made available official container images for the SQL Server and client tools
 
-Ansible makes it easily share roles with the community or download roles that have been created by other members of the community using [Ansible Galaxy](https://galaxy.ansible.com/). 
+Use *podman* to get the container image that includes SQL Server
 
-To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to install roles in a specific role directory
+`podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T1}}
 
-`ansible-galaxy install --roles-path ./roles dpredhat.ansible_role_mssql --force`{{execute}}
+Next, use *podman* to get the container image that includes client tools
 
+`podman pull mcr.microsoft.com/mssql-tools`{{execute T1}}
+
+Verify that the SQL Server and client tool container images are now available on the host system
+
+`podman images`{{execute T1}}
 
