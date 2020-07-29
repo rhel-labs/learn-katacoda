@@ -1,6 +1,11 @@
 # Verify the environment
 
-> **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools.
+Today hundreds of developers now offer their software in freely redistributable containers. Microsoft 
+has leveraged RHEL UBIs, and released SQL Server 2019 for Linux as a UBI 8 container. In this lab, we
+will demonstrate how you can use these available images using RHEL container tools.
+
+> **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools. If 
+you are not familiar with RHEL container tools (such as *podman*), you should consider reviewing the [Podman lab](https://lab.redhat.com/podman-deploy)
 
 On the host system, create a directory to persist the SQL Server database files
 
