@@ -7,6 +7,8 @@ will demonstrate how you can use these available images using RHEL container too
 > **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools. If 
 you are not familiar with RHEL container tools (such as *podman*), you should consider reviewing the [Podman lab](https://lab.redhat.com/podman-deploy)
 
+There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*)
+
 On the host system, create a directory to persist the SQL Server database files
 
 `mkdir -p /var/mssql/data`{{execute T1}}

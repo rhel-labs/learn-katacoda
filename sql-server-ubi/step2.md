@@ -1,12 +1,17 @@
 # Download the Microsoft SQL Server container image
 
-Microsoft has made available official container images for the SQL Server and client tools
+With Microsoft’s new SQL Server container for Linux built using RHEL UBI, you can now take 
+advantage of the reliability, security features, and performance of SQL Server running in 
+official Red Hat container images wherever OCI-compliant Linux containers run whether on 
+baremetal servers, public and private clouds, or virtualized infrastructure.  
 
 Use *podman* to get the container image that includes SQL Server
 
 `podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T1}}
 
-Next, use *podman* to get the container image that includes client tools
+SQL Server client tools provide the necessary command line tools like *sqlcmd* to connect to
+and administer SQL Server. These tools are made available in a separate container.Use *podman* 
+to get the container image that contains SQL Server client tools
 
 `podman pull mcr.microsoft.com/mssql-tools`{{execute T1}}
 

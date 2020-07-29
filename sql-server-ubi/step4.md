@@ -1,4 +1,4 @@
-# Run the Ansible Playbook
+# Deploy the client-tools container
 
 Now, let's run our ansible playbook defined in the site.yml file and pass it the list of hosts
 

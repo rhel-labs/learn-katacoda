@@ -1,18 +1,12 @@
-# View and edit
+# Deploy and configure SQL Server
 
-**Playbook**
-A playbook is an entirely different way of running Ansible, that is far more powerful. In Ansible, a playbook is a yaml file consisting of multiple plays.
+In 'Terminal Server' tab of the lab interface, create a container runtime using podman which -
+passes in-container accesses to /var/opt/mssql/data directory through to the host's /var/mssql/data
+directory, and binds the host's port 1433 to pass traffic to the container's port 1433.
 
-A play is a set of tasks mapped to a set of hosts.
+CONTAINER=$(podman run -v /var/mssql/data:/var/opt/mssql/data:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!'-p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest)
 
-**Editing variables in a playbook**
-
-Click to edit ``/vars/main.yml``{{open}} in the inline editor.
-
-This file has several variables, and one example variable that you might optionally want to change is the database sa password. 
 <pre class="file">
-...
-db_password: P@ssWORD!
-...
+TBD
 </pre>
 

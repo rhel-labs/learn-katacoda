@@ -1,4 +1,4 @@
-# Verify that Microsoft SQL Server is installed on the machine
+# Connect to SQL Server and Query data
 
 To verify that SQL Server is running on the machine, lets use the systemctl status command
 
