@@ -38,7 +38,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name":"Terminal 2","target":"host01"}]
+    "terminals": [{"name":"Server Container","target":"host01"}, {"name":"Client Tools Container", "target":"host01"}]
   },
   "backend": {
     "imageid": "rhel8-2-highmem"

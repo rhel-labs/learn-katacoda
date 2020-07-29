@@ -1,4 +1,4 @@
-# View and edit the Ansible Playbook
+# View and edit
 
 **Playbook**
 A playbook is an entirely different way of running Ansible, that is far more powerful. In Ansible, a playbook is a yaml file consisting of multiple plays.
