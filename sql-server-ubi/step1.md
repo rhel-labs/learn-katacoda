@@ -8,13 +8,13 @@ will demonstrate how you can use these available images using RHEL container too
 
 There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*)
 
-On the host system, create a directory to persist the SQL Server database files
+On the host system, create a directory to persist the SQL Server database, log and secrets
 
-`mkdir -p /var/mssql/data`{{execute T1}}
+`mkdir -p /var/mssql/data; mkdir -p /var/mssql/log; mkdir -p /var/mssql/secrets`{{execute T1}}
 
 Now modify and set the appropriate permissions for the created directory
 
-`chmod 755 -R /var/mssql/data`{{execute T1}}
+`chmod 755 -R /var/mssql/data; chmod 755 -R /var/mssql/log; chmod 755 -R /var/mssql/secrets`{{execute T1}}
 
 Use *podman* to list the container images available on the host system
 
