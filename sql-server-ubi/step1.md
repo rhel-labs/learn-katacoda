@@ -12,9 +12,9 @@ On the host system, create a directory to persist the SQL Server database, log a
 
 `mkdir -p /var/mssql/data; mkdir -p /var/mssql/log; mkdir -p /var/mssql/secrets`{{execute T1}}
 
-Now modify and set the appropriate permissions for the created directory
+Now modify and set the appropriate user ownership for the directory to uid:10001 (the mssql default user uid) 
 
-`chmod 755 -R /var/mssql/data; chmod 755 -R /var/mssql/log; chmod 755 -R /var/mssql/secrets`{{execute T1}}
+`chown -R 10001:0 /var/mssql/data; chown -R 10001:0 /var/mssql/log; chown -R 10001:0 /var/mssql/secrets`{{execute T1}}
 
 Use *podman* to list the container images available on the host system
 
