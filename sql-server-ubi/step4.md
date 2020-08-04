@@ -2,7 +2,7 @@
 
 Create a new container runtime from the image which uses the mssql-tools image and start an interactive bash shell inside the container.
 
-`CONTAINERID = $(podman run -v -it mcr.microsoft.com/mssql-tools)`{{execute T2}}
+`CONTAINERID = $(podman run -v -it mcr.microsoft.com/mssql-tools)`{{execute T3}}
 
 Once inside the container, connect  with sqlcmd. Note that sqlcmd is not in the path by default, so you have to specify the full path.
 
