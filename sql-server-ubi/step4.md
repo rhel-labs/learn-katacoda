@@ -1,7 +1,7 @@
 # Connect to SQL Server running in the container
 
 Get the ID of the container running SQL Server
-`SERVER_CONTAINER = $(podman ps -a | grep server | cut -c1-12 )`{{execute T3}}
+`CONTAINER=$(podman ps -a | grep server | cut -c1-12)`{{execute T3}}
 
 Launch an interactive bash shell in the container
 `podman exec -it $SERVER_CONTAINER "/bin/bash"`{{execute T3}}
