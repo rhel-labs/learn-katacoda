@@ -1,21 +1,14 @@
 # Deploy the client-tools container
 
-Now, let's run our ansible playbook defined in the site.yml file and pass it the list of hosts
+Create a new container runtime from the image which uses the mssql-tools image and start an interactive bash shell inside the container.
 
-`ansible-playbook -i myhosts site.yml`{{execute}}
+`CONTAINERID = $(podman run -v -it mcr.microsoft.com/mssql-tools)`{{execute T2}}
 
-> The playbook has several tasks, and some tasks could take a bit longer than usual.
+Once inside the container, connect  with sqlcmd. Note that sqlcmd is not in the path by default, so you have to specify the full path.
 
-The output of the run playbook should look like below -
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourPassword>'
+  
 
 <pre class="file">
-PLAY [Setup SQL server] ************************************************************************
-
-TASK [Gathering Facts] *************************************************************************
-...
-
-TASK [dpredhat.ansible_role_mssql : Create a new database] *************************************
-
-PLAY RECAP *************************************************************************************
-localhost                  : ok=15   changed=11   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+TBD
 </pre>
