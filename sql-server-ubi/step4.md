@@ -1,14 +1,14 @@
 # Connect to SQL Server running in the container
 
 Get the ID of the container running SQL Server
-`SERVER_CONTAINER = $(podman ps -a | grep server | cut -c1-12 )`{{execute T2}}
+`SERVER_CONTAINER = $(podman ps -a | grep server | cut -c1-12 )`{{execute T3}}
 
 Launch an interactive bash shell in the container
-`podman exec -it $SERVER_CONTAINER "/bin/bash"`{{execute T2}}
+`podman exec -it $SERVER_CONTAINER "/bin/bash"`{{execute T3}}
 
 Once inside the container, verify that SQL Server is running 
 
-`systemctl status mssql-server.service --no-pager`{{execute T1}}
+`systemctl status mssql-server.service --no-pager`{{execute T3}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -24,7 +24,7 @@ Connect  with **sqlcmd** and run the @@version T-SQL statement to get the versio
 
 > **NOTE:** sqlcmd is not in the path by default, so you have to specify the full path
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@version"`{{execute T2}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@version"`{{execute T3}}
  
 <pre class="file">
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
