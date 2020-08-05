@@ -3,7 +3,7 @@ After completing this lab, users will be able to apply a Kernel Live Patch to
 a system, resolving a security vulnerability without rebooting into an updated
 kernel.
 
-#Concepts included in this lab:
+# Concepts included in this lab:
 
 * Install Kernel Live Patching software and service
 * Deploy a Kernel Live Patch on a running system
