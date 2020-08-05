@@ -1,10 +1,10 @@
 # Connect to SQL Server running in the container
 
 Get the ID of the container running SQL Server
-`CONTAINER=$(podman ps -a | grep server | cut -c1-12)`{{execute T3}}
+`CONTAINERTOOLS=$(podman ps -a | grep server | cut -c1-12)`{{execute T3}}
 
 Launch an interactive bash shell in the container
-`podman exec -it $CONTAINER "/bin/bash"`{{execute T3}}
+`podman exec -it $CONTAINERTOOLS "/bin/bash"`{{execute T3}}
 
 Connect  with **sqlcmd** and run the @@version T-SQL statement to get the servername and the version of SQL Server running on the server
 
