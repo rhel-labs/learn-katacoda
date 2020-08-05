@@ -22,4 +22,4 @@ mssqlcontainer                   Microsoft SQL Server 2019 (RTM-CU5) (KB4552255)
 (1 rows affected)
 </pre>
 
-The hostname is the hostname of the running container (mssqlcontainer), and the version of SQL Server running is 2019
+Verify that the hostname of the running container is **mssqlcontainer**, and the version of SQL Server running is 2019
