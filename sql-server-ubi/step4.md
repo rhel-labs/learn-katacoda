@@ -10,7 +10,7 @@ Connect  with **sqlcmd** and run the @@version T-SQL statement to get the versio
 
 > **NOTE:** sqlcmd is not in the path by default, so you have to specify the full path
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@version"`{{execute T3}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@servername, @@version"`{{execute T3}}
  
 <pre class="file">
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
