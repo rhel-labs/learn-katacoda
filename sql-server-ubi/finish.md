@@ -1,13 +1,10 @@
 # In this lab you have:
-* Verified whether ansible is installed on the system
-* Downloaded the ansible role for SQL Server from ansible galaxy
-* Viewed and edited the ansible playbook variables
-* Run the playbook to install and configure Microsoft SQL Server on RHEL 8
-* Logged in to SQL Server and queried a table
+* Downloaded the container image that contains Microsoft SQL Server 
+* Deployed the container image to run SQL Server on RHEL
+* Queried data in SQL Server running in a container on RHEL
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
-
 
 # Provide additional comments or ratings:
 [Complete a survey about the lab](https://forms.gle/vipkbKFYcKx9YYSs6)
