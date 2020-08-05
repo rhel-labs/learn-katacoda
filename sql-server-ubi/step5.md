@@ -1,10 +1,10 @@
 # Connect to SQL Server and Query Data
 
-Run the script to install the pubs data in the testDB database. 
+Run the script to install the Pubs database
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P RedHat1! -d pubs -N -C -i /var/opt/mssql/scripts/InstPubs.sql`{{execute T3}}
 
-Now that the data is loaded, query the data  
+Now that the data is loaded, query the data in the Pubs database
 
 > How about finding the store name of the top performing store and the total sales for that store?  
 
