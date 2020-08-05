@@ -7,7 +7,7 @@ TCP port **1433** is the default port for SQL Server.
 
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password 
 
-`CONTAINERSERVER=$(podman run -d -v /var/mssql/data:/var/opt/mssql/data:Z -v /var/mssql/log:/var/opt/mssql/log:Z -v /var/mssql/secrets:/var/opt/mssql/secrets:Z -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest)`{{execute T2}}
+`CONTAINERSERVER=$(podman run --hostname=mssqlcontainer -d -v /var/mssql/data:/var/opt/mssql/data:Z -v /var/mssql/log:/var/opt/mssql/log:Z -v /var/mssql/secrets:/var/opt/mssql/secrets:Z -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest)`{{execute T2}}
 
 Get the top 2 lines of the container logs 
 
