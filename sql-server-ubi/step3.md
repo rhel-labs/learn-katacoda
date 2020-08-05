@@ -1,6 +1,6 @@
 # Deploy and configure SQL Server
 
-> **NOTE:** On SELinux systems, systemd attempts to write to the cgroup file system.  Containers writing to the cgroup file system are denied by default. The container_manage_cgroup boolean must be enabled for this to be allowed on an SELinux separated system. We will be using systemd commands inside our SQL Server container and hence access to the cgroup file system must be allowed since SELinux is enabled by default.
+> **NOTE:** On SELinux enabled systems, systemd attempts to write to the cgroup file system.  Containers writing to the cgroup file system are denied by default. The container_manage_cgroup boolean must be enabled for this to be allowed on an SELinux separated system. We will be using systemd commands inside our SQL Server container and hence access to the cgroup file system must be allowed since SELinux is enabled by default.
 
 On the host system, tell SELinux to allow the containers to write to the cgroup file system
 
