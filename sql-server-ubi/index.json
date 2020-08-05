@@ -1,5 +1,5 @@
 {
-  "title": "Microsoft SQL Server on Red Hat Enterprise Linux using Red Hat Universal Base Image(UBI)",
+  "title": "Microsoft SQL Server on Red Hat Enterprise Linux using Red Hat Universal Base Image (UBI)",
   "description": "Goal: Users will be able to run Microsoft SQL Server on RHEL using UBI and Red Hat container tools",
   "details": {
     "steps": [
