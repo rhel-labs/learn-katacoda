@@ -33,6 +33,6 @@ REPOSITORY              TAG      IMAGE ID       CREATED       SIZE
 localhost/rhel8-httpd   latest   69aac470f62d   8 weeks ago   617 MB
 </pre>
 
-**Podman** is available on the host system, and there is only the rhel8-httpd image available in the local podman repository.
+*Podman* is available on the host system, and there is only the rhel8-httpd image available in the local podman repository.
 
 To run SQL Server in a container, download the SQL Server container images.
