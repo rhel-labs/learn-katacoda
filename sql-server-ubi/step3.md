@@ -14,4 +14,4 @@ This container is running as user mssql.
 << OUTPUT ABRIDGED >>
 </pre>
 
-> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is mssql. 
+> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is mssql. In step 1, we changed user ownership of the /var/mssql directories to uid:10001 that maps to the mssql user.
