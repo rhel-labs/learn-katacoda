@@ -13,7 +13,7 @@ Verify that the SQL Server container image is now available on the host system
 
 `podman images`{{execute T1}}
 
-In the output, you will notice that there are 3 container images available for use.
+In the output, you will notice that the SQL Server container image is downloaded and available for use
 
 <pre class="file">
 REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
