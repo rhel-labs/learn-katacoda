@@ -36,7 +36,3 @@ localhost/rhel8-httpd   latest   69aac470f62d   8 weeks ago   617 MB
 **Podman** is available on the host system, and there is only the rhel8-httpd image available in the local podman repository.
 
 To run SQL Server in a container, download the SQL Server container images.
-
-> **NOTE:** On SELinux systems, systemd attempts to write to the cgroup file system.  Containers writing to the cgroup file system are denied by default. The container_manage_cgroup boolean must be enabled for this to be allowed on an SELinux separated system. We will be using systemd commands inside our SQL Server container and hence access to the cgroup file system must be allowed since SELinux is enabled by default.
-
-`setsebool -P container_manage_cgroup true`
