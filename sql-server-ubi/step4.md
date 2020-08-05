@@ -6,7 +6,7 @@ Get the ID of the container running SQL Server
 Launch an interactive bash shell in the container
 `podman exec -it $CONTAINER "/bin/bash"`{{execute T3}}
 
-Connect  with **sqlcmd** and run the @@version T-SQL statement to get the version of the running SQL Server 
+Connect  with **sqlcmd** and run the @@version T-SQL statement to get the servername and the version of SQL Server running on the server
 
 > **NOTE:** sqlcmd is not in the path by default, so you have to specify the full path
 
