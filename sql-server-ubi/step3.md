@@ -7,7 +7,7 @@ TCP port **1433** is the default port for SQL Server.
 
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password 
 
-`podman run -d --tmpfs /tmp --tmpfs /run -v /var/mssql/data:/var/opt/mssql/data:Z -v /var/mssql/log:/var/opt/mssql/log:Z -v /var/mssql/secrets:/var/opt/mssql/secrets:Z -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -v /sys/fs/cgroup:/sys/fs/cgroup:ro --stop-signal SIGRTMIN+3 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+`podman run -d --tmpfs /tmp --tmpfs /run -v /var/mssql/data:/var/opt/mssql/data:Z -v /var/mssql/log:/var/opt/mssql/log:Z -v /var/mssql/secrets:/var/opt/mssql/secrets:Z -v /var/mssql/scripts:/var/opt/mssql/scripts:Z --systemd=true -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
 <pre class="file">
 SQL Server 2019 will run as non-root by default.
