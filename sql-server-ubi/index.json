@@ -22,15 +22,12 @@
       {
 	"title": "Step 5",
 	"text": "step5.md"
-      },
-      {
-	"title": "Step 6",
-	"text": "step6.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Don Pinto (Red Hat)"
+      "credits": "__Author:__ Don Pinto (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"

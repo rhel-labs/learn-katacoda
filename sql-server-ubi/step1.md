@@ -12,9 +12,17 @@ On the host system, create a directory to persist the SQL Server database, log a
 
 `mkdir -p /var/mssql/data; mkdir -p /var/mssql/log; mkdir -p /var/mssql/secrets`{{execute T1}}
 
-Now modify and set the appropriate permissions for the created directory
+On the host system, create another directory to store the script to be used for SQL Server Pubs database
 
-`chmod 755 -R /var/mssql/data; chmod 755 -R /var/mssql/log; chmod 755 -R /var/mssql/secrets`{{execute T1}}
+`mkdir -p /var/mssql/scripts`{{execute T1}}
+
+Move the script file from the /root directory to the newly created scripts directory
+
+`mv ./InstPubs.sql /var/mssql/scripts/`{{execute T1}}
+
+Now modify and set the appropriate user ownership for the directory to uid:10001 (the mssql default user uid) 
+
+`chown -R 10001:0 /var/mssql/data; chown -R 10001:0 /var/mssql/log; chown -R 10001:0 /var/mssql/secrets; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
 
 Use *podman* to list the container images available on the host system
 
