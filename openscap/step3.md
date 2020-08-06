@@ -1,4 +1,4 @@
-# Generating SELinux container policies with Udica
+# Running a scan against a profile
 
 To create the custom SELinux security policy, Udica scans the container JSON file to discover which Linux capabilities are required 
 by the container. The network ports are a similar situation where Udica uses the SELinux userspace libraries to get the correct 
