@@ -10,7 +10,7 @@ Install the packages to get the *oscap* and the SCAP security guide packages
 
 `yum install -y openscap-scanner scap-security-guide`{{execute T1}}
 
-After installing, all SCAP Security Guide security policies are in directory */usr/share/xml/scap/ssg/content/*. There are files for every platform available in a form of XCCDF, OVAL or datastream documents. In most of use cases, you want to use the datastreams, which filenames end with -ds.xml. SCAP datastreams represent a bundle of profiles which are used to define a compliance policy.
+After installing, all SCAP Security Guide security policies are in the */usr/share/xml/scap/ssg/content/* directory. There are files for every platform available in a form of XCCDF, OVAL or datastream documents. In most of use cases, you want to use the datastreams, which filenames end with -ds.xml. SCAP datastreams represent a bundle of profiles which are used to define a compliance policy.
 
 `ls /usr/share/xml/scap/ssg/content`{{execute T1}}
 
