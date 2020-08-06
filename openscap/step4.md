@@ -1,4 +1,4 @@
-# Verifying the SELinux container policies with Udica
+# Remediating and rescanning against a profile
 
 You can verify the policies generated using Udica for the container and enforced by SELinux. 
 
