@@ -1,6 +1,6 @@
 # Installing the SCAP packages
 
-Red Hat Enterprise Linux (RHEL) includes tools that are based on the Security Content Automation Protocol (SCAP) standard, designed for automated tailoring of compliance policies. **OpenSCAP**, available in RHEL, is a standardized compliance solution available that includes policies and tooling based on SCAP that allow you to scan and evaluate host machines. 
+Red Hat Enterprise Linux (RHEL) includes tools that are based on the Security Content Automation Protocol (SCAP) standard, designed for automated tailoring of compliance policies. **OpenSCAP**, available in RHEL, is a SCAP based compliance toolkit that includes policies and tools that allows you to scan and evaluate host machines. 
 
 __Note:__ There are 2 terminal tabs that will be used in this lab - a terminal for running the scanner (indicated by *Terminal*), and a second terminal for remediating an issue that is found (indicated by *Terminal Remediation*).
 
