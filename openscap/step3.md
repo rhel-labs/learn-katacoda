@@ -3,9 +3,9 @@
 A XCCDF document is a structured collection of security configuration rules for some set of target system. In this case, it has the 
 configuration rules that meet the PCI regulation.
 
-Run the *oscap* tool providing the XCCDF formatted profile with ID (*xccdf_org.ssgproject.content_profile_pci-ds*), option to fetch remote resources if needed (*--fetch-remote-resources*), report output file name (*report.html*), and the checklist file as per the SCAP security guide (*/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml*)
+Run the *oscap* tool providing the XCCDF formatted profile with ID (*xccdf_org.ssgproject.content_profile_pci-ds*), option to fetch remote resources if needed (*--fetch-remote-resources*), report output file name (*index.html*), and the checklist file as per the SCAP security guide (*/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml*)
 
-`oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml --report /var/www/html/report.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
+`oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml --report /var/www/html/index.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
 __Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules and store the results in the /tmp directory and generate the html report.  
 
