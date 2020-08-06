@@ -1,16 +1,14 @@
 # Software installation and configuration
 
-Red Hat Enterprise Linux (RHEL) provides tools that enable you to perform a fully automated compliance audit. These tools are based on the Security Content Automation Protocol (SCAP) 
-standard and are designed for automated tailoring of compliance policies.
-
-OpenSCAP is a standardized compliance solution available in RHEL that comprises of policies and tooling that allow you to scan and evaluate host machines. 
+Red Hat Enterprise Linux (RHEL) includes tools that are based on the Security Content Automation Protocol (SCAP) standard, designed for automated tailoring of compliance policies. 
+**OpenSCAP**, available in RHEL, is a standardized compliance solution available that includes policies and tooling based on SCAP that allow you to scan and evaluate host machines. 
 
 There are 2 terminal tabs that will be used in this lab - a terminal for running the scanner (indicated by *Terminal*), and a second terminal for remediating an issue that is 
 found (indicated by *Terminal Remediation*).
 
-Prior to getting started, we need to download the package that consists of the command line interface of the OpenSCAP scanner (*oscap*). OpenSCAP also has a graphical tool called 
-SCAP workbench, but in this lab we will only be using the command line tool. We will also download the package that has the SCAP Security guide, which implements security guidance 
-rules and remediation scripts by respective authorities, namely PCI DSS, STIG, etc. In this lab we will scan the system against the PCI DSS profile. 
+Prior to getting started, we will download the package that consists of the command line interface of the OpenSCAP scanner (*oscap*). OpenSCAP also has a graphical tool called 
+SCAP workbench, but in this lab, we will only be using the command line interface. We will also download the SCAP Security guide, which implements security guidance rules and 
+remediation scripts by respective authorities, namely PCI DSS, STIG, etc. In this lab, we will scan the system against the PCI DSS profile. 
 
 Install the packages to get the oscap and the SCAP security guide packages
 
