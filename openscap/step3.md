@@ -1,36 +1,13 @@
 # Running a scan against a profile
 
-To create the custom SELinux security policy, Udica scans the container JSON file to discover which Linux capabilities are required 
-by the container. The network ports are a similar situation where Udica uses the SELinux userspace libraries to get the correct 
-SELinux label of a port that is used by the inspected container. 
+The profile ID that we are looking at *xccdf_org.ssgproject.content_profile_pci-dss*, has Extensible Configuration Checklist Description 
+Format (XCCDF).  An XCCDF document is a structured collection of security configuration rules for some set of target system. In this case, 
+it has the configuration rules that meet the PCI regulation.
 
-In the *Terminal* tab of the lab interface, inspect the running container using podman to generate a container inspection file in JSON format
+Run the *oscap* tool providing the profile ID (*xccdf_org.ssgproject.content_profile_pci-ds*), option to fetch remote resources if needed (*--fetch-remote-resources*), report output file name (*report.html*), and the checklist file as per the SCAP security guide (*/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml*)
 
-`podman inspect $CONTAINERID > container.json`{{execute T1}}
-
-Tell Udica to generate the custom SELinux security policy by using the container JSON file. In this case the name of the 
-custom SELinux security policy is called 'my_container'
-
-`udica -j container.json my_container`{{execute T1}}
+`oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --fetch-remote-resources --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
 <pre class="file">
-
-Policy my_container created!
-
-Please load these modules using:
-\# semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}
-
-Restart the container with: "--security-opt label=type:my_container.process" parameter
+TBD
 </pre>
-
-You just created a custom SELinux security policy for the container. Now you can load this policy into the kernel and make it active.
-
-`semodule -i my_container.cil /usr/share/udica/templates/{base_container.cil,net_container.cil,home_container.cil}`{{execute T1}}
-
-For the policies to take effect, stop and re-launch the container
-
-`podman stop $CONTAINERID`{{execute T1}}
-
-Create a new container runtime from the image which uses the new, custom container policy
-
-`CONTAINER=$(podman run --security-opt label=type:my_container.process -v /home:/home:ro -v/var/spool:/var/spool:rw -d -p 80:80 -it registry.access.redhat.com/ubi8/ubi)`{{execute T2}}
