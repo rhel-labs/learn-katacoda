@@ -1,6 +1,6 @@
 # Displaying available profiles 
 
-You can display all available profiles using the info command on the datastream file. In this case, we will be using the rhel8 datastream file 
+You can display all available profiles using the info command on the datastream file. In this case, we will be using the RHEL8 datastream file 
 
 `oscap info /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
