@@ -6,7 +6,7 @@ __Note:__ There are 2 terminal tabs that will be used in this lab - a terminal f
 
 Prior to getting started, we will install the package that consists of the command line interface of the OpenSCAP scanner (*oscap*). OpenSCAP also has a graphical tool called SCAP workbench, but in this lab, we will only be using the command line interface. We will also install the SCAP Security guide, which implements security guidance rules and remediation scripts by respective authorities, namely PCI DSS, STIG, etc. In this lab, we will scan the system against the PCI DSS profile. 
 
-Install apache e packages to get the *oscap* and the SCAP security guide packages
+Ensure Apache httpd plus the OpenSCAP scanner and definitions are installed with the command below; it’s safe to run even if the packages already exist
 
 `yum install -y httpd openscap-scanner scap-security-guide`{{execute T1}}
 
