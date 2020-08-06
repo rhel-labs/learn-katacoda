@@ -1,8 +1,8 @@
 #!/bin/bash
 
-yum -y install buildah podman
-buildah rm -a
-setsebool -P container_manage_cgroup true
+yum -y install httpd
 
-systemctl stop httpd
-systemctl disable httpd
+firewall-cmd --permanent --zone=public --add-service=http
+systemctl reload firewalld
+
+systemctl enable --now httpd
