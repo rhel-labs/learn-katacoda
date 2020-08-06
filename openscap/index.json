@@ -37,7 +37,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "dashboards": [{"name":"Apache Service", "port": "8081", "host": "locahost"}],
+    "dashboards": [{"name":"Apache Service", "port": "8081", "host": "localhost"}],
     "showdashboard":true,
     "terminals": [{"name":"Terminal 2","target":"host01"}]
   },
