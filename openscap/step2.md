@@ -51,8 +51,20 @@ A profile contains generic security recommendations that apply to all Red Hat En
 
 To obtain information about a specific profile, specify the --profile option.
 
-`oscap info --profile PCI /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
+`oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
 <pre class="file">
-TBD
+Document type: Source Data Stream
+Imported: 2020-02-11T08:41:17
+
+Stream: scap_org.open-scap_datastream_from_xccdf_ssg-rhel8-xccdf-1.2.xml
+Generated: (null)
+Version: 1.3
+WARNING: Datastream component 'scap_org.open-scap_cref_security-data-oval-com.redhat.rhsa-RHEL8.xml' points out to the remote 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml'. Use '--fetch-remote-resources' option to download it.
+WARNING: Skipping 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml' file which is referenced from datastream
+Profile
+        Title: PCI-DSS v3.2.1 Control Baseline for Red Hat Enterprise Linux 8
+        Id: xccdf_org.ssgproject.content_profile_pci-dss
+
+        Description: Ensures PCI-DSS v3.2.1 security configuration settings are applied.
 </pre>
