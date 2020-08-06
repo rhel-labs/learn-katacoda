@@ -119,6 +119,6 @@ Result  pass
 << OUTPUT ABRIDGED >>
 </pre>
 
-Once the command completes, open the browser tab to view the resulting report.
+Once the command completes, open the OpenSCAP report tab of this lab interface to view the scan report.
 
 
