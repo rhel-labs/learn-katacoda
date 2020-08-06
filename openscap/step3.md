@@ -5,9 +5,9 @@ configuration rules that meet the PCI regulation.
 
 Run the *oscap* tool providing the XCCDF formatted profile with ID (*xccdf_org.ssgproject.content_profile_pci-ds*), option to fetch remote resources if needed (*--fetch-remote-resources*), report output file name (*report.html*), and the checklist file as per the SCAP security guide (*/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml*)
 
-`oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --fetch-remote-resources --results scan-xccdf-results.xml --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
+`oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml --report /var/www/htm/report.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules and store the results.  
+__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules and store the results in the /tmp directory and generate the html report.  
 
 <pre class="file">
 Downloading: https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml ... ok
@@ -118,3 +118,7 @@ Result  pass
 
 << OUTPUT ABRIDGED >>
 </pre>
+
+Once the command completes, open the browser tab to view the resulting report.
+
+
