@@ -8,4 +8,4 @@ After completing this scenario, you will be able to run tools based on the Secur
 * Re-run the scan to ensure that the issue has been resolved 
 
 # Example Usecase:
-The Chief Security Officer (CSO) of your organizatin has requested that a compliance scan be conducted to meet the PCI-DSS requirements. 
+The Chief Security Officer (CSO) of your organization has requested that a compliance scan be conducted to meet the PCI-DSS requirements. 
