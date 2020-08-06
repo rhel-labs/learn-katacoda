@@ -1,59 +1,58 @@
-# Inspecting container access and SELinux policies
+# Displaying available profiles 
 
-In 'Terminal 2' tab of the lab interface, use a `podman exec` command to create an interactive shell inside the running container.
+You can display all available profiles using the info command on the datastream file. In this case, we will be using the rhel8 datastream file 
 
-`podman exec -t -i $CONTAINER /bin/bash`{{execute T2}}
+`oscap info /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-Check the container's access to the */home* directory
-
-`cd /home; ls`{{execute T2}}
-
-<pre class="file">
-ls: cannot open directory '.': Permission denied
-</pre>
-
-In 'Terminal' tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */home* directory
-
-`sesearch -A -s container_t -t home_root_t -c dir -p read`{{execute T1}}
-
-The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */home* directory, access 
-is blocked by SELinux.
-
-In 'Terminal' tab of the lab interface, check the container's access to the */var/spool/* directory
-
-`cd /var/spool/; ls`{{execute T2}}
+__Note:__ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC Essential Eight. By default the oscap tool will not 
+download and execute remote content. If you trust your local content and the remote content it references, you can use the --fetch-remote-resources 
+option to automatically download it using the oscap tool as suggested in the output WARNING. 
 
 <pre class="file">
-ls: cannot open directory '.': Permission denied
+Document type: Source Data Stream
+Imported: 2020-02-11T08:41:17
+
+Stream: scap_org.open-scap_datastream_from_xccdf_ssg-rhel8-xccdf-1.2.xml
+Generated: (null)
+Version: 1.3
+Checklists:
+        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-xccdf-1.2.xml
+WARNING: Datastream component 'scap_org.open-scap_cref_security-data-oval-com.redhat.rhsa-RHEL8.xml' points out to the remote 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml'. Use '--fetch-remote-resources' option to download it.
+WARNING: Skipping 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml' file which is referenced from datastream
+                Status: draft
+                Generated: 2020-02-11
+                Resolved: true
+                Profiles:
+                        Title: Protection Profile for General Purpose Operating Systems
+                                Id: xccdf_org.ssgproject.content_profile_ospp
+                        Title: PCI-DSS v3.2.1 Control Baseline for Red Hat EnterpriseLinux 8
+                                Id: xccdf_org.ssgproject.content_profile_pci-dss
+                        Title: [DRAFT] DISA STIG for Red Hat Enterprise Linux 8
+                                Id: xccdf_org.ssgproject.content_profile_stig
+                        Title: Australian Cyber Security Centre (ACSC) Essential Eight
+                                Id: xccdf_org.ssgproject.content_profile_e8
+                Referenced check files:
+                        ssg-rhel8-oval.xml
+                                system: http://oval.mitre.org/XMLSchema/oval-definitions-5
+                        ssg-rhel8-ocil.xml
+                                system: http://scap.nist.gov/schema/ocil/2
+                        security-data-oval-com.redhat.rhsa-RHEL8.xml
+                                system: http://oval.mitre.org/XMLSchema/oval-definitions-5
+Checks:
+        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-oval.xml
+        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-ocil.xml
+        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-cpe-oval.xml
+        Ref-Id: scap_org.open-scap_cref_security-data-oval-com.redhat.rhsa-RHEL8.xml
+Dictionaries:
+        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-cpe-dictionary.xml
 </pre>
 
-SELinux is restricting access to the */var/spool* directory.
+A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system.
 
-In 'Terminal 2' tab of the lab interface, check the container's write access to the */var/spool/* directory
+To obtain information about a specific profile, specify the --profile option.
 
-`touch test`{{execute T2}}
+`oscap info --profile PCI /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
 <pre class="file">
-touch: cannot touch 'test': Permission denied
+TBD
 </pre>
-
-In 'Terminal' tab of the lab interface, query the SELinux policy to search for allow enforcement rules applied to access */var/spool* directory
-
-`sesearch -A -s container_t -t var_spool_t -c dir -p read`{{execute T1}}
-
-The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */var/spool/* directory, access 
-is blocked by SELinux.
-
-Query the SELinux policy for network access for container_t types
-
-`sesearch -A -s container_t -t port_type -c tcp_socket`{{execute T1}}
-
-<pre class="file">
-allow container_net_domain port_type:tcp_socket { name_bind name_connect recv_msg send_msg };
-allow corenet_unconfined_type port_type:tcp_socket { name_bind name_connect recv_msg send_msg };
-allow sandbox_net_domain port_type:tcp_socket { name_bind name_connect recv_msg send_msg };
-</pre>
-
-Sandbox is the default process type (domain) in SELinux, and container is the domain used in the context of containers. The corenet type
-is typically used in the context of the Linux kernel. The output means that for each of these domains, binding, connecting, sending and receiving 
-messages are allowed without TCP port restrictions.
