@@ -7,7 +7,7 @@ Run the *oscap* tool providing the XCCDF formatted profile with ID (*xccdf_org.s
 
 `oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --fetch-remote-resources --results scan-xccdf-results.xml --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-__Note:__ This scan can take a few minutes to complete
+__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules and store the results.  
 
 <pre class="file">
 Downloading: https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml ... ok
