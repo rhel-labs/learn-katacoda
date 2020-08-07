@@ -4,9 +4,10 @@ You can display all available profiles using the info command on the datastream 
 
 `oscap info /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-__Note:__ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC Essential Eight. By default the oscap tool will not 
-download and execute remote content. If you trust your local content and the remote content it references, you can use the --fetch-remote-resources 
-option to automatically download it using the oscap tool as suggested in the output WARNING. 
+The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC Essential Eight. 
+
+__Note:__ By default the oscap tool will not download and execute remote content. If you trust your local content and the remote content 
+it references, you can use the --fetch-remote-resources option to automatically download it using the oscap tool as suggested in the output WARNING. 
 
 <pre class="file">
 Document type: Source Data Stream
