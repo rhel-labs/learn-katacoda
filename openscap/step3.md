@@ -55,6 +55,5 @@ Result  pass
 << OUTPUT ABRIDGED >>
 </pre>
 
-Once the command completes, open the OpenSCAP report tab of this lab interface to view the scan report in html format.
-
-
+Once the command completes, you can look at the pass/fail status of each rule as command line output, or check the OpenSCAP report tab of this lab interface 
+to view the scan report in HTML format.
