@@ -2,7 +2,7 @@
 
 **SCAP** (Security Content Automation Protocol) is a NIST project that standardizes the language for describing assessment criteria and findings. **OpenSCAP**, available in RHEL, is a SCAP based compliance toolkit that includes policies and tools that allows you to scan and evaluate host machines. 
 
-__Note:__ There are 2 terminal tabs that will be used in this lab - a terminal for running the scanner (indicated by *Terminal*), and a second terminal for remediating an issue that is found (indicated by *Terminal Remediation*).
+__Note:__ There are 3 tabs that will be used in this lab - a terminal tab for running the scanner (indicated by *Terminal*), a second terminal tab for remediating an issue that is found (indicated by *Terminal Remediation*), and a browser tab for viewing the OpenSCAP report (indicated by *OpenSCAP Report*).
 
 Prior to getting started, we will install the package that consists of the command line interface of the OpenSCAP scanner (*oscap*). OpenSCAP also has a graphical tool called SCAP workbench, but in this lab, we will only be using the command line interface. We will also install the SCAP Security guide, which implements security guidance rules and remediation scripts by respective authorities, namely PCI DSS, STIG, etc. In this lab, we will scan the system against the PCI DSS profile. 
 
