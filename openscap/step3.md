@@ -8,7 +8,8 @@ checklist file as per the SCAP security guide.
 
 `oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml --report /var/www/html/index.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules and store the results in the /tmp directory and generate the html report.  
+__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules, store the results in the /tmp directory and generate the 
+scan report in HTML format.  
 
 <pre class="file">
 Downloading: https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml ... ok
