@@ -60,4 +60,5 @@ to view the scan report in HTML format.
 
 ![OpenSCAP-Report](./assets/Openscan-Report-Fail.png)
 
-From the report, you will notice that there are about 30 or so rules that have failed, and we will be focusing on remediating one of them related to IPSec.
+From the report, you will notice that there are about 30 or so rules that have failed, and the next steps will focus on remediating one of them 
+related to IPSec.
