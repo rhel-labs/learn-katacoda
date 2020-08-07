@@ -1,9 +1,9 @@
 # Remediating and rescanning against a profile
 
-In the html report you will notice that there are several rules that have failed. In this step,you will remediate a single failed rule.
+In this step,you will remediate a single failed rule related to IPSec support.
 
-__NOTE__: Many of the remediations involve restarting the host, and our current demo environment does not support host reboots yet. Thus, this lab will 
-focus on remediating a single issue.
+__NOTE__: Many of the remediations involve restarting the host, and the current demo environment does not support host reboots yet. Thus, this lab will 
+focus only on remediating a single issue. 
 
 On *Terminal 2* of the lab interface, re-scan the host passing the *--remediation* option to carry out an online remediation. Additionally, provide
 the rule ID to address a specific failed rule. In this case, we are providing the rule ID of the rule that needs libreswan package for IPSec.
