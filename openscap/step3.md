@@ -57,3 +57,7 @@ Result  pass
 
 Once the command completes, you can look at the pass/fail status of each rule as command line output, or check the OpenSCAP report tab of this lab interface 
 to view the scan report in HTML format.
+
+![OpenSCAP-Report](./assets/Openscan-Report-Fail.png)
+
+From the report, you will notice that there are about 30 or so rules that have failed, and we will be focusing on remediating one of them related to IPSec.
