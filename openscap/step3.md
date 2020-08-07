@@ -51,74 +51,9 @@ Rule    xccdf_org.ssgproject.content_rule_auditd_data_retention_max_log_file
 Ident   CCE-80681-0
 Result  pass
 
-Title   Configure auditd to use audispd's syslog plugin
-Rule    xccdf_org.ssgproject.content_rule_auditd_audispd_syslog_plugin_activated
-Ident   CCE-80677-8
-Result  pass
-
-Title   Record Events that Modify the System's Network Environment
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_networkconfig_modification
-Ident   CCE-80723-0
-Result  pass
-
-Title   Record Events that Modify the System's Mandatory Access Controls
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_mac_modification
-Ident   CCE-80721-4
-Result  pass
-
-Title   System Audit Logs Must Have Mode 0640 or Less Permissive
-Rule    xccdf_org.ssgproject.content_rule_file_permissions_var_log_audit
-Ident   CCE-80819-6
-Result  pass
-
-Title   Record Events that Modify User/Group Information - /etc/security/opasswd
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_opasswd
-Ident   CCE-80760-2
-Result  pass
-
-Title   Record Events that Modify User/Group Information - /etc/gshadow
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_gshadow
-Ident   CCE-80759-4
-Result  pass
-
-Title   Ensure auditd Collects System Administrator Actions
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_sysadmin_actions
-Ident   CCE-80743-8
-Result  pass
-
-Title   Ensure auditd Collects Information on Exporting to Media (successful)
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_media_export
-Ident   CCE-80722-2
-Result  pass
-
-Title   Record Attempts to Alter Process and Session Initiation Information
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_session_events
-Ident   CCE-80742-0
-Result  pass
-
-Title   Record Events that Modify User/Group Information - /etc/passwd
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_passwd
-Ident   CCE-80761-0
-Result  pass
-
-Title   Make the auditd Configuration Immutable
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_immutable
-Ident   CCE-80708-1
-Result  pass
-
-Title   Record Events that Modify User/Group Information - /etc/group
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_group
-Ident   CCE-80758-6
-Result  pass
-
-Title   Record Events that Modify User/Group Information - /etc/shadow
-Rule    xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_shadow
-Ident   CCE-80762-8
-Result  pass
-
 << OUTPUT ABRIDGED >>
 </pre>
 
-Once the command completes, open the OpenSCAP report tab of this lab interface to view the scan report.
+Once the command completes, open the OpenSCAP report tab of this lab interface to view the scan report in html format.
 
 
