@@ -20,8 +20,22 @@
       "pathway_id": "rhel-labs",
       "id": "podman-deploy",
       "course_id": "podman-deploy",
-      "title": "Deploying containers using Podman",
+      "title": "Deploying containers using Container Tools [podman]",
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "buildah",
+      "course_id": "buildah",
+      "title": "Creating images with Container Tools [buildah]",
+      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "ebpf-tracing",
+      "course_id": "ebpf-tracing",
+      "title": "Performance observability in practice with bcc-tools",
+      "description": "Collect data on various system activities, such as disk performance, latency, and more using the bcc-tools.  This data can help identify issues with application performance."
     },
     {
       "pathway_id": "rhel-labs",
@@ -39,10 +53,24 @@
     },
     {
       "pathway_id": "rhel-labs",
-      "id": "buildah",
-      "course_id": "buildah",
-      "title": "Creating images with buildah",
-      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
+      "id": "kpatch-apply",
+      "course_id": "kpatch-apply",
+      "title": "Reducing unplanned maintenance with Kernel Live Patching",
+      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by a pplying Kernel Live Patches to your systems without needing to take a system dow ntime for maintenance."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "imagebuilder",
+      "course_id": "imagebuilder",
+      "title": "Using Web Console to build virtual machine images [Image Builder]",
+      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "imagebuilder-cli",
+      "course_id": "imagebuilder-cli",
+      "title": "Design and build virtual machine images using commandline tools [Image Builder]",
+      "description": "Move into the Hybrid Cloud by building consistent virtual machines produced for virtualization or cloud providers with the composer-cli co mmandline tool."
     },
     {
       "pathway_id": "rhel-labs",
@@ -50,13 +78,6 @@
       "course_id": "vdo-configure",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
-    },
-    {
-      "pathway_id": "rhel-labs",
-      "id": "imagebuilder",
-      "course_id": "imagebuilder",
-      "title": "Using Web Console to build virtual machine images",
-      "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
     },
     {
       "pathway_id": "rhel-labs",
