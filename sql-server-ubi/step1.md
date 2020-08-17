@@ -26,7 +26,7 @@ Now, create a shell as the __rhel__ user so that we don't use root privileges fo
 
 Recall that the __rhel__ user's password is __redhat__.
 
-`ssh rhel@localhost`{{execute}}
+`ssh rhel@localhost`{{execute T1}}
 
 Use *podman* to list the container images available on the host system
 
