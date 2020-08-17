@@ -22,15 +22,20 @@ Now modify and set the appropriate user ownership for the directory to uid:10001
 
 `chown -R 10001:0 /var/mssql/data; chown -R 10001:0 /var/mssql/log; chown -R 10001:0 /var/mssql/secrets; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
 
+Now, create a shell as the __rhel__ user so that we don't use root privileges for the podman commands.
+
+Recall that the __rhel__ user's password is __redhat__.
+
+`ssh rhel@localhost`{{execute}}
+
 Use *podman* to list the container images available on the host system
 
 `podman images`{{execute T1}}
 
 <pre class="file">
 REPOSITORY              TAG      IMAGE ID       CREATED       SIZE
-localhost/rhel8-httpd   latest   69aac470f62d   8 weeks ago   617 MB
 </pre>
 
-*Podman* is available on the host system, and there is only the rhel8-httpd image available in the local podman repository.
+*Podman* is available on the host system, and there are no images available in the local podman repository.
 
 To run SQL Server in a container, download the SQL Server container images.
