@@ -15,5 +15,4 @@ In the output, you will notice that the SQL Server container image is downloaded
 <pre class="file">
 REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
 mcr.microsoft.com/mssql/rhel/server   2019-latest   9ab439659123   6 weeks ago   1.59 GB
-localhost/rhel8-httpd                 latest        69aac470f62d   7 weeks ago   617 MB
 </pre>
