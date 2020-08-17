@@ -1,8 +1,6 @@
 # Verify the environment
 
-Today hundreds of developers now offer their software in freely redistributable containers. Microsoft 
-has leveraged RHEL UBIs, and released SQL Server 2019 for Linux as a UBI 8 container. In this lab, we
-will demonstrate how you can use these available images using RHEL container tools.
+Containers are an extremely popular way for developers to deliver software today.  They are more portable and lightweight than the VM images traditionally used to package software in the cloud,  while at the same time, more consistent and efficient to deploy and patch than traditional software packages used on-premises.  Microsoft delivers SQL Server 2019 for Linux containers which are supported on Red Hat Enterprise Linux (RHEL) 8 and OpenShift 4.  These containers are built using the Red Hat Universal Base Image (UBI) runtime.  In this lab, we will demonstrate how to deploy these images on RHEL 8.
 
 > **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools. If you are not familiar with RHEL container tools (such as *podman*), you should consider reviewing the [Podman lab](https://lab.redhat.com/podman-deploy)
 
