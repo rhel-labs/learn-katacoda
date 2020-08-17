@@ -15,6 +15,8 @@ the container to *mssqlcontainer*
 
 `podman run --name mssqlDB1 --hostname=mssqlcontainer -d -v /var/mssql/data:/var/opt/mssql/data -v /var/mssql/log:/var/opt/mssql/log -v /var/mssql/secrets:/var/opt/mssql/secrets -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
+> **NOTE:** We have instantiated the container runtime using a non-root *rhel* user.
+
 Get the top 2 lines of the container logs 
 
 `podman logs -t mssqlDB1 | head -2`{{execute T2}}
@@ -25,4 +27,6 @@ This container is running as user mssql.
 << OUTPUT ABRIDGED >>
 </pre>
 
-> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is mssql. In step 1, we changed user ownership of the /var/mssql directories to uid:10001 that maps to the mssql user.
+> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is mssql. In step 1, we changed user ownership of the /var/mssql directories to uid:10001 that maps to the mssql user. 
+
+Now, the container is spinned up using a non-root user (*rhel*), and SQL Server running inside the container is also running using non-root (*mssql*) user.
