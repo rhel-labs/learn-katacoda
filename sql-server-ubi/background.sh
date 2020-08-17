@@ -6,3 +6,6 @@ wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-serve
 
 #Create a done file to signal we have finished
 touch /root/post-run.log.done
+
+#Set selinux to permissive mode
+setenforce 0
