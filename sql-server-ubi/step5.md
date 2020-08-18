@@ -1,4 +1,4 @@
-# Connect to SQL Server and Query Data
+# Query In-Memory OLTP data in SQL Server
 
 Run the script to create the in-memory table and load data
 
