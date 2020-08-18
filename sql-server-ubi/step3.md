@@ -14,12 +14,12 @@ TCP port *1433* is the default port for SQL Server.
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password. 
 Set the hostname of the container to *mssqlcontainer*
 
-`podman run --name mssqlDB1 --hostname=mssqlcontainer1 -d -v /var/mssqlDB1/data:/var/opt/mssql/data -v /var/mssqlDB1/log:/var/opt/mssql/log -v /var/mssqlDB1/secrets:/var/opt/mssql/secrets -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1401:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+`podman run --name mssqlDB1 --hostname=mssqlcontainer1 -d -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1401:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
 Similarly, repeat the command to spin up database instance 2 of SQL Server by passing through in-container access to the appropriate 
 host directories, and host port (1402) to podman. Set the hostname of the container to *mssqlcontainer2*
 
-`podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -v /var/mssqlDB2/data:/var/opt/mssql/data -v /var/mssqlDB2/log:/var/opt/mssql/log -v /var/mssqlDB2/secrets:/var/opt/mssql/secrets -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+`podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
 > **NOTE:** We have instantiated the container runtime using a non-root *rhel* user.
 
