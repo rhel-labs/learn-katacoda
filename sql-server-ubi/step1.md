@@ -6,7 +6,7 @@ Containers are an extremely popular way for developers to deliver software today
 
 There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*).
 
-In this lab, we will be spinning up 2 instances of SQL Server in a container. 
+In this lab, we will be spinning up 2 instances of SQL Server, each running in a container. 
 
 On the host system, create a directory to persist the SQL Server database, log and secrets for database instance 1 (or *DB1* in short)
 
