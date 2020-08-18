@@ -10,11 +10,11 @@ In this lab, we will be spinning up 2 instances of SQL Server, each running in a
 
 On the host system, create a directory to persist the SQL Server database, log and secrets for database instance 1 (or *DB1* in short)
 
-`mkdir -p /var/mssql/dataDB1; mkdir -p /var/mssql/logDB1; mkdir -p /var/mssql/secretsDB1`{{execute T1}}
+`mkdir -p /var/mssqlDB1/data; mkdir -p /var/mssqlDB1/log; mkdir -p /var/mssqlDB1/secrets`{{execute T1}}
 
 On the host system, create a directory to persist the SQL Server database, log and secrets for database instance 2 (or *DB2* in short)
 
-`mkdir -p /var/mssql/dataDB2; mkdir -p /var/mssql/logDB2; mkdir -p /var/mssql/secretsDB2`{{execute T1}}
+`mkdir -p /var/mssqlDB2/data; mkdir -p /var/mssqlDB2/log; mkdir -p /var/mssqlDB2/secrets`{{execute T1}}
 
 On the host system, create another directory to store the script to be used for SQL Server Pubs database
 
@@ -26,9 +26,9 @@ Move the script file from the /root directory to the newly created scripts direc
 
 Now modify and set the appropriate user ownership for the directories created to uid:10001 (the *mssql* default user uid)  
 
-`chown -R 10001:0 /var/mssql/dataDB1; chown -R 10001:0 /var/mssql/logDB1; chown -R 10001:0 /var/mssql/secretsDB1; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
+`chown -R 10001:0 /var/mssqlDB1/data; chown -R 10001:0 /var/mssqlDB1/log; chown -R 10001:0 /var/mssqlDB1/secrets; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
 
-`chown -R 10001:0 /var/mssql/dataDB2; chown -R 10001:0 /var/mssql/logDB2; chown -R 10001:0 /var/mssql/secretsDB2`{{execute T1}}
+`chown -R 10001:0 /var/mssqlDB2/data; chown -R 10001:0 /var/mssqlDB2/log; chown -R 10001:0 /var/mssqlDB2/secrets`{{execute T1}}
 
 Now, create a shell as the __rhel__ user so that we don't use root privileges for the podman commands.
 
