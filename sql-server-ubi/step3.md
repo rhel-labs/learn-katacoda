@@ -46,3 +46,14 @@ This container is running as user mssql.
 > **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. In step 1, we changed user ownership of the mounted directories to uid:*10001* to map to the *mssql* user. 
 
 At this point, there should be 2 containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
+
+To confirm this, run the *podman ps* command - 
+
+`podman ps`{{execute T2}}
+
+<pre class="file">
+CONTAINER ID  IMAGE                                            COMMAND               CREATED         STATUS          PORTS                   NAMES
+9eaffcd5350f  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  17 seconds ago  Up 16 seconds ago  0.0.0.0:1402->1433/tcp  mssqlDB2
+9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1
+<< OUTPUT ABRIDGED >>
+</pre>
