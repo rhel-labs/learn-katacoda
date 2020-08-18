@@ -1,4 +1,25 @@
-# Deploy and configure multiple SQL Server instances
+# Deploying root and rootless container instances of SQL Server
+
+Create a container runtime using podman which - passes in-container accesses to the created script directory, 
+and port mapping the host port (1400) to the container's port (1433). TCP port *1433* is the default port for SQL Server.
+
+Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password. 
+Set the hostname of the container to *mssqlcontainer0*
+
+`podman run --name mssqlDB0 --hostname=mssqlcontainer0 -d -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1400:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+
+At this point, there should be a container up using the root user, and SQL Server should also be running using non-root (*mssql*) inside this container.
+
+To confirm this, run the *podman ps* command - 
+
+`podman ps`{{execute T2}}
+
+<pre class="file">
+CONTAINER ID  IMAGE                                            COMMAND               CREATED         STATUS          PORTS                   NAMES
+TBD 0
+</pre>
+
+The output of podman shows 1 running container named *mssqlDB0*
 
 In *Terminal Server* tab of the lab interface, create a shell as the __rhel__ user so that we can deploy the container using
 a non-root user.
@@ -45,7 +66,7 @@ This container is running as user mssql.
 
 > **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. In step 1, we changed user ownership of the mounted directories to uid:*10001* to map to the *mssql* user. 
 
-At this point, there should be 2 containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
+At this point, there should be 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
 
 To confirm this, run the *podman ps* command - 
 
@@ -55,7 +76,6 @@ To confirm this, run the *podman ps* command -
 CONTAINER ID  IMAGE                                            COMMAND               CREATED         STATUS          PORTS                   NAMES
 9eaffcd5350f  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  17 seconds ago  Up 16 seconds ago  0.0.0.0:1402->1433/tcp  mssqlDB2
 9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1
-<< OUTPUT ABRIDGED >>
 </pre>
 
 The output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*
