@@ -15,8 +15,8 @@ To confirm this, run the *podman ps* command in the root context -
 `podman ps`{{execute T2}}
 
 <pre class="file">
-CONTAINER ID  IMAGE                                            COMMAND               CREATED         STATUS          PORTS                   NAMES
-TBD 0
+CONTAINER ID  IMAGE                                            COMMAND               CREATED        STATUS        PORTS                   NAMES
+9df179d4e116  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  4 seconds ago  Up 4 seconds ago  0.0.0.0:1400->1433/tcp  mssqlDB0
 </pre>
 
 The output of podman shows 1 running container named *mssqlDB0*
