@@ -1,44 +1,28 @@
-# Connect to SQL Server and Query Data
+# Re-query In-Memory OLTP data in SQL Server
 
-Run the script to install the Pubs database
+Check the servername of the instance and confirm that it is **mssqlserver-restored**
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@servername"`{{execute T3}}
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/InstPubs.sql`{{execute T3}}
+> Let's find out the greatest sessionID in the UserSession table   
 
-<pre class="file">
-Changed database context to 'master'.
-Beginning InstPubs.SQL at 05 Aug 2020 07:40:35:033 ....
-Creating pubs database....
-Changed database context to 'pubs'.
-Now at the create table section ....
-Now at the create trigger section ...
-Now at the inserts to authors ....
-Now at the inserts to publishers ....
-Now at the inserts to pub_info ....
-Now at the inserts to titles ....
-Now at the inserts to titleauthor ....
-Now at the inserts to stores ....
-Now at the inserts to sales ....
-Now at the inserts to roysched ....
-Now at the inserts to discounts ....
-Now at the inserts to jobs ....
-Now at the inserts to employee ....
-Now at the create index section ....
-Now at the create view section ....
-Now at the create procedure section ....
-Changed database context to 'master'.
-Ending InstPubs.SQL at 05 Aug 2020 07:40:37:823 ....
-</pre>
-
-Now that the data is loaded, query the data in the Pubs database
-
-> How about finding the store name of the top performing store and the total sales for that store?  
-
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d pubs -N -C -Q "SELECT TOP 1 stores.stor_name as storename, sum(sales.qty) as sumqty FROM stores JOIN sales ON stores.stor_id = sales.stor_id GROUP BY stores.stor_id, stores.stor_name ORDER BY sumqty DESC"`{{execute T3}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT max(sessionID) FROM dbo.UserSession`{{execute T3}} 
 
 <pre class="file">
-storename                                sumqty
----------------------------------------- -----------
-Doc-U-Mat: Quality Laundry and Books             130
+-----------
+          6
 
 (1 rows affected)
 </pre>
+
+> Let's find out the average total price in the ShoppingCart table  
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT avg(TotalPrice) FROM dbo.ShoppingCart`{{execute T3}} 
+
+<pre class="file">
+---------------------
+              55.4000
+
+(1 rows affected)
+</pre>
+
+
