@@ -93,3 +93,7 @@ CONTAINER ID  IMAGE                                            COMMAND          
 </pre>
 
 The output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*
+
+Exit the ssh session to go back to the root context on the host machine-
+
+`exit`{{execute T2}}
