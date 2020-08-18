@@ -57,3 +57,5 @@ CONTAINER ID  IMAGE                                            COMMAND          
 9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1
 << OUTPUT ABRIDGED >>
 </pre>
+
+The output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*
