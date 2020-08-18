@@ -1,4 +1,4 @@
-# Deploy and configure SQL Server
+# Deploy and configure multiple SQL Server instances
 
 In *Terminal Server* tab of the lab interface, create a shell as the __rhel__ user so that we can deploy the container using
 a non-root user.
