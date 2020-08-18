@@ -10,7 +10,7 @@ port for SQL Server.
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password. 
 Set the hostname of the container to *mssqlcontainer0*
 
-`podman run --name mssqlDB0 --hostname=mssqlcontainer0 -d -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1400:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+`podman run --name mssqlDB0 --hostname=mssqlcontainer0 -d -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service --cap-add CAP_SYS_ADMIN -p 1400:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
 At this point, there should be a container up and running, and SQL Server should also be running using non-root (*mssql*) inside this container.
 
