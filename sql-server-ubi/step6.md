@@ -9,9 +9,10 @@ the container running.
 TBD1
 </pre>
 
-Without telling Podman to checkpoint the container while keeping the established TCP connection intact (--tcp-established) the checkpointing will fail. The container has been now checkpointed with all its data 
+The exported checkpoint file can then be transferred to another system in the case of a migration or debugging scenario. To restore a container from a 
+stored checkpoint -
 
-`podman container restore -l --tcp-established`{{execute T3}}
+`podman container restore --import=/tmp/checkpoint1.tar.gz --tcp-established`{{execute T3}}
 
 <pre class="file">
 TBD2
