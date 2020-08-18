@@ -4,10 +4,6 @@ Run the script to install the in-memory OLTP dataset
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql`{{execute T3}}
 
-<pre class="file">
-TBD1
-</pre>
-
 Now that the tables are created, let's load some data
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp-data.sql`{{execute T3}}
