@@ -16,8 +16,8 @@ Move the script file from the /root directory to the newly created scripts direc
 
 `mv ./InstPubs.sql /var/mssql/scripts/`{{execute T1}}
 
-Now modify and set the appropriate user ownership for the script directory created to uid:10001 (the *mssql* default user uid) for database 
-instance 1
+> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. Modify and 
+set the appropriate user ownership for the script directory created to uid:10001 that maps to the *mssql* user. 
 
 `chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
 
