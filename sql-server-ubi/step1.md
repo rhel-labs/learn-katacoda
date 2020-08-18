@@ -14,7 +14,7 @@ On the host system, create a directory to store the script to be used for SQL Se
 
 Move the script file from the /root directory to the newly created scripts directory
 
-`mv ./imoltp.sql /var/mssql/scripts/; mv ./imoltp-data.sql /var/mssql/scripts/`{{execute T1}}
+`mv ./imoltp.sql /var/mssql/scripts/`{{execute T1}}
 
 > **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. Modify and 
 set the appropriate user ownership for the script directory created to uid:10001 that maps to the *mssql* user. 
