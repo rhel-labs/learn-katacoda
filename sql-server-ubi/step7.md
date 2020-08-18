@@ -1,6 +1,7 @@
 # Re-query In-Memory OLTP data in SQL Server
 
 Check the servername of the instance and confirm that it is **mssqlserver-restored**
+
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@servername"`{{execute T3}}
 
 > Let's find out the greatest sessionID in the UserSession table   
