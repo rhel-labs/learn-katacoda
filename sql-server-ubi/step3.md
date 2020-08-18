@@ -13,7 +13,7 @@ the host's /var/mssql directories, read-only access to the hosts /sys/fs/cgroup 
 Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password. Set the hostname of 
 the container to *mssqlcontainer*
 
-`podman run --name mssqlDB1 --hostname=mssqlcontainer -d -v /var/mssql/data:/var/opt/mssql/data -v /var/mssql/log:/var/opt/mssql/log -v /var/mssql/secrets:/var/opt/mssql/secrets -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
+`podman run --name mssqlDB1 --hostname=mssqlcontainer -d -v /var/mssql/data:/var/opt/mssql/data -v /var/mssql/log:/var/opt/mssql/log -v /var/mssql/secrets:/var/opt/mssql/secrets -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1433:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
 > **NOTE:** We have instantiated the container runtime using a non-root *rhel* user.
 
