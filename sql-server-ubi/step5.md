@@ -42,3 +42,7 @@ Doc-U-Mat: Quality Laundry and Books             130
 
 (1 rows affected)
 </pre>
+
+Now, keep an open TCP connection to the SQL Server so that you can come back and execute any ad-hoc T-SQL statement
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d pubs`{{execute T3}}
