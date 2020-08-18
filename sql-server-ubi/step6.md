@@ -1,6 +1,7 @@
 # Checkpoint and restore the container running SQL Server
 
-One of Podman’s features is to be able to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore In Userspace) to do the actual checkpointing and restoring of the processes inside of the container. 
+One of Podman’s features is to be able to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore In Userspace) to do the actual checkpointing and restoring of the processes inside of the container. The *--leave-running* option tells podman to generate the checkpoint while keeping
+the container running.
 
 `podman container checkpoint -l --leave-running --export=/tmp/checkpoint1.tar.gz`{{execute T3}}
 
