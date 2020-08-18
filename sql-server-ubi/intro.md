@@ -4,7 +4,7 @@ on Red Hat Enterprise Linux(RHEL) using UBI and Red Hat container tools.
 
 # Concepts included in this scenario:
 * Download the container image that contains Microsoft SQL Server 
-* Deploy the container image to run SQL Server on RHEL
+* Deploy root and rootless container instances of SQL Server on RHEL
 * Query data in SQL Server running in a container on RHEL
 * Take a checkpoint of the container, and restore the container from the checkpoint
 * Generate systemd scripts to automatically start the SQL Server containers at system boot
