@@ -1,5 +1,6 @@
 # Multiple container instances of SQL Server
 
+
 ### Deploying a container as root user
 
 In the *Terminal Server* tab of the lab interface, create a container runtime using podman in the root user context - passing in-container 
@@ -36,6 +37,7 @@ This container is running as user mssql.
 
 > **NOTE:** We have instantiated the container runtime using the __root__ user. However, in SQL Server 2019, the container runs using a non-root user 
 (*mssql*) by default. 
+
 
 ### Deploying a container as a non-root user
 
