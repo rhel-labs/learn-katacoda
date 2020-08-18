@@ -58,5 +58,5 @@ Ncat: Version 7.70 ( https://nmap.org/ncat )
 Ncat: bind to :::8080: Permission denied. QUITTING.
 </pre>
 
-You can see from the above output that netcat was NOT able to connect and listen on port 8090. There is no allow 
+You can see from the above output that netcat was NOT able to connect and listen on port 8080. There is no allow 
 rule in place that tells SELinux to allow this operation, and hence it was blocked by SELinux.
