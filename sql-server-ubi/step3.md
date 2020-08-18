@@ -10,7 +10,7 @@ Set the hostname of the container to *mssqlcontainer0*
 
 At this point, there should be a container up using the root user, and SQL Server should also be running using non-root (*mssql*) inside this container.
 
-To confirm this, run the *podman ps* command - 
+To confirm this, run the *podman ps* command in the root context - 
 
 `podman ps`{{execute T2}}
 
@@ -21,8 +21,18 @@ TBD 0
 
 The output of podman shows 1 running container named *mssqlDB0*
 
-In *Terminal Server* tab of the lab interface, create a shell as the __rhel__ user so that we can deploy the container using
-a non-root user.
+Get the top 2 lines of the container logs for database instance 0
+
+`podman logs -t mssqlDB0 | head -2`{{execute T2}}
+
+<pre class="file">
+SQL Server 2019 will run as non-root by default.
+This container is running as user mssql.
+<< OUTPUT ABRIDGED >>
+</pre>
+
+> **NOTE:** We have instantiated the container runtime using a root user. However, in SQL Server 2019, the container runs using a non-root user 
+(*mssql*) by default. 
 
 Recall that the __rhel__ user's password is __redhat__.
 
@@ -41,7 +51,7 @@ the host port (1402) to the container's port (1433). Set the hostname of the con
 
 `podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -v /var/mssql/scripts:/var/opt/mssql/scripts -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
-> **NOTE:** We have instantiated the container runtime using a non-root *rhel* user.
+> **NOTE:** We have instantiated the container runtime using a non-root *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root user (*mssql*) by default. 
 
 Get the top 2 lines of the container logs for database instance 1
 
@@ -62,9 +72,6 @@ SQL Server 2019 will run as non-root by default.
 This container is running as user mssql.
 << OUTPUT ABRIDGED >>
 </pre>
-
-
-> **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. In step 1, we changed user ownership of the mounted directories to uid:*10001* to map to the *mssql* user. 
 
 At this point, there should be 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
 
