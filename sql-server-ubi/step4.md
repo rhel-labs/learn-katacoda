@@ -4,7 +4,7 @@ In *Terminal SQL Client* tab of the lab interface, create a shell as the __rhel_
 
 Recall that the __rhel__ user's password is __redhat__.
 
-`ssh rhel@localhost`{{execute T2}}
+`ssh rhel@localhost`{{execute T3}}
 
 Launch an interactive bash shell in the container connecting to database instance 2 (*mssqlDB2*)
 
