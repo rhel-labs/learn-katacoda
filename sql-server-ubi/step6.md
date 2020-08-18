@@ -10,9 +10,15 @@ In the *Terminal Server* tab of the lab interface, checkpoint the sql server
 cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
 </pre>
 
+At this point, confirm that there is no running container using the *podman ps* command - 
 
-The exported checkpoint file can then be transferred to another system in the case of a migration or debugging scenario. To restore a container from a 
-stored checkpoint -
+`podman ps`{{execute T2}}
+
+<pre class="file">
+CONTAINER ID  IMAGE                                            COMMAND               CREATED        STATUS        PORTS                   NAMES
+</pre>
+
+Now, restore the container from the stored checkpoint file. This capability can be quite useful in the case of a migration or debugging scenario. 
 
 `podman container restore --import=/tmp/checkpoint1.tar.gz --name mssqlserver-restored`{{execute T2}}
 
