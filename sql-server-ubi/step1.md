@@ -24,9 +24,12 @@ Move the script file from the /root directory to the newly created scripts direc
 
 `mv ./InstPubs.sql /var/mssql/scripts/`{{execute T1}}
 
-Now modify and set the appropriate user ownership for the directories created to uid:10001 (the *mssql* default user uid)  
+Now modify and set the appropriate user ownership for the directories created to uid:10001 (the *mssql* default user uid) for database 
+instance 1
 
 `chown -R 10001:0 /var/mssqlDB1/data; chown -R 10001:0 /var/mssqlDB1/log; chown -R 10001:0 /var/mssqlDB1/secrets; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
+
+Repeat the command for the directories related to database instance 2
 
 `chown -R 10001:0 /var/mssqlDB2/data; chown -R 10001:0 /var/mssqlDB2/log; chown -R 10001:0 /var/mssqlDB2/secrets`{{execute T1}}
 
