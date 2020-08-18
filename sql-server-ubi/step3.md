@@ -60,7 +60,6 @@ Get the top 2 lines of the container logs for database instance 1
 <pre class="file">
 SQL Server 2019 will run as non-root by default.
 This container is running as user mssql.
-<< OUTPUT ABRIDGED >>
 </pre>
 
 Get the top 2 lines of the container logs for database instance 2
@@ -70,7 +69,6 @@ Get the top 2 lines of the container logs for database instance 2
 <pre class="file">
 SQL Server 2019 will run as non-root by default.
 This container is running as user mssql.
-<< OUTPUT ABRIDGED >>
 </pre>
 
 At this point, there should be 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
