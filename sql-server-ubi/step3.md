@@ -1,6 +1,6 @@
-# Deploying container instances of SQL Server
+# Multiple container instances of SQL Server
 
-## Deploying a container as root user
+### Deploying a container as root user
 
 Create a container runtime using podman which - passes in-container accesses to the created script directory, 
 and port mapping the host port (1400) to the container's port (1433). TCP port *1433* is the default port for SQL Server.
@@ -36,7 +36,7 @@ This container is running as user mssql.
 > **NOTE:** We have instantiated the container runtime using the __root__ user. However, in SQL Server 2019, the container runs using a non-root user 
 (*mssql*) by default. 
 
-## Deploying a container as a non-root user
+### Deploying a container as a non-root user
 
 Recall that the __rhel__ user's password is __redhat__.
 
