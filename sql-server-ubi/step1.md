@@ -4,11 +4,17 @@ Containers are an extremely popular way for developers to deliver software today
 
 > **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools. If you are not familiar with RHEL container tools (such as *podman*), you should consider reviewing the [Podman lab](https://lab.redhat.com/podman-deploy)
 
-There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*)
+There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*).
 
-On the host system, create a directory to persist the SQL Server database, log and secrets
+In this lab, we will be spinning up 2 instances of SQL Server in a container. 
 
-`mkdir -p /var/mssql/data; mkdir -p /var/mssql/log; mkdir -p /var/mssql/secrets`{{execute T1}}
+On the host system, create a directory to persist the SQL Server database, log and secrets for database instance 1 (or *DB1* in short)
+
+`mkdir -p /var/mssql/dataDB1; mkdir -p /var/mssql/logDB1; mkdir -p /var/mssql/secretsDB1`{{execute T1}}
+
+On the host system, create a directory to persist the SQL Server database, log and secrets for database instance 2 (or *DB2* in short)
+
+`mkdir -p /var/mssql/dataDB2; mkdir -p /var/mssql/logDB2; mkdir -p /var/mssql/secretsDB2`{{execute T1}}
 
 On the host system, create another directory to store the script to be used for SQL Server Pubs database
 
@@ -18,9 +24,11 @@ Move the script file from the /root directory to the newly created scripts direc
 
 `mv ./InstPubs.sql /var/mssql/scripts/`{{execute T1}}
 
-Now modify and set the appropriate user ownership for the directory to uid:10001 (the mssql default user uid) 
+Now modify and set the appropriate user ownership for the directories created to uid:10001 (the *mssql* default user uid)  
 
-`chown -R 10001:0 /var/mssql/data; chown -R 10001:0 /var/mssql/log; chown -R 10001:0 /var/mssql/secrets; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
+`chown -R 10001:0 /var/mssql/dataDB1; chown -R 10001:0 /var/mssql/logDB1; chown -R 10001:0 /var/mssql/secretsDB1; chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
+
+`chown -R 10001:0 /var/mssql/dataDB2; chown -R 10001:0 /var/mssql/logDB2; chown -R 10001:0 /var/mssql/secretsDB2`{{execute T1}}
 
 Now, create a shell as the __rhel__ user so that we don't use root privileges for the podman commands.
 
