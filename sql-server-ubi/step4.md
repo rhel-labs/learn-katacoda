@@ -6,7 +6,7 @@ Recall that the __rhel__ user's password is __redhat__.
 
 `ssh rhel@localhost`{{execute T3}}
 
-Launch an interactive bash shell in the container connecting to database instance 1 (*mssqlDB2*)
+Launch an interactive bash shell in the container connecting to database instance 1 (*mssqlDB1*)
 
 `podman exec -it mssqlDB1 "/bin/bash"`{{execute T3}}
 
