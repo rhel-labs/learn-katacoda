@@ -25,3 +25,7 @@ Result  fixed
 </pre>
 
 Once the command completes, the issue will be remediated by oscap and shown in the output. You can also check the *OpenSCAP Report* tab of the lab interface for a scan report in HTML format that shows this issue is fixed.
+
+If you re-run the command above, OpenSCAP only attempts to fix what is broken, so it will not remediate an already fixed rule.
+
+`oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_pci-dss --remediate --fetch-remote-resources --results scan-xccdf-results.xml --rule xccdf_org.ssgproject.content_rule_package_libreswan_installed /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T2}}
