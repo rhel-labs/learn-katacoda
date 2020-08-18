@@ -1,17 +1,29 @@
 # Connect to SQL Server and Query Data
 
-Run the script to install the in-memory OLTP dataset
+Run the script to create the in-memory table and load data
 
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql`{{execute T3}}
 
-Now that the tables are created, let's load some data
+> Let's find out the greatest sessionID in the UserSession table   
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp-data.sql`{{execute T3}}
-
-> Let's find out the number of rows loaded in the session and shopping cart tables?   
-
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d pubs -N -C -Q "SELECT count(*) FROM dbo.UserSession as SessionCount, dbo.ShoppingCart as ShoppersCount"`{{execute T3}} 
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT max(sessionID) FROM dbo.UserSession`{{execute T3}} 
 
 <pre class="file">
-TBD2
+-----------
+          6
+
+(1 rows affected)
 </pre>
+
+> Let's find out the average total price in the ShoppingCart table  
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT avg(TotalPrice) FROM dbo.ShoppingCart`{{execute T3}} 
+
+<pre class="file">
+---------------------
+              55.4000
+
+(1 rows affected)
+</pre>
+
+
