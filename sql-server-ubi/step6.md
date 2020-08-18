@@ -1,8 +1,10 @@
-# Checkpoint and restore the running SQL Server container
+# Checkpoint and restore the SQL Server container
 
-One of Podman’s features is to be able to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore In Userspace) to do the actual checkpointing and restoring of the processes inside of the container. In this case, 
+One of Podman’s features is to be able to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore In Userspace) to do the actual checkpointing and restoring of the processes inside of the container. 
 
-`podman container checkpoint sqlserver-test --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
+In the *Terminal Server* tab of the lab interface, checkpoint the sql server 
+
+`podman container checkpoint -l --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
 
 <pre class="file">
 cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
