@@ -1,7 +1,7 @@
 CREATE DATABASE imoltp   
 GO  
 
-/*
+
 --------------------------------------  
 -- create database with a memory-optimized
 -- filegroup and a container.
@@ -10,13 +10,13 @@ ALTER DATABASE imoltp ADD FILEGROUP imoltp_mod
     CONTAINS MEMORY_OPTIMIZED_DATA;
 
 ALTER DATABASE imoltp ADD FILE (
-    name='imoltp_mod1', filename='c:\data\imoltp_mod1')
+    name='imoltp_mod1', filename='/var/opt/mssql/data/imoltp_mod1')
     TO FILEGROUP imoltp_mod;
 
 ALTER DATABASE imoltp
     SET MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
 GO
-*/
+
   
 USE imoltp  
 GO  
