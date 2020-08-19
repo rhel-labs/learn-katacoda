@@ -4,7 +4,7 @@ One of Podman’s features is to be able to checkpoint and restore running conta
 
 Install the CRIU dependency package (__criu__) that is needed for checkpoint-restore podman functionality -
 
-`yum -y install criu`{{execute}}
+`yum -y install criu`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -31,7 +31,6 @@ Upgraded:
 
 Complete!
 </pre>
-
 
 In the *Terminal Server* tab of the lab interface, checkpoint the sql server 
 
