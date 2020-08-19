@@ -1,7 +1,10 @@
 # In this lab you have:
+
 * Downloaded the container image that contains Microsoft SQL Server 
-* Deployed the container image to run SQL Server on RHEL
-* Queried data in SQL Server running in a container on RHEL
+* Deployed root and rootless container instances of SQL Server on RHEL
+* Queried data in SQL Server In-Memory OLTP tables running in a container on RHEL
+* Checkpointed a SQL Server container, and restored it from the saved checkpoint file
+* Generated systemd scripts to automatically start the SQL Server container at system boot
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
