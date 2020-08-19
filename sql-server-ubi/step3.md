@@ -47,16 +47,11 @@ Recall that the __rhel__ user's password is __redhat__.
 
 `ssh rhel@localhost`{{execute T2}}
 
-Create a container runtime using podman which - passes in-container accesses to the created script directory, 
-and port mapping the host port (1401) to the container's port (1433). TCP port *1433* is the default port for SQL Server.
-
-Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password. 
-Set the hostname of the container to *mssqlcontainer*
+Create a container runtime using podman which port maps the host port (1401) to the container's port (1433), passes the EULA flag, and sets up SQL Server with the provided sa account password. TCP port *1433* is the default port for SQL Server. The hostname of the container is set to *mssqlcontainer1*
 
 `podman run --name mssqlDB1 --hostname=mssqlcontainer1 -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1401:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
-Similarly, spin up database instance 2 of SQL Server by passing through in-container access to the script directory, and port mapping
-the host port (1402) to the container's port (1433). Set the hostname of the container to *mssqlcontainer2*
+Similarly, spin up database instance 2 of SQL Server using podman which port maps the host port (1402) to the container's port (1433), passes the EULA flag, and sets up SQL Server with the provided sa account password. TCP port *1433* is the default port for SQL Server. The hostname of the container is set to *mssqlcontainer2*
 
 `podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
