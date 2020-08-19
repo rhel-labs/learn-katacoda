@@ -4,7 +4,7 @@ Podman makes putting a container into *systemd* service simple. To generate a se
 
 `podman generate systemd mssqlserver-restored > container-mssql.service`{{execute T2}}
 
-Now, let us take a brief look at the service file that was generated -
+Now, let us take a brief look at the service file that was generated
 
 `cat container-mssql.service`{{execute T2}}
 
@@ -31,27 +31,26 @@ WantedBy=multi-user.target
 
 Before we can use systemd to manage the container, lets copy over the generated service file to systemd config
 
-`cp container-mssql.service ~/.config/systemd/root/`{{execute T2}}
-
-$ systemctl --user daemon-reload
-$ systemctl --user start container.service
-$ systemctl --user status container.service 
+`cp container-mssql.service /etc/systemd/system`{{execute T2}}
 
 The generated systemd service file can now be used to manage the container via systemd.
 
+Before we proceed further, reload the systemd daemon so that it picks up the newly generated service file -
 
+`systemctl --user daemon-reload`{{execute T2}}
 
-> Let's find out the UserID of the user who has the highest total price items in their shopping cart  
+Stop the SQL Server container using systemd - 
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT top 1 UserID FROM dbo.ShoppingCart order by TotalPrice desc
-`{{execute T3}} 
+`systemctl stop container-mssql.service`{{execute T2}}
 
-<pre class="file">
-UserID
------------
-        342
+Start the SQL Server container using systemd -
 
-(1 rows affected)
-</pre>
+`systemctl stop container-mssql.service`{{execute T2}}
 
-The T-SQL query answers on the restored container are same as the T-SQL query answers on the container before the checkpoint was taken.
+Check the status of the SQL Server container - 
+
+`systemctl status container-mssql.service`{{execute T2}}
+
+To configure the SQL Server container to automatically start at the next boot, you should enable the service -
+
+`systemctl enable container-mssql.service`{{execute T2}}
