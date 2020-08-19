@@ -64,3 +64,5 @@ Finally, verify that the container restored from the checkpoint file is running 
 CONTAINER ID  IMAGE                                            COMMAND               CREATED             STATUS                 PORTS                   NAMES
 ea72c83f945a  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  About a minute ago  Up About a minute ago  0.0.0.0:1400->1433/tcp  mssqlserver-restored
 </pre>
+
+Also, notice that the port mapping matches the original port mapping (Host port *1400* maps to container port *1433*). 
