@@ -39,18 +39,14 @@ Before we proceed further, reload the systemd daemon so that it picks up the new
 
 `systemctl --user daemon-reload`{{execute T2}}
 
-Stop the SQL Server container using systemd - 
+Stop the SQL Server container using the `systemctl` utility - 
 
 `systemctl stop container-mssql.service`{{execute T2}}
 
-Start the SQL Server container using systemd -
+Now, enable and start the SQL Server container service using the `systemctl` utility -
 
-`systemctl stop container-mssql.service`{{execute T2}}
+`systemctl --now enable container-mssql.service`{{execute}}
 
-Check the status of the SQL Server container - 
+At any point, you may also check the status of the SQL Server container service.
 
-`systemctl status container-mssql.service`{{execute T2}}
-
-To configure the SQL Server container to automatically start at the next boot, you should enable the service -
-
-`systemctl enable container-mssql.service`{{execute T2}}
+`systemctl status container-mssql.service --no-pager`{{execute}}
