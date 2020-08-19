@@ -40,12 +40,12 @@ In the *Terminal Server* tab of the lab interface, checkpoint the sql server
 cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
 </pre>
 
-At this point, confirm that there is no running container using the *podman ps* command - 
+At this point, confirm that there is no running container -
 
 `podman ps`{{execute T2}}
 
 <pre class="file">
-CONTAINER ID  IMAGE                                            COMMAND               CREATED        STATUS        PORTS                   NAMES
+CONTAINER ID  IMAGE  COMMAND  CREATED  STATUS  PORTS  NAMES
 </pre>
 
 Now, restore the container from the stored checkpoint file. This capability can be quite useful in the case of a migration or debugging scenario. 
@@ -53,5 +53,14 @@ Now, restore the container from the stored checkpoint file. This capability can 
 `podman container restore --import=/tmp/checkpoint1.tar.gz --name mssqlserver-restored`{{execute T2}}
 
 <pre class="file">
-TBD2
+ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c
+</pre>
+
+Finally, verify that the container restored from the checkpoint file is running - The name of the container should be *mssqlserver-restored*
+
+`podman ps`{{execute T2}}
+
+<pre class="file">
+CONTAINER ID  IMAGE                                            COMMAND               CREATED             STATUS                 PORTS                   NAMES
+ea72c83f945a  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  About a minute ago  Up About a minute ago  0.0.0.0:1400->1433/tcp  mssqlserver-restored
 </pre>
