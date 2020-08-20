@@ -1,0 +1,9 @@
+---
+- name: change hostnames
+  hosts: web
+  become: true
+  tasks:
+
+  - name: change hostnames for device
+    hostname:
+      name: "{{inventory_hostname}}"
