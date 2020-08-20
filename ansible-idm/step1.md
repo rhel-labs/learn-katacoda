@@ -23,6 +23,10 @@ First, update all the servers to the latest available RHEL using ansible. For th
 
 > __NOTE__ : This step could take a few minutes to complete.
 
+After ansible completes this task, you can take a look at the redhat-release version - 
+
+`cat /etc/redhat-release`{{execute T1}}
+
 # Install IdM roles on the control node
 
 For this lab we will be using ansible roles to simplify and automate deployment of IdM.  Download and install the IdM ansible roles -
