@@ -1,6 +1,6 @@
 # Exploring and understanding the lab environment
 
- You have access to the following hosts:
+In this lab environment, we have provisioned 3 nodes as shown below -
 
 | Role                 | Inventory name | IP Address     |
 | ---------------------| ---------------| ---------------|
@@ -8,42 +8,21 @@
 | Managed host 2       | host02         | `[[HOST2_IP]]` |
 | Managed host 3       | host03         | `[[HOST3_IP]]` |
 
-A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8. To see what version of Red Hat Enterprise is running on the server use the Linux `cat` command to examine the `/etc/redhat-release` file.    
+A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8.2. We will be using *host02*
+to deploy the IdM server, and *host03* to deploy the IdM client. 
 
-`cat /etc/redhat-release`{{execute}}
+> __NOTE__ : In production, IdM replicas are typically deployed for scale and high-availability reasons. However, in this lab, we will only
+be deploying a single instance of the IdM server.
 
-# Examining /etc/hosts
+# Installing IdM ansible roles
 
-For this lab environment we will be using hostnames.  This is accomplished via host mapping in the `/etc/hosts` file.  Use the Linux `cat` command to examine the `/etc/hosts` file:
+For this lab we will be using ansible roles to simplify and automate deployment of IdM.  Download and install the IdM ansible roles -
 
-`cat /etc/hosts`{{execute}}
+`yum install -y ansible-freeipa`{{execute T1}}
 
-Take note of the two following lines:
+The roles will be installed in the */usr/share/ansible/roles* directory.
 
-```
-[[HOST2_IP]] host02 node01
-[[HOST3_IP]] host03 node02
-```
+Take a look at the roles that are now available to use 
 
-- The hostname `host02` or `node01` will resolve to `[[HOST2_IP]]`
-- The hostname `host03` or `node02` will resolve to `[[HOST3_IP]]`
+`ls -l /usr/share/ansible/roles`{{execute T1}}
 
-# Connecting to hosts
-
-If you want to manually login to each host you can ssh to their hostname.
-
-To connect to `host02` use the Linux `ssh` command:
-
-`ssh host02`{{execute}}
-
-Type exit to return back to the control node.
-
-`exit`{{execute}}
-
-To connect to `host03` use the Linux `ssh` command:
-
-`ssh host03`{{execute}}
-
-Type exit to return back to the control node.
-
-`exit`{{execute}}
