@@ -37,7 +37,7 @@ The generated systemd service file can now be used to manage the container via s
 
 Before we proceed further, reload the systemd daemon so that it picks up the newly generated service file -
 
-`systemctl --user daemon-reload`{{execute T2}}
+`systemctl daemon-reload`{{execute T2}}
 
 Stop the SQL Server container using the `systemctl` utility - 
 
