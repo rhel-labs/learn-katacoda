@@ -43,10 +43,6 @@
             "target": "/root"
           },
           {
-            "file": "hostname.yml",
-            "target": "/root"
-          },
-          {
             "file": "config",
             "target": "/root/.ssh"
           }
