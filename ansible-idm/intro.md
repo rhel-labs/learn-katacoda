@@ -1,8 +1,15 @@
-# Objective
+# Goal:
+After completing this scenario, you will be able to use ansible to easily deploy Red Hat Identity Management across your 
+RHEL servers, and run IdM health-check to monitor if IdM services are not running properly.
 
-This exercise is about exploring and understanding the lab environment, and the various parts that go into successfully running your first Ansible Playbook. This exercise will cover:
+# Concepts included in this scenario:
+* Using ansible playbooks to deploy IdM across RHEL servers
+* Starting and stopping the IdM server
+* Run health-check to monitor if any IdM services are not running properly
+ 
+#Example Use case:
+Specifically designed for the linux environment, IdM makes it simple to manage users, user groups, systems and services 
+in native linux, while still providing the option to interoperate with Microsoft Active Directory. In order to reduce 
+administrative overhead, streamline provisioning and improve security, your sysadmins are looking for a centralized way 
+to manage identities on RHEL. 
 
-- Determining the Ansible version running on the control node
-- Locating and understanding the Ansible configuration file - (ansible.cfg)
-- Locating and understanding an ini formatted inventory file
-- Running your first Ansible Playbook
