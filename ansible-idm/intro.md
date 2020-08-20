@@ -7,7 +7,7 @@ RHEL servers, and run IdM health-check to monitor if IdM services are not runnin
 * Starting and stopping the IdM server
 * Run health-check to monitor if any IdM services are not running properly
  
-#Example Use case:
+# Example Use case:
 Specifically designed for the linux environment, IdM makes it simple to manage users, user groups, systems and services 
 in native linux, while still providing the option to interoperate with Microsoft Active Directory. In order to reduce 
 administrative overhead, streamline provisioning and improve security, your sysadmins are looking for a centralized way 
