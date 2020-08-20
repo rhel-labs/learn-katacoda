@@ -16,10 +16,12 @@ be deploying a single instance of the IdM server.
 
 # Yum update all hosts using ansible 
 
-First, update all the servers to the latest available RHEL using ansible. For this, the playbook file (*playbook-update.yml*) uses the ansible 
+First, update all the servers to the latest available RHEL using ansible. For this, the playbook file (*playbook-upgrade.yml*) uses the ansible 
 *yum* module. The hosts are picked up from the hosts file (*/root/hosts*), and the default host group comprises of all the hosts.
 
-`ansible-playbook playbook-update.yml`{{execute T1}}
+`ansible-playbook playbook-upgrade.yml`{{execute T1}}
+
+> __NOTE__ : This step could take a few minutes to complete.
 
 # Install IdM roles on the control node
 
