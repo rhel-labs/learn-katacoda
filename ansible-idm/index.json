@@ -39,7 +39,7 @@
             "target": "/root"
           },
           {
-            "file": "playbook.yml",
+            "file": "playbook-upgrade.yml",
             "target": "/root"
           },
           {
