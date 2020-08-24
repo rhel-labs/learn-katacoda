@@ -2,16 +2,10 @@
 - hosts: web
   become: True
   become_method: sudo
- tasks:
+  tasks:
     - name: "Update Hostnames"
       hostname:
         name: "{{ new_hostname }}"
-#    - name: 'Add hostname to /etc/hosts'
-#      lineinfile:
-#        path: /etc/hosts
-#        regexp: '^127\.0\.0\.1[ \t]+localhost'
-#        line: '127.0.0.1 localhost {{ new_hostname }}'
-#        state: present
 
 - hosts: all
   tasks:
