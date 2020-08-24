@@ -7,11 +7,15 @@
 #      state: latest
 
 - hosts: web
-  tasks: 
-  - hostname: 
-       name: "{{ item.name }}"
-       loop:
-        - {name: host02.test.local, message: host02_done}
-        - {name: host03.test.local, message: host03_done}
-       loop_control:
-        label: "{{ item.message }}"
+  become: True
+  become_method: sudo
+  tasks:
+    - name: "Update Hostnames"
+      hostname:
+        name: "{{ new_hostname }}"
+    - name: 'Add hostname to /etc/hosts'
+      lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.0\.1[ \t]+localhost'
+        line: '127.0.0.1 localhost {{ new_hostname }}'
+        state: present
