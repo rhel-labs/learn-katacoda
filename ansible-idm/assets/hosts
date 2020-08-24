@@ -7,7 +7,6 @@ host02
 host03
 
 [ipaserver]
-host01
 host02
 
 [ipaclients]
