@@ -18,4 +18,13 @@
   #  alternatives:
   #    name: python
   #    path: /usr/bin/python2
-  #  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+  #  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")'
+
+- hosts: web
+  tasks: 
+  - hostname: 
+       name: "{{ item }}"
+       loop:
+        - host02
+        - host03
+        
