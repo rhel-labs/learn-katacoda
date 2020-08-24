@@ -19,7 +19,6 @@ ansible_ssh_pass=katacoda
 [ipaserver:vars]
 ipaadmin_password=ADMPassword1
 ipadm_password=DMPassword1
-ipaserver_auto_forwarders=no
 ipaserver_setup_dns=yes
 ipaserver_no_firewalld=yes
 ipaserver_domain=test.local
