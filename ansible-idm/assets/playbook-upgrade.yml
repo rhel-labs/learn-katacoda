@@ -1,15 +1,17 @@
 ---
-- hosts: all
-  tasks:
-  - name: Update all packages
-    yum:
-      name: "*"
-      state: latest
+#- hosts: all
+#  tasks:
+#  - name: Update all packages
+#    yum:
+#      name: "*"
+#      state: latest
 
 - hosts: web
   tasks: 
   - hostname: 
-       name: "{{ item }}"
+       name: "{{ item.name }}"
        loop:
-        - host02.test.local
-        - host03.test.local
+        - {name: host02.test.local, message: host02_done}
+        - {name: host03.test.local, message: host03_done}
+       loop_control:
+        label: "{{ item.message }}"
