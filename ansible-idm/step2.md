@@ -10,18 +10,20 @@ The output will look similar to the following:
 
 ```
 [root@c01c899604a3 ~]# ansible --version
-ansible 2.9.11
+ansible 2.8.13
   config file = /root/ansible.cfg
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/lib/python3.6/site-packages/ansible
   executable location = /usr/bin/ansible
-  python version = 3.6.8 (default, Dec  5 2019, 15:45:45) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+  python version = 3.6.8 (default, Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]
 ```
 # Download the Ansible FreeIPA roles
 
+Clone the FreeIPA ansible repository using *git*. The repository has all the necessary playbooks needed to deploy or undeploy server, replicas and clients.
+
 `git clone https://github.com/freeipa/ansible-freeipa.git`{{execute T1}}
 
-The playbooks needed to deploy or undeploy server, replicas and clients are part of the repository and placed in the playbooks folder. To list the available playbooks -
+List the playbooks that are available to be used. 
 
 `ls ansible-freeipa/playbooks/`{{execute T1}}
 
