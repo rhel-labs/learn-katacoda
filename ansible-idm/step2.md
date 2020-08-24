@@ -23,7 +23,7 @@ Collections are a distribution format for Ansible content that can include playb
 
 To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to download and install the *freeipa.ansible_freeipa* collection
 
-`ansible-galaxy install freeipa.ansible_freeipa --force`{{execute T1}}
+`ansible-galaxy collection install freeipa.ansible_freeipa --force`{{execute T1}}
 
 Symbolic link the folder to make it easily accessible 
 
