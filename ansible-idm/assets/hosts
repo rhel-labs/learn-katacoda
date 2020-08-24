@@ -19,6 +19,7 @@ ansible_ssh_pass=katacoda
 [ipaserver:vars]
 ipaadmin_password=ADMPassword1
 ipadm_password=DMPassword1
+ipaserver_auto_forwarders=no
 
 [ipaclients:vars]
 ipaadmin_password=ADMPassword1
