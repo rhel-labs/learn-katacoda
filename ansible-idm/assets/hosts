@@ -1,8 +1,4 @@
 # inventory
-[all:vars]
-ansible_user=root
-ansible_ssh_pass=katacoda
-
 [control_node]
 host01 ansible_host=localhost ansible_connection=local
 
@@ -16,12 +12,13 @@ host02
 [ipaclients]
 host03
 
+[all:vars]
+ansible_user=root
+ansible_ssh_pass=katacoda
+
 [ipaserver:vars]
 ipaadmin_password=ADMPassword1
 ipadm_password=DMPassword1
-ipaserver_domain=test.local
-ipaserver_realm=TEST.LOCAL
 
 [ipaclients:vars]
 ipaadmin_password=ADMPassword1
-ipaserver_domain=test.local
