@@ -9,8 +9,18 @@ host01 ansible_host=localhost ansible_connection=local
 host02
 host03
 
+[ipaservers]
+host02
+
 [ipaclients]
 host03
 
-[ipaservers]
-host02
+[ipaserver:vars]
+ipaadmin_password=ADMPassword1
+ipadm_password=DMPassword1
+ipaserver_domain=test.local
+ipaserver_realm=TEST.LOCAL
+
+[ipaclients:vars]
+ipaadmin_password=ADMPassword1
+ipaserver_domain=test.local
