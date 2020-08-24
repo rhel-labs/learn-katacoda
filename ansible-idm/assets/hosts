@@ -21,9 +21,10 @@ ipaadmin_password=ADMPassword1
 ipadm_password=DMPassword1
 ipaserver_auto_forwarders=no
 ipaserver_setup_dns=yes
-ipaserver_no_firewalld=no
+ipaserver_no_firewalld=yes
 ipaserver_domain=test.local
 ipaserver_realm=TEST.LOCAL
+ipaserver_no_forwarders=true
 
 [ipaclients:vars]
 ipaadmin_password=ADMPassword1
