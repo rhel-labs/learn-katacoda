@@ -1,21 +1,13 @@
 ---
+- hosts: web
+  tasks:
+    - name: "Update Hostnames"
+      hostname:
+        name: "{{ new_hostname }}"
+
 - hosts: all
   tasks:
-  #- name: Install python 
-  #  yum:
-  #    name: "{{ item }}"
-  #    state: present
-  #  loop:
-  #    - python2
-  #  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
-
   - name: Update all packages
     yum:
       name: "*"
       state: latest
-
-  #- name: Set default python
-  #  alternatives:
-  #    name: python
-  #    path: /usr/bin/python2
-  #  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
