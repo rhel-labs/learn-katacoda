@@ -1,5 +1,7 @@
 # Exploring and understanding the lab environment
 
+>**Note:** For this scenario, we have started installing ansible and performing an yum update to 8.2 in the background. The background task will take between 2-5 minutes to complete. 
+
 In this lab environment, we have provisioned 3 nodes as shown below -
 
 | Role                 | Inventory name | IP Address     |
