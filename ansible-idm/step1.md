@@ -17,14 +17,14 @@ be deploying a single instance of the IdM server.
 
 # Determining	connectivity of the hosts
 
-To determine connectivity from the control node to managed hosts, use the ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
+To determine connectivity across the hosts, use the ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
 
-`ansible web -m ping`{{execute}}
+`ansible all -m ping`{{execute}}
 
 The output will look like the following:
 
 ```
-host03 | SUCCESS => {
+host01 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/libexec/platform-python"
     },
@@ -32,6 +32,13 @@ host03 | SUCCESS => {
     "ping": "pong"
 }
 host02 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+host03 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/libexec/platform-python"
     },
