@@ -1,7 +1,5 @@
 ---
 - hosts: web
-  become: True
-  become_method: sudo
   tasks:
     - name: "Update Hostnames"
       hostname:
