@@ -8,3 +8,9 @@ host01 ansible_host=localhost ansible_connection=local
 [web]
 host02
 host03
+
+[ipaclients]
+host03
+
+[ipaservers]
+host02
