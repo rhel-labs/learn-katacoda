@@ -17,17 +17,9 @@ ansible 2.9.11
   executable location = /usr/bin/ansible
   python version = 3.6.8 (default, Dec  5 2019, 15:45:45) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
 ```
-# Download the Ansible FreeIPA collection
+# Download the Ansible FreeIPA roles
 
-Collections are a distribution format for Ansible content that can include playbooks, roles, modules, and plugins. You can install and use collections through [Ansible Galaxy](https://galaxy.ansible.com/). 
-
-To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to download and install the *freeipa.ansible_freeipa* collection
-
-`ansible-galaxy collection install freeipa.ansible_freeipa --force`{{execute T1}}
-
-Symbolic link the folder to make it easily accessible 
-
-`ln -s .ansible/collections/ansible_collections/freeipa/ansible_freeipa/ ansible-freeipa`{{execute T1}}
+`git clone https://github.com/freeipa/ansible-freeipa.git`{{execute T1}}
 
 The playbooks needed to deploy or undeploy server, replicas and clients are part of the repository and placed in the playbooks folder. To list the available playbooks -
 
