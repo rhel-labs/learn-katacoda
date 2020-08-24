@@ -9,10 +9,10 @@
       - python2
     when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
 
-  - name: Update all packages
-    yum:
-      name: "*"
-      state: latest
+  #- name: Update all packages
+  #  yum:
+  #    name: "*"
+  #    state: latest
 
   - name: Set default python
     alternatives:
