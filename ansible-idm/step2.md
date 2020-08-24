@@ -2,25 +2,32 @@
 
 Run the ansible command with the --version flag to see not only the version of Ansible that's installed, but also a few other key details:
 
-`ansible --version`{{execute}}
+`ansible --version`{{execute T1}}
 
 The output will look similar to the following:
 
 ```
 [root@c01c899604a3 ~]# ansible --version
-ansible 2.9.6
+ansible 2.9.11
   config file = /root/ansible.cfg
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/lib/python3.6/site-packages/ansible
   executable location = /usr/bin/ansible
-  python version = 3.6.8 (default, Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]
+  python version = 3.6.8 (default, Dec  5 2019, 15:45:45) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
 ```
-# Download the Ansible Role
+# Download the Ansible FreeIPA collection
 
-Ansible uses the concept of **roles** to better allow modular code and avoid repeating yourself. A role is simply a folder structure that Ansible knows where to load vars files, tasks and handlers from. 
+Collections are a distribution format for Ansible content that can include playbooks, roles, modules, and plugins. You can install and use collections through [Ansible Galaxy](https://galaxy.ansible.com/). 
 
-Ansible makes it easily share roles with the community or download roles that have been created by other members of the community using [Ansible Galaxy](https://galaxy.ansible.com/). 
+To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to download and install the *freeipa.ansible_freeipa* collection
 
-To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to install roles in a specific role directory
+`ansible-galaxy install freeipa.ansible_freeipa --force`{{execute T1}}
 
-`ansible-galaxy collection install freeipa.ansible_freeipa --force`{{execute}}
+Symbolic link the folder to make it easily accessible 
+
+`ln -s .ansible/collections/ansible_collections/freeipa/ansible_freeipa/ ansible-freeipa`{{execute T1}}
+
+List the available playbooks in the FreeIPA collection
+
+`ls ansible-freeipa/playbooks/`{{execute T1}}
+
