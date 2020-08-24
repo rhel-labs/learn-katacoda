@@ -16,15 +16,29 @@ to deploy the IdM server, and *host03* to deploy the IdM client.
 > __NOTE__ : In production, IdM replicas are typically deployed for scale and high-availability reasons. However, in this lab, we will only
 be deploying a single instance of the IdM server.
 
-# Install IdM roles on the control node
+# Determining	connectivity of the hosts
 
-For this lab we will be using ansible roles to simplify and automate deployment of IdM.  Download and install the IdM ansible roles -
+To determine connectivity from the control node to managed hosts, use the ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
 
-`yum install -y ansible-freeipa`{{execute T1}}
+`ansible web -m ping`{{execute}}
 
-The roles will be installed in the */usr/share/ansible/roles* directory.
+The output will look like the following:
 
-Take a look at the roles that are now available to use 
+```
+host03 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+host02 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
 
-`ls -l /usr/share/ansible/roles`{{execute T1}}
-
+You will see green return values in the terminal window with the hostname and **SUCCESS**.
