@@ -1,16 +1,13 @@
-# The Ansible Configuration File
+# Install the IPA Server and Client
 
-This step will help you locate and understand the Ansible configuration file (`ansible.cfg`)
+A FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
-The behavior of Ansible can be customized by modifying settings in Ansible’s ini-style configuration file.
+To install the FreeIPA server using ansible -
 
-For this lab environment there is already a provided `ansible.cfg` configured in the home directory on the control node:
-
-`cat ansible.cfg`{{execute}}
+`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute}}
 
 Here is an abridged output:
 ```
-inventory = hosts
 << OUTPUT ABRIDGED >>
 ```
 
