@@ -1,11 +1,4 @@
 ---
-#- hosts: all
-#  tasks:
-#  - name: Update all packages
-#    yum:
-#      name: "*"
-#      state: latest
-
 - hosts: web
   become: True
   become_method: sudo
@@ -19,3 +12,10 @@
         regexp: '^127\.0\.0\.1[ \t]+localhost'
         line: '127.0.0.1 localhost {{ new_hostname }}'
         state: present
+
+- hosts: all
+  tasks:
+  - name: Update all packages
+    yum:
+      name: "*"
+      state: latest
