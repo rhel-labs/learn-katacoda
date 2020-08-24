@@ -29,7 +29,7 @@ Symbolic link the folder to make it easily accessible
 
 `ln -s .ansible/collections/ansible_collections/freeipa/ansible_freeipa/ ansible-freeipa`{{execute T1}}
 
-List the available playbooks in the FreeIPA collection
+The playbooks needed to deploy or undeploy server, replicas and clients are part of the repository and placed in the playbooks folder. To list the available playbooks -
 
 `ls ansible-freeipa/playbooks/`{{execute T1}}
 
