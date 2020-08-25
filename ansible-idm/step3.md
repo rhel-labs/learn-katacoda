@@ -26,9 +26,9 @@ SSH into the IPA client node (*host03*) and set the DNS nameserver to point to t
 
 `ssh host03 "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
 
-Inspect the */etc/resolv.conf* file 
+Inspect the */etc/resolv.conf* file on *host03* 
 
-`cat /etc/resolv.conf`{{execute T3}}
+`cat /etc/resolv.conf`{{execute T4}}
 
 # Stop and start the IPA Server 
 
