@@ -5,7 +5,7 @@
       hostname:
         name: "{{ new_hostname }}"
         
-- hosts: all-hosts
+- hosts: all
   tasks:
     - name: Add IP address of all hosts to all hosts
       lineinfile:
