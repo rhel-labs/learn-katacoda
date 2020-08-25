@@ -12,7 +12,7 @@ The target host (*host02*) and other IPA server variables are picked up from the
 
 A number of different services are installed together with an IdM server, including Directory Server, Certificate Authority (CA), DNS, Kerberos, and others.
 
-> __NOTE__ : In this lab, we have just installed a single IdM server. However, in production, no one wants just one IdM server. An IdM replica server (which is a full read/write copy of the first installation) can be easily created using the *ipa-replica-prepare* command. 
+> __NOTE__ : In this step, we have only installed a single IdM server. However, in production, no one wants just one IdM server. An IdM replica server (which is a full read/write copy of the first installation) can be easily created using the *ipa-replica-prepare* command. 
 
 # Configure the DNS name resolution 
 
