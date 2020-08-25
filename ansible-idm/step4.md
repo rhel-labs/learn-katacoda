@@ -18,7 +18,7 @@ From the IPA client node (*host03*), check the real and effective group ids of t
 
 `id jdoe`{{execute T4}}
 
-# Create a new user on the IPA Server
+# Create a new user 
 
 On the IPA server node (*host02*), create a new user called John Doe -
 
