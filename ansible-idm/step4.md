@@ -10,11 +10,18 @@ To authenticate as the admin, just run -
 
 You will be prompted for the password. In this scenario, the password is specified as an IPA Server variable in the *host* file (which is *ADMPassword1*).
 
-Now, check the real and effective group ids of the the user admin -
+From the IPA client node (*host03*), check the real and effective group ids of the admin user - 
 
 `id admin`{{execute T4}}
 
-Check the real and effective group ids of the user John Doe (jdoe) -
+From the IPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
 
 `id jdoe`{{execute T4}}
 
+# Create a new user on the IPA Server
+
+On the IPA server node (*host02*), create a new user called John Doe -
+
+`ipa user-add jdoe --first=John --last=Doe --password=123JDPassword!`{{execute T3}}
+
+ 
