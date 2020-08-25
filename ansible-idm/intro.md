@@ -1,6 +1,6 @@
 # Goal:
-After completing this scenario, you will be able to use ansible to easily deploy Red Hat Identity Management across your 
-RHEL servers, and run IdM health-check to monitor if IdM services are not running properly.
+After completing this scenario, you will be able to use ansible to easily deploy Red Hat Identity Management (IdM) across your 
+RHEL servers, and run IdM health-check to monitor if the IdM services are properly configured and running.
 
 # Concepts included in this scenario:
 * Using ansible playbooks to deploy IdM across RHEL servers
