@@ -1,10 +1,12 @@
 # Install the IPA Server software
 
-A FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
+The FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
 To install the FreeIPA server using ansible on *host02* - 
 
 `ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute}}
+
+The target host (*host02*) and other IPA server variables are picked up from the ansible inventory file (*/root/hosts*).
 
 # Configure the DNS name resolution 
 
@@ -22,10 +24,4 @@ Inspect the */etc/resolv.conf* file
 
 `cat /etc/resolv.conf`{{execute T3}}
 
-# Install the IPA client software
-
-Similarly, install the FreeIPA client using ansible on *host03* -
-
-`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-client.yml`{{execute}}
-
-There are several server and client playbook variables that need to be set in the */root/hosts* inventory file. 
+# Start and stop the IPA Server 
