@@ -20,7 +20,7 @@ On most Linux operating systems, the DNS servers that the system uses for name r
 
 In the *host02* terminal window of the lab, retrieve the IP address and store it in an environment variable (called *IP*) - 
 
-`hostname -i | awk '{print $NF}'`{{execute T3}}
+`IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
 
 SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
 
