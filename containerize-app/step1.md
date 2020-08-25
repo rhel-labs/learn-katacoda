@@ -15,7 +15,7 @@ UBI image (as opposed to the Minimal or Multi-service images).
 By executing the command below, your system will download the Standard UBI
 image from Red Hat's registry.
 
-`buildah from registry.access.redhat.com/ubi8/ubi`{{execute}}
+`buildah from registry.access.redhat.com/ubi8/ubi`{{execute T1}}
 
 <pre class="file">
 Getting image source signatures

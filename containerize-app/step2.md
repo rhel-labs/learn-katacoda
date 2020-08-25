@@ -19,7 +19,7 @@ executed from within the container, which means the results will be applied into
 the container image.  Lastly, you are providing the `yum` command to install a
 package that defines all of the repositories from EPEL, `epel-release-latest-8`.
 
-`buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`{{execute}}
+`buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`{{execute T1}}
 
 <pre class="file">
 <<< OUTPUT ABRIDGED >>>
@@ -42,7 +42,7 @@ From the above output, you can see that the epel-release RPM was installed
 successfully inside the container.  You could verify this was not completed
 on the host by looking for the RPM on the host system. 
 
-`rpm -q epel-release`{{execute}}
+`rpm -q epel-release`{{execute T1}}
 
 <pre class="file">
 package epel-release is not installed

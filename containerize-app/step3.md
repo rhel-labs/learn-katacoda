@@ -4,7 +4,7 @@ Now that the yum repositories are defined within the container, you can use
 another `yum install`, executed within the container, to install the target
 software: `moon-buggy`.
 
-`buildah run ubi-working-container -- yum -y install moon-buggy`{{execute}}
+`buildah run ubi-working-container -- yum -y install moon-buggy`{{execute T1}}
 
 <pre class="file">
 <<< OUTPUT ABRIDGED>>>

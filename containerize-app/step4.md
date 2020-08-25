@@ -5,7 +5,7 @@ working container into a committed image.  In the command below, you will use
 the `buildah` command to commit the working container to an image called:
 `moon-buggy`.
 
-`buildah commit ubi-working-container moon-buggy`{{execute}}
+`buildah commit ubi-working-container moon-buggy`{{execute T1}}
 
 <pre class="file">
 Getting image source signatures
@@ -21,7 +21,7 @@ dbb1368db3f9b5f5cd651581e3c6e0bee242c25ef8ec68d2bef9f18e98f05209
 The above output shows that the commit was successful, however you can verify
 this by looking at the available container images on the system.
 
-`podman image list`{{execute}}
+`podman image list`{{execute T1}}
 
 <pre class="file">
 REPOSITORY                            TAG      IMAGE ID       CREATED          SIZE

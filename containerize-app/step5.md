@@ -6,7 +6,7 @@ software we are using is a commandline command.  When you `run` the container,
 it will be in interactive (`-it`) mode, based on the `moon-buggy` container
 image, and the command run interactively will be `/usr/bin/moon-buggy`.
 
-`podman run -it moon-buggy /usr/bin/moon-buggy`{{execute}}
+`podman run -it moon-buggy /usr/bin/moon-buggy`{{execute T1}}
 
 <pre class="file"
 <<< OUTPUT ABRIDGED >>>
