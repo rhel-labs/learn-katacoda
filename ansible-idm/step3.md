@@ -20,11 +20,11 @@ On most Linux operating systems, the DNS servers that the system uses for name r
 
 In the *host02* terminal window of the lab, retrieve the IP address and store it in an environment variable (called *IP*) - 
 
-`IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
+`hostname -i | awk '{print $NF}'`{{execute T3}}
 
-Set the DNS nameserver to point to the IP address of the IPA server in the */etc/resolv.conf* file 
+SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
 
-`sed -i '2i nameserver ``echo $IP``' /etc/resolv.conf`{{execute T3}}
+`ssh host03 'sed -i '2i nameserver ``echo $IP``' /etc/resolv.conf'`{{execute T3}}
 
 Inspect the */etc/resolv.conf* file 
 
