@@ -1,4 +1,4 @@
-# Getting Ansible Playbooks for FreeIPA
+# Getting Ansible playbooks for FreeIPA
 
 **FreeIPA** is a free and open source identity management system. *FreeIPA* is the upstream open-source project for Red Hat Identity Manager (IdM).
 
@@ -17,7 +17,7 @@ ansible 2.8.13
   executable location = /usr/bin/ansible
   python version = 3.6.8 (default, Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]
 ```
-# Download the Ansible FreeIPA roles
+# Download the FreeIPA ansible roles
 
 Clone the FreeIPA ansible repository using *git*. The repository has all the necessary playbooks needed to deploy or undeploy server, replicas and clients.
 
