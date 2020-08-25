@@ -16,11 +16,6 @@ host02
 [ipaclients]
 host03
 
-[all-hosts]
-host01
-host02
-host03
-
 [ipaserver:vars]
 ipaadmin_password=ADMPassword1
 ipadm_password=DMPassword1
