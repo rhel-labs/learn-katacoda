@@ -24,6 +24,8 @@ In the *host02* terminal window of the lab, retrieve the IP address and store it
 
 SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
 
+> __NOTE__ : The root password of the *host03* node is **RedHat1!** 
+
 `ssh host03 "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
 
 Inspect the */etc/resolv.conf* file on *host03* 
