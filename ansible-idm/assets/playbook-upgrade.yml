@@ -4,11 +4,13 @@
     - name: "Update Hostnames"
       hostname:
         name: "{{ new_hostname }}"
-    - name: "host file update - Local DNS setup across all the servers"
-      hosts: web
-      gather_facts: yes
-      tasks:
-        - name: Update the /etc/hosts file with node name
+
+-hosts: web
+ tasks:
+   - name: "host file update - Local DNS setup across all the servers"
+     gather_facts: yes
+     tasks:
+        - name: "Update the /etc/hosts file with node name"
           tags: etchostsupdate
           become: yes
           become_user: root
