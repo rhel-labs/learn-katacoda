@@ -1,14 +1,24 @@
+# Install the IPA client 
+
+In this lab, we will be using *host03* as the IPA client host. To install the FreeIPA client using ansible on *host03* run -
+
+`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-client.yml`{{execute}}
+
+The IPA client host (*host03* in this case), and other corresponding IPA client variables are taken from the */root/hosts* inventory file. 
+
+Installing the IPA client automatically configures services like kerberos, SSSD, PAM and NSS. 
+
 # Test the IPA client
 
-To be able to perform any administrative tasks you need to authenticate to the server. For the normal administrative activity an administrative account admin has been created called *admin*. The *kinit* utility can be used to authenticate to an Identity Management (IdM) environment manually. The kinit utility obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM user.
+Before running any IdM commands, you need to authenticate to the IdM domain by obtaining a kerberos ticket. The *kinit* utility can be used to authenticate to an Identity Management (IdM) environment manually. It obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM user.
 
-> __NOTE__: *admin* is the user, and the password is *ADMPassword1*. 
+> __NOTE__:  For the normal administrative activity an administrative account admin has been created called *admin*. The admin password is *ADMPassword1*. For this lab, the password was specified in the */root/hosts* file as a IdM server variable. 
 
 To authenticate as the admin, just run -
 
 `kinit admin`{{execute T3}}
 
-You will be prompted for the password. In this scenario, the password is specified as an IPA Server variable in the *host* file (which is *ADMPassword1*).
+You will be prompted for the password (which is *ADMPassword1*).
 
 From the IPA client node (*host03*), check the real and effective group ids of the admin user - 
 
