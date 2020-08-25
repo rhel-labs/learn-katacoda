@@ -4,7 +4,8 @@ RHEL servers, and run IdM health-check to monitor if IdM services are not runnin
 
 # Concepts included in this scenario:
 * Using ansible playbooks to deploy IdM across RHEL servers
-* Starting and stopping the IdM server
+* Starting and stopping the IdM server using systemd
+* Creating a user on the IdM server
 * Run health-check to monitor if any IdM services are not running properly
  
 # Example Use case:
