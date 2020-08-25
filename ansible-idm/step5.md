@@ -1,8 +1,12 @@
-# Ansible Playbook Overview
+# IPA Healthcheck
 
-Playbooks are Ansible’s configuration, deployment, and orchestration language. They can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process.
+IPA is not a single daemon. It is a collection of services configured to work together.
 
-## Ansible Playbook components
+The *healthcheck* tool can be used to  verify that a system is properly configured, as well as, find and report error conditions that may impact the IPA environment.
+
+## Check the
+
+`ipa-healthcheck --failures-only`{{execute}}
 
 A playbook is where you can take some of those ad-hoc commands you just ran and put them into a repeatable set of *plays* and *tasks*.
 
