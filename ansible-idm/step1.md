@@ -9,8 +9,8 @@ In this lab environment, we have provisioned 3 nodes as shown below -
 | Role                 | Inventory name | IP Address     |
 | ---------------------| ---------------| ---------------|
 | Ansible Control node | host01         | `[[HOST1_IP]]` |
-| Managed host 2       | host02         | `[[HOST2_IP]]` |
-| Managed host 3       | host03         | `[[HOST3_IP]]` |
+| IdM Server           | host02         | `[[HOST2_IP]]` |
+| IdM Client           | host03         | `[[HOST3_IP]]` |
 
 A control node is any machine with ansible installed.  We will be using *host02* to deploy the IdM server, and *host03* to deploy the IdM client. 
 
