@@ -1,8 +1,8 @@
 # Install the IPA client 
 
-In this lab, we will be using *host03* as the IPA client host. To install the FreeIPA client using ansible on *host03* run -
+In this lab, we will be using *host03* as the IPA client host. To install the FreeIPA client using ansible on *Control node* run -
 
-`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-client.yml`{{execute T3}}
+`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-client.yml`{{execute T2}}
 
 The IPA client host (*host03* in this case), and other corresponding IPA client variables are taken from the */root/hosts* inventory file. 
 
