@@ -1,12 +1,14 @@
-# Install the IPA Server software
+# Install the IdM Server software
 
-The FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
+FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
-To install the FreeIPA server using ansible on *host02* - 
+To install FreeIPA server using ansible on *host02* - 
 
 `ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute}}
 
 The target host (*host02*) and other IPA server variables are picked up from the ansible inventory file (*/root/hosts*).
+
+A number of different services are installed together with an IdM server, including Directory Server, Certificate Authority (CA), DNS, Kerberos, and others.
 
 # Configure the DNS name resolution 
 
@@ -24,4 +26,16 @@ Inspect the */etc/resolv.conf* file
 
 `cat /etc/resolv.conf`{{execute T3}}
 
-# Start and stop the IPA Server 
+# Stop and start the IPA Server 
+
+Because IdM has several different services working together, *ipactl* is a single utility to stop, start, or restart the entire IdM server along with all other installed services.
+
+To stop the IdM server and all installed services -
+
+`ipactl stop`{{execute T3}}
+
+To start the entire IdM server and all installed services -
+
+`ipactl start`{{execute T3}}
+
+If you only want to stop, start, or restart an individual IdM service, use the *systemctl* utility.
