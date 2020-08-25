@@ -30,7 +30,9 @@ From the IPA client node (*host03*), check the real and effective group ids of t
 
 # Create a new user 
 
-On the IPA server node (*host02*), create a new user called John Doe -
+As an administrator, adding principals to the IdM Kerberos domain is an important task. This can be accomplished using the *ipa* command.
+
+Now that we have authenticated to the IdM server, on the server node (*host02*), create a new user called John Doe -
 
 `ipa user-add jdoe --first=John --last=Doe --password=123JDPassword!`{{execute T3}}
 
