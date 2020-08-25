@@ -24,7 +24,7 @@ In the *host02* terminal window of the lab, retrieve the IP address and store it
 
 SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
 
-`ssh host03 'sed -i '2i nameserver ``echo $IP``' /etc/resolv.conf'`{{execute T3}}
+`ssh host03 "sed -i '2i nameserver ``echo $IP``' /etc/resolv.conf"`{{execute T3}}
 
 Inspect the */etc/resolv.conf* file 
 
