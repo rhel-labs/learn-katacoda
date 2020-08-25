@@ -33,5 +33,5 @@ game, which will terminate the container.
 
 Alternatively you can use `podman` to kill the running container.
 
-`podman kill $(podman ps | grep -v CONTAINER | cut -f1 -d" " )`{{execute}}
+`podman kill $(podman ps | grep -v CONTAINER | cut -f1 -d" " )`{{execute T2}}
 
