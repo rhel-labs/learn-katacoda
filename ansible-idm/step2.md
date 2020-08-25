@@ -1,6 +1,6 @@
 # Getting Ansible Playbooks for FreeIPA
 
-**FreeIPA** is a free and open source identity management system. *FreeIPA* is the upstream open-source project for Red Hat Identity Manager.
+**FreeIPA** is a free and open source identity management system. *FreeIPA* is the upstream open-source project for Red Hat Identity Manager (IdM).
 
 Run the ansible command with the --version flag to see not only the version of Ansible that's installed, but also a few other key details:
 
