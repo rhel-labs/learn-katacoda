@@ -24,7 +24,7 @@ In the *host02* terminal window of the lab, retrieve the IP address and store it
 
 Set the DNS nameserver to point to the IP address of the IPA server in the */etc/resolv.conf* file 
 
-`sed -i '2i nameserver ``echo $IP``'/etc/resolv.conf`{{execute T3}}
+`sed -i '2i nameserver ``echo $IP``' /etc/resolv.conf`{{execute T3}}
 
 Inspect the */etc/resolv.conf* file 
 
