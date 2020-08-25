@@ -8,7 +8,7 @@ image, and the command run interactively will be `/usr/bin/moon-buggy`.
 
 `podman run -it moon-buggy /usr/bin/moon-buggy`{{execute T1}}
 
-<pre class="file"
+<pre class="file">
 <<< OUTPUT ABRIDGED >>>
                MM     MM   OOOOO    OOOOO   NN     N
                M M   M M  O     O  O     O  N N    N
