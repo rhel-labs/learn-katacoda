@@ -18,7 +18,7 @@ A number of different services are installed together with an IdM server, includ
 
 On most Linux operating systems, the DNS servers that the system uses for name resolution are defined in the */etc/resolv.conf* file.
 
-Retrieve the IP address of *host02* and store it in the IP environment variable - 
+In the *host02* terminal window of the lab, retrieve the IP address and store it in an environment variable (called *IP*) - 
 
 `IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
 
