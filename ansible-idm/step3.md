@@ -16,7 +16,7 @@ Retrieve the IP address of *host02* -
 
 Set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
 
-`sed -i '2i nameserver '``echo $A`` /etc/resolv.conf`{{execute T3}}
+`sed -i '2i nameserver '``echo $IP`` /etc/resolv.conf`{{execute T3}}
 
 Inspect the */etc/resolv.conf* file 
 
