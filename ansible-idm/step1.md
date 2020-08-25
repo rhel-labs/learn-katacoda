@@ -14,10 +14,7 @@ In this lab environment, we have provisioned 3 nodes as shown below -
 
 A control node is any machine with ansible installed.  We will be using *host02* to deploy the IdM server, and *host03* to deploy the IdM client. 
 
-> __NOTE__ : In production, IdM replicas are typically deployed for scale and high-availability reasons. However, in this lab, we will only
-be deploying a single instance of the IdM server.
-
-# Determining	connectivity of the hosts
+# Determining connectivity of the hosts
 
 To determine connectivity across the hosts, use the ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
 
