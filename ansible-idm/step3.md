@@ -1,5 +1,7 @@
 # Install the IdM Server software
 
+In this lab, we will be using FreeIPA which is an upstream open-source project for Red Hat Identity Manager (IdM).
+
 FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
 To install FreeIPA server using ansible on *host02* - 
