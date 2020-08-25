@@ -31,7 +31,8 @@ You can now play the Moon Buggy game, which is a text-based version of the
 popular Moon Patrol.  When you are finished, use the `q` command to quit the
 game, which will terminate the container.
 
-Alternatively you can use `podman` to kill the running container.
+Alternatively you can use `podman` to kill the running container from 
+**Terminal 2**.
 
 `podman kill $(podman ps | grep -v CONTAINER | cut -f1 -d" " )`{{execute T2}}
 
