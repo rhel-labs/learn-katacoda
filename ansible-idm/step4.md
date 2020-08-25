@@ -24,4 +24,8 @@ On the IPA server node (*host02*), create a new user called John Doe -
 
 `ipa user-add jdoe --first=John --last=Doe --password=123JDPassword!`{{execute T3}}
 
+From the IPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
+
+`id jdoe`{{execute T4}}
+
  
