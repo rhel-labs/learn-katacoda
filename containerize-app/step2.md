@@ -17,7 +17,7 @@ In the command below, `buildah` is going to run a command on the
 `ubi-working-container` image.  The `--` indicates that the command should be
 executed from within the container, which means the results will be applied into
 the container image.  Lastly, you are providing the `yum` command to install a
-package that defines all of the repositories from EPEL, `eple-release-latest-8`.
+package that defines all of the repositories from EPEL, `epel-release-latest-8`.
 
 `buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`{{execute}}
 
