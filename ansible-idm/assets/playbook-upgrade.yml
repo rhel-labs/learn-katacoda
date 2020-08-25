@@ -4,6 +4,9 @@
     - name: Update Hostnames
       hostname:
         name: "{{ new_hostname }}"
+        
+- hosts: all-hosts
+  tasks:
     - name: Add IP address of all hosts to all hosts
       lineinfile:
         dest: /etc/hosts
