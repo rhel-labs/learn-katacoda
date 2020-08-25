@@ -12,7 +12,7 @@ Installing the IPA client automatically configures services like kerberos, SSSD,
 
 Before running any IdM commands, you need to authenticate to the IdM domain by obtaining a kerberos ticket. The *kinit* utility can be used to authenticate to an Identity Management (IdM) environment manually. It obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM user.
 
-> __NOTE__:  For the normal administrative activity an administrative account admin has been created called *admin*. The admin password is *ADMPassword1*. For this lab, the password was specified in the */root/hosts* file as a IdM server variable. 
+> __NOTE__:  For the normal administrative activity an administrative account admin has been created called *admin*. The admin password is **ADMPassword1**. For this lab, the password was specified in the */root/hosts* file as a IdM server variable. 
 
 To authenticate as the admin, just run -
 
