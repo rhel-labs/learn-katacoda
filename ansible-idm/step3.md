@@ -10,11 +10,11 @@ To install the FreeIPA server using ansible on *host02* -
 
 On most Linux operating systems, the DNS servers that the system uses for name resolution are defined in the */etc/resolv.conf* file.
 
-Retrieve the IP address of *host02* - 
+Retrieve the IP address of *host02* and store it in the IP environment variable - 
 
 `IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
 
-Set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
+Set the DNS nameserver to point to the IP address of the IPA server in the */etc/resolv.conf* file 
 
 `sed -i '2i nameserver '``echo $IP`` /etc/resolv.conf`{{execute T3}}
 
