@@ -19,7 +19,7 @@ dbb1368db3f9b5f5cd651581e3c6e0bee242c25ef8ec68d2bef9f18e98f05209
 </pre>
 
 The above output shows that the commit was successful, however you can verify
-this by looking at the avaialble container images on the system.
+this by looking at the available container images on the system.
 
 `podman image list`{{execute}}
 
