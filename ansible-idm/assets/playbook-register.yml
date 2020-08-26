@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - name: Register with activationkey and consume subscriptions 
+    redhat_subscription:
+      state: present
+      activationkey: idm-lab-temp
+      org_id: 12451665
