@@ -1,6 +1,7 @@
 # Automating IdM installation using ansible
 
-**FreeIPA** is a free and open source identity management system. *FreeIPA* is the upstream open-source project for Red Hat Identity Manager (IdM).
+**FreeIPA** is a free and open source identity management system. *FreeIPA* is the upstream open-source project for Red Hat Identity Manager (IdM). In this lab, 
+we will be using the FreeIPA upstream repository.
 
 # Download the FreeIPA ansible roles
 
