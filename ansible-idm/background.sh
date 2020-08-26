@@ -7,7 +7,7 @@ echo "installing ansible" >> /root/post-run.log
 yum -y install ansible &>> /root/post-run.log
 
 echo "Replace placehold hostnames in ansible config file" >> /root/post-run.log
-IP_HOST1=$(grep -Ri "host01" /etc/hosts | cut -d" " -f1)
+IP_HOST1=$(hostname -i | awk '{print $NF}')
 IP_HOST2=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)
 IP_HOST3=$(grep -Ri "host03" /etc/hosts | cut -d" " -f1)
 
