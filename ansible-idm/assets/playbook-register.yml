@@ -7,6 +7,12 @@
 
 - hosts: web
   tasks:
+  - name: Unregister
+    command: subscription-manager remove --all; subscription-manager unregister; subscription-manager clean  
+
+
+- hosts: web
+  tasks:
   - name: Register with activationkey and consume subscriptions 
     redhat_subscription:
       state: absent
