@@ -4,7 +4,7 @@
 
 # Download the FreeIPA ansible roles
 
-On the *control* node terminal window of the lab, clone the FreeIPA ansible repository using *git*. The repository has all the necessary playbooks needed to deploy or undeploy server, replicas and clients.
+In the *control* node terminal window of the lab, clone the FreeIPA ansible repository using *git*. The repository has all the necessary playbooks needed to deploy or undeploy server, replicas and clients.
 
 `git clone https://github.com/freeipa/ansible-freeipa.git`{{execute T1}}
 
