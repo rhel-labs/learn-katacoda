@@ -20,7 +20,7 @@ From the FreeIPA client node (*host03*), check the real and effective group ids 
 
 `id jdoe`{{execute T4}}
 
-# Create a new user 
+# Create a new user principal 
 
 Before running any IdM commands, you need to authenticate to the IdM domain by obtaining a kerberos ticket. The *kinit* utility can be used to authenticate to an Identity Management (IdM) environment manually. It obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM user.
 
