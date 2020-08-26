@@ -27,4 +27,4 @@ Getting signing cert info for ca from CS.cfg
 []
 </pre>
 
-The square brackets *[]* on the last line of the output means that the IdM infrastructure is setup properly and functioning well.  
+The square brackets *[]* on the last line of the output means that the IdM infrastructure is setup properly and working as expected.  
