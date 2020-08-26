@@ -1,6 +1,6 @@
 # In this lab you have:
 # Concepts included in this scenario:
-* Used ansible playbooks to deploy IdM across RHEL servers
+* Used ansible playbooks to deploy the IdM server and client
 * Started and stopped the IdM server
 * Created a user on the IdM server 
 * Ran health-check to monitor if any IdM services are not properly running
