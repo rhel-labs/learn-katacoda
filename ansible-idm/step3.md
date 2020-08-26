@@ -24,7 +24,7 @@ Using the *host02* terminal of the lab, SSH into the IPA client node (*host03*) 
 
 > __NOTE__ : The root password of the *host03* node is **katacoda** 
 
-`ssh host03.test.local "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
+`ssh host03.test.local \"sed -i '2i nameserver $IP' /etc/resolv.conf\"`{{execute T3}}
 
 In the *host03* terminal of the lab, inspect the */etc/resolv.conf* file on *host03* to ensure that there is a nameserver entry with the IdM server's IP.
 
