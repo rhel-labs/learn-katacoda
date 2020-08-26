@@ -20,7 +20,7 @@ From the FreeIPA client node (*host03*), check the real and effective group ids 
 
 `id jdoe`{{execute T4}}
 
-<pre>
+<pre class="file">
 id: ‘jdoe’: no such user
 </pre>
 
