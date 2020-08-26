@@ -1,7 +1,13 @@
 !#/bin/bash
 
+sudo subscription-manager remove --all
+sudo subscription-manager unregister
+sudo subscription-manager clean
+
 echo "Setup activation key" >> /root/post-run.log
-subscription-manager register --org=12451665 --activationkey=idm-lab-temp --force
+subscription-manager register --org='12451665' --activationkey='idm-lab-temp' --force
+sudo subscription-manager refresh
+sudo subscription-manager attach --auto
 
 echo "adding ansible repo" >> /root/post-run.log
 subscription-manager repos --enable=ansible-2.8-for-rhel-8-x86_64-rpms &>> /root/post-run.log
