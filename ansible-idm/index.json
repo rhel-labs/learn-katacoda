@@ -43,6 +43,10 @@
             "target": "/root"
           },
           {
+            "file": "playbook-register.yml",
+            "target": "/root"
+          },
+          {
             "file": "config",
             "target": "/root/.ssh"
           }
