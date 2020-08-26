@@ -1,6 +1,6 @@
-# Install the IPA client 
+# Install the IdM client 
 
-In this lab, we will be using *host03* as the IPA client host. 
+In this lab, we will be using *host03* as the IdM client host. 
 
 Using the *control* node tab of the lab, install the FreeIPA client on *host03* -
 
