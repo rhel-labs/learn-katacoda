@@ -1,9 +1,9 @@
 ---
 - hosts: web
   tasks:
-    - name: Update Hostnames
-      hostname:
-        name: "{{ new_hostname }}"
+  - name: Update Hostnames
+    hostname:
+      name: "{{ new_hostname }}"
         
 - hosts: all
   tasks:
@@ -16,14 +16,14 @@
       line: "127.0.0.1 localhost.localdomain localhost {{ ansible_hostname }} {{ comment }}"
       state: present
       backup: yes
-    - name: Add IP address of all hosts to all hosts
-      lineinfile:
-        dest: /etc/hosts
-        regexp: '.*{{ item }}$'
-        line: "{{ hostvars[item].ansible_host }} {{item}}"
-        state: present
-      when: hostvars[item].ansible_host is defined
-      with_items: "{{ groups.all }}"
+  - name: Add IP address of all hosts to all hosts
+    lineinfile:
+      dest: /etc/hosts
+      regexp: '.*{{ item }}$'
+      line: "{{ hostvars[item].ansible_host }} {{item}}"
+      state: present
+    when: hostvars[item].ansible_host is defined
+    with_items: "{{ groups.all }}"
 
 - hosts: all
   tasks:
