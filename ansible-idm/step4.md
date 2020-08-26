@@ -42,8 +42,14 @@ Now that we have authenticated to the IdM server, on the server node (*host02*),
 
 `ipa user-add jdoe --first=John --last=Doe --password=123JDPassword!`{{execute T3}}
 
+On the IPA server node (*host02*), check the real and effective group ids of the user John Doe (jdoe) - 
+
+`id jdoe`{{execute T3}}
+
 From the IPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
 
 `id jdoe`{{execute T4}}
+
+Verify that the uid, gid, and groups match on *host02* and *host03*, and is referring to the same user *jdoe*.
 
  
