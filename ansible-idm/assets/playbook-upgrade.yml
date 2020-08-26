@@ -1,5 +1,5 @@
 ---
-- hosts: web
+- hosts: all
   tasks:
   - name: Update Hostnames
     hostname:
@@ -13,7 +13,7 @@
     lineinfile:
       dest: /etc/hosts
       regexp: "127[.]0[.]0[.]1.*"
-      line: "127.0.0.1 localhost.localdomain localhost {{ ansible_hostname }} {{ comment }}"
+      line: "127.0.0.1 localhost.test.local localhost {{ ansible_hostname }} {{ comment }}"
       state: present
       backup: yes
       
@@ -23,7 +23,7 @@
     lineinfile:
       dest: /etc/hosts
       regexp: '.*{{ item }}$'
-      line: "{{ hostvars[item].ansible_host }} {{item}}"
+      line: "{{ hostvars[item].ansible_host }} {{item}}.test.local"
       state: present
     when: hostvars[item].ansible_host is defined
     with_items: "{{ groups.all }}"
