@@ -8,7 +8,7 @@
 - hosts: web
   tasks:
   - name: Unregister
-    command: subscription-manager remove --all; subscription-manager unregister; subscription-manager clean  
+    command: "yum clean all; subscription-manager remove --all; subscription-manager unregister; subscription-manager clean"  
 
 
 - hosts: web
