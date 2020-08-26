@@ -16,6 +16,9 @@
       line: "127.0.0.1 localhost.localdomain localhost {{ ansible_hostname }} {{ comment }}"
       state: present
       backup: yes
+      
+- hosts: all 
+  tasks:
   - name: Add IP address of all hosts to all hosts
     lineinfile:
       dest: /etc/hosts
