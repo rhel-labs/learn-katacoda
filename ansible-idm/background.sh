@@ -10,8 +10,8 @@ echo "Replace placehold hostnames in ansible config file" >> /root/post-run.log
 IP_HOST2=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)
 IP_HOST3=$(grep -Ri "host03" /etc/hosts | cut -d" " -f1)
 
-sed -i 's/%place02%/$IP_HOSTS2/g' /root/hosts >> /root/post-run.log
-sed -i 's/%place03%/$IP_HOSTS3/g' /root/hosts >> /root/post-run.log
+sed -i -e 's/%place02%/$IP_HOSTS2/g' /root/hosts >> /root/post-run.log
+sed -i -e 's/%place03%/$IP_HOSTS3/g' /root/hosts >> /root/post-run.log
 
 echo "Upgrade machines to latest version of RHEL" >> /root/post-run.log
 ansible-playbook playbook-upgrade.yml &>> /root/post-run.log
