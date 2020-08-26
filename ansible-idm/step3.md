@@ -22,13 +22,13 @@ In the *host02* terminal window of the lab, retrieve the IP address and store it
 
 `IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
 
-SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* file 
+Using the *host02* terminal of the lab, SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* DNS file -
 
-> __NOTE__ : The root password of the *host03* node is **RedHat1!** 
+> __NOTE__ : The root password of the *host03* node is **katacoda!** 
 
-`ssh host03 "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
+`ssh host03.test.local "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
 
-Inspect the */etc/resolv.conf* file on *host03* 
+Using the *host03* terminal of the lab, inspect the */etc/resolv.conf* file on *host03* 
 
 `cat /etc/resolv.conf`{{execute T4}}
 
@@ -36,11 +36,11 @@ Inspect the */etc/resolv.conf* file on *host03*
 
 Because IdM has several different services working together, *ipactl* is a single utility to stop, start, or restart the entire IdM server along with all other installed services.
 
-To stop the IdM server and all installed services -
+Using the *host02* terminal of the lab, stop the IdM server and all installed services -
 
 `ipactl stop`{{execute T3}}
 
-To start the entire IdM server and all installed services -
+Using the *host02* terminal of the lab, start the entire IdM server and all installed services -
 
 `ipactl start`{{execute T3}}
 
