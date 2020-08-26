@@ -1,7 +1,5 @@
 # Install the IdM Server software
 
-In this lab, we will be using FreeIPA which is an upstream open-source project for Red Hat Identity Manager (IdM).
-
 FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
 To install FreeIPA server using ansible on *host02*, run the *ansible-playbook* command on the control node - 
@@ -28,7 +26,7 @@ Using the *host02* terminal of the lab, SSH into the IPA client node (*host03*) 
 
 `ssh host03.test.local "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
 
-Using the *host03* terminal of the lab, inspect the */etc/resolv.conf* file on *host03* 
+In the *host03* terminal of the lab, inspect the */etc/resolv.conf* file on *host03* to ensure that there is a nameserver entry with the IdM server's IP.
 
 `cat /etc/resolv.conf`{{execute T4}}
 
