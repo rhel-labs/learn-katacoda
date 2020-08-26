@@ -7,8 +7,8 @@ ansible_ssh_pass=RedHat1!
 host01 ansible_host=localhost ansible_connection=local
 
 [web]
-host02 ansible_host=host02 ansible_connection=ssh new_hostname=host02.test.local
-host03 ansible_host=host03 ansible_connection=ssh new_hostname=host03.test.local
+host02 ansible_host=%place02% ansible_connection=ssh new_hostname=host02.test.local
+host03 ansible_host=%place03% ansible_connection=ssh new_hostname=host03.test.local
 
 [ipaserver]
 host02
