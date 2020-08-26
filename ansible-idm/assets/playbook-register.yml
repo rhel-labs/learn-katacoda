@@ -7,13 +7,17 @@
 
 - hosts: web
   tasks:
-  - name: Unregister
-    command: 'yum clean all; subscription-manager remove --all; subscription-manager unregister; subscription-manager clean'  
-
+  - name: Cleanup rhsm
+    shell: |
+      sudo yum clean all
+      sudo subscription-manager remove --all
+      sudo subscription-manager unregister
+      sudo subscription-manager clean
+      exit
 
 - hosts: web
   tasks:
-  - name: Register with activationkey and consume subscriptions 
+  - name: rhsm force register with activation key
     redhat_subscription:
       state: absent
       activationkey: 'idm-lab-temp'
