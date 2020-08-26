@@ -18,7 +18,7 @@ A control node is any machine with ansible installed.  We will be using *host02*
 
 To determine connectivity across the hosts, use the ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
 
-`ansible all -m ping`{{execute}}
+`ansible all -m ping`{{execute T2}}
 
 The output will look like the following:
 
