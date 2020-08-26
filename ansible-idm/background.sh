@@ -1,6 +1,7 @@
 !#/bin/bash
 
-sudo subscription-manager remove --all
+echo "Cleanup rhsm on control node" >> /root/post-run.log
+sudo subscription-manager remove --all 
 sudo subscription-manager unregister
 sudo subscription-manager clean
 
