@@ -10,7 +10,17 @@ The IPA client host (*host03* in this case), and other corresponding IPA client 
 
 Installing the IPA client automatically configures services like kerberos, SSSD, PAM and NSS. 
 
-# Test the IPA client
+# Test the FreeIPA client
+
+From the FreeIPA client node (*host03*), check the real and effective group ids of the admin user - 
+
+`id admin`{{execute T4}}
+
+From the FreeIPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
+
+`id jdoe`{{execute T4}}
+
+# Create a new user 
 
 Before running any IdM commands, you need to authenticate to the IdM domain by obtaining a kerberos ticket. The *kinit* utility can be used to authenticate to an Identity Management (IdM) environment manually. It obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM user.
 
@@ -21,16 +31,6 @@ On the *host02* terminal window of the lab, authenticate using the clien as *adm
 `kinit admin`{{execute T3}}
 
 You will be prompted for the password of admin password of the IdM Server (which is **ADMPassword1**).
-
-From the IPA client node (*host03*), check the real and effective group ids of the admin user - 
-
-`id admin`{{execute T4}}
-
-From the IPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
-
-`id jdoe`{{execute T4}}
-
-# Create a new user 
 
 As an administrator, adding principals to the IdM Kerberos domain is an important task. This can be accomplished using the *ipa* command.
 
