@@ -38,9 +38,11 @@ You will be prompted for the password of admin password of the IdM Server (which
 
 As an administrator, adding principals to the IdM Kerberos domain is an important task. This can be accomplished using the *ipa* command.
 
-Now that we have authenticated to the IdM server, on the server node (*host02*), create a new user called John Doe -
+Now that we have authenticated to the IdM server, on the server node (*host02*), create a new user called *John Doe* with userid *jdoe* -
 
-`ipa user-add jdoe --first=John --last=Doe --password=123JDPassword!`{{execute T3}}
+`ipa user-add jdoe --first=John --last=Doe --password`{{execute T3}}
+
+When prompted for the password, enter a password, and retype the password to confirm.
 
 On the IPA server node (*host02*), check the real and effective group ids of the user John Doe (jdoe) - 
 
