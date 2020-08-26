@@ -16,7 +16,7 @@ A control node is any machine with ansible installed.  We will be using *host02*
 
 # Determining connectivity of the hosts
 
-On the *control* node terminal of the lab, determine connectivity across the hosts using ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
+In the *control* node terminal window of the lab, determine connectivity across the hosts using ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).
 
 `ansible all -m ping`{{execute T1}}
 
