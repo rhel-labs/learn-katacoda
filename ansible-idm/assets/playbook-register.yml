@@ -1,15 +1,15 @@
 ---
-- hosts: web
-  tasks:
-  - name: Unregister Red Hat subscription
-    redhat_subscription:
-      state: absent
+#- hosts: web
+#  tasks:
+#  - name: Unregister Red Hat subscription
+#    redhat_subscription:
+#      state: absent
 
 - hosts: web
   tasks:
   - name: Register with activationkey and consume subscriptions 
     redhat_subscription:
-      state: present
+      state: absent
       activationkey: 'idm-lab-temp'
       org_id: '12451665'
       force_register: yes
