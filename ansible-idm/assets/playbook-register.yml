@@ -6,3 +6,4 @@
       state: present
       activationkey: 'idm-lab-temp'
       org_id: '12451665'
+      force_register: yes
