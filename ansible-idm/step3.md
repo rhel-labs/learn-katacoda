@@ -22,7 +22,7 @@ In the *host02* terminal window of the lab, retrieve the IP address and store it
 
 Using the *host02* terminal of the lab, SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* DNS file -
 
-> __NOTE__ : The root password of the *host03* node is **katacoda!** 
+> __NOTE__ : The root password of the *host03* node is **katacoda** 
 
 `ssh host03.test.local "sed -i '2i nameserver $IP' /etc/resolv.conf"`{{execute T3}}
 
