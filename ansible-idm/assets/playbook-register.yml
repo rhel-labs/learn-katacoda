@@ -1,6 +1,11 @@
 ---
 - hosts: web
   tasks:
+  - name: Unregister Red Hat subscription
+    state: absent
+
+- hosts: web
+  tasks:
   - name: Register with activationkey and consume subscriptions 
     redhat_subscription:
       state: present
