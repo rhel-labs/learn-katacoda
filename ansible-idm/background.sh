@@ -1,7 +1,7 @@
 !#/bin/bash
 
 echo "Setup activation key" >> /root/post-run.log
-subscription-manager register --org=12451665 --activationkey=idm-lab-temp
+subscription-manager register --org=12451665 --activationkey=idm-lab-temp --force
 
 echo "adding ansible repo" >> /root/post-run.log
 subscription-manager repos --enable=ansible-2.8-for-rhel-8-x86_64-rpms &>> /root/post-run.log
