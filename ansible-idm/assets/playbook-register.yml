@@ -2,7 +2,8 @@
 - hosts: web
   tasks:
   - name: Unregister Red Hat subscription
-    state: absent
+    redhat_subscription:
+      state: absent
 
 - hosts: web
   tasks:
