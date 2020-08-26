@@ -4,9 +4,9 @@ In this lab, we will be using FreeIPA which is an upstream open-source project f
 
 FreeIPA server provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers. 
 
-To install FreeIPA server using ansible on *host02* - 
+To install FreeIPA server using ansible on *host02*, run the *ansible-playbook* command on the control node - 
 
-`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute}}
+`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute T1}}
 
 The target host (*host02*) and other IPA server variables are picked up from the ansible inventory file (*/root/hosts*).
 
