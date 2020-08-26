@@ -4,7 +4,7 @@ ansible_user=root
 ansible_ssh_pass=RedHat1!
 
 [control_node]
-host01 ansible_host=%place01% ansible_connection=local
+host01 ansible_host=localhost ansible_connection=local
 
 [web]
 host02 ansible_host=%place02% ansible_connection=ssh new_hostname=host02.test.local
