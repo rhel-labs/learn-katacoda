@@ -19,7 +19,7 @@
   tasks:
   - name: rhsm force register with activation key
     redhat_subscription:
-      state: absent
+      state: present
       activationkey: 'idm-lab-temp'
       org_id: '12451665'
       force_register: yes
