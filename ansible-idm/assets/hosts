@@ -25,4 +25,8 @@ ipaserver_realm=TEST.LOCAL
 ipaserver_no_forwarders=true
 
 [ipaclients:vars]
+ipaclient_allow_repair=yes
 ipaadmin_password=ADMPassword1
+ipadm_password=DMPassword1
+ipaserver_domain=test.local
+ipaserver_realm=TEST.LOCAL
