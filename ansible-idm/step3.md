@@ -12,20 +12,6 @@ The target host (*host02*) and other IPA server variables are picked up from the
 
 A number of different services are installed together with an IdM server, including Directory Server, Certificate Authority (CA), DNS, Kerberos, and others. 
 
-# Configure the DNS name resolution 
-
-On most Linux operating systems, the DNS servers that the system uses for name resolution is defined in the */etc/resolv.conf* file.
-
-Using *host03* terminal of the lab, make a DNS entry with the IP address of the IdM server in the DNS resolution file */etc/resolv.conf* -
-
-`IP_Server=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)`{{execute T4}}
-
-`echo nameserver $IP_Server >> /etc/resolv.conf`{{execute T4}}
-
-Inspect the */etc/resolv.conf* file to ensure that there is a nameserver entry with the IdM server's IP -
-
-`cat /etc/resolv.conf`{{execute T4}}
-
 # Stop and start the IPA Server 
 
 Because IdM has several different services working together, *ipactl* is a single utility to stop, start, or restart the entire IdM server along with all other installed services.
@@ -39,3 +25,17 @@ Using the *host02* terminal of the lab, start the entire IdM server and all inst
 `ipactl start`{{execute T3}}
 
 If you only want to stop, start, or restart an individual IdM service, use the *systemctl* utility.
+
+# Configure the DNS name resolution 
+
+On most Linux operating systems, the DNS servers that the system uses for name resolution is defined in the */etc/resolv.conf* file.
+
+Using *host03* terminal of the lab, make a DNS entry with the IP address of the IdM server in the DNS resolution file */etc/resolv.conf* -
+
+`IP_Server=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)`{{execute T4}}
+
+`echo nameserver $IP_Server >> /etc/resolv.conf`{{execute T4}}
+
+Inspect the */etc/resolv.conf* file to ensure that there is a nameserver entry with the IdM server's IP -
+
+`cat /etc/resolv.conf`{{execute T4}}
