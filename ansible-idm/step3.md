@@ -4,29 +4,25 @@ FreeIPA server provides centralized authentication, authorization and account in
 
 To install FreeIPA server using ansible on *host02*, run the *ansible-playbook* command on the control node - 
 
-`ansible-playbook -vv -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute T1}}
+`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute T1}}
 
 > __NOTE__ : In this step, we have only installed a single IdM server. However, in production, IdM replicas are typically deployed for scale and high-availability reasons. An IdM replica server is a full read/write copy of the first installation, and can be easily created using the *ipa-replica-prepare* command. 
 
 The target host (*host02*) and other IPA server variables are picked up from the ansible inventory file (*/root/hosts*).
 
-A number of different services are installed together with an IdM server, including Directory Server, Certificate Authority (CA), DNS, Kerberos, and others. The *--vv* option adjusts the verbosity level of the output so that you can get a deeper understanding of what the ansible task is doing.
+A number of different services are installed together with an IdM server, including Directory Server, Certificate Authority (CA), DNS, Kerberos, and others. 
 
 # Configure the DNS name resolution 
 
-On most Linux operating systems, the DNS servers that the system uses for name resolution are defined in the */etc/resolv.conf* file.
+On most Linux operating systems, the DNS servers that the system uses for name resolution is defined in the */etc/resolv.conf* file.
 
-In the *host02* terminal window of the lab, retrieve the IP address and store it in an environment variable (called *IP*) - 
+Using *host03* terminal of the lab, make a DNS entry with the IP address of the IdM server in the DNS resolution file */etc/resolv.conf* -
 
-`IP=$(hostname -i | awk '{print $NF}')`{{execute T3}}
+`IP_Server=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)`{{execute T4}}
 
-Using the *host02* terminal of the lab, SSH into the IPA client node (*host03*) and set the DNS nameserver to point to the IPA server in the */etc/resolv.conf* DNS file -
+`echo nameserver $IP_Server >> /etc/resolv.conf`{{execute T4}}
 
-> __NOTE__ : The root password of the *host03* node is **katacoda** 
-
-`ssh host03.test.local \"sed -i '2i nameserver $IP' /etc/resolv.conf\"`{{execute T3}}
-
-In the *host03* terminal of the lab, inspect the */etc/resolv.conf* file on *host03* to ensure that there is a nameserver entry with the IdM server's IP.
+Inspect the */etc/resolv.conf* file to ensure that there is a nameserver entry with the IdM server's IP -
 
 `cat /etc/resolv.conf`{{execute T4}}
 
