@@ -16,9 +16,17 @@ From the FreeIPA client node (*host03*), check the real and effective group ids 
 
 `id admin`{{execute T4}}
 
+The output should be like below since admin user exists on the IPA Server -
+
+<pre class="file">
+uid=1152000000(admin) gid=1152000000(admins) groups=1152000000(admins)
+</pre>
+
 From the FreeIPA client node (*host03*), check the real and effective group ids of the user John Doe (jdoe) - 
 
 `id jdoe`{{execute T4}}
+
+The output should be like below since user jdoe does not exists on the IPA Server - 
 
 <pre class="file">
 id: ‘jdoe’: no such user
