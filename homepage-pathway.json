@@ -48,6 +48,16 @@
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
     },
     {
+      "external_link": "https://lab.redhat.com/ansible-introduction",
+      "title": "An Introduction to Ansible",
+      "description": "Experience a walkthrough of command-line Ansible and executing your first Ansible Playbook"
+    },
+    {
+      "external_link": "https://lab.redhat.com/ansible-web-server",
+      "title": "Deploying services with Ansible",
+      "description": "Deploy the Apache web server using Ansible modules on Red Hat Enterprise Linux"
+    },
+    {
       "external_link": "https://lab.redhat.com/webconsole-software",
       "title": "Managing system updates using the web console",
       "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
