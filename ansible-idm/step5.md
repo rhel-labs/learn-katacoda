@@ -20,8 +20,8 @@ On the *host02* terminal tab of the lab, use the *ipa-healthcheck* command to ve
 
 The *--failures-only* option can be used to only show failures in the environment. 
 
-<pre>
-oading instance: pki-tomcat
+<pre class="file">
+Loading instance: pki-tomcat
 Loading global Tomcat config: /etc/tomcat/tomcat.conf
 Loading PKI Tomcat config: /usr/share/pki/etc/tomcat.conf
 Loading instance Tomcat config: /etc/pki/pki-tomcat/tomcat.conf
