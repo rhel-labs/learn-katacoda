@@ -4,7 +4,7 @@ FreeIPA server provides centralized authentication, authorization and account in
 
 On the *control* node, use ansible to install the IPA Server on *host02* - 
 
-`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-server.yml`{{execute T2}}
+`ansible-playbook -v -i ~/hosts /usr/share/doc/ansible-freeipa/playbooks/install-server.yml`{{execute T2}}
 
 > __NOTE__ : In this step, we have only installed a single IdM server. However, in production, IdM replicas are typically deployed for scale and high-availability reasons. An IdM replica server is a full read/write copy of the first installation, and can be easily created using the *ipa-replica-prepare* command. 
 
