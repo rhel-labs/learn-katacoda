@@ -9,9 +9,7 @@ In the *control* node terminal window of the lab, clone the FreeIPA ansible repo
 
 `yum install ansible-freeipa`{{execute T1}}
 
-`git clone -b v0.1.12 https://github.com/freeipa/ansible-freeipa.git`{{execute T1}}
-
 List the playbooks that are available to be used. 
 
-`ls ansible-freeipa/playbooks/`{{execute T1}}
+`ls /usr/share/doc/ansible-freeipa/playbooks`{{execute T1}}
 
