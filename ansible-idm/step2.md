@@ -7,7 +7,7 @@ we will be using the FreeIPA upstream repository.
 
 In the *control* node terminal window of the lab, clone the FreeIPA ansible repository using *git*. The repository has all the necessary playbooks needed to deploy or undeploy server, replicas and clients.
 
-`yum install ansible-freeipa`{{execute T1}}
+`yum install -y ansible-freeipa`{{execute T1}}
 
 List the playbooks that are available to be used. 
 
