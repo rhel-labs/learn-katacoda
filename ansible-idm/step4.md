@@ -4,7 +4,7 @@ In this lab, you will be using *host03* as the IdM client host to setup the Free
 
 Using the *control* node tab of the lab, install the FreeIPA client on *host03* -
 
-`ansible-playbook -v -i ~/hosts ansible-freeipa/playbooks/install-client.yml`{{execute T2}}
+`ansible-playbook -v -i ~/hosts /usr/share/doc/ansible-freeipa/playbooks/install-client.yml`{{execute T2}}
 
 The IPA client host (*host03* in this case), and other corresponding IPA client variables are taken from the */root/hosts* inventory file. 
 
