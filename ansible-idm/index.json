@@ -1,5 +1,5 @@
 {
-  "title": "Deploying Red Hat Identity Management (IdM)",
+  "title": "Deploying Red Hat Identity Management (IdM) [DRAFT]",
   "description": "Using command-line ansible to deploy Red Hat Identity Management (IdM) and running IdM health-check",
   "details": {
     "steps": [
