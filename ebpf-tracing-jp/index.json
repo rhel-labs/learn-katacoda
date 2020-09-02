@@ -27,12 +27,19 @@
         "title": "Step 6",
         "text": "step6.md"
       }
+   ],
+    "intro": {
+      "text": "intro.md"
     },
-    "environment": {
-    "uilayout": "terminal",
-    "terminals": [{"name": "gethostlatency", "target":"host01"},{"name":"tcplife","target":"host01"},{"name":"filetop","target":"host01"},{"name":"xfsslower","target":"host01"},{"name":"cachestat","target":"host01"}]
+    "finish": {
+      "text": "finish.md"
+    }
   },
-    "backend": {
+  "environment": {
+  "uilayout": "terminal",
+  "terminals": [{"name": "gethostlatency", "target":"host01"},{"name":"tcplife","target":"host01"},{"name":"filetop","target":"host01"},{"name":"xfsslower","target":"host01"},{"name":"cachestat","target":"host01"}]
+  },
+  "backend": {
     "imageid": "rhel8-2"
   }
 }
