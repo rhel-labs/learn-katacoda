@@ -6,23 +6,8 @@ You can display all available profiles in the datastream file using the *opensca
 
 The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC Essential Eight. 
 
-__Note:__ By default the oscap tool will not download and execute remote content. If you trust your local content and the remote content 
-it references, you can use the --fetch-remote-resources option to automatically download it using the oscap tool as suggested in the output WARNING. 
-
 <pre class="file">
-Document type: Source Data Stream
-Imported: 2020-02-11T08:41:17
-
-Stream: scap_org.open-scap_datastream_from_xccdf_ssg-rhel8-xccdf-1.2.xml
-Generated: (null)
-Version: 1.3
-Checklists:
-        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-xccdf-1.2.xml
-WARNING: Datastream component 'scap_org.open-scap_cref_security-data-oval-com.redhat.rhsa-RHEL8.xml' points out to the remote 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml'. Use '--fetch-remote-resources' option to download it.
-WARNING: Skipping 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml' file which is referenced from datastream
-                Status: draft
-                Generated: 2020-02-11
-                Resolved: true
+<< OUTPUT ABRIDGED >>
                 Profiles:
                         Title: Protection Profile for General Purpose Operating Systems
                                 Id: xccdf_org.ssgproject.content_profile_ospp
@@ -39,13 +24,7 @@ WARNING: Skipping 'https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHE
                                 system: http://scap.nist.gov/schema/ocil/2
                         security-data-oval-com.redhat.rhsa-RHEL8.xml
                                 system: http://oval.mitre.org/XMLSchema/oval-definitions-5
-Checks:
-        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-oval.xml
-        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-ocil.xml
-        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-cpe-oval.xml
-        Ref-Id: scap_org.open-scap_cref_security-data-oval-com.redhat.rhsa-RHEL8.xml
-Dictionaries:
-        Ref-Id: scap_org.open-scap_cref_ssg-rhel8-cpe-dictionary.xml
+<< OUTPUT ABRIDGED >>
 </pre>
 
 A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the *--profile* option.
@@ -67,3 +46,6 @@ Profile
 
         Description: Ensures PCI-DSS v3.2.1 security configuration settings are applied.
 </pre>
+
+>__Note:__ The datastream file makes references to remote OVAL content that is regularly updated. During scanning, OpenSCAP attempts to download the resources locally if *--fetch-remote-reesources* option is provided.
+
