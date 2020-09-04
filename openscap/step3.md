@@ -60,7 +60,7 @@ Result  pass
 
 The XML results file can be transformed into HTML or plain-text format for easier readability - 
 
-`oscap oval generate report /tmp/scan-xccdf-results.xml > /var/www/html/index.html`{{execute T1}} 
+`oscap xccdf generate report /tmp/scan-xccdf-results.xml > /var/www/html/index.html`{{execute T1}} 
 
 Now that the HTML report is generated, you can check the *OpenSCAP Report* tab of this lab interface to view the results.
 
