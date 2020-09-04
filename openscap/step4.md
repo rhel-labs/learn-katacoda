@@ -32,7 +32,7 @@ To verify that the issue is remediated, re-run the previous command. Oscap only 
 Title   Install libreswan Package
 Rule    xccdf_org.ssgproject.content_rule_package_libreswan_installed
 Ident   CCE-80845-1
-Result  Pass
+Result  pass
 
  --- Starting Remediation ---
 </pre>
