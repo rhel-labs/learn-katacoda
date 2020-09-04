@@ -27,6 +27,8 @@ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC E
 << OUTPUT ABRIDGED >>
 </pre>
 
+>__NOTE:__ Each profile in the output has a title which describes the profile and corresponding Id. For this lab, we are interested in the PCI-DSS profile, and the corresponding Id is *xccdf_org.ssgproject.content_profile_pci-dss*. 
+
 A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the *--profile* option.
 
 `oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
@@ -47,5 +49,5 @@ Profile
         Description: Ensures PCI-DSS v3.2.1 security configuration settings are applied.
 </pre>
 
->__Note:__ The datastream file makes references to remote OVAL content that is regularly updated. During scanning, OpenSCAP attempts to download the resources locally if *--fetch-remote-reesources* option is provided.
+>__Note:__ The datastream file makes references to remote OVAL content that is regularly updated. During scanning, OpenSCAP attempts to download the resources locally if *--fetch-remote-resources* option is provided.
 
