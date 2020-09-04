@@ -1,15 +1,16 @@
-# Running a scan against a profile
+# Scan and generate a report
 
 A XCCDF document is a structured collection of security configuration rules for some set of target system. In this case, it has the 
 configuration rules that meet the PCI regulation.
 
-Run the *oscap* tool providing the XCCDF formatted profile with ID, option to fetch remote resources, report output file name, and 
-checklist file as per the SCAP security guide.
+To start scanning using OpenSCAP, use the *oscap xccdf eval* command with the profile Id, option to fetch remote resources, output XML results file, and 
+the datastream file.
 
-`oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml --report /var/www/html/index.html /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
+`oscap xccdf eval --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_pci-dss --results /tmp/scan-xccdf-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
-__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules, store the results in the /tmp directory and generate the 
-scan report in HTML format.  
+__Note:__ This scan can take a few minutes to complete as it has to evaluate all the rules, and generate a XML file that has the results.
+
+Once the scan completes, you can look at the pass/fail status of each rule in the output -
 
 <pre class="file">
 Downloading: https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml ... ok
@@ -56,10 +57,13 @@ Result  pass
 << OUTPUT ABRIDGED >>
 </pre>
 
-Once the command completes, you can look at the pass/fail status of each rule in the output, or check the *OpenSCAP Report* tab of this lab interface 
-to view the scan report in HTML format.
+
+The XML results file can be transformed into HTML or plain-text format for easier readability - 
+
+`oscap oval generate report /tmp/scan-xccdf-results.xml > /var/www/html/index.html`{{execute T1}} 
+
+Now that the HTML report is generated, you can check the *OpenSCAP Report* tab of this lab interface to view the results.
 
 ![OpenSCAP-Report](./assets/Openscan-Report-Fail.png)
 
-From the report, you will notice that there are about 30 or so rules that have failed, and the next steps will focus on remediating one of them 
-related to IPSec.
+From the report, you will notice that there are about 30 or so rules that have failed, and the next steps will focus on remediating an issue that was found.
