@@ -18,4 +18,4 @@ There are files for every platform available in a form of XCCDF, OVAL or datastr
 
 If you are interested in more details about the *openscap* tool check out -
 
-`man oscap`
+`man oscap`{{execute T1}}
