@@ -3,7 +3,7 @@
 * Explored the scanning profiles available to use
 * Ran a host scan and generated an HTML scan report
 * Remediated an issue found during the scan 
-* Ensured that the issue is resolved by looking at the HTML scan report
+* Ensured that the issue is resolved by re-running the scan
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
