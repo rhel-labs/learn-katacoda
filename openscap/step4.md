@@ -1,5 +1,7 @@
 # Remediating and rescanning against a profile
 
+One of the failed rules in the scan done in the previous step was related to IPSec support. 
+
 In this step, you will remediate a single failed rule related to IPSec support.
 
 __NOTE__: Many of the remediations involve restarting the host, and the current demo environment does not support host reboots yet. Thus, this lab will 
