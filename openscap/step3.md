@@ -66,4 +66,9 @@ Now that the HTML report is generated, you can check the *OpenSCAP Report* tab o
 
 ![OpenSCAP-Report](./assets/Openscan-Report-Fail.png)
 
-From the report, you will notice that there are about 30 or so rules that have failed, and the next steps will focus on remediating an issue that was found.
+From the report, you will notice that there are about 30 or so rules that have failed. If you scroll right to the bottom of the HTML report, you will notice
+that there is a failed rule related to *IPSec Support*. If you click on this failed rule, you can get more details including the Rule ID, severity and description. Note the Rule ID for this failed rule as it will be used in the next step. 
+
+![OpenSCAP-Report-Details](./assets/Openscan-Report-Fail-Details.png)
+
+
