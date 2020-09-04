@@ -29,7 +29,7 @@ The output has several profiles including PCI-DSS, [DRAFT] DISA STIG, and ACSC E
 
 >__NOTE:__ Each profile in the output has a title which describes the profile and corresponding Id. For this lab, we are interested in the PCI-DSS profile, and the corresponding Id is *xccdf_org.ssgproject.content_profile_pci-dss*. 
 
-A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the *--profile* option.
+A profile contains generic security recommendations that apply to all Red Hat Enterprise Linux installations and additional security recommendations that are specific to the intended usage of a system. To obtain information about a specific profile, specify the profile Id using the *--profile* option.
 
 `oscap info --profile xccdf_org.ssgproject.content_profile_pci-dss /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`{{execute T1}}
 
