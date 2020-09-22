@@ -12,4 +12,7 @@ yum -y install cockpit cockpit-packagekit
 echo "starting cockpit" >> /root/post-run.log
 systemctl start cockpit
 
+#Set the password expiry for the rhel user to never
+chage -M -1 rhel
+
 echo "DONE" >> /root/post-run.log
