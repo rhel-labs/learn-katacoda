@@ -32,9 +32,13 @@ Upgraded:
 Complete!
 </pre>
 
+After installing the criu package, create a configuration file to adjust the maximum ghost file limit. By default, 1MB is the maximum size of a deleted file but in the case of SQL Server temporary files might exceed this limit and hence the ghost-file max size must be adjusted.
+
+`echo ghost-limit = 40000000 > /etc/criu.conf`{{execute T2}}
+
 In the *Terminal Server* tab of the lab interface, checkpoint the sql server 
 
-`podman container checkpoint -l --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
+`podman container checkpoint -l --config /etc/criu.conf --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
 
 <pre class="file">
 cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
