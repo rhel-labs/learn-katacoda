@@ -10,9 +10,10 @@ Verify that the SQL Server container image is now available on the host system
 
 `podman images`{{execute T1}}
 
-In the output, you will notice that the SQL Server container image is downloaded and available for use
+In the output, you will notice that we have a new image in the repository which is SQL Server container image (*mcr.microsoft.com/mssql/rhel/server*)
 
 <pre class="file">
 REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
-mcr.microsoft.com/mssql/rhel/server   2019-latest   9ab439659123   6 weeks ago   1.59 GB
+mcr.microsoft.com/mssql/rhel/server   2019-latest   c9ce21305ef5   3 weeks ago    1.58 GB
+localhost/rhel8-httpd                 latest        69aac470f62d   3 months ago   617 MB
 </pre>
