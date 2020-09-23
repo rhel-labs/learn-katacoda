@@ -32,7 +32,7 @@ Upgraded:
 Complete!
 </pre>
 
-After installing the criu package, create a configuration file to adjust the maximum ghost file limit. By default, 1MB is the maximum size of a deleted file but in the case of SQL Server temporary files might exceed this limit and hence the ghost-file max size must be adjusted.
+After installing the criu package, create a configuration file to adjust the maximum ghost file limit. By default, 1MB is the maximum size of a deleted file that criu can handle, but in the case of SQL Server, temporary files might exceed this limit and hence the ghost-file size must be adjusted.
 
 `echo ghost-limit = 40000000 > /etc/criu.conf`{{execute T2}}
 
