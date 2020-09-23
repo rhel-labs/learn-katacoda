@@ -36,7 +36,7 @@ After installing the criu package, create a configuration file to adjust the max
 
 `echo ghost-limit = 40000000 > /etc/criu.conf`{{execute T2}}
 
-In the *Terminal Server* tab of the lab interface, checkpoint the sql server 
+In the *Terminal Server* tab of the lab interface, checkpoint the running SQL Server container and export the checkpoint to a compressed file
 
 `podman container checkpoint -l --config /etc/criu.conf --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
 
