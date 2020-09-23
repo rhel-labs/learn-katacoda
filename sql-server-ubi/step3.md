@@ -41,7 +41,7 @@ This container is running as user mssql.
 
 ### Deploying a container as a non-root user
 
-Now, switch user context from the root user to the non-root __rhel__ user. 
+Now, switch user context from the root user to the non-root __rhel__ user so that you don't use root privileges for the podman commands.
 
 Recall that the __rhel__ user's password is __redhat__.
 
@@ -55,7 +55,7 @@ Similarly, spin up database instance 2 of SQL Server using podman which port map
 
 `podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}
 
-> **NOTE:** We have instantiated the container runtime using a non-root *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root user (*mssql*) by default. 
+> **NOTE:** We have instantiated multiple container instances using a non-root *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root user (*mssql*) by default. 
 
 Get the top 2 lines of the container logs for database instance 1
 
