@@ -21,12 +21,6 @@ set the appropriate user ownership for the script directory created to uid:10001
 
 `chown -R 10001:0 /var/mssql/scripts`{{execute T1}}
 
-Now, create a shell as the __rhel__ user so that we don't use root privileges for the podman commands.
-
-Recall that the __rhel__ user's password is __redhat__.
-
-`ssh rhel@localhost`{{execute T1}}
-
 Use *podman* to list the container images available on the host system
 
 `podman images`{{execute T1}}
