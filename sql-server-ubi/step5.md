@@ -28,4 +28,7 @@ UserID
 (1 rows affected)
 </pre>
 
+Exit the bash session
+
+`exit`{{execute T3}}
 
