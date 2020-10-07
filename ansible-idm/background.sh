@@ -18,7 +18,7 @@ sed -i 's/%place03%/'"$IP_HOST3"'/' /root/hosts &>> /root/post-run.log
 #echo "Register hosts02/03" >> /root/post-run.log
 #ansible-playbook playbook-register.yml &>> /root/post-run.log
 
-echo "Upgrade machines to latest version of RHEL" >> /root/post-run.log
+echo "Upgrade Hostnames" >> /root/post-run.log
 ansible-playbook playbook-upgrade.yml &>> /root/post-run.log
 
 #Create a done file to signal we have finished
