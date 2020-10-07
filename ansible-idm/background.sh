@@ -15,9 +15,6 @@ sed -i 's/%place01%/'"$IP_HOST1"'/' /root/hosts &>> /root/post-run.log
 sed -i 's/%place02%/'"$IP_HOST2"'/' /root/hosts &>> /root/post-run.log
 sed -i 's/%place03%/'"$IP_HOST3"'/' /root/hosts &>> /root/post-run.log
 
-#echo "Register hosts02/03" >> /root/post-run.log
-#ansible-playbook playbook-register.yml &>> /root/post-run.log
-
 echo "Upgrade Hostnames" >> /root/post-run.log
 ansible-playbook playbook-upgrade.yml &>> /root/post-run.log
 
