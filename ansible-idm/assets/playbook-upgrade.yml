@@ -27,10 +27,3 @@
       state: present
     when: hostvars[item].ansible_host is defined
     with_items: "{{ groups.all }}"
-
-- hosts: all
-  tasks:
-  - name: Update all packages
-    yum:
-      name: "*"
-      state: latest
