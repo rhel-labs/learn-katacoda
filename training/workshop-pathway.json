@@ -39,6 +39,13 @@
     },
     {
       "pathway_id": "rhel-labs",
+      "id": "sql-server-cstore",
+      "course_id": "sql-server-cstore",
+      "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
+      "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
+    },
+    {
+      "pathway_id": "rhel-labs",
       "id": "crypto-policy",
       "course_id": "crypto-policy",
       "title": "Configuring the system-wide cryptographic policy",
