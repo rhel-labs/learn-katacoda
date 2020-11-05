@@ -1,0 +1,58 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "35-40 minutes",
+    "backend": {
+      "trainingid": "rhel8.2",
+      "imageid": "rhel8-2",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "An Overview of Container Tools",
+            "text": "01-overview-container-tools.md"
+        }, {
+            "title": "Using the Fast and Stable Streams",
+            "text": "02-different-streams.md"
+        }, {
+            "title": "Podman: Familiar Territory",
+            "text": "03-podman.md"
+        }, {
+            "title": "Buildah: Granularity & Control",
+            "text": "04-buildah.md"
+        }, {
+            "title": "Skopeo: Moving & Sharing",
+            "text": "05-skopeo.md"
+        }, {
+            "title": "CRIU: Checkpointing and Restoring",
+            "text": "06-criu.md"
+        }, {
+            "title": "Udica: Custom SELinux Policies",
+            "text": "07-udica.md"
+        }, {
+            "title": "OSCAP Podman: Trust but Verify",
+            "text": "08-oscap-podman.md"
+        }],
+        "intro": {
+		"courseData": "background.sh",
+		"code": "foreground.sh",
+		"text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}
