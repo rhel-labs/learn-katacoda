@@ -14,14 +14,16 @@ In *Terminal 1*, the displayed shell is running inside the container image, not 
 
 <pre class="file">
 Filesystem      Size  Used Avail Use% Mounted on
-overlay          17G  6.1G   11G  36% /
+overlay          35G  6.1G   30G  36% /
 tmpfs            64M     0   64M   0% /dev
-tmpfs           915M  9.8M  905M   2% /etc/hosts
+tmpfs           909M  9.8M  900M   2% /etc/hosts
 shm              63M     0   63M   0% /dev/shm
-tmpfs           915M     0  915M   0% /sys/fs/cgroup
-tmpfs           915M     0  915M   0% /proc/acpi
-tmpfs           915M     0  915M   0% /proc/scsi
-tmpfs           915M     0  915M   0% /sys/firmware
+tmpfs           909M     0  909M   0% /sys/fs/cgroup
+tmpfs           909M     0  909M   0% /proc/acpi
+tmpfs           909M     0  909M   0% /proc/scsi
+tmpfs           909M     0  909M   0% /sys/firmware
+tmpfs           909M     0  909M   0% /sys/fs/selinux
+tmpfs           909M     0  909M   0% /sys/dev
 </pre>
 
 You will notice that all of the filesystem contents are either memory-based (tmpfs, shm) or the overlay file associated with this runtime of the container image (overlay).
