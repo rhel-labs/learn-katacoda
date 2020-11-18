@@ -42,6 +42,7 @@ Next, let's install the mssql tuned profile:
 `yum install -y tuned-profiles-mssql`{{execute T2}}
 
 Again, list all the tuned profiles that can be set and notice that you have the mssql profile now available: 
+
 `tuned-adm list`{{execute T2}}
 
 <pre class="file">
