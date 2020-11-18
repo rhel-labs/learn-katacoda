@@ -19,7 +19,7 @@ Check whether container has read access to the */var/spool/* directory
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
-anacron  cron  lpd  mail  plymouth  rhsm  up2date
+anacron  cron  lpd  mail  plymouth  rhsm
 </pre>
 
 Similarly, this is also successful because there is an allow rule in place that tells SELinux to allow this action.
@@ -29,7 +29,7 @@ Check whether container has write access to the /var/spool/ directory
 `touch test; ls`{{execute T2}}
 
 <pre class="file">
-anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
+anacron  cron  lpd  mail  plymouth  rhsm  test
 </pre>
  
 Install the netcat (nc) package inside the container to test for port bindings
