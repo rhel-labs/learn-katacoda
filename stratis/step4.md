@@ -21,6 +21,11 @@ The other loopback device is not in use, and therefore is not listed.
 
 `stratis pool list`{{execute}}
 
+<pre class="file">
+Name                     Total Physical   Properties
+my_pool   10 GiB / 37.63 MiB / 9.96 GiB      ~Ca,~Cr
+</pre>
+
 You should see my_pool listed.
 
 > **NOTE:** `stratis pool list` will provide you with a list of any storage pools created on the system using stratis.
