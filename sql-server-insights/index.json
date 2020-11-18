@@ -44,7 +44,7 @@
     "dashboard":"cloud.redhat.com"
   },
   "backend": {
-    "imageid": "rhel8-2-highmem",
+    "imageid": "rhel8-3-highmem",
     "url": "https://cloud.redhat.com"
   }
 

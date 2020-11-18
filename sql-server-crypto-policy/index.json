@@ -44,7 +44,7 @@
     "dashboard":"Web Console"
   },
   "backend": {
-    "imageid": "rhel8-2-highmem",
+    "imageid": "rhel8-3-highmem",
     "port": 9090
   }
 }
