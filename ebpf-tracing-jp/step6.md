@@ -5,7 +5,7 @@ bcc-toolsが提供するツールの数を見てみましょう:
 `ls -l /usr/share/bcc/tools | wc -l`{{execute T1}}
 
 <pre class="file">
-107
+112
 </pre>
 
 上の例で数えた107のツールは、Pythonのスクリプトなので簡単に調べたり変更することができます:
