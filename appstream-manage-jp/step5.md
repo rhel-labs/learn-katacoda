@@ -21,5 +21,5 @@ postgresコマンドでもバージョンを確認しましょう。
 `postgres --version`{{execute}}
 
 <pre class="file">
-postgres (PostgreSQL) 10.6
+postgres (PostgreSQL) 10.14
 </pre>
