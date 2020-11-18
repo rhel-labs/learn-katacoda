@@ -5,7 +5,6 @@ dfの出力では1.8GBが利用されています。1GBはいま作成したフ�
 `df -h|grep vdo`{{execute}}
 
 <pre class="file">
-# df -h /dev/mapper/vdo1
 /dev/mapper/vdo1       100G  1.8G   99G   2% /data
 </pre>
 

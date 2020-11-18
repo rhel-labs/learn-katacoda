@@ -7,7 +7,6 @@ VDOはシンプロビジョニングをスペース節約のために利用し�
 `vdo create --name=vdo1 --device=/dev/loop1 --vdoLogicalSize=100G`{{execute}}
 
 <pre class="file">
-# vdo create --name=vdo1 --device=/dev/loop1 --vdoLogicalSize=100G
 Creating VDO vdo1
 Starting VDO vdo1
 Starting compression on VDO vdo1
@@ -19,7 +18,6 @@ VDOボリュームは /dev/mapper/vdo1 に作成されました。vdostats --hum
 `vdostats --human-readable`{{execute}}
 
 <pre class=”file”>
-# vdostats --human-readable
 Device                    Size      Used Available Use% Space saving%
 /dev/mapper/vdo1         10.0G      4.0G      6.0G  40%            0%
 </pre>
