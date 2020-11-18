@@ -23,12 +23,12 @@ Finally, verify that you can connect to SQL Server
 `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q "select @@version"`{{execute T1}}
 
 <pre class="file">
-Microsoft SQL Server 2019 (RTM-CU3) (KB4538853) - 15.0.4023.6 (X64)
-        Mar  4 2020 00:59:26
+Microsoft SQL Server 2019 (RTM-CU8) (KB4577194) - 15.0.4073.23 (X64)
+        Sep 23 2020 16:03:08
         Copyright (C) 2019 Microsoft Corporation
-        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.1 (Ootpa)) <X64>
+        Enterprise Evaluation Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.3 (Ootpa)) <X64>
 
 (1 rows affected)
 </pre>
 
-By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.1
+By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.3
