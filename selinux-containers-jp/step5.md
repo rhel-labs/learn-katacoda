@@ -19,7 +19,7 @@ SELinux にこのアクションを許可するように指示する allow ル�
 `cd /var/spool/; ls`{{execute T2}}
 
 <pre class="file">
-anacron  cron  lpd  mail  plymouth  rhsm  up2date
+anacron  cron  lpd  mail  plymouth  rhsm
 </pre>
 
 同様に、SELinux にこのアクションを許可するように指示する allow ルールがあるので、これも成功します。
@@ -29,7 +29,7 @@ anacron  cron  lpd  mail  plymouth  rhsm  up2date
 `touch test; ls`{{execute T2}}
 
 <pre class="file">
-anacron  cron  lpd  mail  plymouth  rhsm  test  up2date
+anacron  cron  lpd  mail  plymouth  rhsm  test
 </pre>
  
 コンテナ内に netcat (nc) パッケージをインストールし、ポートバインディングをテストします。
