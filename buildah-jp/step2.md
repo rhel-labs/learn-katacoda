@@ -17,7 +17,7 @@ Dependencies resolved.
  Package                 Arch   Version                         Repository                        Size
 =======================================================================================================
 Installing:
- httpd                   x86_64 2.4.37-11.module+el8.0.0+2969+90015743
+ httpd                   x86_64 2.4.37-30.module+el8.0.0+2969+90015743
                                                                 rhel-8-for-x86_64-appstream-rpms 1.4 M
 
 << 出力を省略 >>
