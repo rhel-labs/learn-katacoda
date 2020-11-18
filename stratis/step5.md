@@ -13,8 +13,8 @@ Now list the pools.
 `stratis pool list`{{execute}}
 
 <pre class="file">
- Name                     Total Physical
- my_pool  20 GiB / 41.64 MiB / 19.96 GiB
+Name                      Total Physical   Properties
+my_pool   20 GiB / 41.64 MiB / 19.96 GiB      ~Ca,~Cr
 </pre>
 
 You should see that my_pool now has a size of 20 GiB.
