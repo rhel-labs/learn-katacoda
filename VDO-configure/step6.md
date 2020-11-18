@@ -9,7 +9,6 @@ metadata.
 `df -h|grep vdo`{{execute}}
 
 <pre class="file">
-# df -h /dev/mapper/vdo1
 /dev/mapper/vdo1       100G  1.8G   99G   2% /data
 </pre>
 

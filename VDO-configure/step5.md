@@ -17,7 +17,6 @@ VDO stats.
 `vdostats --human-readable`{{execute}}
 
 <pre class="file">
-# vdostats --human-readable
 Device                    Size      Used Available Use% Space saving%
 /dev/mapper/vdo1         10.0G      5.0G      5.0G  49%            4%
 </pre>

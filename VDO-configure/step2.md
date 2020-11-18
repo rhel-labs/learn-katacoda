@@ -18,7 +18,6 @@ View the loopback device using lsblk.
 `lsblk`{{execute}}
 
 <pre class="file">
-# lsblk
 NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 loop1           7:1    0   10G  0 loop
 sr0            11:0    1 1024M  0 rom
