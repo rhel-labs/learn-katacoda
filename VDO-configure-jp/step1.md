@@ -22,13 +22,13 @@ VDOは以下で構成されます:
 
 VDOについての詳細な情報はman pageを参照ください。
 
-`man vdo`{{execute}}
+`man vdo`
 
 man pageを終了するには 'q' キーを押します。
 
 vdostatsが出力する統計情報それぞれについてもman pageを参照ください。
 
-`man vdostats`{{execute}}
+`man vdostats`
 
 man pageを終了するには 'q' キーを押します。
 

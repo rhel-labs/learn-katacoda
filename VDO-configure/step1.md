@@ -24,13 +24,13 @@ User space utilities
 
 Detailed information on VDO can be found in the man page.
 
-`man vdo`{{execute}}
+`man vdo`
 
 Use the 'q' key to exit the man page.
 
 Also, each of the statistics for vdostats can be found in the man page.
 
-`man vdostats`{{execute}}
+`man vdostats`
 
 Use the 'q' key to exit the man page.
 
