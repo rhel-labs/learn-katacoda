@@ -7,7 +7,6 @@ df -h と vdostats の出力を参照し、スペースの節約を確認しま�
 `df -h /dev/mapper/vdo1`{{execute}}
 
 <pre class="file">
-# df -h|grep vdo
 /dev/mapper/vdo1       100G  5.7G   95G   6% /data
 </pre>
 
@@ -18,7 +17,6 @@ vdostatsを見てみましょう。
 `vdostats --human-readable`{{execute}}
 
 <pre class="file">
-# vdostats --human-readable
 Device                    Size      Used Available Use% Space saving%
 /dev/mapper/vdo1         10.0G      5.0G      5.0G  49%           80%
 </pre>
