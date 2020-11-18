@@ -23,7 +23,7 @@ Additionally, you can connect to the running daemon and have it report its versi
 `stratis daemon version`{{execute}}
 
 <pre class="file">
- 2.0.0
+ 2.1.0
 </pre>
 
 In the above output, the daemon reports that the version of stratisd is 2.0.0.
