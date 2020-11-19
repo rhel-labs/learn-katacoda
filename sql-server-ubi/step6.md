@@ -21,7 +21,7 @@ After installing the criu package, create a configuration file to adjust the max
 
 In the *Terminal Server* tab of the lab interface, checkpoint the running SQL Server container and export the checkpoint to a compressed file
 
-`podman container checkpoint -l --config /etc/criu.conf --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
+`podman container checkpoint -l --export=/tmp/checkpoint1.tar.gz`{{execute T2}}
 
 <pre class="file">
 cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
