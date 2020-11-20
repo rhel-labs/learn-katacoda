@@ -1,0 +1,55 @@
+{
+  "title": "RHEL8 Workshop ",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Using Web Console to Manage Updates",
+      "id": "webconsole-software",
+      "course_id": "webconsole-software",
+      "description": "Goal: After completing this scenario, users will be able to apply system updates to Red Hat Enterprise Linux systems"
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Creating images with the container tools",
+      "id": "buildah",
+      "course_id": "buildah",
+      "description": "Goal: After completing this scenario, users will be able to build containers from scratch or base images."
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Deploying Containers with Container Tools",
+      "id": "podman-deploy",
+      "course_id": "podman-deploy",
+      "description": "Goal: After completing this scenario, users will be able to deploy an existing container image using the utilities included in the Red Hat Enterprise Linux Container Tools."
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Managing Software in an Application Stream",
+      "id": "appstream-manage",
+      "course_id": "appstream-manage",
+      "description": "Goal: After completing this scenario, users will be able to choose which version of a software package is enabled on a system from an application stream"
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Using Image Builder",
+      "id": "imagebuilder",
+      "course_id": "imagebuilder",
+      "description": "Goal: After completing this scenario, users will be able to create customized RHEL OS images using Image Builder"
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Configuring Red Hat Enterprise Linux System-Wide Crypto Policy",
+      "id": "crypto-policy",
+      "course_id": "crypto-policy",
+      "description": "Goal: After completing this scenario, users will be able to check, look through, and modify crypto policies."
+    },
+    {
+      "pathway_id": "rhel-workshop",
+      "title": "Using Red Hat Insights [Workshop Only]",
+      "id": "insights-workshop",
+      "course_id": "insights-workshop",
+      "description": "Goal: After completing this scenario, users will be able to register Red Hat Enterprise Linux systems with Red Hat Insights as well as use cloud.redhat.com to apply Insights."
+    }
+  ]
+}
