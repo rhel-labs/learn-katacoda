@@ -1,32 +1,46 @@
-# Create a virtual machine image
+# Review and access images
 
-After the previous step, you should see the *example-http-server* blueprint
-homepage.  On this page you can make some additional customizations to the
-blueprint (like adding a user account or hostname), view the packages included
-in the blueprint, view images made from this blueprint, or go back to edit the
-packages included in the blueprint.
+In the previous step, you started a build of your __node-app-server__ machine
+image.  Now it is time to check on the build process.
 
-However, now that you have added nodejs to the blueprint packages, it is now
-time to create a virtual machine image.  Use the *Create Image* button to
-start this process:
+Return to the main Image Builder page by either selecting *Image Builder* in the
+navigation menu or by using *Back to Blueprints* in the breadcrumbs.
 
-![Create Image](./assets/Create-Image-init.png)
+![Back to Image Builder Homepage](./assets/Back-to-ImageBuilder.png)
 
-A dialog will appear so that you can select the output format of your image.
-There are several options from local virtualization deployments, public, or
-private cloud providers.  For this exercise, select 
-*QEMU QCOW2 Image (.qcow2)* which is a format used for the native Red Hat
-Enterprise Linux virtualization technology, KVM.
+On the main Image Builder page, you can see your blueprint, *node-app-server*,
+click on this blueprint to see the details.
 
-![Select Output Format](./assets/Select-Format.png)
+![Selecting node-app-server](./assets/Main-page.png)
 
-Once the format is determined, it is time to click the *Create* button to
-initiate the machine build.
+On the *node-app-server* page you can see several options for working with
+this blueprint including:
+* Edit Packages
+* Create image
+* Customizations
+* Packages
+* Images
 
-![Create Image with Format Selected](./assets/Create-Confirm.png)
+We both *Edited Packages* and *Create image* earlier.  Now it is time to use
+the *Images* tab to look at the images that are either being built or have
+been built.
 
-You will see a notification that the image has now been added to the Image
-Builder queue for building.
+![Accessing the image queue](./assets/node-app-server-page.png)
 
-![Create Image Confirmation](./assets/Create-Confirm-Dialog.png)
+Depending on how long it has taken you to reach this stage, you may see that
+the image you started in a previous step has already completed building (as
+shown in the screenshot), is still building, or is queued to be built.
 
+![Image list](./assets/Image-list.png)
+
+From here on the *images* list, you can view the status of images or, if the
+image has completed building, download it using the *...* button.  If the image
+has failed to build, or you are just curious on what Image Builder has done,
+you can view the *Logs* of the build as well.
+
+![Image Queue](./assets/images-queue.png)
+
+Congratulations on making your first image!
+
+Now that you have completed making your first image, feel free to try out making
+*Customizations* or maybe *Edit Packages* to further customize the blueprint.
