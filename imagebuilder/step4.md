@@ -50,7 +50,11 @@ blueprint as well.
 
 Now that the desired packages have been added to the blueprint, it is time
 to commit the changes.  Select the *Commit* button at the top of the interface
-to complete creating your first Image Builder blueprint!
+to apply these updates to the blueprint. 
 
 ![Commit Changes](./assets/Commit-Changes.png)
 
+You will be asked to confirm these changes prior to the blueprint being updated.Select *Commit* on the dialog to confirm and complete creating your first 
+Image Builder blueprint!
+
+![Confirm Changes](./assets/Commit-Confirm.png)
