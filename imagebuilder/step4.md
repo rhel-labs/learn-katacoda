@@ -52,5 +52,5 @@ Now that the desired packages have been added to the blueprint, it is time
 to commit the changes.  Select the *Commit* button at the top of the interface
 to complete creating your first Image Builder blueprint!
 
-![Add Component](./assets/Add-Component.png)
+![Commit Changes](./assets/Commit-Changes.png)
 
