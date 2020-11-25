@@ -31,9 +31,7 @@ Depending on how long it has taken you to reach this stage, you may see that
 the image you started in a previous step has already completed building (as
 shown in the screenshot), is still building, or is queued to be built.
 
-![Image list](./assets/Image-list.png)
-
-From here on the *images* list, you can view the status of images or, if the
+From here on the *Images* list, you can view the status of images or, if the
 image has completed building, download it using the *...* button.  If the image
 has failed to build, or you are just curious on what Image Builder has done,
 you can view the *Logs* of the build as well.
