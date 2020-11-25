@@ -1,25 +1,42 @@
-# Commit changes to the blueprint
+# Building an Image
 
-Now that the packages associated with this blueprint have been updated, you
-should now see an option to *Commit* the change as well as a link to review
-the pending changes *1 Pending Change* and an option to discard changes
-made to to the blueprint, *Discard Changes*.
+You are now ready to build your first image of this new Red Hat Enterprise
+Linux build with Node.js and NGINX packages installed.  Click the *Create image*
+button near the top of the interface.
 
-Select to *Commit* the change.
+![Create image](./assets/Create-image.png)
 
-![Commit Changes](./assets/Commit-Changes.png)
+The resulting dialog will ask several questions about how to build the image.  
+The first, and most important question is *Type*.  There are several different
+output types supported by Image Builder:
+* Amazon Machine Image Disk (.ami)
+* OpenStack (.qcow2)
+* QEMU QCOW2 Image (.qcow2)
+* RHEL for Edge Commit (.tar)
+* TAR Archive (.tar)
+* Azure Disk Image (.vhd)
+* VMware Virtual Machine Disk (.vmdk)
 
-A dialog window will appear to confirm that you want to commit the change to
-the blueprint.  *Commit* the change.
+For this lab, select the *Type* as __QEMU QCOW2 Image (.qcow2)__ this makes a 
+virtual machine image that is compatible with the native virtualization 
+provided as part of Red Hat Enterprise Linux. However, you can see from the 
+list that you can make images for cloud providers or other virtualization 
+hypervisors.
 
-![Changes Pending Commit](./assets/Changes-Pending-Commit.png)
+![Selecting a format](./assets/image-create.png)
 
-You should see a message displayed in the top, right-hand side of the page that
-confirms the change to the blueprint has been completed.
+Once you have specified the __QEMU QCOW2 Image (.qcow2)__ as the *Type* select
+the *Create* button to create an image of this output format.
 
-![Blueprint Update Confirmation](./assets/Blueprint-change-confirm.png)
+![Clicking Create](./assets/image-create-confirm.png)
 
-Lastly, to prepare for the next step, navigate to the *example-http-server*
-blueprint page.
+Depending on the output format selected in this step, there may be additional
+options available.  For example, when a cloud provider format is selected,
+you can select to *Upload image* to the cloud provider, which will use
+credentials you provide to automatically upload the completed image to the
+selected cloud provider.  This feature allows you to further streamline the
+workflow of building images, then deploying them as instances.
 
-![Navigate to Blueprint Page](./assets/Nav-to-Blueprint.png)
+You may see a temporary notice on the page that says the new image has been
+added to the build queue.  You will find that queue next.
+
