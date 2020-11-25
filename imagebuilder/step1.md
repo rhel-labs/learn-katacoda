@@ -1,18 +1,12 @@
 # Software installation and configuration
 Prior to getting started with image builder, the software must first be 
-installed.  The packages are both the image builder applications and a plugin
-for web console.
+installed.  By installing the plugin for Web Console, all of the other
+required packages will also be installed.
 
-`yum install -y cockpit-composer lorax-composer composer-cli`{{execute}}
+`yum install -y cockpit-composer`{{execute}}
 
 Now that the software is installed, restart the web console so that it picks up
-the newly installed plugin for image builder.  Also, you will enable the 
-service that manages the build queue and other aspects of image builder.
+the newly installed plugin for image builder.
 
-`systemctl restart cockpit; systemctl enable --now lorax-composer.service`{{execute}}
+`systemctl restart cockpit`{{execute}}
 
-Lastly, in the next steps, you will use a non-administrative user, __rhel__, to 
-manage the image blueprints and build machine images.  This user must belong to
-the __weldr__ group.
-
-`usermod -a -G weldr rhel`{{execute}}
