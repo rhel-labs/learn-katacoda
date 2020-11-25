@@ -4,7 +4,7 @@ You are now ready to build your first image of this new Red Hat Enterprise
 Linux build with Node.js and NGINX packages installed.  Click the *Create image*
 button near the top of the interface.
 
-![Create image](./assets/Create-image.png)
+![Create image](./assets/Create-Image.png)
 
 The resulting dialog will ask several questions about how to build the image.  
 The first, and most important question is *Type*.  There are several different
