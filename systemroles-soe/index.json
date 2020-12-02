@@ -18,7 +18,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
