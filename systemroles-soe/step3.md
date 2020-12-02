@@ -2,7 +2,7 @@
 
 `cat /proc/sys/vm/swappiness`{{execute}}
 
-`ssh localhost`{{execute}}
+`ssh rhel@localhost`{{execute}}
 
 `exit`{{execute}}
 
