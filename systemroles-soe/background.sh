@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo redhat | passwd --stdin rhel
+$(echo redhat | passwd --stdin rhel)
 
 echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
