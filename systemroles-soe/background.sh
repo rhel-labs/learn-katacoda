@@ -2,8 +2,8 @@
 
 echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
-cat << EOF > soe.yml
----
+
+echo '---
 - hosts: localhost
   vars:
     kernel_settings_sysctl:
@@ -20,6 +20,5 @@ cat << EOF > soe.yml
     tlog_scope_sssd: all
   roles:
     - role: rhel-system-roles.kernel_settings
-    - role: rhel-system-roles.tlog
-EOF
+    - role: rhel-system-roles.tlog' > soe.yml
 
