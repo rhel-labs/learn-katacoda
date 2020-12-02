@@ -1,0 +1,34 @@
+{
+  "title": "Configuring and updating system configurations with System Roles",
+  "description": "In this lab you will use RHEL System Roles to apply and update configuration on several systems.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "terminals": [{"name": "host01", "target":"host01"},{"name":"host02","target":"host02"},{"name":"host03","target":"host03"}]
+  },
+  "backend": {
+    "imageid": "rhel8-cluster3"
+  }
+}
