@@ -4,4 +4,4 @@
 
 `cat /proc/sys/vm/swappiness`{{execute}}
 
-`ansible playbook soe.yml`{{execute}}
+`ansible-playbook soe.yml`{{execute}}
