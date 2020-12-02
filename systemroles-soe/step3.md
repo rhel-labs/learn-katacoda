@@ -2,7 +2,7 @@
 
 `cat /proc/sys/vm/swappiness`{{execute}}
 
-`ssh locahost`{{execute}}
+`ssh localhost`{{execute}}
 
 `exit`{{execute}}
 
