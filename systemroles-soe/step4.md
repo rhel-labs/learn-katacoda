@@ -6,4 +6,8 @@
 
 `cat soe.yml`{{execute}}
 
+`chronyc sources`{{execute}}
+
 `ansible-playbook soe.yml`{{execute}}
+
+`chronyc sources`{{execute}}
