@@ -2,8 +2,20 @@
 
 `cat /proc/sys/vm/swappiness`{{execute}}
 
+<pre class="file">
+20
+</pre>
+
 `ssh rhel@localhost`{{execute}}
 
-`exit`{{execute}}
+<pre class="file">
+Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
+rhel@localhost's password: redhat
 
+
+ATTENTION! Your session is being recorded!
+
+</pre>
+
+`exit`{{execute}}
 
