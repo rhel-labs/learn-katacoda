@@ -25,7 +25,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "courseData" : "background.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -35,6 +36,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8-2"
+    "imageid": "rhel8-3"
   }
 }
