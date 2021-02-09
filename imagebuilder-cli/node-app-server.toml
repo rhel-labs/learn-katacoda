@@ -1,0 +1,6 @@
+name = "Node App Server"
+description = "Sample image for the node.js application server"
+version = "0.0.1"
+modules = []
+groups = []
+
