@@ -1,26 +1,28 @@
 # Modifying a blueprint
 
-In this step, you will be taking an existing blueprint used to build a machine
-image and update it to include extra packages.
+In this step, you will be creating a new blueprint used to build a machine image and update it to include extra packages.
 
 First, look at what blueprints are available on the system.
 
 `composer-cli blueprints list`{{execute}}
 
-<pre class='file'>
-example-atlas
-example-development
-example-http-server
-</pre>
+This system has no existing blueprints. So, let us go ahead and create a blueprint.
 
-This system has three example blueprints provided by Red Hat through the 
-`lorax-composer` package installed in the previous step.  You will use the
-__example-http-server__ blueprint for this lab.
+The `composer-cli` will take as input a TOML formatted file (Tom's Obvious Minimal Language)
+that describes the blueprint used to define our machine image.
 
-In order to make changes to the blueprint, you will first save a copy of the
-blueprint.  `composer-cli` will output a TOML (Tom's Obvious Minimal Language)
-formatted file with the current description of the blueprint used to make
-example-http-server machine images.
+To save us some time let's look at the sample.toml file that has already been pre-created.
+
+`cat sample.toml`{{execute}}
+
+We will name this blueprint  __node-app-server__ as described in the name key-value pair. The blueprint will contain
+the latest nodejs and nginx packages.
+
+In order to create the blueprint from the file, we will use the `blueprints push` cli option.
+
+`cat composer-cli blueprints push node-app-server.toml`{{execute}}
+
+To make changes to the blueprint, you will first save a copy of the blueprint.
 
 `composer-cli blueprints save example-http-server`{{execute}}
 
@@ -34,7 +36,7 @@ section to the example-http-server.toml file adding `nodejs` to the build.
 
 `printf '\n[[modules]]\nname = "nodejs"\nversion = "*"' >> example-http-server.toml`{{execute}}
 
-The `printf` command appends the following formatted stanza to the 
+The `printf` command appends the following formatted stanza to the
 example-http-server.toml file:
 
 <pre class='file'>
@@ -63,7 +65,7 @@ example-http-server
 <<< OUTPUT ABRIDGED >>>
 </pre>
 
-From the above output, you can see that just now a new version of the 
+From the above output, you can see that just now a new version of the
 example-http-server blueprint was updated.
 
 >**Note:** in the above command output, your date and time will be different
