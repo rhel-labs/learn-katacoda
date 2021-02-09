@@ -14,16 +14,18 @@ the virtual machine images.
 ==========================================================================================================================================
  Package                            Arch      Version                                           Repository                           Size
 ==========================================================================================================================================
- Installing:
-  composer-cli              x86_64   28.14.55-2.el8                                 rhel-8-for-x86_64-appstream-rpms                86 k
-  osbuild-composer          x86_64   20.1-1.el8                                     rhel-8-for-x86_64-appstream-rpms               2.8 M
- Installing dependencies:
-  osbuild                   noarch   18-3.el8                                       rhel-8-for-x86_64-appstream-rpms                53 k
-  osbuild-composer-worker   x86_64   20.1-1.el8                                     rhel-8-for-x86_64-appstream-rpms               3.3 M
-  osbuild-ostree            noarch   18-3.el8                                       rhel-8-for-x86_64-appstream-rpms                17 k
-  osbuild-selinux           noarch   18-3.el8                                       rhel-8-for-x86_64-appstream-rpms                25 k
-  ostree                    x86_64   2020.5-4.el8                                   rhel-8-for-x86_64-appstream-rpms               242 k
-  ostree-libs               x86_64   2020.5-4.el8                                   rhel-8-for-x86_64-appstream-rpms               414 k
+  Installing:
+   composer-cli             x86_64  28.14.55-2.el8                              rhel-8-for-x86_64-appstream-rpms   86 k
+   osbuild-composer         x86_64  20.1-1.el8                                  rhel-8-for-x86_64-appstream-rpms  2.8 M
+  Installing dependencies:
+   fuse                     x86_64  2.9.7-12.el8                                rhel-8-for-x86_64-baseos-rpms      83 k
+   fuse-common              x86_64  3.2.1-12.el8                                rhel-8-for-x86_64-baseos-rpms      21 k
+   osbuild                  noarch  18-3.el8                                    rhel-8-for-x86_64-appstream-rpms   53 k
+   osbuild-composer-worker  x86_64  20.1-1.el8                                  rhel-8-for-x86_64-appstream-rpms  3.3 M
+   osbuild-ostree           noarch  18-3.el8                                    rhel-8-for-x86_64-appstream-rpms   17 k
+   osbuild-selinux          noarch  18-3.el8                                    rhel-8-for-x86_64-appstream-rpms   25 k
+   ostree                   x86_64  2020.5-4.el8                                rhel-8-for-x86_64-appstream-rpms  242 k
+   ostree-libs              x86_64  2020.5-4.el8                                rhel-8-for-x86_64-appstream-rpms  414 k
 
 <<< OUTPUT ABRIDGED >>>
 
