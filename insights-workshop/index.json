@@ -1,5 +1,5 @@
 {
-  "title": "Using Red Hat Insights [Workshop Only]",
+  "title": "Using Red Hat Insights, Advisor ",
   "description": "Goal: After completing this scenario, users will be able to register Red Hat Enterprise Linux systems with Red Hat Insights as well as use cloud.redhat.com to apply Insights.",
   "details": {
     "steps": [
