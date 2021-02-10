@@ -11,12 +11,14 @@ Click the _Log in to your Red Hat account_ button.
 ![cloud.redhat.com Login](./assets/cloud.redhat.com-homepage-v2.png)
 
 
-Login using the username provided by your workshop facilitator.
+Login using the credentials below:
 
+Login: __rhel-a720__
+
+Password: __Redhat1!__
 
 ![Red Hat Login screen](./assets/redhat-login-01.png)
 
-Enter the password provided by your workshop facilitator (commonly this is __Redhat1!__).
 
 ![Red Hat Password screen](./assets/redhat-login-02.png)
 
