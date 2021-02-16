@@ -1,8 +1,8 @@
 # Inspecting the image
 
 In this step, you will access the machine image created in a previous step in
-order to verify that the `nodejs` package added in earlier steps was added to
-the resulting machine image.
+order to verify that the `nodejs` and `nginx` packages added in earlier steps were 
+added to the resulting machine image.
 
 In the next steps, you will access the machine image, however it will not work
 if the machine image is not yet completed.  The below command is a small
