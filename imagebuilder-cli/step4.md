@@ -41,7 +41,7 @@ Find the virtual machine partition so that we can mount it -
 
 Mount the partition to some mountpoint (/mnt) -
 
-`mount /dev/nbd0p1 /mnt/somepoint/`{{execute}}
+`mount /dev/nbd0p1 /mnt`{{execute}}
 
 Temporarily change the root directory of the bash shell to be the directory holding the contents of 
 your machine image.
@@ -50,13 +50,13 @@ your machine image.
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
-that `nodejs` is included in the machine image.
+that `nodejs` and `nginx` is included in the machine image.
 
-`rpm -q nodejs`{{execute}}
+`rpm -q nodejs nginx`{{execute}}
 
 <pre class="file">
 nodejs-10.23.1-1.module+el8.3.0+9502+012d8a97.x86_64
-</pre>
+nginx-1.14.1-9.module+el8.0.0+4108+af250afe.x86_64</pre>
 
 From the above output, you can verify that `nodejs` was installed into this
 machine image.
