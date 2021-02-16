@@ -25,7 +25,8 @@ grooming to put this into the command for you to run.  Alternatively, you could
 have copy/pasted from the output of your status from the previous step.
 
 Now that the machine image is available locally, mount the disk image into your
-directory tree at the /mnt mountpoint. For this we will use mount the qcow2 image as a network block device (NBD).
+directory tree at the /mnt mountpoint. For this, we will mount the qcow2 image 
+as a network block device (NBD).
 
 Load the NBD kernel module using the `modprobe` utility -
 
