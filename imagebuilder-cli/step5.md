@@ -14,6 +14,8 @@ builds are stored in `/var/lib/lorax/composer/results`.
 To look at the data associated with the machine image build you completed in
 the lab:
 
+`composer-cli compose results $(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
+
 `ls /var/lib/lorax/composer/results/$(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
 
 <pre class="file">
