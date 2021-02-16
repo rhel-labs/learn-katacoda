@@ -24,7 +24,7 @@ modules = []
 groups = []
 </pre>
 
-The name of the blueprint is called __Node App Server__. It is recommended that you also include a description so that 
+The name of the blueprint is called __node-app-server__. It is recommended that you also include a description so that 
 others using this blueprint know what system image they are building. At this point, the blueprint file does not have 
 any packages but we will add the `nodejs` and `nginx` packages to it. 
 
