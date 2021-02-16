@@ -32,10 +32,10 @@ In order to create the blueprint from the file, we will use the `blueprints push
 
 Now that the blueprint is saved, you can add additional components.  
 
-`nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[modules]]__
+`nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[packages]]__
 section to the node-app-server.toml file adding `nodejs` to the build.
 
-`printf '\n[[modules]]\nname = "nodejs"\nversion = "*"' >> node-app-server.toml`{{execute}}
+`printf '\n[[packages]]\nname = "nodejs"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
 The `printf` command appends the following formatted stanza to the node-app-server.toml file.
 
@@ -47,7 +47,7 @@ version = "*"
 
 Similarly, add the `nginx` package to the blueprint 
 
-`printf '\n[[modules]]\nname = "nginx"\nversion = "*"' >> node-app-server.toml`{{execute}}
+`printf '\n[[packages]]\nname = "nginx"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
 Next, you will update the node-app-server blueprint definition to use the version currently stored in your local node-app-server.toml file.
 You will push this updated definition into the osbuild-composer back-end.
