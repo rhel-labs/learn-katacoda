@@ -1,4 +1,4 @@
-# Modifying a blueprint
+# Create a blueprint from a file
 
 In this step, you will be creating a new blueprint used to build a machine image and update it to include extra packages.
 
