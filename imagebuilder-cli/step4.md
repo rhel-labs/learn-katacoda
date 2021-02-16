@@ -39,6 +39,20 @@ Find the virtual machine partition so that we can mount it -
 
 `fdisk /dev/nbd0 -l`{{execute}}
 
+<pre class="file">
+Disk /dev/nbd0: 4 GiB, 4294967296 bytes, 8388608 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x14fc63d2
+
+Device      Boot Start     End Sectors Size Id Type
+/dev/nbd0p1 *     2048 8388607 8386560   4G 83 Linux
+</pre>
+
+The partition of the disk is `/dev/nbd0p1`
+
 Mount the partition to some mountpoint (/mnt) -
 
 `mount /dev/nbd0p1 /mnt`{{execute}}
