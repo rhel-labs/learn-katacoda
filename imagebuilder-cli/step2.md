@@ -41,7 +41,7 @@ name = "nodejs"
 version = "*"
 </pre>
 
-Similarly, add the `nginx` package to the blueprint 
+Similarly, add the `nginx` package to the blueprint file.
 
 `printf '\n[[packages]]\nname = "nginx"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
