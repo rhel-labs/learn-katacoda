@@ -10,9 +10,12 @@ command output and as an argument for working with individual machine image
 operations.  The osbuild-composer back-end also uses this UUID to store data about
 this, specific, machine image build.  
 
-To look at the data associated with the machine image build you completed in
-the lab -
+To look at the data associated with the machine image build you completed in the lab -
 
 `composer-cli compose results $(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
 
 The output is a .tar that includes the logs, status, and resulting image. 
+
+To view the contents of the tar file -
+
+`tar -tvf $(composer-cli compose status | head -n1 | cut -f1 -d" ").tar`{{execute}}
