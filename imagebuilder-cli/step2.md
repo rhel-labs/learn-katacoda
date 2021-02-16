@@ -24,11 +24,9 @@ modules = []
 groups = []
 </pre>
 
-It is recommended that you also include a description so that others using this blueprint know what system image they are building. 
-So far, the blueprint file does not have any packages but we will add to it. 
-
-We will name this blueprint  __node-app-server__ as described in the name key-value pair. The blueprint will contain
-the latest nodejs and nginx packages.
+The name of the blueprint is called __Node App Server__. It is recommended that you also include a description so that 
+others using this blueprint know what system image they are building. At this point, the blueprint file does not have 
+any packages but we will add the `nodejs` and `nginx` packages to it. 
 
 In order to create the blueprint from the file, we will use the `blueprints push` cli option.
 
@@ -38,41 +36,34 @@ To make changes to the blueprint, you will first save a copy of the blueprint.
 
 `composer-cli blueprints save node-app-server`{{execute}}
 
+Now that the blueprint is saved, you can add additional components.  
 
-
-You will be adding `nodejs` to the list of software included in the
-example-http-server blueprint.  `nodejs` is distributed as an application
-stream for Red Hat Enterprise Linux, so you will need to add a __[[modules]]__
-section to the example-http-server.toml file adding `nodejs` to the build.
+`nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[modules]]__
+section to the node-app-server.toml file adding `nodejs` to the build.
 
 `printf '\n[[modules]]\nname = "nodejs"\nversion = "*"' >> example-http-server.toml`{{execute}}
 
-The `printf` command appends the following formatted stanza to the
-example-http-server.toml file:
+The `printf` command appends the following formatted stanza to the node-app-server.toml file.
 
 <pre class='file'>
-
 [[modules]]
 name = "nodejs"
 version = "*"
 </pre>
 
-Similarly, add `nginx` to the list of blueprint. 
+Similarly, add the `nginx` package to the blueprint 
 
 `printf '\n[[modules]]\nname = "nginx"\nversion = "*"' >> example-http-server.toml`{{execute}}
 
+Next, you will update the node-app-server blueprint definition to use the version currently stored in your local node-app-server.toml file.
+You will push this updated definition into the osbuild-composer back-end.
 
-
-Next, you will update the example-http-server blueprint definition to use
-the version currently stored in your local example-http-server.toml file.
-You will push this updated definition into the lorax-composer back-end.
-
-`composer-cli blueprints push example-http-server.toml`{{execute}}
+`composer-cli blueprints push node-app-server.toml`{{execute}}
 
 To verify that your update has been made, review the log of changes made
-to the example-http-server blueprint.
+to the node-app-server blueprint.
 
-`composer-cli blueprints changes example-http-server`{{execute}}
+`composer-cli blueprints changes node-app-server`{{execute}}
 
 <pre class='file'>
 example-http-server
@@ -92,7 +83,7 @@ You can also review the contents of the example-http-server blueprint to verify
 that the `nodejs` module entry is now reflected in the active version of the
 blueprint instructions.
 
-`composer-cli blueprints show example-http-server`{{execute}}
+`composer-cli blueprints show node-app-server`{{execute}}
 
 <pre class='file'>
 name = "example-http-server"
