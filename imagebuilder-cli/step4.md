@@ -16,7 +16,7 @@ image into your current directory.
 `composer-cli compose image $(composer-cli compose status | head -n1 | cut -f1 -d" ")`{{execute}}
 
 <pre class="file">
-78915164-320d-4fc3-88d4-91fc40e5f0c8-filesystem.img: 2585.00 MB
+00403772-ff12-43d4-b09a-bddf28f20709-disk.qcow2: 686.96 MB  
 </pre>
 
 The above command takes the UUID of the compose as an argument.  We embedded
