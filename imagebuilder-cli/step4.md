@@ -65,7 +65,7 @@ your machine image.
 
 Now, all the commands run are being executed from within the machine image
 and use the machine image's files and content.  Use an `rpm` query to confirm
-that `nodejs` and `nginx` is included in the machine image.
+that `nodejs` and `nginx` are included in the machine image.
 
 `rpm -q nodejs nginx`{{execute}}
 
@@ -73,8 +73,8 @@ that `nodejs` and `nginx` is included in the machine image.
 nodejs-10.23.1-1.module+el8.3.0+9502+012d8a97.x86_64
 nginx-1.14.1-9.module+el8.0.0+4108+af250afe.x86_64</pre>
 
-From the above output, you can verify that `nodejs` was installed into this
-machine image.
+From the above output, you can verify that both the `nodejs` and `nginx` packages were 
+installed into this machine image.
 
 Now that the verification is complete, you can exit the chroot'ed bash shell.
 
