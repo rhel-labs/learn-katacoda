@@ -87,7 +87,10 @@ Disconnect the network block device
 
 `qemu-nbd --disconnect /dev/nbd0`{{execute}}
 
+<pre class="file">
+/dev/nbd0 disconnected
+</pre>
+
 Remove the NBD kernel module
 
 `rmmod nbd`{{execute}}
-
