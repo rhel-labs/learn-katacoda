@@ -27,23 +27,24 @@ have copy/pasted from the output of your status from the previous step.
 Now that the machine image is available locally, mount the disk image into your
 directory tree at the /mnt mountpoint. For this we will use mount the qcow2 image as a network block device (NBD).
 
-Load the kernel NBD module
+Load the NBD kernel module using the `modprobe` utility -
+
 `modprobe nbd`{{execute}}
 
-Attach a qcow2 virtual image file that was downloaded into the current directory
+Attach a qcow2 virtual image file that was downloaded into the current directory -
 
 `qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | head -n1 | cut -f1 -d" ")-disk.qcow2`{{execute}}
 
-Find the virtual machine partition so that we can mount it
+Find the virtual machine partition so that we can mount it -
 
 `fdisk /dev/nbd0 -l`{{execute}}
 
-Mount the partition to some mountpoint (/mnt)
+Mount the partition to some mountpoint (/mnt) -
 
 `mount /dev/nbd0p1 /mnt/somepoint/`{{execute}}
 
-Temporarily change the root directory of the bash shell to be the directory
-holding the contents of your machine image.
+Temporarily change the root directory of the bash shell to be the directory holding the contents of 
+your machine image.
 
 `chroot /mnt`{{execute}}
 
