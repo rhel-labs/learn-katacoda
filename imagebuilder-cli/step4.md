@@ -24,17 +24,23 @@ an additional call to `composer-cli compose status` along with some data
 grooming to put this into the command for you to run.  Alternatively, you could
 have copy/pasted from the output of your status from the previous step.
 
-Now that the machine image is available, mount the disk image into your
-directory tree at the /mnt mountpoint.
+Now that the machine image is available locally, mount the disk image into your
+directory tree at the /mnt mountpoint. For this we will use mount the qcow2 image as a network block device (NBD).
 
-`mount -o loop $(composer-cli compose status | head -n1 | cut -f1 -d" ")-filesystem.img /mnt`{{execute}}
+Load the kernel NBD module
+`modprobe nbd`{{execute}}
 
-In an earlier step, you chose to build an ext4-filesystem type image, which is
-why this mount command works.  If you chose a different output type, you may
-need to use other utilities to access the contents of the machine image, such
-as qemu-img, or others.  The machine image file included the UUID of the compose
-transaction, so we added a bit of embedded command execution to grab that data 
-programmatically keeping the above command 'clickable'.
+Attach a qcow2 virtual image file that was downloaded into the current directory
+
+`qemu-nbd --connect=/dev/nbd0 $(composer-cli compose status | head -n1 | cut -f1 -d" ")-disk.qcow2`{{execute}}
+
+Find the virtual machine partition so that we can mount it
+
+`fdisk /dev/nbd0 -l`{{execute}}
+
+Mount the partition to some mountpoint (/mnt)
+
+`mount /dev/nbd0p1 /mnt/somepoint/`{{execute}}
 
 Temporarily change the root directory of the bash shell to be the directory
 holding the contents of your machine image.
@@ -48,7 +54,7 @@ that `nodejs` is included in the machine image.
 `rpm -q nodejs`{{execute}}
 
 <pre class="file">
-nodejs-10.21.0-3.module+el8.2.0+7071+d2377ea3.x86_64
+nodejs-10.23.1-1.module+el8.3.0+9502+012d8a97.x86_64
 </pre>
 
 From the above output, you can verify that `nodejs` was installed into this
@@ -61,4 +67,12 @@ Now that the verification is complete, you can exit the chroot'ed bash shell.
 Unmount the verified machine disk image from your filesystem.
 
 `umount /mnt`{{execute}}
+
+Disconnect the network block device
+
+`qemu-nbd --disconnect /dev/nbd0`{{execute}}
+
+Remove the NBD kernel module
+
+`rmmod nbd`{{execute}}
 
