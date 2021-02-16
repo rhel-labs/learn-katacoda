@@ -30,10 +30,6 @@ In order to create the blueprint from the file, we will use the `blueprints push
 
 `composer-cli blueprints push node-app-server.toml`{{execute}}
 
-To make changes to the blueprint, you will first save a copy of the blueprint.
-
-`composer-cli blueprints save node-app-server`{{execute}}
-
 Now that the blueprint is saved, you can add additional components.  
 
 `nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[modules]]__
