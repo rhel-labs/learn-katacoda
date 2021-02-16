@@ -11,9 +11,21 @@ This system has no existing blueprints. So, let us go ahead and create a bluepri
 The `composer-cli` will take as input a TOML formatted file (Tom's Obvious Minimal Language)
 that describes the blueprint used to define our machine image.
 
-To save us some time let's look at the sample.toml file that has already been pre-created.
+To save  some time look at the __node-app-server.toml__ file that has already been pre-created using a tool 
+like `cat` or `less`.
 
-`cat sample.toml`{{execute}}
+`cat node-app-server.toml`{{execute}}
+
+<pre class='file'>
+name = "Node App Server"
+description = "Sample image for the node.js application server"
+version = "0.0.1"
+modules = []
+groups = []
+</pre>
+
+It is recommended that you also include a description so that others using this blueprint know what system image they are building. 
+So far, the blueprint file does not have any packages but we will add to it. 
 
 We will name this blueprint  __node-app-server__ as described in the name key-value pair. The blueprint will contain
 the latest nodejs and nginx packages.
@@ -24,10 +36,9 @@ In order to create the blueprint from the file, we will use the `blueprints push
 
 To make changes to the blueprint, you will first save a copy of the blueprint.
 
-`composer-cli blueprints save example-http-server`{{execute}}
+`composer-cli blueprints save node-app-server`{{execute}}
 
-If you were interested, you can take a look at the __example-http-server.toml__
-file now in your working directory using a tool like `cat` or `less`.
+
 
 You will be adding `nodejs` to the list of software included in the
 example-http-server blueprint.  `nodejs` is distributed as an application
@@ -45,6 +56,12 @@ example-http-server.toml file:
 name = "nodejs"
 version = "*"
 </pre>
+
+Similarly, add `nginx` to the list of blueprint. 
+
+`printf '\n[[modules]]\nname = "nginx"\nversion = "*"' >> example-http-server.toml`{{execute}}
+
+
 
 Next, you will update the example-http-server blueprint definition to use
 the version currently stored in your local example-http-server.toml file.
