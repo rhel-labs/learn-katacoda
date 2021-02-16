@@ -30,7 +30,7 @@ any packages but we will add the `nodejs` and `nginx` packages to it.
 
 In order to create the blueprint from the file, we will use the `blueprints push` cli option.
 
-`cat composer-cli blueprints push node-app-server.toml`{{execute}}
+`composer-cli blueprints push node-app-server.toml`{{execute}}
 
 To make changes to the blueprint, you will first save a copy of the blueprint.
 
