@@ -1,4 +1,4 @@
-name = "Node App Server"
+name = "node-app-server"
 description = "Sample image for the node.js application server"
 version = "0.0.1"
 modules = []
