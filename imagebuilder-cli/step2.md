@@ -20,8 +20,6 @@ like `cat` or `less`.
 name = "Node App Server"
 description = "Sample image for the node.js application server"
 version = "0.0.1"
-modules = []
-groups = []
 </pre>
 
 The name of the blueprint is called __Node App Server__. It is recommended that you also include a description so that 
