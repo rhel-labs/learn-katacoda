@@ -5,9 +5,7 @@ definition you made in the previous step.
 
 Use the `composer-cli` command to start a compose based on the
 node-app-server blueprint.  For this lab, you will use the output format
-of __qcow2__ so that you can easily access the contents of the
-virtual machine image without any additional tools in the next step.  However, 
-you could build any of the following types of images: 
+of __qcow2__. However, you could build any of the following types of images: 
 
 | Output type      |  Details                |
 |------------------|:-----------------------:|
