@@ -1,7 +1,7 @@
 # Building a machine image
 
-In this step you will build a machine image from the modified 
-example-http-server blueprint definition you made in the previous step.
+In this step you will build a machine image from the node-app-server blueprint 
+definition you made in the previous step.
 
 Use the `composer-cli` command to start a compose based on the
 node-app-server blueprint.  For this lab, you will use the output format
