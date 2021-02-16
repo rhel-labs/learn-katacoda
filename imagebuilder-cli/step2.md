@@ -17,7 +17,7 @@ like `cat` or `less`.
 `cat node-app-server.toml`{{execute}}
 
 <pre class='file'>
-name = "Node App Server"
+name = "node-app-server"
 description = "Sample image for the node.js application server"
 version = "0.0.1"
 </pre>
