@@ -41,7 +41,7 @@ Now that the blueprint is saved, you can add additional components.
 `nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[modules]]__
 section to the node-app-server.toml file adding `nodejs` to the build.
 
-`printf '\n[[modules]]\nname = "nodejs"\nversion = "*"' >> example-http-server.toml`{{execute}}
+`printf '\n[[modules]]\nname = "nodejs"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
 The `printf` command appends the following formatted stanza to the node-app-server.toml file.
 
@@ -53,7 +53,7 @@ version = "*"
 
 Similarly, add the `nginx` package to the blueprint 
 
-`printf '\n[[modules]]\nname = "nginx"\nversion = "*"' >> example-http-server.toml`{{execute}}
+`printf '\n[[modules]]\nname = "nginx"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
 Next, you will update the node-app-server blueprint definition to use the version currently stored in your local node-app-server.toml file.
 You will push this updated definition into the osbuild-composer back-end.
@@ -66,9 +66,9 @@ to the node-app-server blueprint.
 `composer-cli blueprints changes node-app-server`{{execute}}
 
 <pre class='file'>
-example-http-server
+node-app-server
     2020-07-13T23:07:57Z  e4284083bad43ded8a4a9ea2947a5f45be72f8c4
-    Recipe example-http-server, version 0.0.2 saved.
+    Recipe node-app-server, version 0.0.2 saved.
 
 <<< OUTPUT ABRIDGED >>>
 </pre>
@@ -86,8 +86,8 @@ blueprint instructions.
 `composer-cli blueprints show node-app-server`{{execute}}
 
 <pre class='file'>
-name = "example-http-server"
-description = "An example http server with PHP and MySQL support."
+name = "node-app-server"
+description = "Sample image for the node.js application server"
 version = "0.0.2"
 groups = []
 
