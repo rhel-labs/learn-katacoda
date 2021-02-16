@@ -23,11 +23,11 @@ you could build any of the following types of images:
 `composer-cli compose start node-app-server qcow2`{{execute}}
 
 <pre class='file'>
-Compose 78915164-320d-4fc3-88d4-91fc40e5f0c8 added to the queue
+Compose 00403772-ff12-43d4-b09a-bddf28f20709 added to the queue
 </pre>
 
 The compose, or build of the image, is tracked using a UUID, in the above
-example output, 78915164-320d-4fc3-88d4-91fc40e5f0c8.  Your UUID should be
+example output, 00403772-ff12-43d4-b09a-bddf28f20709.  Your UUID should be
 different and unique to your build.
 
 Composes are queued and completed in the order that they were received.  You
@@ -35,7 +35,7 @@ can look at the status of the queue using `composer-cli compose status`.
 
 `composer-cli compose status`{{execute}}
 <pre class='file'>
-78915164-320d-4fc3-88d4-91fc40e5f0c8 RUNNING Mon Jul 13 19:42:14 2020 node-app-server 0.0.1 qcow2  
+00403772-ff12-43d4-b09a-bddf28f20709 RUNNING  Tue Feb 16 16:21:08 2021 node-app-server 0.0.1 qcow2            
 </pre>
 
 The status will display all queued (WAITING), running (RUNNING), and 
