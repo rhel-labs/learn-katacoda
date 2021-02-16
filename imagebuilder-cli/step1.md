@@ -32,7 +32,7 @@ the virtual machine images.
 Complete!
 </pre>
 
-Now that the software has been successfully installed on the system, you also need to activate the `lorax-composer` service so that the `composer-cli`
+Now that the software has been successfully installed on the system, you also need to activate the `osbuild-composer` service so that the `composer-cli`
 command can interact with the service that is responsible for queuing and creating the machine images.
 
 `systemctl enable --now osbuild-composer.service`{{execute}}
