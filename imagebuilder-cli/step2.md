@@ -26,12 +26,6 @@ The name of the blueprint is called __Node App Server__. It is recommended that 
 others using this blueprint know what system image they are building. At this point, the blueprint file does not have 
 any packages but we will add the `nodejs` and `nginx` packages to it. 
 
-In order to create the blueprint from the file, we will use the `blueprints push` cli option.
-
-`composer-cli blueprints push node-app-server.toml`{{execute}}
-
-Now that the blueprint is saved, you can add additional components.  
-
 `nodejs` is distributed as an application stream for Red Hat Enterprise Linux, so you will need to add a __[[packages]]__
 section to the node-app-server.toml file adding `nodejs` to the build.
 
@@ -49,8 +43,7 @@ Similarly, add the `nginx` package to the blueprint
 
 `printf '\n[[packages]]\nname = "nginx"\nversion = "*"' >> node-app-server.toml`{{execute}}
 
-Next, you will update the node-app-server blueprint definition to use the version currently stored in your local node-app-server.toml file.
-You will push this updated definition into the osbuild-composer back-end.
+In order to create the blueprint from the local TOML file, we will use the `blueprints push` cli option.
 
 `composer-cli blueprints push node-app-server.toml`{{execute}}
 
@@ -62,19 +55,15 @@ to the node-app-server blueprint.
 <pre class='file'>
 node-app-server
     2020-07-13T23:07:57Z  e4284083bad43ded8a4a9ea2947a5f45be72f8c4
-    Recipe node-app-server, version 0.0.2 saved.
-
-<<< OUTPUT ABRIDGED >>>
+    Recipe node-app-server, version 0.0.1 saved.
 </pre>
 
-From the above output, you can see that just now a new version of the
-example-http-server blueprint was updated.
 
 >**Note:** in the above command output, your date and time will be different
 than the date and time that appears in the example output.
 
-You can also review the contents of the example-http-server blueprint to verify
-that the `nodejs` module entry is now reflected in the active version of the
+You can also review the contents of the node-app-server blueprint to verify
+that the `nodejs` and `nginx` modules are reflected in the active version of the
 blueprint instructions.
 
 `composer-cli blueprints show node-app-server`{{execute}}
@@ -83,22 +72,17 @@ blueprint instructions.
 name = "node-app-server"
 description = "Sample image for the node.js application server"
 version = "0.0.2"
+modules = []
 groups = []
 
-[[modules]]
-name = "httpd"
-version = "2.4.*"
-
-[[modules]]
-name = "mod_ssl"
-version = "2.4.*"
-
-[[modules]]
+[[packages]]
 name = "nodejs"
 version = "*"
 
-<<< OUTPUT ABRIDGED >>>
+[[packages]]
+name = "nginx"
+version = "*"
 </pre>
 
-In the above output, you can see that the `nodejs` module definition is now
-included in the example-http-server blueprint definition.
+In the above output, you can see that the `nodejs` and `nginx` module definitions are now
+included in the node-app-server blueprint definition.
