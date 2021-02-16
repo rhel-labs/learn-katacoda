@@ -86,5 +86,5 @@ name = "nginx"
 version = "*"
 </pre>
 
-In the above output, you can see that the `nodejs` and `nginx` module definitions are now
+In the above output, you can see that the `nodejs` and `nginx` packages are now
 included in the node-app-server blueprint definition.
