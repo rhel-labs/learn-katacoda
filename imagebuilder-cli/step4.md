@@ -54,7 +54,7 @@ Device      Boot Start     End Sectors Size Id Type
 
 The partition of the disk is `/dev/nbd0p1`
 
-Mount the partition to some mountpoint (/mnt) -
+Mount the partition to some mountpoint (in this case `/mnt`) -
 
 `mount /dev/nbd0p1 /mnt`{{execute}}
 
