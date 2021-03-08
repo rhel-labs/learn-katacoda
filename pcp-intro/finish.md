@@ -1,9 +1,9 @@
 # In this lab you have:
 
-* Installed Performance Co-Pilot packages on RHEL
+* Installed Performance Co-Pilot (PCP) packages on RHEL
 * Analyzed critical system resources using PCP 
-* Installed PMDAs for SQL Server  
-* Checked SQL Server query performance using PCP with a sample columnstore-based query in SQL Server
+* Installed Performance Metric Domain Agents (PMDA) for SQL Server  
+* Analyzed SQL Server performance by running a sample columnstore-based analytic query using SQL Server
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
