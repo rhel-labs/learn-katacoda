@@ -32,7 +32,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name":"cpudist","target":"host01"}]  
+    "terminals": [{"name":"pcp","target":"host01"}]  
   },
   "backend": {
     "imageid": "rhel8-3-highmem",
