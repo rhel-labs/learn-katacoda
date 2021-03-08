@@ -1,10 +1,10 @@
-# Validate the SQL Environment
+# Install PCP and Validate Environment 
 
 >**Note:** For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
 
-We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The *cpudist* terminal will be used for performance tracking using the cpudist bcc-tool explained later.
+We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The *pcp* terminal will be used for running pcp specific commands and looking at the output.
 
-To check if ansible installation is complete, we can use the following command -
+To check if SQL Server installation is complete, we can use the following command -
 
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
@@ -32,3 +32,12 @@ Microsoft SQL Server 2019 (RTM-CU8) (KB4577194) - 15.0.4073.23 (X64)
 </pre>
 
 By the above output, we have confirmed that we can connect to SQL Server, and confirm that we are running SQL Server 2019 on Red Hat Enterprise Linux 8.3
+
+Install the PCP packages using yum 
+
+`yum install pcp-zeroconf -y`{{execute T1}}
+
+Enable PCP to start collecting system performance data 
+
+`systemctl start pmcd`{{execute T1}}
+`systemctl enable pmcd`{{execute T1}}
