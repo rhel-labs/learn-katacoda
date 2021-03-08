@@ -1,6 +1,6 @@
 {
-  "title": "Red Hat Enterprise Linux With SQL Server Columnstores",
-  "description": "Goal: Users will be able to use Microsoft SQL Server Columnstores with RHEL tuned profiles",
+  "title": "Performance Co-Pilot (PCP) on Red Hat Enterprise Linux",
+  "description": "Goal: Users will be able to use PCP on RHEL to capture and analyze system and application metrics",
   "details": {
     "steps": [
       {

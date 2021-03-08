@@ -1,9 +1,9 @@
 # In this lab you have:
-* Verified whether SQL Server is installed on the system
-* Viewed the currently set RHEL tuned-profile 
-* Checked SQL Server query performance by running an sample analytic query with columnstores
-* Changed the RHEL tuned-profile for SQL Server
-* Queried SQL Server with columnstores to see the impact of the mssql tuned profile
+
+* Installed Performance Co-Pilot packages on RHEL
+* Analyzed critical system resources using PCP 
+* Installed PMDAs for SQL Server  
+* Checked SQL Server query performance using PCP with a sample columnstore-based query in SQL Server
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
