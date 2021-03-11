@@ -47,4 +47,4 @@ Performance Co-Pilot configuration on be5455ac10c4:
 << OUTPUT ABRIDGED >>
 </pre>
 
-The output shows the PCP's Collector Daemon (PMCD), various Performance Metric Domain Agents (PMDAs), and logger file paths. 
+The output shows the two main underlying components of PCP : __PCP's Collector Daemon (PMCD)__ which organizes, collects, manages metric information, and the __Performance Metric Domain Agents (PMDAs)__ which knows how to gather information for different services.
