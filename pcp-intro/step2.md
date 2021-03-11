@@ -4,6 +4,28 @@
 
 Select the *pcp* terminal to run commands in this step.
 
+## Inspect the PCP configuration on the host
+
+`pcp`{{execute T1}}
+
+<pre class="file">
+Performance Co-Pilot configuration on be5455ac10c4:
+
+ platform: Linux be5455ac10c4 4.18.0-240.el8.x86_64 #1 SMP Wed Sep 23 05:13:10 EDT 2020 x86_64
+ hardware: 2 cpus, 1 disk, 1 node, 3688MB RAM
+ timezone: EST+5
+ services: pmcd
+     pmcd: Version 5.1.1-4, 12 agents, 3 clients
+     pmda: root pmcd proc pmproxy xfs linux nfsclient mmv kvm jbd2
+           dm openmetrics
+ pmlogger: primary logger: /var/log/pcp/pmlogger/be5455ac10c4/20210311.10.13
+     pmie: primary engine: /var/log/pcp/pmie/be5455ac10c4/pmie.log
+
+<< OUTPUT ABRIDGED >>
+</pre>
+
+The output shows the two main underlying components of PCP : __PCP's Collector Daemon (PMCD)__ which organizes, collects, manages metric information, and the __Performance Metric Domain Agents (PMDAs)__ which knows how to gather information for different services. The file paths for __pmlogger__ (which archives logs of performance metric values) and __pmie__ (inference engine for performance metrics) are also shown in the output.
+
 ## Available PCP Kernel metrics ##
 PCP can collect and show a host of different system metrics.
 
