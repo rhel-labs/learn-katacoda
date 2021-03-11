@@ -2,7 +2,9 @@
 
 >**Note:** For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
 
-We have setup two terminal windows running on the local machine - The current terminal will be used for SQL Server and OS specific commands. The *pcp* terminal will be used for running pcp specific commands and looking at the output.
+Performance Co-Pilot (PCP) provides a large number of command-line tools, graphical tools, and libraries to monitor and manage system performance. These services are distributed and scalable to accommodate the most complex system configurations and performance problems.
+
+In this PCP intro lab, our setup consists of a single node system running PCP. We have setup two terminal windows running on the local machine - The current terminal will be used for OS specific commands and to interact with SQL Server. The *pcp* terminal will be used for running pcp specific commands and looking at the output.
 
 To check if SQL Server installation is complete, we can use the following command -
 
