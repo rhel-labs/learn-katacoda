@@ -1,4 +1,6 @@
-# Columnstore Indexes in SQL Server
+# Configuring and using PMDAs for SQL Server
+
+`yum search pcp-pmda`{{execute T1}}
 
 Columnstore indexes in SQL Server gives great performance to queries that scan and run analytics on large sets of rows. 
 
