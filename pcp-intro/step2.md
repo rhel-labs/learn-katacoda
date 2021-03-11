@@ -6,7 +6,7 @@ Select the *pcp* terminal to run commands in this step.
 
 ## Inspect the PCP configuration on the host
 
-`pcp`{{execute T1}}
+`pcp`{{execute T2}}
 
 <pre class="file">
 Performance Co-Pilot configuration on be5455ac10c4:
