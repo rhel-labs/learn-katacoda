@@ -34,7 +34,8 @@ Check the status of the enabled PMCD service
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+ Loaded: loaded (/usr/lib/systemd/system/pmcd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2021-03-11 13:18:12 EST; 6min ago
 
 << OUTPUT ABRIDGED >>
 </pre>
