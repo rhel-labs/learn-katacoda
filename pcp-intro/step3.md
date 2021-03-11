@@ -1,4 +1,4 @@
-# Configuring and using PMDAs for SQL Server
+# Configuring PMDAs for SQL Server
 
 `yum search pcp-pmda`{{execute T1}}
 
