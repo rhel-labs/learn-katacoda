@@ -86,14 +86,14 @@ Check out `man pminfo` if you are interested in more details about the `pminfo` 
 
 ## Monitoring performance using PCP ##
 
-BCC is a toolkit for creating efficient kernel tracing and manipulation programs, and includes several useful tools and examples. 
+The `pmrep` utility takes any of the available metrics and reports them in ASCII tables.
 
-Install the kernel-devel package for your currently running kernel and the bcc-tools packages.
+The command reports idle processor utilization for each CPU on the host, every 3 seconds in a 5 seconds window :
 
-`yum install -y kernel-devel-$(uname -r) bcc-tools`{{execute T2}}
+`pmval -t 3sec - T 5sec kernel.percpu.cpu.idle`{{execute T2}}
 
->**NOTE:** In the command above, we embed the uname -r command to automatically determine, and embed, the version of the currently running kernel.
+>**NOTE:** In the command above, if the hostname is not specified, it defaults to using `localhost`. By using the -h option, you can specify the hostname of a remote host to monitor for the specific metric.
 
-To learn more about the bcc-tools in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://lab.redhat.com/ebpf-tracing)
+To learn more about the PCP in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/ch-performance-co-pilot)
 
 We will use the `cpudist` bcc-tool to monitor SQL Server performance in a later step.
