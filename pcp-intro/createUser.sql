@@ -1,4 +1,4 @@
-CREATE LOGIN pcpLogin WITH PASSWORD = 'RedHat1!';
+CREATE LOGIN pcpLogin WITH PASSWORD = 'Redhat1!';
 GO
 
 CREATE USER pcpUser FOR LOGIN pcpLogin;  
