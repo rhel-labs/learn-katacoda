@@ -26,10 +26,17 @@ Installed:
 
 Create a new user in SQL Server to be used by PCP
 
+<pre class="file">
+//Create a SQL Server login and user associated with that login. Grant VIEW SERVER STATE AND VIEW DATABASE STATE permissions to the user
+
 CREATE LOGIN pcpLogin WITH PASSWORD = 'RedHat1!';
 CREATE USER pcpUser FOR LOGIN pcpLogin;  
+
 GRANT VIEW SERVER STATE TO pcpUser;
 GRANT VIEW DATABASE STATE TO pcpUser;
+</pre>
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CreateUser.sql'`{{execute T1}}
 
 View the contents of the SQL Server PMDA configuration file 
 
