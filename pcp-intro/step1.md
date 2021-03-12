@@ -27,6 +27,7 @@ Install the PCP packages using yum
 Start and enable the __PCP's Collector Daemon (PMCD)__ to start collecting system performance data 
 
 `systemctl start pmcd`{{execute T1}}
+
 `systemctl enable pmcd`{{execute T1}}
 
 Check the status of the enabled PMCD service 
