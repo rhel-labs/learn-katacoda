@@ -96,6 +96,21 @@ The command reports idle processor utilization for each CPU on the host, every 1
 
 >**NOTE:** In the command above, if the hostname is not specified, it defaults to using `localhost`. By using the -h option, you can specify the hostname of a remote host to monitor for the specific metric.
 
+<pre class="file">
+metric:    kernel.percpu.cpu.idle
+host:      ae6a0554552e
+semantics: cumulative counter (converting to rate)
+units:     millisec (converting to time utilization)
+samples:   6
+interval:  1.00 sec
+
+              cpu0                  cpu1    
+               0.9694                0.9894 
+               0.9693                0.9993 
+               0.9692                0.9892 
+               0.9692                0.9891 
+</pre>
+
 To learn more about the PCP in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)
 
 We will use the `pmval` tool to monitor SQL Server performance in a later step.
