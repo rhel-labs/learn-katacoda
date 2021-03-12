@@ -6,6 +6,8 @@ Select the *pcp* terminal to run commands in this step.
 
 ## Inspect the PCP configuration on the host
 
+To inspect the PCP configuration and view a summary of the current PCP installation use the `pcp` command
+
 `pcp`{{execute T2}}
 
 <pre class="file">
@@ -27,7 +29,7 @@ Performance Co-Pilot configuration on be5455ac10c4:
 The output shows the two main underlying components of PCP : __PCP's Collector Daemon (PMCD)__ which organizes, collects, manages metric information, and the __Performance Metric Domain Agents (PMDAs)__ which knows how to gather information for different services. The file paths for __pmlogger__ (which archives logs of performance metric values) and __pmie__ (inference engine for performance metrics) are also shown in the output.
 
 ## Available PCP Kernel metrics ##
-PCP can collect and show a host of different system metrics.
+PCP can collect and show a host of different system kernel metrics.
 
 Display the kernel metrics on the host with a short description using `pminfo` :
 
