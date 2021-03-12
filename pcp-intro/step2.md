@@ -90,12 +90,12 @@ Check out `man pminfo` if you are interested in more details about the `pminfo` 
 
 The `pmrep` utility takes any of the available metrics and reports them in ASCII tables.
 
-The command reports idle processor utilization for each CPU on the host, every 3 seconds in a 5 seconds window :
+The command reports idle processor utilization for each CPU on the host, every 1 seconds in a 5 seconds window :
 
-`pmval -t 3sec - T 5sec kernel.percpu.cpu.idle`{{execute T2}}
+`pmval -t 1 -T 5 kernel.percpu.cpu.idle`{{execute T2}}
 
 >**NOTE:** In the command above, if the hostname is not specified, it defaults to using `localhost`. By using the -h option, you can specify the hostname of a remote host to monitor for the specific metric.
 
-To learn more about the PCP in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/ch-performance-co-pilot)
+To learn more about the PCP in Red Hat Enterprise Linux, check [Performance observability in practice with bcc-tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)
 
-We will use the `cpudist` bcc-tool to monitor SQL Server performance in a later step.
+We will use the `pmval` tool to monitor SQL Server performance in a later step.
