@@ -36,7 +36,7 @@ GRANT VIEW SERVER STATE TO pcpUser;
 GRANT VIEW DATABASE STATE TO pcpUser;
 </pre>
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CreateUser.sql'`{{execute T1}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i CreateUser.sql'`{{execute T1}}
 
 View the contents of the SQL Server PMDA configuration file 
 
