@@ -26,6 +26,8 @@ Installed:
 
 Update the SQL Server PMDA configuration file to update the SQL Server sa password.  
 
+`sed -i 's/P4$$W0rd/RedHat1/g' /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+
 Let's first look at the performance of SQL Server without using columnstore indexes on a table with 5 million rows. The script queries the table 10 times outputting the time it takes for the query to finish returning the result set each time. The SELECT query calculates the total price, and average price from the orders table without using columnstore indexes. The *option* clause tells SQL Server to ignore the existing columnstore index when running this query.
 
 <pre class="file">
