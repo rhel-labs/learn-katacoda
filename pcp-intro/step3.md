@@ -52,29 +52,21 @@ Update the password corresponding to the low privileged account in the configura
 
 Make sure the configuration file is owned by the root user and group, and that appropriate permissions are set 
 
-`sudo chown root:root /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+`chown root:root /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
 
-`sudo chmod 400 /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+`chmod 400 /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
 
-# Install the SQL Server PMDA agent
- 
+## Install the SQL Server PMDA agent
 
+Install the PMDA agent for SQL Server
 
-<pre class="file">
-//The aggregation query over 5 million rows with SQL optimizer option to ignore columnstore index
-SELECT SUM(Price), AVG(Price) FROM Orders 
-OPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)
-</pre>
-
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T1}}
-
-Lets re-run the same query using columnstore indexes. The script queries the table 10 times outputting the time it takes for the query to return the result set using columnstore indexes.
+`cd /var/lib/pcp/pmdas/mssql; ./Install`{{execute T1}}
 
 <pre class="file">
-//The aggregation query over 5 million rows
-SELECT SUM(Price), AVG(Price) FROM Orders;
+Updating the Performance Metrics Name Space (PMNS) ...
+Terminate PMDA if already installed ...
+Updating the PMCD control file, and notifying PMCD ...
+Check mssql metrics have appeared ... 168 metrics and 601 values
 </pre>
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}
-
->**Note:** The query performance of running an analytical query on top of 5 million rows with columnstore is better than without using columnstore indexes. 
+>**Note:** The successful message indicating that mssql metrics have appeared
