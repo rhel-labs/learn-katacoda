@@ -18,5 +18,9 @@ firewall-cmd --reload
 
 systemctl --now enable httpd
 
+#Install python and unixODBC dependant packages
+sudo yum install gcc-c++ python3-devel unixODBC-devel -y
+sudo pip3 install pyodbc
+
 #Create a done file to signal we have finished
 touch /root/post-run.log.done
