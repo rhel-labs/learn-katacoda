@@ -42,13 +42,23 @@ View the contents of the SQL Server PMDA configuration file
 
 `cat /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
 
-Update the user credentials so that PCP can connect to SQL Server with a low privileged SQL Server account 
+So that PCP can connect to SQL Server with a low privileged SQL Server account, update the Login name in the configuration file 
 
 `sed -i 's/sa/pcpLogin/g' /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
 
+Update the password corresponding to the low privileged account in the configuration file 
+
 `sed -i 's/P4$$W0rd/Redhat1!/g' /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
 
-Let's first look at the performance of SQL Server without using columnstore indexes on a table with 5 million rows. The script queries the table 10 times outputting the time it takes for the query to finish returning the result set each time. The SELECT query calculates the total price, and average price from the orders table without using columnstore indexes. The *option* clause tells SQL Server to ignore the existing columnstore index when running this query.
+Make sure the configuration file is owned by the root user and group, and that appropriate permissions are set 
+
+`sudo chown root:root /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+
+`sudo chmod 400 /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+
+# Install the SQL Server PMDA agent
+ 
+
 
 <pre class="file">
 //The aggregation query over 5 million rows with SQL optimizer option to ignore columnstore index
