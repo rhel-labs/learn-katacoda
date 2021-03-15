@@ -8,8 +8,6 @@ wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro
 
 #Download the backup database file
 wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak
-mkdir /var/opt/mssql/backup/
-cp AdventureWorks2019.bak /var/opt/mssql/backup/
 
 #Download the install script and run it
 curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/install_sql2019.sh
