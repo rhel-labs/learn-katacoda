@@ -6,6 +6,9 @@ touch /root/post-run.log
 #Download the SQL Query script
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/createUser.sql
 
+#Download the backup database file
+wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak
+
 #Download the install script and run it
 curl -o /root/install_sql.sh https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-crypto-policy/install_sql2019.sh
 sudo chmod +x ./install_sql.sh
