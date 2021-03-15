@@ -34,7 +34,7 @@ host's port 80 to pass traffic to the container's port 80.
 
 In the 'Terminal' tab of the lab interface, check the status of the application container using podman and get the running container id 
 
-`podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com/ubi8/ubi:latest | cut -b 1-12)`{{execute T1}}
+`podman ps; CONTAINERID=$(podman ps | grep registry.access.redhat.com | cut -b 1-12)`{{execute T1}}
 
 <pre class="file">
 CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS           PORTS               NAMES
