@@ -24,7 +24,7 @@ Installed:
 << OUTPUT ABRIDGED >>
 </pre>
 
-Create a new user in SQL Server to be used by PCP
+Create a new user in SQL Server to be used by PCP. The next command uses `sqlcmd` to run a SQL script file called createUser.sql. The script creates a SQL Server user login called `pcpLogin` and only grants limited SQL Server privileges that are needed by PCP. 
 
 <pre class="file">
 //Create a SQL Server login and user associated with that login. Grant VIEW SERVER STATE AND VIEW DATABASE STATE permissions to the user
