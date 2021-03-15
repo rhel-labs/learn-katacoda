@@ -1,4 +1,28 @@
-# Measure CPU performance impact with tuned profiles
+# Measure SQL Server Performance Metrics Using PCP
+
+Use the PCP `pminfo` command to see a complete list of metrics run in SQL Server on RHEL.
+
+`pminfo mssql`{{execute T2}}
+
+<pre class="file">
+Output Block 1 
+</pre>
+
+There are more than 150 metrics tracked across different SQL Server resources. 
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index'`{{execute T1}}
+
+Lets re-run the same query using columnstore indexes. The script queries the table 10 times outputting the time it takes for the query to return the result set using columnstore indexes.
+
+<pre class="file">
+//The aggregation query over 5 million rows
+SELECT SUM(Price), AVG(Price) FROM Orders;
+</pre>
+
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}
+
+>**Note:** The query performance of running an analytical query on top of 5 million rows with columnstore is better than without using columnstore indexes. 
+
 
 To measure CPU performance, we will be using a bcc-tool called `cpudist`. 
 
