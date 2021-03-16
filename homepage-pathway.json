@@ -96,11 +96,6 @@
       "external_link": "https://lab.redhat.com/stratis",
       "title": "Stratis, a new Red Hat Enterprise Linux storage technology",
       "description": "Get started with Stratis, a pool-based storage technology included with Red Hat Enterprise Linux."
-    },
-    {
-      "external_link": "https://lab.redhat.com/systemroles-soe",
-      "title": "Create standard operating environment with RHEL System Roles",
-      "description": "Configure a standard operating environment on systems using Red Hat Enterprise Linux System Roles."
     }
   ]
 }
