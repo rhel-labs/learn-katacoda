@@ -13,9 +13,6 @@ GO
 DBCC DROPCLEANBUFFERS;
 GO
 
-DBCC sqlperf('sys.dm_os_wait_stats', clear);
-GO
-
 WITH a AS (SELECT * FROM (VALUES(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)) AS a(a)) 
 SELECT TOP(500000000) ROW_NUMBER() OVER (ORDER BY a.a) AS OrderItemId, 
 a.a + b.a + c.a + d.a + e.a + f.a + g.a + h.a AS OrderId,
