@@ -63,12 +63,12 @@ Now, let's run an aggregation SQL workload using sqlcmd as a background task, an
 SELECT SUM(Price), AVG(Price) FROM Orders;
 </pre>
 
-`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.buffer_manager.buffer_cache_hit_ratio)`{{execute T2}}
+`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.os_wait_stats.waiting_tasks[CXPACKET])`{{execute T2}}
 
 > **NOTE**: The results are close to 0% which means that most of the data is fetched from disk.
 
 Rerun the query, but this time using a columnstore index.
 
-`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.buffer_manager.buffer_cache_hit_ratio)`{{execute T2}}
+`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.os_wait_stats.waiting_tasks[CXPACKET])`{{execute T2}}
 
 > **NOTE**:  The results are close to 100% which means that most of the data is fetched from the in-memory columnstore index, and there are very few disk reads.
