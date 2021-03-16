@@ -56,7 +56,7 @@ mssql.plan_cache.cache_hit_ratio
 
 There are more than 150 metrics tracked across different SQL Server resources that PCP can capture. 
 
-Now, let's run an aggregation SQL workload using sqlcmd as a background task, and monitor one of the OS wait statistics using PCP. Wait statistics are one of the most important indicators to identify performance issues in SQL Server. Within SQL Server, the SOS_SCHEDULER_YIELD wait statistic is captured and recorded when a thread is waiting in the runnable queue for its turn. The query will compute aggregates over 500 million rows from the orders table.
+Now, let's run an aggregation SQL query shown below using sqlcmd as a background task, and monitor one of the OS wait statistics using PCP. Wait statistics are one of the most important indicators to identify performance issues in SQL Server. Within SQL Server, the SOS_SCHEDULER_YIELD wait statistic is captured and recorded when a thread is waiting in the runnable queue for its turn. 
 
 <pre class="file">
 //The aggregation query over 500 million rows
