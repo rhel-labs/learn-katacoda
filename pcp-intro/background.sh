@@ -6,7 +6,7 @@ touch /root/post-run.log
 #Download the SQL Query script
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/createUser.sql
 
-wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-cstore/CSIndex.sql
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/pcp-intro/CSIndex.sql
 mkdir /root/Scripts/
 mv CSIndex.sql /root/Scripts/
 
