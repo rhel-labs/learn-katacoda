@@ -56,19 +56,19 @@ mssql.plan_cache.cache_hit_ratio
 
 There are more than 150 metrics tracked across different SQL Server resources. 
 
-Now, let's run an aggregation SQL workload using sqlcmd as a background task, and monitor the SQL Server buffer manager cache hit ratio using PCP. The query will compute aggregates over 5 million rows from the orders table and use a SQL Server Columnstore index.
+Now, let's run an aggregation SQL workload using sqlcmd as a background task, and monitor the SQL Server buffer manager cache hit ratio using PCP. The query will compute aggregates over 5 million rows from the orders table.
 
 <pre class="file">
 //The aggregation query over 5 million rows
 SELECT SUM(Price), AVG(Price) FROM Orders;
 </pre>
 
-`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.buffer_manager.buffer_cache_hit_ratio)`{{execute T2}}
-
-Notice that the results are close to 100% which means that most of the data is fetched from the in-memory columnstore index, and there are very few disk reads.
-
-Rerun the query, but this time NOT using a columnstore index.
-
 `(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.buffer_manager.buffer_cache_hit_ratio)`{{execute T2}}
 
-You will notice that in this case, there are more disk reads because there is no in-memory columnstore index used. 
+> **NOTE**: The results are close to 0% which means that most of the data is fetched from disk.
+
+Rerun the query, but this time using a columnstore index.
+
+`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.buffer_manager.buffer_cache_hit_ratio)`{{execute T2}}
+
+> **NOTE**:  The results are close to 100% which means that most of the data is fetched from the in-memory columnstore index, and there are very few disk reads.
