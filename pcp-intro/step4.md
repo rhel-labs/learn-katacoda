@@ -54,21 +54,15 @@ mssql.locks.average_wait_time
 mssql.plan_cache.cache_hit_ratio
 </pre>
 
-There are more than 150 metrics tracked across different SQL Server resources. 
+There are more than 150 metrics tracked across different SQL Server resources that PCP can capture. 
 
-Now, let's run an aggregation SQL workload using sqlcmd as a background task, and monitor the SQL Server buffer manager cache hit ratio using PCP. The query will compute aggregates over 5 million rows from the orders table.
+Now, let's run an aggregation SQL workload using sqlcmd as a background task, and monitor one of the OS wait statistics (SOS_SCHEDULER_YIELD) using PCP. Within SQL Server, this wait is captured and recorded when a thread is waiting in the runnable queue and waiting for its turn. The query will compute aggregates over 500 million rows from the orders table.
 
 <pre class="file">
-//The aggregation query over 5 million rows
+//The aggregation query over 500 million rows
 SELECT SUM(Price), AVG(Price) FROM Orders;
 </pre>
 
-`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.os_wait_stats.waiting_tasks[CXPACKET])`{{execute T2}}
+`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 15 mssql.os_wait_stats.waiting_tasks[SOS_SCHEDULER_YIELD])`{{execute T2}}
 
-> **NOTE**: The results are close to 0% which means that most of the data is fetched from disk.
-
-Rerun the query, but this time using a columnstore index.
-
-`(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 10 mssql.os_wait_stats.waiting_tasks[CXPACKET])`{{execute T2}}
-
-> **NOTE**:  The results are close to 100% which means that most of the data is fetched from the in-memory columnstore index, and there are very few disk reads.
+> **NOTE**:  Observations
