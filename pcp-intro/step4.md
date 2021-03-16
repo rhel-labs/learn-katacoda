@@ -56,7 +56,7 @@ mssql.plan_cache.cache_hit_ratio
 
 There are more than 150 metrics tracked across different SQL Server resources that PCP can capture. 
 
-Now, let's run an aggregation SQL query shown below using sqlcmd as a background task, and monitor one of the OS wait statistics using PCP. Wait statistics are one of the most important indicators to identify performance issues in SQL Server. Within SQL Server, the SOS_SCHEDULER_YIELD wait statistic is captured and recorded when a thread is waiting in the runnable queue for its turn. 
+Now, let's run an aggregation SQL query shown below using `sqlcmd` as a background task, and monitor the SQL wait statistics using the `pmval` command in PCP. Wait statistics are one of the most important indicators to identify performance issues in SQL Server. 
 
 <pre class="file">
 //The aggregation query over 500 million rows
@@ -65,4 +65,4 @@ SELECT SUM(Price), AVG(Price) FROM Orders;
 
 `(/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore index' &>/dev/null &) && (pmval -t 1 -T 15 mssql.os_wait_stats.waiting_tasks[SOS_SCHEDULER_YIELD])`{{execute T2}}
 
-> **NOTE**:  Observations
+> **NOTE**:  The results give administrators a good indication of where the problem might exist. For example, higher CXPACKET  wait values might indicate contention due to thread parallelism, and might require adjusting the degree of parallelism (MAXDOP) in SQL Server.
