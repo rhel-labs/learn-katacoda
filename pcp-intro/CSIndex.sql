@@ -35,7 +35,8 @@ GO
                                                                                
 DECLARE @StartingTime datetime2(7) = SYSDATETIME();
                                                                                
-SELECT SUM(Price), AVG(Price) FROM Orders;
+SELECT SUM(Price), AVG(Price) FROM Orders
+option (maxdop 0);
 
 PRINT 'Using nonclustered columnstore index: ' + CAST(DATEDIFF(millisecond, @StartingTime, SYSDATETIME()) AS varchar(20)) + ' ms';
 
