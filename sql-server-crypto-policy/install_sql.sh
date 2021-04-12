@@ -32,7 +32,7 @@ sleep 10
 sudo yum update -y
 
 echo Setting default python version
-sudo alternatives --set python /usr/bin/python2
+sudo alternatives --set python /usr/bin/python3
 
 echo Download and Install SQL Server...
 sudo yum download mssql-server
