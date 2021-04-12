@@ -25,7 +25,7 @@ echo Adding Microsoft repositories...
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
 
 echo Installing Python and OpenSSL
-sudo yum install python2 compat-openssl10 -y
+sudo yum install python3 compat-openssl10 -y
 
 echo Running yum update -y...
 sleep 10
