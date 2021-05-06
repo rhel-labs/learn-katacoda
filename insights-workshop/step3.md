@@ -1,13 +1,14 @@
 # Navigating the Insights service
 
-Now that you have logged in, you will see an overview of all systems
-registered to your organization.
+Now that you have opened Red Hat Insights for Red Hat Enterprise Linux, you 
+will see a summary dashboard of all systems registered to your organization.
 
 ![Insights Homepage](./assets/insights-homepage-v2.png)
 
 For the purposes of this exercise, you are working with a single machine
-registered to Insights and we will focus on the Advisor service.  Click on the _Inventory_ link on
-the left navigation bar.
+registered to Insights and we will focus on the Advisor recommendations 
+available for that host.  Click on the _Inventory_ link on the left 
+navigation bar.
 
 ![Navigate to Inventory](./assets/insights-homepage-inventory-highlight-v2.png)
 
