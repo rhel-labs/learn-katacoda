@@ -20,6 +20,7 @@ Complete!
 
 Now that the software has been updated, restart the Network Manager service
 so that the running copy in memory is also updated with the new version.
+
 `systemctl restart NetworkManager`{{execute}}
 
 Force a Red Hat Insights checkin so that a new batch of system data
