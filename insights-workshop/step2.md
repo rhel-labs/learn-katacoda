@@ -22,9 +22,8 @@ Password: __Redhat1!__
 
 ![Red Hat Password screen](./assets/redhat-login-02.png)
 
-Once you are logged in, using the credentials provided by your workshop
-facilitator, navigate to _Red Hat Enterprise Linux_ in the left-side 
-navigation menu.
+Once you are logged in, using the credentials provided above, navigate to 
+_Red Hat Enterprise Linux_ in the left-side navigation menu.
 
 
 ![cloud.redhat.com Homepage](./assets/cloud.redhat.com-homepage-postlogin-v2.png)
