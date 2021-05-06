@@ -14,12 +14,12 @@ Next, register your system with Red Hat Insights.
 `insights-client --register`{{execute}}
 
 <pre class=file>
-You successfully registered a6900abd-c0f0-41af-a476-206b92eb3500 to account 6227255.
-Successfully registered host 6d9717b56ab7
+You successfully registered 988952df-b136-4d71-b807-5a9c1066fddf to account 6227255.
+Successfully registered host e5a8aa325c8b
 Automatic scheduling for Insights has been enabled.
-Starting to collect Insights data for 6d9717b56ab7
+Starting to collect Insights data for e5a8aa325c8b
 Uploading Insights data.
-Successfully uploaded report from 6d9717b56ab7 to account 6227255.
+Successfully uploaded report from e5a8aa325c8b to account 6227255.
 View the Red Hat Insights console at https://cloud.redhat.com/insights/
 </pre>
 
@@ -33,7 +33,7 @@ For future reference, make note of your system hostname.
 `hostname`{{execute}}
 
 <pre class=file>
-6d9717b56ab7
+e5a8aa325c8b
 </pre>
 
 >_NOTE:_ Your hostname will be different than the one listed in the output above

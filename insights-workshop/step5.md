@@ -1,35 +1,26 @@
 # Remediating the reported Insight
 
-The reported recommendation for OpenSSH had a suggested resolution of 
-changing the sshd value for __ClientAliveInterval__ from 900 to
-300.
+The reported recommendation for NetworkManager had a suggested resolution of 
+updating the NetworkManager application.
 
-First, verify the value for __ClientAliveInterval__:
+You will follow the recommendation and apply the updated package to the
+system.
 
-`grep '^ClientAliveInterval' /etc/ssh/sshd_config`{{execute}}
-
-<pre class=file>
-ClientAliveInterval 900
-</pre>
-
-Next, you will edit the file to update the __ClientAliveInterval__ value to 300.  
-`sed` is the stream editor utility used in this lab, but you could also use 
-another editor to make the change.
-
-`sed -ie 's/^ClientAliveInterval 900/ClientAliveInterval 300/' /etc/ssh/sshd_config`{{execute}}
-
-Verify that the value is now updated:
-
-`grep '^ClientAliveInterval' /etc/ssh/sshd_config`{{execute}}
+`yum -y update NetworkManager`{{execute}}
 
 <pre class=file>
-ClientAliveInterval 300
+... OUTPUT ABRIDGED ...
+
+Upgraded:
+  NetworkManager-1:1.26.0-14.el8_3.x86_64           NetworkManager-libnm-1:1.26.0-14.el8_3.x86_64     
+  NetworkManager-team-1:1.26.0-14.el8_3.x86_64      NetworkManager-tui-1:1.26.0-14.el8_3.x86_64       
+
+Complete!
 </pre>
 
-Now that the value in the configuration file is updated, restart the
-sshd daemon so that it uses the updated value.
-
-`systemctl restart sshd`{{execute}}
+Now that the software has been updated, restart the Network Manager service
+so that the running copy in memory is also updated with the new version.
+`systemctl restart NetworkManager`{{execute}}
 
 Force a Red Hat Insights checkin so that a new batch of system data
 is uploaded to Insights.
@@ -37,7 +28,9 @@ is uploaded to Insights.
 `insights-client`{{execute}}  
 
 <pre class=file>
-Starting to collect Insights data for a06560c57e40
+Starting to collect Insights data for e5a8aa325c8b
 Uploading Insights data.
-Successfully uploaded report from a06560c57e40 to account 6227255.
+Successfully uploaded report from e5a8aa325c8b to account 6227255.
+View details about this system on cloud.redhat.com:
+https://cloud.redhat.com/insights/inventory/38f9bacc-931b-4542-b788-1ab5a0da5a7c
 </pre>

@@ -7,25 +7,22 @@ Insights data that applies to this host.
 ![Host Insights](./assets/host-homepage-v2.png)
 
 There may be several recommendations listed for this system.  Scroll down through the
-list until you reach the one entitled _Decreased security: OpenSSH ClientAlive settings_
+list until you reach the one entitled _Network connection loss occurs when the NetworkManager uses an internal DHCP client_
 
-![Openssh Insight](./assets/openssh-issue-v2.png)
+![NetworkManager Insight](./assets/NetworkManager-issue.png)
 
 From the _Detected issues_ section of the recommendation, you can see that this recommendation
-is being triggered by the machine running OpenSSH and using some default
-configuration settings.  
+is being triggered by the machine running an older version of NetworkManager.
 
-![Openssh Insight issue](./assets/openssh-detected-issue-v2.png)
+![NetworkManager Insight issue](./assets/NetworkManager-detected-issue.png)
 
-In the _Steps to resolve_ section of the recommendation, additional details, 
-including your daemon settings as well as the suggested settings and an 
-explaination of why this may cause an issue are described.
+In the _Steps to resolve_ section of the recommendation, step-by-step
+guidance on how to resolve the issue is provided.  In this case, to
+update the system and restart the service.
 
-![Openssh Insight explaination](./assets/openssh-issue-explanation-v2.png)
+![NetworkManager Issue Resolution](./assets/NetworkManager-resolution.png)
 
-The _Steps to resolve_ section continues with a description of how you
-may want to configure the OpenSSH service as well as what would need to
-be done after the service configuration is complete in order to resolve
-the detected issue with the machine.
-
-![Openssh Insight resolution](./assets/openssh-issue-resolution-v2.png)
+The _Steps to resolve_ section continues with an additional option for
+remediating the recommendation if you are unable to update the NetworkManager
+RPM.  Specifically, the recommendation includes some additional file
+configuration settings followed by a service restart.
