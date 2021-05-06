@@ -12,6 +12,6 @@ yum -y install cockpit cockpit-packagekit
 echo "starting cockpit" >> /root/post-run.log
 systemctl start cockpit
 
-echo "exclude=kernel*"" >> /etc/yum.conf
+echo "exclude=kernel*" >> /etc/yum.conf
 
 echo "DONE" >> /root/post-run.log
