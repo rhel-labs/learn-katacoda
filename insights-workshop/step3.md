@@ -10,7 +10,7 @@ registered to Insights and we will focus on the Advisor recommendations
 available for that host.  Click on the _Inventory_ link on the left 
 navigation bar.
 
-![Navigate to Inventory](./assets/insights-homepage-inventory-highlight-v2.png)
+![Navigate to Inventory](./assets/insights-homepage-inventory-highlight.png)
 
 Once you are on the Inventory page, find and click your hostname to pull up
 information for your individual machine.  Recall in a previous step you
