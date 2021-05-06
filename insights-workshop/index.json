@@ -42,7 +42,7 @@
     "dashboard":"cloud.redhat.com"
   },
   "backend": {
-    "imageid": "rhel8-2",
+    "imageid": "rhel8-3",
     "url": "https://cloud.redhat.com"
   }
 
