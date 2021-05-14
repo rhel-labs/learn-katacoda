@@ -1,0 +1,34 @@
+{
+  "title": "RHEL8 Container Labs",
+  "private": true,
+  "courses": [
+    {
+      "pathway_id": "rhel-labs",
+      "id": "podman-deploy",
+      "course_id": "podman-deploy",
+      "title": "Deploying containers using Container Tools [podman]",
+      "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "buildah",
+      "course_id": "buildah",
+      "title": "Creating images with Container Tools [buildah]",
+      "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "containerize-app",
+      "course_id": "containerize-app",
+      "title": "Build an application into a container using RHEL Container Tools",
+      "description": "Containerize a 3rd party application into a Red Hat Universal Base Image (UBI) based container."
+    },
+    {
+      "pathway_id": "rhel-labs",
+      "id": "selinux-containers",
+      "course_id": "selinux-containers",
+      "title": "Securing containers with SELinux [Udica]",
+      "description": "Protect your container isolation by applying SELinux policies to determine which host resources are available to a running container."
+    }
+  ]
+}
