@@ -1,12 +1,10 @@
-# Validate Environment and Install PCP
+# Validate Environment and Install Flame Graph Stack
 
->**Note:** For this scenario, we have started installing SQL Server in the background. The background task will take between 2-5 minutes to complete. 
+In RHEL, there are two stacks for visualizing performance data - one based on PCP and Grafana, and the other based on perf and d3. For many performance troubleshooting use-cases, visualizing performance metrics is key and this lab will explain how to use the perf and d3 stack on RHEL.
 
-Performance Co-Pilot (PCP) provides a large number of command-line and graphical tools, as well as libraries to support system-level performance monitoring and management. PCP's architecture and services are designed to centralize the monitoring of performance across complex distributed systems.
+In this lab, our setup consists of a single node system running MySQL. We have setup three terminal windows running on the local machine - The current terminal will be used for OS specific commands and to interact with MySQL. The Flame terminal will be used for running specific perf and d3 commands. The web terminal will be used to looking at the flame.
 
-In this introductory PCP lab, our setup consists of a single node system running PCP. We have setup two terminal windows running on the local machine - The current terminal will be used for OS specific commands and to interact with SQL Server. The *pcp* terminal will be used for running pcp specific commands and looking at the output.
-
-To check if SQL Server installation is complete, we can use the following command -
+Let us use RHEL App Streams to install the latest version of MySQL, we can use the following command -
 
 `systemctl status mssql-server.service --no-pager`{{execute T1}}
 
@@ -22,7 +20,7 @@ Verify that the Active status is __active (running)__.
 
 Install the PCP packages using yum 
 
-`yum install pcp-zeroconf -y`{{execute T1}}
+`yum install perf js-d3-flame-graph -y`{{execute T1}}
 
 Start and enable the __PCP's Collector Daemon (PMCD)__ to start collecting system performance data 
 

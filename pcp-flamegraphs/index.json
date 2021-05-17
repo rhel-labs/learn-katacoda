@@ -32,7 +32,7 @@
   },
    "environment": {
     "uilayout": "terminal",
-    "dashboards": [{"name":"Flame graph", "port": "80", "host": "localhost"}],
+    "dashboards": [{"name":"Flame", "port": "80", "host": "localhost"}],
     "showdashboard":true,
     "terminals": [{"name":"Terminal","target":"host01"}]
   },

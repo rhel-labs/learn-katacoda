@@ -1,9 +1,10 @@
 # In this lab you have:
 
-* Installed Performance Co-Pilot (PCP) packages on RHEL
-* Analyzed critical system resources using PCP 
-* Installed Performance Metric Domain Agents (PMDA) for SQL Server  
-* Analyzed SQL Server performance by running a sample columnstore-based analytic query using SQL Server
+# Concepts included in this scenario:
+* Installed packages for flame graphs on RHEL
+* Used the latest version of MySQL using RHEL Application Streams
+* Analyzed MySQL performance by running a sample OLTP query
+* Used flame graphs to visualize the performance of MySQL queries
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
