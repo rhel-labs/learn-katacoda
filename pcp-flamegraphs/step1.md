@@ -4,23 +4,21 @@ In RHEL, there are two stacks for visualizing performance data - one based on PC
 
 In this lab, our setup consists of a single node system running MySQL. We have setup three terminal windows running on the local machine - The current terminal will be used for OS specific commands and to interact with MySQL. The Flame terminal will be used for running specific perf and d3 commands. The web terminal will be used to looking at the flame.
 
-Let us use RHEL App Streams to install the latest version of MySQL, we can use the following command -
+Let us use RHEL Application Streams to check if the MySQL module has been installed - 
 
-`systemctl status mssql-server.service --no-pager`{{execute T1}}
+`yum module list | grep 'MySQL Module'`{{execute T1}}
 
 <pre class="file">
-<< OUTPUT ABRIDGED >>
-
-Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
-
-<< OUTPUT ABRIDGED >>
+mysql                8.0 [d]      client, server [d]                       MySQL Module
 </pre>
 
-Verify that the Active status is __active (running)__.
+MySQL is not installed. Let us install MySQL using Application Streams
 
-Install the PCP packages using yum 
+`yum module install -y mysql:8.0`{{execute T1}}
 
-`yum install perf js-d3-flame-graph -y`{{execute T1}}
+Let's verify that MySQL is installed 
+
+`mysql -V`{{execute T1}}
 
 Start and enable the __PCP's Collector Daemon (PMCD)__ to start collecting system performance data 
 
