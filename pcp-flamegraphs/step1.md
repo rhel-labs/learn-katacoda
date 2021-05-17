@@ -20,22 +20,20 @@ Let's verify that MySQL is installed
 
 `mysql -V`{{execute T1}}
 
-Start and enable the __PCP's Collector Daemon (PMCD)__ to start collecting system performance data 
+Start the __MySQL Daemon (mysqld)__  
 
-`systemctl start pmcd`{{execute T1}}
+`systemctl start mysqld`{{execute T1}}
 
-`systemctl enable pmcd`{{execute T1}}
+Check the status of the mysqld service 
 
-Check the status of the enabled PMCD service 
-
-`systemctl status pmcd --no-pager`{{execute T1}}
+`systemctl status mysqld --no-pager`{{execute T1}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
- Loaded: loaded (/usr/lib/systemd/system/pmcd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Thu 2021-03-11 13:18:12 EST; 6min ago
-
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2021-05-17 14:42:40 EDT; 6s ago
+   
 << OUTPUT ABRIDGED >>
 </pre>
 
