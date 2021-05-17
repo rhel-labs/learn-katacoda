@@ -38,3 +38,18 @@ Check the status of the mysqld service
 </pre>
 
 Verify that the Active status is __active (running)__.
+
+Install the perf and d3 packages 
+
+`sudo yum install -y perf js-d3-flame-graph`{{execute T1}}
+
+<pre class="file">
+<< OUTPUT ABRIDGED >>
+
+Installed products updated.
+
+Installed:
+  js-d3-flame-graph-3.0.2-2.el8.noarch   libbabeltrace-1.5.4-3.el8.x86_64   libbpf-0.0.8-4.el8.x86_64   perf-4.18.0-240.22.1.el8_3.x86_64  
+
+<< OUTPUT ABRIDGED >>
+</pre>
