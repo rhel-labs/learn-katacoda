@@ -32,9 +32,9 @@
   },
    "environment": {
     "uilayout": "terminal",
-    "dashboards": [{"name":"Flame", "port": "80", "host": "localhost"}],
+    "dashboards": [{"name":"Web", "port": "80", "host": "localhost"}],
     "showdashboard":true,
-    "terminals": [{"name":"Terminal","target":"host01"}]
+    "terminals": [{"name":"Flame","target":"host01"}]
   },
   "backend": {
     "imageid": "rhel8-3",
