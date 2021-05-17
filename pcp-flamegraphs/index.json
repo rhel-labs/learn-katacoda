@@ -1,0 +1,43 @@
+{
+  "title": "Performance flame graphs on Red Hat Enterprise Linux [DRAFT]",
+  "description": "Goal: Users will be able to generate flame graphs on RHEL to visualize system and application performance metrics",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+	"title": "Step 4",
+	"text": "step4.md"
+      }
+   ],
+     "intro": {
+      "text": "intro.md",
+      "credits": "__Author:__ Don Pinto, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh",
+      "code": "foreground.sh" 
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+   "environment": {
+    "uilayout": "terminal",
+    "dashboards": [{"name":"Flame graph", "port": "80", "host": "localhost"}],
+    "showdashboard":true,
+    "terminals": [{"name":"Terminal","target":"host01"}]
+  },
+  "backend": {
+    "imageid": "rhel8-3",
+    "port": 80
+  }
+}
