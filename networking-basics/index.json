@@ -1,6 +1,6 @@
 {
-  "title": "Networking Basics",
-  "description": "Static vs Dynamic IP (DHCP), hostnames, and DNS",
+  "title": "Network Configuration Basics",
+  "description": "Learn how to configure DHCP, hostname, and DNS for a network connection using nmcli",
   "details": {
     "steps": [
       {
@@ -8,15 +8,15 @@
         "text": "step1.md"
       },
       {
-      	"title": "Step 2",
-      	"text": "step2.md"
+        "title": "Step 2",
+        "text": "step2.md"
       },
       {
         "title": "Step 3",
         "text": "step3.md"
       },
       {
-      	"title": "Step 4",
+        "title": "Step 4",
         "text": "step4.md"
       },
       {
@@ -26,28 +26,21 @@
       {
         "title": "Step 6",
         "text": "step6.md"
-      },
-      {
-        "title": "Step 7",
-        "text": "step7.md"
-      },
-      {
-        "title": "Step 8",
-        "text": "step8.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Jaret Anderson, Technical Marketing Intern (Red Hat)"
+      "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)",
     },
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal",
+    "terminals": [{"name": "control", "target":"host01"},{"name":"host02","target":"host02"},{"name":"host03","target":"host03"}]
   },
   "backend": {
-    "imageid": "rhel8-3"
+    "imageid": "rhel8-cluster3"
   }
 }
