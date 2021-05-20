@@ -19,7 +19,7 @@ In 'Terminal' tab of the lab interface, query the SELinux policy to search for a
 The search returns NO results. Since, there is no allow rule for container_t type to get read access to the */home* directory, access 
 is blocked by SELinux.
 
-In 'Terminal' tab of the lab interface, check the container's access to the */var/spool/* directory
+In 'Terminal 2' tab of the lab interface, check the container's access to the */var/spool/* directory
 
 `cd /var/spool/; ls`{{execute T2}}
 
