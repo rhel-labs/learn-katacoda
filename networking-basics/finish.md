@@ -1,8 +1,14 @@
 # In this lab you have:
-* Verified that `nmcli` is active
-* Learned the difference between static and dynamic IP configurations
-* Configured the hostname for a connection using `nmcli`
-* Configured DNS for a connection using `nmcli`
+* Been introduced to NetworkManager (`nmcli`)
+* Configured a new connection with a dynamic IP using DHCP
+* Modifyed this connection to have a static IP
+* Configured the DNS server and hostname for this connection
+
+# Related Resources:
+Here are two Enable Sysadmin articles that heavily relate to this content:
+[Becoming Friends with NetworkManager](https://www.redhat.com/sysadmin/becoming-friends-networkmanager)
+[Static and dynamic IP address configurations for DHCP](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
+
 
 
 # Report an issue with the lab:

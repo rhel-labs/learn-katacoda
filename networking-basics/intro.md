@@ -1,21 +1,20 @@
 # Overview:
 
-Stratis is a local storage-management solution for Linux that can assist with the initial configuration and ongoing management of storage. Stratis incorporates a simple and easy to use interface, while simultaneously providing the advanced capabilities of a volume managing filesystem.
+NetworkManager is a great tool for creating and modifying networks. This lab
+will walk you through creating your own network connection from scratch and
+modifying key parameters to control how that network connection behaves.
 
-Stratis provides a variety of storage management features by integrating layers of existing technologies:
-* the device mapper framework
-* the XFS filesystem
-
-Stratis automates the management of local storage. On a system with just a single disk, Stratis can make it more convenient to logically separate /home from /usr, and enable snapshot with rollback on each separately. On larger configurations, Stratis can make it easier to create a multi-disk, multi-tiered storage pool, monitor the pool, and then manage the pool with less administrator effort.
+You will use two terminal tabs: `node01` and `node02`. You will carry out the
+connection configuration on `node01`, and then at the end you will switch to
+`node02` to test that the connection was successfully setup.
 
 # Goal:
 
 After completing this scenario, users will be able to configure the IP, hostname,
-and DNS for a connection. Users will also be familiar with the differences between
-static and dynamic IP configuration.
+and DNS for a connection using `nmcli`.
 
 # Concepts included in this scenario:
-
-* DHCP: Static vs Dynamic IP configuration
-* Viewing and configuring a hostname
-* Viewing and configuring DNS (domain name system)
+* Introduction to NetworkManager (`nmcli`)
+* Configuring a new connection with a dynamic IP using DHCP
+* Modifying this connection to have a static IP
+* Viewing and configuring a DNS server and hostname
