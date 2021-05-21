@@ -9,12 +9,15 @@ the following command:
 
 `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
 
+![con add breakdown](./assets/conAddBreakdown.png)
+
 **Note:** NetworkManager will act as the DHCP client when adding a connection
 without a specified address.
 
-Now let’s take a look at the configuration file for our connection.
-We will single in on the line specifying the protocol and the configured IP
-by searching for the `BOOTPROTO` and `IPADDR` lines:
+Let’s take a look at the configuration file for our connection to see
+what this command has done. We will single in on the line specifying the
+protocol and the configured IP by searching for the `BOOTPROTO` and
+`IPADDR` lines:
 
 `cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'BOOTPROTO\|IPADDR'`{{execute "host01"}}
 
@@ -29,4 +32,4 @@ manually setting an IP when we configure a dynamic connection.
 
 Some situations call for an IP that can't change over time, or a static IP.
 The next page will walk you through turning this dynamic connection into a
-static connection. 
+static connection.
