@@ -26,7 +26,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)",
+      "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
