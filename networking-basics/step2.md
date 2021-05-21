@@ -9,7 +9,11 @@ the following command:
 
 `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
 
+A lot goes into this command, so here is a breakdown of each argument:
+
 ![con add breakdown](./assets/conAddBreakdown.png)
+
+(click to enlarge)
 
 **Note:** NetworkManager will act as the DHCP client when adding a connection
 without a specified address.
