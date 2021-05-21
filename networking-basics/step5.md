@@ -2,7 +2,7 @@
 
 The process of using `nmcli modify` is exactly the same for any property you
 want to change. Returning to `host01`, lets modify our connection a bit more.
-You can change multiple properties in the same modify connection, shown here
+You can change multiple properties in the same modify command, shown here
 for gateway, DNS, and hostname:
 
 `nmcli con modify ethernet1 ipv4.gateway 172.17.0.1 ipv4.dns 172.17.0.254 ipv4.dhcp-hostname lab-server`{{execute "host01"}}
