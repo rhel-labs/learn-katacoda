@@ -41,9 +41,9 @@ Verify that the Active status is __active (running)__.
 
 Load sample data into the MySQL database. This script creates a books database with two tables - authors and posts
 
-`mysql < sample.sql`{{execute T1}}
+`mysql < test-sample.sql`{{execute T1}}
 
-Install the perf and d3 packages 
+Install the perf and d3 packages -
 
 `sudo yum install -y perf js-d3-flame-graph`{{execute T1}}
 
