@@ -6,7 +6,7 @@ Select the *Flame* terminal to run commands in this step.
 
 ## Collect performance samples using the Perf tool for a basic SELECT MySQL query
 
-Learn about the query execution plan using using the EXPLAIN statement in MySQL 
+Learn about the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
 
 `mysql -e "use sampleDB; EXPLAIN format=tree SELECT /*+ NO_HASH_JOIN(t1,t2) */ count(*) from t1 join t2 on t1.c2 = t2.c2"`{{execute T2}}
 
