@@ -1,3 +1,18 @@
+# Activating the connection
+
+Let's activate the static connection that you configured in the previous step:
+
+`nmcli con up ethernet1`{{execute "node01"}}
+
+The output shows that the connection was successfully activated:
+
+<pre class=file>
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
+</pre>
+
+Now we will run a test to confirm that we can actually send
+data over this connection we just activated.  
+
 # Testing the connection
 
 We will now ping the IP for our configured connection verify that
