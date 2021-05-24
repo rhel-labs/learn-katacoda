@@ -2,8 +2,8 @@
 After completing this scenario, users will be able to use flame graphs to visualize CPU performance data in the context of running a SQL query with the latest MySQL database installed using RHEL Application Streams. 
 
 # Concepts included in this scenario:
-* Install packages for flame graphs on RHEL
 * Get the latest version of MySQL using RHEL Application Streams 
+* Install packages for flame graphs on RHEL
 * Analyze MySQL performance by running a sample OLTP query  
 * Used flame graphs to visualize the performance of a MySQL query
 
