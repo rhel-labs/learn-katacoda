@@ -11,7 +11,7 @@ The linux perf command has 3 main parts - **action**, **event** and **scope**.
 In the command below, we are using the record action of the perf command to collect samples at a frequency of 99 samples per second, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F 99 -g -p $(pgrep -x mysqld) -- mysql books -e "SELECT * FROM posts"`{{execute T2}}
+`perf record flamegraph -a -F 99 -g -p $(pgrep -x mysqld) -- mysql books -e "SELECT * FROM posts"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -24,37 +24,12 @@ Perf is also monitoring a particular process (mysqld in this case), while runnin
 
 The output shows the result of running the SELECT query, and the performance samples are collected in the perf.data file.
 
-## Available PCP Kernel metrics ##
-PCP can collect and show a host of different system kernel metrics.
+## Output the flame graph ##
+The report option of perf script can be used to output the flame graph in html format -
 
-Display the kernel metrics on the host with a short description using `pminfo` :
+`perf script report flamegraph`{{execute T2}}
 
-`pminfo -t kernel.all`{{execute T2}}
-
-<pre class="file">
-<< OUTPUT ABRIDGED >>
-kernel.all.nprocs [total number of processes (lightweight)]
-kernel.all.pid_max [maximum process identifier from /proc/sys/kernel/pid_max]
-kernel.all.cpu.user [total user CPU time from /proc/stat for all CPUs, including guest CPU time]
-kernel.all.cpu.nice [total nice user CPU time from /proc/stat for all CPUs, including guest time]
-kernel.all.cpu.sys [total sys CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.idle [total idle CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.intr [total interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.steal [total virtualisation CPU steal time for all CPUs]
-kernel.all.cpu.guest [total virtual guest CPU time for all CPUs]
-kernel.all.cpu.vuser [total user CPU time from /proc/stat for all CPUs, excluding guest CPU time]
-kernel.all.cpu.guest_nice [total virtual guest CPU nice time for all CPUs]
-kernel.all.cpu.vnice [total nice user CPU time from /proc/stat for all CPUs, excluding guest time]
-kernel.all.cpu.wait.total [total wait CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.irq.soft [soft interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.cpu.irq.hard [hard interrupt CPU time from /proc/stat for all CPUs]
-kernel.all.interrupts.total One-line Help: Error: One-line or help text is not available
-kernel.all.interrupts.errors [interrupt error count from /proc/interrupts]
-kernel.all.softirqs.total One-line Help: Error: One-line or help text is not available
-<< OUTPUT ABRIDGED >>
-</pre>
-
-Check out `man pminfo` if you are interested in more details about the `pminfo` tool.
+Check out `man perf` if you are interested in more details about the `perf` tool.
 
 ## Monitoring performance using PCP ##
 
