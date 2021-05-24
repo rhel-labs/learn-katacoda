@@ -39,9 +39,9 @@ Check the status of the mysqld service
 
 Verify that the Active status is __active (running)__.
 
-Load sample data into the MySQL database. This script creates a books database with two tables - authors and posts
+Load sample data into the MySQL database. This script creates two sample tables - t1 and t2 with 1 million rows, and 100K rows respectively
 
-`mysql < test-sample.sql`{{execute T1}}
+`mysql < sample-test.sql`{{execute T1}}
 
 Install the perf and d3 packages -
 
