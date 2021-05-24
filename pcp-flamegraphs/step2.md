@@ -11,7 +11,7 @@ The linux perf command has 3 main parts - **action**, **event** and **scope**.
 In the command below, we are using the record action of the perf command to collect samples at a frequency of 99 samples per second, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F 99 -g -p $(pgrep -x msqld) -- mysql -e "SELECT * FROM books.posts"`{{execute T2}}
+`perf record -a -F 99 -g -p $(pgrep -x mysqld) -- mysql books -e "SELECT * FROM posts"`{{execute T2}}
 
 <pre class="file">
 Performance Co-Pilot configuration on be5455ac10c4:
