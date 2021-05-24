@@ -39,6 +39,8 @@ Check the status of the mysqld service
 
 Verify that the Active status is __active (running)__.
 
+Load the data into the MySQL database
+
 Install the perf and d3 packages 
 
 `sudo yum install -y perf js-d3-flame-graph`{{execute T1}}
