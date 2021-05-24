@@ -39,7 +39,7 @@ Check the status of the mysqld service
 
 Verify that the Active status is __active (running)__.
 
-Load sample data into the MySQL database. This script creates two sample tables - t1 and t2 with 1 million rows, and 100K rows respectively
+Load sample data into the MySQL database. This script creates two sample tables - t1 and t2 with 100K million rows, and 10K rows respectively
 
 `mysql < sample-test.sql`{{execute T1}}
 
