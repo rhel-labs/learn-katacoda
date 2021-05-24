@@ -6,8 +6,10 @@ Select the *Flame* terminal to run commands in this step.
 
 ## Collect performance samples using the Perf tool for a basic SELECT MySQL query
 
-The linux perf command has 3 main parts - action, event and scope. In the command below, we are using the record action to collect samples at a frequency of 99 samples per second, across all CPUs.
-We are also telling perf to monitor a particular process (mysqld in this case), and are running a specific SELECT query.
+The linux perf command has 3 main parts - **action**, **event** and **scope**. 
+
+In the command below, we are using the record action of the perf command to collect samples at a frequency of 99 samples per second, across all CPUs.
+Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
 `perf record -a -F 99 -g -p $(pgrep -x msqld) -- mysql -e "SELECT * FROM books.posts"`{{execute T2}}
 
