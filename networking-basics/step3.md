@@ -34,15 +34,5 @@ BOOTPROTO=none
 IPADDR=172.17.0.9
 </pre>
 
-We now have a barebones connection with a static IP, so let’s activate it:
-
-`nmcli con up ethernet1`{{execute "node01"}}
-
-The output shows that the connection was successfully activated:
-
-<pre class=file>
-Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
-</pre>
-
-In the next step we will run a test to confirm that we can actually send
-data over this connection we just activated.  
+We now have a barebones connection with a static IP, so the next step will
+walk you through activating and testing it.
