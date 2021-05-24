@@ -6,7 +6,9 @@
 
 # Related Resources:
 Here are two Enable Sysadmin articles that heavily relate to this content:
+
 [Becoming Friends with NetworkManager](https://www.redhat.com/sysadmin/becoming-friends-networkmanager)
+
 [Static and dynamic IP address configurations for DHCP](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
 
 

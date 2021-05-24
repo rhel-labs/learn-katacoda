@@ -15,9 +15,9 @@ PING 172.17.0.9 (172.17.0.9) 56(84) bytes of data.
 64 bytes from 172.17.0.9: icmp_seq=3 ttl=64 time=0.327 ms
 
 --- 172.17.0.9 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 59ms
-rtt min/avg/max/mdev = 0.273/0.320/0.352/0.034 ms
+3 packets transmitted, 3 received, 0% packet loss, time 28ms
+rtt min/avg/max/mdev = 0.078/0.081/0.084/0.007 ms
 </pre>
 
-The final step is to learn how to configure the DNS server addresses and hostname 
+The final step is to learn how to configure the DNS server addresses and hostname
 for the connection.  

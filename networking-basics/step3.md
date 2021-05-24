@@ -9,6 +9,8 @@ Assign the existing connection a specifed IP, in this case `172.17.0.9`:
 This line will not generate an output, but if we rerun the search from last page
 you can see the `IPADDR` field has been set:
 
+`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'BOOTPROTO\|IPADDR'`{{execute "host01"}}
+
 <pre class=file>
 BOOTPROTO=dhcp
 IPADDR=172.17.0.9
@@ -24,6 +26,8 @@ IP we specified.
 `nmcli con modify ethernet1 ipv4.method manual`{{execute "node01"}}
 
 This removes the DHCP protocol from the configuration file:
+
+`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'BOOTPROTO\|IPADDR'`{{execute "host01"}}
 
 <pre class=file>
 BOOTPROTO=none

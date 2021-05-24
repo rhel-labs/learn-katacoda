@@ -35,7 +35,7 @@ Now let's take a look at the configured connections on this host:
 NAME                UUID                                  TYPE      DEVICE
 Wired connection 1  8d94cceb-4b2d-3a0c-b9b2-6dedf34944a0  ethernet  ens5   
 System ens3         bbc9283d-5063-4e79-8f57-8c6eda5618c3  ethernet  ens3
-</file>
+</pre>
 
 This gives similar information to the output of `nmcli device`, just sorted
-differently. Now we can move on to making our own connection on this node. 
+differently. Now we can move on to making our own connection on this node.
