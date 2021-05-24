@@ -9,7 +9,7 @@ Select the *Flame* terminal to run commands in this step.
 The linux perf command has 3 main parts - action, event and scope. In the command below, we are using the record action to collect samples at a frequency of 99 samples per second, across all CPUs.
 We are also telling perf to monitor a particular process (mysqld in this case), and are running a specific SELECT query.
 
-`perf record -a -F 99 -g -p $(pgrep -x msqld) --msql -e "SELECT * FROM books.posts"`{{execute T2}}
+`perf record -a -F 99 -g -p $(pgrep -x msqld) -- mysql -e "SELECT * FROM books.posts"`{{execute T2}}
 
 <pre class="file">
 Performance Co-Pilot configuration on be5455ac10c4:
