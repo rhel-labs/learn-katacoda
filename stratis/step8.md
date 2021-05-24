@@ -43,7 +43,7 @@ First, create a new mountpoint to attach the snapshot into the filesystem, /mnt/
 
 Next, mount the snapshot, my_snapshot.
 
-`mount /stratis/my_pool/my_snapshot /mnt/test_mnt_snap`{{execute}}
+`mount /dev/stratis/my_pool/my_snapshot /mnt/test_mnt_snap`{{execute}}
 
 Confirm that the snapshot was mounted successfully.
 
