@@ -39,7 +39,9 @@ Check the status of the mysqld service
 
 Verify that the Active status is __active (running)__.
 
-Load the data into the MySQL database
+Load sample data into the MySQL database. This script creates a books database with two tables - authors and posts
+
+`mysql < sample.sql`
 
 Install the perf and d3 packages 
 
