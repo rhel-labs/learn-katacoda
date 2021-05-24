@@ -1,8 +1,9 @@
-# Configuring PMDAs for SQL Server
+# Running Queries  
 
 For this step, we will be switching back to our *Terminal* tab. 
 
-The PCP Microsoft SQL Server Performance Metrics Domain Agent (PMDA) queries important performance metrics from SQL Server using SQL Servers Dynamic Management Views (DMVs).
+`mysql -e "
+
 
 To list the PCP PMDA packages related to Microsoft SQL Server -
 
