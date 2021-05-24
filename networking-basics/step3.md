@@ -27,6 +27,8 @@ IP we specified.
 
 This removes the DHCP protocol from the configuration file:
 
+`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'BOOTPROTO\|IPADDR'`{{execute "host01"}}
+
 <pre class=file>
 BOOTPROTO=none
 IPADDR=172.17.0.9
