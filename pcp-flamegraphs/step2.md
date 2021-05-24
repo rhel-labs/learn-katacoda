@@ -1,4 +1,4 @@
-# Using PCP for system metrics
+# Using  for system metrics
 
 >**NOTE:** In this step we will be using the *pcp* terminal to run PCP commands. 
 
