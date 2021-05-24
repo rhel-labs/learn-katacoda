@@ -10,7 +10,6 @@ Here are two Enable Sysadmin articles that heavily relate to this content:
 [Static and dynamic IP address configurations for DHCP](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
 
 
-
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
 
