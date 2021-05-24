@@ -1,14 +1,15 @@
 # Using Perf for metrics collection
 
->**NOTE:** In this step we will be using the *pcp* terminal to run PCP commands. 
+>**NOTE:** In this step we will be using the *Flame* terminal. 
 
-Select the *pcp* terminal to run commands in this step.
+Select the *Flame* terminal to run commands in this step.
 
-## Inspect the PCP configuration on the host
+## Collect performance samples using the Perf tool for a basic SELECT MySQL query
 
-To inspect the PCP configuration and view a summary of the current PCP installation use the `pcp` command
+The linux perf command has 3 main parts - action, event and scope. In the command below, we are using the record action to collect samples at a frequency of 99 samples per second, across all CPUs.
+We are also telling perf to monitor a particular process (mysqld in this case), and are running a specific SELECT query.
 
-`pcp`{{execute T2}}
+`perf record -a -F 99 -g -p $(pgrep -x msqld) --msql -e "SELECT * FROM books.posts"`{{execute T2}}
 
 <pre class="file">
 Performance Co-Pilot configuration on be5455ac10c4:
