@@ -9,6 +9,12 @@ the following command:
 
 `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
 
+You should see a confirmation message similar to
+
+<pre class=file>
+Connection 'ethernet1' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
+</pre>
+
 A lot goes into this command, so here is a breakdown of each argument:
 
 ![con add breakdown](./assets/conAddBreakdown.png)
