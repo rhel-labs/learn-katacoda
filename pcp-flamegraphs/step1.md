@@ -41,7 +41,7 @@ Verify that the Active status is __active (running)__.
 
 Load sample data into the MySQL database. This script creates a books database with two tables - authors and posts
 
-`mysql < sample.sql`
+`mysql < sample.sql`{{execute T1}}
 
 Install the perf and d3 packages 
 
