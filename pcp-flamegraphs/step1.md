@@ -4,41 +4,52 @@ In RHEL, there are two stacks for visualizing performance data - one based on PC
 
 In this lab, our setup consists of a single node system running MySQL. We have setup three terminal windows running on the local machine - The current terminal will be used for OS specific commands and to interact with MySQL. The Flame terminal will be used for running specific perf and d3 commands. The web terminal will be used to looking at the flame.
 
-Let us use RHEL App Streams to install the latest version of MySQL, we can use the following command -
+Let us use RHEL Application Streams to check if the MySQL module has been installed - 
 
-`systemctl status mssql-server.service --no-pager`{{execute T1}}
+`yum module list | grep 'MySQL Module'`{{execute T1}}
+
+<pre class="file">
+mysql                8.0 [d]      client, server [d]                       MySQL Module
+</pre>
+
+MySQL is not installed. Let us install MySQL using Application Streams
+
+`yum module install -y mysql:8.0`{{execute T1}}
+
+Let's verify that MySQL is installed 
+
+`mysql -V`{{execute T1}}
+
+Start the __MySQL Daemon (mysqld)__  
+
+`systemctl start mysqld`{{execute T1}}
+
+Check the status of the mysqld service 
+
+`systemctl status mysqld --no-pager`{{execute T1}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
-
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2021-05-17 14:42:40 EDT; 6s ago
+   
 << OUTPUT ABRIDGED >>
 </pre>
 
 Verify that the Active status is __active (running)__.
 
-Install the PCP packages using yum 
+Install the perf and d3 packages 
 
-`yum install perf js-d3-flame-graph -y`{{execute T1}}
-
-Start and enable the __PCP's Collector Daemon (PMCD)__ to start collecting system performance data 
-
-`systemctl start pmcd`{{execute T1}}
-
-`systemctl enable pmcd`{{execute T1}}
-
-Check the status of the enabled PMCD service 
-
-`systemctl status pmcd --no-pager`{{execute T1}}
+`sudo yum install -y perf js-d3-flame-graph`{{execute T1}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
- Loaded: loaded (/usr/lib/systemd/system/pmcd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Thu 2021-03-11 13:18:12 EST; 6min ago
+Installed products updated.
+
+Installed:
+  js-d3-flame-graph-3.0.2-2.el8.noarch   libbabeltrace-1.5.4-3.el8.x86_64   libbpf-0.0.8-4.el8.x86_64   perf-4.18.0-240.22.1.el8_3.x86_64  
 
 << OUTPUT ABRIDGED >>
 </pre>
-
-Verify that the Active status is __active (running)__.
