@@ -8,7 +8,7 @@ Choose a mount point, the directory in which the filesystem will be mounted. You
 
 Mount the filesystem using the `mount` command.
 
-`mount /stratis/my_pool/my_fs /mnt/test_mnt`{{execute}}
+`mount /dev/stratis/my_pool/my_fs /mnt/test_mnt`{{execute}}
 
 The mount point, /mnt/test_mnt, will now be the root directory of the filesystem.
 
