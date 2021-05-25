@@ -1,6 +1,6 @@
 # Optimizing the MySQL workload on Red Hat Enterprise Linux
 
-For this step, we will be switching back to our *Terminal* tab. 
+For this step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab for perf and flame graph commands. 
 
 To eliminate a full table scan during the join operation, let's create an index `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2
 
@@ -10,7 +10,7 @@ To eliminate a full table scan during the join operation, let's create an index 
 
 Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
 
-`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T1}}
 
 <pre class="file">
 TBD
