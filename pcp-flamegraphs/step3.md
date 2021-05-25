@@ -13,10 +13,17 @@ Let's look at the query execution plan that the database is going to run using t
 `mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T1}}
 
 <pre class="file">
-TBD
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| EXPLAIN                                                                                                                                                                           |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| -> Nested loop inner join  (cost=**7433.25** rows=18309)
+    -> Table scan on t2  (cost=1025.00 rows=10195)
+    -> Index lookup on t1 using **idx_t1_c2** (c2=t2.c2)  (cost=0.45 rows=2)
+ |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 </pre>
 
-Notice that in this case, the database leverages the `idx_t1_c2` index
+Notice that in this case, the database leverages the `idx_t1_c2` index, and the overall cost is much lesser with the index in place.
 
 ## Re-run the perf command to record performance metrics for MySQL query
 
