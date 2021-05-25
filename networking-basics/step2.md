@@ -4,8 +4,7 @@ Dynamic IP configuration with DHCP is the most common way to configure a connect
 If you want more information about when to use dynamic vs.
 static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
 
-Let’s configure a dynamic connection on `host02`. This can be done with
-the following command:
+To configure a dynamic connection on `host02`, run the following command:
 
 `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
 
@@ -21,7 +20,7 @@ A lot goes into this command, so here is a breakdown of each argument:
 
 (click to enlarge)
 
-**Note:** NetworkManager will act as the DHCP client when adding a connection
+>_NOTE:_ NetworkManager will act as the DHCP client when adding a connection
 without a specified address.
 
 Let’s take a look at the configuration file for our connection to see
@@ -40,6 +39,6 @@ through the DHCP client.
 The search did not find the field `IPADDR` in this config because we are not
 manually setting an IP when we configure a dynamic connection.
 
-Some situations call for an IP that can't change over time, or a static IP.
+Some situations call for an IP that will not change over time, or a static IP.
 The next page will walk you through turning this dynamic connection into a
 static connection.

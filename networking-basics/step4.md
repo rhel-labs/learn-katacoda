@@ -1,6 +1,6 @@
 # Activating the connection
 
-Let's activate the static connection that you configured in the previous step:
+Run the `con up` command to activate the static connection that you configured in the previous step:
 
 `nmcli con up ethernet1`{{execute "node01"}}
 
@@ -10,18 +10,18 @@ The output shows that the connection was successfully activated:
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
 </pre>
 
-Now we will run a test to confirm that we can actually send
-data over this connection we just activated.  
+To verify this, the next step is a test to confirm that you can actually send
+data over this connection you activated.  
 
 # Testing the connection
 
-We will now ping the IP for our configured connection verify that
-the static IP we just configured returns our ping.
+You will now ping the IP for the configured connection verify that
+the static IP is associated with `host01`.
 Run the following command from the terminal for `host02`:
 
 `ping 172.17.0.9 -c 3`{{execute "host02"}}
 
-You will see that `host01` replies to all three of the pings we sent:
+You will see that `host01` replies to all three of the pings you sent:
 
 <pre class=file>
 PING 172.17.0.9 (172.17.0.9) 56(84) bytes of data.

@@ -1,13 +1,13 @@
 # What is NetworkManager?
 
 NetworkManager is a great tool for creating and modifying network connections.
-The `nmcli` command is how we will be running NetworkManager in this lab. Any changes
+The `nmcli` command is how you will be running NetworkManager in this lab. Any changes
 made with `nmcli` are persistent configuration file changes. This lab will give you an
 overview of some of the most common operations you would run using this tool.
 
 # Listing network devices
 
-Let’s take a look at what network hardware this system has.
+Take a look at what network hardware this system has.
 To do this with `nmcli`, run
 
 `nmcli device`{{execute "host01"}}
@@ -27,7 +27,7 @@ and loopback.
 
 # Listing network connections
 
-Now let's take a look at the configured connections on this host:
+Now take a look at the configured connections on this host:
 
 `nmcli con`{{execute "host01"}}
 
@@ -38,4 +38,4 @@ System ens3         bbc9283d-5063-4e79-8f57-8c6eda5618c3  ethernet  ens3
 </pre>
 
 This gives similar information to the output of `nmcli device`, just sorted
-differently. Now we can move on to making our own connection on this node.
+differently. Next, you will make your own connection on this host.
