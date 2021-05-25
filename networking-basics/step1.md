@@ -2,7 +2,7 @@
 
 NetworkManager is a great tool for creating and modifying network connections.
 The `nmcli` command is how we will be running NetworkManager in this lab. Any changes
-made with ‘nmcli’ are persistent configuration file changes. This lab will give you an
+made with `nmcli` are persistent configuration file changes. This lab will give you an
 overview of some of the most common operations you would run using this tool.
 
 # Listing network devices
