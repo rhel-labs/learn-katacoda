@@ -53,7 +53,7 @@ Check out `man perf` if you are interested in more details about the `perf` tool
 
 Remove index.html file from Apache, and copy the newly generated flamegraph.html file into the index.html page of the Apache web server - 
 
-`rm /var/www/html/index.html; cp flamegraph.html /var/www/html/index.html`{{execute T2}}
+`rm -f /var/www/html/index.html; cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
 ## View the new flame graph in a web browser ##
 Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
