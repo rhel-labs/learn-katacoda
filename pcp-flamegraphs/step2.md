@@ -9,7 +9,7 @@ Before we proceed, let's load sample data into the database.
 
 The pre-existing `sample-test.sql` script creates two tables and loads them with data - t1 with 50,000 rows, and t2 with 10,000 rows respectively 
 
-`mysql < sample-test.sql`{{execute T1}}
+`mysql < sample-test.sql`{{execute T2}}
 
 Count the number of rows in table t1
 
