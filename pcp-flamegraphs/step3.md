@@ -2,72 +2,51 @@
 
 For this step, we will be switching back to our *Terminal* tab. 
 
-`mysql -e "use sampleDB; EXPLAIN format=tree create index idx_t1_c2 on t1(c2);"`{{execute T1}}
+To eliminate a full table scan during the join operation, let's create an index `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2
 
+`mysql -A sampleDB -e "CREATE INDEX idx_t1_c2 on t1(c2);"`{{execute T1}}
 
-To list the PCP PMDA packages related to Microsoft SQL Server -
+## Check the execution plan of the SELECT query with a JOIN clause
 
-`yum search pcp-pmda | grep "Microsoft SQL Server"`{{execute T1}}
+Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
+
+`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
-Last metadata expiration check: 0:24:59 ago on Fri 12 Mar 2021 09:20:29 AM EST.
-pcp-pmda-mssql.x86_64 : Performance Co-Pilot (PCP) metrics for Microsoft SQL Server
+TBD
 </pre>
 
-Install the PCP PMDA package for Microsoft SQL Server - 
+Notice that in this case, the database leverages the `idx_t1_c2` index
 
-`sudo yum install pcp-pmda-mssql -y`{{execute T1}}
+## Re-run the perf command to record performance metrics for MySQL query
+
+Let's again use perf to monitor the mysqld process, while running the same SELECT query joining t1 and t2 - 
+
+`perf record -a -F 40 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
-Installed:
-  pcp-pmda-mssql-5.1.1-4.el8_3.x86_64                                                                 
+
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.020 MB perf.data (37 samples) ]
+
 << OUTPUT ABRIDGED >>
 </pre>
 
-Create a new user in SQL Server to be used by PCP. The next command uses `sqlcmd` to run a SQL script file called createUser.sql. The script creates a SQL Server user login called `pcpLogin` and only grants limited SQL Server privileges that are needed by PCP. 
+The output shows the result of running the SELECT query, and the performance samples are collected in the perf.data file.
 
-<pre class="file">
-//Create a SQL Server login and user associated with that login. Grant VIEW SERVER STATE AND VIEW DATABASE STATE permissions to the user
+## Create a new flame graph ##
+The report option of perf script can be used to generate an HTML format report for better readability - 
 
-CREATE LOGIN pcpLogin WITH PASSWORD = 'RedHat1!';
-CREATE USER pcpUser FOR LOGIN pcpLogin;  
+`perf script report flamegraph2`{{execute T2}}
 
-GRANT VIEW SERVER STATE TO pcpUser;
-GRANT VIEW DATABASE STATE TO pcpUser;
-</pre>
+Check out `man perf` if you are interested in more details about the `perf` tool.
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -i createUser.sql`{{execute T1}}
+## Copy the report to the Apache Server ##
 
-View the contents of the SQL Server PMDA configuration file 
+Copy the flamegraph2.html file to the index.html page of the Apache web server - 
 
-`cat /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
+`cp flamegraph2.html /var/www/html/index.html`{{execute T2}}
 
-So that PCP can connect to SQL Server with a low privileged SQL Server account, update the Login name in the configuration file 
-
-`sed -i 's/sa/pcpLogin/g' /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
-
-Update the password corresponding to the low privileged account in the configuration file 
-
-`sed -i 's/P4$$W0rd/Redhat1!/g' /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
-
-Make sure the configuration file is owned by the root user and group, and that appropriate permissions are set 
-
-`chown root:root /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
-
-`chmod 400 /var/lib/pcp/pmdas/mssql/mssql.conf`{{execute T1}}
-
-## Install the SQL Server PMDA agent
-
-Install the PMDA agent for SQL Server
-
-`cd /var/lib/pcp/pmdas/mssql; ./Install`{{execute T1}}
-
-<pre class="file">
-Updating the Performance Metrics Name Space (PMNS) ...
-Terminate PMDA if already installed ...
-Updating the PMCD control file, and notifying PMCD ...
-Check mssql metrics have appeared ... 168 metrics and 601 values
-</pre>
-
->**Note:** The successful message indicating that mssql metrics have appeared
+## View the new flame graph in a web browser ##
+Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
