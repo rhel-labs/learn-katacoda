@@ -28,10 +28,10 @@ Count the number of rows in table t1
 
 The linux perf command has 3 main parts - **action**, **event** and **scope**. 
 
-In the command below, we are using the record action of the perf command to collect samples at max frequency, across all CPUs.
+In the command below, we are using the record action of the perf command to collect 100 samples per second, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F max -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 100 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
