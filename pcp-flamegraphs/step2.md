@@ -5,9 +5,9 @@
 Select the *Flame* terminal to run commands in this step.
 
 ## Load sample data into the database
-Before we proceed, let's load sample data into the database. 
+Before we proceed, let's load sample data into MySQL. 
 
-The pre-existing `sample-test.sql` script creates two tables and loads them with data - t1 with 50,000 rows, and t2 with 10,000 rows respectively 
+The pre-existing `sample-test.sql` script creates a database called `sampleDB` with two tables, and loads random numeric them into data - table t1 with 50,000 rows, and table t2 with 10,000 rows 
 
 `mysql < sample-test.sql`{{execute T2}}
 
