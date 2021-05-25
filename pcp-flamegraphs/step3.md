@@ -1,8 +1,8 @@
-# Running Queries  
+# Optimizing the MySQL workload on Red Hat Enterprise Linux
 
 For this step, we will be switching back to our *Terminal* tab. 
 
-`mysql -e "
+`mysql -e "use sampleDB; EXPLAIN format=tree create index idx_t1_c2 on t1(c2);"`{{execute T1}}
 
 
 To list the PCP PMDA packages related to Microsoft SQL Server -
