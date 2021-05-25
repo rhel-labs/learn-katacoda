@@ -24,7 +24,7 @@ DELIMITER $$
 CREATE PROCEDURE generate_data_t1()
 BEGIN
   DECLARE i INT DEFAULT 0;
-  WHILE i < 5000 DO
+  WHILE i < 50000 DO
     INSERT INTO `t1` (`c1`,`c2`) VALUES (
       ROUND(RAND()*100,2),
       ROUND(RAND()*100,2)
