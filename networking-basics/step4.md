@@ -15,9 +15,12 @@ data over this connection you activated.
 
 # Testing the connection
 
-You will now ping the IP for the configured connection verify that
-the static IP is associated with `host01`.
-Run the following command from the terminal for `host02`:
+You will now ping the IP for the configured connection to verify that
+the static IP is associated with `host01`. This must be done from a different
+host, so switch to __host02__ by clicking the *host02* tab in the lab interface.
+
+Run the `ping` command from the terminal for __host02__ to send three IP 
+packets asking the host at `172.17.0.9` to respond:
 
 `ping 172.17.0.9 -c 3`{{execute "host02"}}
 
