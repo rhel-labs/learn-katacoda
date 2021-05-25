@@ -8,14 +8,14 @@ Select the *Flame* terminal to run commands in this step.
 
 Learn about the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
 
-`mysql -e "use sampleDB; EXPLAIN format=tree SELECT /*+ NO_HASH_JOIN(t1,t2) */ count(*) from t1 join t2 on t1.c2 = t2.c2"`{{execute T2}}
+`mysql -e "use sampleDB; EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 The linux perf command has 3 main parts - **action**, **event** and **scope**. 
 
 In the command below, we are using the record action of the perf command to collect samples at a frequency of 99 samples per second, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F 99 -g -p $(pgrep -x mysqld) -- mysql  -e "SELECT /*+ NO_HASH_JOIN(t1,t2) */ count(*) from t1 join t2 on t1.c2 = t2.c2"`{{execute T2}}
+`perf record -a -F 99 -g -p $(pgrep -x mysqld) -- mysql  -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -45,4 +45,6 @@ Copy the flamegraph.html file to the index.html page of the Apache web server -
 
 ## View the flame graph in a web browser ##
 Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
+
+
 
