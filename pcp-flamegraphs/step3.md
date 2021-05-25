@@ -45,15 +45,15 @@ The output shows the result of running the SELECT query, and the performance sam
 ## Create a new flame graph ##
 The report option of perf script can be used to generate an HTML format report for better readability - 
 
-`perf script report flamegraph2`{{execute T2}}
+`perf script report flamegraph`{{execute T2}}
 
 Check out `man perf` if you are interested in more details about the `perf` tool.
 
 ## Copy the report to the Apache Server ##
 
-Copy the flamegraph2.html file to the index.html page of the Apache web server - 
+Remove index.html file from Apache, and copy the newly generated flamegraph.html file into the index.html page of the Apache web server - 
 
-`cp flamegraph2.html /var/www/html/index.html`{{execute T2}}
+`rm /var/www/html/index.html; cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
 ## View the new flame graph in a web browser ##
 Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
