@@ -13,7 +13,7 @@ The pre-existing `sample-test.sql` script creates two tables and loads them with
 
 Count the number of rows in table t1
 
-`mysql -e "use sampleDB; SELECT count(*) from t1;"`{{execute T2}}
+`mysql -A sampleDB -e "SELECT count(*) from t1;"`{{execute T2}}
 
 <pre class="file">
 +----------+
@@ -31,7 +31,7 @@ The linux perf command has 3 main parts - **action**, **event** and **scope**.
 In the command below, we are using the record action of the perf command to collect samples at max frequency, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F max -g -p $(pgrep -x mysqld) -- mysql -e "use sampleDB; select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F max -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -68,7 +68,7 @@ The flame graph gives us indications on what's running hot on the CPU.
 
 Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
 
-`mysql -e "use sampleDB; EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
