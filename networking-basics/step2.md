@@ -4,7 +4,7 @@ Dynamic IP configuration with DHCP is the most common way to configure a connect
 If you want more information about when to use dynamic vs.
 static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
 
-To configure a dynamic connection on `host02`, run the following command:
+To configure a dynamic connection on **host01**, run the following command:
 
 `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
 
