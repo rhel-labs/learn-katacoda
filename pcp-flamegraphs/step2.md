@@ -4,18 +4,34 @@
 
 Select the *Flame* terminal to run commands in this step.
 
-## Collect performance samples using the Perf tool for a basic SELECT MySQL query
+## Load sample data into the database
+Before we proceed, let's load sample data into the database. 
 
-Learn about the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
+The pre-existing `sample-test.sql` script creates two tables and loads them with data - t1 with 50,000 rows, and t2 with 10,000 rows respectively 
 
-`mysql -e "use sampleDB; EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`mysql < sample-test.sql`{{execute T1}}
+
+Count the number of rows in table t1
+
+`mysql -e "use sampleDB; SELECT count(*) from t1;"`{{execute T2}}
+
+<pre class="file">
++----------+
+| count(*) |
++----------+
+|  5000000 |
++----------+
+1 row in set (0.00 sec)
+</pre>
+
+## Run the perf command to record performance metrics for MySQL query
 
 The linux perf command has 3 main parts - **action**, **event** and **scope**. 
 
 In the command below, we are using the record action of the perf command to collect samples at max frequency, across all CPUs.
 Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
 
-`perf record -a -F max -g -p $(pgrep -x mysqld) -- mysql  -e "use sampleDB; select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F max -g -p $(pgrep -x mysqld) -- mysql -e "use sampleDB; select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
@@ -45,6 +61,29 @@ Copy the flamegraph.html file to the index.html page of the Apache web server -
 
 ## View the flame graph in a web browser ##
 Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
+
+## Check the query execution plan of a SELECT query with a JOIN clause
+
+The flame graph gives us indications on what's running hot on the CPU. 
+
+Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
+
+`mysql -e "use sampleDB; EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+
+<pre class="file">
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| EXPLAIN                                                                                                                                                                           |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| -> Inner hash join (t1.c2 = t2.c2)  (cost=500104.14 rows=500000)
+    -> Table scan on t1  (cost=0.05 rows=5000)
+    -> Hash
+        -> Table scan on t2  (cost=101.00 rows=1000)
+ |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+</pre>
+
+Note that the join operator of MySQL does a full scan on table t2, because there is no index defined on the join column (c2) on table t2. 
+As a table grows, the costs of doing such an operation grows, and is a performance bottleneck.
 
 
 
