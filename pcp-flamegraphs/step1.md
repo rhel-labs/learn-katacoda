@@ -39,10 +39,6 @@ Check the status of the mysqld service
 
 Verify that the Active status is __active (running)__.
 
-Load sample data into the MySQL database. This script creates two sample tables - t1 and t2 with 5000 rows, and 1000 rows respectively - 
-
-`mysql < sample-test.sql`{{execute T1}}
-
 Install the perf and d3 packages -
 
 `sudo yum install -y perf js-d3-flame-graph`{{execute T1}}
