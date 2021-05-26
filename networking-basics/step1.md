@@ -13,6 +13,8 @@ is available for you to use. To show what network devices this system has with
 
 `nmcli device`{{execute T2}}
 
+>_NOTE:_ You may need to wait a few seconds and retry the command above if the terminal for __host01__ is still loading.
+
 This will show a list of network interfaces available on the system as well as
 how they are configured, similar to the following:
 
