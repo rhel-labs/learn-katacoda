@@ -2,7 +2,14 @@
 
 For this step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab for perf and flame graph commands. 
 
-To optimize query performance in MySQL, one simple approach is to create an index that can be used for query processing. The index will help MySQL use the index for efficiently searching matches instead of doing a full table scan. 
+Apply the `throughput-performance` tuneD profile for optimizing MySQL performance on RHEL - 
+
+`tuned-adm profile throughput-performance`{{execute T1}}
+
+Restart the MySQL service -
+`systemctl restart mysqld`{{execute T1}}
+
+To optimize query performance inside MySQL, create an index that can be used for query processing. The index will help MySQL use the index for efficiently searching matches instead of doing a full table scan. 
 
 Create a MySQL index called `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2 - 
 
