@@ -4,7 +4,7 @@ In RHEL, there are two stacks for visualizing performance data - one based on PC
 
 In this lab, our setup consists of a single node system running MySQL. We have setup three terminal windows running on the local machine - The current terminal window will be used for OS specific commands and to interact with MySQL. The `Flame` terminal will be used for running specific perf and flame graph commands. The `web` terminal will be used browse the flame graph.
 
-Let us use RHEL Application Streams to check if the MySQL module has been installed - 
+Use RHEL Application Streams to check if the MySQL module has been installed - 
 
 `yum module list | grep 'MySQL Module'`{{execute T1}}
 
@@ -12,11 +12,11 @@ Let us use RHEL Application Streams to check if the MySQL module has been instal
 mysql                8.0 [d]      client, server [d]                       MySQL Module
 </pre>
 
-MySQL is not installed. Let us install MySQL using Application Streams
+MySQL is not installed. Install MySQL using RHEL Application Streams
 
 `yum module install -y mysql:8.0`{{execute T1}}
 
-Let's verify that MySQL is installed -
+Verify that MySQL is installed on the system -
 
 `mysql -V`{{execute T1}}
 
@@ -55,13 +55,13 @@ Installed:
 </pre>
 
 ## Load sample data into the database
-Before we proceed to the next step, let's load some sample data into MySQL. 
+Before we proceed to the next step, load sample data into MySQL. 
 
 For this lab, there is a pre-existing `sample-testdata.sql` script which creates a database called `sampleDB` that has two tables (t1 and t2). The script loads random numeric them into the tables - table t1 with 50,000 rows, and table t2 with 10,000 rows 
 
 `mysql < sample-testdata.sql`{{execute T2}}
 
-To validate that our data is loaded into the tables, let's count the number of rows in table t1 - 
+To validate that our data is loaded into the tables, count the number of rows in table t1 - 
 
 `mysql -A sampleDB -e "SELECT count(*) from t1;"`{{execute T2}}
 
