@@ -58,7 +58,13 @@ Remove index.html file from Apache, and copy the newly generated flamegraph.html
 `rm -f /var/www/html/index.html; cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
 ## View the flame graph in a web browser ##
-Navigate to the *Web* tab of the lab interface and click it to view the flame graph.  This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
+Navigate to the *Web* tab of the lab interface and click it to view the flame graph.  
+
+This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
+
+You will notice that now, searching the index consumes more CPU time, but overall the response time of the query is much faster. 
+
+In real-life cases, performance optimization is a continous process - By repeatly measuring, analyzing and tuning your system, you can improve performance and deliver better business outcomes.
 
 
 
