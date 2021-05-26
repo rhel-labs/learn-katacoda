@@ -1,4 +1,4 @@
-# Optimizing the MySQL workload on Red Hat Enterprise Linux
+# Optimizing MySQL queries on Red Hat Enterprise Linux
 
 For this step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab for perf and flame graph commands. 
 
