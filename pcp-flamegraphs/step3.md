@@ -44,12 +44,12 @@ Use perf to record performance of the mysqld process running the same query as t
 
 The output shows the result of running the SELECT query, and the performance samples are collected in the perf.data file.
 
-## Create a new flame graph ##
-The report option of perf script can be used to generate an HTML format report for better readability - 
+## Output the flame graph ##
+Re-run the report option of perf script to generate an HTML report - 
 
 `perf script report flamegraph`{{execute T2}}
 
-Check out `man perf` if you are interested in more details about the `perf` tool.
+A new flamegraph.html file should be generated.
 
 ## Copy the report to the Apache Server ##
 
@@ -57,5 +57,8 @@ Remove index.html file from Apache, and copy the newly generated flamegraph.html
 
 `rm -f /var/www/html/index.html; cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
-## View the new flame graph in a web browser ##
-Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
+## View the flame graph in a web browser ##
+Navigate to the *Web* tab of the lab interface and click it to view the flame graph.  This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
+
+
+
