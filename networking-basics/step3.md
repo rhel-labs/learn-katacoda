@@ -42,8 +42,7 @@ the config search done in the previous step:
 
 <pre class=file>
 BOOTPROTO=none
-IPADDR=172.17.0.9
-PREFIX=32
+<< OUTPUT ABRIDGED >>
 </pre>
 
 Besides the IP and subnet mask, you will typically have a gateway address for
