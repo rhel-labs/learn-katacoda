@@ -38,5 +38,5 @@ PING 172.17.0.9 (172.17.0.9) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.078/0.081/0.084/0.007 ms
 </pre>
 
-The final step is to learn how to configure the DNS server addresses and hostname
+The final step is to learn how to configure the DNS server addresses
 for the connection.  
