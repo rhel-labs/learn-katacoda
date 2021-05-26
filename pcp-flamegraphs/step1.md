@@ -53,3 +53,23 @@ Installed:
 
 << OUTPUT ABRIDGED >>
 </pre>
+
+## Load sample data into the database
+Before we proceed to the next step, let's load some sample data into MySQL. 
+
+For this lab, there is a pre-existing `sample-testdata.sql` script which creates a database called `sampleDB` that has two tables (t1 and t2). The script loads random numeric them into the tables - table t1 with 50,000 rows, and table t2 with 10,000 rows 
+
+`mysql < sample-testdata.sql`{{execute T2}}
+
+To validate that our data is loaded into the tables, let's count the number of rows in table t1 - 
+
+`mysql -A sampleDB -e "SELECT count(*) from t1;"`{{execute T2}}
+
+<pre class="file">
++----------+
+| count(*) |
++----------+
+|    50000 |
++----------+
+1 row in set (0.00 sec)
+</pre>
