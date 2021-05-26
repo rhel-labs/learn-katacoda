@@ -17,4 +17,4 @@ and DNS for a connection using `nmcli`.
 * Learn NetworkManager (`nmcli`) syntax
 * Configure a new dynamic IP connection using DHCP
 * Update this connection to use static IP address assignment
-* Validate and configure DNS server settings and hostname
+* Validate and configure DNS server settings
