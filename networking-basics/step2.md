@@ -38,7 +38,8 @@ The advantage of using `nmcli` is that configuration changes persist. The
 connection name as you configured it when running `nmcli con add`
 
 The configuration file for this connection contains the values corresponding
-to the new connection. You will single in on the line specifying the
+to the new connection. The `grep` command is useful for searching for specific
+file contents. You will single in on the line specifying the
 protocol by searching for `BOOTPROTO` in the connection config file:
 
 `egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
