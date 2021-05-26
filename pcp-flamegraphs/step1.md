@@ -2,7 +2,7 @@
 
 In RHEL, there are two stacks for visualizing performance data - one based on PCP and Grafana, and the other based on perf and d3. For many performance troubleshooting use-cases, visualizing performance metrics is key and this lab will explain how to use the perf and d3 stack on RHEL.
 
-In this lab, our setup consists of a single node system running MySQL. We have setup three terminal windows running on the local machine - The current terminal window will be used for OS specific commands and to interact with MySQL. The `Flame` terminal will be used for running specific perf and flame graph commands. The `web` terminal will be used browse the flame graph.
+In this lab, our setup consists of a single node system running MySQL. We have set up three terminal windows running on the local machine - The current terminal window will be used for OS specific commands and to interact with MySQL. The `Flame` terminal will be used for running specific perf and flame graph commands. The `web` terminal will be used to browse the flame graph.
 
 Use RHEL Application Streams to check if the MySQL module has been installed - 
 
