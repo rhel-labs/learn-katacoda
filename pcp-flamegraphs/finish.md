@@ -1,10 +1,10 @@
 # In this lab you have:
 
 # Concepts included in this scenario:
-* Installed packages for flame graphs on RHEL
-* Used the latest version of MySQL using RHEL Application Streams
-* Analyzed MySQL performance by running a sample OLTP query
-* Used flame graphs to visualize the performance of MySQL queries
+* Got access to the latest version of MySQL using RHEL Application Streams 
+* Installed packages for the perf tool and flame graphs in RHEL
+* Recorded the performance of a MySQL query using perf  
+* Visualized MySQL query performance using flame graphs in RHEL
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)
