@@ -59,11 +59,11 @@ Before we proceed to the next step, load sample data into MySQL.
 
 For this lab, there is a pre-existing `sample-testdata.sql` script which creates a database called `sampleDB` that has two tables (t1 and t2). The script loads random numeric them into the tables - table t1 with 50,000 rows, and table t2 with 10,000 rows 
 
-`mysql < sample-testdata.sql`{{execute T2}}
+`mysql < sample-testdata.sql`{{execute T1}}
 
 To validate that our data is loaded into the tables, count the number of rows in table t1 - 
 
-`mysql -A sampleDB -e "SELECT count(*) from t1;"`{{execute T2}}
+`mysql -A sampleDB -e "SELECT count(*) from t1;"`{{execute T1}}
 
 <pre class="file">
 +----------+
