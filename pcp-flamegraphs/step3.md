@@ -2,9 +2,9 @@
 
 For this step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab for perf and flame graph commands. 
 
-To optimize query performance in MySQL, one simple approach is to create an index that can be used for query processing. 
+To optimize query performance in MySQL, one simple approach is to create an index that can be used for query processing. The index will help MySQL use the index for efficiently searching matches instead of doing a full table scan. 
 
-Create a MySQL index called `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2. The index on column c2 will help MySQL use the index for efficiently searching matches instead of doing a full table scan on t1. 
+Create a MySQL index called `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2 - 
 
 `mysql -A sampleDB -e "CREATE INDEX idx_t1_c2 on t1(c2);"`{{execute T1}}
 
