@@ -55,7 +55,7 @@ Installed:
 </pre>
 
 ## Load sample data into the database
-For this lab, there is a pre-existing `sample-testdata.sql` script which creates a database called `sampleDB` that has two tables (t1 and t2). The script loads random numeric them into the tables - table t1 with 50,000 rows, and table t2 with 10,000 rows 
+For this lab, there is a pre-existing `sample-testdata.sql` script which creates a database called `sampleDB` that has two tables (t1 and t2). The script generates random numeric items and loads them into the tables - table t1 with 50,000 rows, and table t2 with 10,000 rows 
 
 Before we proceed to the next step, load sample data into MySQL -
 
