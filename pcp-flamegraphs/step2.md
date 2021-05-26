@@ -53,7 +53,7 @@ If you explore the flame graph, you will notice that a lot of cycles are spent f
 
 ## Check the query execution plan of a SELECT query with a JOIN clause
 
-To dive deeper into how MySQL is executing the query, look at the query execution plan using MySQL's EXPLAIN statement - 
+To dive deeper into how MySQL is executing a SELECT query joining two tables, look at the query execution plan using MySQL's EXPLAIN statement - 
 
 `mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
