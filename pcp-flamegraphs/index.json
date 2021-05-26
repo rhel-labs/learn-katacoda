@@ -1,5 +1,5 @@
 {
-  "title": "Performance flame graphs on Red Hat Enterprise Linux [DRAFT]",
+  "title": "Visualizing performance using flame graphs in Red Hat Enterprise Linux [DRAFT]",
   "description": "Goal: Users will be able to generate flame graphs on RHEL to visualize system and application performance metrics",
   "details": {
     "steps": [
