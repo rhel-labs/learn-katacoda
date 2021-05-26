@@ -16,6 +16,8 @@ Perf can also be used to record performance data for a particular process (mysql
 
 `perf record -a -F 40 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
+> **NOTE:** Recording performance metrics can take a minute or so to complete, and you should proceed only when the command has finished executing.
+
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
