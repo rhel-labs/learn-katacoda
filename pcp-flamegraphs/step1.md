@@ -73,3 +73,5 @@ To validate that our data is loaded into the tables, count the number of rows in
 +----------+
 1 row in set (0.00 sec)
 </pre>
+
+The result shows that the rows are successfully loaded into the table t1.
