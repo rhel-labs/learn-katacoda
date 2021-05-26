@@ -1,6 +1,9 @@
 # Dynamic IP configuration with DHCP
 
-Dynamic IP configuration with DHCP is the most common way to configure a connection.
+The command `nmcli con`, short for connection, is an easy way to make persistent
+configuration changes to any connection on your network. Dynamic IP configuration
+with DHCP is the most common way to configure a connection,
+so the first connection you make in this lab will be dynamic.
 If you want more information about when to use dynamic vs.
 static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
 

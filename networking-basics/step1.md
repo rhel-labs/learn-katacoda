@@ -23,20 +23,7 @@ ens5    ethernet  connecting (getting IP configuration)  Wired connection 1
 lo      loopback  unmanaged                              --      
 </pre>
 
-This output shows that there are three devices: **ens3** and **ens5** (ethernet devices)
-as well as **lo** (the loopback device).
+This output shows that there are three devices: __ens3__ and __ens5__ (ethernet devices)
+as well as __lo__ (the loopback device).
 
-# Listing network connections
-
-Now take a look at the configured connections on this host:
-
-`nmcli con`{{execute T2}}
-
-<pre class=file>
-NAME                UUID                                  TYPE      DEVICE
-Wired connection 1  8d94cceb-4b2d-3a0c-b9b2-6dedf34944a0  ethernet  ens5   
-System ens3         bbc9283d-5063-4e79-8f57-8c6eda5618c3  ethernet  ens3
-</pre>
-
-This gives similar information to the output of `nmcli device`, just sorted
-differently. Next, you will make your own connection on this host.
+Next, you will make your own connection on this host.
