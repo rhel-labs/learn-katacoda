@@ -45,7 +45,7 @@ Copy the flamegraph.html file to the index.html page of the Apache web server -
 `cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
 ## View the flame graph in a web browser ##
-The flame graph provides an indications on what's running hot on the CPU. 
+The flame graph provides an indication on what's running hot on the CPU. 
 
 Navigate to the *Web* tab of the lab interface and click it to view the flame graph. This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
 
