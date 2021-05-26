@@ -14,7 +14,7 @@ Use the perf record feature for collecting system-wide statistics - the frequenc
 
 Perf can also be used to record performance data for a particular process (mysqld in this lab), while it runs a specific SELECT query.
 
-`perf record -a -F 100 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 100 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;" -g -- sleep 10`{{execute T2}}
 
 > **NOTE:** Recording performance metrics can take a minute or so to complete, and you should proceed only when the command has finished executing.
 
