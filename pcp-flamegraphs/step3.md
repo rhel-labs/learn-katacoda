@@ -12,7 +12,7 @@ Create a MySQL index called `ind_t1_c2` on table t1 with 50,000 rows, on the joi
 
 Look at the updated query execution plan that MySQL will run using the EXPLAIN statement - 
 
-`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T1}}
+`mysql -A sampleDB -e "EXPLAIN format=tree SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T1}}
 
 <pre class="file">
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -31,7 +31,7 @@ Notice that in this case, the database leverages the `idx_t1_c2` index, and the 
 
 Use perf to record performance of the mysqld process running the same query as the previous step - 
 
-`perf record -a -F 40 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 40 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
