@@ -47,7 +47,7 @@ Copy the flamegraph.html file to the index.html page of the Apache web server -
 ## View the flame graph in a web browser ##
 The flame graph provides an indications on what's running hot on the CPU. 
 
-Click on the *Web* tab of the lab interface to view the flame graph.  This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
+Navigate to the *Web* tab of the lab interface and click it to view the flame graph. This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
 
 If you explore the flame graph, you will notice that a lot of cycles are spent for the JOIN operation in MySQL. 
 
