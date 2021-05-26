@@ -1,10 +1,10 @@
 # Goal:
-After completing this scenario, users will be able to use flame graphs to visualize CPU performance data in the context of running a SQL query with the latest MySQL database installed using RHEL Application Streams. 
+After completing this scenario, users will be able to use flame graphs to visualize CPU performance data in the context of running a SQL query using MySQL
 
 # Concepts included in this scenario:
 * Get the latest version of MySQL using RHEL Application Streams 
-* Install packages for flame graphs on RHEL
-* Analyze MySQL performance by running a sample OLTP query  
-* Used flame graphs to visualize the performance of a MySQL query
+* Install packages for the perf tool and flame graphs in RHEL
+* Record the performance of a MySQL query using perf  
+* Visualize MySQL query performance using flame graphs in RHEL
 
 >**BACKGROUND:** Sometimes, just visualizing performance metrics can make it super easy to quickly identify a performance issue. Flame Graphs are a way of visualizing this performance data, and we’ll show you how to get started using flame graphs on Red Hat Enterprise Linux to collect and analyze data to solve your performance mysteries. In this example, we will be generating flame graphs in the context of the latest App Streams version of MySQL in RHEL.
