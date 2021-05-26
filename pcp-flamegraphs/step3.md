@@ -31,7 +31,7 @@ Notice that in this case, the database leverages the `idx_t1_c2` index, and the 
 
 Use perf to record performance of the mysqld process running the same query as the previous step - 
 
-`perf record -a -F 100 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 100 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;" -g -- sleep 10`{{execute T2}}
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
