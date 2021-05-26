@@ -6,7 +6,7 @@ modifying key parameters to control how that network connection behaves.
 
 You will use two terminal tabs: `host01` and `host02`. You will carry out the
 connection configuration on `host01`, and then at the end you will switch to
-`host02` to test that the connection was successfully setup.
+`host02` to test that the connection was successfully set up.
 
 # Goal:
 
@@ -17,4 +17,4 @@ and DNS for a connection using `nmcli`.
 * Learn NetworkManager (`nmcli`) syntax
 * Configure a new dynamic IP connection using DHCP
 * Update this connection to use static IP address assignment
-* Validate and configure DNS server settings and hostname
+* Validate and configure DNS server settings

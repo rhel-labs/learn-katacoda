@@ -1,8 +1,8 @@
 # In this lab you have:
 * Been introduced to NetworkManager (`nmcli`)
 * Configured a new connection with a dynamic IP using DHCP
-* Modifyed this connection to have a static IP
-* Configured the DNS server and hostname for this connection
+* Modified this connection to have a static IP
+* Configured the DNS server settings for this connection
 
 # Related Resources:
 Here are two Enable Sysadmin articles that heavily relate to this content:

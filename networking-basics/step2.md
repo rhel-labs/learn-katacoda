@@ -1,8 +1,12 @@
 # Dynamic IP configuration with DHCP
 
-Dynamic IP configuration with DHCP is the most common way to configure a connection.
+The command `nmcli con`, short for connection, is an easy way to make persistent
+configuration changes to any connection on your network. Dynamic IP configuration
+with DHCP is the most common way to configure a connection,
+so the first connection you make in this lab will be dynamic.
 If you want more information about when to use dynamic vs.
-static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
+static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
+provides a great background.
 
 You will configure a dynamic IP connection on **host01**. You will use the
 `nmcli con` command with some additional arguments to specify that you want
@@ -35,10 +39,11 @@ The advantage of using `nmcli` is that configuration changes persist. The
 connection name as you configured it when running `nmcli con add`
 
 The configuration file for this connection contains the values corresponding
-to the new connection. You will single in on the line specifying the
+to the new connection. The `grep` command is useful for searching for specific
+file contents. You will single in on the line specifying the
 protocol by searching for `BOOTPROTO` in the connection config file:
 
-`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+`grep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 You will see that the protocol is indeed set to DHCP for this connection.
 The IP address is not set at this point, as it will be controlled

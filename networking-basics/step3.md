@@ -42,8 +42,7 @@ the config search done in the previous step:
 
 <pre class=file>
 BOOTPROTO=none
-IPADDR=172.17.0.9
-PREFIX=32
+<< OUTPUT ABRIDGED >>
 </pre>
 
 Besides the IP and subnet mask, you will typically have a gateway address for
@@ -54,7 +53,7 @@ to configure the gateway:
 
 The change will be visible in the same config file:
 
-`egrep 'GATEWAY' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+`grep 'GATEWAY' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 <pre class=file>
 GATEWAY=172.17.0.1
