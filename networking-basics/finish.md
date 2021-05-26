@@ -1,7 +1,7 @@
 # In this lab you have:
 * Been introduced to NetworkManager (`nmcli`)
 * Configured a new connection with a dynamic IP using DHCP
-* Modifyed this connection to have a static IP
+* Modified this connection to have a static IP
 * Configured the DNS server settings for this connection
 
 # Related Resources:

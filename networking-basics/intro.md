@@ -6,7 +6,7 @@ modifying key parameters to control how that network connection behaves.
 
 You will use two terminal tabs: `host01` and `host02`. You will carry out the
 connection configuration on `host01`, and then at the end you will switch to
-`host02` to test that the connection was successfully setup.
+`host02` to test that the connection was successfully set up.
 
 # Goal:
 

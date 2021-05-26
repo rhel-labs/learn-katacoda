@@ -3,13 +3,13 @@
 Return to `host01` so that you can modify the connection a bit more.
 Now you will add DNS addresses using `nmcli con modify`.
 Visit [this article](https://www.redhat.com/sysadmin/dns-domain-name-servers)
-to learn what DNS is and why it is useful. 
+to learn what DNS is and why it is useful.
 
 `nmcli con modify ethernet1 ipv4.dns 172.17.0.254`{{execute T2}}
 
 This modification will only show up in the proper config file, `/etc/resolv.conf`,
 once the connection is restarted. This is done the same way the connection
-was activated in the start of this lab, using the `nmcli con up` command.
+was activated at the start of this lab, using the `nmcli con up` command.
 
 `nmcli con up ethernet1`{{execute T2}}
 

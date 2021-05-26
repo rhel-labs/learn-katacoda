@@ -5,7 +5,8 @@ configuration changes to any connection on your network. Dynamic IP configuratio
 with DHCP is the most common way to configure a connection,
 so the first connection you make in this lab will be dynamic.
 If you want more information about when to use dynamic vs.
-static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
+static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
+provides a great background.
 
 You will configure a dynamic IP connection on **host01**. You will use the
 `nmcli con` command with some additional arguments to specify that you want
