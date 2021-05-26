@@ -21,10 +21,13 @@ Perf can also be used to record performance data for a particular process (mysql
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
++----------+
+| COUNT(*) |
++----------+
+|  6641633 |
++----------+
 [ perf record: Woken up 1 times to write data ]
-[ perf record: Captured and wrote 0.020 MB perf.data (37 samples) ]
-
-<< OUTPUT ABRIDGED >>
+[ perf record: Captured and wrote 0.071 MB perf.data (277 samples) ]
 </pre>
 
 The output shows the result of running the SELECT query, and the performance samples are collected in the perf.data file.
