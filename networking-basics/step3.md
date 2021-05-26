@@ -54,7 +54,7 @@ to configure the gateway:
 
 The change will be visible in the same config file:
 
-`egrep 'GATEWAY' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+`grep 'GATEWAY' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 <pre class=file>
 GATEWAY=172.17.0.1

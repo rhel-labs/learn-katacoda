@@ -42,7 +42,7 @@ to the new connection. The `grep` command is useful for searching for specific
 file contents. You will single in on the line specifying the
 protocol by searching for `BOOTPROTO` in the connection config file:
 
-`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+`grep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 You will see that the protocol is indeed set to DHCP for this connection.
 The IP address is not set at this point, as it will be controlled
