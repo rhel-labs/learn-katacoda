@@ -1,16 +1,17 @@
 # What is NetworkManager?
 
 NetworkManager is a great tool for creating and modifying network connections.
-The `nmcli` command is how we will be running NetworkManager in this lab. Any changes
-made with ‘nmcli’ are persistent configuration file changes. This lab will give you an
+The `nmcli` command is how you will be running NetworkManager in this lab. Any changes
+made with `nmcli` are persistent configuration file changes. This lab will give you an
 overview of some of the most common operations you would run using this tool.
 
 # Listing network devices
 
-Let’s take a look at what network hardware this system has.
-To do this with `nmcli`, run
+Before you can set up a connection, you have to know what hardware
+is available for you to use. To show what network devices this system has with
+`nmcli`, run
 
-`nmcli device`{{execute "host01"}}
+`nmcli device`{{execute T2}}
 
 This will show a list of network interfaces available on the system as well as
 how they are configured, similar to the following:
@@ -22,14 +23,14 @@ ens5    ethernet  connecting (getting IP configuration)  Wired connection 1
 lo      loopback  unmanaged                              --      
 </pre>
 
-This output shows that there are three devices: ethernet slot 3, ethernet slot 5,
-and loopback.
+This output shows that there are three devices: **ens3** and **ens5** (ethernet devices)
+as well as **lo** (the loopback device).
 
 # Listing network connections
 
-Now let's take a look at the configured connections on this host:
+Now take a look at the configured connections on this host:
 
-`nmcli con`{{execute "host01"}}
+`nmcli con`{{execute T2}}
 
 <pre class=file>
 NAME                UUID                                  TYPE      DEVICE
@@ -38,4 +39,4 @@ System ens3         bbc9283d-5063-4e79-8f57-8c6eda5618c3  ethernet  ens3
 </pre>
 
 This gives similar information to the output of `nmcli device`, just sorted
-differently. Now we can move on to making our own connection on this node.
+differently. Next, you will make your own connection on this host.

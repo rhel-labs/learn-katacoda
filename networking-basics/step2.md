@@ -4,10 +4,19 @@ Dynamic IP configuration with DHCP is the most common way to configure a connect
 If you want more information about when to use dynamic vs.
 static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1) provides great background.
 
-Let’s configure a dynamic connection on `host02`. This can be done with
-the following command:
+You will configure a dynamic IP connection on **host01**. You will use the
+`nmcli con` command with some additional arguments to specify that you want
+to `add` a connection, assign a connection name, choose a network interface
+to assign the connection to, and specify the type type of device the interface
+uses. Below is an example of this command with each of the values explained:
 
-`nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
+![con add breakdown](./assets/conAddBreakdown.png)
+
+(click to enlarge)
+
+Run the command to configure this dynamic connection on **host01**:
+
+`nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute T2}}
 
 You should see a confirmation message similar to
 
@@ -15,31 +24,28 @@ You should see a confirmation message similar to
 Connection 'ethernet1' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
 </pre>
 
-A lot goes into this command, so here is a breakdown of each argument:
-
-![con add breakdown](./assets/conAddBreakdown.png)
-
-(click to enlarge)
-
-**Note:** NetworkManager will act as the DHCP client when adding a connection
+>_NOTE:_ NetworkManager will act as the DHCP client when adding a connection
 without a specified address.
 
-Let’s take a look at the configuration file for our connection to see
-what this command has done. We will single in on the line specifying the
-protocol and the configured IP by searching for the `BOOTPROTO` and
-`IPADDR` lines:
+The advantage of using `nmcli` is that configuration changes persist. The
+`con add` command you ran above will create a new configuration file,
+`ifcfg-ethernet1`, in the `/etc/sysconfig/network-scripts` directory.
 
-`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'BOOTPROTO\|IPADDR'`{{execute "host01"}}
+>_NOTE:_ The suffix after `ifcfg-` in the config file name will be the
+connection name as you configured it when running `nmcli con add`
+
+The configuration file for this connection contains the values corresponding
+to the new connection. You will single in on the line specifying the
+protocol by searching for `BOOTPROTO` in the connection config file:
+
+`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 You will see that the protocol is indeed set to DHCP for this connection.
-Furthermore, the IP address is not set at this point, as it will be controlled
+The IP address is not set at this point, as it will be controlled
 through the DHCP client.
 
 <pre class=file> BOOTPROTO=dhcp </pre>
 
-The search did not find the field `IPADDR` in this config because we are not
-manually setting an IP when we configure a dynamic connection.
-
-Some situations call for an IP that can't change over time, or a static IP.
+Some situations call for an IP that will not change over time, or a static IP.
 The next page will walk you through turning this dynamic connection into a
 static connection.
