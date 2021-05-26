@@ -14,7 +14,7 @@ Use the perf record feature for collecting system-wide statistics - the frequenc
 
 Perf can also be used to record performance data for a particular process (mysqld in this lab), while it runs a specific SELECT query.
 
-`perf record -a -F 40 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 40 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 > **NOTE:** Recording performance metrics can take a minute or so to complete, and you should proceed only when the command has finished executing.
 
@@ -57,7 +57,7 @@ If you explore the flame graph, you will notice that a lot of cycles are spent f
 
 To dive deeper into how MySQL is executing a SELECT query joining two tables, look at the query execution plan using MySQL's EXPLAIN statement - 
 
-`mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`mysql -A sampleDB -e "EXPLAIN format=tree SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 <pre class="file">
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
