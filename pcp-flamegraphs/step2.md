@@ -4,12 +4,15 @@
 
 Select the *Flame* terminal to run commands in this step.
 
-## Run the perf command to record performance metrics for MySQL query
+## Using perf to record performance metrics for MySQL query
+
+`Perf` is a performance analysis tool in RHEL. It is based on the perf_events interface exported by the kernel, and provides a simple command line interface.
 
 The linux perf command has 3 main parts - **action**, **event** and **scope**. 
 
-In the command below, we are using the record action of the perf command to collect 40 samples per second, across all CPUs.
-Perf is also monitoring a particular process (mysqld in this case), while running a specific SELECT query.
+Use the perf record feature for collecting system-wide statistics - the frequency is 40 samples per second (denoted by -F), across all CPUs (denoted by -a).
+
+Perf can also be used to record performance data for a particular process (mysqld in this lab), while it running a specific SELECT query.
 
 `perf record -a -F 40 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
@@ -24,29 +27,33 @@ Perf is also monitoring a particular process (mysqld in this case), while runnin
 
 The output shows the result of running the SELECT query, and the performance samples are collected in the perf.data file.
 
+Check out `man perf` if you are interested in more details about the `perf` tool.
+
 ## Output the flame graph ##
 The report option of perf script can be used to generate an HTML format report for better readability - 
 
 `perf script report flamegraph`{{execute T2}}
 
-Check out `man perf` if you are interested in more details about the `perf` tool.
+A flamegraph.html file should be generated.
 
 ## Copy the report to the Apache Server ##
 
-Perf is not dependant on Apache web server, however it is needed in this lab for the purposes of viewing the flame graph in the HTML format.
+In this lab, we have also installed Apache web server. Apache web server is not required for perf, however it is needed in this lab for the purposes of viewing the flame graph HTML report.
 
 Copy the flamegraph.html file to the index.html page of the Apache web server - 
 
 `cp flamegraph.html /var/www/html/index.html`{{execute T2}}
 
 ## View the flame graph in a web browser ##
-Now that the HTML report is generated, you can check the flame graph in the *Web* tab of this lab interface.
+The flame graph provides an indications on what's running hot on the CPU. 
+
+Click on the *Web* tab of the lab interface to view the flame graph.  This should open up another browser tab window that shows the flame graph visualization based on the perf data collected. 
+
+If you explore the flame graph, you will notice that a lot of cycles are spent for the JOIN operation in MySQL. 
 
 ## Check the query execution plan of a SELECT query with a JOIN clause
 
-The flame graph gives us indications on what's running hot on the CPU. 
-
-Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
+To dive deeper into how MySQL is executing the query, look at the query execution plan using MySQL's EXPLAIN statement - 
 
 `mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
@@ -63,7 +70,7 @@ Let's look at the query execution plan that the database is going to run using t
 </pre>
 
 Note that the join operator of MySQL does a full scan on table t2, because there is no index defined on the join column (c2) on table t2. 
-As a table grows, the costs of doing such an operation grows, and is a performance bottleneck.
+As a table grows, the costs of doing such an operation grows, and is a performance bottleneck. This confirms the flame graph results. 
 
 
 
