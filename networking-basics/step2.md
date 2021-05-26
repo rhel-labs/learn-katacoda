@@ -16,7 +16,7 @@ uses. Below is an example of this command with each of the values explained:
 
 Run the command to configure this dynamic connection on **host01**:
 
-`nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute "host01"}}
+`nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute T2}}
 
 You should see a confirmation message similar to
 
@@ -38,7 +38,7 @@ The configuration file for this connection contains the values corresponding
 to the new connection. You will single in on the line specifying the
 protocol by searching for `BOOTPROTO` in the connection config file:
 
-`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute "host01"}}
+`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 You will see that the protocol is indeed set to DHCP for this connection.
 The IP address is not set at this point, as it will be controlled

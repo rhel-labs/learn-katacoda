@@ -5,11 +5,11 @@ want to change. Return to `host01` so that you can modify the connection a bit m
 You can change multiple properties in the same modify command, shown here
 for gateway, DNS, and hostname:
 
-`nmcli con modify ethernet1 ipv4.gateway 172.17.0.1 ipv4.dns 172.17.0.254 ipv4.dhcp-hostname lab-server`{{execute "host01"}}
+`nmcli con modify ethernet1 ipv4.gateway 172.17.0.1 ipv4.dns 172.17.0.254 ipv4.dhcp-hostname lab-server`{{execute T2}}
 
 You can see these changes reflected in the connection's config file:
 
-`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'GATEWAY\|DNS1\|DHCP_HOSTNAME'`{{execute "host01"}}
+`cat /etc/sysconfig/network-scripts/ifcfg-ethernet1 | grep 'GATEWAY\|DNS1\|DHCP_HOSTNAME'`{{execute T2}}
 
 <pre class=file>
 GATEWAY=172.17.0.1

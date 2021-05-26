@@ -11,7 +11,7 @@ Before you can set up a connection, you have to know what hardware
 is available for you to use. To show what network devices this system has with
 `nmcli`, run
 
-`nmcli device`{{execute "host01"}}
+`nmcli device`{{execute T2}}
 
 This will show a list of network interfaces available on the system as well as
 how they are configured, similar to the following:
@@ -30,7 +30,7 @@ as well as **lo** (the loopback device).
 
 Now take a look at the configured connections on this host:
 
-`nmcli con`{{execute "host01"}}
+`nmcli con`{{execute T2}}
 
 <pre class=file>
 NAME                UUID                                  TYPE      DEVICE

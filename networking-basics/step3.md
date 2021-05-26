@@ -11,12 +11,12 @@ to change properties of an existing connection, `nmcli con modify`.
 The first step in converting your dynamic connection to a static connection
 is to change the connection method from DHCP to manual:
 
-`nmcli con modify ethernet1 ipv4.method manual`{{execute "node01"}}
+`nmcli con modify ethernet1 ipv4.method manual`{{execute T2}}
 
 This removes the DHCP protocol from the configuration file, which you can
 confirm by repeating the config search done in the previous step:
 
-`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute "host01"}}
+`egrep 'BOOTPROTO' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 <pre class=file>
 BOOTPROTO=none
@@ -25,15 +25,15 @@ BOOTPROTO=none
 Assign the existing connection a specified IP, in this case `172.17.0.9`, by
 once again using the `modify` option:
 
-`nmcli con modify ethernet1 ipv4.addresses 172.17.0.9`{{execute "node01"}}
+`nmcli con modify ethernet1 ipv4.addresses 172.17.0.9`{{execute T2}}
 
 This line will not generate an output, so you should run an expanded validation
 search. The search below also includes the `IPADDR` field:
 
-`egrep 'BOOTPROTO|IPADDR' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute "host01"}}
+`egrep 'BOOTPROTO|IPADDR' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
 
 <pre class=file>
-BOOTPROTO=dhcp
+BOOTPROTO=none
 IPADDR=172.17.0.9
 </pre>
 
