@@ -10,11 +10,11 @@ Select the *Flame* terminal to run commands in this step.
 
 The linux perf command has 3 main parts - **action**, **event** and **scope**. 
 
-Use the perf record feature for collecting system-wide statistics - the frequency is 40 samples per second (denoted by -F), across all CPUs (denoted by -a).
+Use the perf record feature for collecting system-wide statistics - the frequency is 100 samples per second (denoted by -F), across all CPUs (denoted by -a).
 
 Perf can also be used to record performance data for a particular process (mysqld in this lab), while it runs a specific SELECT query.
 
-`perf record -a -F 40 -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
+`perf record -a -F 100 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
 > **NOTE:** Recording performance metrics can take a minute or so to complete, and you should proceed only when the command has finished executing.
 
