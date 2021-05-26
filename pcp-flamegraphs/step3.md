@@ -64,7 +64,4 @@ This should open up another browser tab window that shows the flame graph visual
 
 You will notice that now, searching the index consumes more CPU time, but overall the response time of the query is much faster. 
 
-In real-life cases, performance optimization is a continous process - By repeatly measuring, analyzing and tuning your system, you can improve performance and deliver better business outcomes.
-
-
-
+In real-life cases, performance optimization is a continuous process - repeatedly measuring, analyzing and tuning your system, to improve performance and deliver better business outcomes.
