@@ -2,13 +2,15 @@
 
 For this step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab for perf and flame graph commands. 
 
-To eliminate a full table scan during the join operation, let's create an index `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2
+To optimize query performance in MySQL, one simple approach is to create an index that can be used for query processing. 
+
+Create a MySQL index called `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2. The index on column c2 will help MySQL use the index for efficiently searching matches instead of doing a full table scan on t1. 
 
 `mysql -A sampleDB -e "CREATE INDEX idx_t1_c2 on t1(c2);"`{{execute T1}}
 
 ## Check the execution plan of the SELECT query with a JOIN clause
 
-Let's look at the query execution plan that the database is going to run using the EXPLAIN statement in MySQL 
+Look at the updated query execution plan that MySQL will run using the EXPLAIN statement - 
 
 `mysql -A sampleDB -e "EXPLAIN format=tree select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T1}}
 
@@ -23,11 +25,11 @@ Let's look at the query execution plan that the database is going to run using t
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 </pre>
 
-Notice that in this case, the database leverages the `idx_t1_c2` index, and the overall cost is much lesser with the index in place.
+Notice that in this case, the database leverages the `idx_t1_c2` index, and the overall cost of executing the query is much lesser than without the index.
 
 ## Re-run the perf command to record performance metrics for MySQL query
 
-Let's again use perf to monitor the mysqld process, while running the same SELECT query joining t1 and t2 - 
+Use perf to record performance of the mysqld process running the same query as the previous step - 
 
 `perf record -a -F 40 -g -p $(pgrep -x mysqld) -- mysql -A sampleDB -e "select * from t1 join t2 on t1.c2 = t2.c2;"`{{execute T2}}
 
