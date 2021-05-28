@@ -8,24 +8,29 @@
       "description": "Keep track of what is happening on your systems by using Terminal Session Recording to record and review terminal sessions of users and administrators."
     },
     {
-      "external_link": "https://lab.redhat.com/kpatch-apply",
-      "title": "Reducing unplanned maintenance with Kernel Live Patching",
-      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
-    },
-    {
       "external_link": "https://lab.redhat.com/appstream-manage",
       "title": "Managing software from an application stream",
       "description": "Learn how to choose versions of popular and supported open source languages and offer them to users through an application stream."
     },
     {
-      "external_link": "https://lab.redhat.com/sql-server-cstore",
-      "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
-      "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
+      "external_link": "https://lab.redhat.com/networking-basics",
+      "title": "Configuring Network Interfaces [Admin 101]",
+      "description": "Configure a network connection using Network Manager and the nmcli command."
     },
     {
       "external_link": "https://lab.redhat.com/podman-deploy",
       "title": "Deploying containers using Container Tools [podman]",
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
+    },
+    {
+      "external_link": "https://lab.redhat.com/kpatch-apply",
+      "title": "Reducing unplanned maintenance with Kernel Live Patching",
+      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
+    },
+    {
+      "external_link": "https://lab.redhat.com/sql-server-cstore",
+      "title": "Red Hat Enterprise Linux with SQL Server Columnstores",
+      "description": "Improve SQL Server performance by using Red Hat Enterprise Linux performance tools and SQL Server Columnstores."
     },
     {
       "external_link": "https://lab.redhat.com/ebpf-tracing",
