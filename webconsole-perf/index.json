@@ -27,8 +27,9 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Scott McBrien, Technical Content Manager (Red Hat)",
-      "courseData": "background.sh"
+      "credits": "__Author:__ Don Pinto, Technical Content Manager (Red Hat)",
+      "courseData": "background.sh",
+      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
