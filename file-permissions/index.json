@@ -33,7 +33,8 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal",
+    "terminals": [{"name": "Guest Terminal", "target": "host01"}]
   },
   "backend": {
     "imageid": "rhel8-3"
