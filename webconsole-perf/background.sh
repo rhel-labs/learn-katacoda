@@ -18,3 +18,5 @@ echo "upgrading to RHEL 8.4" >> /root/post-run.log
 sudo yum update -y
 
 echo "DONE" >> /root/post-run.log
+
+touch /root/post-run.log.done
