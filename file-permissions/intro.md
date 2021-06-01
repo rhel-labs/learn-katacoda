@@ -9,4 +9,6 @@ change permissions of files and directories on their system.
 
 # Concepts included in this scenario:
 * Learn how to view permissions with `ls -l`
-* 
+* Use `chmod` to change file permissions
+* Test out `chown` with example user accounts and groups
+* Learn how to use `find` to filter files based on their permissions
