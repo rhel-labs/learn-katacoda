@@ -4,6 +4,7 @@
   "details": {
     "assets": {
       "host01": [
+        {"file": "contract04.txt", "target":"/srv/", "chmod": "750"}
         {"file": "contract01.txt", "target":"/srv/proprietary/", "chmod": "777"},
         {"file": "contract02.txt", "target":"/srv/proprietary/", "chmod": "777"},
         {"file": "contract03.txt", "target":"/srv/proprietary/", "chmod": "777"},
