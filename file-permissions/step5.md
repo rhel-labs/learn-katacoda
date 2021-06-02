@@ -8,7 +8,7 @@ confirm that __root__ is the initial owner of the file __tasks.txt__:
 `ls -l | grep tasks.txt`{{execute T1}}
 
 <pre class=file>
-
+-rwxr-x---. 1 root root 117 Jun  2 23:01 tasks.txt
 </pre>
 
 The third and fourth column of this output are the user and group that own the
@@ -18,7 +18,7 @@ terminal and attempt to read the file:
 `cat tasks.txt`{{execute T2}}
 
 <pre class=file>
-
+cat: tasks.txt: Permission denied
 </pre>
 
 This read operation is denied, as __guest__ does not have read permission.
@@ -31,11 +31,11 @@ Repeating the search shows that the owner (column 3) has been updated:
 `ls -l | grep tasks.txt`{{execute T1}}
 
 <pre class=file>
-
+-rwxr-x---. 1 guest root 117 Jun  2 23:01 tasks.txt
 </pre>
 
-Now that __guest__ owns the file, this user has permission to read the file
-without reconfiguring the access modes.
+Now that __guest__ owns the file instead of __root__, this user has permission
+to read the file without reconfiguring the access modes.
 
 `cat tasks.txt`{{execute T2}}
 
