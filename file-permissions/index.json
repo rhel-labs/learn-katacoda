@@ -4,7 +4,8 @@
   "details": {
     "assets": {
       "host01": [
-        {"file": "contract04.txt", "target":"/srv/", "chmod": "750"}
+        {"file": "status.sh", "target":"/srv/", "chmod": "750"}
+        {"file": "tasks.txt", "target":"/srv/", "chmod": "750"}
         {"file": "contract01.txt", "target":"/srv/proprietary/", "chmod": "777"},
         {"file": "contract02.txt", "target":"/srv/proprietary/", "chmod": "777"},
         {"file": "contract03.txt", "target":"/srv/proprietary/", "chmod": "777"},
@@ -27,10 +28,6 @@
       {
         "title": "Step 4",
         "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
       }
     ],
     "intro": {
