@@ -20,7 +20,10 @@ For this lab, you will be working in the `srv` directory. Change to it using the
 
 The command `ls -l` can be used to look at the permissions associated with each
 file in the directory. The output for this can be cryptic at first, so here is
-a breakdown of what each character in the permissions string means:
+a breakdown of what each character in the permissions string means.
+The access mode __drw-r-----__ tells us the following information:
+
+![permission string breakdown](./assets/lsExplanation.png)
 
 Take a look at the contents of the current directory.
 Using the `-l` flag displays information about permissions for each item.
@@ -37,4 +40,4 @@ the time last modified, and finally the file/directory name itself.
 
 >_NOTE:_ Line 2 of this output is the same permission string as the example given above
 
-In this lab we will walk through some examples of what each of these mean in practice. 
+In this lab you will walk through some examples of what each of these mean in practice.
