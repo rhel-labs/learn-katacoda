@@ -12,7 +12,7 @@ Verify the change using `ls -l`:
 `ls -l | grep tasks.txt`{{execute T1}}
 
 <pre class=file>
-
+-rwxr-x---. 1 guest team 117 Jun  2 23:01 tasks.txt
 </pre>
 
 This change is reflected in the fourth column of the `ls -l` output,

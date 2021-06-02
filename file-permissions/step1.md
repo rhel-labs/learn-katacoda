@@ -21,7 +21,7 @@ For this lab, you will be working in the `srv` directory. Change to it using the
 The command `ls -l` can be used to look at the permissions associated with each
 file in the directory. The output for this can be cryptic at first, so here is
 a breakdown of what each character in the permissions string means.
-The access mode __drw-r-----__ tells us the following information:
+The access mode __-rwxr-x---__ conveys the following information:
 
 ![permission string breakdown](./assets/lsExplanation.png)
 
@@ -35,7 +35,9 @@ The middle columns give information about the owner of the files, their size,
 the time last modified, and finally the file/directory name itself.
 
 <pre class=file>
-
+drw-r-----. 2 root root  94 Jun  2 21:08 proprietary
+-rwxr-x---. 1 root root  66 Jun  2 21:08 status.sh
+-rwxr-x---. 1 root root 117 Jun  2 21:08 tasks.txt
 </pre>
 
 >_NOTE:_ Line 2 of this output is the same permission string as the example given above
