@@ -1,0 +1,27 @@
+# Changing group ownership
+
+Changing group ownership can be much more efficient than manually assinging owners,
+when there are many users that should have the same access to a file.
+Group ownership can be changed with the `chgrp` command by adding a colon before
+the name of the group. Return to the root terminal to execute this command:
+
+`chown :team tasks.txt`{{execute T1}}
+
+Verify the change using `ls -l`:
+
+`ls -l | grep tasks.txt`{{execute T1}}
+
+<pre class=file>
+
+</pre>
+
+This change is reflected in the fourth column of the `ls -l` output,
+which now says __team__ instead of __root__.
+
+>_NOTE:_ Some people prefer the `chgrp` command for changing groups as it has
+identical syntax to `chown`, you do not have to add a colon when using `chgrp`.
+Others prefer to use `chown` with the colon as above
+so that they do not have to remember two different commands.
+
+The final step in this lab will walk you through using `find` to locate any
+files that may have their permissions configured incorrectly.
