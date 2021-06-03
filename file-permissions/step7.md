@@ -60,7 +60,7 @@ cat: /srv/proprietary/contract01.txt: Permission denied
 
 Feel free to try repeating this command for the other contract text files,
 or even just try `cd proprietary/` as __guest__. This entire directory is
-inacessible to the __guest__ user now. This does mean it is very important to
+inaccessible to the __guest__ user now. This does mean it is very important to
 know what you are doing when using the `-R` flag on `chmod`, as an incorrect
 execution of that command could lock users out of all of their files.
 
