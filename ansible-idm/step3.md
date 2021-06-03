@@ -34,7 +34,7 @@ Using *host03* terminal of the lab, make a DNS entry with the IP address of the 
 
 `IP_Server=$(grep -Ri "host02" /etc/hosts | cut -d" " -f1)`{{execute T4}}
 
-`sed -i '2 i nameserver '"$IP_Server" /etc/resolv.conf`{{execute T4}}
+`sed '2 a nameserver '"$IP_Server" /etc/resolv.conf`{{execute T4}}
 
 Inspect the */etc/resolv.conf* file to ensure that there is a nameserver entry with the IdM server's IP -
 
