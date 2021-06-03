@@ -40,10 +40,10 @@ files that otherwise may slip through the cracks. The contract files in the
 Furthermore, since these are text files, they should not be executable.
 
 Run the `chmod` command with a level of __600__ to ensure that these files
-are readable and writeable by the owner, but others cannot access them. Using 6
+are readable and writable by the owner, but others cannot access them. Using 6
 instead of 7 in this case also removes the ability for the owner to execute the
 text file. Finally, adding the `-R`
-flag will carry outthis operation recursively, removing the need to
+flag will carry out this operation recursively, removing the need to
 repeat the operation on each file.  
 
 `chmod -R 600 proprietary/`{{execute T1}}
