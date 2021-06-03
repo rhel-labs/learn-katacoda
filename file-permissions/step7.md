@@ -64,4 +64,4 @@ inaccessible to the __guest__ user now. This does mean it is very important to
 know what you are doing when using the `-R` flag on `chmod`, as an incorrect
 execution of that command could lock users out of all of their files.
 
-This step is based off of information from the (Enable Sysadmin article on the topic)[https://www.redhat.com/sysadmin/audit-permissions-find]. Head there for more information on increasing the specificity of what `find` returns.  
+This step is based on information from the (Enable Sysadmin article on the topic)[https://www.redhat.com/sysadmin/audit-permissions-find]. Head there for more information on increasing the specificity of what `find` returns.  

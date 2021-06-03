@@ -1,6 +1,6 @@
 # Changing group ownership
 
-Changing group ownership can be much more efficient than manually assinging owners,
+Changing group ownership can be much more efficient than manually assigning owners,
 when there are many users that should have the same access to a file.
 Group ownership can be changed with the `chgrp` command by adding a colon before
 the name of the group. Return to the root terminal to execute this command:
