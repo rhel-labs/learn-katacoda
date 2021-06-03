@@ -1,6 +1,6 @@
 # Using `find` to audit permissions
 
-The `find` command is highly versitile, but in this case you will be using it
+The `find` command is highly versatile, but in this case you will be using it
 to locate files that have permissions that may pose security risks. The `-perm`
 option causes the `find` command to look at the access modes for each file.
 In this case you are calling `find` without a path, which means it will
@@ -40,10 +40,10 @@ files that otherwise may slip through the cracks. The contract files in the
 Furthermore, since these are text files, they should not be executable.
 
 Run the `chmod` command with a level of __600__ to ensure that these files
-are readable and writeable by the owner, but others cannot access them. Using 6
+are readable and writable by the owner, but others cannot access them. Using 6
 instead of 7 in this case also removes the ability for the owner to execute the
 text file. Finally, adding the `-R`
-flag will carry outthis operation recursively, removing the need to
+flag will carry out this operation recursively, removing the need to
 repeat the operation on each file.  
 
 `chmod -R 600 proprietary/`{{execute T1}}
@@ -60,8 +60,8 @@ cat: /srv/proprietary/contract01.txt: Permission denied
 
 Feel free to try repeating this command for the other contract text files,
 or even just try `cd proprietary/` as __guest__. This entire directory is
-inacessible to the __guest__ user now. This does mean it is very important to
+inaccessible to the __guest__ user now. This does mean it is very important to
 know what you are doing when using the `-R` flag on `chmod`, as an incorrect
 execution of that command could lock users out of all of their files.
 
-This step is based off of information from the (Enable Sysadmin article on the topic)[https://www.redhat.com/sysadmin/audit-permissions-find]. Head there for more information on increasing the specificity of what `find` returns.  
+This step is based on information from the (Enable Sysadmin article on the topic)[https://www.redhat.com/sysadmin/audit-permissions-find]. Head there for more information on increasing the specificity of what `find` returns.  
