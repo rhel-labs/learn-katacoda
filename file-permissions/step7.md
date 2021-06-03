@@ -1,6 +1,6 @@
 # Using `find` to audit permissions
 
-The `find` command is highly versitile, but in this case you will be using it
+The `find` command is highly versatile, but in this case you will be using it
 to locate files that have permissions that may pose security risks. The `-perm`
 option causes the `find` command to look at the access modes for each file.
 In this case you are calling `find` without a path, which means it will
