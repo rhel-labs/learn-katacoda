@@ -9,7 +9,7 @@ the name of the group. Return to the root terminal to execute this command:
 
 Verify the change using `ls -l`:
 
-`ls -l | grep tasks.txt`{{execute T1}}
+`ls -l tasks.txt`{{execute T1}}
 
 <pre class=file>
 -rwxr-x---. 1 rhel team 117 Jun  2 23:01 tasks.txt

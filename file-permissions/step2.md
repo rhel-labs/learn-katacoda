@@ -27,10 +27,7 @@ that owns this file have __r-x__, so they can read and execute but cannot write 
 this file. Finally, all other users have no permissions, __---__, so they are
 unable to read, write, or execute this file.  
 
-To see this in action, switch to the rhel terminal and change directories to `/srv`
-
-
-Now, switch users to the __rhel__ account using the `su` command:
+To see this in action, switch users to the __rhel__ account using the `su` command:
 
 `su - rhel`{{execute T2}}
 

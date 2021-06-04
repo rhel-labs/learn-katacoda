@@ -5,7 +5,7 @@ with the purpose of the file. The `chown` command can do this very easily. Just
 specify the new owner and the file you would like to change. From the root terminal,
 confirm that __root__ is the initial owner of the file __tasks.txt__:
 
-`ls -l | grep tasks.txt`{{execute T1}}
+`ls -l tasks.txt`{{execute T1}}
 
 <pre class=file>
 -rwxr-x---. 1 root root 117 Jun  2 23:01 tasks.txt
@@ -28,7 +28,7 @@ Returning to the root terminal, change the user that owns __tasks.txt__ to __rhe
 
 Repeating the search shows that the owner (column 3) has been updated:
 
-`ls -l | grep tasks.txt`{{execute T1}}
+`ls -l tasks.txt`{{execute T1}}
 
 <pre class=file>
 -rwxr-x---. 1 rhel root 117 Jun  2 23:01 tasks.txt
