@@ -44,11 +44,11 @@ are readable and writable by the owner, but others cannot access them.
 Instead of running `chmod` individually on each file, you can use
 the `find` command to execute this permission change on any file that exceeds
 a certain permission level. The `-type f` option only targets files, so the
-directory permissions will remain unchanged. The `{}\;` at the end of the
+directory permissions will remain unchanged. The `{} \;` at the end of the
 command is telling `find` to execute the `chmod` command separately on each file
 that matches the search criteria.  
 
-`find -perm -755 -type f -exec chmod 600 {}\;`{{execute T1}}
+`find -perm -755 -type f -exec chmod 600 {} \;`{{execute T1}}
 
 To verify that access has been removed, try to read one of the files as the
 rhel account. Switch to the __rhel__ terminal
@@ -72,4 +72,4 @@ It is very important to double check your work when using the `find` to
 execute `chmod`, as running this command on the wrong directory could lock
 users out of all of their files.
 
-This step is based on information from the (Enable Sysadmin article on the topic)[https://www.redhat.com/sysadmin/audit-permissions-find]. Head there for more information on increasing the specificity of what `find` returns.  
+This step is based on information from the [Enable Sysadmin article on the topic](https://www.redhat.com/sysadmin/audit-permissions-find). Head there for more information on increasing the specificity of what `find` returns.  

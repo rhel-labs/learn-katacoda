@@ -13,7 +13,7 @@ add and delete files, and execute allows users to `cd` into that directory.
 >_NOTE:_ There are three more permissions on top of the ones explained
 above: setuid, setgid, and sticky bit. These are much less commonly used and therefore
 outside of the scope of this lab, but this article on
-(Understanding Linux File Permissions)[https://www.linux.com/training-tutorials/understanding-linux-file-permissions/]
+[Understanding Linux File Permissions](https://www.linux.com/training-tutorials/understanding-linux-file-permissions/)
 is a great place to start if you want more information on these additional
 permissions.
 
