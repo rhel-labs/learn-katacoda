@@ -6,33 +6,36 @@ These operations are broken down into three categories:
 * Write: Changing the contents of a file
 * Execute: Running contents of a file as code
 
+Permissions function differently when applied to directories.
+Read allows users to view the contents of a directory, write allows users to
+add and delete files, and execute allows users to `cd` into that directory.
+
+>_NOTE:_ There are three more permissions on top of the ones explained
+above: setuid, setgid, and sticky bit. These are much less commonly used and therefore
+outside of the scope of this lab, but this article on
+(Understanding Linux File Permissions)[https://www.linux.com/training-tutorials/understanding-linux-file-permissions/]
+is a great place to start if you want more information on these additional
+permissions.
+
 It is important to properly assign permissions to files and directories
 created on a shared system so that files are not accidentally (or maliciously)
 tampered with, destroyed, or executed. The next section shows you how to
 view the permissions of files in an example directory.
 
-# Displaying Files and Their Permissions
+# Displaying files and their permissions
 
-For this lab, you will be working in the `srv` directory. Change to it using the
-`cd` (change directory) command:
+For this lab, several files have been created for you to work with in
+the `/srv` directory. Change to it using the `cd` (change directory) command:
 
-`cd /srv/`{{execute T1}}
+`cd /srv`{{execute T1}}
 
 The command `ls -l` can be used to look at the permissions associated with each
-file in the directory. The output for this can be cryptic at first, so here is
-a breakdown of what each character in the permissions string means.
-The access mode __-rwxr-x---__ conveys the following information:
-
-![permission string breakdown](./assets/lsExplanation.png)
-
-Take a look at the contents of the current directory.
-Using the `-l` flag displays information about permissions for each item.
+file in the directory. The output for this can be cryptic at first, so step will
+walk you through what each character means. Take a look at the contents of the
+current directory. Use the long listing option (`-l`) to display information
+about permissions for each item.
 
 `ls -l`{{execute T1}}
-
-The first column of this output is the permissions string explained above.
-The middle columns give information about the owner of the files, their size,
-the time last modified, and finally the file/directory name itself.
 
 <pre class=file>
 drw-r-----. 2 root root  94 Jun  2 21:08 proprietary
@@ -40,6 +43,13 @@ drw-r-----. 2 root root  94 Jun  2 21:08 proprietary
 -rwxr-x---. 1 root root 117 Jun  2 21:08 tasks.txt
 </pre>
 
->_NOTE:_ Line 2 of this output is the same permission string as the example given above
+The first column of the output above is a string conveying the access mode.
+The access mode __-rwxr-x---__, seen here for the __status.sh__ file, conveys
+the following information:
 
-In this lab you will walk through some examples of what each of these mean in practice.
+![permission string breakdown](./assets/lsExplanation.png)
+
+The middle columns of the `ls` output give information about the user ownership and
+group ownership of the files, their size, the time last modified, and finally the
+file/directory name itself. The next steps will walk you through the importance
+of the file ownership fields.
