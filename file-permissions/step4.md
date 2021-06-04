@@ -6,18 +6,13 @@ but prevent anyone else from writing to or executing the file. You can do this
 with three numbers if you use the absolute syntax.
 
 The number you would use to do this with `chmod` is __774__.
-Recall that these three numbers correspond to the owner, group, and other
-access, respectively. In this example, using __7__ for the owner access gives
-the user that owns the file read, write, and execute access. This is because 7
-in binary is __111__, which would translate symbolically to __rwx__.
-Similarly, the 7 in the second index of this number will apply the same
-permissions to anyone in the file's group.
+The image below explains how the absolute permission of __774__ relates to
+the access mode string that is output by `ls -l`.
 
-The final number applies to all other users.
-Since 4 in binary is __100__, this means that the permissions for other users are
-set to __r--__. There is a zero in the index for write and execute,
-so these users will not have read or execute access for this file. They will
-still be able to read the file, though.
+![Absolute permission breakdown](./assets/absBreakdown.png)
+
+The owner user and owner group will have full permissions, but others will
+only be able to read the file. 
 
 Return to the first terminal where you are logged in as __root__. Use `chmod`
 to modify the permissions on __status.sh__ as discussed above:
@@ -26,7 +21,7 @@ to modify the permissions on __status.sh__ as discussed above:
 
 Confirm that this change has succeeded by checking the access mode for __status.sh__
 
-`ls -l | grep status.sh`{{execute T1}}
+`ls -l status.sh`{{execute T1}}
 
 <pre class=file>
 -rwxrwxr--. 1 root root  66 Jun  2 22:42 status.sh
