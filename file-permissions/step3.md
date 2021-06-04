@@ -46,7 +46,7 @@ want to only look at __status.sh__.
 `ls -l status.sh`{{execute T1}}
 
 <pre class=file>
--rwxr-xrwx. 1 root root  66 Jun  2 22:42 status.sh
+-rwxr-xr-x. 1 root root  66 Jun  2 22:42 status.sh
 </pre>
 
 >_NOTE:_ Just as `o+rx` added read and execute permissions for others, `chmod` accepts

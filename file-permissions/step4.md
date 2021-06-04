@@ -12,7 +12,7 @@ the access mode string that is output by `ls -l`.
 ![Absolute permission breakdown](./assets/absBreakdown.png)
 
 The owner user and owner group will have full permissions, but others will
-only be able to read the file. 
+only be able to read the file.
 
 Return to the first terminal where you are logged in as __root__. Use `chmod`
 to modify the permissions on __status.sh__ as discussed above:
@@ -53,6 +53,6 @@ you do not have write access as __rhel__ if you wish to verify this as well.
 
 Many users default to absolute permissions because of how much quicker they
 are to type. If you are still unsure exactly what these commands are doing,
-please check out the “How do I manage permissions?” section of (this Enable Sysadmin article)[https://www.redhat.com/sysadmin/manage-permissions] to learn more.
+please check out the “How do I manage permissions?” section of [this Enable Sysadmin article](https://www.redhat.com/sysadmin/manage-permissions) to learn more.
 
 The next step will walk you through changing which user owns a file.
