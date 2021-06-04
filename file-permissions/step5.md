@@ -12,7 +12,7 @@ confirm that __root__ is the initial owner of the file __tasks.txt__:
 </pre>
 
 The third and fourth column of this output are the user and group that own the
-file. Right now, __root__ is the owner in both cases. Switch to the guest
+file. Right now, __root__ is the owner in both cases. Switch to the rhel
 terminal and attempt to read the file:
 
 `cat tasks.txt`{{execute T2}}
@@ -21,20 +21,20 @@ terminal and attempt to read the file:
 cat: tasks.txt: Permission denied
 </pre>
 
-This read operation is denied, as __guest__ does not have read permission.
-Returning to the root terminal, change the user that owns __tasks.txt__ to __guest__:
+This read operation is denied, as __rhel__ does not have read permission.
+Returning to the root terminal, change the user that owns __tasks.txt__ to __rhel__:
 
-`chown guest tasks.txt`{{execute T1}}
+`chown rhel tasks.txt`{{execute T1}}
 
 Repeating the search shows that the owner (column 3) has been updated:
 
 `ls -l | grep tasks.txt`{{execute T1}}
 
 <pre class=file>
--rwxr-x---. 1 guest root 117 Jun  2 23:01 tasks.txt
+-rwxr-x---. 1 rhel root 117 Jun  2 23:01 tasks.txt
 </pre>
 
-Now that __guest__ owns the file instead of __root__, this user has permission
+Now that __rhel__ owns the file instead of __root__, this user has permission
 to read the file without reconfiguring the access modes.
 
 `cat tasks.txt`{{execute T2}}

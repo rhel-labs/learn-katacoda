@@ -53,7 +53,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "Guest Terminal", "target": "host01"}]
+    "terminals": [{"name": "RHEL User Terminal", "target": "host01"}]
   },
   "backend": {
     "imageid": "rhel8-3"

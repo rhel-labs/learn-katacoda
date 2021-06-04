@@ -32,8 +32,8 @@ Confirm that this change has succeeded by checking the access mode for __status.
 -rwxrwxr--. 1 root root  66 Jun  2 22:42 status.sh
 </pre>
 
-Now, from the guest terminal, verify that you do not have permission to
-execute the status script as __guest__:
+Now, from the rhel terminal, verify that you do not have permission to
+execute the status script as __rhel__:
 
 `./status.sh`{{execute T2}}
 
@@ -42,7 +42,7 @@ bash: ./status.sh: Permission denied
 </pre>
 
 However, if you try to read this file, you will see you do have
-read access as __guest__:
+read access as __rhel__:
 
 `cat /srv/status.sh`{{execute T2}}
 
@@ -54,7 +54,7 @@ whoami
 </pre>
 
 >_NOTE:_ You can use `vi` or any other write command to verify that
-you do not have write access as __guest__ if you wish to verify this as well.
+you do not have write access as __rhel__ if you wish to verify this as well.
 
 Many users default to absolute permissions because of how much quicker they
 are to type. If you are still unsure exactly what these commands are doing,

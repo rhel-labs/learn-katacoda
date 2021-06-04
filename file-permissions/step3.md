@@ -30,7 +30,7 @@ each of these two modes.
 
 In this step, you will be modifying the permissions on the `status.sh` script
 using symbolic syntax with the `chmod` command. In the previous step, you were
-unable to execute __status.sh__ as __guest__. To change that, use the `chmod`
+unable to execute __status.sh__ as __rhel__. To change that, use the `chmod`
 command. In this case, you are going to do two operations in one line. You are
 going to use `g+r`. The plus `+` operator will add any permissions
 that you specify, but it will not change any permissions that you do not explicitly
@@ -55,18 +55,18 @@ on the line describing __status.sh__.
 a `-` argument to take away permissions. For example, `o-wx` would remove write
 and execute privileges from the others group while leaving the read value untouched.  
 
-Now the __guest__ user will be able to read, write, and execute __status.sh__.
-Switch back to the guest terminal and re-run the status script:
+Now the __rhel__ user will be able to read, write, and execute __status.sh__.
+Switch back to the rhel terminal and re-run the status script:
 
 `./status.sh`{{execute T2}}
 
 <pre class=file>
-status.sh successfully executed by guest
+status.sh successfully executed by rhel
 </pre>
 
 Since you added read, write, and execute permissions, you can do more than
-just execute this file as __guest__. Use the `cat` command to verify that you
-can read this file as __guest__.
+just execute this file as __rhel__. Use the `cat` command to verify that you
+can read this file as __rhel__.
 
 `cat status.sh`{{execute T2}}
 
