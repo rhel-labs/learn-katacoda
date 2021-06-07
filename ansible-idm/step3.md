@@ -36,6 +36,8 @@ Using *host03* terminal of the lab, make a DNS entry with the IP address of the 
 
 `sed -ie '2 a nameserver '"$IP_Server" /etc/resolv.conf`{{execute T4}}
 
+`perl -slpe 'print $s if $. == $n' -- -n=2 -s="nameserver $ENV{IP_Server}" /etc/resolv.conf`{{execute T4}} 
+
 Inspect the */etc/resolv.conf* file to ensure that there is a nameserver entry with the IdM server's IP -
 
 `cat /etc/resolv.conf`{{execute T4}}
