@@ -1,0 +1,12 @@
+# Overview:
+User accounts are an easy way to give users their own file storage locations, manage permissions, and track who made changes on a system. Spending some time customizing these accounts up front ensures that your system stays organized and users do not cause issues for each other.
+
+# Goal:
+After completing this scenario, participants will be able to create and remove user accounts, manage passwords for these user accounts, create groups and assign users to these groups, and understand how the file directory structure changes when users are added.
+
+# Concepts included in this scenario:
+* Create user accounts with `useradd`
+* Use `passwd` to manage passwords
+* Create groups with `groupadd`
+* Assign users to groups with `usermod`
+* Delete accounts with `userdel`
