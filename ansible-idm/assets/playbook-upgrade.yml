@@ -1,12 +1,11 @@
 ---
 - name: change hostname
-  hosts: control_node
+  hosts: control
   become: true
   tasks:
-
   - name: change hostname for device
     hostname:
-      name: "control"
+      name: host01.test.local
       
 - hosts: all
   tasks:
