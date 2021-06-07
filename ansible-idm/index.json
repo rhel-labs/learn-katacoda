@@ -60,7 +60,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "control", "target":"host01"},{"name":"host02","target":"host02"},{"name":"host03","target":"host03"}]
+    "terminals": [{"name": "control", "target":"host01"},{"name":"host02","target":"host2"},{"name":"host03","target":"host3"}]
   },
   "backend": {
     "imageid": "rhel8-cluster3"
