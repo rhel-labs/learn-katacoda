@@ -7,12 +7,28 @@
     hostname:
       name: host01.test.local
       
-- hosts: all
+#- hosts: all
+#  tasks:
+#  - name: Update Hostnames
+#    hostname:
+#      name: "{{ new_hostname }}"
+
+- name: change hostname
+  hosts: ipaserver
+  become: true
   tasks:
-  - name: Update Hostnames
+  - name: change hostname for device
     hostname:
-      name: "{{ new_hostname }}"
-        
+      name: host02.test.local
+
+- name: change hostname
+  hosts: ipaclients
+  become: true
+  tasks:
+  - name: change hostname for device
+    hostname:
+      name: host03.test.local
+
 - hosts: all
   tasks:
   - name: add hostname to /etc/hosts
