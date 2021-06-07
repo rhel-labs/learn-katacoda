@@ -4,7 +4,7 @@ ansible_user=root
 ansible_ssh_pass=katacoda
 
 [control_node]
-host01 new_hostname=host01.test.local
+host01 ansible_host=localhost ansible_connection=local new_hostname=host01.test.local
 
 [web]
 host02 new_hostname=host02.test.local
