@@ -8,10 +8,12 @@ Create a group called __viewers__ using the `groupadd` command:
 
 `groupadd viewers`{{execute T1}}
 
-`cat /etc/group | grep viewers`
+Search for the group name in the `/etc/group` file to confirm this was successful:
+
+`cat /etc/group | grep viewers`{{execute T1}}
 
 <pre class=file>
-viewers:x:1004:
+viewers:x:1003:
 </pre>
 
 This file shows the group name, the group ID, and which users belong to the group.
@@ -32,7 +34,7 @@ The `id` command is useful for validating this change:
 `id guest`{{execute T1}}
 
 <pre class=file>
-uid=1002(guest) gid=1002(guest) groups=1002(guest),1004(viewers)
+uid=1002(guest) gid=1002(guest) groups=1002(guest),1003(viewers)
 </pre>
 
 The __viewers__ group has been added alongside __guest__ in the _groups_ field.
@@ -42,4 +44,4 @@ If you instead wanted to replace the primary group for __guest__, use `-g`
 when calling `groupadd`. You cannot use `-a` to append a primary group, as
 users can only have one primary group.
 
-In the final step you will practice removing user accounts and groups. 
+In the final step you will practice removing user accounts and groups.

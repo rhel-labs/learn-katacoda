@@ -44,7 +44,7 @@ Try logging in as __guest__ to confirm the deletion:
 su: user guest does not exist
 </pre>
 
-If you try to delete a user that is logged in, you will get an
+>_NOTE:_ If you try to delete a user that is logged in, you will get an
 error such as the following:
 
 <pre class=file>
