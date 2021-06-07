@@ -7,8 +7,8 @@ ansible_ssh_pass=katacoda
 host01 new_hostname=host01.test.local
 
 [web]
-host02 new_hostname=host02.test.local
-host03 new_hostname=host03.test.local
+host02 ansible_connection=ssh new_hostname=host02.test.local
+host03 ansible_connection=ssh new_hostname=host03.test.local
 
 [ipaserver]
 host02
