@@ -101,6 +101,11 @@
       "external_link": "https://lab.redhat.com/stratis",
       "title": "Stratis, a new Red Hat Enterprise Linux storage technology",
       "description": "Get started with Stratis, a pool-based storage technology included with Red Hat Enterprise Linux."
+    },
+    {
+      "external_link": "https://lab.redhat.com/sandbox",
+      "title": "Red Hat Enterprise Linux Open Lab",
+      "description": "This lab environment has no pre-planned lab content.  It provides a place to try out Red Hat Enterprise Linux 8."
     }
   ]
 }
