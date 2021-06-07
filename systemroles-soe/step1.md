@@ -1,5 +1,13 @@
 # Configuring prerequisite repositories and packages
 
+Red Hat Enterprise Linux System Roles are a collection of supported Ansible
+roles that ensure consistent workflows and streamline the execution of manual
+tasks.
+
+Before you get started with the system roles themselves, your system needs to
+have some prerequisite RPM packages installed.  Specifically, the `ansible` and
+`rhel-system-roles` packages.
+
 First, configure the system to have access to the ansible repository included in your Red Hat Enterprise Linux subscription.
 
 `subscription-manager  repos --enable=ansible-2.9-for-rhel-8-x86_64-rpms`{{execute}}
@@ -25,4 +33,5 @@ Installing:
 <<< OUTPUT ABRIDGED >>>
 </pre>
 
-Now that you have the software installed to run the Ansible based RHEL System Roles, on the next step you will start using them!
+You have the software installed needed to use the Ansible based RHEL 
+System Roles, on the next step you will start using them!
