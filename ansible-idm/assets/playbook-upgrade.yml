@@ -5,17 +5,17 @@
     hostname:
       name: "{{ new_hostname }}"
         
-#- hosts: all
-#  tasks:
-#  - name: add hostname to /etc/hosts
-#    vars:
-#      comment: '# added by ansible'
-#    lineinfile:
-#      dest: /etc/hosts
-#      regexp: "127[.]0[.]0[.]1.*"
-#      line: "127.0.0.1 localhost.test.local localhost {{ ansible_hostname }} {{ comment }}"
-#      state: present
-#      backup: yes
+- hosts: all
+  tasks:
+  - name: add hostname to /etc/hosts
+    vars:
+      comment: '# added by ansible'
+    lineinfile:
+      dest: /etc/hosts
+      regexp: "127[.]0[.]0[.]1.*"
+      line: "127.0.0.1 localhost.test.local localhost {{ ansible_hostname }} {{ comment }}"
+      state: present
+      backup: yes
       
 - hosts: all 
   tasks:
