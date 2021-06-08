@@ -32,7 +32,7 @@
 
 - hosts: all 
   tasks:
- - name: Add Ansible inventory mappings to /etc/hosts
+  - name: Add Ansible inventory mappings to /etc/hosts
     become: true
     blockinfile:
       path: /etc/hosts
