@@ -44,4 +44,4 @@ If you instead wanted to replace the primary group for __guest__, use `-g`
 when calling `groupadd`. You cannot use `-a` to append a primary group, as
 users can only have one primary group.
 
-In the final step you will practice removing user accounts and groups.
+In the next step you will practice removing user accounts from groups.
