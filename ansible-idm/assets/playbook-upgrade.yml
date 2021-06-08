@@ -1,9 +1,9 @@
 ---
 - hosts: all
   tasks:
-  - name: Update Hostnames
+  - name: Change the hostname to our standard
     hostname:
-      name: "{{ new_hostname }}"
+      name="{{ new_hostname }}"
     when:
       ansible_fqdn != ansible_host
         
