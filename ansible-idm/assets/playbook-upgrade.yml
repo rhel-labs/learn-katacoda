@@ -4,6 +4,8 @@
   - name: Update Hostnames
     hostname:
       name: "{{ new_hostname }}"
+    when:
+      ansible_fqdn != ansible_host
         
 - hosts: all
   tasks:
