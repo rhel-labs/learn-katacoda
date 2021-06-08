@@ -30,23 +30,5 @@ it now does not exist.
 usermod: group 'viewers' does not exist
 </pre>
 
-# Deleting a user account
-
-Deleting a user is very similar to deleting a group:
-
-`userdel guest`{{execute T1}}
-
-Try logging in as __guest__ to confirm the deletion:
-
-`su - guest`{{execute T1}}
-
-<pre class=file>
-su: user guest does not exist
-</pre>
-
->_NOTE:_ If you try to delete a user that is logged in, you will get an
-error such as the following:
-
-<pre class=file>
-userdel: user guest is currently used by process 1909
-</pre>
+In the final step, you will walk through the process of removing a user
+from the system. 
