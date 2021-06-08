@@ -19,13 +19,22 @@
 #      state: present
 #      backup: yes
       
-- hosts: all 
-  tasks:
-  - name: Add IP address of all hosts to all hosts
-    lineinfile:
-      dest: /etc/hosts
-      regexp: '.*{{ item }}$'
-      line: "{{ hostvars[item].ansible_host }} {{item}}.test.local"
-      state: present
-    when: hostvars[item].ansible_host is defined
-    with_items: "{{ groups.all }}"
+#- hosts: all 
+#  tasks:
+# - name: Add IP address of all hosts to all hosts
+#    lineinfile:
+#      dest: /etc/hosts
+#      regexp: '.*{{ item }}$'
+#      line: "{{ hostvars[item].ansible_host }} {{item}}.test.local"
+#      state: present
+#    when: hostvars[item].ansible_host is defined
+#    with_items: "{{ groups.all }}"
+    
+- name: Add Ansible inventory mappings to /etc/hosts
+  become: true
+  blockinfile:
+    path: /etc/hosts
+    block: |
+      {% for host in groups['all'] %}
+      {{ hostvars[host].ansible_host }} {{ host }}.test.local
+      {% endfor %}
