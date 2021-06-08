@@ -1,52 +1,47 @@
-# Removing a user for a group
+# Adding groups
 
-If you want to remove a user from a group without deleting the group, run
-the following command:
+Groups are useful ways to carry out batch operations on a set of users.
+For example, files can be given permissions which apply to all users
+in the group that owns that file.
 
-`gpasswd -d guest viewers`{{execute T1}}
+Create a group called __viewers__ using the `groupadd` command:
+
+`groupadd viewers`{{execute T1}}
+
+Search for the group name in the `/etc/group` file to confirm this was successful:
+
+`cat /etc/group | grep viewers`{{execute T1}}
 
 <pre class=file>
-Removing user guest from group viewers
+viewers:x:1003:
 </pre>
 
->_NOTE:_ This change will not take effect until the user logs in again.
+This file shows the group name, the group ID, and which users belong to the group.
+In this case, __viewers__ does not yet have any users associated with it.
+Now you will see how to add users to this group.
 
-# Deleting a group
+# Adding users to a group
 
-If instead you want to delete the group all together, run the `groupdel` command
-as root.
-
-`groupdel viewers`{{execute T1}}
-
- If you are trying to remove the primary group of a user, you must remove
-that user first.
-
-Attempting to add a user to this group will print an error message showing that
-it now does not exist.
+Now that you have created this group, add the __guest__ user from the previous step
+to the __viewers__ group using `usermod`. You will use the secondary group option
+(`-G`) in conjunction with the append option (`-a`) to add __viewers__ without
+overwriting any existing groups associated with __guest__.
 
 `usermod -aG viewers guest`{{execute T1}}
 
-<pre class=file>
-usermod: group 'viewers' does not exist
-</pre>
+The `id` command is useful for validating this change:
 
-# Deleting a user account
-
-Deleting a user is very similar to deleting a group:
-
-`userdel guest`{{execute T1}}
-
-Try logging in as __guest__ to confirm the deletion:
-
-`su - guest`{{execute T1}}
+`id guest`{{execute T1}}
 
 <pre class=file>
-su: user guest does not exist
+uid=1002(guest) gid=1002(guest) groups=1002(guest),1003(viewers)
 </pre>
 
->_NOTE:_ If you try to delete a user that is logged in, you will get an
-error such as the following:
+The __viewers__ group has been added alongside __guest__ in the _groups_ field.
 
-<pre class=file>
-userdel: user guest is currently used by process 1909
-</pre>
+>_NOTE:_ Using the secondary group option (`-G`) adds __viewers__ as a _secondary group_ for the __guest__ user. Users can have any number of secondary groups.
+If you instead wanted to replace the primary group for __guest__, use `-g`
+when calling `groupadd`. You cannot use `-a` to append a primary group, as
+users can only have one primary group.
+
+In the next step you will practice removing user accounts from groups.

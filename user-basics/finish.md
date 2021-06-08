@@ -3,6 +3,7 @@
 * Used `passwd` to manage passwords
 * Created groups with `groupadd`
 * Assigned users to groups with `usermod`
+* Expired accounts with `chage`
 * Deleted accounts with `userdel`
 
 
