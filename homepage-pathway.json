@@ -23,9 +23,14 @@
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
     },
     {
-      "external_link": "https://lab.redhat.com/kpatch-apply",
-      "title": "Reducing unplanned maintenance with Kernel Live Patching",
-      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
+      "external_link": "https://lab.redhat.com/systemroles-soe",
+      "title": "Building a standard operating environment with RHEL System Roles",
+      "description": "Use RHEL System Roles to create and apply a standard set of configuration for systems using Ansible-based RHEL System Roles."
+    },
+    {
+      "external_link": "https://lab.redhat.com/file-permissions",
+      "title": "Using file permissions [Admin 101]",
+      "description": "Control access to file content using the Linux file permission system."
     },
     {
       "external_link": "https://lab.redhat.com/sql-server-cstore",
@@ -66,6 +71,11 @@
       "external_link": "https://lab.redhat.com/ansible-web-server",
       "title": "Deploying services with Ansible",
       "description": "Deploy the Apache web server using Ansible modules on Red Hat Enterprise Linux"
+    },
+    {
+      "external_link": "https://lab.redhat.com/kpatch-apply",
+      "title": "Reducing unplanned maintenance with Kernel Live Patching",
+      "description": "Resolve Critical Vulnerabilities and Exposures (CVEs) by applying Kernel Live Patches to your systems without needing to take a system downtime for maintenance."
     },
     {
       "external_link": "https://lab.redhat.com/webconsole-software",
