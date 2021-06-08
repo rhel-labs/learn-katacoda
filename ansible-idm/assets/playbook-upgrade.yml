@@ -29,12 +29,14 @@
 #      state: present
 #    when: hostvars[item].ansible_host is defined
 #    with_items: "{{ groups.all }}"
-    
-- name: Add Ansible inventory mappings to /etc/hosts
-  become: true
-  blockinfile:
-    path: /etc/hosts
-    block: |
-      {% for host in groups['all'] %}
-      {{ hostvars[host].ansible_host }} {{ host }}.test.local
-      {% endfor %}
+
+- hosts: all 
+  tasks:
+ - name: Add Ansible inventory mappings to /etc/hosts
+    become: true
+    blockinfile:
+      path: /etc/hosts
+      block: |
+        {% for host in groups['all'] %}
+        {{ hostvars[host].ansible_host }} {{ host }}.test.local
+        {% endfor %}
