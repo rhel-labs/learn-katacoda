@@ -1,6 +1,6 @@
 {
   "title": "Configuring and updating system configurations with System Roles",
-  "description": "In this lab you will use RHEL System Roles to apply and update configuration on several systems.",
+  "description": "In this lab you will use RHEL System Roles to create and apply a standard set of configuration.",
   "details": {
     "steps": [
       {
