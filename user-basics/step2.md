@@ -1,47 +1,51 @@
-# Adding groups
+# Setting the account password
 
-Groups are useful ways to carry out batch operations on a set of users.
-For example, files can be given permissions which apply to all users
-in the group that owns that file.
+User accounts are particularly useful because they require authentication.
+Individuals must input a matching username and password to access a user account.
 
-Create a group called __viewers__ using the `groupadd` command:
+The `passwd` command is used to configure passwords. Calling it with no
+arguments will default to changing the password for the account you are logged in
+as. With root permission, `passwd` can be called with a name of another user
+account to set their password.
 
-`groupadd viewers`{{execute T1}}
+Like with `useradd`, you must have root access to use this command. Set the password for the guest account you created in the previous step using the following command:
 
-Search for the group name in the `/etc/group` file to confirm this was successful:
+`passwd guest`{{execute T1}}
 
-`cat /etc/group | grep viewers`{{execute T1}}
+Type the password __rhel__ and press enter to set the password for this account.
+Type the same password again to confirm it.
 
-<pre class=file>
-viewers:x:1003:
-</pre>
+Here you use a four-character password for simplicity, but it is best practice to
+select a more secure password. In fact, non-root users would be unable to use
+the password __rhel__ for their account because it is too short and does not
+contain a number or uppercase letter. Root users can bypass these guidelines if
+they wish.
 
-This file shows the group name, the group ID, and which users belong to the group.
-In this case, __viewers__ does not yet have any users associated with it.
-Now you will see how to add users to this group.
+>_NOTE:_ When typing passwords on Linux no characters will show up. This can be confusing for some new users, but the password is still being typed.  
 
-# Adding users to a group
+Validate the password by using the list (`-l`) option for the `chage` command:
 
-Now that you have created this group, add the __guest__ user from the previous step
-to the __viewers__ group using `usermod`. You will use the secondary group option
-(`-G`) in conjunction with the append option (`-a`) to add __viewers__ without
-overwriting any existing groups associated with __guest__.
-
-`usermod -aG viewers guest`{{execute T1}}
-
-The `id` command is useful for validating this change:
-
-`id guest`{{execute T1}}
+`chage -l guest`{{execute T1}}
 
 <pre class=file>
-uid=1002(guest) gid=1002(guest) groups=1002(guest),1003(viewers)
+Last password change                                    : Jun 08, 2021
+Password expires                                        : Sep 06, 2021
+Password inactive                                       : Dec 05, 2021
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 90
+Number of days of warning before password expires       : 7
 </pre>
 
-The __viewers__ group has been added alongside __guest__ in the _groups_ field.
+This outputs useful information about when the password was last changed, when
+the password expires, and how long the user will have to change their password
+before it becomes inactive.
 
->_NOTE:_ Using the secondary group option (`-G`) adds __viewers__ as a _secondary group_ for the __guest__ user. Users can have any number of secondary groups.
-If you instead wanted to replace the primary group for __guest__, use `-g`
-when calling `groupadd`. You cannot use `-a` to append a primary group, as
-users can only have one primary group.
+>_NOTE:_ You can view this same information with the `passwd` command using various options, but `chage -l` provides it in a much more human-readable and concise format.
 
-In the next step you will practice removing user accounts from groups.
+You can use the `passwd` command for many more actions, such as setting an
+expiration date or locking users from logging in with their password. Check out
+the Enable Sysadmin article [Managing Linux users with the passwd command](https://www.redhat.com/sysadmin/managing-users-passwd) for more information on these
+actions.
+
+The next step will demonstrate how to add users to groups on a system.
