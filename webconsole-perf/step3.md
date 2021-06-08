@@ -10,5 +10,5 @@ This test will run for a 45-second duration and will drive usage across both the
 
 <pre class="file">
 stress-ng: info:  [47161] dispatching hogs: 2 matrix
-stress-ng: info:  [47161] successful run completed in 30.00s
+stress-ng: info:  [47161] successful run completed in 45.00s
 </pre>
