@@ -9,4 +9,5 @@ After completing this scenario, participants will be able to create and remove u
 * Use `passwd` to manage passwords
 * Create groups with `groupadd`
 * Assign users to groups with `usermod`
+* Expire accounts with `chage`
 * Delete accounts with `userdel`
