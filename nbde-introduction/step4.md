@@ -1,35 +1,51 @@
-# Ansible Inventory
 
-This step will have you locate and understand an ini formatted inventory file.
+# Binding the encrypted devices to `tang`
 
-Examine the Ansible inventory file in the home directory.  Use the Linux `cat` command to example the `/root/hosts` file:
+## Execute `clevis luks bind`
 
-`cat /root/hosts`{{execute}}
+To bind the encrypted devices to `tang`, we will have to issue a `clevis luks bind` command for every encrypted device we have. We will also need the IP address of our tang server, which is `192.168.122.1`.
 
-For the purposes of this exercise the passwords are provided here in plain-text.  In production you can use the Red Hat Ansible Platform to encrypt passwords using [credential management](https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html).  Credential management with Ansible can also be fully integrated into CyberArk or Vault by HashiCorp.
+In the previous step, we identified the following encrypted device:
 
-There is an default group named `[all]`.  This means all hosts are part of the **all** group. To define variables in a group you can use the `:vars` which will apply these variables to all members of the group.
+- `/dev/vda2`
+
+Let's now bind this device to our `tang` server. We can do it by issuing the following command:
+
+`clevis luks bind -d /dev/vda2 tang '{"url":"192.168.122.1"}'`{{execute}}
+
+Breaking down the previous command, we have the following:
+- the encrypted device -- indicated with `-d /dev/vda2`
+- the type of binding we want to do -- `tang`, in this case
+- the `tang` configuration we are using, that contains the address of the `tang` server -- `{"url":"192.168.122.1"}`. Note that this configuration is specified in a JSON format.
+
+After entering the previous command, it will:
+
+1. prompt you for an existing LUKS password -- use `katacoda`
+2. Inform you that the advertisement contains a given signing key and ask you to accept it -- please press `y` and `<enter>`
+
+
+| Enter existing LUKS password: | Do you wish to trust these keys? [ynYN] |
+|-------------------------------|-----------------------------------------|
+|`katacoda`{{execute}}          | `y`{{execute}}                          |
+
+
+If all goes well, you will not see any further output.
+
+## Checking whether our binding was actually created
+
+To verify whether the previous command really created a binding with our `tang` server, we use the `clevis luks list`
+command. Similar to `clevis luks bind`, we need to also specify the device we are interested to get more information
+about with the `-d` parameter.
+
+So, to check whether there are any `clevis` bindings in our `/dev/vda2` device, please issue the following command:
+
+`clevis luks list -d /dev/vda2`{{execute}}
+
+You should see the following output:
 
 ```
-[all:vars]
-ansible_user=root
-ansible_ssh_pass=katacoda
-```
-Next we have two groups, one of the control node, just containing `host01`
-```
-[control_node]
-host01 ansible_host=localhost ansible_connection=local
+1: tang '{"url":"192.168.122.1"}'
 ```
 
-The `host01` node has two host vars (or variables specific to this individual host).
-
-- `ansible_host` this is an optional variable where if your Ansible inventory name does not match your DNS name you can hardcode the DNS name or an IP address.
-- `ansible_connection` - this means the host is using the local connection rather than the default SSH.  Other values include `network_cli` for network devices like a Cisco Router or `winrm` to run tasks over Microsoft's WinRM.  For a full list [check the documentation.](https://docs.ansible.com/ansible/latest/plugins/connection.html)
-
-and finally there is one group named `web` with our two managed hosts
-
-```
-[web]
-host02
-host03
-```
+This means that slot `#1` of LUKS device `/dev/vda2` has a `tang` binding with the displayed
+configuration -- i.e., the `tang` server it is bound to has address `192.168.122.1`.
