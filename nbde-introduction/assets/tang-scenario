@@ -1,4 +1,6 @@
 #!/bin/sh
 
 clear
+cp /opt/data/tang-container-check /usr/bin/boot-clevis
+chmod +x /usr/bin/boot-clevis
 bash

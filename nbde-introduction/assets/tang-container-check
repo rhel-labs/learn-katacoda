@@ -1,0 +1,16 @@
+#!/bin/sh
+
+die() {
+    echo "${1}" >&2
+    echo "Please make sure to follow the instructions from step 2." >&2
+    exit 1
+}
+
+# Check whether tang is installed and running.
+rpm -q tang >/dev/null || die "tang has not been installed."
+systemctl is-active --quiet tangd.socket || die "tang has not been started"
+
+# Things are OK, so let's signal this.
+touch /opt/data/tang.done
+# And exit the container.
+kill $(pidof bash | sed -e s/$$//g)

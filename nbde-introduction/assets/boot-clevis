@@ -1,0 +1,35 @@
+#!/bin/bash
+set -eo pipefail
+
+vm_ready() {
+    if virsh list --name --state-shutoff | grep clevis; then
+        clear
+        return 0
+    fi
+    clear
+    return 1
+}
+
+vm_running() {
+    if virsh list --name --state-running | grep clevis; then
+        clear
+        return 0
+    fi
+    clear
+    return 1
+}
+
+vm_running && echo "clevis machine is already up and running" && exit 0
+
+clear
+# Waiting for VM to be ready / running.
+while true; do
+    vm_ready && break
+    vm_running && break
+    sleep 2
+done
+
+if vm_ready; then
+    virsh start clevis && clear
+    virsh console clevis
+fi
