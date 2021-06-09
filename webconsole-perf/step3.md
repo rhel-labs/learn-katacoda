@@ -4,7 +4,7 @@
 
 Stress-ng has a wide range of CPU specific stress tests that exercise floating point, integer, bit manipulation and control flow. In this step of the lab, we will use the CPU-intensive matrix stressor, which is one of the many tests that heats CPUs the best.
 
-Run the stress-ng matrix stressor -
+Using the terminal window,  the stress-ng matrix stressor -
 
 `stress-ng --matrix 0 -t 45s`{{execute T1}}
 
