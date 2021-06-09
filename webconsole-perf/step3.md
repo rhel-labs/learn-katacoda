@@ -14,3 +14,9 @@ The stressor should run for a 45-second duration and will drive up CPU utilizati
 stress-ng: info:  [47161] dispatching hogs: 2 matrix
 stress-ng: info:  [47161] successful run completed in 45.00s
 </pre>
+
+While stress-ng is still running, you will see that the 2 CPUs are hot on the CPU tile in the web console 
+
+![Look at CPU Activity](./assets/CPU_hot_at_a_glance.png)
+
+The CPU graph will also be updated with the **CPU spike** message and graph
