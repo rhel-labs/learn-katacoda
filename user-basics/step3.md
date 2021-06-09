@@ -4,20 +4,31 @@ Groups are useful ways to carry out batch operations on a set of users.
 For example, files can be given permissions which apply to all users
 in the group that owns that file.
 
-Create a group called __viewers__ using the `groupadd` command:
+Create a group called __viewers__ using the `groupadd` command. You will use
+the `-g` option to specify a group ID (gid), in this case _10000_:
 
-`groupadd viewers`{{execute T1}}
+`groupadd -g 10000 viewers`{{execute T1}}
+
+>_NOTE:_ Every time a new user is created, there is a primary group that is
+automatically generated for the user. When creating your own group, it is best
+practice to specify a gid that
+leaves room for primary groups to be be generated with the same ID as the user
+account. New user ids typically will be generated starting from 1000. Selecting a
+gid of _10000_ in this example ensures that new user accounts
+will have ample space to generate their own primary group IDs that are equivalent
+to their user ID.
 
 Search for the group name in the `/etc/group` file to confirm this was successful:
 
-`cat /etc/group | grep viewers`{{execute T1}}
+`grep -w viewers /etc/group`{{execute T1}}
 
 <pre class=file>
-viewers:x:1003:
+viewers:x:10000:
 </pre>
 
-This file shows the group name, the group ID, and which users belong to the group.
-In this case, __viewers__ does not yet have any users associated with it.
+This file shows the group name, the gid, and which users belong to the group.
+In this case, __viewers__ does not yet have any users associated with it, but
+you can see the custom gid of _10000_ was successfully set.
 Now you will see how to add users to this group.
 
 # Adding users to a group
@@ -29,15 +40,17 @@ overwriting any existing groups associated with __guest__.
 
 `usermod -aG viewers guest`{{execute T1}}
 
-The `id` command is useful for validating this change:
+The `groups` command is useful for validating this change, because it lists
+all groups associated with a user:
 
-`id guest`{{execute T1}}
+`groups guest`{{execute T1}}
 
 <pre class=file>
-uid=1002(guest) gid=1002(guest) groups=1002(guest),1003(viewers)
+guest : guest viewers
 </pre>
 
-The __viewers__ group has been added alongside __guest__ in the _groups_ field.
+The __viewers__ group has been added alongside the account's primary group
+(__guest__).
 
 >_NOTE:_ Using the secondary group option (`-G`) adds __viewers__ as a _secondary group_ for the __guest__ user. Users can have any number of secondary groups.
 If you instead wanted to replace the primary group for __guest__, use `-g`

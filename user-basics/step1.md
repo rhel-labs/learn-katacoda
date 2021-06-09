@@ -14,7 +14,7 @@ Add a new account called __guest__ using the `useradd` command:
 
 Confirm the account creation by examining the __passwd__ file.
 
-`cat /etc/passwd | grep guest`{{execute T1}}
+`grep -w guest /etc/passwd`{{execute T1}}
 
 <pre class=file>
 guest:x:1002:1002::/home/guest:/bin/bash
