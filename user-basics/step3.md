@@ -5,7 +5,7 @@ For example, files can be given permissions which apply to all users
 in the group that owns that file.
 
 Create a group called __viewers__ using the `groupadd` command. You will use
-the `-g` option to specify a group ID (gid), in this case _10000_:
+the `-g` option to specify a group ID (gid), in this case 10000:
 
 `groupadd -g 10000 viewers`{{execute T1}}
 
@@ -13,8 +13,8 @@ the `-g` option to specify a group ID (gid), in this case _10000_:
 automatically generated for the user. When creating your own group, it is best
 practice to specify a gid that
 leaves room for primary groups to be be generated with the same ID as the user
-account. New user ids typically will be generated starting from 1000. Selecting a
-gid of _10000_ in this example ensures that new user accounts
+account. New user IDs are typically generated ascending from 1000. Selecting a
+gid of 10000 in this example ensures that new user accounts
 will have ample space to generate their own primary group IDs that are equivalent
 to their user ID.
 
@@ -28,7 +28,7 @@ viewers:x:10000:
 
 This file shows the group name, the gid, and which users belong to the group.
 In this case, __viewers__ does not yet have any users associated with it, but
-you can see the custom gid of _10000_ was successfully set.
+you can see the custom gid of 10000 was successfully set.
 Now you will see how to add users to this group.
 
 # Adding users to a group

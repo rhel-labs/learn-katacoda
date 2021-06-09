@@ -30,8 +30,8 @@ command provides.
 Sometimes you may want to do more than just disable the account.
 Deleting a user is very similar to deleting a group. Running `userdel guest` removes
 the __guest__ account from the system. It is often the case that you would
-also want to delete this user's files so that a new user account wouldn't inherit
-them if created with the user ID that used to belong to __guest__. If this is the case,
+also want to delete this user's home directory. This avoids a new user account inheriting __guest__'s files when the new account inherits the user ID that used to
+belong to __guest__. If you do wish to delete the home directory along with the account,
 first back up __guest__'s files. Then, add the `-r` option to specify that you wish to
 delete the user's home directory along with the user account.
 
@@ -53,8 +53,8 @@ Also confirm that the __guest__ home directory has been deleted:
 ls: cannot access '/home/guest': No such file or directory
 </pre>
 
->_NOTE:_ If you try to delete a user that still has active processes, you will get an
-error such as the following. You must kill this user's processes and try again.
+>_NOTE:_ If you try to delete a user that still has active processes, you will get
+the error displayed below. You must kill this user's processes and try again.
 
 <pre class=file>
 userdel: user guest is currently used by process 1909
