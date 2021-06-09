@@ -1,9 +1,9 @@
 # In this lab you have:
 * Created user accounts with `useradd`
-* Used `passwd` to manage passwords
+* Used `passwd` and `chage` to manage passwords
 * Created groups with `groupadd`
 * Assigned users to groups with `usermod`
-* Expired accounts with `chage`
+* Expired accounts with `usermod`
 * Deleted accounts with `userdel`
 
 

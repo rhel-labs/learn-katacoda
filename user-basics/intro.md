@@ -6,8 +6,8 @@ After completing this scenario, participants will be able to create and remove u
 
 # Concepts included in this scenario:
 * Create user accounts with `useradd`
-* Use `passwd` to manage passwords
+* Use `passwd` and `chage` to manage passwords
 * Create groups with `groupadd`
 * Assign users to groups with `usermod`
-* Expire accounts with `chage`
+* Expire accounts with `usermod`
 * Delete accounts with `userdel`
