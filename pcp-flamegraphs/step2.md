@@ -40,6 +40,7 @@ The report option of perf script can be used to generate an HTML format report f
 `perf script report flamegraph`{{execute T2}}
 
 To generate a command line output of the stack trace, you can use -
+
 `perf report -n --stdio`{{execute T2}}
 
 A flamegraph.html file should be generated.
