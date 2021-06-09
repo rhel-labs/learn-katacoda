@@ -8,13 +8,10 @@ Notice the graph that shows the CPU, Disk I/O and Network utilization
 
 There are vertical lines for each system resource - CPU, Memory, Disk and Network
 
-For CPU, the graph on the left of the line shows the **utilization**, and the graph on the right of the graph shows the **saturation**.
+For CPU, the graph on the left of the line shows the **utilization**, and the graph on the right of the graph shows the **saturation**
 
-If stress-ng is still running, you will see that the 2 CPUs are hot on the CPU tile-
+If stress-ng is still running, you will see that the 2 CPUs are hot on the CPU tile
+
 ![Look at CPU Activity](./assets/CPU_hot_at_a_glance.png)
 
-After stress-ng has finished, you will notice a CPU spike
-
-
-
-
+The CPU graph will also be updated with the **CPU spike** message and graph
