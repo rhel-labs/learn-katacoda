@@ -1,19 +1,57 @@
-!#/bin/bash
+#!/bin/bash
 
-n=1
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+LOGFILE="/root/post-run.log"
+DONEFILE="${LOGFILE}".done
 
-while [ ! -f /root/post-run.log.done ] ;
-do
-      if test "$n" = "1"
-      then
-      clear
-            n=$(( n+1 ))	 # increments $n
-      else
-      printf "."
-      fi
-      sleep 2
+log() {
+    echo "${1}" >> "${LOGFILE}"
+}
+
+write() {
+    log "${1}"
+    clear && echo "${1}"
+}
+
+hw_vm() {
+    retvm=$(virt-host-validate 2>/dev/null | grep 'hardware virt' \
+            | awk '{ print $7 }')
+    if [ "${retvm}" = "PASS" ]; then
+        echo "YES"
+        return 0
+    fi
+    echo "NO"
+    return 0
+}
+
+get_os() {
+    os=$(grep ^ID= /etc/os-release | cut -d'=' -f2 | tr -d '"')
+    case "${os}" in
+    ubuntu)
+        export OS=ubuntu
+        ;;
+    rhel)
+        export OS=RHEL8
+        ;;
+    *)
+        die "Unsupported operating system"
+        ;;
+    esac
+}
+
+get_os
+
+START="${SECONDS}"
+intro=
+while [ ! -f "${DONEFILE}" ]; do
+    if [ -z "${intro}" ]; then
+        write "Please wait while the scenario is being prepared. It may take a little while..."
+        intro=true
+    fi
+
+    printf "."
+    sleep 2
 done
-clear
-echo -e "${GREEN}Ready to start your scenario${NC}"
+
+ELAPSED=$((SECONDS-START))
+write "Ready to start your scenario (preparation took ${ELAPSED} seconds, HW virt supported: $(hw_vm))"
+[ "${OS}" = "ubuntu" ] && docker exec -it tang /opt/data/tang-scenario

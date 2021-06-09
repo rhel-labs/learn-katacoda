@@ -1,58 +1,45 @@
-# Ansible Playbook Overview
 
-Playbooks are Ansible’s configuration, deployment, and orchestration language. They can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process.
+# Enabling automated unlocking of encrypted devices on boot
 
-## Ansible Playbook components
+To enable automated unlocking of LUKS devices on boot, we need to make sure there is a `clevis` binding for each of these devices to a tang server, which we did in the previous steps, and then we need to rebuild our initramfs to include the `clevis` machinery required to to the unlocking.
 
-A playbook is where you can take some of those ad-hoc commands you just ran and put them into a repeatable set of *plays* and *tasks*.
+For completeness, we need to also enable a specific systemd unit that will attempt to unlock any other encrypted devices that are bound with clevis -- this unlock step happens late in the boot process; usually non-root devices are unlocked at this point, e.g. an encrypted `/home`. We can enable this late-boot unlocking step by issuing the following command:
 
-Playbooks are text files written in YAML format and therefore need:
+`systemctl enable clevis-luks-askpass.path`{{execute}}
 
-  - to start with three dashes (`---`)
+And finally, since `clevis` needs to be able to reach the `tang` server during early boot, we need to actually enable networking there, which can be done with a `dracut` configuration file.
 
-  - proper indentation using spaces and **not** tabs\!
+## Enabling networking in early boot
 
-There are some important concepts:
+By default, there is no network available in early boot, but if we need it, we can request it from `dracut` with some additional configuration. This is the case here: we want to use a `tang` server, so we require network in early boot, to be able to reach it for the automated unlocking step.
 
-  - **hosts**: the managed hosts to perform the tasks on
+We can do that by creating a `.conf` file within `/etc/dracut.conf.d/` with the following content:
+`kernel_cmdline="rd.neednet=1"`. This indicates to `dracut` that we want networking available early on during the boot process.
 
-  - **tasks**: the operations to be performed by invoking Ansible modules and passing them the necessary options.
+Please issue the following command to create this configuration file:
 
-  - **become**: privilege escalation in Playbooks, same as using `-b` in the ad hoc command.
+`echo 'kernel_cmdline="rd.neednet=1"' | sudo tee /etc/dracut.conf.d/clevis.conf`{{execute}}
 
-## Examine the Ansible Playbook
+We can now regenerate the initramfs, which will both add the `clevis` machinery required for the
+unlocking and also enable networking in early boot, as per our `dracut` configuration file.
+To do that, please issue the following command, and have in mind that this command may take a little while to complete:
 
-This exercise has provided an already complete Ansible Playbook.  To examine this playbook use the Linux `cat` command
+`dracut -f --regenerate-all`{{execute}}
 
-`cat playbook.yml`{{execute}}
+## Let's test it all: reboot the machine
 
-This Ansible Playbook has one task.
+To check whether everything worked, at this point we can simply reboot the clevis machine and watch it booting up -- please remember to **not** type the LUKS passphrase this time, when prompted:
 
-```yaml
-  - name: change hostname for device
-    hostname:
-      name: "control"
-```
+`reboot`{{execute}}
 
-- `- name:` is where we give a description of this task that is printed to the terminal window
-- `yum:` is the module that this task uses.  Tasks and modules have a one-to-one correlation.  Click here for more information on the [yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html).
-- `name: "control"` - is a parameter we provide to the `yum` module.  The key is name and the string `"control"` is provided as the value.  This means the hostname of the control node will be changed to `control`
+The machine should reach the login prompt _without your intervention_, which means the NBDE setup
+was performed successfully and the encrypted device was unlocked automatically.
 
-## Execute the Ansible Playbook
+![login prompt](./assets/clevis-login.png)
 
-Use the `ansible-playbook` command to execute the playbook:
+Note that if `tang` server `192.168.122.1` is not available, the automated unlocking step will not
+complete, which means that you will have to enter a valid LUKS passphrase yourself, just like in a regular
+boot without NBDE -- `/dev/vda2` is bound to a specific network server, and from this comes the
+name _Network-Bound Disk Encryption_ (NBDE).
 
-`ansible-playbook playbook.yml`{{execute}}
-
-To verify the hostname took place:
-`hostnamectl`{{execute}}
-
-You will see the following output:
-`Static hostname: control`
-
-To see this change on the terminal window re-login to the control node:
-
-`ssh localhost`{{execute}}
-
-Verify that the hostname has changed, you should use
-`[root@control ~]#`
+This completes our training scenario.
