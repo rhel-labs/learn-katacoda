@@ -1,4 +1,4 @@
-# Generate a CPU-intensive workload
+# Generate CPU-intensive load
 
 **stress-ng** is a tool designed to stress a system in different ways. It has a wide range of CPU specific stress tests that exercise floating point, integer, bit manipulation and control flow.
 
