@@ -13,7 +13,12 @@ Like with `useradd`, you must have root access to use this command. Set the pass
 `passwd guest`{{execute T1}}
 
 Type the password __rhel__ and press enter to set the password for this account.
+
+`rhel`{{execute T1}}
+
 Type the same password again to confirm it.
+
+`rhel`{{execute T1}}
 
 Here you use a four-character password for simplicity, but it is best practice to
 select a more secure password. In fact, non-root users would be unable to use
