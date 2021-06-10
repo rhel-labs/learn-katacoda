@@ -1,84 +1,39 @@
-# Examine Ansible software version
 
-Run the ansible command with the --version flag to see not only the version of Ansible that's installed, but also a few other key details:
+# Setting up `tang`
 
-`ansible --version`{{execute}}
+To start setting up `tang`, go to the `Terminal` tab.
 
-The output will look similar to the following:
+![Terminal tab tang highlighted](./assets/terminal-tang-highlight.png)
 
-```
-[root@c01c899604a3 ~]# ansible --version
-ansible 2.9.6
-  config file = /root/ansible.cfg
-  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3.6/site-packages/ansible
-  executable location = /usr/bin/ansible
-  python version = 3.6.8 (default, Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]
-```
-
-Take note of the config file
-```
-config file = /root/ansible.cfg
-```
-
-We always know from our current working directory which Ansible Configuration file we are using and in turn, which inventory we are using.
-
-# Intro to ad-hoc commands
-
-We are going to run some ad-hoc commands to help you get a feel for how Ansible works.  Ansible Ad-Hoc commands enable you to perform tasks on remote nodes without having to write a playbook.  
-
-Use the `ansible` command and provide the group you want to execute on.  Try using the `--list-hosts` command:  
-
-`ansible web --list-hosts`{{execute}}`
-
-The output will look like this:
+When the scenario is ready, you should see a prompt similar to this:
 
 ```
-  hosts (2):
-    host02
-    host03
+[root@tang /]#
 ```
 
-now compare this to
+## Installing and starting `tang`
 
-`ansible all --list-hosts`{{execute}}
+We start by installing `tang`, which can be done by issuing the following command:
 
-The output will look like this:
+`dnf install -y tang`{{execute}}
 
-```
-  hosts (3):
-    host01
-    host02
-    host03
-```
+Once the previous command completes, please start and enable `tang` with the following command:
 
-You will notice that the group web only contains `host02` and `host03` whereas all also contains `host01`
+`systemctl enable --now tangd.socket`{{execute}}
 
-# Determining	connectivity
+## Checking whether `tang` is responding properly
 
-We can also use modules to perform ad-hoc tasks.  The most common example is using the [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html) to determine connectivity from the control node to managed hosts.
+At this point, `tang` should be up and running, and we can verify this by issuing the following command, which will download a `tang` advertisement:
 
-The `-m` option defines which Ansible module to use
+`curl localhost/adv`{{execute}}
 
-`ansible web -m ping`{{execute}}
+We should see as output a JSON that looks like this:
 
-The output will look like the following:
-
-```
-host03 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/libexec/platform-python"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-host02 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/libexec/platform-python"
-    },
-    "changed": false,
-    "ping": "pong"
-}
+```json
+{"payload": "eyJrZXlz...", "protected": "eyJhbGciOiJFUzUxMiIsImN0eSI6Imp3ay1zZXQranNvbiJ9", "signature": "ACWDhcrj0fQxLS4sgVW7wsFryYMZgQVppDQALKHqMaJksH_RzJFPM8cOA24CUchLKpTjBG51hby9d_CesDYkb4BlAd4NafoLVSXq_YxaCdaItoEaGEAjCXMMFZIBJMqkVCoKtIK_3VUdZD3PqU4wQnfhhk2Tx_Vt1hZYpcKocoOzft2W"}
 ```
 
-You will see green return values in the terminal window with the hostname and **SUCCESS**.
+This indicates that the server is responding as expected.
+
+Note that the actual values for the `payload` and other fields in the JSON will differ from
+the example output displayed above.

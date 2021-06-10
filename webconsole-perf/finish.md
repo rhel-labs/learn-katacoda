@@ -1,7 +1,6 @@
 # In this lab you have:
-* Authenticated to the **Web Console**
-* Inspected available updates using the **Software Updates** application
-* Applied software updates using the **Software Updates** application
+* Authenticating to the **Web Console**
+* Inspect system performance using the **PCP-Cockpit** integration
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)

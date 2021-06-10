@@ -1,11 +1,22 @@
-# Examine available updates
+# Generate CPU-hot workload
 
-You can see on the **Software Updates** application that there are several updates available for your system.
+**stress-ng** can stress various system resources such as CPU, cache, disk, memory, socket pipe I/O, scheduling and much more. 
 
-![Available Software Updates](./assets/Available-Updates.png)
+Stress-ng has a wide range of CPU specific stress tests that exercise floating point, integer, bit manipulation and control flow. In this step of the lab, we will use the CPU-intensive matrix stressor, which is one of the many tests that heats CPUs the best.
 
-In addition to the software package names and versions, the update type is indicated in the **Severity** field.  In the **Details** section, you see the first entry in the software's changelog. 
+Using the terminal window,  the stress-ng matrix stressor -
 
-If you mouse-over and toggle-open the listing of an update, you'll be able to inspect additional information such as complete changelog entries from the package developer, Common Vulnerability and Exposures (CVE) number [if applicable], and more. 
+`stress-ng --matrix 0 -t 45s`{{execute T1}}
 
-Once you have explored the information provided with the updates, please move to the next step.
+The stressor should run for a 45-second duration and will drive up CPU utilization across both the v-CPUs on the instance.
+
+<pre class="file">
+stress-ng: info:  [47161] dispatching hogs: 2 matrix
+stress-ng: info:  [47161] successful run completed in 45.00s
+</pre>
+
+While stress-ng is still running, you will see that the 2 CPUs are hot on the CPU tile in the web console 
+
+![Look at CPU Activity](./assets/CPU_hot_at_a_glance.png)
+
+The CPU graph will also be updated with the **CPU spike** message and graph
