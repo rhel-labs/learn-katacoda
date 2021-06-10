@@ -10,23 +10,18 @@ account to set their password.
 
 Like with `useradd`, you must have root access to use this command. Set the password for the guest account you created in the previous step using the following command:
 
-`passwd guest`{{execute T1}}
+`echo rhel | passwd --stdin guest`{{execute T1}}
 
-Type the password __rhel__ and press enter to set the password for this account.
-
-`rhel`{{execute T1}}
-
-Type the same password again to confirm it.
-
-`rhel`{{execute T1}}
+This command will set the password in one line by using the `--stdin` option.
+This is useful when setting passwords inside a script or any other case when
+you want to avoid interactively setting the password. If you instead call
+`passwd guest`, you get a chance to type the password interactively to set it.
 
 Here you use a four-character password for simplicity, but it is best practice to
 select a more secure password. In fact, non-root users would be unable to use
 the password __rhel__ for their account because it is too short and does not
 contain a number or uppercase letter. Root users can bypass these guidelines if
 they wish.
-
->_NOTE:_ When typing passwords on Linux no characters will show up. This can be confusing for some new users, but the password is still being typed.  
 
 Validate the password by using the list (`-l`) option for the `chage` command:
 
