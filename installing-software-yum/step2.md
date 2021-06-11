@@ -39,7 +39,7 @@ packages on your system (including YUM itself).
 
 Removing a package follows the same theme of simplicity.
 
-`yum remove crontabs.noarch`{{execute}}
+`yum remove -y crontabs.noarch`{{execute}}
 
 The extensive output shows you information about which dependent RPMs were
 removed as part of this transaction.
