@@ -7,7 +7,7 @@ Wireshark package to test out this validation functionality:
 
 `rm -f /usr/share/icons/hicolor/256x256/apps/wireshark.png`{{execute}}
 
-Use the `-V` option with `rpm` to check the status of Wireshark.
+Use the `-V` option with `rpm` to check the file status of Wireshark.
 
 `rpm -V wireshark`{{execute}}
 

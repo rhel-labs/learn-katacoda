@@ -4,11 +4,14 @@ The `history` subcommand provides a summary of recent `yum` transactions.
 
 `yum history`{{execute}}
 
+The output contains transaction IDs in the first column, which are how you reference
+specific locations in the transaction history when executing rollbacks.
+
 <pre class=file>
 Updating Subscription Management repositories.
 ID     | Command line             | Date and time    | Action(s)      | Altered
 -------------------------------------------------------------------------------
-     5 | install wireshark        | 2021-06-10 22:30 | Install        |   36   
+     5 | install -y wireshark     | 2021-06-10 22:30 | Install        |   36   
      4 | install -y gcc llvm-libs | 2021-03-11 22:22 | Install        |   13   
      3 | install -y buildah podma | 2021-03-11 22:21 | I, U           |  216   
      2 | install -y rsync         | 2021-03-11 22:20 | Install        |    1   
@@ -23,7 +26,7 @@ with the package.
 
 >_NOTE:_ The `last-1` keyword is used here to specify that the rollback
 the state of the system to how it was before the most recent transaction.
-You can use relative offsets, such as `last-3`, or you can use absolute
+You can use other relative offsets, such as `last-3`, or you can use absolute
 transaction IDs. For example, `yum history rollback 2` would rollback to the
 transaction where __rsync__ was installed.
 

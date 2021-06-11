@@ -2,7 +2,8 @@
 
 YUM is the standard package manager, but this does not mean that RPM is
 obsolete. Detailed queries can be carried out using RPM using the
-query option (`-q`).
+query option (`-q`). This step will walk you through three examples of how to use
+this option.
 
 # Listing files installed by a package
 
@@ -21,15 +22,14 @@ to know where specific files are located.
 << OUTPUT ABRIDGED >>
 </pre>
 
-Now you can see that you would run the Wireshark application from the directory
-`usr/bin/wireshark`.
+Now you can see that the Wireshark application is located at `usr/bin/wireshark`.
 
 # Listing installation scripts
 
 Some packages run scripts to finish up their installation process. The `--scripts`
 option can be used in combination with `rpm -q` to return the contents of these
 postinstall scripts for a specific package. Wireshark does not actually have
-any of these scripts, so instead try this command with the __httpd__ package.
+any postinstall scripts, so instead try this command with the __httpd__ package.
 
 `rpm -q --scripts httpd`{{execute}}
 
@@ -43,13 +43,13 @@ fi
 << OUTPUT ABRIDGED >>
 </pre>
 
-For example, this script creates a preset for the __httpd__ service behind the scenes
-when the package is installed.
+The output shows a script that creates a preset for the __httpd__ service behind
+the scenes when the package is installed.
 
 # Showing changelog
 
-Specifying `--changelog` will display what has recently been changed
-in a package.
+Specifying `--changelog` with `rpm -q` will display what has recently been
+changed in a package.
 
 `rpm -q --changelog wireshark`{{execute}}
 
@@ -61,3 +61,5 @@ Tue Oct 29 2019 Michal Ruprich <mruprich@redhat.com> - 1:2.6.2-12
 - Related: #1602731 - Fixing multilib problem in devel subpackage
 << OUTPUT ABRIDGED >>
 </pre>
+
+The next step will walk you through another use for `rpm`, file validation.

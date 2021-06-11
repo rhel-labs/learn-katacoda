@@ -26,13 +26,12 @@ Upgrade  5 Packages
 << OUTPUT ABRIDGED >>
 </pre>
 
-
 >_NOTE:_ You sometimes see the subcommand `upgrade` being used somewhat interchangeably
 with `update`. The difference between these two subcommands is that `upgrade` will
 remove any obsolete packages from the system. Often the configuration for YUM
-is such that these subcommands will both carry out the upgrade operation.  
+is such that these subcommands will both carry out the `upgrade` operation.  
 
-If you instead want to just make sure your entire system is up to date, running
+If you instead want to make sure your entire system is up to date, running
 `yum update` without any other arguments will check for updates for all
 packages on your system (including YUM itself).
 
@@ -41,6 +40,9 @@ packages on your system (including YUM itself).
 Removing a package follows the same theme of simplicity.
 
 `yum remove crontabs.noarch`{{execute}}
+
+The extensive output shows you information about which dependent RPMs were
+removed as part of this transaction.
 
 <pre class=file>
 << OUTPUT ABRIDGED >>

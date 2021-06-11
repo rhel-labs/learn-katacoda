@@ -1,8 +1,7 @@
 # What is a package manager?
 
 Package managers are programs which install, update, and remove software.
-Doing these operations by hand would be tedious and prone to mistakes, as
-many modern packages contain interdependent software. By bundling these
+Doing these operations by hand would be tedious and prone to mistakes. By bundling these
 functionalities into a single tool, users have a more streamlined experience.
 
 YUM has even more utility because it performs dependency resolution whenever
@@ -13,17 +12,17 @@ examples of how to use YUM to streamline your package management.
 
 Install the network analysis application Wireshark using `yum`. This application
 is useful for troubleshooting network packets that are traveling in and out
-of your system. This functionality is not important to this lab, this application
+of your system. This functionality is not important to this lab. This application
 was picked simply because it serves as a good test subject for the upcoming examples.
 
-`yum install -y wireshark`{{execute T1}}
+`yum install -y wireshark`{{execute}}
 
->_Note:_ The -y option will automatically answer yes to any prompts during the
+>_Note:_ The `-y` option will automatically answer yes to any prompts during the
 installation.
 
-This installation generates numerous lines of output, so here is a high level
+This installation generates a large output, so here is a high level
 summary of what each section means. The first section shows all of the packages
-that must be installed as dependencies for Wireshark.
+that must be installed as dependencies for Wireshark:
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
@@ -74,5 +73,5 @@ wireshark.x86_64
          1:2.6.2-12.el8 @rhel-8-for-x86_64-appstream-rpms
 </pre>
 
-This shows how powerful YUM is, a single command will take care of the installation
+This shows how powerful YUM is, as a single command will take care of the installation
 seamlessly. Next you will see how to update and remove packages with `yum`.
