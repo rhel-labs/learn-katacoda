@@ -3,7 +3,7 @@
 
 To enable automated unlocking of LUKS devices on boot, we need to make sure there is a `clevis` binding for each of these devices to a tang server, which we did in the previous steps, and then we need to rebuild our initramfs to include the `clevis` machinery required to to the unlocking.
 
-For completeness, we need to also enable a specific systemd unit that will attempt to unlock any other encrypted devices that are bound with clevis -- this unlock step happens late in the boot process; usually non-root devices are unlocked at this point, e.g. an encrypted `/home`. We can enable this late-boot unlocking step by issuing the following command:
+For completeness, we need to also enable a specific `systemd` unit that will attempt to unlock any other encrypted devices that are bound with clevis -- this unlock step happens late in the boot process; usually non-root devices are unlocked at this point, e.g. an encrypted `/home`. We can enable this late-boot unlocking step by issuing the following command:
 
 `systemctl enable clevis-luks-askpass.path`{{execute}}
 
@@ -28,14 +28,14 @@ To do that, please issue the following command, and have in mind that this comma
 
 ## Let's test it all: reboot the machine
 
-To check whether everything worked, at this point we can simply reboot the clevis machine and watch it booting up -- please remember to **not** type the LUKS passphrase this time, when prompted:
+To check whether everything worked, at this point we can simply reboot the clevis machine and watch it booting up -- **remember to not type the LUKS passphrase this time, when prompted**:
 
 `reboot`{{execute}}
 
 The machine should reach the login prompt _without your intervention_, which means the NBDE setup
 was performed successfully and the encrypted device was unlocked automatically.
 
-![login prompt](./assets/clevis-login.png)
+![login prompt](./assets/rhel84-login.png)
 
 Note that if `tang` server `192.168.122.1` is not available, the automated unlocking step will not
 complete, which means that you will have to enter a valid LUKS passphrase yourself, just like in a regular

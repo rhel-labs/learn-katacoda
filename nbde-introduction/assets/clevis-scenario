@@ -1,4 +1,0 @@
-#!/bin/sh
-
-virsh start clevis-vm && clear
-virsh console clevis-vm
