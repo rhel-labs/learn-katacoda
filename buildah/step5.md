@@ -53,7 +53,7 @@ To expose the web server port and set systemd to start when the container is run
 
 `buildah config --port 80 --cmd "/usr/sbin/init" working-container`{{execute T1}}
 
-These options to `buildah config` are equivalent to the EXPOSE and CMD directives in an OCIFile.
+These options to `buildah config` are equivalent to the EXPOSE and CMD directives in a Containerfile.
 
 > _NOTE:_  As we're using systemd to start the service, use the `--cmd` option not `--entrypoint`.
 

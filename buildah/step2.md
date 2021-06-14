@@ -25,7 +25,7 @@ Installing:
 Complete!
 </pre>
 
-This subcommand acts like the RUN directive in an OCIFile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
+This subcommand acts like the RUN directive in an Containerfile.  Since the `yum` command includes a switch, we need to use the `--` syntax to tell `buildah run` there are no buildah options to look for past this point.
 
 Once the packages are installed in the working container, enable `httpd` to start when the container is run via systemd using the `buildah run` subcommand.
 
@@ -39,13 +39,13 @@ Deploying web content to the container image can be done using the `buildah copy
 
 `buildah copy ubi-init-working-container index1.html /var/www/html/index.html`{{execute T1}}
 
-This subcommand acts like the COPY directive in an OCIFile.  
+This subcommand acts like the COPY directive in a Containerfile.  
 
 To expose the web server port and set systemd to start when the container is run, modify the metadata with the `buildah config` subcommand.  
 
 `buildah config --port 80 --cmd "/usr/sbin/init" ubi-init-working-container`{{execute T1}}
 
-These options to `buildah config` are equivalent to the EXPOSE and CMD directives in an OCIFile.
+These options to `buildah config` are equivalent to the EXPOSE and CMD directives in a Containerfile.
 
 > _NOTE:_  As we're using systemd to start the service, use the `--cmd` option not `--entrypoint`.
 
@@ -67,4 +67,4 @@ Storing signatures
 b04fe2c73b034e657da2fee64c340c56086a38265777556fa8a02c5f12896e66
 </pre>
 
-In this example, each previous `buildah` subcommand results in a separate layer, much like building using an OCIFile.
+In this example, each previous `buildah` subcommand results in a separate layer, much like building using a Containerfile.
