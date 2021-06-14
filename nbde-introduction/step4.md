@@ -20,13 +20,13 @@ Breaking down the previous command, we have the following:
 
 After entering the previous command, it will:
 
-1. prompt you for an existing LUKS password -- use `katacoda`
-2. Inform you that the advertisement contains a given signing key and ask you to accept it -- please press `y` and `<enter>`
+1. Inform you that the advertisement contains a given signing key and ask you to accept it -- please press `y` and `<enter>`
+2. prompt you for an existing LUKS password -- use `katacoda`
 
 
-| Enter existing LUKS password: | Do you wish to trust these keys? [ynYN] |
-|-------------------------------|-----------------------------------------|
-|`katacoda`{{execute}}          | `y`{{execute}}                          |
+| Do you wish to trust these keys? [ynYN] | Enter existing LUKS password: |
+|-----------------------------------------|-------------------------------|
+| `y`{{execute}}                          | `katacoda`{{execute}}         |
 
 
 If all goes well, you will not see any further output.

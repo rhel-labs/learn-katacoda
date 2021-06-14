@@ -55,7 +55,6 @@ install_deps() {
         ;;
     rhel)
         export OS=RHEL8
-        hostnamectl set-hostname tang
         rhel8_deps
         ;;
     *)
@@ -79,10 +78,10 @@ import_vm() {
 
 get_vm() {
     log "Downloading VM..."
-    IMAGE="katacoda-f34-nbde.qcow2"
+    IMAGE="katacoda-rhel84-nbde.qcow2"
     ARCHIVE="${IMAGE}.tar.gz"
     VMURL="http://www.uece.net/katacoda/${ARCHIVE}"
-    MD5="15c96166df33ac7a95f084b7e5a3f927"
+    MD5="2c1b8273f392e0cda9897cdce02ed4e2"
     curl -LO "${VMURL}"
     md5dl=$(md5sum "${ARCHIVE}" | awk '{ print $1 }')
     [ "${md5dl}" = "${MD5}" ] || die "Checksum does not match (${md5dl} vs expected(${MD5}))"
@@ -134,6 +133,14 @@ check_done() {
         sleep 2
     done
 }
+
+set_host() {
+    hostnamectl set-hostname tang
+    echo 'PS1="[\u@\h \W]\\$ "' >> ~/.bashrc
+    export PS1="[\u@tang \W]\\$ "
+}
+
+set_host
 
 get_vm &
 setup_swap

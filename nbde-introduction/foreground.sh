@@ -24,6 +24,7 @@ hw_vm() {
 }
 
 get_os() {
+    export PS1="[\u@tang \W]\\$ "
     os=$(grep ^ID= /etc/os-release | cut -d'=' -f2 | tr -d '"')
     case "${os}" in
     ubuntu)
@@ -54,4 +55,11 @@ done
 
 ELAPSED=$((SECONDS-START))
 write "Ready to start your scenario (preparation took ${ELAPSED} seconds, HW virt supported: $(hw_vm))"
-[ "${OS}" = "ubuntu" ] && docker exec -it tang /opt/data/tang-scenario
+
+if [ "${OS}" = "ubuntu" ]; then
+    while true; do
+        # You shall not leave this container!
+        docker exec -it tang /opt/data/tang-scenario
+    done
+fi
+clear

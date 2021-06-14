@@ -5,13 +5,13 @@ The goal in this scenario is to enable automatic unlocking of encrypted devices 
 we will use two machines in a client/server fashion, consisting of the following machines:
 
 
-| Role                 | Label on the terminal tab | IP Address        |
-| ---------------------| --------------------------| ------------------|
-| Server (tang)        | `Terminal`                | `192.168.122.1`   |
-| Client (clevis)      | `clevis`                  | `192.168.122.100` |
+| Role                 | IP Address        |
+| ---------------------| ------------------|
+| Server (`tang`)        | `192.168.122.1`   |
+| Client (`clevis`)      | `192.168.122.100` |
 
-The next image highlights the `Terminal` and `clevis` terminal tabs, for easier identification.
+The next image shows the `Terminal`, that it is visible on the right side of the screen. You will use that terminal throughout this training scenario.
 
-![Terminal tabs highlighted](./assets/terminal-tabs.png)
+![Terminal](./assets/terminal.png)
 
 Let's start!

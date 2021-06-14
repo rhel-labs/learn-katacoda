@@ -1,10 +1,7 @@
 
 # Setting up `tang`
 
-To start setting up `tang`, go to the `Terminal` tab.
-
-![Terminal tab tang highlighted](./assets/terminal-tang-highlight.png)
-
+To start setting up `tang`, go to the `Terminal`.
 When the scenario is ready, you should see a prompt similar to this:
 
 ```
