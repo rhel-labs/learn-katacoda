@@ -43,6 +43,11 @@
       "description": "Collect data on various system activities, such as disk performance, latency, and more using the bcc-tools.  This data can help identify issues with application performance."
     },
     {
+      "external_link": "https://lab.redhat.com/user-basics",
+      "title": "Manage user accounts and groups [Admin 101]",
+      "description": "Create users and groups, adjust memberships, and recommended practices for disabling accounts."
+    },
+    {
       "external_link": "https://lab.redhat.com/imagebuilder",
       "title": "Using Web Console to build virtual machine images [Image Builder]",
       "description": "Learn how to manage virtual machines produced for different providers through a single, Web Console included application."
