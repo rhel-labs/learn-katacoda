@@ -64,7 +64,7 @@ install_deps() {
 }
 
 import_vm() {
-    NAME=clevis-vm
+    NAME=clevis
     DATA=/opt/data
     DISK=${DATA}/disk.qcow2
 
@@ -87,7 +87,7 @@ get_vm() {
     [ "${md5dl}" = "${MD5}" ] || die "Checksum does not match (${md5dl} vs expected(${MD5}))"
     tar xf "${ARCHIVE}"
 
-    NAME=clevis-vm
+    NAME=clevis
     DATA=/opt/data
     DISK=${DATA}/disk.qcow2
     sudo mkdir -m755 -p "${DATA}"
@@ -123,7 +123,7 @@ check_done() {
         fi
 
         [ -e "${LOGFILE}".container ] && container=true
-        if virsh list --name --state-shutoff | grep clevis-vm; then
+        if virsh list --name --state-shutoff | grep clevis; then
             vm=true
         fi
 
