@@ -9,18 +9,18 @@ use the `-y` option to automatically say yes to any prompts.
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
-===========================================================================================================================================
- Package                    Architecture   Version                                          Repository                                Size
-===========================================================================================================================================
+================================================================================
+ Package                Architecture       Size
+================================================================================
 Upgrading:
- httpd                      x86_64         2.4.37-39.module+el8.4.0+9658+b87b2deb           rhel-8-for-x86_64-appstream-rpms         1.4 M
- httpd-filesystem           noarch         2.4.37-39.module+el8.4.0+9658+b87b2deb           rhel-8-for-x86_64-appstream-rpms          38 k
- httpd-tools                x86_64         2.4.37-39.module+el8.4.0+9658+b87b2deb           rhel-8-for-x86_64-appstream-rpms         106 k
- mod_ssl                    x86_64         1:2.4.37-39.module+el8.4.0+9658+b87b2deb         rhel-8-for-x86_64-appstream-rpms         134 k
- redhat-logos-httpd         noarch         84.4-1.el8                                       rhel-8-for-x86_64-baseos-rpms             29 k
+ httpd                      x86_64         1.4 M
+ httpd-filesystem           noarch         38 k
+ httpd-tools                x86_64         06 k
+ mod_ssl                    x86_64         134 k
+ redhat-logos-httpd         noarch         29 k
 
 Transaction Summary
-===========================================================================================================================================
+================================================================================
 Upgrade  5 Packages
 
 << OUTPUT ABRIDGED >>
@@ -67,7 +67,7 @@ Use the `list` subcommand to confirm that the package has been uninstalled:
 <pre class=file>
 << OUTPUT ABRIDGED >>
 Available Packages
-crontabs.noarch                                    1.11-17.20190603git.el8  
+crontabs.noarch              1.11-17.20190603git.el8  
 </pre>
 
 The package is now listed as _Available_ rather than _Installed_. The next
