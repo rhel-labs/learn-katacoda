@@ -8,15 +8,15 @@ The output contains transaction IDs in the first column, which are how you refer
 specific locations in the transaction history when executing rollbacks.
 
 <pre class=file>
-ID     | Command                  | Date and time    | Action(s)  | Altered
---------------------------------------------------------------------------------
-     7 | remove -y crontabs.noarch| 2021-06-11 18:42 | Removed    |    3 EE
-     6 | update -y httpd          | 2021-06-11 18:41 | Upgrade    |    5   
-     5 | install -y wireshark     | 2021-06-11 18:40 | Install    |   36   
-     4 | install -y gcc llvm-libs | 2021-03-11 22:22 | Install    |   13   
-     3 | install -y buildah       | 2021-03-11 22:21 | I, U       |  216   
-     2 | install -y rsync         | 2021-03-11 22:20 | Install    |    1   
-     1 |     
+ID| Command                  | Date and time    | Action(s)| Altered
+------------------------------------------------------------------
+7 | remove -y crontabs.noarch| 2021-06-11 18:42 | Removed  | 3
+6 | update -y httpd          | 2021-06-11 18:41 | Upgrade  | 5   
+5 | install -y wireshark     | 2021-06-11 18:40 | Install  | 36   
+4 | install -y gcc llvm-libs | 2021-03-11 22:22 | Install  | 13   
+3 | install -y buildah       | 2021-03-11 22:21 | I, U     | 216   
+2 | install -y rsync         | 2021-03-11 22:20 | Install  | 1   
+1 |     
 </pre>
 
 This subcommand is also useful for rolling back transactions if you erroneously
