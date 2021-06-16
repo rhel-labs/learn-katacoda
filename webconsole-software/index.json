@@ -40,7 +40,7 @@
     "dashboard":"Web Console"
   },
   "backend": {
-    "imageid": "rhel8-3",
+    "imageid": "rhel8-4",
     "port": 9090
   }
 
