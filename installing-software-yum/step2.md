@@ -5,7 +5,7 @@ If you wish to check whether or not a particular package is up to date, the
 package name will constrain this operation to only look for that package. Once again,
 use the `-y` option to automatically say yes to any prompts.
 
-`yum update -y httpd`{{execute}}
+`yum update -y bash`{{execute}}
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
@@ -13,15 +13,11 @@ use the `-y` option to automatically say yes to any prompts.
  Package                Architecture       Size
 ===============================================================
 Upgrading:
- httpd                      x86_64         1.4 M
- httpd-filesystem           noarch         38 k
- httpd-tools                x86_64         06 k
- mod_ssl                    x86_64         134 k
- redhat-logos-httpd         noarch         29 k
+ bash                   x86_64             1.5 M
 
 Transaction Summary
 ===============================================================
-Upgrade  5 Packages
+Upgrade  1 Package
 
 << OUTPUT ABRIDGED >>
 </pre>
