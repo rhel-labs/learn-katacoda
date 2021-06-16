@@ -9,18 +9,15 @@ changelog is the one you installed earlier.
 `rpm -q --changelog $(rpm -qa | grep kpatch-patch)`{{execute}}
 
 <pre class="file">
-* Mon May 11 2020 Joe Lawrence <joe.lawrence@redhat.com> [1-2.el8]
-- Workaround kpatch ppc64le leaf functions in previous patch [1827332] {CVE-2020-10711}
+* Tue May 11 2021 Artem Savkov <asavkov@redhat.com> [1-1.el8]
+- serspace applications can misuse the KVM API to cause a write of 16 bytes at an offset up to 32 GB from vcpu->run [1954230] {CVE-2021-3501}
 
-* Fri May 08 2020 Joe Lawrence <joe.lawrence@redhat.com> [1-1.el8]
-- netlabel: cope with NULL catmap [1827332] {CVE-2020-10711}
-
-* Fri Apr 10 2020 Joe Lawrence <joe.lawrence@redhat.com> [0-0.el8]
-- An empty patch to subscribe to kpatch stream for kernel-4.18.0-193.el8 [1822309]
+* Mon May 03 2021 Joe Lawrence <joe.lawrence@redhat.com> [0-0.el8]
+- An empty patch to subscribe to kpatch stream for kernel-4.18.0-305.el8 [1956393]
 </pre>
 
 In the above sample output, you can see that the latest entry, the first one
-listed, in the patchset was to resolve CVE-2020-10711.
+listed, in the patchset was to resolve CVE-2021-3501.
 
 # Supporting Kernel Live Patches
 
@@ -49,7 +46,7 @@ products.  [Vulnerability Responses](https://access.redhat.com/security/vulnerab
 , [Red Hat CVE Database](https://access.redhat.com/security/security-updates/#/cve)
 
 Each listed CVE will have a page used for additional information and resources
-to go with it.  [Page for CVE-2020-10711](https://access.redhat.com/security/cve/cve-2020-10711)
+to go with it.  [Page for CVE-2021-3501](https://access.redhat.com/security/cve/cve-2021-3501)
 
 On the above linked page, in addition to more information about the CVE and
 the effect on systems or services, Red Hat may provide additional resources

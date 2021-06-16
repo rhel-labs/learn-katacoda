@@ -15,38 +15,34 @@ the version of the kernel running on your target system.
 `uname -r`{{execute}}
 
 <pre class=file>
-4.18.0-193.el8.x86_64
+4.18.0-305.el8.x86_64
 </pre>
 
 Our lab system is running kernel version (also known as release, hence the -r 
-option used by uname) 4.18.0-193.el8.x86_64.
+option used by uname) 4.18.0-305.el8.x86_64.
 
 Now that you know the version of the kernel running on the lab machine, look
 at all of the aviailable kpatch packages avaiable from the Red Hat Enterprise
 Linux repos.
 
-`yum list available kpatch-patch*`{{execute}}
+`yum list available kpatch-patch*305*`{{execute}}
 
 <pre class='file'>
 << OUTPUT ABRIDGED >>
 
 Available Packages
-kpatch-patch-4_18_0-147.x86_64                                     1-4.el8                                   rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-147_0_2.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-147_0_3.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-147_3_1.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-147_5_1.x86_64                                 0-0.el8_1                                 rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-193.x86_64                                     1-2.el8                                   rhel-8-for-x86_64-baseos-rpms
-kpatch-patch-4_18_0-193_1_2.x86_64                                 0-0.el8_2                                 rhel-8-for-x86_64-baseos-rpms
+kpatch-patch-4_18_0-305.x86_64              1-1.el8 
+kpatch-patch-4_18_0-305_3_1.x86_64          0-0.el8_4 
 </pre>
 
 From the above output, there are several different kpatch-patch patches 
 available, but only one of them is the one intended for the kernel running on 
 your system.  The one needed for your system is 
-`kpatch-patch-4_18_0-193_1_2.x86_64` because it is the latest available for
-the version of your kernel reported by `uname -r`, specifically, 4.18.0-193.el8.
+`kpatch-patch-4_18_0-305_3_1.x86_64` because it is the latest available for
+the version of your kernel reported by `uname -r`, specifically, 4.18.0-305.el8.
 
-The other kpatch-patch packages listed, like `kpatch-patch-4_18_0-147.x86_64` is
+If you looked at all available `kpatch-patch` packages, you would see others
+listed, like `kpatch-patch-4_18_0-147.x86_64`.  These kpatches are  
 for another kernel, specifically, version 4.18.0-147.  You can see that
 the additional listings are also for addtional kernel releases, __not__ the one
 running on your system.  

@@ -13,19 +13,19 @@ when making the decision of which kpatch to install:
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
-============================================================================================================================================================
- Package                                     Architecture               Version                     Repository                                         Size
-============================================================================================================================================================
+=========================================================
+ Package                          Architecture    Version
+=========================================================
 Installing:
- kpatch-patch-4_18_0-193                x86_64                1-2.el8                  rhel-8-for-x86_64-baseos-rpms                 14 k
+ kpatch-patch-4_18_0-305          x86_64          1-1.el8
 
 Transaction Summary
-============================================================================================================================================================
+=========================================================
 Install  1 Package
 
 << OUTPUT ABRIDGED >>
 </pre>
 
 The previous `yum` command, based on the result of the embedded uname -r
-command, installed kpatch-patch-4_18_0-193-1-2, which is what you had determined
-on the previous step to be the patchset for this system.
+command, installed kpatch-patch-4_18_0-305-1-1.el8, which is what you had 
+determined on the previous step to be the patchset for this system.
