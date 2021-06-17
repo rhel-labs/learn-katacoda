@@ -35,7 +35,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
+    "uilayout": "terminal",
     "showdashboard": true,
     "dashboard":"Web Console"
   },
