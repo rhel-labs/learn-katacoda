@@ -18,8 +18,9 @@ Installing:
 <<< OUTPUT ABRIDGED >>>
 
 Installed:
-  alsa-lib-1.2.1.2-3.el8.x86_64   audiofile-1:0.3.6-23.el8.x86_64   esound-libs-1:0.2.41-22.el8.x86_64   flac-libs-1.3.2-9.el8.x86_64
-  libogg-2:1.3.2-10.el8.x86_64    moon-buggy-1.0.51-25.el8.x86_64
+  lsa-lib-1.2.4-5.el8.x86_64     audiofile-1:0.3.6-23.el8.x86_64
+  esound-libs-1:0.2.41-22.el8.x86_64    flac-libs-1.3.2-9.el8.x86_64   
+  libogg-2:1.3.2-10.el8.x86_64    moon-buggy-1.0.51-25.el8.x86_64   
 
 Complete!
 </pre>
@@ -27,4 +28,3 @@ Complete!
 From the above output, you can see that `moon-buggy` was successfully installed
 into the container.  The `yum` transaction also installed several required
 pieces of software as well.
-

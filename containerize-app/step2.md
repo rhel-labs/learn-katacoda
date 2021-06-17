@@ -13,7 +13,7 @@ repositories.  However, the target package for the lab is from EPEL.  In
 this step you will install the EPEL repository inside the container working
 image.
 
-In the command below, `buildah` is going to run a command on the 
+In the command below, `buildah` is going to run a command on the
 `ubi-working-container` image.  The `--` indicates that the command should be
 executed from within the container, which means the results will be applied into
 the container image.  Lastly, you are providing the `yum` command to install a
@@ -28,19 +28,19 @@ package that defines all of the repositories from EPEL, `epel-release-latest-8`.
  Package                            Architecture                 Version                         Repository                          Size
 ==========================================================================================================================================
 Installing:
- epel-release                       noarch                       8-8.el8                         @commandline                        22 k
+ epel-release                       noarch                       8-10.el8                         @commandline                        22 k
 
 <<< OUTPUT ABRIDGED >>>
 
 Installed:
-  epel-release-8-8.el8.noarch
+  epel-release-8-10.el8.noarch
 
 Complete!
 </pre>
 
 From the above output, you can see that the epel-release RPM was installed
 successfully inside the container.  You could verify this was not completed
-on the host by looking for the RPM on the host system. 
+on the host by looking for the RPM on the host system.
 
 `rpm -q epel-release`{{execute T1}}
 
