@@ -56,6 +56,6 @@
     "terminals": [{"name": "RHEL User Terminal", "target": "host01"}]
   },
   "backend": {
-    "imageid": "rhel8-3"
+    "imageid": "rhel8-4"
   }
 }

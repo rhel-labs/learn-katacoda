@@ -14,7 +14,7 @@ Image from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/do
 4.18.0-305.el8.x86_64
 </pre>
 
-ラボのシステムでは、カーネルのバージョン(リリースとも呼ばれているため、uname では -r オプションを使います) 4.18.0-193.el8.x86_64 を実行しています。
+ラボのシステムでは、カーネルのバージョン(リリースとも呼ばれているため、uname では -r オプションを使います) 4.18.0-305.el8.x86_64 を実行しています。
 
 ラボマシンで動作しているカーネルのバージョンがわかったので、Red Hat Enterprise Linux のリポジトリから入手可能な kpatch パッケージをすべて見てみましょう。
 
