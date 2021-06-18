@@ -1,6 +1,6 @@
 # VDOをインストールする
 
-`yum install -y vdo-6.2.3.114-14.el8 kmod-kvdo-6.2.3.114-74.el8`{{execute}}
+`yum install -y vdo-6.2.4.14-14.el8 kmod-kvdo-6.2.4.26-77.el8`{{execute}}
 
 VDOは、Linuxのブロックレベルで、重複排除、圧縮、シンプロビジョニングによりインラインのデータ節減を行います。
 
@@ -24,12 +24,10 @@ VDOについての詳細な情報はman pageを参照ください。
 
 `man vdo`
 
-man pageを終了するには 'q' キーを押します。
 
 vdostatsが出力する統計情報それぞれについてもman pageを参照ください。
 
 `man vdostats`
 
-man pageを終了するには 'q' キーを押します。
 
 
