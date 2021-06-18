@@ -1,7 +1,7 @@
 # Inspecting the image
 
 In this step, you will access the machine image created in a previous step in
-order to verify that the `nodejs` and `nginx` packages added in earlier steps were 
+order to verify that the `nodejs` and `nginx` packages added in earlier steps were
 added to the resulting machine image.
 
 In the next steps, you will access the machine image, however it will not work
@@ -25,7 +25,7 @@ grooming to put this into the command for you to run.  Alternatively, you could
 have copy/pasted from the output of your status from the previous step.
 
 Now that the machine image is available locally, mount the disk image into your
-directory tree at the /mnt mountpoint. For this, we will mount the qcow2 image 
+directory tree at the /mnt mountpoint. For this, we will mount the qcow2 image
 as a network block device (NBD).
 
 Load the NBD kernel module using the `modprobe` utility -
@@ -41,24 +41,26 @@ Find the virtual machine partition so that we can mount it -
 `fdisk /dev/nbd0 -l`{{execute}}
 
 <pre class="file">
-Disk /dev/nbd0: 4 GiB, 4294967296 bytes, 8388608 sectors
+Disk /dev/nbd0: 10 GiB, 10737418240 bytes, 20971520 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
-Disk identifier: 0x14fc63d2
+Disklabel type: gpt
+Disk identifier: D209C89E-EA5E-4FBD-B161-B461CCE297E0
 
-Device      Boot Start     End Sectors Size Id Type
-/dev/nbd0p1 *     2048 8388607 8386560   4G 83 Linux
+Device       Start      End  Sectors  Size Type
+/dev/nbd0p1   2048     4095     2048    1M BIOS boot
+/dev/nbd0p2   4096   208895   204800  100M EFI System
+/dev/nbd0p3 208896 20971486 20762591  9.9G Linux filesystem
 </pre>
 
 The partition of the disk is `/dev/nbd0p1`
 
 Mount the partition to some mountpoint (in this case `/mnt`) -
 
-`mount /dev/nbd0p1 /mnt`{{execute}}
+`mount /dev/nbd0p3 /mnt`{{execute}}
 
-Temporarily change the root directory of the bash shell to be the directory holding the contents of 
+Temporarily change the root directory of the bash shell to be the directory holding the contents of
 your machine image.
 
 `chroot /mnt`{{execute}}
@@ -73,7 +75,7 @@ that `nodejs` and `nginx` are included in the machine image.
 nodejs-10.23.1-1.module+el8.3.0+9502+012d8a97.x86_64
 nginx-1.14.1-9.module+el8.0.0+4108+af250afe.x86_64</pre>
 
-From the above output, you can verify that both the `nodejs` and `nginx` packages were 
+From the above output, you can verify that both the `nodejs` and `nginx` packages were
 installed into this machine image.
 
 Now that the verification is complete, you can exit the chroot'ed bash shell.
