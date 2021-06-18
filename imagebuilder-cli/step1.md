@@ -35,10 +35,10 @@ Complete!
 Now that the software has been successfully installed on the system, you also need to activate the `osbuild-composer` service so that the `composer-cli`
 command can interact with the service that is responsible for queuing and creating the machine images.
 
-`systemctl enable --now osbuild-composer.service`{{execute}}
+`systemctl enable --now osbuild-composer.socket`{{execute}}
 
 <pre class='file'>
-Created symlink /etc/systemd/system/multi-user.target.wants/osbuild-composer.service → /usr/lib/systemd/system/osbuild-composer.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/osbuild-composer.socket → /usr/lib/systemd/system/osbuild-composer.socket.
 </pre>
 
-Now that the service is enabled, you are ready to start working with image builder to create machine images.
+Now that the service is accessible, you are ready to start working with image builder to create machine images.
