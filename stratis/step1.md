@@ -18,5 +18,5 @@ You can check the stratis-cli version.
 `stratis --version`{{execute}}
 
 <pre class="file">
- 2.1.1
+ 2.3.0
 </pre>
