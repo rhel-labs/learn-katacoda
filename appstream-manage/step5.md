@@ -10,11 +10,11 @@ The Postgres 10 stream should now be listed as [i]nstalled.
 << OUTPUT ABRIDGED >>
 
 Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
-Name                Stream          Profiles          
-postgresql          9.6             client, server [d]
-postgresql          10 [d][e]       client, server [d] [i]
-postgresql          12              client, server [d]
-postgresql          13              client, server [d]
+Name              Stream        Profiles          
+postgresql        9.6           client, server [d]
+postgresql        10 [d][e]     client, server [d] [i]
+postgresql        12            client, server [d]
+postgresql        13            client, server [d]
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>

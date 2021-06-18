@@ -3,7 +3,7 @@ Lastly, inspect all software managed as application streams.
 `yum module list`{{execute}}
 
 <pre class="file">
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
 Name                 Stream       Profiles                          Summary
 389-ds               1.4                                            389 Directory Server (base)
 ant                  1.10 [d]     common [d]                        Java build tool
