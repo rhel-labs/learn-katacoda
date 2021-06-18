@@ -1,6 +1,6 @@
 # Install vdo
 
-`yum install -y vdo-6.2.3.114-14.el8 kmod-kvdo-6.2.3.114-74.el8`{{execute}}
+`yum install -y vdo-6.2.4.14-14.el8 kmod-kvdo-6.2.4.26-77.el8`{{execute}}
 
 VDO provides block level, inline data reduction for Linux in the form of deduplication,
 compression, and thin provisioning.  
@@ -26,11 +26,7 @@ Detailed information on VDO can be found in the man page.
 
 `man vdo`
 
-Use the 'q' key to exit the man page.
-
 Also, each of the statistics for vdostats can be found in the man page.
 
 `man vdostats`
-
-Use the 'q' key to exit the man page.
 
