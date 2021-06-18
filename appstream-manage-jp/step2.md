@@ -7,11 +7,12 @@
 `yum module list postgresql`{{execute}}
 
 <pre class="file">
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
-Name                       Stream                 Profiles                              Summary
-postgresql                 9.6 [e]                client, server [d] [i]                PostgreSQL server and client module
-postgresql                 10 [d]                 client, server [d]                    PostgreSQL server and client module
-postgresql                 12                     client, server [d]                    PostgreSQL server and client module
+Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
+Name             Stream         Profiles              
+postgresql       9.6 [e]        client, server [d] [i]
+postgresql       10 [d]         client, server [d]    
+postgresql       12             client, server [d]    
+postgresql       13             client, server [d]    
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 </pre>
@@ -22,5 +23,5 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 
 `postgres --version`{{execute}}
 <pre class=file>
-postgres (PostgreSQL) 9.6.10
+postgres (PostgreSQL) 9.6.22
 </pre>
