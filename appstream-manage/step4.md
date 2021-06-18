@@ -19,6 +19,7 @@ You should now be able to review the list of postgresql application streams and 
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
+
 Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
 
 Name                 Stream         Profiles          
