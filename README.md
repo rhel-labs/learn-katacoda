@@ -1,5 +1,5 @@
 # Red Hat Enterprise Linux experience the product
-This is the content that appears on https://github.com/rhel-labs/learn-katacoda .  If you have questions, contact Scott McBrien or raise an issue here at github.
+This is the content that appears on https://github.com/rhel-labs/learn-katacoda .  Problem?  Open an issue!
 
 # Contributions
 For each scenario, please do the following:
