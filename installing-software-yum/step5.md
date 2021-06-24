@@ -18,7 +18,7 @@ missing     /usr/share/icons/hicolor/256x256/apps/wireshark.png
 Now that you have seen there is a missing file, reinstall the Wireshark
 package to return it to its proper state:
 
-`yum reinstall -y wireshark`{{execute}}
+`yum -y reinstall wireshark`{{execute}}
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
@@ -37,3 +37,21 @@ Check that __wireshark.png__ has been restored:
 <pre class=file>
 fedora-logo-icon.png  wireshark.png
 </pre>
+
+The command `rpm -V` is useful for more than just finding missing files.
+This command can inform the user if any files have changed since installation.
+To test this out, run the validation command on the PAM package.
+
+`rpm -V pam`{{execute}}
+
+<pre class=file>
+S.5....T.  c /etc/pam.d/password-auth
+S.5....T.  c /etc/pam.d/system-auth
+</pre>
+
+This query returns two files with unexpected criteria, __password-auth__ and
+__system-auth__. The first column of this output tells you that both of these
+files have an unexpected size, checksum, and
+timestamp. Both of these files are configuration files, so it makes sense
+that they would be modified after installation to suit the purpose of this
+particular system.

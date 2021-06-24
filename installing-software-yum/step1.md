@@ -17,10 +17,12 @@ this application was picked simply because it serves as a good test subject for
 the upcoming examples.
 
 
-`yum install -y wireshark`{{execute}}
+`yum -y install wireshark`{{execute}}
 
 >_Note:_ The `-y` option will automatically answer yes to any prompts during the
-installation.
+installation. Using this option is not best practice when installing software
+on your own system, but it is useful for streamlining some operations in
+this lab.
 
 This installation generates a large output, so here is a high level
 summary of what each section means. The first section shows all of the packages
@@ -38,8 +40,7 @@ flac-libs
 << OUTPUT ABRIDGED >>
 </pre>
 
-The next section of the output shows the total amount of memory required for the
-install, and then a verification status for each dependent package. In this case,
+The next section of the output shows a verification status for each dependent package. In this case,
 YUM made sure that 36 other packages were up to date.
 
 <pre class=file>
