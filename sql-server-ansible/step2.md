@@ -6,6 +6,6 @@ Ansible makes it easily share roles with the community or download roles that ha
 
 To access Ansible Galaxy, ansible ships with a command line tool called **ansible-galaxy** that can be used to install roles in a specific role directory
 
-`ansible-galaxy install --roles-path ./roles dpredhat.ansible_role_mssql --force`{{execute}}
+`ansible-galaxy collection install microsoft.sql --force`{{execute}}
 
 
