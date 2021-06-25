@@ -9,23 +9,25 @@ button near the top of the interface.
 The resulting dialog will ask several questions about how to build the image.  
 The first, and most important question is *Type*.  There are several different
 output types supported by Image Builder:
-* Amazon Machine Image Disk (.ami)
+* Amazon Web Services (.raw)
 * OpenStack (.qcow2)
-* QEMU QCOW2 Image (.qcow2)
+* QEMU Image (.qcow2)
 * RHEL for Edge Commit (.tar)
-* TAR Archive (.tar)
-* Azure Disk Image (.vhd)
-* VMware Virtual Machine Disk (.vmdk)
+* RHEL for Edge Container (.tar)
+* RHEL for Edge Installer (.iso)
+* Disk Archive (.tar)
+* Microsoft Azure (.vhd)
+* VMware VSphere (.vmdk)
 
-For this lab, select the *Type* as __QEMU QCOW2 Image (.qcow2)__ this makes a 
-virtual machine image that is compatible with the native virtualization 
-provided as part of Red Hat Enterprise Linux. However, you can see from the 
-list that you can make images for cloud providers or other virtualization 
+For this lab, select the *Type* as __QEMU Image (.qcow2)__ this makes a
+virtual machine image that is compatible with the native virtualization
+provided as part of Red Hat Enterprise Linux. However, you can see from the
+list that you can make images for cloud providers or other virtualization
 hypervisors.
 
 ![Selecting a format](./assets/image-create.png)
 
-Once you have specified the __QEMU QCOW2 Image (.qcow2)__ as the *Type* select
+Once you have specified the __QEMU Image (.qcow2)__ as the *Type* select
 the *Create* button to create an image of this output format.
 
 ![Clicking Create](./assets/image-create-confirm.png)
@@ -39,4 +41,3 @@ workflow of building images, then deploying them as instances.
 
 You may see a temporary notice on the page that says the new image has been
 added to the build queue.  You will find that queue next.
-
