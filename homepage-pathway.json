@@ -58,6 +58,11 @@
       "description": "Move into the Hybrid Cloud by building consistent virtual machines produced for virtualization or cloud providers with the composer-cli commandline tool."
     },
     {
+      "external_link": "https://lab.redhat.com/installing-software-yum",
+      "title": "Installing Software using Package Managers [Admin 101]",
+      "description": "Learn how to use YUM and RPM to streamline installations and verify local software."
+    },
+    {
       "external_link": "https://lab.redhat.com/insights-workshop",
       "title": "Resolving issues with Red Hat Insights Advisor",
       "description": "Register systems and proactively resolve potential issues with Insights Advisor."
