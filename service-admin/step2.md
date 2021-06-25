@@ -1,1 +1,1 @@
-# `Systemd` vs `Systemctl`
+# Starting and stopping a service with `Systemctl`
