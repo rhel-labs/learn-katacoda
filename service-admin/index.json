@@ -1,6 +1,6 @@
 {
-  "title": "File Permissions Basics",
-  "description": "Learn how to control who can access specific files",
+  "title": "Service Administration Basics",
+  "description": "Learn how to start and stop services",
   "details": {
     "steps": [
       {
@@ -22,7 +22,6 @@
     ],
     "intro": {
       "text": "intro.md",
-      "courseData": "background.sh",
       "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)"
     },
     "finish": {
