@@ -13,5 +13,6 @@ Linux, this manager is __systemd__.
 When researching process management, you will come across two very similar terms:
 __systemd__ and __systemctl__. These are very closely related.
 __systemd__, short for system daemon, manages the state of the system and any
-services running on it. __systemctl__ provides a series of commands for users to
-interact with __systemd__.
+services running on it. __systemctl__ provides a set of commands for users to
+interact with __systemd__. In this lab, you will use various __systemctl__
+commands to control how __systemd__ manages processes on the system. 
