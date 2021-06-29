@@ -40,7 +40,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/.ansible/collections/ansible_collections/microsoft/sql/roles/server"
+    "uieditorpath": "/root/"
   },
   "backend": {
     "imageid": "rhel8-4-highmem"
