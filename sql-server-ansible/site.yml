@@ -1,17 +1,22 @@
 ---
-- name: Setup SQL server
-  hosts: host1
-  become: true
-
+- hosts: all
+  vars:
+    mssql_accept_microsoft_odbc_driver_17_for_sql_server_eula: true
+    mssql_accept_microsoft_cli_utilities_for_sql_server_eula: true
+    mssql_accept_microsoft_sql_server_2019_standard_eula: true
+    mssql_password: "p@55w0rD"
+    mssql_edition: Evaluation
+    mssql_tcp_port: 1433
+    mssql_ip_address: 0.0.0.0
+    mssql_input_sql_file: mydatabase.sql
+    mssql_enable_sql_agent: true
+    mssql_install_fts: true
+    mssql_install_powershell: true
+    mssql_tune_for_fua_storage: true
+    mssql_tls_enable: true
+    mssql_tls_cert: mycert.pem
+    mssql_tls_private_key: mykey.key
+    mssql_tls_version: 1.2
+    mssql_tls_force: false
   roles:
-    - dpredhat.ansible_role_mssql
-    
-  tasks:
-    - name: Wait up to 30 seconds for server to become available after creation
-      wait_for:
-        port: 1433
-        timeout: 30
-    - name: Create New Database 
-      include_role:
-        name: dpredhat.ansible_role_mssql
-        tasks_from: new_db
+    - linux-system-roles.mssql
