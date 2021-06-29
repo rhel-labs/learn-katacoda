@@ -40,7 +40,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/"
+    "uieditorpath": "/root"
   },
   "backend": {
     "imageid": "rhel8-4-highmem"
