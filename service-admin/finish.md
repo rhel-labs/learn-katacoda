@@ -1,9 +1,9 @@
 # In this lab you have:
 * Learned how `systemd` and `systemctl` are related
-* Started and stopped a service with `systemctl`
-* Enabled a service with `systemctl` to make it persistent
-* Restarted a service to activate configuration changes
 * Viewed the status of a service
+* Restarted a service to activate configuration changes
+* Enabled a service with `systemctl` to make it persistent
+
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)

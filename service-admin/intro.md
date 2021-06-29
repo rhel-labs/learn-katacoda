@@ -8,7 +8,6 @@ After completing this lab, users will understand how to start, restart, and stop
 
 # Concepts included in this scenario:
 * Learn how `systemd` and `systemctl` are related
-* Start and stop a service with `systemctl`
-* Enable a service with `systemctl` to make it persistent
-* Restart a service to activate configuration changes
 * View the status of a service
+* Restart a service to activate configuration changes
+* Enable a service with `systemctl` to make it persistent
