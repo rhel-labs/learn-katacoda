@@ -9,13 +9,19 @@ Now, let's run our ansible playbook defined in the site.yml file and pass it the
 The output of the run playbook should look like below -
 
 <pre class="file">
-PLAY [Setup SQL server] ************************************************************************
+PLAY [all] ***************************************************************************************
 
-TASK [Gathering Facts] *************************************************************************
+TASK [Gathering Facts] ***************************************************************************
+ok: [localhost]
+
+TASK [microsoft.sql.server : Set platform/version specific variables] ****************************
+ok: [localhost] => (item=RedHat.yml)
+ok: [localhost] => (item=RedHat.yml)
 ...
 
-TASK [dpredhat.ansible_role_mssql : Create a new database] *************************************
+RUNNING HANDLER [microsoft.sql.server : Restart the mssql-server service] ************************
+changed: [localhost]
 
-PLAY RECAP *************************************************************************************
-localhost                  : ok=15   changed=11   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+PLAY RECAP ***************************************************************************************
+localhost                  : ok=34   changed=17   unreachable=0    failed=0    skipped=28   rescued=1    ignored=0  
 </pre>
