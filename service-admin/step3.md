@@ -43,4 +43,4 @@ cockpit dhcpv6-client http ssh
 This list now includes __http__.
 
 >_Note:_ If you just wanted to either start or stop a service, `systemctl start`
-or `systemctl stop` followed by the process name will do this.
+or `systemctl stop` followed by the service name will do this.
