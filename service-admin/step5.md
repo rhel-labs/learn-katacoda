@@ -9,7 +9,7 @@ This command adds the home directory to the export list configuration file for
 NFS. Changing this config file does not lead to any immediate changes in the
 NFS service, though. Print the export list again to confirm this:
 
-`showmount -e`{{export T2}}
+`showmount -e`{{execute T1}}
 
 <pre class=file>
 Export list for b02029791f2d:
@@ -26,6 +26,7 @@ configuration change.
 `showmount -e`{{execute T1}}
 
 <pre class=file>
+Export list for b02029791f2d:
 /home *
 </pre>
 
