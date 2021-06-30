@@ -1,15 +1,23 @@
 # Starting and enabling a service with `systemctl`
 
+For this example, you will be using the Network File System (NFS) service.
+This service allows users on client systems to view files and directories over a
+network as if they were on the client's local drive. Rather than focusing on the
+functionality of this service, though, this lab simply uses it as an example of
+how to start a service and implement configuration file changes.
+
+To begin, run the command to show the export list for the NFS server:
+
 `showmount -e`{{execute T1}}
 
-This will throw an error, because the service is not running.
+This throws an error, because the NFS service is not running.
 
 <pre class=file>
 clnt_create: RPC: Program not registered
 </pre>
 
-To solve this issue, you would start the service. However, if you want the service
-to start each time you boot the system, you would want to enable the service. You can
+To solve this issue, you need to start the service. However, if you want the service
+to start each time you boot the system, you need to enable the service. You can
 do both of these operations in one line:
 
 `systemctl enable --now nfs-server`{{execute T1}}
@@ -20,8 +28,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/nfs-server.service â
 
 >_Note:_ If you just wanted to start a service, `systemctl start`
 followed by the service name will do the trick. However, the service
-will not start again if you reboot the system. 
-
+will not start again if you reboot the system.
 
 Now the __nfs-server__ service is started, and it will start every time the
 system starts as well. Run the `showmount` command again now that the service

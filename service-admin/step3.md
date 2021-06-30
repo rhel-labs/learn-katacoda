@@ -1,5 +1,17 @@
 # What is a service?
 
+The process you interacted with in the previous step was a foreground process.
+It ran in a terminal window where you could see it. Some processes run in the
+background, out of view of the user. These background processes allow the
+system to carry out many operations in parallel. Background processes that
+continuously carry out a set of actions are called _services_.
+
+_Daemons_ are even more specialized. These are services that
+and are specifically designed to supervise or support other processes. Typically,
+daemons are denoted by a __d__ at the end of their name. For example, __firewalld__
+is the daemon which handles firewall functionality. These daemons lie in wait,
+listening for the user to issue a command to tell them to change their behavior.
+
 # Viewing the status of a service
 
 __firewalld__ is a service which manages what network traffic to let into the system.

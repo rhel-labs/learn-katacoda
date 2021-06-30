@@ -1,6 +1,6 @@
 # Overview:
 
-Services are programs that run in the background of a system, out of the user’s view. They typically lack an interface and therefore have to be interacted with using commands. Services streamline the user experience by taking care of operations automatically and in a way that doesn’t distract the user. There is actually a service that manages the starting and stopping of other services, `systemd`. This lab provides the basics of starting and stopping services using `systemctl`, which is the command that allows users to interact with the `systemd` service.
+Services are processes that run in the background of a system, out of the user’s view. They typically lack an interface and therefore have to be interacted with using commands. Services streamline the user experience by taking care of operations automatically and in a way that does not distract the user. There is actually a service that manages the starting and stopping of other services, `systemd`. This lab provides the basics of starting and stopping services using `systemctl`, which is the command that allows users to interact with the `systemd` service.
 
 # Goal:
 

@@ -4,7 +4,7 @@ Now that you found the `dd` process on Terminal 1, terminate it using the `kill`
 command. You would typically just manually enter the process ID after `kill`.
 The process ID is the second column of the `ps aux` output from before.
 However, to make this command clickable for each new lab instance the `pidof`
-(__P__ rocess __ID of__) command is used to automatically find the process ID.
+(__P__rocess __ID of__) command is used to automatically find the process ID.
 
 `kill $(pidof dd)`{{execute T1}}
 
