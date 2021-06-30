@@ -8,7 +8,7 @@ However, to make this command clickable for each new lab instance the `pidof`
 
 `kill $(pidof dd)`{{execute T1}}
 
-There is no output, but switching back to Terminal 2 ` `{{execute T2}}
+There is no output, but switching back to Terminal 2 `:`{{execute T2}}
 reveals that the `dd` process has been terminated.
 
 <pre class=file>
