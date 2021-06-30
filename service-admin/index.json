@@ -1,7 +1,6 @@
 {
   "title": "Service Administration Basics",
   "description": "Learn how to start and stop services",
-  "time":"5 minutes",
   "details": {
     "steps": [
       {
@@ -19,10 +18,15 @@
       {
         "title": "Step 4",
         "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
       }
     ],
     "intro": {
       "text": "intro.md",
+      "courseData": "background.sh",
       "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)"
     },
     "finish": {
@@ -31,7 +35,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "RHEL User Terminal", "target": "host01"}]
+    "terminals": [{"name": "Terminal 2", "target": "host01"}]
   },
   "backend": {
     "imageid": "rhel8-4"

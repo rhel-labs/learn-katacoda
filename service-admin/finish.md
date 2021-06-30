@@ -1,9 +1,10 @@
 # In this lab you have:
-* Learned how `systemd` and `systemctl` are related
+* Viewed and killed processes
+* Learned how processes and services are related
 * Viewed the status of a service
-* Restarted a service to activate configuration changes
+* Learned how `systemd` and `systemctl` are related
 * Enabled a service with `systemctl` to make it persistent
-
+* Restarted a service to activate configuration changes
 
 # Report an issue with the lab:
 [RHEL Labs Github issues](https://github.com/rhel-labs/learn-katacoda/issues)

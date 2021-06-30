@@ -1,30 +1,30 @@
-# Viewing the status of a service
+# Killing processes
 
-__firewalld__ is a service which manages what network traffic to let into the system.
-Many system administrators need to manually configure which ports or services are
-allowed to communicate through the firewall, which means that many people will
-find themselves interacting with the __firewalld__ service at some point.
-Check the status of the __firewalld__ service with the following command:
+Now that you found the `dd` process on Terminal 1, terminate it using the `kill`
+command. You would typically just manually enter the process ID after `kill`.
+The process ID is the second column of the `ps aux` output from before.
+However, to make this command clickable for each new lab instance the `pidof`
+(__P__rocess __ID of__) command is used to automatically find the process ID.
 
-`systemctl status firewalld.service | cat`{{execute}}
+`kill $(pidof dd)`{{execute T1}}
+
+There is no output, but switching back to Terminal 2 ` `{{execute T2}}
+reveals that the `dd` process has been terminated.
 
 <pre class=file>
-● firewalld.service - firewalld - dynamic firewall daemon
-   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)
-   Active: active (running) since Mon 2021-06-28 15:50:21 EDT; 1h 49min ago
-     Docs: man:firewalld(1)
- Main PID: 875 (firewalld)
-    Tasks: 2 (limit: 11380)
-   Memory: 35.3M
-   CGroup: /system.slice/firewalld.service
-           └─875 /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork --nopid
-
-<< OUTPUT ABRIDGED >>
+Terminated
 </pre>
 
->_NOTE:_ This output is piped to `cat` to avoid entering a shell for the status
-command. When running this on your own, you do not need to pipe the output
-to `cat`.
+The `kill` command can send a variety of signals. Calling the command without
+any options will default to `-SIGTERM`. This command will inform the process
+that it is time for it to stop, but allow it to run any cleanup procedures that
+it has. This often takes the form of closing files and freeing memory. In this
+sense, `-SIGTERM` is the graceful option for terminating a process.
 
-From this status message it is clear that the __firewalld__ service is installed
-and active. You will use this service for examples throughout this lab.
+If you instead use the `kill -SIGKILL` command, this will instruct the kernel to
+immediately stop the process. This prevents any cleanup that may have otherwise
+occurred, leaving memory allocated and potentially leading to corrupted files.
+Therefore, only use `-SIGKILL` as a last result if a process is refusing to stop.
+
+>_NOTE:_ You will also see the `kill` signals referred to numerically. `-SIGTERM`
+is equivalent to `-15` and `-SIGKILL` is equivalent to `-9`.
