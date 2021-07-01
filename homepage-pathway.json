@@ -73,6 +73,11 @@
       "description": "Try different methods to build an application container, modify an existing container image and build one from scratch using the Container Tool buildah."
     },
     {
+      "external_link": "https://lab.redhat.com/service-admin",
+      "title": "Service Administration Basics [Admin 101]",
+      "description": "Learn the distinction between processes, services, and daemons, as well as how to interact with them on your system."
+    },
+    {
       "external_link": "https://lab.redhat.com/ansible-introduction",
       "title": "An Introduction to Ansible",
       "description": "Experience a walkthrough of command-line Ansible and executing your first Ansible Playbook"
