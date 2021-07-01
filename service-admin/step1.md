@@ -10,11 +10,11 @@ is crucial to have a way to manage these processes.
 # Viewing processes
 
 The command that lets you view processes on Linux is `ps`, short for "Process Status".
-This command will show you all processes belonging to your user ID if run without
+This command will show you all processes running in the current shell if called without
 any options. However, it is frequently useful to see processes that may not
-have been started with your user ID. The command `ps aux` will show you more process
-information and format it such that the first column is the user who owns the
-process.
+have been started with your user ID. The command `ps aux` will show you all processes,
+including those running without a controlling terminal. This command will also give
+information about the users associated with these processes.
 
 `ps aux`{{execute T1}}
 
@@ -33,7 +33,7 @@ pipe the output into `grep` to search for a specific phrase. To practice this,
 start a process in Terminal 2 and then search for it in the original
 terminal. The `dd` command can be used to create an indefinite process in
 Terminal 2. The command below begins copying data from a file of infinite zeros
-into a file that does not accept inputs, so the process will continue indefinitely.
+into a file that discards all inputs, so the process will continue indefinitely.
 
 `dd if=/dev/zero of=/dev/null`{{execute T2}}
 

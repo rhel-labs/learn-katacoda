@@ -26,7 +26,7 @@ sense, `-SIGTERM` is the graceful option for terminating a process.
 If you instead use the `kill -SIGKILL` command, this will instruct the kernel to
 immediately stop the process. This prevents any cleanup that may have otherwise
 occurred, leaving memory allocated and potentially leading to corrupted files.
-Therefore, only use `-SIGKILL` as a last result if a process is refusing to stop.
+Therefore, only use `-SIGKILL` as a last resort.
 
 >_NOTE:_ You will also see the `kill` signals referred to numerically. `-SIGTERM`
 is equivalent to `-15` and `-SIGKILL` is equivalent to `-9`.
