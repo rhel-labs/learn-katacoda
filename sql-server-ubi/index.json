@@ -50,6 +50,6 @@
     "terminals": [{"name":"Terminal Server","target":"host01"}, {"name":"Terminal SQL Client", "target":"host01"}]
   },
   "backend": {
-    "imageid": "rhel8-3-highmem"
+    "imageid": "rhel8-4-highmem"
   }
 }
