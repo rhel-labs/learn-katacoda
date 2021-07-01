@@ -7,12 +7,12 @@ A play is a set of tasks mapped to a set of hosts.
 
 **Editing variables in a playbook**
 
-Click to edit ``/vars/main.yml``{{open}} in the inline editor.
+Click to edit ``site.yml``{{open}} in the inline editor.
 
 This file has several variables, and one example variable that you might optionally want to change is the database sa password. 
 <pre class="file">
 ...
-db_password: P@ssWORD!
+mssql_password: "p@55w0rD"
 ...
 </pre>
 
