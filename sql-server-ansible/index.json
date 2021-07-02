@@ -1,6 +1,6 @@
 {
-  "title": "Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux using Ansible",
-  "description": "Goal: Users will be able to use Ansible playbooks to install and configure Microsoft SQL Server on Red Hat Enterprise Linux",
+  "title": "Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux using RHEL System Roles",
+  "description": "Goal: Users will be able to use Ansible powered RHEL System Roles to install and configure Microsoft SQL Server on Red Hat Enterprise Linux",
   "details": {
     "steps": [
       {
