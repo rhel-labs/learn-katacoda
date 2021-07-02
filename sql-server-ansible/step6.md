@@ -4,7 +4,7 @@ Now, let's open up the sqlcmd shell prompt connected to the **pubs** database cr
 
 If you haven't changed the sa password in the previous step, you should be able to successfully execute the command below and run the script to install the pubs data in the testDB database. 
 
-`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P p@55w0rD -d pubs -N -C -i ./InstPubs.sql`{{execute}}
+`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P p@55w0rD -N -C -i ./InstPubs.sql`{{execute}}
 
 Now that the data is loaded, let's query - 
 
