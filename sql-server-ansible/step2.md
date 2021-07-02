@@ -8,4 +8,4 @@ To access Ansible Galaxy, ansible ships with a command line tool called **ansibl
 
 `ansible-galaxy collection install microsoft.sql --force`{{execute}}
 
-
+> **NOTE:** The role from ansible-galaxy is not yet supported, and we plan to add support for this in a future version of RHEL.
