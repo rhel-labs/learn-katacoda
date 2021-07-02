@@ -1,6 +1,8 @@
 # Validate the environment
 >For this scenario, we have started installing ansible in the background. The background task will take between 2-5 minutes to complete. 
 
+RHEL System Roles is a collection of Ansible roles and modules that provide a stable and consistent configuration interface to automate and manage multiple releases of Red Hat Enterprise Linux. In this step of the lab, we will validate if Ansible is available in the environment.
+
 To check if ansible installation is complete, we can use the following command -
 `ansible --version`{{execute}}
 
