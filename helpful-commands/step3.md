@@ -2,18 +2,22 @@
 
 `ps`{{execute}}
 
+>_NOTE:_ For more info on using `ps` (including how to end processes), check
+out the [Service Administration Basics lab](https://lab.redhat.com/service-admin)
+
 The output of this command is often very lengthy, so this is a great chance
 to apply what you just learned in the previous step. Using the pipe operator (`|`),
 pipe the output of `ps aux` into the `grep` command to search for a specific
 process:
 
-`ps aux | grep `{{execute}}
+`ps aux | grep `{{execute T1}}
 
->_NOTE:_ For more info on using `ps` (including how to end processes), check
-out the [Service Administration Basics lab](https://lab.redhat.com/service-admin)
+`ps` is great for showing a snapshot of the active processes and their
+resource usage, but sometimes it is more useful to have a utility that keeps
+updating this information in real time. `top` does just that. 
 
 
-`top`{{execute}}
+`top`{{execute T2}}
 
 <pre class=file>
 top - 21:11:07 up  4:10,  2 users,  load average: 0.45, 0.16, 0.06

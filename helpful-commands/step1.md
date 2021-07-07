@@ -2,27 +2,39 @@
 
 Use `ls` to take a look at the contents of the current directory:
 
-`ls`{{execute}}
+`ls`{{execute T1}}
 
 The `cat` command is short for "concatenate", but it is much more versatile
 than that name suggests.
 
-`cat numbers.txt`{{execute}}
+`cat numbers.txt`{{execute T1}}
 
+The command below uses the append redirection operator (`>>`) to cause the
+output of the `echo` command to be written to the end of the file _numbers.txt_.
 
-`echo "11" >> numbers.txt`{{execute}}
+`echo "11" >> numbers.txt`{{execute T1}}
 
->_NOTE:_ You also may see the '>' redirection operator. This operator will
+There is no output, so view the file contents once again to see this change reflected:
+
+`cat numbers.txt`{{execute T1}}
+
+The `>>` operator allows you to add to files from the command line and is particularly
+useful in shell scripting. You can also use it when a command has a lengthy output
+and you want to view that output in a text editor.  
+
+>_NOTE:_ You may also encounter the '>' redirection operator. This operator will
 write the output to a file, overwriting the file if it already exists. By contrast,
 the `>>` operator will append the output to the specified file.
 
-
-
+Some files are large enough that it is not practical to display their contents
+with `cat`. A common example is log files, which are often packed full of
+information.
 
 Since this only displays the last ten lines of a file, it is particularly
-useful for viewing recent entries in log files.
+useful for viewing recent entries in log files. Take a look at the final
+ten lines of the _boot_ log.
 
-`tail var/log/boot.log`{{execute}}
+`tail var/log/boot.log`{{execute T1}}
 
 <pre class=file>
 Starting Enable periodic update of entitlement certificates....
@@ -36,3 +48,6 @@ Starting Terminate Plymouth Boot Screen...
 [  OK  ] Started Command Scheduler.
 [  OK  ] Started OpenSSH server daemon.
 </pre>
+
+If you wish to then see more than just the last ten lines, a text viewer like `vi`,
+`nano`, or `less` will let you view the entire file.  
