@@ -8,6 +8,12 @@ getting a summary of memory usage.
 
 The `-h` option outputs the information in a human-readable format.
 
+<pre class=file>
+           total       used      free    shared   buff/cache  available
+Mem:       1.8Gi       156Mi     1.2Gi   16Mi     430Mi       1.5Gi
+Swap:      3.9Gi       0B        3.9Gi
+</pre>
+
 If the available memory is very low, the fourth column of `ps au` can be
 used for finding which processes are the culprits. To sort the output by
 memory usage, add the `--sort=-%mem` option:
@@ -16,10 +22,9 @@ memory usage, add the `--sort=-%mem` option:
 
 <pre class=file>
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root       15848  0.0  0.2  27012  4732 pts/1    Ss+  21:05   0:00 -bash
-root        2631  0.0  0.2  27012  4712 pts/0    Ss   20:54   0:00 -bash
-root       15873  0.0  0.2  61648  3948 pts/0    R+   21:06   0:00 ps -au --sort=-%mem
-root         913  0.0  0.0  13656  1632 tty1     Ss+  16:54   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root        1935  0.5  0.2  65416  4704 pts/1    S+   15:05   0:00 top
+root        1914  0.1  0.2  27012  4652 pts/1    Ss   15:05   0:00 -bash
+<< OUTPUT ABRIDGED >>
 </pre>
 
 The first entry on this sorted list belongs to `top` from the previous step.
@@ -31,7 +36,8 @@ when killing it. Kill the `top` process from this terminal:
 
 `kill $(pidof top)`{{execute T1}}
 
-Returning to Terminal 2 reveals that the `top` output is no longer updating. 
+This does not show any output, but returning to Terminal 2 reveals that `top`
+is no longer updating.
 
-
-More information on process managment can be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).
+If you want more exercises on this topic, more information on process managment
+can be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).

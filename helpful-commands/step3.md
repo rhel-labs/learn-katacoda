@@ -14,7 +14,7 @@ process:
 
 `ps` is great for showing a snapshot of the active processes and their
 resource usage, but sometimes it is more useful to have a utility that keeps
-updating this information in real time. `top` does just that. 
+updating this information in real time. `top` does just that.
 
 
 `top`{{execute T2}}
@@ -32,6 +32,7 @@ MiB Swap:   4000.0 total,   4000.0 free,      0.0 used.   1482.2 avail Mem
     1 root    20  0  187008  4968  9800 S  0.0  0.8  0:03.06 systemd
     2 root    20  0       0     0     0 S  0.0  0.0  0:00.01 kthreadd
     3 root     0 -20      0     0     0 I  0.0  0.0  0:00.00 rcu_gp
+</pre>
 
 This output will continue updating until you quit `top`, making it particularly
 useful for diagnosing issues that change over time. Leave `top` running in this
