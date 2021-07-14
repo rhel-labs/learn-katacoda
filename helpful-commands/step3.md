@@ -1,6 +1,5 @@
 # Locating files
 
-
 Manipulating files is only useful if you can locate the file you need.
 
 The `find` command is great for searching for files which
