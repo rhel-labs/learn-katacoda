@@ -1,6 +1,17 @@
 # Using `df` to check disk usage
 
+// move this before processes
 
+// box is having problems? we know that full filesystems cause problems
+// quick health checking
+
+// larger filesystems can be closer to full and still be okay
+
+// tmpfs is filesystems accessible by the machine that are stored in RAM and
+ephemoral - don't have to care as much because they are in RAM. A reboot will
+give you a fresh copy
+
+// want to worry about logical partition for root the most
 
 
 The `df` command, short for "disk free", shows a breakdown of disk usage.

@@ -1,28 +1,34 @@
-# Locating files
+# Viewing the end of log files with `tail`
 
-Manipulating files is only useful if you can locate the file you need.
+// make new step for tail
 
-The `find` command is great for searching for files which
-satisfy some specified criteria. This step will show an example using filename,
-but you can also use it to look for files with ceratin permissions, empty files,
-or much more.
+Some files are large enough that it is not practical to display their contents
+with `cat`. A common example is log files, which are often packed full of
+information.
 
-`find / -name sudo.conf`{{execute T1}}
+Since this only displays the last ten lines of a file, it is particularly
+useful for viewing recent entries in log files. Take a look at the final
+ten lines of the _boot_ log.
+
+`tail var/log/boot.log`{{execute T1}}
 
 <pre class=file>
-/etc/dnf/protected.d/sudo.conf
-/etc/sudo.conf
-/usr/lib/tmpfiles.d/sudo.conf
-/usr/share/doc/sudo/examples/sudo.conf
+Starting Enable periodic update of entitlement certificates....
+Starting Dynamic System Tuning Daemon...
+Starting Network Manager Wait Online...
+Starting Hostname Service...
+[  OK  ] Started Enable periodic update of entitlement certificates..
+[  OK  ] Started Permit User Sessions.
+Starting Hold until boot process finishes up...
+Starting Terminate Plymouth Boot Screen...
+[  OK  ] Started Command Scheduler.
+[  OK  ] Started OpenSSH server daemon.
 </pre>
 
-Instead of having to search through countless directories, you can quickly
-decide which of these _sudo.conf_ 
+If you wish to then see the entire file, a text viewer like `less` or `view`
+will let you view the entire file.
 
->_Note:_ An in-depth explanation of using `find` to sort by file permissions
-is included in the [File Permissions Basics lab](https://lab.redhat.com/file-permissions).  
+//tail -f will follow the log file so that you can see new entries,
+var log messages
 
-`find` is great if you are looking for criteria about a file, but if you instead
-want to locate specific file contents, the `grep` command is what you need.
-
-`grep`{{execute T1}}
+//logger will write log entries
