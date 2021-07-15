@@ -41,32 +41,9 @@ The `>>` operator allows you to add to files from the command line and is partic
 useful in shell scripting. You can also use it when a command has a lengthy output
 and you want to view that output in a text editor.  
 
->_NOTE:_ You may also encounter the '>' redirection operator. This operator will
+>_NOTE:_ You may also encounter the `>` redirection operator. This operator will
 write the output to a file, overwriting the file if it already exists. By contrast,
-the `>>` operator will append the output to the specified file.
-
-Some files are large enough that it is not practical to display their contents
-with `cat`. A common example is log files, which are often packed full of
-information.
-
-Since this only displays the last ten lines of a file, it is particularly
-useful for viewing recent entries in log files. Take a look at the final
-ten lines of the _boot_ log.
-
-`tail var/log/boot.log`{{execute T1}}
-
-<pre class=file>
-Starting Enable periodic update of entitlement certificates....
-Starting Dynamic System Tuning Daemon...
-Starting Network Manager Wait Online...
-Starting Hostname Service...
-[  OK  ] Started Enable periodic update of entitlement certificates..
-[  OK  ] Started Permit User Sessions.
-Starting Hold until boot process finishes up...
-Starting Terminate Plymouth Boot Screen...
-[  OK  ] Started Command Scheduler.
-[  OK  ] Started OpenSSH server daemon.
-</pre>
-
-If you wish to then see the entire file, a text viewer like `vi`,
-`nano`, or `less` will let you view the entire file.  
+the `>>` operator will append the output to the specified file. The input operator
+(`<`) will redirect data as an input to whatever is called before the operator.
+The pipe operator (`|`) is used to send the output of one command to another
+command so that you can carry out an operation on the results of the first command.
