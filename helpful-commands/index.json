@@ -43,7 +43,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "terminals": [{"name": "Terminal 2", "target": "host01"}]
+    "terminals": [{"name": "Terminal 2", "target": "host01"},{"name": "Terminal 3", "target": "host01"}]
   },
   "backend": {
     "imageid": "rhel8-4"
