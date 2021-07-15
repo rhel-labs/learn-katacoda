@@ -43,6 +43,9 @@ and you want to view that output in a text editor.
 
 >_NOTE:_ You may also encounter the `>` redirection operator. This operator will
 write the output to a file, overwriting the file if it already exists. By contrast,
-the `>>` operator will append the output to the specified file.
+the `>>` operator will append the output to the specified file. The input operator
+(`<`) will redirect data as an input to whatever is called before the operator.
+The pipe operator (`|`) is used to send the output of one command to another
+command so that you can carry out an operation on the results of the first command. 
 
 //Talk about input and pipe
