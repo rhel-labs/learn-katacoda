@@ -1,7 +1,5 @@
 # Viewing the end of log files with `tail`
 
-// make new step for tail
-
 Some files are large enough that it is not practical to display their contents
 with `cat`. A common example is log files, which are often packed full of
 information.
@@ -10,7 +8,7 @@ Since this only displays the last ten lines of a file, it is particularly
 useful for viewing recent entries in log files. Take a look at the final
 ten lines of the _boot_ log.
 
-`tail var/log/boot.log`{{execute T1}}
+`tail /var/log/boot.log`{{execute T1}}
 
 <pre class=file>
 Starting Enable periodic update of entitlement certificates....
@@ -28,7 +26,44 @@ Starting Terminate Plymouth Boot Screen...
 If you wish to then see the entire file, a text viewer like `less` or `view`
 will let you view the entire file.
 
-//tail -f will follow the log file so that you can see new entries,
-var log messages
+Adding the `-f` option will follow the log file so that you can see new entries.
+Run this command in Terminal 2 to open an updating view of the _messages_ log, which
+will display system information:
 
-//logger will write log entries
+`tail -f /var/log/messages`{{execute T2}}
+
+<pre class=file>
+<< OUTPUT ABRIDGED >>
+Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <warn>  [1626403046.8294] device (ens5): Activation: failed for connection 'Wired connection 1'
+Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8298] device (ens5): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp4 (ens5): canceled DHCP transaction
+Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp4 (ens5): state changed timeout -> done
+</pre>
+
+The `logger` utlity will write to this _messages_ log. From the original terminal,
+write to this log:
+
+`logger Hello World`{{execute T1}}
+
+Check that this message was recorded by returning to Terminal 2, where `tail` is
+following the contents of this log:
+
+` `{{execute T2}}
+
+<pre class=file>
+Jul 15 22:39:06 6d5380e16498 dnf[3679]: Metadata cache created.
+Jul 15 22:39:06 6d5380e16498 systemd[1]: dnf-makecache.service: Succeeded.
+Jul 15 22:39:06 6d5380e16498 systemd[1]: Started dnf makecache.
+Jul 15 22:42:07 6d5380e16498 root[3693]: Hello World
+</pre>
+
+The message you just sent with `logger` is present in _messages_.
+
+>_NOTE:_ If it took you a bit to switch back to Terminal 2, there may be additional
+entries in the _messages_ log below your "Hello World".
+
+Hit `ctrl+C` in Terminal 2 to close out of `tail -f`:
+
+`^C`{{execute T2}}
+
+The next step will walk you through locating files. 
