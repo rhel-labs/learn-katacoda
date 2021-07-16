@@ -1,35 +1,74 @@
 # Locating files
 
-Manipulating files is only useful if you can locate the file you need.
+Manipulating files is only useful if you can locate the file you need. This step
+will walk you through two commands that are useful for this, `locate` and `find`.
 
 The `find` command is great for searching for files which
 satisfy some specified criteria. This step will show an example using filename,
 but you can also use it to look for files with ceratin permissions, empty files,
 or much more.
 
-`find / -name sudo.conf`{{execute T1}}
+`find / -name messages`{{execute T1}}
 
 <pre class=file>
-/etc/dnf/protected.d/sudo.conf
-/etc/sudo.conf
-/usr/lib/tmpfiles.d/sudo.conf
-/usr/share/doc/sudo/examples/sudo.conf
+/var/log/messages
 </pre>
 
-Instead of having to search through countless directories, you can quickly
-decide which of these _sudo.conf_
+The output is the full path to the file. If there are multiple matches, then
+this output would have multiple lines and it would be up to the user
+to decide which is the appropriate file. Instead of having to search through
+countless directories, you can quickly locate the file. However, `find` can be
+input/output intensive, especially when running a search that will scan a
+large amount of candidate files. This can sap system resources. In fact,
+the search above is exactly that kind of search, since it is looking for
+filenames recursively starting from the root directory. It will check every
+single file on the entire system to see if it is a match.
 
 >_Note:_ An in-depth explanation of using `find` to sort by file permissions
 is included in the [File Permissions Basics lab](https://lab.redhat.com/file-permissions).  
 
-`find` is great if you are looking for criteria about a file, but if you instead
-want to locate specific file contents, the `grep` command is what you need.
+`find` can be input/output intensive, which can sap system resources, especially
+if you run a search that will scan a large amount of candidate files. In fact,
+the search above is exactly that kind of search, since it is looking for filenames
+starting from the root directory. The `locate` command instead queries a
+database to avoid being too I/O intensive.
 
+`locate messages`{{exeute T1}}
 
-// find can be i/o intensive, which can sap system resources and have unintended
-effects
+<pre class=file>
+<< OUTPUT ABRIDGED >>
+/usr/share/vim/vim80/syntax/messages.vim
+/usr/share/vim/vim80/syntax/msmessages.vim
+/var/log/messages
+</pre>
 
-// take a look at locate, run updatedb command in background
+This command finds a variety of files containing _messages_ in their name,
+including the log file that you are looking for, `/var/log/messages`.
+The database that `locate` uses to optimize the search process
+is updated once per day by default, so that means if you are trying to
+locate a newly created file it will not be present in the database.
 
-// queries database, comes back super fast and is not I/O instensive
-// if you dl'd file you will not locate
+Create a new file with `touch`:
+
+`touch newFile`{{execute T1}}
+
+Try to find this newly created file using `locate`:
+
+`locate newFile`{{execute T1}}
+
+There will be no output, as _newFile_ is not in the `locate` database.
+Update the `locate` database using the `updatedb` command:
+
+`updatedb`{{execute T1}}
+
+Re-run the `locate` command to look through the newly updated database:
+
+`locate newFile`{{execute T1}}
+
+<pre class=file>
+/root/newFile
+</pre>
+
+Now the file is present. This is important to keep in mind so that you do not
+run into the frustrating situation where `locate` failed to find a file that
+existed all along.  
