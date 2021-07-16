@@ -62,8 +62,5 @@ The message you just sent with `logger` is present in _messages_.
 >_NOTE:_ If it took you a bit to switch back to Terminal 2, there may be additional
 entries in the _messages_ log below your "Hello World".
 
-Hit `ctrl+C` in Terminal 2 to close out of `tail -f`:
-
-`^C`{{execute T2}}
-
-The next step will walk you through locating files. 
+Leave this `tail -f` process running in Terminal 2, you will use it again in
+an upcoming step. The next step will walk you through locating files. 
