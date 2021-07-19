@@ -4,7 +4,7 @@ Manipulating files is only useful if you can locate the file you need. This step
 will walk you through two commands that are useful for this, `locate` and `find`.
 
 The `find` command is great for searching for files which
-satisfy some specified criteria. This step will show an example using filename,
+satisfy some specified criteria. This step will show an example using the filename,
 but you can also use it to look for files with certain permissions, empty files,
 or much more.
 
@@ -17,12 +17,7 @@ or much more.
 The output is the full path to the file. If there are multiple matches, then
 this output would have multiple lines and it would be up to the user
 to decide which is the appropriate file. Instead of having to search through
-countless directories, you can quickly locate the file. However, `find` can be
-input/output intensive, especially when running a search that will scan a
-large amount of candidate files. This can sap system resources. In fact,
-the search above is exactly that kind of search, since it is looking for
-filenames recursively starting from the root directory. It will check every
-single file on the entire system to see if it is a match.
+countless directories, you can quickly locate the file.
 
 >_Note:_ An in-depth explanation of using `find` to sort by file permissions
 is included in the [File Permissions Basics lab](https://lab.redhat.com/file-permissions).  
@@ -30,8 +25,9 @@ is included in the [File Permissions Basics lab](https://lab.redhat.com/file-per
 `find` can be input/output intensive, which can sap system resources, especially
 if you run a search that will scan a large amount of candidate files. In fact,
 the search above is exactly that kind of search, since it is looking for filenames
-starting from the root directory. The `locate` command instead queries a
-database to avoid being too I/O intensive.
+starting from the root directory. It will check every
+single file on the entire system to see if it is a match.
+The `locate` command instead queries a database to avoid being too I/O intensive.
 
 `locate messages`{{execute T1}}
 

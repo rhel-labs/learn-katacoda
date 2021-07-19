@@ -1,12 +1,12 @@
 # Manipulating file contents
 
-The first step towards modifying files is knowing what files exist. Use `ls`
+The first step towards modifying files is knowing which files exist. Use `ls`
 to take a look at the contents of the current directory:
 
 `ls`{{execute T1}}
 
 <pre class=file>
-anaconda-ks.cfg  example.txt  openscap_data  original-ks.cfg
+anaconda-ks.cfg  quote.txt  openscap_data  original-ks.cfg
 </pre>
 
 There are a few configs and a subdirectory, but you will use _quote.txt_

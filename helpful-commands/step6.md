@@ -62,7 +62,7 @@ MiB Swap:   4000.0 total,   4000.0 free,      0.0 used.   1482.2 avail Mem
 </pre>
 
 In addition to the process info, `top` includes some status information:
-* The system uptime,
+* The system uptime
 * Total number of user accounts
 * 1 minute, 5 minute, and 15 minute load averages
 * The total number of tasks and a breakdown of their status counts
