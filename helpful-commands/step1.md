@@ -29,7 +29,7 @@ output of the `echo` command to be written to the end of the file _quote.txt_.
 
 There is no output, so view the file contents once again to see this change reflected:
 
-`cat example.txt`{{execute T1}}
+`cat quote.txt`{{execute T1}}
 
 <pre class=file>
 Just thinking about everything I have been through, and how huge it all feels.

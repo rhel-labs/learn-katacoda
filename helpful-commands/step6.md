@@ -44,9 +44,6 @@ shows that the search also finds itself.
 resource usage, but sometimes it is more useful to have a utility that keeps
 updating this information in real time. `top` does just that.
 
-// provide detail on the top preamble
-// brief summary of each, combine similar entries (i.e. memory, etc)
-
 `top`{{execute T3}}
 
 <pre class=file>
@@ -70,7 +67,7 @@ In addition to the process info, `top` includes some status information:
 * 1 minute, 5 minute, and 15 minute load averages
 * The total number of tasks and a breakdown of their status counts
 * The kinds of tasks using the CPU
-* A breakdown of memory and swap usage 
+* A breakdown of memory and swap usage
 
 >_NOTE:_ For more information on the `top` preamble, visit section 2 of the [top man page](https://man7.org/linux/man-pages/man1/top.1.html).
 

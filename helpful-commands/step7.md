@@ -36,8 +36,8 @@ when killing it. Kill the `top` process from this terminal:
 
 `kill $(pidof top)`{{execute T1}}
 
-This does not show any output, but returning to Terminal 2 reveals that `top`
+This does not show any output, but returning to Terminal 3 reveals that `top`
 is no longer updating.
 
-If you want more exercises on this topic, more information on process managment
+If you want more exercises on this topic, more information on process management
 can be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).
