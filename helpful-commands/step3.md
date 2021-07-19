@@ -5,7 +5,7 @@ will walk you through two commands that are useful for this, `locate` and `find`
 
 The `find` command is great for searching for files which
 satisfy some specified criteria. This step will show an example using filename,
-but you can also use it to look for files with ceratin permissions, empty files,
+but you can also use it to look for files with certain permissions, empty files,
 or much more.
 
 `find / -name messages`{{execute T1}}

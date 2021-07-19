@@ -1,14 +1,13 @@
 # Overview:
 
-It is common for multiple users to potentially have access to the same files.
-This means that understanding file permissions is a foundational skill for
-any system administrator. This lab is designed to provide you with a basic
-understanding of how to control who has access to various files on a system.
+Faced with a blinking cursor on your command line, Linux can be intimidating to
+new users who do not know where to start. This lab is designed to show you a
+series of must-know commands that will prove useful on all facets of system
+administration, from finding files to checking the status of system resources. 
 
 # Goal:
 
-After completing this scenario, users will be able to read, understand, and
-change permissions of files and directories on their system.
+Build a toolbox of basic commands useful to every Linux user.
 
 # Concepts included in this scenario:
 * Viewing file contents with `cat`

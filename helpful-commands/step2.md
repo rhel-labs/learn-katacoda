@@ -40,7 +40,7 @@ Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp
 Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp4 (ens5): state changed timeout -> done
 </pre>
 
-The `logger` utlity will write to this _messages_ log. From the original terminal,
+The `logger` utility will write to this _messages_ log. From the original terminal,
 write to this log:
 
 `logger Hello World`{{execute T1}}
@@ -63,4 +63,4 @@ The message you just sent with `logger` is present in _messages_.
 entries in the _messages_ log below your "Hello World".
 
 Leave this `tail -f` process running in Terminal 2, you will use it again in
-an upcoming step. The next step will walk you through locating files. 
+an upcoming step. The next step will walk you through locating files.
