@@ -4,7 +4,7 @@ Some files are large enough that it is not practical to display their contents
 with `cat`. A common example is log files, which are often packed full of
 information.
 
-Since this only displays the last ten lines of a file, it is particularly
+Since `tail` only displays the last ten lines of a file, it is particularly
 useful for viewing recent entries in log files. Take a look at the final
 ten lines of the _boot_ log.
 
@@ -24,7 +24,7 @@ Starting Terminate Plymouth Boot Screen...
 </pre>
 
 If you wish to then see the entire file, a text viewer like `less` or `view`
-will let you view the entire file.
+will show the entire file.
 
 Adding the `-f` option will follow the log file so that you can see new entries.
 Run this command in Terminal 2 to open an updating view of the _messages_ log, which
