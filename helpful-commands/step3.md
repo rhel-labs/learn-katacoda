@@ -33,7 +33,7 @@ the search above is exactly that kind of search, since it is looking for filenam
 starting from the root directory. The `locate` command instead queries a
 database to avoid being too I/O intensive.
 
-`locate messages`{{exeute T1}}
+`locate messages`{{execute T1}}
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
