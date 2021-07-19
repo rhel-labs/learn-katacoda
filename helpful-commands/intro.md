@@ -14,8 +14,8 @@ change permissions of files and directories on their system.
 * Viewing file contents with `cat`
 * Viewing the last 10 lines of a file with `tail`
 * Appending command outputs to a file with the `>>` operator
-* Locating files that match certain criteria using `find`
+* Locating files that match certain criteria using `find` and `locate`
+* Using `grep` with other commands to isolate a portion of their output
+* Checking disk space with `df`
 * Viewing and managing processes with `ps` and `top`
 * Using `free` to view information about the system memory usage
-* Checking disk space with `df`
-* Using `grep` with other commands to isolate a portion of their output
