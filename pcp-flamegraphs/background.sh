@@ -5,6 +5,8 @@ touch /root/post-run.log
 
 export HOSTNAME=`hostname --all-fqdns`
 
+systemctl restart firewalld
+
 firewall-cmd --zone=public --add-service=http 
 firewall-cmd --reload
 
