@@ -8,6 +8,7 @@ export HOSTNAME=`hostname --all-fqdns`
 firewall-cmd --zone=public --add-service=http 
 firewall-cmd --reload
 
+systemctl restart httpd
 systemctl --now enable httpd
 
 #Get the sample database file
