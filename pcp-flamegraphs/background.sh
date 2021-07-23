@@ -5,7 +5,7 @@ touch /root/post-run.log
 
 export HOSTNAME=`hostname --all-fqdns`
 
-firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=http 
 firewall-cmd --reload
 
 systemctl --now enable httpd
