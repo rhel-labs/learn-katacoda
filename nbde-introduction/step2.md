@@ -34,3 +34,24 @@ This indicates that the server is responding as expected.
 
 Note that the actual values for the `payload` and other fields in the JSON will differ from
 the example output displayed above.
+
+## Opening the port used by `tang` in the firewall
+
+Finally, we should make sure we can access `tang` from other machines, which means the port it is listening to should
+be reachable from these other machines. By default, `tang` works on TCP port 80 -- the same as the HTTP protocol --, so
+we can open it in our scenario by issuing the following command:
+
+`firewall-cmd --add-port=80/tcp`{{execute}}
+
+Note: depending on how the firewall is set up, the command to open a specific port may be slightly different, but for our
+scenario the command above will suffice.
+
+You can verify the port is open by issuing the next command:
+
+`firewall-cmd --list-ports`{{execute}}
+
+And the expected output here would be the following:
+
+```
+80/tcp
+```

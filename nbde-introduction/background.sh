@@ -27,6 +27,11 @@ setup_swap() {
     log "swap file set up successfully..."
 }
 
+set_default_firewall_zone() {
+    firewall-cmd --set-default-zone libvirt
+    log "Default firewall zone set to libvirt"
+}
+
 ubuntu_deps() {
     log "(OS=ubuntu) Installing additional packages..."
 
@@ -44,6 +49,7 @@ rhel8_deps() {
     dnf -y module install virt
     systemctl start libvirtd
     log "Packages installed successfully..."
+    set_default_firewall_zone
 }
 
 install_deps() {
