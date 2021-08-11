@@ -45,7 +45,7 @@ This will show you the epoch time corresponding to the string you input:
 You can convert in the reverse direction with `date` as well by using the `--date`
 option, then prepending a `@` symbol to the epoch time you would like to convert.
 This syntax specifies that you would like to know the date at the given epoch time.
-Try this using the epoch time you just recieved from the previous command:
+Try this using the epoch time you just received from the previous command:
 
 `date --date @1418432400`{{execute T1}}
 

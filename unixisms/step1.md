@@ -53,7 +53,7 @@ You could try tab completion for yourself by re-typing the previous command, but
 instead of typing `grep` all the way out, just type `gre` and then press tab.
 You will see that `grep` fills in, and you can hit enter to execute the command.
 
-These commmands work great if you know the title of the `man` page that you
+These commands work great if you know the title of the `man` page that you
 are looking for, but what if you want to search for specific contents instead?
 `man` supports a `--regex` option that lets you search through all man pages
 using regular expressions. This will then open each page that contains a match
