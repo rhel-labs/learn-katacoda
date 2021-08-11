@@ -11,8 +11,27 @@ on these sections in the [Enable Sysadmin article](https://www.redhat.com/sysadm
 
 Within these sections, each page has a name. The name of the page is how you
 can access the information within it. But what do you do if you don't know the
-name of a page? The following command will list all `man` pages available on
-your system:
+name of a page?
+
+The first time you try to list `man` pages, you will need to update your `man`
+database. Use the following command:
+
+`mandb`{{execute T1}}
+
+<pre class=file>
+<< OUTPUT ABRIDGED >>
+
+113 man subdirectories contained newer manual pages.
+3220 manual pages were added.
+0 stray cats were added.
+0 old database entries were purged.
+</pre>
+
+>_NOTE:_ If the database has not been updated, you will get an output similar to
+".: nothing appropriate."
+
+Once you have updated the `man` database, the following command
+will list all `man` pages available on your system:
 
 `man -k .`{{execute T1}}
 
