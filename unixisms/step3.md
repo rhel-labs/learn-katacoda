@@ -15,14 +15,14 @@ anaconda-ks.cfg  openscap_data  original-ks.cfg
 </pre>
 
 Now, try it again with the `-a` option. Many more files and directories will
-show up, even though you have not changed where you are looking. 
+show up, even though you have not changed where you are looking.
 
 `ls -a`{{execute T1}}
 
 <pre class=file>
 .   anaconda-ks.cfg  .bash_profile  .cshrc  .hushlogin     original-ks.cfg  .tcshrc
 ..  .bash_logout     .bashrc        .gnupg  openscap_data  .ssh             .viminfo
-<pre class=file>
+</pre>
 
 Adding the `-a` option reveals that there are numerous hidden files and directories
 in this home directory. These are hidden because they are not files that
