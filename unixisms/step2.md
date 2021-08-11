@@ -2,7 +2,11 @@
 
 Linux is filled with shortcuts, and learning these shortcuts
 is a crucial step to speeding up your work. One such shortcut
-is that `~` is aliased to the current user's home directory.
+is that `~` is aliased to the current user's home directory. To test out some
+applications of this, change directories to the root directory of the system:
+
+`cd /`{{execute T1}}
+
 The `~` alias works in any case where you have to specify a path.
 If you wanted to list the contents of the _openscap_data_ subdirectory
 located in the home directory of __root__, the following command is
