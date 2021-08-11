@@ -26,7 +26,6 @@
     ],
     "intro": {
       "text": "intro.md",
-      "courseData": "foreground.sh",
       "credits": "__Author:__ Jaret Anderson, Technical Contributor (Red Hat)"
     },
     "finish": {
