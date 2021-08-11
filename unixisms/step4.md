@@ -8,16 +8,13 @@ they can access and make changes to any part of the system.
 perform administrative tasks. Users in the _wheel_ group have access to the
 `sudo` command.
 
-In the second terminal, log in as the __rhel__ user:
-
-`su - rhel`{{execute T2}}
-
 >_NOTE:_ When logged in as __root__, the character in the command prompt is `#`.
 When you switch users to __rhel__, this character changes to `$`. __root__ will
 always be symbolized by `#` to give you the warning that any command you enter
 will be run with the highest level of administrative privileges.
 
-Now that you have switched users, try to access the following file:
+In the second terminal, where you are logged in as the __rhel__ user,  
+try to access the following file:
 
 `cat /etc/tcsd.conf`{{execute T2}}
 
