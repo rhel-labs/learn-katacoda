@@ -88,9 +88,9 @@
       "description": "Deploy the Apache web server using Ansible modules on Red Hat Enterprise Linux"
     },
     {
-      "external_link": "https://lab.redhat.com/networking-basics",
-      "title": "Configuring Network Interfaces [Admin 101]",
-      "description": "Learn how to apply network settings to interfaces and manage connections using Network Manager and the nmcli command."
+      "external_link": "https://lab.redhat.com/unixisms",
+      "title": "Unusual Unixisms [Admin 101]",
+      "description": "Learn how to avoid common pitfalls for new Linux users."
     },
     {
       "external_link": "https://lab.redhat.com/kpatch-apply",
@@ -101,6 +101,11 @@
       "external_link": "https://lab.redhat.com/webconsole-software",
       "title": "Managing system updates using the web console",
       "description": "Explore how someone with limited Linux experience can apply system updates to Red Hat Enterprise Linux systems through this user friendly web interface."
+    },
+    {
+      "external_link": "https://lab.redhat.com/networking-basics",
+      "title": "Configuring Network Interfaces [Admin 101]",
+      "description": "Learn how to apply network settings to interfaces and manage connections using Network Manager and the nmcli command."
     },
     {
       "external_link": "https://lab.redhat.com/selinux-containers",
