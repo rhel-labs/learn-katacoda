@@ -4,10 +4,9 @@ Time is a fundamental part of productivity, but frameworks must be established
 to ensure that humans and computers can be on the same page about time.
 On Linux, one of these frameworks is the __unix epoch__. This is a standardized
 date and time that is defined as the beginning of time for unix systems.
-From this, an _epoch time_ (or _unix time_) is defined as the number of seconds
-that have elapsed since the __unix epoch__.
-
-The __unix epoch__ is defined as
+From this, an _epoch time_ (or _unix time_) is the number of seconds
+that have elapsed since the __unix epoch__. The __unix epoch__ is defined as
+Midnight UTC on January 1, 1970.
 
 Unix time is exceptionally well-documented online, and if you wish to learn more
 the [Wikipedia page](https://en.wikipedia.org/wiki/Unix_time) on the subject is a great place to start.
