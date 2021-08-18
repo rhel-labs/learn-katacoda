@@ -66,13 +66,13 @@ h1, .h1 {
 
 @media screen and (min-width: 1600px) {
   .masterheader {
-    background-image: url(/static/background-desktop.jpg);
+    background-image: url(/static/rh-rhel-workshop-graphics-us302516wg-202108_3000x748-gray.png);
     min-height: 470px;
   }
 }
 @media screen and (min-width: 1900px) {
   .masterheader {
-    background-image: url(/static/background-desktop.jpg);
+    background-image: url(/static/rh-rhel-workshop-graphics-us302516wg-202108_3000x748-gray.png);
     min-height: 470px;
   }
 
