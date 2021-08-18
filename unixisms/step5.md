@@ -57,3 +57,25 @@ Notice that this specifies the date in the timezone for this lab system,
 Eastern Time.
 
 For more information on using `date`, check out the [date man page](https://man7.org/linux/man-pages/man1/date.1.html).
+
+An example of how you might run into unix time is available in this [SELinux troubleshooting article](https://www.redhat.com/sysadmin/selinux-denial2).
+The following example error is given:
+
+<pre class=file>
+type=AVC msg=audit(1600796109.687:168): avc:  denied  { read } for  pid=3912 comm="rhsmcertd-worker" name="virt.module" dev="dm-0" ino=50331783 scontext=system_u:system_r:rhsmcertd_t:s0 tcontext=system_u:object_r:root_t:s0 tclass=file permissive=0
+</pre>
+
+For this lab, we care about the second field in this error. You may recognize
+that ten digit number as a unix timestamp. To confirm, convert it to a standard
+date:
+
+`date --date @1600796109`{{execute T1}}
+
+<pre class=file>
+Tue Sep 22 13:35:09 EDT 2020
+</pre>
+
+The article that this error was taken from was published on November 16, 2020,
+which supports the fact that this was a unix timestamp generated during the
+process of writing the article. However, someone who is not familiar with the
+unix time format may never consider that this number relates to time at all.
