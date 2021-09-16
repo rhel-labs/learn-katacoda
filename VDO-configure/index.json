@@ -1,40 +1,15 @@
 {
-  "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
-  "description": "Goal: After completing this scenario, users will be able to configure Virtual Data Optimizer (VDO) to make use of block level deduplication and compression to conserve disk space",
+  "title": "This content has moved",
+  "description": "VDO content has moved.",
   "details": {
     "steps": [
       {
         "title": "Step 1",
         "text": "step1.md"
-      },
-      {
-        "title": "Step 2",
-        "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      },
-      {
-        "title": "Step 4",
-        "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
-      },
-      {
-        "title": "Step 6",
-        "text": "step6.md"
-      },
-      {
-        "title": "Step 7",
-        "text": "step7.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "__Author:__ Dennis Keefe, Software Engineering Manager (Red Hat)"
     },
     "finish": {
       "text": "finish.md"
@@ -44,6 +19,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "rhel8-4"
+    "imageid": "none"
   }
 }
