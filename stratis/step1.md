@@ -1,22 +1,8 @@
-# Install Stratis
+# Moved
 
-Stratis consists of two components.
+If you are looking for a Red Hat Enterprise Linux virtual machine to work on, might we suggest [Red Hat Enterprise Linux Sandbox](https://lab.redhat.com/sandbox).
 
-First, the Stratis daemon, stratisd:
-* manages collections of block devices
-* provides a D-Bus API
 
-Second, the Stratis command-line interface, stratis-cli:
-* uses the D-Bus API to communicate with stratisd
+The Stratis content has moved:
 
-To start off, install the stratisd and stratis-cli packages using a software package manager.
-
-`yum -y install stratisd stratis-cli`{{execute}}
-
-You can check the stratis-cli version.
-
-`stratis --version`{{execute}}
-
-<pre class="file">
- 2.3.0
-</pre>
+[Stratis, a new Red Hat Enterprise Linux storage technology](https://lab.redhat.com/stratis-configure)
