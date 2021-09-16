@@ -128,12 +128,12 @@
       "description": "Containerize a 3rd party application into a Red Hat Universal Base Image (UBI) based container."
     },
     {
-      "external_link": "https://lab.redhat.com/vdo-configure",
+      "external_link": "https://lab.redhat.com/vdo-configure2",
       "title": "Reducing Operational and Storage Costs with Virtual Data Optimizer (VDO)",
       "description": "Explore how Virtual Data Optimizer (VDO) can reduce the amount of disk space files use, allowing you to save on storage costs."
     },
     {
-      "external_link": "https://lab.redhat.com/stratis",
+      "external_link": "https://lab.redhat.com/stratis-configure",
       "title": "Stratis, a new Red Hat Enterprise Linux storage technology",
       "description": "Get started with Stratis, a pool-based storage technology included with Red Hat Enterprise Linux."
     },
