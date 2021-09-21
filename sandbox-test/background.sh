@@ -16,5 +16,9 @@ echo "setting up elastic logging" >> /root/post-run.log
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.14.2-x86_64.rpm
 sudo rpm -vi filebeat-7.14.2-x86_64.rpm
 
+echo "configure cred" >> /root/post-run.log
+#/etc/filebeat/filebeat.yml
+#cloud.id:
+#cloud.auth:
 
 echo "DONE" >> /root/post-run.log
