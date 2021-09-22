@@ -17,8 +17,7 @@ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.14.2
 sudo rpm -vi filebeat-7.14.2-x86_64.rpm
 
 echo "configure cred" >> /root/post-run.log
-#/etc/filebeat/filebeat.yml
-#cloud.id:
-#cloud.auth:
+sed -i 's/#cloud.id:/cloud.id:elastic/g' /etc/filebeat/filebeat.yml
+sed -i 's/#cloud.auth:/cloud.auth:eVFZKQqch39DRL8yUsNHueOQ/g' /etc/filebeat/filebeat.yml
 
 echo "DONE" >> /root/post-run.log
