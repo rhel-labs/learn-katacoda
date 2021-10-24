@@ -38,7 +38,7 @@ Before running any IdM commands, you need to authenticate to the IdM domain by o
 
 > __NOTE__:  For the normal administrative activity an administrative account admin has been created called *admin*. The admin password is **ADMPassword1**. For this lab, the password was specified in the */root/hosts* file as a IdM server variable. 
 
-On the *host02* terminal window of the lab, authenticate using the clien as *admin* to the IdM server -
+On the *host02* terminal window of the lab, authenticate using the client as *admin* to the IdM server -
 
 `kinit admin`{{execute T3}}
 
