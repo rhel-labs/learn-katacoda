@@ -12,13 +12,8 @@ yum -y install cockpit cockpit-packagekit
 echo "starting cockpit" >> /root/post-run.log
 systemctl start cockpit
 
-echo "setting up elastic logging" >> /root/post-run.log
-curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.14.2-x86_64.rpm
-sudo rpm -vi filebeat-7.14.2-x86_64.rpm
-
-echo "configure cred" >> /root/post-run.log
-sed -i 's/#cloud.id:/cloud.id: "Sandbox-Logs:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbSQxZGUwZjgxMDIyMWM0ZGIwYjVjOWZlZTQ2ZmE4OTQ5YiRhYjViM2FkOTY3NDY0NWM0OTY3OTVjZWNlOWNjM2VmYg=="/g' /etc/filebeat/filebeat.yml
-sed -i 's/#cloud.auth:/cloud.auth: "elastic:eVFZKQqch39DRL8yUsNHueOQ"/g' /etc/filebeat/filebeat.yml
-sed -i 's/localhost:9200/https://sandbox-logs.es.eastus2.azure.elastic-cloud.com:9243/g' /etc/filebeat/filebeat.yml
+echo "setting up logging" >> /root/post-run.log
+curl -O https://www.loggly.com/install/configure-linux.sh
+sudo bash configure-linux.sh -a rhtestdemo -t 1e39fb71-0ac5-44dd-b559-acb4230a542a -u don
 
 echo "DONE" >> /root/post-run.log
