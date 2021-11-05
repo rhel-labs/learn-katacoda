@@ -14,6 +14,7 @@ systemctl start cockpit
 
 
 echo "setting up logging" >> /root/post-run.log
+yum install -y tlog
 sudo rpm --import https://repo.logdna.com/logdna.gpg
 echo "[logdna]
 name=LogDNA packages
@@ -22,9 +23,11 @@ enabled=1
 gpgcheck=1
 gpgkey=https://repo.logdna.com/logdna.gpg" | sudo tee /etc/yum.repos.d/logdna.repo
 sudo yum -y install logdna-agent
+mkdir /var/log/slog/
+tlog-rec --writer=file --file-path=/var/log/slog/tlog.log
 sudo logdna-agent -k b1f7f85d2b222d70427c214a4faedc67 # this is your unique Ingestion 
 # /var/log is monitored/added by default (recursively), optionally add more dirs with:
-sudo logdna-agent -d /path/to/log/folders
+sudo logdna-agent -d /var/log/slog/tlog.log
 # You can configure the LogDNA Agent to tag your hosts with:
 # sudo logdna-agent -t mytag,myothertag
 sudo chkconfig logdna-agent on
