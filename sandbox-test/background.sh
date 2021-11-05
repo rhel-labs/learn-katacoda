@@ -31,6 +31,6 @@ sudo chkconfig logdna-agent on
 echo "starting up logging" >> /root/post-run.log
 sudo tlog-rec --writer=file --file-path=/var/log/tlog.log
 sudo service logdna-agent start
-
+sudo tlog-rec-session
 
 echo "DONE" >> /root/post-run.log
