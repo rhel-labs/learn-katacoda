@@ -17,3 +17,5 @@ do
 done
 clear
 echo -e "${GREEN}Ready to start your scenario${NC}"
+sudo tlog-rec-session
+
