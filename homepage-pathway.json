@@ -23,7 +23,7 @@
       "description": "Explore how Podman helps you run workloads in containers by taking an existing container image and deploying it into a runtime environment."
     },
     {
-      "external_link": "https://lab.redhat.com/systemroles-soe",
+      "external_link": "https://play.instruqt.com/rhel/tracks/rhel-system-roles",
       "title": "Building a standard operating environment with RHEL System Roles",
       "description": "Use RHEL System Roles to create and apply a standard set of configuration for systems using Ansible-based RHEL System Roles."
     },
