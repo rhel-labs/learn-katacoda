@@ -24,7 +24,7 @@ gpgcheck=1
 gpgkey=https://repo.logdna.com/logdna.gpg" | sudo tee /etc/yum.repos.d/logdna.repo
 sudo yum -y install logdna-agent
 sudo tlog-rec --writer=file --file-path=/var/log/tlog.log
-sudo logdna-agent -k b1f7f85d2b222d70427c214a4faedc67 # this is your unique Ingestion 
+sudo logdna-agent -k c5d3365c54590086ad4bbe47208649a1 # this is your unique Ingestion 
 # /var/log is monitored/added by default (recursively), optionally add more dirs with:
 # sudo logdna-agent -d /var/log/slog/tlog.log
 # You can configure the LogDNA Agent to tag your hosts with:
