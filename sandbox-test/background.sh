@@ -33,4 +33,4 @@ sudo tlog-rec --writer=file --file-path=/var/log/tlog.log
 sudo service logdna-agent start
 
 #Create a done file to signal we have finished
-touch /root/post-run.log.done
+touch /root/post-run.log.done 
