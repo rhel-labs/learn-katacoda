@@ -12,11 +12,23 @@ yum -y install cockpit cockpit-packagekit
 echo "starting cockpit" >> /root/post-run.log
 systemctl start cockpit
 
+
 echo "setting up logging" >> /root/post-run.log
-firewall-cmd --permanent --add-port=514/udp
-firewall-cmd --permanent --add-port=514/tcp
-firewall-cmd --reload
-curl -O https://www.loggly.com/install/configure-linux.sh
-sudo bash configure-linux.sh -a rhtestdemo -t 1e39fb71-0ac5-44dd-b559-acb4230a542a -u don
+sudo rpm --import https://repo.logdna.com/logdna.gpg
+echo "[logdna]
+name=LogDNA packages
+baseurl=https://repo.logdna.com/el6/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.logdna.com/logdna.gpg" | sudo tee /etc/yum.repos.d/logdna.repo
+sudo yum -y install logdna-agent
+sudo logdna-agent -k b1f7f85d2b222d70427c214a4faedc67 # this is your unique Ingestion 
+# /var/log is monitored/added by default (recursively), optionally add more dirs with:
+sudo logdna-agent -d /path/to/log/folders
+# You can configure the LogDNA Agent to tag your hosts with:
+# sudo logdna-agent -t mytag,myothertag
+sudo chkconfig logdna-agent on
+sudo service logdna-agent start
+
 
 echo "DONE" >> /root/post-run.log
