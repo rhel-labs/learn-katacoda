@@ -129,6 +129,10 @@ for course in courses['courses']:
       shutil.rmtree(instruqtDir + '/track_scripts')
     shutil.copytree('instruqt-template/track_scripts', instruqtDir + '/track_scripts')
     
+    
+    if os.path.isfile(pathway + "/background.sh"):
+      os.system('cp -fr ' + pathway + '/background.sh ' + instruqtDir + '/track_scripts/setup-rhel' )
+
     if not os.path.exists(instruqtDir + '/assets'):
       os.mkdir(instruqtDir + '/assets')
       
@@ -140,8 +144,8 @@ for course in courses['courses']:
     with open(pathway + '/' + introText, 'r') as myintro:
       intro_data=myintro.read()
     
-    intro_md=re.sub(r'\(\.\.\/\.\.\/assets',r'(https://katacoda.com/openshift/assets',intro_data)
-    intro_md=re.sub(r'\(\/openshift\/assets',r'(https://katacoda.com/openshift/assets',intro_data)
+    intro_md=re.sub(r'\(.\/assets',r'(https://katacoda.com/rhel-labs/assets',intro_data)
+    #intro_md=re.sub(r'\(\/openshift\/assets',r'(https://katacoda.com/openshift/assets',intro_data)
 
     track_d["description"] = intro_md
     
@@ -149,7 +153,7 @@ for course in courses['courses']:
     #    script=asset["file"]
     
     try:
-      assets = course_json["details"]["assets"]["client"]
+      #assets = course_json["details"]["assets"]["client"]
       #shutil.copyfile('learn-katacoda/' + pathway_id + '/' + course_id + '/assets/*' , pathway + '/' + trackDir + '/track_scripts/')
       os.system('cp -fr ' + pathway + '/assets/* ' + instruqtDir + '/scripts/' )
       print('cp -fr ' + pathway + '/assets/* ' + instruqtDir + '/scripts/')
@@ -201,8 +205,8 @@ for course in courses['courses']:
                 del d_challenges["notes"]
 
 
-        l_tabs = [{"title": "CLI", "type": "terminal","hostname":"rhel"},
-                  {"title": "Web Console", "type" : "service", "hostname" : "rhel", "path" : "/", "port" : 30001}]
+        l_tabs = [{"title": "Terminal", "type": "terminal","hostname":"rhel"},
+                  {"title": "RHEL Web Console", "type" : "service", "hostname" : "rhel", "path" : "/", "port" : 9090}]
         
         if visualEditor:
           l_tabs.append({"title": "Visual Editor", "type": "code","hostname":"rhel", "path":"/root"})

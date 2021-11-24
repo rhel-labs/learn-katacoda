@@ -63,12 +63,12 @@ challenges:
   slug: step1
   tabs:
   - hostname: rhel
-    title: CLI
+    title: Terminal
     type: terminal
   - hostname: rhel
     path: /
-    port: 30001
-    title: Web Console
+    port: 9090
+    title: RHEL Web Console
     type: service
   timelimit: 150
   title: Step 1
@@ -94,12 +94,12 @@ challenges:
   slug: step2
   tabs:
   - hostname: rhel
-    title: CLI
+    title: Terminal
     type: terminal
   - hostname: rhel
     path: /
-    port: 30001
-    title: Web Console
+    port: 9090
+    title: RHEL Web Console
     type: service
   timelimit: 150
   title: Step 2
