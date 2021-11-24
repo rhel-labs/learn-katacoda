@@ -1,0 +1,254 @@
+challenges:
+- assignment: "# Exploring and understanding the lab environment\n\nRed Hat Identity\
+    \ Manager (IdM), is designed to provide an integrated identity management service\
+    \ for a wide range of clients, including Linux, Mac, and even Windows. At its\
+    \ core, IdM combines LDAP, Kerberos, DNS, and PKI with a rich management framework.\
+    \ \n\n>**Note:** For this scenario, we have started installing ansible and performing\
+    \ an yum update in the background. The background task will take between couple\
+    \ of minutes to finish.  \n\nIn this lab environment, we have provisioned 3 nodes\
+    \ as shown below -\n\n| Role                 | Inventory hostname | IP Address\
+    \     |\n| ---------------------| -------------------| ---------------|\n| Control\
+    \ node         | host01.test.local  | `[[HOST1_IP]]` |\n| IdM Server         \
+    \  | host02.test.local  | `[[HOST2_IP]]` |\n| IdM Client           | host03.test.local\
+    \  | `[[HOST3_IP]]` |\n\nA control node is any machine with ansible installed.\
+    \  We will be using *host02* to deploy the IdM server, and *host03* to deploy\
+    \ the IdM client. \n\n# Determining connectivity of the hosts\n\nIn the *control*\
+    \ node terminal window of the lab, determine connectivity across the hosts using\
+    \ ansible [ping module](https://docs.ansible.com/ansible/latest/modules/ping_module.html).\n\
+    \n`ansible all -m ping`{{execute T1}}\n\nThe output will look like the following:\n\
+    \n```\nhost01 | SUCCESS => {\n    \"ansible_facts\": {\n        \"discovered_interpreter_python\"\
+    : \"/usr/libexec/platform-python\"\n    },\n    \"changed\": false,\n    \"ping\"\
+    : \"pong\"\n}\nhost02 | SUCCESS => {\n    \"ansible_facts\": {\n        \"discovered_interpreter_python\"\
+    : \"/usr/libexec/platform-python\"\n    },\n    \"changed\": false,\n    \"ping\"\
+    : \"pong\"\n}\nhost03 | SUCCESS => {\n    \"ansible_facts\": {\n        \"discovered_interpreter_python\"\
+    : \"/usr/libexec/platform-python\"\n    },\n    \"changed\": false,\n    \"ping\"\
+    : \"pong\"\n}\n```\n\nYou will see green return values in the terminal window\
+    \ with the hostname and **SUCCESS**.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, you will be able to use ansible\
+      \ to easily deploy Red Hat Identity Management (IdM) across your \nRHEL servers,\
+      \ and run IdM health-check to monitor if the IdM services are properly configured\
+      \ and running.\n\n# Concepts included in this scenario:\n* Using ansible playbooks\
+      \ to deploy IdM across RHEL servers\n* Starting and stopping the IdM server\
+      \ and services\n* Creating a user on the IdM server\n* Run health-check to monitor\
+      \ if any IdM services are not running properly\n \n# Example Use case:\nSpecifically\
+      \ designed for the linux environment, IdM makes it simple to manage users, user\
+      \ groups, systems and services \nin native linux, while still providing the\
+      \ option to interoperate with Microsoft Active Directory. In order to reduce\
+      \ \nadministrative overhead, streamline provisioning and improve security, your\
+      \ sysadmins are looking for a centralized way \nto manage identities on RHEL.\
+      \ \n\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: "# Automating IdM installation using ansible\n\n**FreeIPA** is a free\
+    \ and open source identity management system. *FreeIPA* is the upstream open-source\
+    \ project for Red Hat Identity Manager (IdM). In this lab, we will be using the\
+    \ FreeIPA upstream repository.\n\n# Download the FreeIPA ansible roles\n\nIn the\
+    \ *control* node terminal window of the lab, install the `ansible-freeipa` package.\
+    \ This package has all the necessary playbooks needed to deploy or undeploy server,\
+    \ replicas and clients.\n\n`yum install -y ansible-freeipa`{{execute T1}}\n\n\
+    List the playbooks that are available to be used. \n\n`ls /usr/share/doc/ansible-freeipa/playbooks`{{execute\
+    \ T1}}\n\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: "# Install the IdM Server software\n\nFreeIPA server provides centralized\
+    \ authentication, authorization and account information by storing data about\
+    \ user, groups, hosts and other objects necessary to manage the security aspects\
+    \ of a network of computers. \n\nOn the *control* node, use ansible to install\
+    \ the IPA Server on *host02* - \n\n`ansible-playbook -v -i ~/hosts /usr/share/doc/ansible-freeipa/playbooks/install-server.yml`{{execute\
+    \ T2}}\n\n> __NOTE__ : In this step, we have only installed a single IdM server.\
+    \ However, in production, IdM replicas are typically deployed for scale and high-availability\
+    \ reasons. An IdM replica server is a full read/write copy of the first installation,\
+    \ and can be easily created using the *ipa-replica-prepare* command. \n\nThe target\
+    \ host (*host02*) and other IPA server variables are picked up from the ansible\
+    \ inventory file (*/root/hosts*).\n\nA number of different services are installed\
+    \ together with an IdM server, including Directory Server, Certificate Authority\
+    \ (CA), DNS, Kerberos, and others. \n\n# Stop and start the IPA Server \n\nBecause\
+    \ IdM has several different services working together, *ipactl* is a single utility\
+    \ to stop, start, or restart the entire IdM server along with all other installed\
+    \ services.\n\nUsing the *host02* terminal of the lab, stop the IdM server and\
+    \ all installed services -\n\n`ipactl stop`{{execute T3}}\n\nUsing the *host02*\
+    \ terminal of the lab, start the entire IdM server and all installed services\
+    \ -\n\n`ipactl start`{{execute T3}}\n\nIf you only want to stop, start, or restart\
+    \ an individual IdM service, use the *systemctl* utility.\n\n# Configure the DNS\
+    \ name resolution \n\nOn most Linux operating systems, the DNS servers that the\
+    \ system uses for name resolution is defined in the */etc/resolv.conf* file.\n\
+    \nUsing *host03* terminal of the lab, make a DNS entry with the IP address of\
+    \ the IdM server in the DNS resolution file */etc/resolv.conf* -\n\n`IP_Server=$(grep\
+    \ -Ri \"host02\" /etc/hosts | cut -d\" \" -f1)`{{execute T4}}\n\n`sed -ie '2 a\
+    \ nameserver '\"$IP_Server\" /etc/resolv.conf`{{execute T4}}\n\nInspect the */etc/resolv.conf*\
+    \ file to ensure that there is a nameserver entry with the IdM server's IP -\n\
+    \n`cat /etc/resolv.conf`{{execute T4}}\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: "# Install the IdM client \n\nIn this lab, you will be using *host03*\
+    \ as the IdM client host to setup the FreeIPA client.\n\nUsing the *control* node\
+    \ tab of the lab, install the FreeIPA client on *host03* -\n\n`ansible-playbook\
+    \ -v -i ~/hosts /usr/share/doc/ansible-freeipa/playbooks/install-client.yml`{{execute\
+    \ T2}}\n\nThe IPA client host (*host03* in this case), and other corresponding\
+    \ IPA client variables are taken from the */root/hosts* inventory file. \n\nInstalling\
+    \ the IPA client automatically configures services like kerberos, SSSD, PAM and\
+    \ NSS. \n\n# Test the FreeIPA client\n\nFrom the FreeIPA client node (*host03*),\
+    \ check the real and effective group ids of the admin user - \n\n`id admin`{{execute\
+    \ T4}}\n\nThe output should be like below since admin user exists on the IPA Server\
+    \ -\n\n<pre class=\"file\">\nuid=1152000000(admin) gid=1152000000(admins) groups=1152000000(admins)\n\
+    </pre>\n\nFrom the FreeIPA client node (*host03*), check the real and effective\
+    \ group ids of the user John Doe (jdoe) - \n\n`id jdoe`{{execute T4}}\n\nThe output\
+    \ should be like below since user jdoe does not exists on the IPA Server - \n\n\
+    <pre class=\"file\">\nid: \u2018jdoe\u2019: no such user\n</pre>\n\n# Create a\
+    \ new user principal \n\nBefore running any IdM commands, you need to authenticate\
+    \ to the IdM domain by obtaining a kerberos ticket. The *kinit* utility can be\
+    \ used to authenticate to an Identity Management (IdM) environment manually. It\
+    \ obtains and caches a Kerberos ticket-granting ticket (TGT) on behalf of an IdM\
+    \ user.\n\n> __NOTE__:  For the normal administrative activity an administrative\
+    \ account admin has been created called *admin*. The admin password is **ADMPassword1**.\
+    \ For this lab, the password was specified in the */root/hosts* file as a IdM\
+    \ server variable. \n\nOn the *host02* terminal window of the lab, authenticate\
+    \ using the client as *admin* to the IdM server -\n\n`kinit admin`{{execute T3}}\n\
+    \nYou will be prompted for the password of admin password of the IdM Server (which\
+    \ is **ADMPassword1**).\n\nAs an administrator, adding principals to the IdM Kerberos\
+    \ domain is an important task. This can be accomplished using the *ipa* command.\n\
+    \nNow that we have authenticated to the IdM server, on the server node (*host02*),\
+    \ create a new user called *John Doe* with userid *jdoe* -\n\n`ipa user-add jdoe\
+    \ --first=John --last=Doe --password`{{execute T3}}\n\nWhen prompted for the password,\
+    \ enter a password, and retype the password to confirm.\n\nOn the IPA server node\
+    \ (*host02*), check the real and effective group ids of the user John Doe (jdoe)\
+    \ - \n\n`id jdoe`{{execute T3}}\n\nFrom the IPA client node (*host03*), check\
+    \ the real and effective group ids of the user John Doe (jdoe) - \n\n`id jdoe`{{execute\
+    \ T4}}\n\nVerify that the uid, gid, and groups match on *host02* and *host03*,\
+    \ and is referring to the same user *jdoe*.\n\n \n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: "# IPA Healthcheck\n\nIPA is not a single daemon. It is a collection\
+    \ of services configured to work together.\n\nThe *ipa-healthcheck* tool is attempt\
+    \ to answer the question \"Is my IPA installation working properly.\" It covers\
+    \ several areas of IPA system health including - \n\n* Certificate configuration\
+    \ and expiration dates\n* Replication errors\n* Replication topology\n* AD Trust\
+    \ configuration\n* Service status\n* File permissions of important configuration\
+    \ files\n* File system space\n\n## Run a IPA healthcheck\n\nOn the *host02* terminal\
+    \ tab of the lab, use the *ipa-healthcheck* command to verify if a system is properly\
+    \ configured, as well as, find and report error conditions that may impact the\
+    \ IPA environment -\n\n`ipa-healthcheck --failures-only`{{execute T3}}\n\nThe\
+    \ *--failures-only* option can be used to only show failures in the environment.\
+    \ \n\n<pre class=\"file\">\nLoading instance: pki-tomcat\nLoading global Tomcat\
+    \ config: /etc/tomcat/tomcat.conf\nLoading PKI Tomcat config: /usr/share/pki/etc/tomcat.conf\n\
+    Loading instance Tomcat config: /etc/pki/pki-tomcat/tomcat.conf\nLoading password\
+    \ config: /etc/pki/pki-tomcat/password.conf\nLoading instance registry: /etc/sysconfig/pki/tomcat/pki-tomcat/pki-tomcat\n\
+    Loading subsystem: ca\nLoading subsystem config: /var/lib/pki/pki-tomcat/ca/conf/CS.cfg\n\
+    Getting sslserver cert info for ca from CS.cfg\nGetting subsystem cert info for\
+    \ ca from CS.cfg\nGetting audit_signing cert info for ca from CS.cfg\nGetting\
+    \ ocsp_signing cert info for ca from CS.cfg\nGetting signing cert info for ca\
+    \ from CS.cfg\n[]\n</pre>\n\nThe square brackets *[]* on the last line of the\
+    \ output means that the IdM infrastructure is setup properly and working as expected.\
+    \  \n\nTo automate running healthcheck every day a systemd timer can be used.\
+    \ The default destination directory for healthcheck logs is */var/log/ipa/healthcheck*\
+    \ and this can be the input into a monitoring system to track changes over time\
+    \ or to alert if a test goes from working to error or warning.\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, you will be able to use ansible\
+  \ to easily deploy Red Hat Identity Management (IdM) across your \nRHEL servers,\
+  \ and run IdM health-check to monitor if the IdM services are properly configured\
+  \ and running.\n\n# Concepts included in this scenario:\n* Using ansible playbooks\
+  \ to deploy IdM across RHEL servers\n* Starting and stopping the IdM server and\
+  \ services\n* Creating a user on the IdM server\n* Run health-check to monitor if\
+  \ any IdM services are not running properly\n \n# Example Use case:\nSpecifically\
+  \ designed for the linux environment, IdM makes it simple to manage users, user\
+  \ groups, systems and services \nin native linux, while still providing the option\
+  \ to interoperate with Microsoft Active Directory. In order to reduce \nadministrative\
+  \ overhead, streamline provisioning and improve security, your sysadmins are looking\
+  \ for a centralized way \nto manage identities on RHEL. \n\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: ansible-idm
+tags:
+- rhel
+title: Deploying Red Hat Identity Management (IdM)
+type: track

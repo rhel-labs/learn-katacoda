@@ -1,0 +1,245 @@
+challenges:
+- assignment: "# Validate the environment\n>For this scenario, we have started installing\
+    \ ansible in the background. The background task will take between 2-5 minutes\
+    \ to complete. \n\nRHEL System Roles is a collection of Ansible roles and modules\
+    \ that provide a stable and consistent configuration interface to automate and\
+    \ manage multiple releases of Red Hat Enterprise Linux. In this step of the lab,\
+    \ we will validate if Ansible is available in the environment.\n\nTo check if\
+    \ ansible installation is complete, we can use the following command -\n```\n\
+    ansible --version\n```\n\nYou should see output like below -\n\n<pre class=\"\
+    file\">\n  config file = /etc/ansible/ansible.cfg\n  configured module search\
+    \ path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']\n\
+    \  ansible python module location = /usr/lib/python3.6/site-packages/ansible\n\
+    \  executable location = /usr/bin/ansible\n  python version = 3.6.8 (default,\
+    \ Jan 11 2019, 02:17:16) [GCC 8.2.1 20180905 (Red Hat 8.2.1-3)]\n</pre>\n\n\n\
+    In Ansible, the inventory represents machines that Ansible will manage. In this\
+    \ example, we will create a inventory file called 'myhosts' and add one group\
+    \ called [[sqlgroup]]. \n\n```\necho \"[sqlgroup]\" > myhosts\n```\n\nNext, add\
+    \ the host to the group.You can have multiple machines under a group, but for\
+    \ this scenario we will have only one machine (i.e. localhost).\n\n```\necho localhost\
+    \ ansible_connection=local >> myhosts\n```\n\nVerify that the myhosts file has\
+    \ been created: ```\ncat myhosts\n```\n\nNext, use the ping module to verify that\
+    \ your inventory is working properly:\n\n```\nansible all -i myhosts -m ping\n\
+    ```\n\nThe response should look be:\n\n<pre class=\"file\">\nlocalhost | SUCCESS\
+    \ => {\n    \"ansible_facts\": {\n        \"discovered_interpreter_python\": \"\
+    /usr/libexec/platform-python\"\n    },\n    \"changed\": false,\n    \"ping\"\
+    : \"pong\"\n}\n</pre>\n\nSo, now that we have confirmed Ansible is properly configured,\
+    \ let's look at Ansible Playbooks.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, users will be able to use\
+      \ Ansible playbooks \nto install and configure Microsoft SQL Server on Red Hat\
+      \ Enterprise Linux (RHEL).\n\n# Concepts included in this scenario:\n* Verify\
+      \ whether ansible is installed on the system\n* Downloading the ansible role\
+      \ for SQL Server from ansible galaxy\n* Viewing and editing the ansible playbook\
+      \ variables\n* Running the playbook to install and configure Microsoft SQL Server\
+      \ on RHEL 8\n* Login to SQL Server and query a table\n\n# Example Use case:\n\
+      Your IT team requires a uniform and streamlined way to install Microsoft SQL\
+      \ Server\nacross multiple RHEL servers. The SQL Server instances must also be\
+      \ setup using a uniform \nconfiguration, and the installation process must be\
+      \ repeatable when more servers\ncome online.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 1
+  type: challenge
+- assignment: "# Download the Ansible Role\n\nAnsible uses the concept of **roles**\
+    \ to better allow modular code and avoid repeating yourself. A role is simply\
+    \ a folder structure that Ansible knows where to load vars files, tasks and handlers\
+    \ from. \n\nAnsible makes it easily share roles with the community or download\
+    \ roles that have been created by other members of the community using [Ansible\
+    \ Galaxy](https://galaxy.ansible.com/). \n\nTo access Ansible Galaxy, ansible\
+    \ ships with a command line tool called **ansible-galaxy** that can be used to\
+    \ install roles in a specific role directory\n\n```\nansible-galaxy collection\
+    \ install microsoft.sql --force\n```\n\n> **NOTE:** The role from ansible-galaxy\
+    \ is not yet supported, and we plan to add support for this in a future version\
+    \ of RHEL.\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 2
+  type: challenge
+- assignment: "# View and edit the Ansible Playbook\n\n**Playbook**\nA playbook is\
+    \ an entirely different way of running Ansible, that is far more powerful. In\
+    \ Ansible, a playbook is a yaml file consisting of multiple plays.\n\nA play is\
+    \ a set of tasks mapped to a set of hosts.\n\n**Editing variables in a playbook**\n\
+    \nClick to edit ``site.yml`` in the inline editor.\n\nThis file has several variables,\
+    \ and one example variable that you might optionally want to change is the database\
+    \ sa password. \n<pre class=\"file\">\n...\nmssql_password: \"p@55w0rD\"\n...\n\
+    </pre>\n\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 3
+  type: challenge
+- assignment: "# Run the Ansible Playbook\n\nNow, let's run our ansible playbook defined\
+    \ in the site.yml file and pass it the list of hosts\n\n```\nansible-playbook\
+    \ -i myhosts site.yml\n```\n\n> The playbook has several tasks, and some tasks\
+    \ could take a bit longer than usual.\n\nThe output of the run playbook should\
+    \ look like below -\n\n<pre class=\"file\">\nPLAY [all] ***************************************************************************************\n\
+    \nTASK [Gathering Facts] ***************************************************************************\n\
+    ok: [localhost]\n\nTASK [microsoft.sql.server : Set platform/version specific\
+    \ variables] ****************************\nok: [localhost] => (item=RedHat.yml)\n\
+    ok: [localhost] => (item=RedHat.yml)\n...\n\nRUNNING HANDLER [microsoft.sql.server\
+    \ : Restart the mssql-server service] ************************\nchanged: [localhost]\n\
+    \nPLAY RECAP ***************************************************************************************\n\
+    localhost                  : ok=34   changed=17   unreachable=0    failed=0  \
+    \  skipped=28   rescued=1    ignored=0  \n</pre>\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 4
+  type: challenge
+- assignment: '# Verify that Microsoft SQL Server is installed on the machine
+
+
+    To verify that SQL Server is running on the machine, lets use the systemctl status
+    command
+
+
+    `systemctl status mssql-server.service --no-pager`{{execute T1}}
+
+
+    <pre class="file">
+
+    << OUTPUT ABRIDGED >>
+
+
+    Active: active (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left
+
+
+    << OUTPUT ABRIDGED >>
+
+    </pre>
+
+
+    Verify that the Active status is __active (running)__.
+
+
+    '
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 5
+  type: challenge
+- assignment: "# Connect to SQL Server and Query Data\n\nNow, let's open up the sqlcmd\
+    \ shell prompt connected to the **pubs** database created by the ansible playbook\
+    \ in SQL Server.\n\nIf you haven't changed the sa password in the previous step,\
+    \ you should be able to successfully execute the command below and run the script\
+    \ to install the pubs data in the testDB database. \n\n```\n/opt/mssql-tools/bin/sqlcmd\
+    \ -S localhost -U sa -P p@55w0rD -N -C -i ./InstPubs.sql\n```\n\nNow that the\
+    \ data is loaded, let's query - \n\n> How about finding the store name of the\
+    \ top performing store and the total sales for that store?  \n\n`/opt/mssql-tools/bin/sqlcmd\
+    \ -S localhost -U sa -P p@55w0rD -d pubs -N -C -Q \"SELECT TOP 1 stores.stor_name\
+    \ as storename, sum(sales.qty) as sumqty FROM stores JOIN sales ON stores.stor_id\
+    \ = sales.stor_id GROUP BY stores.stor_id, stores.stor_name ORDER BY sumqty DESC\"\
+    `{{execute T1}}\n\n<pre class=\"file\">\nstorename                           \
+    \     sumqty\n---------------------------------------- -----------\nDoc-U-Mat:\
+    \ Quality Laundry and Books             130\n\n(1 rows affected)\n</pre>\n"
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 50
+  title: Step 6
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, users will be able to use Ansible\
+  \ playbooks \nto install and configure Microsoft SQL Server on Red Hat Enterprise\
+  \ Linux (RHEL).\n\n# Concepts included in this scenario:\n* Verify whether ansible\
+  \ is installed on the system\n* Downloading the ansible role for SQL Server from\
+  \ ansible galaxy\n* Viewing and editing the ansible playbook variables\n* Running\
+  \ the playbook to install and configure Microsoft SQL Server on RHEL 8\n* Login\
+  \ to SQL Server and query a table\n\n# Example Use case:\nYour IT team requires\
+  \ a uniform and streamlined way to install Microsoft SQL Server\nacross multiple\
+  \ RHEL servers. The SQL Server instances must also be setup using a uniform \nconfiguration,\
+  \ and the installation process must be repeatable when more servers\ncome online.\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: sql-server-ansible
+tags:
+- rhel
+title: Installing and configuring Microsoft SQL Server on Red Hat Enterprise Linux
+  using RHEL System Roles
+type: track

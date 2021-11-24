@@ -1,0 +1,215 @@
+challenges:
+- assignment: "# Validate Environment and Install Flame Graph Stack\n\nIn RHEL, there\
+    \ are two stacks for visualizing performance data - one based on PCP and Grafana,\
+    \ and the other based on perf and flame graph. For many performance troubleshooting\
+    \ use-cases, visualizing performance metrics is key and this lab will explain\
+    \ how to use the perf and flame graph stack on RHEL.\n\nIn this lab, our setup\
+    \ consists of a single node system running MySQL. We have set up three terminal\
+    \ windows running on the local machine - The current terminal window will be used\
+    \ for OS specific commands and to interact with MySQL. The `Flame` terminal will\
+    \ be used for running specific perf and flame graph commands. The `web` terminal\
+    \ will be used to browse the flame graph.\n\nUse RHEL Application Streams to check\
+    \ if the MySQL module has been installed - \n\n`yum module list | grep 'MySQL\
+    \ Module'`{{execute T1}}\n\n<pre class=\"file\">\nmysql                8.0 [d]\
+    \      client, server [d]                       MySQL Module\n</pre>\n\nMySQL\
+    \ is not installed. Install MySQL using RHEL Application Streams -\n\n`yum module\
+    \ install -y mysql:8.0`{{execute T1}}\n\nVerify that MySQL is installed on the\
+    \ system -\n\n`mysql -V`{{execute T1}}\n\nStart the __MySQL Daemon (mysqld)__\
+    \  \n\n`systemctl start mysqld`{{execute T1}}\n\nCheck the status of the mysqld\
+    \ service - \n\n`systemctl status mysqld --no-pager`{{execute T1}}\n\n<pre class=\"\
+    file\">\n<< OUTPUT ABRIDGED >>\n\n   Loaded: loaded (/usr/lib/systemd/system/mysqld.service;\
+    \ disabled; vendor preset: disabled)\n   Active: active (running) since Mon 2021-05-17\
+    \ 14:42:40 EDT; 6s ago\n   \n<< OUTPUT ABRIDGED >>\n</pre>\n\nVerify that the\
+    \ Active status is __active (running)__.\n\nInstall the packages needed for the\
+    \ perf tool, and the flame graphs -\n\n`sudo yum install -y perf js-d3-flame-graph`{{execute\
+    \ T1}}\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nInstalled products updated.\n\
+    \nInstalled:\n  js-d3-flame-graph-3.0.2-2.el8.noarch   libbabeltrace-1.5.4-3.el8.x86_64\
+    \   libbpf-0.0.8-4.el8.x86_64   perf-4.18.0-240.22.1.el8_3.x86_64  \n\n<< OUTPUT\
+    \ ABRIDGED >>\n</pre>\n\n## Load sample data into the database\nFor this lab,\
+    \ there is a pre-existing `sample-testdata.sql` script which creates a database\
+    \ called `sampleDB` that has two tables (t1 and t2). The script generates random\
+    \ numeric items and loads them into the tables - table t1 with 50,000 rows, and\
+    \ table t2 with 10,000 rows \n\nBefore we proceed to the next step, load sample\
+    \ data into MySQL -\n\n`mysql < sample-testdata.sql`{{execute T1}}\n\nTo validate\
+    \ that our data is loaded into the tables, count the number of rows in table t1\
+    \ - \n\n`mysql -A sampleDB -e \"SELECT count(*) from t1;\"`{{execute T1}}\n\n\
+    <pre class=\"file\">\n+----------+\n| count(*) |\n+----------+\n|    50000 |\n\
+    +----------+\n1 row in set (0.00 sec)\n</pre>\n\nThe result shows that the rows\
+    \ are successfully loaded into the table t1.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, users will be able to use\
+      \ flame graphs to visualize CPU performance data in the context of running a\
+      \ SQL query using MySQL\n\n# Concepts included in this scenario:\n* Get the\
+      \ latest version of MySQL using RHEL Application Streams \n* Install packages\
+      \ for the perf tool and flame graphs in RHEL\n* Record the performance of a\
+      \ MySQL query using perf  \n* Visualize MySQL query performance using flame\
+      \ graphs in RHEL\n\n>**BACKGROUND:** Sometimes, just visualizing performance\
+      \ metrics can make it super easy to quickly identify a performance issue. Flame\
+      \ Graphs are a way of visualizing this performance data, and we\u2019ll show\
+      \ you how to get started using flame graphs on Red Hat Enterprise Linux to collect\
+      \ and analyze data to solve your performance mysteries. In this example, we\
+      \ will be generating flame graphs in the context of the latest App Streams version\
+      \ of MySQL in RHEL.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 100
+  title: Step 1
+  type: challenge
+- assignment: "# Recording performance metrics using Perf\n\n>**NOTE:** In this step\
+    \ we will be using the *Flame* terminal. \n\nSelect the *Flame* terminal to run\
+    \ commands in this step.\n\n## Using perf to record performance metrics for MySQL\
+    \ query\n\n`Perf` is a performance analysis tool in RHEL. It is based on the perf_events\
+    \ interface exported by the kernel, and provides a simple command line interface.\n\
+    \nThe linux perf command has 3 main parts - **action**, **event** and **scope**.\
+    \ \n\nUse the perf record feature for collecting system-wide statistics - the\
+    \ frequency is 100 samples per second (denoted by -F), across all CPUs (denoted\
+    \ by -a).\n\nPerf can also be used to record performance data for a particular\
+    \ process (mysqld in this lab), while it runs a specific SELECT query. The recording\
+    \ starts 100 milliseconds (denoted by -D) after the MySQL client is started.\n\
+    \n`perf record -a -F 100 -g -D 100 -p $(pgrep -x mysqld) -- mysql -A sampleDB\
+    \ -e \"SELECT COUNT(*) from t1 join t2 on t1.c2 = t2.c2;\"`{{execute T2}}\n\n\
+    > **NOTE:** Recording performance metrics can take a minute or so to complete,\
+    \ and you should proceed only when the command has finished executing.\n\n<pre\
+    \ class=\"file\">\n<< OUTPUT ABRIDGED >>\n\n+----------+\n| COUNT(*) |\n+----------+\n\
+    |  6641633 |\n+----------+\n[ perf record: Woken up 1 times to write data ]\n\
+    [ perf record: Captured and wrote 0.071 MB perf.data (277 samples) ]\n</pre>\n\
+    \nThe output shows the result of running the SELECT query, and the performance\
+    \ samples are collected in the perf.data file.\n\nCheck out `man perf` if you\
+    \ are interested in more details about the `perf` tool.\n\n## Output the flame\
+    \ graph ##\nThe report option of perf script can be used to generate an HTML format\
+    \ report for better readability - \n\n`perf script report flamegraph`{{execute\
+    \ T2}}\n\nTo generate a command line output of the stack trace, you can use -\n\
+    \n`perf report -n --stdio`{{execute T2}}\n\nA flamegraph.html file should be generated.\n\
+    \n## Copy the report to the Apache Server ##\n\nIn this lab, we have also installed\
+    \ Apache web server. Apache web server is not required for perf, however it is\
+    \ needed in this lab for the purposes of viewing the flame graph HTML report.\n\
+    \nCopy the flamegraph.html file to the index.html page of the Apache web server\
+    \ - \n\n`cp flamegraph.html /var/www/html/index.html`{{execute T2}}\n\n## View\
+    \ the flame graph in a web browser ##\nThe flame graph provides an indication\
+    \ on what's running hot on the CPU. \n\nNavigate to the *Web* tab of the lab interface\
+    \ and click it to view the flame graph. This should open up another browser tab\
+    \ window that shows the flame graph visualization based on the perf data collected.\
+    \ \n\nIf you explore the flame graph, you will notice that a lot of cycles are\
+    \ spent for the JOIN operation in MySQL. \n\n## Check the query execution plan\
+    \ of a SELECT query with a JOIN clause\n\nTo dive deeper into how MySQL is executing\
+    \ a SELECT query joining two tables, look at the query execution plan using MySQL's\
+    \ EXPLAIN statement - \n\n`mysql -A sampleDB -e \"EXPLAIN format=tree SELECT COUNT(*)\
+    \ from t1 join t2 on t1.c2 = t2.c2;\"`{{execute T2}}\n\n<pre class=\"file\">\n\
+    +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    | EXPLAIN                                                                    \
+    \                                                                            \
+    \                           |\n+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    | -> Inner hash join (t1.c2 = t2.c2)  (cost=**500104.14** rows=500000)\n    ->\
+    \ Table scan on t1  (cost=0.05 rows=5000)\n    -> Hash\n        -> **Table scan\
+    \ on t2**  (cost=101.00 rows=1000)\n |\n+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    </pre>\n\nNote that the join operator of MySQL does a full scan on table t2, because\
+    \ there is no index defined on the join column (c2) on table t2. \nAs a table\
+    \ grows, the costs of doing such an operation grows, and is a performance bottleneck.\
+    \ This confirms the flame graph results. \n\n\n\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 100
+  title: Step 2
+  type: challenge
+- assignment: "# Optimizing MySQL queries on Red Hat Enterprise Linux\n\nFor this\
+    \ step, we will be using the *Terminal* tab for MySQL commands, and *Flame* tab\
+    \ for perf and flame graph commands. \n\nApply the `throughput-performance` tuneD\
+    \ profile for optimizing MySQL performance on RHEL - \n\n`tuned-adm profile throughput-performance`{{execute\
+    \ T1}}\n\nRestart the MySQL service -\n`systemctl restart mysqld`{{execute T1}}\n\
+    \nTo optimize query performance inside MySQL, create an index that can be used\
+    \ for query processing. The index will help MySQL use the index for efficiently\
+    \ searching matches instead of doing a full table scan. \n\nCreate a MySQL index\
+    \ called `ind_t1_c2` on table t1 with 50,000 rows, on the join column c2 - \n\n\
+    `mysql -A sampleDB -e \"CREATE INDEX idx_t1_c2 on t1(c2);\"`{{execute T1}}\n\n\
+    ## Check the execution plan of the SELECT query with a JOIN clause\n\nLook at\
+    \ the updated query execution plan that MySQL will run using the EXPLAIN statement\
+    \ - \n\n`mysql -A sampleDB -e \"EXPLAIN format=tree SELECT COUNT(*) from t1 join\
+    \ t2 on t1.c2 = t2.c2;\"`{{execute T1}}\n\n<pre class=\"file\">\n+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    | EXPLAIN                                                                    \
+    \                                                                            \
+    \                           |\n+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    | -> Nested loop inner join  (cost=**7433.25** rows=18309)\n    -> Table scan\
+    \ on t2  (cost=1025.00 rows=10195)\n    -> Index lookup on t1 using **idx_t1_c2**\
+    \ (c2=t2.c2)  (cost=0.45 rows=2)\n |\n+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\
+    </pre>\n\nNotice that in this case, the database leverages the `idx_t1_c2` index,\
+    \ and the overall cost of executing the query is much lesser than without the\
+    \ index.\n\n## Re-run the perf command to record performance metrics for MySQL\
+    \ query\n\nUse perf to record performance of the mysqld process running the same\
+    \ query as the previous step - \n\n`perf record -a -F 100 -g -D 100 -p $(pgrep\
+    \ -x mysqld) -- mysql -A sampleDB -e \"SELECT COUNT(*) from t1 join t2 on t1.c2\
+    \ = t2.c2;\"`{{execute T2}}\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\n\
+    [ perf record: Woken up 1 times to write data ]\n[ perf record: Captured and wrote\
+    \ 0.020 MB perf.data (37 samples) ]\n\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe output\
+    \ shows the result of running the SELECT query, and the performance samples are\
+    \ collected in the perf.data file.\n\n## Output the flame graph ##\nRe-run the\
+    \ report option of perf script to generate an HTML report - \n\n`perf script report\
+    \ flamegraph`{{execute T2}}\n\nA new flamegraph.html file should be generated.\n\
+    \n## Copy the report to the Apache Server ##\n\nRemove index.html file from Apache,\
+    \ and copy the newly generated flamegraph.html file into the index.html page of\
+    \ the Apache web server - \n\n`rm -f /var/www/html/index.html; cp flamegraph.html\
+    \ /var/www/html/index.html`{{execute T2}}\n\n## View the flame graph in a web\
+    \ browser ##\nNavigate to the *Web* tab of the lab interface and click it to view\
+    \ the flame graph.  \n\nThis should open up another browser tab window that shows\
+    \ the flame graph visualization based on the perf data collected. \n\nYou will\
+    \ notice that now, searching the index consumes more CPU time, but overall the\
+    \ response time of the query is much faster. \n\nIn real-life cases, performance\
+    \ optimization is a continuous process - repeatedly measuring, analyzing and tuning\
+    \ your system, to improve performance and deliver better business outcomes.\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 100
+  title: Step 3
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, users will be able to use flame\
+  \ graphs to visualize CPU performance data in the context of running a SQL query\
+  \ using MySQL\n\n# Concepts included in this scenario:\n* Get the latest version\
+  \ of MySQL using RHEL Application Streams \n* Install packages for the perf tool\
+  \ and flame graphs in RHEL\n* Record the performance of a MySQL query using perf\
+  \  \n* Visualize MySQL query performance using flame graphs in RHEL\n\n>**BACKGROUND:**\
+  \ Sometimes, just visualizing performance metrics can make it super easy to quickly\
+  \ identify a performance issue. Flame Graphs are a way of visualizing this performance\
+  \ data, and we\u2019ll show you how to get started using flame graphs on Red Hat\
+  \ Enterprise Linux to collect and analyze data to solve your performance mysteries.\
+  \ In this example, we will be generating flame graphs in the context of the latest\
+  \ App Streams version of MySQL in RHEL.\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: pcp-flamegraphs
+tags:
+- rhel
+title: Visualizing performance using flame graphs in Red Hat Enterprise Linux
+type: track

@@ -1,0 +1,251 @@
+challenges:
+- assignment: "# Getting started with Kernel Live Patching\n\nWhen a Critical severity\
+    \ Common Vulnerability and Exposure (CVE) is\nannounced, Red Hat produces updated\
+    \ software package that include fixes for\nthe CVE.  However, historically, to\
+    \ apply an updated kernel package,\norganizations needed to schedule a system\
+    \ maintenance as the procedure for\napplying a new kernel included a system reboot.\n\
+    \nKernel Live Patching is a service intended for use with Red Hat Enterprise Linux\n\
+    Extended Update Support (EUS) versions.  Red Hat packages Kernel Live Patches\
+    \ \n(kpatches) for selected CVEs, which organizations can apply to their running\
+    \ \nRed Hat Enterprise Linux systems to update the system without scheduling a\
+    \ \nsystem downtime to apply a kernel update to address the CVE.\n\nTo get started,\
+    \ install the `kpatch` package:\n\n```\nyum -y install kpatch\n```\n\nNow that\
+    \ the `kpatch` application is installed, you can verify that the\nsystem does\
+    \ not currently have any kpatches loaded into the kernel.\n\n```\nkpatch list\n\
+    ```\n\n<pre class=file>\nLoaded patch modules:\n\nInstalled patch modules:\n\n\
+    </pre>\n\nAs expected, no patch modules are loaded or installed on the machine\
+    \ ... yet.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this lab, users will be able to apply a Kernel\
+      \ Live Patch to\na system, resolving a security vulnerability without rebooting\
+      \ into an updated\nkernel.\n\n# Concepts included in this lab:\n\n* Install\
+      \ Kernel Live Patching software and service\n* Deploy a Kernel Live Patch on\
+      \ a running system\n* Verify status of a Kernel Live Patch\n* Methodology to\
+      \ locate details and information for Common Vulnerabilities and Exposures (CVEs)\
+      \ published by Red Hat\n\n# Example Usecase:\n\nTo provide an alternative to\
+      \ emergency kernel maintenance events for\nthe mitigation of Critical kernel\
+      \ CVEs.  It is expected that after an \norganization has live patched a running\
+      \ kernel that they will, at some point, \nschedule a maintenance window to apply\
+      \ the updated kernel package to the \nsystem and perform a system reboot.  Kernel\
+      \ Live Patching allows the \norganization to determine when this window occurs\
+      \ rather than the release of \na fix for a Critical CVE.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: "# Determine what Kernel Live Patches are available\n\nWhen Kernel Live\
+    \ Patches are applied to the kernel, functions within the\nkernel are re-routed\
+    \ from their initial instructions to instead use the\nfunctions provided by the\
+    \ kpatch.  The following diagram provides a bit\nmore detail on how this process\
+    \ operates.\n\n![Web Console Login](./assets/rhel_kpatch_overview.png)\nImage\
+    \ from the [Red Hat Kernel Adminstration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_administration_guide/applying_patches_with_kernel_live_patching)\n\
+    \nThis means that a kpatch is produced and tied to a specific version of the \n\
+    kernel.  Before you look at available kernel patches, you should first know \n\
+    the version of the kernel running on your target system.\n\n```\nuname -r\n```\n\
+    \n<pre class=file>\n4.18.0-305.el8.x86_64\n</pre>\n\nOur lab system is running\
+    \ kernel version (also known as release, hence the -r \noption used by uname)\
+    \ 4.18.0-305.el8.x86_64.\n\nNow that you know the version of the kernel running\
+    \ on the lab machine, look\nat all of the aviailable kpatch packages avaiable\
+    \ from the Red Hat Enterprise\nLinux repos.\n\n```\nyum list available kpatch-patch*305*\n\
+    ```\n\n<pre class='file'>\n<< OUTPUT ABRIDGED >>\n\nAvailable Packages\nkpatch-patch-4_18_0-305.x86_64\
+    \              1-1.el8 \nkpatch-patch-4_18_0-305_3_1.x86_64          0-0.el8_4\
+    \ \n</pre>\n\nFrom the above output, there are several different kpatch-patch\
+    \ patches \navailable, but only one of them is the one intended for the kernel\
+    \ running on \nyour system.  The one needed for your system is \n`kpatch-patch-4_18_0-305_3_1.x86_64`\
+    \ because it is the latest available for\nthe version of your kernel reported\
+    \ by `uname -r`, specifically, 4.18.0-305.el8.\n\nIf you looked at all available\
+    \ `kpatch-patch` packages, you would see others\nlisted, like `kpatch-patch-4_18_0-147.x86_64`.\
+    \  These kpatches are  \nfor another kernel, specifically, version 4.18.0-147.\
+    \  You can see that\nthe additional listings are also for addtional kernel releases,\
+    \ __not__ the one\nrunning on your system.  \n\nIn the next step, you will be\
+    \ applying the kpatch available for your system\nto the kernel.\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: "# Applying a Kernel Live Patch\n\nYou could now install the specific\
+    \ kpatch-patch package you discovered from the\nprevious step.  However, if you\
+    \ were wanting to do this action on a population\nof systems, which may each be\
+    \ running a different kernel (because of where they\nare in your normal population\
+    \ maintenance, perhaps).  Instead, Red Hat\nrecommends using a yum install or\
+    \ update command that embeds a uname -r\ncommand to dynamically determine the\
+    \ running kernel version and utilize it\nwhen making the decision of which kpatch\
+    \ to install:\n\n```\nyum -y install \"kpatch-patch = $(uname -r)\"\n```\n\n<pre\
+    \ class=\"file\">\n<< OUTPUT ABRIDGED >>\n\n=========================================================\n\
+    \ Package                          Architecture    Version\n=========================================================\n\
+    Installing:\n kpatch-patch-4_18_0-305          x86_64          1-1.el8\n\nTransaction\
+    \ Summary\n=========================================================\nInstall\
+    \  1 Package\n\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe previous `yum` command, based\
+    \ on the result of the embedded uname -r\ncommand, installed kpatch-patch-4_18_0-305-1-1.el8,\
+    \ which is what you had \ndetermined on the previous step to be the patchset for\
+    \ this system.\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: '# Verifying a Kernel Live Patch
+
+
+    To validate that you have properly applied the Kernel Live Patch, run the
+
+    same `kpatch list` command you ran on the first step.  You will notice that
+
+    this time the output is no longer blank.
+
+
+    ```
+
+    kpatch list
+
+    ```
+
+
+    <pre class="file">
+
+    Loaded patch modules:
+
+    kpatch_4_18_0_305_1_1 [enabled]
+
+
+    Installed patch modules:
+
+    kpatch_4_18_0_305_1_1 (4.18.0-305.el8.x86_64)
+
+    </pre>
+
+
+    From the list output, you can see that the kpatch installed in the previous
+
+    step has been applied to the system and is enabled.  Now, your system has
+
+    been updated to resolve the Critical CVEs in the systems running kernel.
+
+
+    On the next step, you will look deeper into the patch to see what CVEs were
+
+    resolved with the applied kpatch and where to find additional information
+
+    from Red Hat on these CVEs and mitigations.
+
+    '
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: "# Identifying CVEs within kpatches\n\nIn each kpatch-patch package\
+    \ there is a changelog of what was added to the\npatchset and which CVE it applies.\
+    \  You can view the changelog by using the\n`rpm` command on the kpatch-patch\
+    \ package.  Below, we use a bit of embedded\ncommand-line scripting to make sure\
+    \ that the package referenced for the\nchangelog is the one you installed earlier.\n\
+    \n```\nrpm -q --changelog $(rpm -qa | grep kpatch-patch)\n```\n\n<pre class=\"\
+    file\">\n* Tue May 11 2021 Artem Savkov <asavkov@redhat.com> [1-1.el8]\n- serspace\
+    \ applications can misuse the KVM API to cause a write of 16 bytes at an offset\
+    \ up to 32 GB from vcpu->run [1954230] {CVE-2021-3501}\n\n* Mon May 03 2021 Joe\
+    \ Lawrence <joe.lawrence@redhat.com> [0-0.el8]\n- An empty patch to subscribe\
+    \ to kpatch stream for kernel-4.18.0-305.el8 [1956393]\n</pre>\n\nIn the above\
+    \ sample output, you can see that the latest entry, the first one\nlisted, in\
+    \ the patchset was to resolve CVE-2021-3501.\n\n# Supporting Kernel Live Patches\n\
+    \nRed Hat will maintain a patchset for Extended Update Support (EUS) releases\n\
+    for up to one year. (see the [Red Hat Enterprise Linux 8 Life Cycle](https://access.redhat.com/support/policy/updates/errata#RHEL8_Life_Cycle)\
+    \ for more details)\nKernel Live Patches are made for selected Important and Critical\
+    \ severity CVEs.\n\nSystems are not meant to run with Kernel Live Patched kernels\
+    \ forever.  It is \nexpected that after an organization has live patched a running\
+    \ kernel that \nthey will, at some point, schedule a maintenance window to apply\
+    \ an updated \nkernel package to the system and perform a system reboot, thus\
+    \ normalizing the\nsystem.  Kernel Live Patching allows the organization to determine\
+    \ when this \nwindow occurs rather than the release of a fix for a Critical CVE.\n\
+    \nFor the most exact guidance for what is supported by Red Hat, check out this\n\
+    [Is live kernel patch (kpatch) supported in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/2206511)\
+    \ Knowledge Base article.\n\n# Additional resources from Red Hat\n\nIn this lab,\
+    \ you worked with the commands and steps to list, apply, and\nvalidate applying\
+    \ a Kernel Live Patch to a system.  How would an administrator\nknow that this\
+    \ was needed or available for a system?\n\nThe Red Hat Product Security team maintains\
+    \ a list of CVEs affecting Red Hat\nproducts.  [Vulnerability Responses](https://access.redhat.com/security/vulnerabilities)\n\
+    , [Red Hat CVE Database](https://access.redhat.com/security/security-updates/#/cve)\n\
+    \nEach listed CVE will have a page used for additional information and resources\n\
+    to go with it.  [Page for CVE-2021-3501](https://access.redhat.com/security/cve/cve-2021-3501)\n\
+    \nOn the above linked page, in addition to more information about the CVE and\n\
+    the effect on systems or services, Red Hat may provide additional resources\n\
+    like detection scripts to see if your system configuration is vulnerable to\n\
+    the CVE.\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: "# Goal:\nAfter completing this lab, users will be able to apply a Kernel\
+  \ Live Patch to\na system, resolving a security vulnerability without rebooting\
+  \ into an updated\nkernel.\n\n# Concepts included in this lab:\n\n* Install Kernel\
+  \ Live Patching software and service\n* Deploy a Kernel Live Patch on a running\
+  \ system\n* Verify status of a Kernel Live Patch\n* Methodology to locate details\
+  \ and information for Common Vulnerabilities and Exposures (CVEs) published by Red\
+  \ Hat\n\n# Example Usecase:\n\nTo provide an alternative to emergency kernel maintenance\
+  \ events for\nthe mitigation of Critical kernel CVEs.  It is expected that after\
+  \ an \norganization has live patched a running kernel that they will, at some point,\
+  \ \nschedule a maintenance window to apply the updated kernel package to the \n\
+  system and perform a system reboot.  Kernel Live Patching allows the \norganization\
+  \ to determine when this window occurs rather than the release of \na fix for a\
+  \ Critical CVE.\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: kpatch-apply
+tags:
+- rhel
+title: Reducing unplanned maintenance with Kernel Live Patching
+type: track
