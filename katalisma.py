@@ -27,7 +27,8 @@ track_d={}
 
 visualEditor=False
 
-with open('homepage-pathway.json', 'r') as hfile:
+#Reads the homepage pathway all in the intruqt-template dir
+with open('instruqt-template/homepage-pathway-all.json', 'r') as hfile:
     hdata=hfile.read()
 
 courses = json.loads(hdata)
