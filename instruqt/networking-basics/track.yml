@@ -1,0 +1,497 @@
+challenges:
+- assignment: "# What is NetworkManager?\n\nNetworkManager is a great tool for creating\
+    \ and modifying network connections.\nThe `nmcli` command is how you will be running\
+    \ NetworkManager in this lab. Any changes\nmade with `nmcli` are persistent configuration\
+    \ file changes. This lab will give you an\noverview of some of the most common\
+    \ operations you would run using this tool.\n\n# Listing network devices\n\nBefore\
+    \ you can set up a connection, you have to know what hardware\nis available for\
+    \ you to use. To show what network devices this system has with\n`nmcli`, run\n\
+    \n`nmcli device`{{execute T2}}\n\n>_NOTE:_ You may need to wait a few seconds\
+    \ and retry the command above if the terminal for __host01__ is still loading.\n\
+    \nThis will show a list of network interfaces available on the system as well\
+    \ as\nhow they are configured, similar to the following:\n\n<pre class=file>\n\
+    DEVICE  TYPE      STATE                                  CONNECTION         \n\
+    ens3    ethernet  connected                              System ens3        \n\
+    ens5    ethernet  connecting (getting IP configuration)  Wired connection 1\n\
+    lo      loopback  unmanaged                              --      \n</pre>\n\n\
+    This output shows that there are three devices: __ens3__ and __ens5__ (ethernet\
+    \ devices)\nas well as __lo__ (the loopback device).\n\nNext, you will make your\
+    \ own connection on this host.\n"
+  difficulty: basic
+  notes:
+  - contents: '# Overview:
+
+
+      NetworkManager is a great tool for creating and modifying networks. This lab
+
+      will walk you through creating your own network connection from scratch and
+
+      modifying key parameters to control how that network connection behaves.
+
+
+      You will use two terminal tabs: `host01` and `host02`. You will carry out the
+
+      connection configuration on `host01`, and then at the end you will switch to
+
+      `host02` to test that the connection was successfully set up.
+
+
+      # Goal:
+
+
+      After completing this scenario, users will be able to configure the IP, hostname,
+
+      and DNS for a connection using `nmcli`.
+
+
+      # Concepts included in this scenario:
+
+      * Learn NetworkManager (`nmcli`) syntax
+
+      * Configure a new dynamic IP connection using DHCP
+
+      * Update this connection to use static IP address assignment
+
+      * Validate and configure DNS server settings
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: '# Dynamic IP configuration with DHCP
+
+
+    The command `nmcli con`, short for connection, is an easy way to make persistent
+
+    configuration changes to any connection on your network. Dynamic IP configuration
+
+    with DHCP is the most common way to configure a connection,
+
+    so the first connection you make in this lab will be dynamic.
+
+    If you want more information about when to use dynamic vs.
+
+    static connections, [this article](https://www.redhat.com/sysadmin/static-dynamic-ip-1)
+
+    provides a great background.
+
+
+    You will configure a dynamic IP connection on **host01**. You will use the
+
+    `nmcli con` command with some additional arguments to specify that you want
+
+    to `add` a connection, assign a connection name, choose a network interface
+
+    to assign the connection to, and specify the type type of device the interface
+
+    uses. Below is an example of this command with each of the values explained:
+
+
+    ![con add breakdown](./assets/conAddBreakdown.png)
+
+
+    (click to enlarge)
+
+
+    Run the command to configure this dynamic connection on **host01**:
+
+
+    `nmcli con add con-name ethernet1 ifname ens5 type ethernet`{{execute T2}}
+
+
+    You should see a confirmation message similar to
+
+
+    <pre class=file>
+
+    Connection ''ethernet1'' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
+
+    </pre>
+
+
+    >_NOTE:_ NetworkManager will act as the DHCP client when adding a connection
+
+    without a specified address.
+
+
+    The advantage of using `nmcli` is that configuration changes persist. The
+
+    `con add` command you ran above will create a new configuration file,
+
+    `ifcfg-ethernet1`, in the `/etc/sysconfig/network-scripts` directory.
+
+
+    >_NOTE:_ The suffix after `ifcfg-` in the config file name will be the
+
+    connection name as you configured it when running `nmcli con add`
+
+
+    The configuration file for this connection contains the values corresponding
+
+    to the new connection. The `grep` command is useful for searching for specific
+
+    file contents. You will single in on the line specifying the
+
+    protocol by searching for `BOOTPROTO` in the connection config file:
+
+
+    `grep ''BOOTPROTO'' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+
+
+    You will see that the protocol is indeed set to DHCP for this connection.
+
+    The IP address is not set at this point, as it will be controlled
+
+    through the DHCP client.
+
+
+    <pre class=file> BOOTPROTO=dhcp </pre>
+
+
+    Some situations call for an IP that will not change over time, or a static IP.
+
+    The next page will walk you through turning this dynamic connection into a
+
+    static connection.
+
+    '
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: '# Static IP configuration
+
+
+    Now that you have an existing connection, here is how to modify it to use a static
+    IP.
+
+    Static IP connections are useful in cases where you want to ensure the
+
+    IP address will not change over time. DHCP clients can reconfigure what IP addresses
+
+    are being used by hosts under their control, which could interfere with
+
+    network operations where the address is expected not to change.
+
+
+    NetworkManager has an option that can be used with the `nmcli con` command
+
+    to change properties of an existing connection, `nmcli con modify`.
+
+    The first step in converting your dynamic connection to a static connection
+
+    is to specify an IP for the connection to use. Assign the existing connection
+
+    the IP `172.17.0.9` using the `modify` option:
+
+
+    `nmcli con modify ethernet1 ipv4.addresses 172.17.0.9`{{execute T2}}
+
+
+    This line will not generate an output, so you should run an expanded validation
+
+    search. The search below also includes the `IPADDR` and `PREFIX` fields,
+
+    which will show you which network and subnet mask you have applied to the
+
+    connection:
+
+
+    `egrep ''BOOTPROTO|IPADDR|PREFIX'' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute
+    T2}}
+
+
+    <pre class=file>
+
+    BOOTPROTO=dhcp
+
+    IPADDR=172.17.0.9
+
+    PREFIX=32
+
+    </pre>
+
+
+    >_NOTE:_ Modifying the ipv4 address field without specifying a subnet mask (also
+
+    called a prefix) will default to `/32`, or only a single IP address. If you wish
+
+    to add a different subnet mask, for example `/24`, append it to the IP address
+
+    in the `nmcli con modify` command.
+
+
+    `nmcli con modify ethernet1 ipv4.method manual`{{execute T2}}
+
+
+    This removes the DHCP protocol from the configuration file but leaves the,
+
+    other connection properties unchanged, which you can confirm by repeating
+
+    the config search done in the previous step:
+
+
+    `egrep ''BOOTPROTO|IPADDR|PREFIX'' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute
+    T2}}
+
+
+    <pre class=file>
+
+    BOOTPROTO=none
+
+    << OUTPUT ABRIDGED >>
+
+    </pre>
+
+
+    Besides the IP and subnet mask, you will typically have a gateway address for
+
+    your connection as well. The same `nmcli con modify` command can be used
+
+    to configure the gateway:
+
+
+    `nmcli con modify ethernet1 ipv4.gateway 172.17.0.1`{{execute T2}}
+
+
+    The change will be visible in the same config file:
+
+
+    `grep ''GATEWAY'' /etc/sysconfig/network-scripts/ifcfg-ethernet1`{{execute T2}}
+
+
+    <pre class=file>
+
+    GATEWAY=172.17.0.1
+
+    </pre>
+
+
+    >_NOTE:_ You can combine multiple modifications into a single command by
+
+    appending each additional property you want to change. For example, this command
+
+    would accomplish all of the changes from this page in one line:
+
+    `nmcli con modify ethernet1 ipv4.addresses 172.17.0.9 ipv4.gateway 172.17.0.1
+    ipv4.method manual`
+
+
+    You now have a bare-bones connection with a static IP, so the next step will
+
+    walk you through activating and testing it.
+
+    '
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: "# Activating the connection\n\nRun the `nmcli con up` command to activate\
+    \ the static connection that you\nconfigured in the previous step:\n\n`nmcli con\
+    \ up ethernet1`{{execute T2}}\n\nThe output shows that the connection was successfully\
+    \ activated:\n\n<pre class=file>\nConnection successfully activated (D-Bus active\
+    \ path: /org/freedesktop/NetworkManager/ActiveConnection/5)\n</pre>\n\nTo verify\
+    \ this, the next step is a test to confirm that you can actually send\ndata over\
+    \ this connection you activated.  \n\n# Testing the connection\n\nYou will now\
+    \ ping the IP for the configured connection to verify that\nthe static IP is associated\
+    \ with `host01`. This must be done from a different\nhost, so switch to __host02__\
+    \ by clicking the *host02* tab in the lab interface.\n\nRun the `ping` command\
+    \ from the terminal for __host02__ to send three IP\npackets asking the host at\
+    \ `172.17.0.9` to respond:\n\n`ping 172.17.0.9 -c 3`{{execute T3}}\n\nYou will\
+    \ see that `host01` replies to all three of the pings you sent:\n\n<pre class=file>\n\
+    PING 172.17.0.9 (172.17.0.9) 56(84) bytes of data.\n64 bytes from 172.17.0.9:\
+    \ icmp_seq=1 ttl=64 time=0.273 ms\n64 bytes from 172.17.0.9: icmp_seq=2 ttl=64\
+    \ time=0.330 ms\n64 bytes from 172.17.0.9: icmp_seq=3 ttl=64 time=0.327 ms\n\n\
+    --- 172.17.0.9 ping statistics ---\n3 packets transmitted, 3 received, 0% packet\
+    \ loss, time 28ms\nrtt min/avg/max/mdev = 0.078/0.081/0.084/0.007 ms\n</pre>\n\
+    \nThe final step is to learn how to configure the DNS server addresses\nfor the\
+    \ connection.  \n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: '# Configuring DNS
+
+
+    Return to `host01` so that you can modify the connection a bit more.
+
+    Now you will add DNS addresses using `nmcli con modify`.
+
+    Visit [this article](https://www.redhat.com/sysadmin/dns-domain-name-servers)
+
+    to learn what DNS is and why it is useful.
+
+
+    `nmcli con modify ethernet1 ipv4.dns 172.17.0.254`{{execute T2}}
+
+
+    This modification will only show up in the proper config file, `/etc/resolv.conf`,
+
+    once the connection is restarted. This is done the same way the connection
+
+    was activated at the start of this lab, using the `nmcli con up` command.
+
+
+    `nmcli con up ethernet1`{{execute T2}}
+
+
+    Now you can see these changes reflected in the connection''s config file:
+
+
+    `grep ''nameserver'' /etc/resolv.conf`{{execute T2}}
+
+
+    <pre class=file>
+
+    nameserver 8.8.8.8
+
+    nameserver 172.17.0.254
+
+    </pre>
+
+
+    >_NOTE:_ The nameserver __8.8.8.8__ is configured in this config by default.
+
+
+    It is common to want multiple DNS addresses associated with a connection. You
+
+    can add multiple DNS addresses by enclosing the set of addresses in quotes:
+
+
+    `nmcli con modify ethernet1 ipv4.dns "172.17.0.254 8.8.4.4"`{{execute T2}}
+
+
+    As before, restart the connection.
+
+
+    `nmcli con up ethernet1`{{execute T2}}
+
+
+    Now the new DNS address shows up in `resolv.conf`:
+
+
+    `grep ''nameserver'' /etc/resolv.conf`{{execute T2}}
+
+
+    <pre class=file>
+
+    nameserver 8.8.8.8
+
+    nameserver 172.17.0.254
+
+    nameserver 8.8.4.4
+
+    </pre>
+
+
+    This is just the surface of what `nmcli` can modify. The
+
+    [Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli)
+
+    has documentation on the full capabilities of NetworkManager.
+
+    '
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: '# Overview:
+
+
+  NetworkManager is a great tool for creating and modifying networks. This lab
+
+  will walk you through creating your own network connection from scratch and
+
+  modifying key parameters to control how that network connection behaves.
+
+
+  You will use two terminal tabs: `host01` and `host02`. You will carry out the
+
+  connection configuration on `host01`, and then at the end you will switch to
+
+  `host02` to test that the connection was successfully set up.
+
+
+  # Goal:
+
+
+  After completing this scenario, users will be able to configure the IP, hostname,
+
+  and DNS for a connection using `nmcli`.
+
+
+  # Concepts included in this scenario:
+
+  * Learn NetworkManager (`nmcli`) syntax
+
+  * Configure a new dynamic IP connection using DHCP
+
+  * Update this connection to use static IP address assignment
+
+  * Validate and configure DNS server settings
+
+  '
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: networking-basics
+tags:
+- rhel
+title: Configuring Network Interfaces [Admin 101]
+type: track

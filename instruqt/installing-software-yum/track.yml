@@ -1,0 +1,391 @@
+challenges:
+- assignment: "# What is a package manager?\n\nPackage managers are programs which\
+    \ install, update, and remove software.\nDoing these operations by hand would\
+    \ be tedious and prone to mistakes. Bundling these\nfunctionalities into a single\
+    \ tool gives users a more streamlined experience.\n\nYUM has even more utility\
+    \ because it performs dependency resolution whenever\nit installs, removes, or\
+    \ updates software. The upcoming steps will give\nexamples of how to use YUM to\
+    \ streamline your package management.\n\n# Installing a package with `yum`\n\n\
+    Install the network analysis application Wireshark using `yum`. This application\n\
+    is useful for troubleshooting network packets that are traveling in and out\n\
+    of your system. This functionality in particular is not important to this lab,\n\
+    this application was picked simply because it serves as a good test subject for\n\
+    the upcoming examples.\n\n\n```\nyum -y install wireshark\n```\n\n>_Note:_ The\
+    \ `-y` option will automatically answer yes to any prompts during the\ninstallation.\
+    \ Using this option is not best practice when installing software\non your own\
+    \ system, but it is useful for streamlining some operations in\nthis lab.\n\n\
+    This installation generates a large output, so here is a high level\nsummary of\
+    \ what each section means. The first section shows all of the packages\nthat must\
+    \ be installed as dependencies for Wireshark:\n\n<pre class=file>\n<< OUTPUT ABRIDGED\
+    \ >>\nArch   Version         Repository                        Size\n===================================================================\n\
+    Installing:\nwireshark\nx86_64 1:2.6.2-12.el8  rhel-8-for-x86_64-appstream-rpms\
+    \ 3.7 M\nInstalling dependencies:\nflac-libs\n<< OUTPUT ABRIDGED >>\n</pre>\n\n\
+    The next section of the output shows a verification status for each dependent\
+    \ package. In this case,\nYUM made sure that 36 other packages were up to date.\n\
+    \n<pre class=file>\n<< OUTPUT ABRIDGED >>\nVerifying        : libgudev-232-4.el8.x86_64\
+    \               35/36\nVerifying        : pcre2-utf16-10.32-2.el8.x86_64     \
+    \     36/36\nInstalled products updated.\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe\
+    \ final section of the output is a list of all of the packages that were\ninstalled\
+    \ in support of Wireshark's installation.\n\n<pre class=file>\n<< OUTPUT ABRIDGED\
+    \ >>\nInstalled:\n  flac-libs-1.3.2-9.el8.x86_64                             \
+    \        \n  glx-utils-8.4.0-5.20181118git1830dcb.el8.x86_64                 \
+    \ \n  gsm-1.0.17-5.el8.x86_64  \n<< OUTPUT ABRIDGED >>\n\nComplete!\n</pre>\n\n\
+    You can verify this installation with the `yum list` command:\n\n```\nyum list\
+    \ wireshark\n```\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\nInstalled Packages\n\
+    wireshark.x86_64\n         1:2.6.2-12.el8 @rhel-8-for-x86_64-appstream-rpms\n\
+    </pre>\n\nThis shows how powerful YUM is, as a single command will take care of\
+    \ the installation\nseamlessly. Next you will see how to update and remove packages\
+    \ with `yum`.\n"
+  difficulty: basic
+  notes:
+  - contents: '# Overview:
+
+      Package managers are centralized methods of accessing software repositories.
+      Using package managers for installing and updating software removes many opportunities
+      for user error and automates numerous installation steps. On RHEL, YUM is the
+      default package manager, but you will also see RPM.
+
+
+      # Goal:
+
+      After completing this lab, users will feel comfortable adding, removing, and
+      updating packages.
+
+
+      # Concepts included in this scenario:
+
+      * Install a package with `yum`
+
+      * Update and remove packages with `yum`
+
+      * Roll back a transaction with `yum history`
+
+      * Use `rpm` for detailed queries
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: "# Updating a package\n\nThe `list` subcommand is useful for finding\
+    \ out which packages have available\nupdates on the system.\n\n```\nyum list updates\n\
+    ```\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\nAvailable Upgrades\nbash.x86_64\
+    \              4.4.20-1.el8_4                             rhel-8-for-x86_64-baseos-rpms\n\
+    bind-export-libs.x86_64  32:9.11.26-4.el8_4                         rhel-8-for-x86_64-baseos-rpms\n\
+    buildah.x86_64           1.19.7-2.module+el8.4.0+11311+9da8acfb     rhel-8-for-x86_64-appstream-rpms\n\
+    << OUTPUT ABRIDGED >>\n</pre>\n\nMany packages on this system have updates available.\
+    \ Specifying a\npackage name with `yum update` will constrain this operation to\
+    \ only look\nfor that package.\n\n>_NOTE:_ If you instead want to make sure your\
+    \ entire system is up to date,\nrunning `yum update` without any other arguments\
+    \ apply updates for all\npackages on your system (including YUM itself).\n\nFor\
+    \ this example, just update the __bash__ package. Once again, use the `-y`\noption\
+    \ to automatically say yes to any prompts for the purposes of this lab.\n\n```\n\
+    yum -y update bash\n```\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\n===============================================================\n\
+    \ Package                Architecture       Size\n===============================================================\n\
+    Upgrading:\n bash                   x86_64             1.5 M\n\nTransaction Summary\n\
+    ===============================================================\nUpgrade  1 Package\n\
+    \n<< OUTPUT ABRIDGED >>\n</pre>\n\n>_NOTE:_ You sometimes see the subcommand `upgrade`\
+    \ being used somewhat interchangeably\nwith `update`. The difference between these\
+    \ two subcommands is that `upgrade` will\nremove any obsolete packages from the\
+    \ system. Often the configuration for YUM\nis such that these subcommands will\
+    \ both carry out the `upgrade` operation.  \n\n# Removing a package\n\nRemoving\
+    \ a package follows the same theme of simplicity.\n\n```\nyum -y remove httpd\n\
+    ```\n\nThe extensive output shows you information about which dependent RPMs were\n\
+    removed as part of this transaction.\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\n\
+    Removing:\n httpd            x86_64 2.4.37-39.module+el8.4.0+9658+b87b2deb\n\n\
+    Removing dependent packages:\n mod_ssl          x86_64 1:2.4.37-39.module+el8.4.0+9658+b87b2deb\n\
+    \nRemoving unused dependencies:\n apr              x86_64 1.6.3-11.el8\n\n<< OUTPUT\
+    \ ABRIDGED >>\n\nRemoved:\n  httpd-2.4.37-39.module+el8.4.0+9658+b87b2deb.x86_64\
+    \               \n  httpd-filesystem-2.4.37-39.module+el8.4.0+9658+b87b2deb.noarch\
+    \    \n  httpd-tools-2.4.37-39.module+el8.4.0+9658+b87b2deb.x86_64  \n\nComplete!\n\
+    </pre>\n\nUse the `list` subcommand to confirm that the package has been uninstalled:\n\
+    \n```\nyum list httpd\n```\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\nAvailable\
+    \ Packages\nhttpd.x86_64 2.4.37-39.module+el8.4.0+9658+b87b2deb\n</pre>\n\nThe\
+    \ package is now listed as _Available_ rather than _Installed_. The next\nstep\
+    \ will walk you through `yum history` which provides some more powerful\ntools\
+    \ for rolling back package transactions.\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: "# Using `yum history` to roll back a transaction\n\nThe `history` subcommand\
+    \ provides a summary of recent `yum` transactions.\n\n```\nyum history\n```\n\n\
+    The output contains transaction IDs in the first column, which are how you reference\n\
+    specific locations in the transaction history when executing rollbacks.\n\n<pre\
+    \ class=file>\nID| Command                  | Date and time    | Action(s)| Altered\n\
+    ------------------------------------------------------------------\n7 | remove\
+    \ -y httpd          | 2021-06-11 18:42 | Removed  | 3\n6 | update -y bash    \
+    \       | 2021-06-11 18:41 | Upgrade  | 1   \n5 | install -y wireshark     | 2021-06-11\
+    \ 18:40 | Install  | 36   \n4 | install -y gcc llvm-libs | 2021-03-11 22:22 |\
+    \ Install  | 13   \n3 | install -y buildah       | 2021-03-11 22:21 | I, U   \
+    \  | 216   \n2 | install -y rsync         | 2021-03-11 22:20 | Install  | 1  \
+    \ \n1 |     \n</pre>\n\nThis subcommand is also useful for rolling back transactions\
+    \ if you erroneously\ninstall or update a package, as it cleans up all of the\
+    \ dependencies associated\nwith the package. Rollback the state of your system\
+    \ to before you uninstalled\n__crontabs__:\n\n```\nyum -y history rollback 6 \n\
+    ```\n\n>_NOTE:_ The number 6 here is used here to specify that the rollback\n\
+    the state of the system to how it was at transaction ID 6, or before you\nremoved\
+    \ __httpd__.\nYou can use other relative offsets, such as `last-3`, or you can\
+    \ use absolute\ntransaction IDs. For example, `yum history rollback 2` would rollback\
+    \ to the\ntransaction where __rsync__ was installed.\n\n<pre class=file>\n<< OUTPUT\
+    \ ABRIDGED >>\nInstalled:\n  apr-1.6.3-11.el8.x86_64                         \
+    \                  \n  apr-util-1.6.1-6.el8.x86_64                           \
+    \            \n  apr-util-bdb-1.6.1-6.el8.x86_64                             \
+    \      \n  apr-util-openssl-1.6.1-6.el8.x86_64                               \n\
+    \  httpd-2.4.37-39.module+el8.4.0+9658+b87b2deb.x86_64               \n  httpd-filesystem-2.4.37-39.module+el8.4.0+9658+b87b2deb.noarch\
+    \          \n\nComplete!\n</pre>\n\nThis command reinstalled the RPMs that are\
+    \ part of __httpd__ (including\nall dependencies),\nrestoring the system state\
+    \ to how it was before the previous transaction.\n\nThere are many more subcommands\
+    \ that you can use to customize how YUM behaves.\nCheck out this [YUM Command\
+    \ Cheat Sheet for RHEL](https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf)\
+    \ for more info.\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: "# Using RPM to run detailed queries\n\nYUM is the standard package\
+    \ manager, but this does not mean that RPM is\nobsolete. Detailed queries can\
+    \ be carried out using RPM using the\nquery option (`-q`). This step will walk\
+    \ you through three examples of how to use\nthis option.\n\n# Listing files installed\
+    \ by a package\n\nYou can combine the `-q` option with the list option (`-l`)\
+    \ to display all of the\nfiles that are installed by a specific package. This\
+    \ information is hidden by\ndefault to keep the package installation process simple,\
+    \ but it is often useful\nto know where specific files are located.\n\n```\nrpm\
+    \ -ql wireshark\n```\n\n<pre class=file>\n/usr/bin/wireshark\n/usr/lib/.build-id\n\
+    /usr/lib/.build-id/9b\n/usr/lib/.build-id/9b/f3ec88dd7a948dfaf1382498091fa57333c153\n\
+    << OUTPUT ABRIDGED >>\n</pre>\n\nNow you can see that the Wireshark application\
+    \ is located at `usr/bin/wireshark`.\n\n# Listing installation scripts\n\nSome\
+    \ packages run scripts to finish up their installation process. The `--scripts`\n\
+    option can be used in combination with `rpm -q` to return the contents of these\n\
+    postinstall scripts for a specific package. Wireshark does not actually have\n\
+    any postinstall scripts, so instead try this command with the __httpd__ package.\n\
+    \n```\nrpm -q --scripts httpd\n```\n\n<pre class=file>\npostinstall scriptlet\
+    \ (using /bin/sh):\n\nif [ $1 -eq 1 ] ; then\n        # Initial installation\n\
+    \        systemctl --no-reload preset httpd.service htcacheclean.service httpd.socket\
+    \ &>/dev/null || :\nfi\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe output shows a script\
+    \ that creates a preset for the __httpd__ service behind\nthe scenes when the\
+    \ package is installed.\n\n# Showing changelog\n\nSpecifying `--changelog` with\
+    \ `rpm -q` will display what has recently been\nchanged in a package.\n\n```\n\
+    rpm -q --changelog wireshark\n```\n\n<pre class = file>\nTue Oct 29 2019 Michal\
+    \ Ruprich <mruprich@redhat.com> - 1:2.6.2-12\n- Resolves: #1609737 - wiretap does\
+    \ not write \"drop_count\" in pcapng format\n\n* Mon Apr 29 2019 Michal Ruprich\
+    \ <mruprich@redhat.com> - 1:2.6.2-11\n- Related: #1602731 - Fixing multilib problem\
+    \ in devel subpackage\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe next step will walk\
+    \ you through another use for `rpm`, file validation.\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: '# Validating package files using `rpm`
+
+
+    If a program is suddenly misbehaving, it could be related to some key files not
+    being
+
+    installed properly. `rpm` has a validation option (`-V`) which will compare
+
+    the local files with the expected files for the package. Remove a file from the
+
+    Wireshark package to test out this validation functionality:
+
+
+    ```
+
+    rm -f /usr/share/icons/hicolor/256x256/apps/wireshark.png
+
+    ```
+
+
+    Use the `-V` option with `rpm` to check the file status of Wireshark.
+
+
+    ```
+
+    rpm -V wireshark
+
+    ```
+
+
+    <pre class=file>
+
+    missing     /usr/share/icons/hicolor/256x256/apps/wireshark.png
+
+    </pre>
+
+
+    Now that you have seen there is a missing file, reinstall the Wireshark
+
+    package to return it to its proper state:
+
+
+    ```
+
+    yum -y reinstall wireshark
+
+    ```
+
+
+    <pre class=file>
+
+    << OUTPUT ABRIDGED >>
+
+    Arch   Version        Repository                        Size
+
+    ===================================================================
+
+    Reinstalling:
+
+    wireshark
+
+    x86_64 1:2.6.2-12.el8 rhel-8-for-x86_64-appstream-rpms 3.7 M
+
+    << OUTPUT ABRIDGED >>
+
+    </pre>
+
+
+    Check that __wireshark.png__ has been restored:
+
+
+    ```
+
+    ls /usr/share/icons/hicolor/256x256/apps/
+
+    ```
+
+
+    <pre class=file>
+
+    fedora-logo-icon.png  wireshark.png
+
+    </pre>
+
+
+    The command `rpm -V` is useful for more than just finding missing files.
+
+    This command can inform the user if any files have changed since installation.
+
+    To test this out, run the validation command on the PAM package.
+
+
+    ```
+
+    rpm -V pam
+
+    ```
+
+
+    <pre class=file>
+
+    S.5....T.  c /etc/pam.d/password-auth
+
+    S.5....T.  c /etc/pam.d/system-auth
+
+    </pre>
+
+
+    This query returns two files with unexpected criteria, __password-auth__ and
+
+    __system-auth__. The first column of this output tells you that both of these
+
+    files have an unexpected size, checksum, and
+
+    timestamp. Both of these files are configuration files, so it makes sense
+
+    that they would be modified after installation to suit the purpose of this
+
+    particular system.
+
+    '
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: '# Overview:
+
+  Package managers are centralized methods of accessing software repositories. Using
+  package managers for installing and updating software removes many opportunities
+  for user error and automates numerous installation steps. On RHEL, YUM is the default
+  package manager, but you will also see RPM.
+
+
+  # Goal:
+
+  After completing this lab, users will feel comfortable adding, removing, and updating
+  packages.
+
+
+  # Concepts included in this scenario:
+
+  * Install a package with `yum`
+
+  * Update and remove packages with `yum`
+
+  * Roll back a transaction with `yum history`
+
+  * Use `rpm` for detailed queries
+
+  '
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: installing-software-yum
+tags:
+- rhel
+title: Installing Software using Package Managers [Admin 101]
+type: track

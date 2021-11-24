@@ -1,0 +1,304 @@
+challenges:
+- assignment: "# Software installation and configuration\nPrior to getting started\
+    \ with image builder, the software must first be \ninstalled.  By installing the\
+    \ plugin for Web Console, all of the other\nrequired packages will also be installed.\n\
+    \n```\nyum install -y cockpit-composer\n```\n\nNow that the software is installed,\
+    \ restart the web console so that it picks up\nthe newly installed plugin for\
+    \ image builder.\n\n```\nsystemctl restart cockpit\n```\n\n"
+  difficulty: basic
+  notes:
+  - contents: '# Goal:
+
+      After completing this scenario, users will be able to create customized Red
+      Hat Enterprise Linux images using Image Builder plugin within Web Console.
+
+
+      # Concepts included in this scenario:
+
+      * Creating a custom blueprint to use for machine image creation
+
+      * Building a custom Red Hat Enterprise Linux machine image
+
+      * Monitoring the image build process
+
+
+      # Example Usecase:
+
+      Using Image Builder to make system images would be a consistent, repeatable
+
+      way to build the same installed system, but output the image to different
+
+      cloud formats for use in a hybrid cloud environment.
+
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 1
+  type: challenge
+- assignment: "# Log in to the Web Console\n\nClick on the tab titled *Web Console*\
+    \ at the top of  your lab system interface.\nSelecting this tab will pop out the\
+    \ lab system's web console.\n\nOnce the login page is presented, use the following\
+    \ credentials to log into the web console:\n\nUsername: __rhel__   \nPassword:\
+    \ __redhat__\n\n![Web Console Login](./assets/Web-console-login.png)\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 2
+  type: challenge
+- assignment: "# Navigate to Image Builder application\nAfter logging into the Web\
+    \ Console, you are probably already looking at the \nImage Builder tab.  If, instead,\
+    \ you are looking at the *Host* tab, navigate \nto the Image Builder tab, as shown\
+    \ below:\n\n![Navigate to Image Builder](./assets/Nav-ImageBuilder.png)\n\nBecause\
+    \ you have not used Image Builder before, you will need to start the\nback-end\
+    \ service by clicking the *Start* button.  Notice that the \n*Automatically start\
+    \ osbuild-composer on boot* is selected, which means the \nservice will automatically\
+    \ start after this whenever the system is booted.\n\n![Start Image Builder Service](./assets/ImageBuilder-start-service.png)\n\
+    \nNow that the back-end service has been started, you will notice that the\napplication\
+    \ screen updates and you can now *Create Blueprint*, which is\nwhat you will do\
+    \ on the next step.\n\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 3
+  type: challenge
+- assignment: "# Creating a blueprint\n\nImage Builder uses blueprints to create system\
+    \ images, however, none exist\non this system  yet.\n\nSelect the *Create Blueprint*\
+    \ button to start building your first blueprint.\n\n![Select Create Blueprint](./assets/Create-Blueprint.png)\n\
+    \nThe first step to creating a new blueprint is naming it.  It is recommended\n\
+    that you also include a description so that others using this blueprint know\n\
+    what system image they are building.  For this lab, use __node-app-server__\n\
+    as the *Name* and __A node.js and NGINX installed web application server__ as\n\
+    the *Description*.\n\n![Name Your Blueprint](./assets/Create-blueprint-dialog.png)\n\
+    \nOn the right-side of the blueprint packages page, you can see packages already\n\
+    included in systems built from this blueprint, however, because your blueprint\n\
+    is new, this area suggests you *Add Blueprint Components*.\n\nOn the left-side\
+    \ of the page is a list of available packages.  You want to\nadd __nodejs__ and\
+    \ __nginx__ to the blueprint.  You could search across the \nover 5000 available\
+    \ packages through the over 100 pages, however it would be \nfaster to use the\
+    \ *Filter By Name...* field to locate the packages.\n\n![Filter Available Components](./assets/Filter-Components.png)\n\
+    \nAdd in the first package, __nodejs__, into the *Filter By Name*. Once the \n\
+    filter has been applied, you should now see packages with __nodejs__\nincluded\
+    \ in their name.  \n\n![nodejs Filter Applied](./assets/nodejs-filter-applied.png)\n\
+    \n\nClick the *+* sign next to __nodejs__ to add it to the blueprint.\n\n![Add\
+    \ Component](./assets/Add-Component.png)\n\nIf you were interested in other versions\
+    \ of this package or wanted to view the\nadditional packages brought into the\
+    \ blueprint as dependencies for this package,\nyou could click on the package\
+    \ name instead of *+*.\n\nYou will notice that now __nodejs__ is listed on the\
+    \ right-side of the\napplication under *Selected Components* and that 164 additional\
+    \ packages\nhave been brought in as dependencies to support the selection of __nodejs__.\n\
+    \nFollow the same procedure of filtering for __nginx__ and add NGINX to the\n\
+    blueprint as well.\n\nNow that the desired packages have been added to the blueprint,\
+    \ it is time\nto commit the changes.  Select the *Commit* button at the top of\
+    \ the interface\nto apply these updates to the blueprint. \n\n![Commit Changes](./assets/Commit-Changes.png)\n\
+    \nYou will be asked to confirm these changes prior to the blueprint being updated.Select\
+    \ *Commit* on the dialog to confirm and complete creating your first \nImage Builder\
+    \ blueprint!\n\n![Confirm Changes](./assets/Commit-Confirm.png)\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 4
+  type: challenge
+- assignment: "# Building an Image\n\nYou are now ready to build your first image\
+    \ of this new Red Hat Enterprise\nLinux build with Node.js and NGINX packages\
+    \ installed.  Click the *Create image*\nbutton near the top of the interface.\n\
+    \n![Create image](./assets/Create-Image.png)\n\nThe resulting dialog will ask\
+    \ several questions about how to build the image.  \nThe first, and most important\
+    \ question is *Type*.  There are several different\noutput types supported by\
+    \ Image Builder:\n* Amazon Web Services (.raw)\n* OpenStack (.qcow2)\n* QEMU Image\
+    \ (.qcow2)\n* RHEL for Edge Commit (.tar)\n* RHEL for Edge Container (.tar)\n\
+    * RHEL for Edge Installer (.iso)\n* Disk Archive (.tar)\n* Microsoft Azure (.vhd)\n\
+    * VMware VSphere (.vmdk)\n\nFor this lab, select the *Type* as __QEMU Image (.qcow2)__\
+    \ this makes a\nvirtual machine image that is compatible with the native virtualization\n\
+    provided as part of Red Hat Enterprise Linux. However, you can see from the\n\
+    list that you can make images for cloud providers or other virtualization\nhypervisors.\n\
+    \n![Selecting a format](./assets/image-create.png)\n\nOnce you have specified\
+    \ the __QEMU Image (.qcow2)__ as the *Type* select\nthe *Create* button to create\
+    \ an image of this output format.\n\n![Clicking Create](./assets/image-create-confirm.png)\n\
+    \nDepending on the output format selected in this step, there may be additional\n\
+    options available.  For example, when a cloud provider format is selected,\nyou\
+    \ can select to *Upload image* to the cloud provider, which will use\ncredentials\
+    \ you provide to automatically upload the completed image to the\nselected cloud\
+    \ provider.  This feature allows you to further streamline the\nworkflow of building\
+    \ images, then deploying them as instances.\n\nYou may see a temporary notice\
+    \ on the page that says the new image has been\nadded to the build queue.  You\
+    \ will find that queue next.\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 5
+  type: challenge
+- assignment: '# Review and access images
+
+
+    In the previous step, you started a build of your __node-app-server__ machine
+
+    image.  Now it is time to check on the build process.
+
+
+    Return to the main Image Builder page by either selecting *Image Builder* in the
+
+    navigation menu or by using *Back to Blueprints* in the breadcrumbs.
+
+
+    ![Back to Image Builder Homepage](./assets/Back-to-ImageBuilder.png)
+
+
+    On the main Image Builder page, you can see your blueprint, *node-app-server*,
+
+    click on this blueprint to see the details.
+
+
+    ![Selecting node-app-server](./assets/Main-page.png)
+
+
+    On the *node-app-server* page you can see several options for working with
+
+    this blueprint including:
+
+    * Edit Packages
+
+    * Create image
+
+    * Customizations
+
+    * Packages
+
+    * Images
+
+
+    We both *Edited Packages* and *Create image* earlier.  Now it is time to use
+
+    the *Images* tab to look at the images that are either being built or have
+
+    been built.
+
+
+    ![Accessing the image queue](./assets/node-app-server-page.png)
+
+
+    Depending on how long it has taken you to reach this stage, you may see that
+
+    the image you started in a previous step has already completed building (as
+
+    shown in the screenshot), is still building, or is queued to be built.
+
+
+    From here on the *Images* list, you can view the status of images or, if the
+
+    image has completed building, download it using the *...* button.  If the image
+
+    has failed to build, or you are just curious on what Image Builder has done,
+
+    you can view the *Logs* of the build as well.
+
+
+    ![Image Queue](./assets/images-queue.png)
+
+
+    Congratulations on making your first image!
+
+
+    Now that you have completed making your first image, feel free to try out making
+
+    *Customizations* or maybe *Edit Packages* to further customize the blueprint.
+
+    '
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 6
+  type: challenge
+description: '# Goal:
+
+  After completing this scenario, users will be able to create customized Red Hat
+  Enterprise Linux images using Image Builder plugin within Web Console.
+
+
+  # Concepts included in this scenario:
+
+  * Creating a custom blueprint to use for machine image creation
+
+  * Building a custom Red Hat Enterprise Linux machine image
+
+  * Monitoring the image build process
+
+
+  # Example Usecase:
+
+  Using Image Builder to make system images would be a consistent, repeatable
+
+  way to build the same installed system, but output the image to different
+
+  cloud formats for use in a hybrid cloud environment.
+
+
+  '
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: imagebuilder
+tags:
+- rhel
+title: Using Web Console to build virtual machine images [Image Builder]
+type: track
