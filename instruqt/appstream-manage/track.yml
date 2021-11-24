@@ -1,0 +1,287 @@
+challenges:
+- assignment: "Determine the available versions of postgresql.\n\n```\nyum module\
+    \ list postgresql\n```\n\n<pre class=file>\n<< OUTPUT ABRIDGED >>\n\nRed Hat Enterprise\
+    \ Linux 8 for x86_64-AppStream (RPMs)\nName                 Stream         Profiles\
+    \           \npostgresql           9.6            client, server [d]\npostgresql\
+    \           10 [d]         client, server [d]\npostgresql           12       \
+    \      client, server [d]\npostgresql           13             client, server\
+    \ [d]\n\nHint: [d]efault, [e]nabled, [x]disabled, [i]nstalled\n</pre>\n\nThere\
+    \ are four versions of postgresql available as modules in the Application Stream,\
+    \ version 9.6, version 10, version 12, and version 13.   \n\npostgresql version\
+    \ 10 is set as the default, meaning if someone installed postgresql with no specific\
+    \ options or arguments, version 10 would be the one installed.\n\n"
+  difficulty: basic
+  notes:
+  - contents: '# Goal:
+
+
+      After completing this scenario, users will be able to choose which version of
+      a software package is enabled on a system from an application stream.
+
+
+      # Concepts included in this scenario:
+
+      * Verify the availability of an application stream
+
+      * Install software managed as an application stream
+
+      * Change to a different version of software from an application stream
+
+      * List all available software managed as application streams
+
+
+      # Example Usecase:
+
+
+      A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql
+      database version 9.6.  Later, the application is updated and requires postgresql
+      version 10 be available on the machine.
+
+
+      **Please Note:** The instructions to move the database stored data from postgresql
+      9.6 to 10 are not included in this scenario, but would likely be needed if an
+      administrator or developer was moving a production system from using postgresql
+      9.6 to postgresql 10.  Additional administrative activities may be required
+      when performing a move from one version of software to another, including, but
+      not limited to: scheduling a maintenance for the system, notifying users/stakeholders,
+      backing up data, testing post-change, etc.
+
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 1
+  type: challenge
+- assignment: "To support the web application deployed on this machine, install postgresql\
+    \ version 9.6.\n\n```\nyum -y module install postgresql:9.6\n``` \n\nAfter the\
+    \ installation is complete, verify that postgresql version 9.6 is installed on\
+    \ the system.\n\n```\nyum module list postgresql\n```\n\n<pre class=\"file\">\n\
+    << OUTPUT ABRIDGED >>\n\nRed Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)\n\
+    Name             Stream         Profiles              \npostgresql       9.6 [e]\
+    \        client, server [d] [i]\npostgresql       10 [d]         client, server\
+    \ [d]    \npostgresql       12             client, server [d]    \npostgresql\
+    \       13             client, server [d]    \n\nHint: [d]efault, [e]nabled, [x]disabled,\
+    \ [i]nstalled\n</pre>\n\nNotice that version 9.6 is now marked as [e]nabled under\
+    \ the Stream column and is flagged as [i]nstalled in the Profiles column of the\
+    \ listing for postgresql.\n\nFinally, run the postgres command to inspect the\
+    \ version it reports.\n```\npostgres --version\n```\n<pre class=file>\npostgres\
+    \ (PostgreSQL) 9.6.22\n</pre>\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 2
+  type: challenge
+- assignment: "An update to the web application running on this system requires features\
+    \ available in postgresql version 10.\nTo accomplish this you will ultimately\
+    \ remove postgresql 9.6 and install postgresql 10, however, there are some\nadditional\
+    \ Application Stream settings to apply to the system configuration as well.\n\n\
+    To start off with, remove postgresql 9.6.\n\n```\nyum -y module remove postgresql:9.6\n\
+    ```\n\nTake a look at the Application Stream information for the machine to validate\
+    \ the removal.\n\n```\nyum  module list postgresql\n```\n\n<pre class=\"file\"\
+    >\n<< OUTPUT ABRIDGED >>\n\nRed Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)\n\
+    Name                 Stream          Profiles          \npostgresql          \
+    \ 9.6 [e]         client, server [d]\npostgresql           10 [d]          client,\
+    \ server [d]\npostgresql           12              client, server [d]\npostgresql\
+    \           13              client, server [d]\n\nHint: [d]efault, [e]nabled,\
+    \ [x]disabled, [i]nstalled\n</pre>\n\nVerify that postgresql version 9.6 is no\
+    \ longer flagged as [i]nstalled\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 3
+  type: challenge
+- assignment: "When postgresql version 9.6 was installed the enabled flag, [e], moved\
+    \ to apply\nto that version of the application stream.  The other versions of\
+    \ postgresql \navailable as application streams are not active on this machine\
+    \ while version \n9.6 is enabled.  This is to ensure administrators do not \n\
+    accidentally remove or install other versions of the software unintentionally.\n\
+    \nHowever, you want to move to postgresql version 10.  First, you will disable\
+    \ \nthe postgresql application streams.\n\n```\nyum -y module disable postgresql\n\
+    ```\n\nNow that no application streams for postgresql are available, you will\
+    \ enable the version you want to install on the machine.\n\n```\nyum -y module\
+    \ enable postgresql:10\n```\n\nYou should now be able to review the list of postgresql\
+    \ application streams and see that the desired version, 10, is now enabled, making\
+    \ it available to be installed on the machine.\n\n```\nyum module list postgresql\n\
+    ```\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nRed Hat Enterprise Linux\
+    \ 8 for x86_64-AppStream (RPMs)\n\nName                 Stream         Profiles\
+    \          \npostgresql           9.6            client, server [d]\npostgresql\
+    \           10 [d][e]      client, server [d]\npostgresql           12       \
+    \      client, server [d]\npostgresql           13             client, server\
+    \ [d]\n\nHint: [d]efault, [e]nabled, [x]disabled, [i]nstalled\n</pre>\n\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 4
+  type: challenge
+- assignment: "Now that the Postgres version 10 stream is enabled, install it on the\
+    \ system.\n\n```\nyum -y module install postgresql:10\n```\n\nThe Postgres 10\
+    \ stream should now be listed as [i]nstalled.\n\n```\nyum module list postgresql\n\
+    ```\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nRed Hat Enterprise Linux\
+    \ 8 for x86_64-AppStream (RPMs)\nName              Stream        Profiles    \
+    \      \npostgresql        9.6           client, server [d]\npostgresql      \
+    \  10 [d][e]     client, server [d] [i]\npostgresql        12            client,\
+    \ server [d]\npostgresql        13            client, server [d]\n\nHint: [d]efault,\
+    \ [e]nabled, [x]disabled, [i]nstalled\n</pre>\n\nFinally, check the version reported\
+    \ by the postgres command.\n\n```\npostgres --version\n```\n\n<pre class=\"file\"\
+    >\npostgres (PostgreSQL) 10.17\n</pre>\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 5
+  type: challenge
+- assignment: 'Lastly, inspect all software managed as application streams.
+
+
+    ```
+
+    yum module list
+
+    ```
+
+
+    <pre class="file">
+
+    Red Hat Enterprise Linux 8 for x86_64-AppStream (RPMs)
+
+    Name                 Stream       Profiles                          Summary
+
+    389-ds               1.4                                            389 Directory
+    Server (base)
+
+    ant                  1.10 [d]     common [d]                        Java build
+    tool
+
+    container-tools      rhel8 [d][e] common [d]                        Common tools
+    and dependencies for container runtimes
+
+    container-tools      1.0          common [d]                        Common tools
+    and dependencies for container runtimes
+
+    container-tools      2.0          common [d]                        Common tools
+    and dependencies for container runtimes
+
+    freeradius           3.0 [d]      server [d]                        High-performance
+    and highly configurable free RADIUS server
+
+    gimp                 2.8 [d]      common [d], devel                 gimp module
+
+    go-toolset           rhel8 [d]    common [d]                        Go
+
+    httpd                2.4 [d][e]   common [d], devel, minimal        Apache HTTP
+    Server
+
+
+    <<< OUTPUT ABRIDGED >>>
+
+    </pre>
+
+    '
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 50
+  title: Step 6
+  type: challenge
+description: '# Goal:
+
+
+  After completing this scenario, users will be able to choose which version of a
+  software package is enabled on a system from an application stream.
+
+
+  # Concepts included in this scenario:
+
+  * Verify the availability of an application stream
+
+  * Install software managed as an application stream
+
+  * Change to a different version of software from an application stream
+
+  * List all available software managed as application streams
+
+
+  # Example Usecase:
+
+
+  A web application being deployed on Red Hat Enterprise Linux 8 requires postgresql
+  database version 9.6.  Later, the application is updated and requires postgresql
+  version 10 be available on the machine.
+
+
+  **Please Note:** The instructions to move the database stored data from postgresql
+  9.6 to 10 are not included in this scenario, but would likely be needed if an administrator
+  or developer was moving a production system from using postgresql 9.6 to postgresql
+  10.  Additional administrative activities may be required when performing a move
+  from one version of software to another, including, but not limited to: scheduling
+  a maintenance for the system, notifying users/stakeholders, backing up data, testing
+  post-change, etc.
+
+
+  '
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: appstream-manage
+tags:
+- rhel
+title: Managing software from an application stream
+type: track

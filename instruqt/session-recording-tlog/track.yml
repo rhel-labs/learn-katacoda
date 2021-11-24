@@ -1,0 +1,225 @@
+challenges:
+- assignment: "# Installing software\n\nInstall two rpm packages, __cockpit-session-recording__\
+    \ and __tlog__.\n\n```\nyum -y install cockpit-session-recording tlog\n```\n\n\
+    <pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nInstalled:\n  cockpit-session-recording-4-2.el8.noarch\
+    \                                       tlog-8-2.el8.x86_64\n\nComplete!\n</pre>\n\
+    \nThe first package, __cockpit-session-recording__ will add an additional feature\n\
+    Web Console which you will be using to enable and configure session recording.\n\
+    The __tlog__ package will provide the tools which will be used to both record\
+    \ \nand view the recorded terminal sessions.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, users will be able to enable\
+      \ Terminal \nSession Recording and review recorded sessions.\n\n# Concepts included\
+      \ in this scenario:\n* Installing software for Terminal Session Recording\n\
+      * Enabling and recording terminal sessions\n* List recorded sessions\n* Replay\
+      \ recorded sessions using Web Console\n* Replay recorded sessions using the\
+      \ __tlog__ command\n\n# Example Usecase:\nAn administrator on your team is having\
+      \ difficulty performing a task on a\nmachine.  You would like to review what\
+      \ has been done to see the state of\nthe machine and task.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 1
+  type: challenge
+- assignment: "# Logging in and navigating Web Console \n\nNow that the required software\
+    \ is installed, it is time to configure and\nenable terminal session recording.\
+    \  You will use the Web Console to perform\nthis task.\n\nUse the *Web Console*\
+    \ tab in your lab environment to log into the Web\nConsole for the system.  You\
+    \ should use the following credentials:\n\nUsername: __rhel__  \nPassword: __redhat__\
+    \  \n\n![Web Console Login](./assets/Web-console-login.png)\n\n>**NOTE:** Problems\
+    \ accessing the Web Console or logging in?  Try popping\nthe Web Console page\
+    \ into a stand alone window by clicking this icon on the\nWeb Console tab in the\
+    \ lab interface:\n\n![Web Console Login](./assets/pop-out.png)\n\n\nNow that you\
+    \ are logged into the Web console, and because you have installed\nthe __cockpit-session-recording__\
+    \ rpm package, you can now select the\n*Session Recording* option in the left-side\
+    \ navigation menu.\n\n![Web Console Navigation](./assets/session-recording-option.png)\n\
+    \n\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 2
+  type: challenge
+- assignment: "# Configuring and enabling session recording\n\nThe *Session Recording*\
+    \ application is initially blank, reporting \n__No recorded sessions__.  Click\
+    \ the *gear icon* in the upper right-hand \ncorner to be taken to the configuration\
+    \ settings for session recording.\n\n![Session Recording Homepage](./assets/session-recording-initial.png)\n\
+    \nOn the resulting page, you will be offered access to configuration information\n\
+    for session recording.  For the purpose of this scenario, you will accept most\n\
+    of the defaults and under the __SSSD Configuration__ section at the bottom of\n\
+    the page, select the *Scope* of *All*, which will apply session recording\nto\
+    \ all users and groups that open sessions on the system.\n\n![Session Recording\
+    \ Configuration](./assets/all-scope-selected.png)\n\nOnce you click the *Save*\
+    \ button, Web Console will write out a small\nconfiguration file detailing the\
+    \ scope for the sssd daemon.\n\nAfter saving the configuration, return the Web\
+    \ Console to the main *Session\nRecording* page.\n\n![Return to Session Recording\
+    \ Homepage](./assets/return-main-session-page.png)\n\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 3
+  type: challenge
+- assignment: "# Reviewing the configuration\n\nSwitch back to the Terminal in your\
+    \ lab environment.\n\nAs mentioned on the previous step, the Web Console actions\
+    \ have written a\nsmall configuration file for sssd, \n__/etc/sssd/conf.d/sssd-session-recording.conf__\
+    \  You can review it to verify \nthat the scope has been set to __all__ so that\n\
+    all sessions for all users and groups will be recorded.\n\n```\ncat /etc/sssd/conf.d/sssd-session-recording.conf\n\
+    ```\n\n<pre class=file>\n[session_recording]\nscope=all\nusers=\ngroups=\n</pre>\n\
+    \nChanges to the other configuration options displayed by Web Console would have\
+    \ \nstored those changes in __/etc/tlog/tlog-rec-session.conf__.  For example,\
+    \ the\n__notice__ message displayed to users who are having their session recorded.\n\
+    You can inspect this file as well, if desired.\n\n```\ncat /etc/tlog/tlog-rec-session.conf\n\
+    ```\n\n<pre class=file>\n<<OUTPUT ABRIDGED>>\n\n// \"notice\" : \"\\nATTENTION!\
+    \ Your session is being recorded!\\n\\n\",\n\n</pre>\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 4
+  type: challenge
+- assignment: "# Recording a session\n\nCreate a shell as the __rhel__ user so that\
+    \ the session can be recorded.\nRecall that the __rhel__ user's password is __redhat__.\n\
+    \n```\nssh rhel@localhost\n```\n\nYou will notice that when the `ssh` session\
+    \ starts, the __rhel__ user receives\nthe notice message configured in the __tlog__\
+    \ configuration.\n\n<pre class=file>\nrhel@localhost's password: <b>redhat</b>\n\
+    \nATTENTION! Your session is being recorded!\n\n[rhel@somehost ~]$\n</pre>\n\n\
+    Run some commands in the __rhel__ user's session.  \n\n```\nls /tmp\n```   \n\
+    \   \n```\nwho\n```   \n   \n```\ndf -hP\n```   \n   \n```\nyum list installed\n\
+    ```\n\nNow that you have some data in a recorded session, you can log out of the\n\
+    user's `ssh` session.  \n```\nexit\n```\n\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 5
+  type: challenge
+- assignment: "# Reviewing a recorded session in Web Console\n\nNavigate back over\
+    \ to the *Web Console* tab in your lab environment.\n\nIf you are not already\
+    \ on the *Session Recording* page, please navigate\nthere.\n\nYou should now see\
+    \ a recorded session available.\n\n![Session Recording Homepage](./assets/recorded-session.png)\n\
+    \nAfter selecting the session, you will be taken to a page with an integrated\n\
+    player through which you can watch the session.  Press the *Play* button to\n\
+    review the session.\n\n![Session Recording Playback](./assets/recorded-session-playback.png)\n\
+    \nThe session was recorded in real-time, so if you started the `ssh` connection,\n\
+    but did not start running commands immediately, you will see that wait time\n\
+    reflected in the recorded session as well.  \n\nIn addition to some standard video\
+    \ player functionality, the buttons on the\nright side of the player will allow\
+    \ you to zoom in and out to get a closer,\nor further away, look at the content.\
+    \  Also, the search function located at\nthe bottom of the player window will\
+    \ search the recorded session for text\nand report time codes at which that string\
+    \ is found.  Those time codes are\nlinks, which will change the location of the\
+    \ playback in the player.\n\nBelow the player is additional metadata about this\
+    \ session as well as the\nlog entries for the session.\n"
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 6
+  type: challenge
+- assignment: "# Reviewing a recorded session from the command-line\n\nThe command\
+    \ to use to review recorded sessions from the command-line is\n`tlog-play`, which\
+    \ takes a session identifier to determine which session data\nto replay.  \n\n\
+    In the default configuration, recorded session data is sent to the \n__journald__\
+    \ managed log.  As a result, to determine the available session\ndata, you will\
+    \ use the `journalctl`.  The following command will search\nthrough the journal\
+    \ log and locate strings that contain the <pre>\"rec\"</pre>\nstring, plus the\
+    \ identifier included in that message.\n\n```\njournalctl -o verbose | grep -P\
+    \ \"\\\"rec\\\".*?\\,\"\n```\n\nBelow, is an example of one of those messages,\
+    \ but there will likely be more \nthan one message associated with each session.\n\
+    \n![Journal Log Message](./assets/log-message.png)\n\nTo replay the session, you\
+    \ run `tlog-play` with the session identifier, using\nthe log message displayed\
+    \ above, the command would look like:   \n`tlog-play -r journal -M TLOG_REC=b9dd6a8391714e42be4f6f885875d48f-22ea-c2f05`\n\
+    \nYour session identifier is going to be different, the following command will\n\
+    use some shell tools to isolate the first recording from your journal.  As you\n\
+    replay the session, your existing terminal session will be used for the replay.\n\
+    once the replay is complete, your session will be returned to your control.  You\n\
+    can interrupt the playback with a &lt;CTRL&gt;-C.\n\n```\ntlog-play -r journal\
+    \ -M TLOG_REC=$(journalctl -o verbose | grep -P \"\\\"rec\\\".*?\\.\" | cut -d,\
+    \ -f3 | cut -d: -f2 | head -n 1 | sed -e s/\\\"//g)\n```\n\nThe above command\
+    \ will replay the session to completion, in real-time.\n\n"
+  difficulty: basic
+  slug: step7
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 85
+  title: Step 7
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, users will be able to enable\
+  \ Terminal \nSession Recording and review recorded sessions.\n\n# Concepts included\
+  \ in this scenario:\n* Installing software for Terminal Session Recording\n* Enabling\
+  \ and recording terminal sessions\n* List recorded sessions\n* Replay recorded sessions\
+  \ using Web Console\n* Replay recorded sessions using the __tlog__ command\n\n#\
+  \ Example Usecase:\nAn administrator on your team is having difficulty performing\
+  \ a task on a\nmachine.  You would like to review what has been done to see the\
+  \ state of\nthe machine and task.\n"
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: session-recording-tlog
+tags:
+- rhel
+title: Configuring Terminal Session Recording
+type: track

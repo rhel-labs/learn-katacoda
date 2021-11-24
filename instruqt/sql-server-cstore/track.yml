@@ -1,0 +1,264 @@
+challenges:
+- assignment: "# Validate the SQL Environment\n\n>**Note:** For this scenario, we\
+    \ have started installing SQL Server in the background. The background task will\
+    \ take between 2-5 minutes to complete. \n\nWe have setup two terminal windows\
+    \ running on the local machine - The current terminal will be used for SQL Server\
+    \ and OS specific commands. The *cpudist* terminal will be used for performance\
+    \ tracking using the cpudist bcc-tool explained later.\n\nTo check if ansible\
+    \ installation is complete, we can use the following command -\n\n`systemctl status\
+    \ mssql-server.service --no-pager`{{execute T1}}\n\n<pre class=\"file\">\n<< OUTPUT\
+    \ ABRIDGED >>\n\nActive: active (running) since Monday 2019-07-15 19:24:18 EDT;\
+    \ 3h 59min left\n\n<< OUTPUT ABRIDGED >>\n</pre>\n\nVerify that the Active status\
+    \ is __active (running)__.\n\nFinally, verify that you can connect to SQL Server\
+    \ \n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1! -Q \"select\
+    \ @@version\"`{{execute T1}}\n\n<pre class=\"file\">\nMicrosoft SQL Server 2019\
+    \ (RTM-CU8) (KB4577194) - 15.0.4073.23 (X64)\n        Sep 23 2020 16:03:08\n \
+    \       Copyright (C) 2019 Microsoft Corporation\n        Enterprise Evaluation\
+    \ Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.3 (Ootpa)) <X64>\n\n(1\
+    \ rows affected)\n</pre>\n\nBy the above output, we have confirmed that we can\
+    \ connect to SQL Server, and confirm that we are running SQL Server 2019 on Red\
+    \ Hat Enterprise Linux 8.3\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, users will be able to use,\
+      \ and modify RHEL tuned profiles using tuned-adm, and see the impact of that\
+      \ change with Microsoft SQL Server's columnstore feature.\n\n# Concepts included\
+      \ in this scenario:\n* Verify whether SQL Server is installed on the system\n\
+      * View the currently set RHEL tuned-profile \n* Check SQL Server query performance\
+      \ by running an sample analytic query with columnstores\n* Change the RHEL tuned-profile\
+      \ for SQL Server\n* Query SQL Server with columnstores to see the impact of\
+      \ the mssql tuned profile\n\n>**BACKGROUND:** Columnstore indexes were first\
+      \ introduced in SQL Server 2012. Columnstore feature is available on SQL Server\
+      \ on Linux, and it  offers a new way to store the data in a columnar fashion.\
+      \ This improves the performance of certain analytical queries by at least ten\
+      \ times and are extremely useful in data warehousing scenarios.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 75
+  title: Step 1
+  type: challenge
+- assignment: "# Performance tuning for SQL Server\n\n>**NOTE:** In this step we will\
+    \ be using the *cpudist* terminal to run tools and commands to optimize SQL Server\
+    \ on Red Hat Enterprise Linux. \n\nSelect the *cpudist* terminal to run commands\
+    \ in this step.\n\n## RHEL tuned profiles ##\nThe tuned tuning service can adapt\
+    \ the operating system to perform better under certain workloads by setting a\
+    \ tuning profile. The `tuned-adm` command-line tool allows users to switch between\
+    \ different tuning profiles.\n\nFirst, check the currently active tuned profile\
+    \ :\n\n`tuned-adm active`{{execute T2}}\n\n<pre class=\"file\">\nCurrent active\
+    \ profile: virtual-guest\n</pre>\n\nTuned is enabled by default and auto selects\
+    \ a suitable profile. Since this machine is a VM, tuned selects the virtual-guest\
+    \ profile.\n\nList all the tuned profiles that can be set:\n\n`tuned-adm list`{{execute\
+    \ T2}}\n\n<pre class=\"file\">\nAvailable profiles:\n- balanced              \
+    \      - General non-specialized tuned profile\n- desktop                    \
+    \ - Optimize for the desktop use-case\n- hpc-compute                 - Optimize\
+    \ for HPC compute workloads\n- latency-performance         - Optimize for deterministic\
+    \ performance at the cost of increased power consumption\n- network-latency  \
+    \           - Optimize for deterministic performance at the cost of increased\
+    \ power consumption, focused on low latency network performance\n- network-throughput\
+    \          - Optimize for streaming network throughput, generally only necessary\
+    \ on older CPUs or 40G+ networks\n- powersave                   - Optimize for\
+    \ low power consumption\n- throughput-performance      - Broadly applicable tuning\
+    \ that provides excellent performance across a variety of common server workloads\n\
+    - virtual-guest               - Optimize for running inside a virtual guest\n\
+    - virtual-host                - Optimize for running KVM guests\n</pre>\n\nRHEL\
+    \ has a tuned profile for Microsoft SQL Server called *mssql*. However, this profile\
+    \ is not available since we haven't installed this profile yet. To learn more\
+    \ about the tuned profiles listed above check [Monitoring and managing system\
+    \ status and performance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance#tuned-profiles-distributed-with-rhel_getting-started-with-tuned)\n\
+    \nNext, let's install the mssql tuned profile:  \n\n`yum install -y tuned-profiles-mssql`{{execute\
+    \ T2}}\n\nAgain, list all the tuned profiles that can be set and notice that you\
+    \ have the mssql profile now available: \n\n`tuned-adm list`{{execute T2}}\n\n\
+    <pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\n- latency-performance         -\
+    \ Optimize for deterministic performance at the cost of increased power consumption\n\
+    - mssql                       - Optimize for MS SQL Server\n- network-latency\
+    \             - Optimize for deterministic performance at the cost of increased\
+    \ power consumption, focused on low latency network performance\n\n<< OUTPUT ABRIDGED\
+    \ >>\n</pre>\n\nNow, let's view the contents of the installed mssql tuned profile.\
+    \ \n\n`cat /usr/lib/tuned/mssql/tuned.conf`{{execute T2}}\n\n<pre class=\"file\"\
+    >\n<< OUTPUT ABRIDGED >>\n...\n[main]\nsummary=Optimize for MS SQL Server\ninclude=throughput-performance\n\
+    \n[vm]\ntransparent_hugepage.defrag=always\n\n[sysctl]\nvm.max_map_count=800000\n\
+    kernel.numa_balancing=0\nkernel.sched_latency_ns=60000000\nkernel.sched_min_granularity_ns=15000000\n\
+    kernel.sched_wakeup_granularity_ns=2000000\n..\n<< OUTPUT ABRIDGED >>\n</pre>\n\
+    \nThe mssql tuned profile includes the througput-performance profile, and additionally\
+    \ tunes several other resources including the kernel CPU scheduler, transparent\
+    \ huge pages, and max virtual memory page count.\n\nBy increasing the CPU scheduling\
+    \ granularity, it allows the kernel to more often evaluate whether a running job\
+    \ should be switched for another process. This allows the SQL Server processes\
+    \ to be consistently scheduled when they require CPU time, thus increasing the\
+    \ performance of the database application.\n\nCheck out `man tuned-adm` if you\
+    \ are interested in more details about the `tuned-adm` tool.\n\n## Monitoring\
+    \ performance using bcc-tools ##\n\nBCC is a toolkit for creating efficient kernel\
+    \ tracing and manipulation programs, and includes several useful tools and examples.\
+    \ \n\nInstall the kernel-devel package for your currently running kernel and the\
+    \ bcc-tools packages.\n\n`yum install -y kernel-devel-$(uname -r) bcc-tools`{{execute\
+    \ T2}}\n\n>**NOTE:** In the command above, we embed the uname -r command to automatically\
+    \ determine, and embed, the version of the currently running kernel.\n\nTo learn\
+    \ more about the bcc-tools in Red Hat Enterprise Linux, check [Performance observability\
+    \ in practice with bcc-tools](https://lab.redhat.com/ebpf-tracing)\n\nWe will\
+    \ use the `cpudist` bcc-tool to monitor SQL Server performance in a later step.\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 75
+  title: Step 2
+  type: challenge
+- assignment: "# Columnstore Indexes in SQL Server\n\nColumnstore indexes in SQL Server\
+    \ gives great performance to queries that scan and run analytics on large sets\
+    \ of rows. \n\nFor this step, we will be switching back to our *Terminal* tab.\
+    \ \n\nLet's first look at the performance of SQL Server without using columnstore\
+    \ indexes on a table with 5 million rows. The script queries the table 10 times\
+    \ outputting the time it takes for the query to finish returning the result set\
+    \ each time. The SELECT query calculates the total price, and average price from\
+    \ the orders table without using columnstore indexes. The *option* clause tells\
+    \ SQL Server to ignore the existing columnstore index when running this query.\n\
+    \n<pre class=\"file\">\n//The aggregation query over 5 million rows with SQL optimizer\
+    \ option to ignore columnstore index\nSELECT SUM(Price), AVG(Price) FROM Orders\
+    \ \nOPTION (IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX)\n</pre>\n\n`/opt/mssql-tools/bin/sqlcmd\
+    \ -S localhost -U sa -P Redhat1! -i ~/Scripts/CSNoIndex.sql | grep 'columnstore\
+    \ index'`{{execute T1}}\n\nLets re-run the same query using columnstore indexes.\
+    \ The script queries the table 10 times outputting the time it takes for the query\
+    \ to return the result set using columnstore indexes.\n\n<pre class=\"file\">\n\
+    //The aggregation query over 5 million rows\nSELECT SUM(Price), AVG(Price) FROM\
+    \ Orders;\n</pre>\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Redhat1!\
+    \ -i ~/Scripts/CSIndex.sql | grep 'columnstore index'`{{execute T1}}\n\n>**Note:**\
+    \ The query performance of running an analytical query on top of 5 million rows\
+    \ with columnstore is better than without using columnstore indexes. \n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 75
+  title: Step 3
+  type: challenge
+- assignment: "# Measure CPU performance impact with tuned profiles\n\nTo measure\
+    \ CPU performance, we will be using a bcc-tool called `cpudist`. \n\n`cpudist`\
+    \ summarizes task on-CPU time as a histogram, showing how long tasks spent on\
+    \ the CPU before being descheduled. Results show CPU oversubscription (too many\
+    \ tasks for too few processors), overhead due to excessive context switching (e.g.\
+    \ a common shared lock for multiple threads), uneven workload distribution, too-granular\
+    \ tasks, and more.\n\nSwitch to term *cpudist* terminal\n\nNow, let's run the\
+    \ columnstore index workload using sqlcmd as a background task, and monitoring\
+    \ CPU performance using `cpudist`.\n\n`(/opt/mssql-tools/bin/sqlcmd -S localhost\
+    \ -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore index' &>/dev/null\
+    \ &) && (/usr/share/bcc/tools/cpudist 10 1 -p $(systemctl status mssql-server.service\
+    \ --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p | cut -c14-19)) `{{execute\
+    \ T2}}\n\n>**Note:** In the command above, we pass as an argument to `cpudist`,\
+    \ the process id (pid) of the SQL Server process by using an embedded `systemctl`\
+    \ command.\n\n<pre class=\"file\">\n     usecs               : count     distribution\n\
+    \         0 -> 1          : 0        |                                       \
+    \ |\n         2 -> 3          : 0        |                                   \
+    \     |\n         4 -> 7          : 5        |                               \
+    \         |\n         8 -> 15         : 45       |*******                    \
+    \             |\n        16 -> 31         : 30       |*****                  \
+    \                 |\n        32 -> 63         : 5        |                   \
+    \                     |\n        64 -> 127        : 1        |               \
+    \                         |\n       128 -> 255        : 2        |           \
+    \                             |\n       256 -> 511        : 4        |       \
+    \                                 |\n       512 -> 1023       : 0        |   \
+    \                                     |\n      1024 -> 2047       : 1        |\
+    \                                        |\n      2048 -> 4095       : 0     \
+    \   |                                        |\n      4096 -> 8191       : 227\
+    \      |****************************************|\n      8192 -> 16383      :\
+    \ 102      |*****************                       |\n     16384 -> 32767   \
+    \   : 24       |****                                    |\n     32768 -> 65535\
+    \      : 15       |**                                      |\n     65536 -> 131071\
+    \     : 9        |*                                       |\n    131072 -> 262143\
+    \     : 4        |                                        |\n</pre>\n\nWith default\
+    \ kernel CPU scheduler tuning,  tasks were able to run between 4096-16383 usecs\
+    \ (1usec = 1 microsecond) before being descheduled. This is shown in the bi-modal\
+    \ distribution in the `cpudist` result above. \n\nNow, switch the tuned profile\
+    \ to the mssql tuned profile, which will add more finer granularity to the kernel\
+    \ CPU scheduler \n\n`tuned-adm profile mssql`{{execute T2}}\n\nRe-run the CPU\
+    \ performance measurement around the SQL Server process \n\n`(/opt/mssql-tools/bin/sqlcmd\
+    \ -S localhost -U sa -P Redhat1! -i ~/Scripts/CSIndex.sql | grep 'columnstore\
+    \ index' &>/dev/null &) && (/usr/share/bcc/tools/cpudist 10 1 -p $(systemctl status\
+    \ mssql-server.service --no-pager | grep '/opt/mssql/bin/sqlservr' | sed -n 2p\
+    \ | cut -c14-19)) `{{execute T2}}\n\n<pre class=\"file\">\n     usecs        \
+    \       : count     distribution\n         0 -> 1          : 0        |      \
+    \                                  |\n         2 -> 3          : 9        |  \
+    \                                      |\n         4 -> 7          : 89      \
+    \ |**                                      |\n         8 -> 15         : 310 \
+    \     |*******                                 |\n        16 -> 31         : 401\
+    \      |*********                               |\n        32 -> 63         :\
+    \ 499      |************                            |\n        64 -> 127     \
+    \   : 894      |*********************                   |\n       128 -> 255 \
+    \       : 1375     |*********************************       |\n       256 -> 511\
+    \        : 1645     |****************************************|\n       512 ->\
+    \ 1023       : 134      |***                                     |\n      1024\
+    \ -> 2047       : 158      |***                                     |\n      2048\
+    \ -> 4095       : 569      |*************                           |\n      4096\
+    \ -> 8191       : 13       |                                        |\n      8192\
+    \ -> 16383      : 9        |                                        |\n     16384\
+    \ -> 32767      : 16       |                                        |\n     32768\
+    \ -> 65535      : 20       |                                        |\n     65536\
+    \ -> 131071     : 19       |                                        |\n</pre>\n\
+    \nWhen the kernel CPU scheduler is tuned appropriately using the mssql tuned profile,\
+    \ there is more consistent scheduling because of increased CPU granularity assigned\
+    \ by the kernel. This is shown by the continous distribution in the `cpudist`\
+    \ result above.\n\nThe mssql tuned profile enables Columnstores in SQL server\
+    \ to better utilize the CPU. This means that shorter tasks can be completed in\
+    \ shorter time windows, compared to previously where they had larger time windows\
+    \ and thus wasted unused CPU cycles.  \n\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 75
+  title: Step 4
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, users will be able to use,\
+  \ and modify RHEL tuned profiles using tuned-adm, and see the impact of that change\
+  \ with Microsoft SQL Server's columnstore feature.\n\n# Concepts included in this\
+  \ scenario:\n* Verify whether SQL Server is installed on the system\n* View the\
+  \ currently set RHEL tuned-profile \n* Check SQL Server query performance by running\
+  \ an sample analytic query with columnstores\n* Change the RHEL tuned-profile for\
+  \ SQL Server\n* Query SQL Server with columnstores to see the impact of the mssql\
+  \ tuned profile\n\n>**BACKGROUND:** Columnstore indexes were first introduced in\
+  \ SQL Server 2012. Columnstore feature is available on SQL Server on Linux, and\
+  \ it  offers a new way to store the data in a columnar fashion. This improves the\
+  \ performance of certain analytical queries by at least ten times and are extremely\
+  \ useful in data warehousing scenarios.\n"
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: sql-server-cstore
+tags:
+- rhel
+title: Red Hat Enterprise Linux with SQL Server Columnstores
+type: track

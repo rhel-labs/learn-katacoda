@@ -1,0 +1,656 @@
+challenges:
+- assignment: '# Accessing documentation using `man`
+
+
+    `man` is the command to access manual pages on Linux. These tell you how to
+
+    use specific commands, programs, and conventions on your system, so knowing
+
+    how to efficiently use the `man` command will save you time during research
+
+    and troubleshooting. However, if you do not know how to leverage the `man`
+
+    command, you may be discouraged from using this resource altogether.
+
+
+    The contents are divided up into nine sections. You can find more information
+
+    on these sections in the [Enable Sysadmin article](https://www.redhat.com/sysadmin/top-five-man-options)
+    on `man` pages.
+
+
+    Within these sections, each page has a name. The name of the page is how you
+
+    can access the information within it. But what do you do if you don''t know the
+
+    name of a page?
+
+
+    The first time you try to list `man` pages, you will need to update your `man`
+
+    database. Use the following command:
+
+
+    `mandb`{{execute T1}}
+
+
+    <pre class=file>
+
+    << OUTPUT ABRIDGED >>
+
+
+    113 man subdirectories contained newer manual pages.
+
+    3220 manual pages were added.
+
+    0 stray cats were added.
+
+    0 old database entries were purged.
+
+    </pre>
+
+
+    >_NOTE:_ If the database has not been updated, you will get an output similar
+    to
+
+    ".: nothing appropriate."
+
+
+    Once you have updated the `man` database, the following command
+
+    will list all `man` pages available on your system:
+
+
+    `man -k .`{{execute T1}}
+
+
+    <pre class=file>
+
+    << OUTPUT ABRIDGED >>
+
+
+    zgrep (1)            - search possibly compressed files for a regular expression
+
+    zless (1)            - file perusal filter for crt viewing of compressed text
+
+    zmore (1)            - file perusal filter for crt viewing of compressed text
+
+    znew (1)             - recompress .Z files to .gz files
+
+    zramctl (8)          - set up and control zram devices
+
+    zsoelim (1)          - interpret .so requests in groff input
+
+    </pre>
+
+
+    This list can be quite extensive, though, so you may want to pipe (`|`) the output
+
+    into `less` or another text viewer.
+
+
+    If you aren''t sure exactly what a page contains, the `-f` option will
+
+    print a short description for the specified page.
+
+
+    `man -f grep`{{execute T1}}
+
+
+    <pre class=file>
+
+    grep (1)             - print lines matching a pattern
+
+    </pre>
+
+
+    One thing that is essential for every Linux user to learn
+
+    is tab completion. Tab completion allows you to press the _tab_ key
+
+    to fill in the rest of the characters of the current item that you
+
+    are typing. This will only complete if you have typed enough
+
+    characters to uniquely identify one item that is available. If what
+
+    you have typed so far is not unique, then nothing will happen on the
+
+    first tab press. The second time you press tab, a list of options that
+
+    match the string you have entered will be printed.
+
+    Because of this, tab completion saves time and cuts down on mistakes.
+
+
+    You could try tab completion for yourself by re-typing the previous command, but
+
+    instead of typing `grep` all the way out, just type `gre` and then press tab.
+
+    You will see that `grep` fills in, and you can hit enter to execute the command.
+
+
+    These commands work great if you know the title of the `man` page that you
+
+    are looking for, but what if you want to search for specific contents instead?
+
+    `man` supports a `--regex` option that lets you search through all man pages
+
+    using regular expressions. This will then open each page that contains a match
+
+    sequentially. If you instead wish to just output the location of the matches,
+
+    you can use the `-wK` options to return __w__here __k__eywords are
+
+    located. Say you were looking for information on the chrony daemon:
+
+
+    `man -wK chronyd`{{execute T1}}
+
+
+    <pre class=file>
+
+    /usr/share/man/man1/chronyc.1.gz
+
+    /usr/share/man/man8/systemd-timedated.service.8.gz
+
+    /usr/share/man/man8/chronyd.8.gz
+
+    /usr/share/man/man5/chrony.conf.5.gz
+
+    </pre>
+
+
+    Then, if you decided you were looking for the `man` page on commands (section
+    1),
+
+    you could open it with `man chronyc`. Since this command supports the regular
+
+    expression option, you can add `--regex` to use
+
+    wildcards and other regex characters to help you narrow in your search.
+
+    '
+  difficulty: basic
+  notes:
+  - contents: '# Overview:
+
+      New users coming from a different operating system can be confused by certain
+      quirks that are common across Unix-based operating systems. Being exposed to
+      these ahead of time means that you are less likely to have to discover them
+      through time-consuming troubleshooting sessions, and some commands used in this
+      lab will prove to be useful tools in your system administration toolbox.
+
+
+      # Goal:
+
+      After completing this scenario, users will be aware of a few conventions that
+      often trip up Unix beginners.
+
+
+      # Concepts included in this scenario:
+
+      * Accessing documentation using `man`
+
+      * Using tab completion to save keystrokes and improve accuracy
+
+      * Learning the meaning of `~`
+
+      * Accessing hidden files
+
+      * Running commands as __root__ vs. __sudo__
+
+      * Interpreting epoch time
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: '# What is the `~` directory?
+
+
+    Linux is filled with shortcuts, and learning these shortcuts
+
+    is a crucial step to speeding up your work. One such shortcut
+
+    is that `~` is aliased to the current user''s home directory. To test out some
+
+    applications of this, change directories to the root directory of the system:
+
+
+    `cd /`{{execute T1}}
+
+
+    The `~` alias works in any case where you have to specify a path.
+
+    If you wanted to list the contents of the _openscap_data_ subdirectory
+
+    located in the home directory of __root__, the following command is
+
+    valid:
+
+
+    `ls ~/openscap_data`{{execute T1}}
+
+
+    <pre class=file>
+
+    eval_remediate_report.html  eval_remediate_results.xml
+
+    </pre>
+
+
+    >_NOTE:_ This is another place where you can practice tab completion.
+
+    Typing `ls ~/op` and then pressing tab will complete the path for you
+
+    since there is nothing else in __root__''s home directory starting
+
+    with `op`.
+
+
+    This means that running `cd ~` will always change directories to
+
+    the home directory of the user that you are logged in as.
+
+
+    `cd ~`{{execute T1}}
+
+
+    You will see that your current directory has changed from
+
+
+    <pre class=file>
+
+    [root@dd2f5f5596bf /]#
+
+    </pre>
+
+
+    to
+
+
+    <pre class=file>
+
+    [root@dd2f5f5596bf ~]#
+
+    </pre>
+
+
+    >_NOTE:_ The `cd` command contains yet another shortcut, where
+
+    running `cd` without any arguments will behave the same as
+
+    running `cd ~`.
+
+
+    Print the full path to the directory you are currently in,
+
+    the `~` directory, using the "print working directory" command:
+
+
+    `pwd`{{execute T1}}
+
+
+    <pre class=file>
+
+    /root
+
+    </pre>
+
+
+    This shows that `~` is equivalent to `/root`, the home directory
+
+    for the __root__ user. Try the same test for a different user account
+
+    on this system, __rhel__. Switch to __rhel__ in the second terminal
+
+    tab:
+
+
+    `su - rhel`{{execute T2}}
+
+
+    Adding the `-` after `su` will automatically change directories into
+
+    the __rhel__ user''s home directory, so print the full directory again:
+
+
+    `pwd`{{execute T2}}
+
+
+    <pre class=file>
+
+    /home/rhel
+
+    </pre>
+
+
+    You can see that when logged in as __rhel__, `~` is equivalent to
+
+    `/home/rhel`, which is the __rhel__ user''s home directory.
+
+
+    >_NOTE:_ The __root__ user home directory is in a unique location,
+
+    `/root`. All other users'' home directories will be located
+
+    following the convention `/home/<username>`, as in the case
+
+    of the __rhel__ user''s home directory.
+
+    '
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: "# Accessing hidden files\n\nSometimes it is useful to have a file or\
+    \ directory that it hidden, meaning it\ndoes not show up when running `ls` normally.\
+    \ This may be because the file is not\noften used, or because the file shouldn't\
+    \ be tampered with by inexperienced users.\nAny file or directory that begins\
+    \ with a `.` in the name will be interpreted as\nhidden, and will only show up\
+    \ when using the `-a` option with `ls`.\n\nList the files in your current directory:\n\
+    \n`ls`{{execute T1}}\n\n<pre class=file>\nanaconda-ks.cfg  openscap_data  original-ks.cfg\n\
+    </pre>\n\nNow, try it again with the `-a` option. Many more files and directories\
+    \ will\nshow up, even though you have not changed where you are looking.\n\n`ls\
+    \ -a`{{execute T1}}\n\n<pre class=file>\n.   anaconda-ks.cfg  .bash_profile  .cshrc\
+    \  .hushlogin     original-ks.cfg  .tcshrc\n..  .bash_logout     .bashrc     \
+    \   .gnupg  openscap_data  .ssh             .viminfo\n</pre>\n\nAdding the `-a`\
+    \ option reveals that there are numerous hidden files and directories\nin this\
+    \ home directory. These are hidden because they are not files that\nyou would\
+    \ interact with often, so there is no need for them to clutter up __root__'s\n\
+    home directory visually. However, they are data that is associated with the\n\
+    user, so it is beneficial from an organization point of view to store them\nin\
+    \ the home directory associated with their specific user.   \n\n>_NOTE_: One common\
+    \ hidden directory you will commonly run into is the `.git`\ndirectory. This is\
+    \ part of any git repository and stores data used in version\ncontrol for your\
+    \ local repository.\n\nCreating a new hidden file or directory is quite simple,\
+    \ just start the name with\na `.`\n\n`touch .hidden-file`{{execute T1}}\n\nNow\
+    \ that this file is created, confirm that it only shows up when using `ls -a`:\n\
+    \n`ls`{{execute T1}}\n\n<pre class=file>\nanaconda-ks.cfg  openscap_data  original-ks.cfg\n\
+    </pre>\n\n`ls -a`{{execute T1}}\n\n<pre class=file>\n.   anaconda-ks.cfg  .bash_profile\
+    \  .cshrc  .hidden-file  openscap_data    .ssh     .viminfo\n..  .bash_logout\
+    \     .bashrc        .gnupg  .hushlogin    original-ks.cfg  .tcshrc\n<pre class=file>\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: "# Running commands as __root__ vs using `sudo`\n\n__root__ is the name\
+    \ of the administrator account. This account has the highest\namount of control\
+    \ of any account on the system. If a person has the root password,\nthey can access\
+    \ and make changes to any part of the system.\n\n`sudo`, on the other hand, is\
+    \ a command which allows non-root users to\nperform administrative tasks. Users\
+    \ in the _wheel_ group have access to the\n`sudo` command.\n\n>_NOTE:_ When logged\
+    \ in as __root__, the character in the command prompt is `#`.\nWhen you switch\
+    \ users to __rhel__, this character changes to `$`. __root__ will\nalways be symbolized\
+    \ by `#` to give you the warning that any command you enter\nwill be run with\
+    \ the highest level of administrative privileges.\n\nIn the second terminal, where\
+    \ you are logged in as the __rhel__ user,  \ntry to access the following file:\n\
+    \n`cat /etc/tcsd.conf`{{execute T2}}\n\n<pre class=file>\ncat: /etc/tcsd.conf:\
+    \ Permission denied\n</pre>\n\nThis configuration file's permissions prevent __rhel__\
+    \ from reading its contents.\nHowever, __rhel__ is part of the _wheel_ group,\
+    \ so you can circumvent this\npermissions issue temporarily by prepending `sudo`\
+    \ to your previous command:\n\n`sudo cat /etc/tcsd.conf`{{execute T2}}\n\n<pre\
+    \ class=file>\n<< OUTPUT ABRIDGED >>\n#\n# Option: disable_ipv6\n# Values: 0 or\
+    \ 1\n# Description: This options determines if the TCSD will bind itself to the\n\
+    # machine's local IPv6 addresses in order to receive requisitions through\n# its\
+    \ TCP port. Value of 1 disables IPv6 support, so clients cannot reach\n# TCSD\
+    \ using that protocol.\n#\n#  disable_ipv6 = 0\n</pre>\n\n`sudo` allowed you to\
+    \ access the contents of the file without changing the\nassociated permissions.\n\
+    \n>_NOTE:_ `sudo !!` is a shortcut for rerunning the previous command with `sudo`\n\
+    \nAssuming the system is properly configured, most users should not need to\n\
+    regularly use `sudo` during day-to-day usage. This command should only be\nnecessary\
+    \ when making administrative changes. If you plan to make lots of\nadministrative\
+    \ changes, it can save you some time to log in as __root__.\nHowever, the administrative\
+    \ block can act as a safeguard in the case that you\nerroneously execute an operation\
+    \ that will modify the system. Seeing\n\"permission denied\" will cause you to\
+    \ double check the command before re-running it\nusing `sudo`.\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: '# What is epoch time?
+
+
+    Time is a fundamental part of productivity, but frameworks must be established
+
+    to ensure that humans and computers can be on the same page about time.
+
+    On Linux, one of these frameworks is the __unix epoch__. This is a standardized
+
+    date and time that is defined as the beginning of time for unix systems.
+
+    From this, an _epoch time_ (or _unix time_) is the number of seconds
+
+    that have elapsed since the __unix epoch__. The __unix epoch__ is defined as
+
+    Midnight UTC on January 1, 1970.
+
+
+    Unix time is exceptionally well-documented online, and if you wish to learn more
+
+    the [Wikipedia page](https://en.wikipedia.org/wiki/Unix_time) on the subject is
+    a great place to start.
+
+
+    Now, let''s try a few examples of converting between time formats.
+
+    The `date` command is useful for displaying the current date and time of
+
+    your system. The value output depends on the timezone you have configured,
+
+    and the format of the output can be controlled using format strings.
+
+
+    If you run `date` without any arguments, it will print the date and time
+
+    in the following format:
+
+
+    `date`{{execute T1}}
+
+
+    <pre class=file>
+
+    Mon Aug  9 20:46:56 EDT 2021
+
+    </pre>
+
+
+    >_NOTE:_ The output should match the current date and time when you are
+
+    running this lab, but it will be formatted using the Eastern Timezone since
+
+    that is the default for the lab systems.
+
+
+    Converting a date and time to epoch time is as simple as a single argument (`+%s`)
+
+    with `date`. You can also specify the `-d` option to input a datetime instead
+    of
+
+    using the current one.
+
+
+    `date -d "Dec 12 2014 20:00:00" +%s`{{execute T1}}
+
+
+    This will show you the epoch time corresponding to the string you input:
+
+
+    <pre class=file>
+
+    1418432400
+
+    </pre>
+
+
+    You can convert in the reverse direction with `date` as well by using the `--date`
+
+    option, then prepending a `@` symbol to the epoch time you would like to convert.
+
+    This syntax specifies that you would like to know the date at the given epoch
+    time.
+
+    Try this using the epoch time you just received from the previous command:
+
+
+    `date --date @1418432400`{{execute T1}}
+
+
+    <pre class=file>
+
+    Fri Dec 12 20:00:00 EST 2014
+
+    </pre>
+
+
+    This results in the original date that you input a few commands ago.
+
+    Notice that this specifies the date in the timezone for this lab system,
+
+    Eastern Time.
+
+
+    For more information on using `date`, check out the [date man page](https://man7.org/linux/man-pages/man1/date.1.html).
+
+
+    An example of how you might run into unix time is available in this [SELinux troubleshooting
+    article](https://www.redhat.com/sysadmin/selinux-denial2).
+
+    The following example error is given:
+
+
+    <pre class=file>
+
+    type=AVC msg=audit(1600796109.687:168): avc:  denied  { read } for  pid=3912 comm="rhsmcertd-worker"
+    name="virt.module" dev="dm-0" ino=50331783 scontext=system_u:system_r:rhsmcertd_t:s0
+    tcontext=system_u:object_r:root_t:s0 tclass=file permissive=0
+
+    </pre>
+
+
+    For this lab, we care about the second field in this error. You may recognize
+
+    that ten digit number as a unix timestamp. To confirm, convert it to a standard
+
+    date:
+
+
+    `date --date @1600796109`{{execute T1}}
+
+
+    <pre class=file>
+
+    Tue Sep 22 13:35:09 EDT 2020
+
+    </pre>
+
+
+    The article that this error was taken from was published on November 16, 2020,
+
+    which supports the fact that this was a unix timestamp generated during the
+
+    process of writing the article. However, someone who is not familiar with the
+
+    unix time format may never consider that this number relates to time at all.
+
+    '
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: CLI
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 30001
+    title: Web Console
+    type: service
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: '# Overview:
+
+  New users coming from a different operating system can be confused by certain quirks
+  that are common across Unix-based operating systems. Being exposed to these ahead
+  of time means that you are less likely to have to discover them through time-consuming
+  troubleshooting sessions, and some commands used in this lab will prove to be useful
+  tools in your system administration toolbox.
+
+
+  # Goal:
+
+  After completing this scenario, users will be aware of a few conventions that often
+  trip up Unix beginners.
+
+
+  # Concepts included in this scenario:
+
+  * Accessing documentation using `man`
+
+  * Using tab completion to save keystrokes and improve accuracy
+
+  * Learning the meaning of `~`
+
+  * Accessing hidden files
+
+  * Running commands as __root__ vs. __sudo__
+
+  * Interpreting epoch time
+
+  '
+developers:
+- dopinto@redhat.com
+icon: https://logodix.com/logo/1910931.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: unixisms
+tags:
+- rhel
+title: Unusual Unixisms [Admin 101]
+type: track
