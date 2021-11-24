@@ -72,7 +72,7 @@ for course in courses['courses']:
     
     course_json = json.loads(course_data)
     
-    track_d["icon"] = "https://logodix.com/logo/1910931.png"
+    track_d["icon"] = "https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png"
     track_d["tags"] = ["rhel"]
     track_d["owner"] = "rhel"
     track_d["developers"] = [ "rhel-tmm@redhat.com"]
