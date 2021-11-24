@@ -78,11 +78,6 @@
       "description": "Learn the distinction between processes, services, and daemons, as well as how to interact with them on your system."
     },
     {
-      "external_link": "https://www.redhat.com/en/engage/redhat-ansible-automation-202108061218",
-      "title": "Ansible Lab Catalog",
-      "description": "Access a catalog of Ansible product labs by accessing this site."
-    },
-    {
       "external_link": "https://lab.redhat.com/unixisms",
       "title": "Unusual Unixisms [Admin 101]",
       "description": "Learn how to avoid common pitfalls for new Linux users."
