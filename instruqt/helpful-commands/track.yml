@@ -1,0 +1,509 @@
+challenges:
+- assignment: "# Manipulating file contents\n\nThe first step towards modifying files\
+    \ is knowing which files exist. Use `ls`\nto take a look at the contents of the\
+    \ current directory:\n\n`ls`{{execute T1}}\n\n<pre class=file>\nanaconda-ks.cfg\
+    \  quote.txt  openscap_data  original-ks.cfg\n</pre>\n\nThere are a few configs\
+    \ and a subdirectory, but you will use _quote.txt_\nfor this exercise. Use the\
+    \ `cat` command to quickly check what is in this file.\nThe `cat` command is short\
+    \ for \"concatenate\", but it is much more versatile\nthan that name suggests.\n\
+    \n`cat quote.txt`{{execute T1}}\n\n<pre class=file>\nJust thinking about everything\
+    \ I have been through, and how huge it all feels.\nThe fact that it is just a\
+    \ small part of something larger\n</pre>\n\nNow you can complete the quote by\
+    \ redirecting the output of the `echo` command.\nThe command below uses the append\
+    \ redirection operator (`>>`) to cause the\noutput of the `echo` command to be\
+    \ written to the end of the file _quote.txt_.\n\n`echo \"makes it seem more manageable.\"\
+    \ >> quote.txt`{{execute T1}}\n\nThere is no output, so view the file contents\
+    \ once again to see this change reflected:\n\n`cat quote.txt`{{execute T1}}\n\n\
+    <pre class=file>\nJust thinking about everything I have been through, and how\
+    \ huge it all feels.\nThe fact that it is just a small part of something larger\n\
+    makes it seem more manageable.\n</pre>\n\nThe `>>` operator allows you to add\
+    \ to files from the command line and is particularly\nuseful in shell scripting.\
+    \ You can also use it when a command has a lengthy output\nand you want to view\
+    \ that output in a text editor.  \n\n>_NOTE:_ You may also encounter the `>` redirection\
+    \ operator. This operator will\nwrite the output to a file, overwriting the file\
+    \ if it already exists. By contrast,\nthe `>>` operator will append the output\
+    \ to the specified file. The input operator\n(`<`) will redirect data as an input\
+    \ to whatever is called before the operator.\nThe pipe operator (`|`) is used\
+    \ to send the output of one command to another\ncommand so that you can carry\
+    \ out an operation on the results of the first command.\n"
+  difficulty: basic
+  notes:
+  - contents: "# Overview:\n\nFaced with a blinking cursor on your command line, Linux\
+      \ can be intimidating to\nnew users who do not know where to start. This lab\
+      \ is designed to show you a\nseries of must-know commands that will prove useful\
+      \ on all facets of system\nadministration, from finding files to checking the\
+      \ status of system resources. \n\n# Goal:\n\nBuild a toolbox of basic commands\
+      \ useful to every Linux user.\n\n# Concepts included in this scenario:\n* Viewing\
+      \ file contents with `cat`\n* Viewing the last 10 lines of a file with `tail`\n\
+      * Appending command outputs to a file with the `>>` operator\n* Locating files\
+      \ that match certain criteria using `find` and `locate`\n* Using `grep` with\
+      \ other commands to isolate a portion of their output\n* Checking disk space\
+      \ with `df`\n* Viewing and managing processes with `ps` and `top`\n* Using `free`\
+      \ to view information about the system memory usage\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 1
+  type: challenge
+- assignment: '# Viewing the end of log files with `tail`
+
+
+    Some files are large enough that it is not practical to display their contents
+
+    with `cat`. A common example is log files, which are often packed full of
+
+    information.
+
+
+    Since `tail` only displays the last ten lines of a file, it is particularly
+
+    useful for viewing recent entries in log files. Take a look at the final
+
+    ten lines of the _boot_ log.
+
+
+    `tail /var/log/boot.log`{{execute T1}}
+
+
+    <pre class=file>
+
+    Starting Enable periodic update of entitlement certificates....
+
+    Starting Dynamic System Tuning Daemon...
+
+    Starting Network Manager Wait Online...
+
+    Starting Hostname Service...
+
+    [  OK  ] Started Enable periodic update of entitlement certificates..
+
+    [  OK  ] Started Permit User Sessions.
+
+    Starting Hold until boot process finishes up...
+
+    Starting Terminate Plymouth Boot Screen...
+
+    [  OK  ] Started Command Scheduler.
+
+    [  OK  ] Started OpenSSH server daemon.
+
+    </pre>
+
+
+    If you wish to then see the entire file, a text viewer like `less` or `view`
+
+    will show the entire file.
+
+
+    Adding the `-f` option will follow the log file so that you can see new entries.
+
+    Run this command in Terminal 2 to open an updating view of the _messages_ log,
+    which
+
+    will display system information:
+
+
+    `tail -f /var/log/messages`{{execute T2}}
+
+
+    <pre class=file>
+
+    << OUTPUT ABRIDGED >>
+
+    Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <warn>  [1626403046.8294] device
+    (ens5): Activation: failed for connection ''Wired connection 1''
+
+    Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8298] device
+    (ens5): state change: failed -> disconnected (reason ''none'', sys-iface-state:
+    ''managed'')
+
+    Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp4
+    (ens5): canceled DHCP transaction
+
+    Jul 15 22:37:26 6d5380e16498 NetworkManager[886]: <info>  [1626403046.8343] dhcp4
+    (ens5): state changed timeout -> done
+
+    </pre>
+
+
+    The `logger` utility will write to this _messages_ log. From the original terminal,
+
+    write to this log:
+
+
+    `logger Hello World`{{execute T1}}
+
+
+    Check that this message was recorded by returning to Terminal 2, where `tail`
+    is
+
+    following the contents of this log:
+
+
+    ` `{{execute T2}}
+
+
+    <pre class=file>
+
+    Jul 15 22:39:06 6d5380e16498 dnf[3679]: Metadata cache created.
+
+    Jul 15 22:39:06 6d5380e16498 systemd[1]: dnf-makecache.service: Succeeded.
+
+    Jul 15 22:39:06 6d5380e16498 systemd[1]: Started dnf makecache.
+
+    Jul 15 22:42:07 6d5380e16498 root[3693]: Hello World
+
+    </pre>
+
+
+    The message you just sent with `logger` is present in _messages_.
+
+
+    >_NOTE:_ If it took you a bit to switch back to Terminal 2, there may be additional
+
+    entries in the _messages_ log below your "Hello World".
+
+
+    Leave this `tail -f` process running in Terminal 2, you will use it again in
+
+    an upcoming step. The next step will walk you through locating files.
+
+    '
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 2
+  type: challenge
+- assignment: "# Locating files\n\nManipulating files is only useful if you can locate\
+    \ the file you need. This step\nwill walk you through two commands that are useful\
+    \ for this, `locate` and `find`.\n\nThe `find` command is great for searching\
+    \ for files which\nsatisfy some specified criteria. This step will show an example\
+    \ using the filename,\nbut you can also use it to look for files with certain\
+    \ permissions, empty files,\nor much more.\n\n`find / -name messages`{{execute\
+    \ T1}}\n\n<pre class=file>\n/var/log/messages\n</pre>\n\nThe output is the full\
+    \ path to the file. If there are multiple matches, then\nthis output would have\
+    \ multiple lines and it would be up to the user\nto decide which is the appropriate\
+    \ file. Instead of having to search through\ncountless directories, you can quickly\
+    \ locate the file.\n\n>_Note:_ An in-depth explanation of using `find` to sort\
+    \ by file permissions\nis included in the [File Permissions Basics lab](https://lab.redhat.com/file-permissions).\
+    \  \n\n`find` can be input/output intensive, which can sap system resources, especially\n\
+    if you run a search that will scan a large amount of candidate files. In fact,\n\
+    the search above is exactly that kind of search, since it is looking for filenames\n\
+    starting from the root directory. It will check every\nsingle file on the entire\
+    \ system to see if it is a match.\nThe `locate` command instead queries a database\
+    \ to avoid being too I/O intensive.\n\n`locate messages`{{execute T1}}\n\n<pre\
+    \ class=file>\n<< OUTPUT ABRIDGED >>\n/usr/share/vim/vim80/syntax/messages.vim\n\
+    /usr/share/vim/vim80/syntax/msmessages.vim\n/var/log/messages\n</pre>\n\nThis\
+    \ command finds a variety of files containing _messages_ in their name,\nincluding\
+    \ the log file that you are looking for, `/var/log/messages`.\nThe database that\
+    \ `locate` uses to optimize the search process\nis updated once per day by default,\
+    \ so that means if you are trying to\nlocate a newly created file it will not\
+    \ be present in the database.\n\nCreate a new file with `touch`:\n\n`touch newFile`{{execute\
+    \ T1}}\n\nTry to find this newly created file using `locate`:\n\n`locate newFile`{{execute\
+    \ T1}}\n\nThere will be no output, as _newFile_ is not in the `locate` database.\n\
+    Update the `locate` database using the `updatedb` command:\n\n`updatedb`{{execute\
+    \ T1}}\n\nRe-run the `locate` command to look through the newly updated database:\n\
+    \n`locate newFile`{{execute T1}}\n\n<pre class=file>\n/root/newFile\n</pre>\n\n\
+    Now the file is present. This is important to keep in mind so that you do not\n\
+    run into the frustrating situation where `locate` failed to find a file that\n\
+    existed all along.  \n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 3
+  type: challenge
+- assignment: '# Searching for text within files and outputs
+
+
+    `find` is great if you are looking for criteria about a file, but if you instead
+
+    want to locate specific file contents, the `grep` command is what you need.
+
+    To illustrate this, search for the words you added to the _messages_ log file.
+
+    The command below uses the `-r` option to search recursively from the
+
+    starting directory (_/var/log_). This will return all locations in any file
+
+    residing in a subdirectory of _/var/log_ that contain the string "Hello World".
+
+
+    `grep -r "Hello World" /var/log`{{execute T1}}
+
+
+    <pre class=file>
+
+    /var/log/messages:Jul 16 21:38:22 be3f7e9f7264 root[24468]: Hello World
+
+    </pre>
+
+
+    The output shows the line you added using `logger` earlier in this lab. If you
+
+    do not specify a search location in the `grep` command, it will default to
+
+    your current directory. Additionally, the string being searched for is case-sensitive
+
+    by default. If you want a case-insensitive search, add the `-i` option.
+
+
+    `grep -ir "hello world" /var/log`{{execute T1}}
+
+
+    <pre class=file>
+
+    /var/log/messages:Jul 16 21:38:22 be3f7e9f7264 root[24468]: Hello World
+
+    </pre>
+
+
+    This option can save you from believing that a string does not exist if you
+
+    weren''t sure about how it was capitalized in the file.
+
+
+    Sometimes you may want to see a few more lines before or after the result of your
+
+    search. This is done using the context option (`-C`). This option allows you
+
+    to specify a number of lines before and after the result of the search to
+
+    display.
+
+
+    `grep -C1 fact quote.txt`{{execute T1}}
+
+
+    <pre class=file>
+
+    Just thinking about everything I have been through, and how huge it all feels.
+
+    The fact that it is just a small part of something larger
+
+    makes it seem more manageable.
+
+    </pre>
+
+
+    >_NOTE:_ If you wish to only display lines after the result, use `-A` (context
+
+    __a__fter). For lines before the result, use `-B` (context __b__efore).
+
+
+    Another way to leverage `grep` is by piping the output of another command
+
+    into `grep` using the `|` operator. This saves you effort if you are just looking
+
+    for a specific word or phrase in a lengthy output. You will get a chance to
+
+    try this out in step 6 of this lab.
+
+    '
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 4
+  type: challenge
+- assignment: "# Using `df` to check disk usage\n\nA large part of a system administrator's\
+    \ job is to be able to diagnose what\nis causing a system to misbehave. Disk space\
+    \ being full can lead to unexpected\nbehavior, so the `df` command is great to\
+    \ include in any troubleshooting session.\n\nThe `df` command, short for \"disk\
+    \ free\", shows a breakdown of disk usage.\nThe `-h` option will present the sizes\
+    \ in a human readable format:\n\n```\ndf -h\n```\n\n<pre class=file>\nFilesystem\
+    \             Size  Used Avail Use% Mounted on\ndevtmpfs               890M  \
+    \   0  890M   0% /dev\ntmpfs                  909M     0  909M   0% /dev/shm\n\
+    tmpfs                  909M  8.5M  901M   1% /run\ntmpfs                  909M\
+    \     0  909M   0% /sys/fs/cgroup\n/dev/mapper/rhel-root   35G  4.5G   30G  14%\
+    \ /\n/dev/vda1             1014M  197M  818M  20% /boot\ntmpfs               \
+    \   182M     0  182M   0% /run/user/0\n</pre>\n\nThe usage percentage (_Use%_)\
+    \ column is a great place to start. If any filesystem\nis close to capacity, then\
+    \ it may be unable to perform installations or other\noperations that require\
+    \ data to be written. However, the absolute size of\nthe partition will determine\
+    \ what \"close to capacity\" means. In the case of this\nsystem, the root partition\
+    \ is 35 GiB. Therefore, even if it is at 80% usage,\nthe filesystem will still\
+    \ have 7 GiB to work with. Probably something you\nneed to address eventually,\
+    \ but unless you are doing some storage-intensive\noperation that is failing,\
+    \ likely not the cause of immediate issues.\n\nThe _boot_ partition is on the\
+    \ other end of the spectrum, with a size of\nonly 1014 MiB. Therefore, if this\
+    \ filesystem is at 80% usage, there will only\nbe 200 MiB available. That may\
+    \ not be enough for basic operations such as installing\nsystem updates. Therefore,\
+    \ it is very concerning if you run `df` and discover\none of the smaller filesystems\
+    \ is at 80% usage.\n\n>_NOTE:_ The _tmpfs_ entries are filesystems accessible\
+    \ by the machine that are stored\nin RAM. This means that you don't have to care\
+    \ as much about these filesystems\nwhen troubleshooting using `df`. A reboot will\
+    \ give you a fresh copy of these\nfilesystems. \n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 5
+  type: challenge
+- assignment: "# Viewing processes\n\nJust as files organize how data is stored on\
+    \ Linux, processes organize all of the\nprograms that are running on the system.\
+    \ The `ps` command (short for Process\nStatus) will display information about\
+    \ the processes running in the current shell.\nTo see all of the processes running\
+    \ on the system and present them in a\nuser-readable format, it is common to add\
+    \ the `aux` options to `ps`.\n\n```\nps aux\n```\n\n<pre class=file>\nroot   \
+    \        1  0.0  0.7 186400 14448 ?        Ss   15:38   0:11 /usr/lib/systemd/systemd\
+    \ --switched-root --system --deserialize 17\nroot           2  0.0  0.0      0\
+    \     0 ?        S    15:38   0:00 [kthreadd]\nroot           3  0.0  0.0    \
+    \  0     0 ?        I<   15:38   0:00 [rcu_gp]\nroot           4  0.0  0.0   \
+    \   0     0 ?        I<   15:38   0:00 [rcu_par_gp]\nroot           6  0.0  0.0\
+    \      0     0 ?        I<   15:38   0:00 [kworker/0:0H-events_highpri]\nroot\
+    \           9  0.0  0.0      0     0 ?        I<   15:38   0:00 [mm_percpu_wq]\n\
+    root          10  0.0  0.0      0     0 ?        S    15:38   0:00 [ksoftirqd/0]\n\
+    root          11  0.0  0.0      0     0 ?        I    15:38   0:00 [rcu_sched]\n\
+    \n<< OUTPUT ABRIDGED >>\n</pre>\n\n>_NOTE:_ There is another lab which goes into\
+    \ depth about `ps` and process\nmanagement. For more info on using `ps` (including\
+    \ how to end processes), check\nout the [Service Administration Basics lab](https://lab.redhat.com/service-admin)\n\
+    \nThe output of this command is often very lengthy, so this is a great chance\n\
+    to apply what you just learned a few steps ago. Using the pipe operator (`|`),\n\
+    pipe the output of `ps aux` into the `grep` command to search for a specific\n\
+    process. Search for the `tail -f` process that you started in step 2:\n\n`ps aux\
+    \ | grep tail`{{execute T1}}\n\n<pre class=file>\nroot       10046  0.0  0.0 \
+    \  7344   928 pts/1    S+   19:26   0:00 tail -f /var/log/messages\nroot     \
+    \  10051  0.0  0.0  12136  1136 pts/0    S+   19:26   0:00 grep --color=auto tail\n\
+    </pre>\n\nHere the search finds the `tail -f` process, but the second line of\
+    \ this output\nshows that the search also finds itself.\n\n`ps` is great for showing\
+    \ a snapshot of the active processes and their\nresource usage, but sometimes\
+    \ it is more useful to have a utility that keeps\nupdating this information in\
+    \ real time. `top` does just that.\n\n`top`{{execute T3}}\n\n<pre class=file>\n\
+    top - 21:11:07 up  4:10,  2 users,  load average: 0.45, 0.16, 0.06\nTasks: 114\
+    \ total,   1 running, 113 sleeping,   0 stopped,   0 zombie\n%Cpu(s):  0.0 us,\
+    \  0.3 sy,  0.0 ni, 99.3 id,  0.2 wa,  0.2 hi,  0.0 si,  0.0 st\nMiB Mem :   1817.0\
+    \ total,   1135.0 free,    181.5 used,    500.5 buff/cache\nMiB Swap:   4000.0\
+    \ total,   4000.0 free,      0.0 used.   1482.2 avail Mem\n\n  PID USER    PR\
+    \  NI   VIRT   RES   SHR S %CPU %MEM    TIME+ COMMAND\n 2940 root    20  0   \
+    \    0     0     0 I  0.3  0.0  0:00.01 kworker/u4:2-flush-253:0\n15893 root \
+    \   20  0   65416  4736  3952 R  0.3  0.3  0:00.04 top\n    1 root    20  0  187008\
+    \  4968  9800 S  0.0  0.8  0:03.06 systemd\n    2 root    20  0       0     0\
+    \     0 S  0.0  0.0  0:00.01 kthreadd\n    3 root     0 -20      0     0     0\
+    \ I  0.0  0.0  0:00.00 rcu_gp\n</pre>\n\nIn addition to the process info, `top`\
+    \ includes some status information:\n* The system uptime\n* Total number of user\
+    \ accounts\n* 1 minute, 5 minute, and 15 minute load averages\n* The total number\
+    \ of tasks and a breakdown of their status counts\n* The kinds of tasks using\
+    \ the CPU\n* A breakdown of memory and swap usage\n\n>_NOTE:_ For more information\
+    \ on the `top` preamble, visit section 2 of the [top man page](https://man7.org/linux/man-pages/man1/top.1.html).\n\
+    \nThis output will continue updating until you quit `top`, making it particularly\n\
+    useful for diagnosing issues that change over time. Leave `top` running in this\n\
+    terminal for now, you will return to it later.\n"
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 6
+  type: challenge
+- assignment: "# Using `free` to view information about the system memory usage\n\n\
+    Processes require memory to run, so when the system is running low on free\nmemory\
+    \ it can slow down significantly. The `free` command is useful for quickly\ngetting\
+    \ a summary of memory usage.\n\n`free -h`{{execute T1}}\n\nThe `-h` option outputs\
+    \ the information in a human-readable format.\n\n<pre class=file>\n          \
+    \ total       used      free    shared   buff/cache  available\nMem:       1.8Gi\
+    \       156Mi     1.2Gi   16Mi     430Mi       1.5Gi\nSwap:      3.9Gi       0B\
+    \        3.9Gi\n</pre>\n\nIf the available memory is very low, the fourth column\
+    \ of `ps au` can be\nused for finding which processes are the culprits. To sort\
+    \ the output by\nmemory usage, add the `--sort=-%mem` option:\n\n`ps au --sort=-%mem`{{execute\
+    \ T1}}\n\n<pre class=file>\nUSER         PID %CPU %MEM    VSZ   RSS TTY      STAT\
+    \ START   TIME COMMAND\nroot        1935  0.5  0.2  65416  4704 pts/1    S+  \
+    \ 15:05   0:00 top\nroot        1914  0.1  0.2  27012  4652 pts/1    Ss   15:05\
+    \   0:00 -bash\n<< OUTPUT ABRIDGED >>\n</pre>\n\nThe first entry on this sorted\
+    \ list belongs to `top` from the previous step.\nSuppose you no longer needed\
+    \ `top` and wanted to free up the resources being\nused by this process. One option\
+    \ would be to return to terminal that it is\nrunning in and quit it. However,\
+    \ it is simpler in most cases to use the `kill`\ncommand. The process ID shown\
+    \ in the `ps` output is how you refer to the process\nwhen killing it. Kill the\
+    \ `top` process from this terminal:\n\n`kill $(pidof top)`{{execute T1}}\n\nThis\
+    \ does not show any output, but returning to Terminal 3 reveals that `top`\nis\
+    \ no longer updating.\n\nIf you want more exercises on this topic, more information\
+    \ on process management\ncan be found in the [Service Admin Basics lab](https://lab.redhat.com/service-admin).\n"
+  difficulty: basic
+  slug: step7
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 42
+  title: Step 7
+  type: challenge
+description: "# Overview:\n\nFaced with a blinking cursor on your command line, Linux\
+  \ can be intimidating to\nnew users who do not know where to start. This lab is\
+  \ designed to show you a\nseries of must-know commands that will prove useful on\
+  \ all facets of system\nadministration, from finding files to checking the status\
+  \ of system resources. \n\n# Goal:\n\nBuild a toolbox of basic commands useful to\
+  \ every Linux user.\n\n# Concepts included in this scenario:\n* Viewing file contents\
+  \ with `cat`\n* Viewing the last 10 lines of a file with `tail`\n* Appending command\
+  \ outputs to a file with the `>>` operator\n* Locating files that match certain\
+  \ criteria using `find` and `locate`\n* Using `grep` with other commands to isolate\
+  \ a portion of their output\n* Checking disk space with `df`\n* Viewing and managing\
+  \ processes with `ps` and `top`\n* Using `free` to view information about the system\
+  \ memory usage\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: helpful-commands
+tags:
+- rhel
+title: Helpful Linux Commands [Admin 101]
+type: track

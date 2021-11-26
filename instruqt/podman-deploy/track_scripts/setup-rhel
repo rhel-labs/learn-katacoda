@@ -1,0 +1,5 @@
+#!/bin/bash
+
+dnf install -y tree
+
+

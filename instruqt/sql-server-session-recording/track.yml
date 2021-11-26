@@ -1,0 +1,293 @@
+challenges:
+- assignment: "# Installing software\n\n>**Note:** For this scenario, we have started\
+    \ installing SQL Server on the machine. The installation task will take between\
+    \ 2-5 minutes to complete.\n\nFirst, verify that SQL Server is running on the\
+    \ machine.\n\n`systemctl status mssql-server.service --no-pager`{{execute T1}}\n\
+    \nOn the terminal, you should see something like below indicating that the mssql-server.service\
+    \ is running\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nActive: active\
+    \ (running) since Monday 2019-07-15 19:24:18 EDT; 3h 59min left\n\n<< OUTPUT ABRIDGED\
+    \ >>\n</pre>\n\n\nNext, install two rpm packages, __cockpit-session-recording__\
+    \ and __tlog__ for the web console\n\n```\nyum -y install cockpit-session-recording\
+    \ tlog\n```\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nInstalled:\n  cockpit-session-recording-1-29.el8.noarch\
+    \                      tlog-5-1.el8.x86_64\n\nComplete!\n</pre>\n\nThe first package,\
+    \ __cockpit-session-recording__ will add an additional feature\nWeb Console which\
+    \ you will be using to enable and configure session recording.\nThe __tlog__ package\
+    \ will provide the tools which will be used to both record \nand view the recorded\
+    \ terminal sessions.\n\n\n"
+  difficulty: basic
+  notes:
+  - contents: "# Goal:\nAfter completing this scenario, users will be able to enable\
+      \ review recorded sessions in Red Hat Enterprise Linux, and track activity inside\
+      \ SQL Server using SQL Server's auditing feature.\n\n# Concepts included in\
+      \ this scenario:\n* Installing software for Terminal Session Recording\n* Enabling\
+      \ and recording terminal sessions\n* List recorded sessions\n* Replay recorded\
+      \ sessions using Web Console\n* Enabling SQL Server auditing\n* Viewing the\
+      \ audit events in the SQL Server audit log file\n\n# Example Usecase:\nYour\
+      \ compliance officer needs to have session recording across all OS and database\n\
+      activity for high privileged users. The session recording can be used to review\
+      \ all \nthe actions carried out at the OS level, while SQL Server's auditing\
+      \ feature can be \nused to record database actions.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 1
+  type: challenge
+- assignment: "# Logging in and navigating Web Console \n\nNow that the required software\
+    \ is installed, it is time to configure and\nenable terminal session recording.\
+    \  You will use the Web Console to perform\nthis task.\n\nUse the *Web Console*\
+    \ tab in your lab environment to log into the Web\nConsole for the system.  You\
+    \ should use the following credentials:\n\nUsername: __rhel__  \nPassword: __redhat__\
+    \  \n\n![Web Console Login](./assets/Web-console-login.png)\n\nNow that you are\
+    \ logged into the Web console, and because you have installed\nthe __cockpit-session-recording__\
+    \ rpm package, you can now select the\n*Session Recording* option in the left-side\
+    \ navigation menu.\n\n![Web Console Navigation](./assets/session-recording-option.png)\n\
+    \n\n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 2
+  type: challenge
+- assignment: "# Configuring and enabling session recording\n\nThe *Session Recording*\
+    \ application is initially blank, reporting \n__No recorded sessions__.  Click\
+    \ the *gear icon* in the upper right-hand \ncorner to be taken to the configuration\
+    \ settings for session recording.\n\n![Session Recording Homepage](./assets/session-recording-initial.png)\n\
+    \nOn the resulting page, you will be offered access to configuration information\n\
+    for session recording.  For the purpose of this scenario, you will accept most\n\
+    of the defaults and under the __SSSD Configuration__ section at the bottom of\n\
+    the page, select the *Scope* of *All*, which will apply session recording\nto\
+    \ all users and groups that open sessions on the system.\n\n![Session Recording\
+    \ Configuration](./assets/all-scope-selected.png)\n\nOnce you click the *Save*\
+    \ button, Web Console will write out a small\nconfiguration file detailing the\
+    \ scope for the sssd daemon.\n\nAfter saving the configuration, return the Web\
+    \ Console to the main *Session\nRecording* page.\n\n![Return to Session Recording\
+    \ Homepage](./assets/return-main-session-page.png)\n\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 3
+  type: challenge
+- assignment: "# Recording a session\n\nCreate a shell as the __rhel__ user so that\
+    \ the session can be recorded.\nRecall that the __rhel__ user's password is __redhat__.\n\
+    \n```\nssh rhel@localhost\n```\n\nYou will notice that when the `ssh` session\
+    \ starts, the __rhel__ user receives\nthe notice message configured in the __tlog__\
+    \ configuration.\n\n<pre class=file>\nrhel@localhost's password: <b>redhat</b>\n\
+    \nATTENTION! Your session is being recorded!\n\n[rhel@somehost ~]$\n</pre>\n\n\
+    Run some commands in the __rhel__ user's session.  \n\n```\nls /tmp\n```   \n\
+    \   \n```\nwho\n```   \n   \n```\ndf -hP\n```   \n   \n```\nyum list installed\n\
+    ```\n\nNow that you have some data in a recorded session, you can log out of the\n\
+    user's `ssh` session.  \n```\nexit\n```\n"
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 4
+  type: challenge
+- assignment: "# Reviewing a recorded session in Web Console\n\nNavigate back over\
+    \ to the *Web Console* tab in your lab environment.\n\nIf you are not already\
+    \ on the *Session Recording* page, please navigate\nthere.\n\nYou should now see\
+    \ a recorded session available.\n\n![Session Recording Homepage](./assets/recorded-session.png)\n\
+    \nAfter selecting the session, you will be taken to a page with an integrated\n\
+    player through which you can watch the session.  Press the *Play* button to\n\
+    review the session.\n\n![Session Recording Playback](./assets/recorded-session-playback.png)\n\
+    \nThe session was recorded in real-time, so if you started the `ssh` connection,\n\
+    but did not start running commands immediately, you will see that wait time\n\
+    reflected in the recorded session as well.  \n\nIn addition to some standard video\
+    \ player functionality, the buttons on the\nright side of the player will allow\
+    \ you to zoom in and out to get a closer,\nor further away, look at the content.\
+    \  Also, the search function located at\nthe bottom of the player window will\
+    \ search the recorded session for text\nand report time codes at which that string\
+    \ is found.  Those time codes are\nlinks, which will change the location of the\
+    \ playback in the player.\n\nBelow the player is additional metadata about this\
+    \ session as well as the\nlog entries for the session.\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 5
+  type: challenge
+- assignment: "# Configuring auditing in SQL Server \n\nAuditing an instance of the\
+    \ SQL Server Database Engine or an individual database involves tracking and logging\
+    \ events that occur on the Database Engine. SQL Server audit lets you create server\
+    \ audits, which can contain server audit specifications for server level events,\
+    \ and database audit specifications for database level events. Audited events\
+    \ can be written to the event logs or to audit files.\n\nBefore we connect into\
+    \ SQL Server, let's create the folders to store the audit files\n\n`mkdir /var/opt/mssql/data/audit`{{execute\
+    \ T1}}\n\nNext, let's change ownership of the folder to the mssql user\n\n`chown\
+    \ mssql:mssql /var/opt/mssql/data/audit`{{execute T1}}\n\nNow, let's open up the\
+    \ sqlcmd shell prompt connected to the master database. The master database contains\
+    \ all of the system level information for SQL Server. It gets created when the\
+    \ server instance of SQL Server is created. \n\n`/opt/mssql-tools/bin/sqlcmd -S\
+    \ localhost -U sa -P Redhat1! -d master -N -C`{{execute T1}}\n\nUse master database\
+    \ to create a server audit specification\n\n`CREATE SERVER AUDIT AuditDataAccess\
+    \ TO FILE ( FILEPATH ='/var/opt/mssql/data/audit' ) WITH ( QUEUE_DELAY = 0,  ON_FAILURE\
+    \ = CONTINUE) WHERE object_name = 'SensitiveData'`{{execute T1}}\n\nThe GO keyword\
+    \ is the default batch terminator in SQL Server, allowing a set of commands to\
+    \ run as a batch.\n`GO`{{execute T1}}\n\nEnable the server audit\n`ALTER SERVER\
+    \ AUDIT AuditDataAccess WITH (STATE = ON)`{{execute T1}}\n`GO`{{execute T1}}\n\
+    \nNext, let's create our table objects and database audit specification in our\
+    \ TestDB database\n\nCreate a database called TestDB and the schema for our objects\n\
+    `CREATE DATABASE TestDB`{{execute T1}}\n`GO`{{execute T1}}\n\nChange context to\
+    \ use TestDB database\n`USE TestDB`{{execute T1}}\n`GO`{{execute T1}}\n\n`CREATE\
+    \ SCHEMA DataSchema`{{execute T1}}\n`GO`{{execute T1}}\n\nCreate the database\
+    \ tables\n`CREATE TABLE DataSchema.GeneralData (ID int PRIMARY KEY, DataField\
+    \ varchar(50) NOT NULL)`{{execute T1}}  \n`GO`{{execute T1}}  \n\n`CREATE TABLE\
+    \ DataSchema.SensitiveData (ID int PRIMARY KEY, DataField varchar(50) NOT NULL)`{{execute\
+    \ T1}}  \n`GO`{{execute T1}}\n\nEnable the database audit corresponding to the\
+    \ server audit\n`CREATE DATABASE AUDIT SPECIFICATION [FilterForSensitiveData]\
+    \ FOR SERVER AUDIT [AuditDataAccess] ADD (SELECT, INSERT ON DataSchema.SensitiveData\
+    \ by public) WITH (STATE = ON)`{{execute T1}}\n`GO`{{execute T1}}\n\nInsert into\
+    \ sensitive data table\n`INSERT into DataSchema.SensitiveData values (1, '1234')`{{execute\
+    \ T1}}\n`GO`{{execute T1}}\n\nSelect from sensitive data table\n`SELECT * from\
+    \ DataSchema.SensitiveData`{{execute T1}}\n`GO`{{execute T1}}\n\nCheck for audit\
+    \ records\n`SELECT @@spid, session_id, statement FROM fn_get_audit_file('/var/opt/mssql/data/audit/*.sqlaudit',default,default)`{{execute\
+    \ T1}}\n`GO`{{execute T1}}\n\nVerify that the output has 2 records indicating\
+    \ that INSERT, and SELECT statements were executed against the SensitiveData table\n\
+    \n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\n<active-session-id>  <session-id>\
+    \ INSERT into DataSchema.SensitiveData values (1, '1234')\n<active-session-id>\
+    \  <session-id> SELECT * from DataSchema.SensitiveData\n\n<< OUTPUT ABRIDGED >>\n\
+    </pre>\n\nYou can exit the sqlcmd shell using the exit statement\n`exit`{{execute\
+    \ T1}}\n"
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 6
+  type: challenge
+- assignment: "# Reviewing a recorded session from the command-line\n\nThe command\
+    \ to use to review recorded sessions from the command-line is\n`tlog-play`, which\
+    \ takes a session identifier to determine which session data\nto replay.  \n\n\
+    In the default configuration, recorded session data is sent to the \n__journald__\
+    \ managed log.  As a result, to determine the available session\ndata, you will\
+    \ use the `journalctl`.  The following command will search\nthrough the journal\
+    \ log and locate strings that contain the <pre>\"rec\"</pre>\nstring, plus the\
+    \ identifier included in that message.\n\n```\njournalctl -o verbose | grep -P\
+    \ \"\\\"rec\\\".*?\\,\"\n```\n\nBelow, is an example of one of those messages,\
+    \ but there will likely be more \nthan one message associated with each session.\n\
+    \n![Journal Log Message](./assets/log-message.png)\n\nTo replay the session, you\
+    \ run `tlog-play` with the session identifier, using\nthe log message displayed\
+    \ above, the command would look like:   \n`tlog-play -r journal -M TLOG_REC=b9dd6a8391714e42be4f6f885875d48f-22ea-c2f05`\n\
+    \nYour session identifier is going to be different, the following command will\n\
+    use some shell tools to isolate the first recording from your journal.  As you\n\
+    replay the session, your existing terminal session will be used for the replay.\n\
+    once the replay is complete, your session will be returned to your control.  You\n\
+    can interrupt the playback with a <CTRL>-C.\n\n```\ntlog-play -r journal -M TLOG_REC=$(journalctl\
+    \ -o verbose | grep -P \"\\\"rec\\\".*?\\.\" | cut -d, -f3 | cut -d: -f2 | head\
+    \ -n 1 | sed -e s/\\\"//g)\n```\n\nThe above command will replay the session to\
+    \ completion, in real-time.\n\n"
+  difficulty: basic
+  slug: step7
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  - hostname: rhel
+    path: /root
+    title: Visual Editor
+    type: code
+  timelimit: 85
+  title: Step 7
+  type: challenge
+description: "# Goal:\nAfter completing this scenario, users will be able to enable\
+  \ review recorded sessions in Red Hat Enterprise Linux, and track activity inside\
+  \ SQL Server using SQL Server's auditing feature.\n\n# Concepts included in this\
+  \ scenario:\n* Installing software for Terminal Session Recording\n* Enabling and\
+  \ recording terminal sessions\n* List recorded sessions\n* Replay recorded sessions\
+  \ using Web Console\n* Enabling SQL Server auditing\n* Viewing the audit events\
+  \ in the SQL Server audit log file\n\n# Example Usecase:\nYour compliance officer\
+  \ needs to have session recording across all OS and database\nactivity for high\
+  \ privileged users. The session recording can be used to review all \nthe actions\
+  \ carried out at the OS level, while SQL Server's auditing feature can be \nused\
+  \ to record database actions.\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: sql-server-session-recording
+tags:
+- rhel
+title: Terminal Session Recording and SQL Server Auditing
+type: track

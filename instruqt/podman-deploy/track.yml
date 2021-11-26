@@ -1,0 +1,335 @@
+challenges:
+- assignment: "Using the top terminal session, view the container images available.\n\
+    \n`podman images`{{execute T1}}\n\n<pre class=file>\nREPOSITORY              TAG\
+    \      IMAGE ID       CREATED        SIZE\nlocalhost/rhel8-httpd   latest   c12e3720df7b\
+    \   43 hours ago   499 MB\n\n</pre>\n\nThere is one container available in the\
+    \ local (localhost) repository, \n__rhel8-httpd__.  If there were multiple updated\
+    \ iterations of the conatiner \navailable, you would use the __IMAGE ID__ to work\
+    \ with those that are not \ntagged as __latest__.  Also, from this list you are\
+    \ able to see the size, on \ndisk, of the container image. \n"
+  difficulty: basic
+  notes:
+  - contents: 'After completing this scenario, users will be able to deploy and control
+      an already defined container image.
+
+
+      #Concepts included in this scenario:
+
+      * List available container images
+
+      * Deploy a container image into an interactive container runtime
+
+      * Deploy a container image into a detached container runtime
+
+      * View deployed containers
+
+      * Stop a container instances
+
+      * Remove deployed container instances
+
+
+      # Example Usecase:
+
+      You have been asked to deploy a container running a web based application onto
+      a server in your environment.  In addition to deploying it, you need to be able
+      to start alternate copies and remove any non-running containers.
+
+      '
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 1
+  type: challenge
+- assignment: 'The __rhel8-httpd__ container includes a bash shell.  In this step,
+    you will
+
+    deploy the container in an interactive fashion, which will allow you to run commands
+    within the deployed container. Use the *Terminal 1*.
+
+
+    `podman run -it rhel8-httpd /bin/bash`{{execute T1}}
+
+
+    You should now be looking at a generic bash shell prompt:
+
+    <pre class="file">
+
+    bash-4.4#
+
+    </pre>
+
+
+    In *Terminal 1*, the displayed shell is running inside the container image, not
+    the host operating system.  To confirm this, take a look at the mounted filesystems:
+
+
+    `df -hP`{{execute T1}}
+
+
+    <pre class="file">
+
+    Filesystem      Size  Used Avail Use% Mounted on
+
+    overlay          35G  6.1G   30G  36% /
+
+    tmpfs            64M     0   64M   0% /dev
+
+    tmpfs           909M  9.8M  900M   2% /etc/hosts
+
+    shm              63M     0   63M   0% /dev/shm
+
+    tmpfs           909M     0  909M   0% /sys/fs/cgroup
+
+    tmpfs           909M     0  909M   0% /proc/acpi
+
+    tmpfs           909M     0  909M   0% /proc/scsi
+
+    tmpfs           909M     0  909M   0% /sys/firmware
+
+    tmpfs           909M     0  909M   0% /sys/fs/selinux
+
+    tmpfs           909M     0  909M   0% /sys/dev
+
+    </pre>
+
+
+    You will notice that all of the filesystem contents are either memory-based (tmpfs,
+    shm) or the overlay file associated with this runtime of the container image (overlay).
+
+
+    Switch to *Terminal 2*.  *Terminal 2* is running on the host system.  Use this
+    shell to verify that the container is running:
+
+
+    `podman ps -a`{{execute T2}}
+
+    <pre class="file">
+
+    CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS                    PORTS                   NAMES
+
+    df54b664f133  localhost/rhel8-httpd:latest  /bin/bash             34 seconds ago  Up
+    33 seconds ago                                 heuristic_cray
+
+    </pre>
+
+
+    __Note:__ Your CONTAINER ID and NAMES will be different than the output displayed
+    above as each container is assigned a unique ID and Name.
+
+    '
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 2
+  type: challenge
+- assignment: 'Switch back to *Terminal 1*.  Exit the container''s shell
+
+
+    `exit`{{execute T1}}
+
+
+    When the process on an interactive container is closed, the container stops running.  You
+    can verify this by looking at the list of container processes:
+
+
+    `podman ps -a`{{execute T1}}
+
+
+    <pre class="file">
+
+    CONTAINER ID  IMAGE                         COMMAND    CREATED      STATUS                    PORTS  NAMES
+
+    df54b664f133  localhost/rhel8-httpd:latest  /bin/bash  2 hours ago  Exited (0)
+    5 seconds ago         heuristic_cray
+
+    </pre>
+
+
+    Notice the __STATUS__ field is now reported as Exited.
+
+
+    A container in this state can be resumed, however, this one will no longer be
+    used.  You will remove it from the system. using __podman rm <CONTAINER ID>__.  In
+    the command below, we use a bit of bash scripting to determine the CONTAINER ID
+    as it is unique to each container image.
+
+
+    `podman rm $(podman ps -a | grep Exited | cut -d" " -f1)`{{execute T1}}
+
+
+    The output of this removal is the full CONTAINER ID which was removed from the
+    system.
+
+    '
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 3
+  type: challenge
+- assignment: 'Running an interactive container is all well and good, however, if
+    the container is offering applications or services, you do not need to interact
+    with it.
+
+
+    The __rhel8-httpd__ container, for example, is configured with an Apache web server
+    running within it.  You will create a new instance of this container in a detached
+    mode.  Further, the command provided will configure port forwarding for the Apache
+    web server so that connections to the host''s port 8081 will redirect to the running
+    container''s port 80 (Apache service).
+
+
+    `podman run -dt -p 8081:80/tcp rhel8-httpd`{{execute T1}}
+
+
+    You can verify the state of the container using __podman ps__
+
+
+    `podman ps -a`{{execute T2}}
+
+
+    <pre class="file">
+
+    CONTAINER ID  IMAGE                         COMMAND               CREATED         STATUS             PORTS                   NAMES
+
+    2b2571efec6f  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  13 seconds ago  Up
+    12 seconds ago  8081->80/tcp  priceless_mahavira
+
+    </pre>
+
+
+    Observe that the __STATUS__ is __Up__ and there is a new section in the output
+    __PORTS__ that indicates the port forwarding defined for the container.
+
+
+    You can also now connect to the web server running on the container by using the
+    __Container Service__ tab at the top of your lab interface.  This tab should now
+    display the Apache test page, being served by the httpd daemon running in the
+    container.
+
+    '
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 4
+  type: challenge
+- assignment: 'Unlike interactive containers, detached containers are stopped using
+    __podman stop <CONTAINER ID>__.
+
+
+    `podman stop $(podman ps -a | grep Up | cut -d" " -f1)`{{execute T1}}
+
+
+    In the command above, we use a bit of bash scripting to determine the __CONTAINER
+    ID__ as it is going to be a value unique to each container image.
+
+
+    You can verify that the container is now exited:
+
+
+    `podman ps -a`{{execute T1}}
+
+
+    <pre class="file">
+
+    CONTAINER ID  IMAGE                         COMMAND               CREATED        STATUS                     PORTS                   NAMES
+
+    2b2571efec6f  localhost/rhel8-httpd:latest  /usr/sbin/httpd -...  9 minutes ago  Exited
+    (0) 50 seconds ago  0.0.0.0:8081->80/tcp  priceless_mahavira
+
+    </pre>
+
+
+    Also, if you access the __Container Service__ tab in the lab interface, it will
+    now report unable to connect; as the container offering the Apache web server
+    is no longer available.
+
+    '
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 60
+  title: Step 5
+  type: challenge
+description: 'After completing this scenario, users will be able to deploy and control
+  an already defined container image.
+
+
+  #Concepts included in this scenario:
+
+  * List available container images
+
+  * Deploy a container image into an interactive container runtime
+
+  * Deploy a container image into a detached container runtime
+
+  * View deployed containers
+
+  * Stop a container instances
+
+  * Remove deployed container instances
+
+
+  # Example Usecase:
+
+  You have been asked to deploy a container running a web based application onto a
+  server in your environment.  In addition to deploying it, you need to be able to
+  start alternate copies and remove any non-running containers.
+
+  '
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: podman-deploy
+tags:
+- rhel
+title: Deploying containers using Container Tools [podman]
+type: track

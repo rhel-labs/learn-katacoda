@@ -1,0 +1,243 @@
+challenges:
+- assignment: "# Registering a machine to Red Hat Insights\n\nIn most Red Hat Enterprise\
+    \ Linux 8 installations, the insights-client\nsoftware will be installed by default.\
+    \  However, the minimal package\nset does not include installing the insights-client\
+    \ package and other \nversions of Red Hat Enterprise Linux, while the package\
+    \ is available, \nwill likely need it installed.  Install the insights-client\
+    \ package on \nthe system.\n\n```\nyum -y install insights-client\n```\n\nNext,\
+    \ register your system with Red Hat Insights.\n\n```\ninsights-client --register\n\
+    ```\n\n<pre class=file>\nYou successfully registered 988952df-b136-4d71-b807-5a9c1066fddf\
+    \ to account 6227255.\nSuccessfully registered host e5a8aa325c8b\nAutomatic scheduling\
+    \ for Insights has been enabled.\nStarting to collect Insights data for e5a8aa325c8b\n\
+    Uploading Insights data.\nSuccessfully uploaded report from e5a8aa325c8b to account\
+    \ 6227255.\nView the Red Hat Insights console at https://cloud.redhat.com/insights/\n\
+    </pre>\n\nFrom the above output, you can observe that the system has been successfully\n\
+    registered with Red Hat Insights.  As part of the registration,\nthe machine also\
+    \ uploads a report to Red Hat Insights so that\nit may be analyzed for any issues.\n\
+    \nFor future reference, make note of your system hostname.\n\n```\nhostname\n\
+    ```\n\n<pre class=file>\ne5a8aa325c8b\n</pre>\n\n>_NOTE:_ Your hostname will be\
+    \ different than the one listed in the output above\n\nAt any time in the future,\
+    \ you can get information about Insights registration\nby using the `--status`\
+    \ option to `insights-client`.\n\n```\ninsights-client --status\n```\n\n<pre class=file>\n\
+    System is registered locally via .registered file. Registered at 2019-08-14T14:12:37.638768\n\
+    Insights API confirms registration.\n</pre>\n"
+  difficulty: basic
+  notes:
+  - contents: "After completing this scenario, users will be able to register a system\
+      \ with\nRed Hat Insights and remediate issues that the Advisor tool has identified\
+      \ on \nthe system.\n\n# Concepts included in this scenario:\n* Register a system\
+      \ with Red Hat Insights\n* View Insights Advisor results that are reported for\
+      \ the system on cloud.redhat.com\n* Apply a recommeded remediation for the system\n\
+      * Validate the remediation by updating system information\n\n# Example Usecase:\n\
+      Administrators want to know about problematic configurations prior to\nexperiencing\
+      \ problems on systems.  Insights Advisor will look at data\nprovided to the\
+      \ Advisor service and compare it against known problematic\nconfigurations and\
+      \ not only warn administrators through the service, but\nprovide step-by-step\
+      \ remediation instructions and often times an Ansible\nplaybook which can remediate\
+      \ the issue.\n\n\nFeel free to try out other Insights included services like\
+      \ Vulnerability,\nCompliance, Patch, and more.  We may add additional labs targeted\
+      \ to those\nInsights applications as well.\n"
+    type: text
+  slug: step1
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 1
+  type: challenge
+- assignment: "# Logging into Red Hat Insights service   \n\nClick the hyperlink or\
+    \ browse to <a href=\"https://cloud.redhat.com\" target=\"_blank\">cloud.redhat.com</a>\n\
+    to access Red Hat's software as a service web portal.\n\n>_NOTE:_ This will open\
+    \ an additional browser window or tab.\n\nClick the _Log in to your Red Hat account_\
+    \ button.\n\n\n![cloud.redhat.com Login](./assets/cloud.redhat.com-homepage-v2.png)\n\
+    \n\nLogin using the credentials below:\n\nLogin: __rhel-a720__\n\nPassword: __Redhat1!__\n\
+    \n![Red Hat Login screen](./assets/redhat-login-01.png)\n\n\n![Red Hat Password\
+    \ screen](./assets/redhat-login-02.png)\n\nOnce you are logged in, using the credentials\
+    \ provided above, navigate to \n_Red Hat Enterprise Linux_ in the left-side navigation\
+    \ menu.\n\n\n![cloud.redhat.com Homepage](./assets/cloud.redhat.com-homepage-postlogin-v2.png)\n\
+    \n"
+  difficulty: basic
+  slug: step2
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 2
+  type: challenge
+- assignment: "# Navigating the Insights service\n\nNow that you have opened Red Hat\
+    \ Insights for Red Hat Enterprise Linux, you \nwill see a summary dashboard of\
+    \ all systems registered to your organization.\n\n![Insights Homepage](./assets/insights-homepage-v2.png)\n\
+    \nFor the purposes of this exercise, you are working with a single machine\nregistered\
+    \ to Insights and we will focus on the Advisor recommendations \navailable for\
+    \ that host.  Click on the _Inventory_ link on the left \nnavigation bar.\n\n\
+    ![Navigate to Inventory](./assets/insights-homepage-inventory-highlight.png)\n\
+    \nOnce you are on the Inventory page, find and click your hostname to pull up\n\
+    information for your individual machine.  Recall in a previous step you\nfound\
+    \ your machine hostname with the `hostname` command.\n\n![View your machine](./assets/inventory-homepage-v2.png)\n\
+    \n>_NOTE:_ Your host may not be the first one listed, as depicted in the graphic\
+    \ above.  You may find it necessary to use the _Find system by name_ search function\
+    \ at the top of the list of hosts to more quickly find your system.\n\n\n"
+  difficulty: basic
+  slug: step3
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 3
+  type: challenge
+- assignment: '# Reviewing system Insights
+
+
+    After selecting your system from the Inventory page and reviewing some
+
+    overall data about it, click on the _Advisor_ tab to view the Red Hat
+
+    Insights data that applies to this host.
+
+
+    ![Host Insights](./assets/host-homepage-v2.png)
+
+
+    There may be several recommendations listed for this system.  Scroll down through
+    the
+
+    list until you reach the one entitled _Network connection loss occurs when the
+    NetworkManager uses an internal DHCP client_
+
+
+    ![NetworkManager Insight](./assets/NetworkManager-issue.png)
+
+
+    From the _Detected issues_ section of the recommendation, you can see that this
+    recommendation
+
+    is being triggered by the machine running an older version of NetworkManager.
+
+
+    ![NetworkManager Insight issue](./assets/NetworkManager-detected-issue.png)
+
+
+    In the _Steps to resolve_ section of the recommendation, step-by-step
+
+    guidance on how to resolve the issue is provided.  In this case, to
+
+    update the system and restart the service.
+
+
+    ![NetworkManager Issue Resolution](./assets/NetworkManager-resolution.png)
+
+
+    The _Steps to resolve_ section continues with an additional option for
+
+    remediating the recommendation if you are unable to update the NetworkManager
+
+    RPM.  Specifically, the recommendation includes some additional file
+
+    configuration settings followed by a service restart.
+
+    '
+  difficulty: basic
+  slug: step4
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 4
+  type: challenge
+- assignment: "# Remediating the reported Insight\n\nThe reported recommendation for\
+    \ NetworkManager had a suggested resolution of \nupdating the NetworkManager application.\n\
+    \nYou will follow the recommendation and apply the updated package to the\nsystem.\n\
+    \n```\nyum -y update NetworkManager\n```\n\n<pre class=file>\n... OUTPUT ABRIDGED\
+    \ ...\n\nUpgraded:\n  NetworkManager-1:1.26.0-14.el8_3.x86_64           NetworkManager-libnm-1:1.26.0-14.el8_3.x86_64\
+    \     \n  NetworkManager-team-1:1.26.0-14.el8_3.x86_64      NetworkManager-tui-1:1.26.0-14.el8_3.x86_64\
+    \       \n\nComplete!\n</pre>\n\nNow that the software has been updated, restart\
+    \ the Network Manager service\nso that the running copy in memory is also updated\
+    \ with the new version.\n\n```\nsystemctl restart NetworkManager\n```\n\nForce\
+    \ a Red Hat Insights checkin so that a new batch of system data\nis uploaded to\
+    \ Insights.\n\n```\ninsights-client\n```  \n\n<pre class=file>\nStarting to collect\
+    \ Insights data for e5a8aa325c8b\nUploading Insights data.\nSuccessfully uploaded\
+    \ report from e5a8aa325c8b to account 6227255.\nView details about this system\
+    \ on cloud.redhat.com:\nhttps://cloud.redhat.com/insights/inventory/38f9bacc-931b-4542-b788-1ab5a0da5a7c\n\
+    </pre>\n"
+  difficulty: basic
+  slug: step5
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 5
+  type: challenge
+- assignment: "# Verify issue resolved\n\nFinally, reload the system page in your\
+    \ web browser.  \nLook to verify that the recommendation is no longer displayed\
+    \ for your system.\n"
+  difficulty: basic
+  slug: step6
+  tabs:
+  - hostname: rhel
+    title: Terminal
+    type: terminal
+  - hostname: rhel
+    path: /
+    port: 9090
+    title: RHEL Web Console
+    type: service
+  timelimit: 50
+  title: Step 6
+  type: challenge
+description: "After completing this scenario, users will be able to register a system\
+  \ with\nRed Hat Insights and remediate issues that the Advisor tool has identified\
+  \ on \nthe system.\n\n# Concepts included in this scenario:\n* Register a system\
+  \ with Red Hat Insights\n* View Insights Advisor results that are reported for the\
+  \ system on cloud.redhat.com\n* Apply a recommeded remediation for the system\n\
+  * Validate the remediation by updating system information\n\n# Example Usecase:\n\
+  Administrators want to know about problematic configurations prior to\nexperiencing\
+  \ problems on systems.  Insights Advisor will look at data\nprovided to the Advisor\
+  \ service and compare it against known problematic\nconfigurations and not only\
+  \ warn administrators through the service, but\nprovide step-by-step remediation\
+  \ instructions and often times an Ansible\nplaybook which can remediate the issue.\n\
+  \n\nFeel free to try out other Insights included services like Vulnerability,\n\
+  Compliance, Patch, and more.  We may add additional labs targeted to those\nInsights\
+  \ applications as well.\n"
+developers:
+- rhel-tmm@redhat.com
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+owner: rhel
+private: false
+published: true
+skipping_enabled: false
+slug: insights-workshop
+tags:
+- rhel
+title: Resolving issues with Red Hat Insights Advisor
+type: track
