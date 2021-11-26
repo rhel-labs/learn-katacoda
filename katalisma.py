@@ -123,11 +123,11 @@ for course in courses['courses']:
       shutil.rmtree(instruqtDir + '/track_scripts')
     shutil.copytree('instruqt-template/track_scripts', instruqtDir + '/track_scripts')
    
-    if os.path.isfile(pathway + "/foreground.sh"):
-      os.system('cp -fr ' + pathway + '/foreground.sh ' + instruqtDir + '/track_scripts/setup-rhel' )
-
     if os.path.isfile(pathway + "/background.sh"):
-      os.system('cat ' + pathway + '/background.sh >> ' + instruqtDir + '/track_scripts/setup-rhel' )
+      os.system('cp -fr ' + pathway + '/background.sh ' + instruqtDir + '/track_scripts/setup-rhel' )
+
+    if os.path.isfile(pathway + "/foreground.sh"):
+      os.system('tail --lines=+2 ' + pathway + '/foreground.sh >> ' + instruqtDir + '/track_scripts/setup-rhel' )
 
     if not os.path.exists(instruqtDir + '/assets'):
       os.mkdir(instruqtDir + '/assets')
