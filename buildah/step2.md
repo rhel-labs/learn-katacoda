@@ -2,7 +2,7 @@
 
 The `ubi-init` image is very complete, including tools like `yum` and `systemd`.  You can install `httpd` via `yum` in the container using the `buildah run` subcommand.  
 
-`buildah run ubi-init-working-container -- yum -y install httpd --disablerepo-*beta*`{{execute T1}}
+`buildah run ubi-init-working-container -- yum -y install httpd --disablerepo=*beta*`{{execute T1}}
 
 <pre class="file">
 Updating Subscription Management repositories.
