@@ -39,6 +39,6 @@
     "terminals": [{"name": "Terminal 2", "target": "host01"}]
   },
   "backend": {
-    "imageid": "rhel8-4"
+    "imageid": "rhel8-5"
   }
 }
