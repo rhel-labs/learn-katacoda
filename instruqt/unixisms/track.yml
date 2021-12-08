@@ -643,14 +643,16 @@ description: '# Overview:
   '
 developers:
 - rhel-tmm@redhat.com
+- ehendric@redhat.com
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 owner: rhel
 private: false
 published: true
-skipping_enabled: false
+skipping_enabled: true
 slug: unixisms
 tags:
+- admin101
 - rhel
 title: Unusual Unixisms [Admin 101]
 type: track
