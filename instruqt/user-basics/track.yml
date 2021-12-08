@@ -1,7 +1,7 @@
 slug: managing-user-basics
 id: dzzx87yukrib
 type: track
-title: 'Managing User Basics [Admin 101]'
+title: Managing User Basics [Admin 101]
 teaser: Create users and groups, adjust memberships, and recommended practices for
   disabling accounts.
 description: |-
@@ -25,7 +25,6 @@ tags:
 - admin101
 owner: rhel
 developers:
-- rhel-tmm@redhat.com
 - ehendric@redhat.com
 private: false
 published: true
@@ -294,4 +293,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "15282731160163369358"
+checksum: "13519785746611325336"

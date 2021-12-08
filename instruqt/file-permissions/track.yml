@@ -1,7 +1,7 @@
 slug: using-file-permissions
 id: 7sxmpp4hpeoz
 type: track
-title: 'Using file permissions [Admin 101]'
+title: Using file permissions [Admin 101]
 teaser: Control access to file content using the Linux file permission system.
 description: |-
   # Overview:
@@ -23,7 +23,6 @@ tags:
 - admin101
 owner: rhel
 developers:
-- rhel-tmm@redhat.com
 - ehendric@redhat.com
 private: false
 published: true
@@ -453,4 +452,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "1433870280637278507"
+checksum: "9886552617037146003"
