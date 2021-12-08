@@ -1,17 +1,10 @@
 #!/bin/bash
-# Wait for the Instruqt host bootstrap to finish
-until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
-do
-    echo "Running track setup script on host rhel"
-    sleep 1
-done
 
 # Create needed user and group
 useradd guest
 groupadd team
 
 # Create track files
-cd /srv
 tee -a status.sh << EOF
 #!/bin/bash
 echo -n "status.sh successfully executed by "
