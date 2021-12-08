@@ -17,16 +17,16 @@ challenges:
     \ by *Terminal SQL Client*).\n\nIn this lab, we will be spinning up 3 instances\
     \ of SQL Server, each running in a container. \n\nOn the host system, create a\
     \ directory to store the script to be used for SQL Server In-memory OLTP dataset\n\
-    \n`mkdir -p /var/mssql/scripts`{{execute T1}}\n\nCopy the script file from the\
+    \n`mkdir -p /var/mssql/scripts`\n\nCopy the script file from the\
     \ /root directory to the newly created scripts directory\n\n`cp ./imoltp.sql /var/mssql/scripts/`{{execute\
     \ T1}}\n\n> **NOTE:** In SQL Server 2019, the container runs using a non-root\
     \ user by default. The default user is *mssql* with uid *10001*. Modify and \n\
     set the appropriate user ownership for the script directory created to uid:10001\
     \ that maps to the *mssql* user. \n\n`chown -R 10001:0 /var/mssql/scripts`{{execute\
     \ T1}}\n\nUse *podman* to list the container images available on the host system\n\
-    \n`podman images`{{execute T1}}\n\n<pre class=\"file\">\nREPOSITORY          \
+    \n`podman images`\n\n```\nREPOSITORY          \
     \    TAG      IMAGE ID       CREATED       SIZE\nlocalhost/rhel8-httpd   latest\
-    \   69aac470f62d   3 months ago   617 MB\n</pre>\n\n*Podman* is available on the\
+    \   69aac470f62d   3 months ago   617 MB\n```\n\n*Podman* is available on the\
     \ host system, and there is only a single RHEL 8 apache image available to use.\n\
     \nTo run SQL Server in a container, download the SQL Server container images.\n"
   difficulty: basic
@@ -75,20 +75,20 @@ challenges:
     to connect to SQL Server.
 
 
-    `podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T1}}
+    `podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest`
 
 
     Verify that the SQL Server container image is now available on the host system
 
 
-    `podman images`{{execute T1}}
+    `podman images`
 
 
     In the output, you will notice that we have a new image in the repository which
     is SQL Server container image (*mcr.microsoft.com/mssql/rhel/server*)
 
 
-    <pre class="file">
+    ```
 
     REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
 
@@ -98,7 +98,7 @@ challenges:
     localhost/rhel8-httpd                 latest        69aac470f62d   3 months ago   617
     MB
 
-    </pre>
+    ```
 
     '
   difficulty: basic
@@ -132,15 +132,15 @@ challenges:
     \ T2}}\n\nAt this point, there should be a container up and running, and SQL Server\
     \ should also be running using non-root (*mssql*) inside this container.\n\nTo\
     \ confirm this, run the *podman ps* command in the root context - \n\n`podman\
-    \ ps`{{execute T2}}\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE             \
+    \ ps`\n\n```\nCONTAINER ID  IMAGE             \
     \                               COMMAND               CREATED        STATUS  \
     \      PORTS                   NAMES\n9df179d4e116  mcr.microsoft.com/mssql/rhel/server:2019-latest\
     \  /opt/mssql/bin/sq...  4 seconds ago  Up 4 seconds ago  0.0.0.0:1400->1433/tcp\
-    \  mssqlDB0\n</pre>\n\nThe output of podman shows 1 running container named *mssqlDB0*\n\
+    \  mssqlDB0\n```\n\nThe output of podman shows 1 running container named *mssqlDB0*\n\
     \nGet the top 2 lines of the container logs for database instance 0\n\n`podman\
-    \ logs -t mssqlDB0 | head -2`{{execute T2}}\n\n<pre class=\"file\">\nSQL Server\
+    \ logs -t mssqlDB0 | head -2`\n\n```\nSQL Server\
     \ 2019 will run as non-root by default.\nThis container is running as user mssql.\n\
-    << OUTPUT ABRIDGED >>\n</pre>\n\n> **NOTE:** We have instantiated the container\
+    << OUTPUT ABRIDGED >>\n```\n\n> **NOTE:** We have instantiated the container\
     \ runtime using the __root__ user. However, in SQL Server 2019, the container\
     \ runs using a non-root user \n(*mssql*) by default. \n\n\n### Deploying a container\
     \ as a non-root user\n\nNow, switch user context from the root user to the non-root\
@@ -158,28 +158,28 @@ challenges:
     \ *1433* is the default port for SQL Server. The hostname of the container is\
     \ set to *mssqlcontainer2*\n\n`podman run --name mssqlDB2 --hostname=mssqlcontainer2\
     \ -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service\
-    \ -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute T2}}\n\
+    \ -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`\n\
     \n> **NOTE:** We have instantiated multiple container instances using a non-root\
     \ *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root\
     \ user (*mssql*) by default. \n\nGet the top 2 lines of the container logs for\
-    \ database instance 1\n\n`podman logs -t mssqlDB1 | head -2`{{execute T2}}\n\n\
-    <pre class=\"file\">\nSQL Server 2019 will run as non-root by default.\nThis container\
-    \ is running as user mssql.\n</pre>\n\nGet the top 2 lines of the container logs\
-    \ for database instance 2\n\n`podman logs -t mssqlDB2 | head -2`{{execute T2}}\n\
-    \n<pre class=\"file\">\nSQL Server 2019 will run as non-root by default.\nThis\
-    \ container is running as user mssql.\n</pre>\n\nAt this point, there should be\
+    \ database instance 1\n\n`podman logs -t mssqlDB1 | head -2`\n\n\
+    ```\nSQL Server 2019 will run as non-root by default.\nThis container\
+    \ is running as user mssql.\n```\n\nGet the top 2 lines of the container logs\
+    \ for database instance 2\n\n`podman logs -t mssqlDB2 | head -2`\n\
+    \n```\nSQL Server 2019 will run as non-root by default.\nThis\
+    \ container is running as user mssql.\n```\n\nAt this point, there should be\
     \ 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server\
     \ should also be running using non-root (*mssql*) user inside each of the containers.\n\
-    \nTo confirm this, run the *podman ps* command - \n\n`podman ps`{{execute T2}}\n\
-    \n<pre class=\"file\">\nCONTAINER ID  IMAGE                                  \
+    \nTo confirm this, run the *podman ps* command - \n\n`podman ps`\n\
+    \n```\nCONTAINER ID  IMAGE                                  \
     \          COMMAND               CREATED         STATUS          PORTS       \
     \            NAMES\n9eaffcd5350f  mcr.microsoft.com/mssql/rhel/server:2019-latest\
     \  /opt/mssql/bin/sq...  17 seconds ago  Up 16 seconds ago  0.0.0.0:1402->1433/tcp\
     \  mssqlDB2\n9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...\
-    \  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1\n</pre>\n\
+    \  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1\n```\n\
     \nThe output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*\n\
     \nExit the ssh session to go back to the root context on the host machine-\n\n\
-    `exit`{{execute T2}}\n"
+    `exit`\n"
   difficulty: basic
   slug: step3
   tabs:
@@ -200,17 +200,17 @@ challenges:
   type: challenge
 - assignment: "# Connect to SQL Server running in the container\n\nLaunch an interactive\
     \ bash shell in the container connecting to database instance 0 (*mssqlDB0*)\n\
-    \n`podman exec -it mssqlDB0 \"/bin/bash\"`{{execute T3}}\n\nConnect with *sqlcmd*\
+    \n`podman exec -it mssqlDB0 \"/bin/bash\"`\n\nConnect with *sqlcmd*\
     \ and run a T-SQL statement to get the servername and the version of SQL Server\
     \ running on the server\n\n> **NOTE:** sqlcmd is not in the path by default, so\
     \ you have to specify the full path\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost\
-    \ -U SA -P 'RedHat1!' -Q \"select @@servername, @@version\"`{{execute T3}}\n \n\
-    <pre class=\"file\">\n--------------------------------------------------------------------------------------------------------------------------------\
+    \ -U SA -P 'RedHat1!' -Q \"select @@servername, @@version\"`\n \n\
+    ```\n--------------------------------------------------------------------------------------------------------------------------------\
     \ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\
     mssqlcontainer0                    Microsoft SQL Server 2019 (RTM-CU8) (KB4577194)\
     \ - 15.0.4073.23 (X64)\n        Sep 23 2020 16:03:08\n        Copyright (C) 2019\
     \ Microsoft Corporation\n        Developer Edition (64-bit) on Linux (Red Hat\
-    \ Enterprise Linux 8.2 (Ootpa)) <X64>\n\n(1 rows affected)\n</pre>\n\nVerify that\
+    \ Enterprise Linux 8.2 (Ootpa)) <X64>\n\n(1 rows affected)\n```\n\nVerify that\
     \ the hostname of the running container is *mssqlcontainer0*, and the version\
     \ of SQL Server running is 2019.\n"
   difficulty: basic
@@ -233,16 +233,16 @@ challenges:
   type: challenge
 - assignment: "# Query In-Memory OLTP data in SQL Server\n\nRun the script to create\
     \ the in-memory table and load data\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost\
-    \ -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql`{{execute T3}}\n\
+    \ -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql`\n\
     \n\n> Let's find out the number of total sessions in the UserSession table\n\n\
     `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C\
-    \ -Q \"SELECT count(sessionID) FROM dbo.UserSession\"`{{execute T3}} \n\n<pre\
+    \ -Q \"SELECT count(sessionID) FROM dbo.UserSession\"` \n\n<pre\
     \ class=\"file\">\n          6\n\n(1 rows affected)\n</pre>\n\n> Let's find out\
     \ the UserID of the user who has the highest total price items in their shopping\
     \ cart  \n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp\
     \ -N -C -Q \"SELECT top 1 UserID FROM dbo.ShoppingCart order by TotalPrice desc\"\
-    \n`{{execute T3}} \n\n<pre class=\"file\">\nUserID\n-----------\n        342\n\
-    \n(1 rows affected)\n</pre>\n\nExit the bash session\n\n`exit`{{execute T3}}\n\
+    \n` \n\n<pre class=\"file\">\nUserID\n-----------\n        342\n\
+    \n(1 rows affected)\n</pre>\n\nExit the bash session\n\n`exit`\n\
     \n"
   difficulty: basic
   slug: step5
@@ -269,7 +269,7 @@ challenges:
     \ greatly improves container portability, and reduces  application start up or\
     \ cache warming time.\n\nTo install the CRIU dependency package (__criu__) that\
     \ is needed for checkpoint-restore podman functionality execute -\n\n`yum -y install\
-    \ criu`{{execute T2}}\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nUpdating\
+    \ criu`\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nUpdating\
     \ Subscription Management repositories.\nLast metadata expiration check: 0:16:23\
     \ ago on Thu 19 Nov 2020 03:26:20 PM EST.\nPackage criu-3.14-2.module+el8.3.0+8221+97165c3f.x86_64\
     \ is already installed.\nComplete!\n</pre>\n\nAfter installing the criu package,\
@@ -279,18 +279,18 @@ challenges:
     \ size must be adjusted.\n\n`echo ghost-limit = 40000000 > /etc/criu.conf`{{execute\
     \ T2}}\n\nIn the *Terminal Server* tab of the lab interface, checkpoint the running\
     \ SQL Server container and export the checkpoint to a compressed file\n\n`podman\
-    \ container checkpoint -l --export=/tmp/checkpoint1.tar.gz`{{execute T2}}\n\n\
+    \ container checkpoint -l --export=/tmp/checkpoint1.tar.gz`\n\n\
     <pre class=\"file\">\ncb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27\n\
     </pre>\n\nTaking a checkpoint without the *--leave-running* option will stop the\
     \ running container. At this point, confirm that there is no running container\
-    \ -\n\n`podman ps`{{execute T2}}\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE\
+    \ -\n\n`podman ps`\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE\
     \  COMMAND  CREATED  STATUS  PORTS  NAMES\n</pre>\n\nNow, restore the container\
     \ from the stored checkpoint file. This capability can be quite useful in the\
     \ case of a migration or debugging scenario. \n\n`podman container restore --import=/tmp/checkpoint1.tar.gz\
-    \ --name mssqlserver-restored`{{execute T2}}\n\n<pre class=\"file\">\nea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c\n\
+    \ --name mssqlserver-restored`\n\n<pre class=\"file\">\nea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c\n\
     </pre>\n\nFinally, verify that the container restored from the checkpoint file\
     \ is running - The name of the container should be *mssqlserver-restored*\n\n\
-    `podman ps`{{execute T2}}\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE       \
+    `podman ps`\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE       \
     \                                     COMMAND               CREATED          \
     \   STATUS                 PORTS                   NAMES\nea72c83f945a  mcr.microsoft.com/mssql/rhel/server:2019-latest\
     \  /opt/mssql/bin/sq...  About a minute ago  Up About a minute ago  0.0.0.0:1400->1433/tcp\
@@ -317,14 +317,14 @@ challenges:
   type: challenge
 - assignment: "# Re-query In-Memory OLTP data in SQL Server\n\nLaunch an interactive\
     \ bash shell in the *mssqlserver-restored* container -\n\n`podman exec -it mssqlserver-restored\
-    \ \"/bin/bash\"`{{execute T3}}\n\n> Let's find out the number of total sessions\
+    \ \"/bin/bash\"`\n\n> Let's find out the number of total sessions\
     \ in the UserSession table\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA\
     \ -P 'RedHat1!' -d imoltp -N -C -Q \"SELECT count(sessionID) FROM dbo.UserSession\"\
-    `{{execute T3}} \n\n<pre class=\"file\">\n          6\n\n(1 rows affected)\n</pre>\n\
+    ` \n\n<pre class=\"file\">\n          6\n\n(1 rows affected)\n</pre>\n\
     \n> Let's find out the UserID of the user who has the highest total price items\
     \ in their shopping cart  \n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA\
     \ -P 'RedHat1!' -d imoltp -N -C -Q \"SELECT top 1 UserID FROM dbo.ShoppingCart\
-    \ order by TotalPrice desc\"\n`{{execute T3}} \n\n<pre class=\"file\">\nUserID\n\
+    \ order by TotalPrice desc\"\n` \n\n<pre class=\"file\">\nUserID\n\
     -----------\n        342\n\n(1 rows affected)\n</pre>\n\nThe T-SQL query answers\
     \ on the restored container are same as the T-SQL query answers on the container\
     \ before the checkpoint was taken.\n"
@@ -350,7 +350,7 @@ challenges:
     \ putting a container into *systemd* service simple. To generate a service for\
     \ a container -\n\n`podman generate systemd mssqlserver-restored > container-mssql.service`{{execute\
     \ T2}}\n\nNow, let us take a brief look at the service file that was generated\n\
-    \n`cat container-mssql.service`{{execute T2}}\n\n<pre class=\"file\">\n# container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service\n\
+    \n`cat container-mssql.service`\n\n<pre class=\"file\">\n# container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service\n\
     # autogenerated by Podman 1.6.4\n# Wed Aug 19 04:11:19 EDT 2020\n\n[Unit]\nDescription=Podman\
     \ container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service\n\
     Documentation=man:podman-generate-systemd(1)\n\n[Service]\nRestart=on-failure\n\
@@ -359,12 +359,12 @@ challenges:
     KillMode=none\nType=forking\nPIDFile=/var/run/containers/storage/overlay-containers/ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c/userdata/conmon.pid\n\
     \n[Install]\nWantedBy=multi-user.target\n</pre>\n\nBefore we can use systemd to\
     \ manage the container, lets copy over the generated service file to systemd config\n\
-    \n`cp container-mssql.service /etc/systemd/system`{{execute T2}}\n\nThe generated\
+    \n`cp container-mssql.service /etc/systemd/system`\n\nThe generated\
     \ systemd service file can now be used to manage the container via systemd.\n\n\
     Before we proceed further, reload the systemd daemon so that it picks up the newly\
-    \ generated service file -\n\n`systemctl daemon-reload`{{execute T2}}\n\nStop\
+    \ generated service file -\n\n`systemctl daemon-reload`\n\nStop\
     \ the SQL Server container using the `systemctl` utility - \n\n`systemctl stop\
-    \ container-mssql.service`{{execute T2}}\n\nNow, enable and start the SQL Server\
+    \ container-mssql.service`\n\nNow, enable and start the SQL Server\
     \ container service using the `systemctl` utility -\n\n```\nsystemctl --now enable\
     \ container-mssql.service\n```\n\nAt any point, you may also check the status\
     \ of the SQL Server container service.\n\n```\nsystemctl status container-mssql.service\
@@ -399,7 +399,7 @@ description: "# Goal:\nAfter completing this scenario, users will be able to run
   \ Microsoft SQL Server 2019 offers a container image\nfor Red Hat Enterprise Linux\
   \ (RHEL), and they want to start using it for building applications.\n\n"
 developers:
-- rhel-tmm@redhat.com
+- dopinto@redhat.com
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 owner: rhel
