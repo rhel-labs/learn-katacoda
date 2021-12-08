@@ -2,7 +2,7 @@
 
 touch /root/post-run.log
 
-wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-ubi/imoltp.sql &>> /root/post-run.log
+curl -O https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/sql-server-ubi/imoltp.sql &>> /root/post-run.log 
 
 #Set the password expiry for the rhel user to never
 chage -M -1 rhel
