@@ -2,7 +2,8 @@ slug: managing-user-basics
 id: dzzx87yukrib
 type: track
 title: '[Admin101] Managing User Basics'
-teaser: Create users and groups, adjust memberships, and recommended practices for disabling accounts.
+teaser: Create users and groups, adjust memberships, and recommended practices for
+  disabling accounts.
 description: |-
   # Overview:
   User accounts are an easy way to give users their own file storage locations, manage permissions, and track who made changes on a system. Spending some time customizing these accounts up front ensures that your system stays organized and users do not cause issues for each other.
@@ -17,7 +18,7 @@ description: |-
   * Assign users to groups with `usermod`
   * Expire accounts with `usermod`
   * Delete accounts with `userdel`
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
 - admin101
@@ -55,7 +56,7 @@ challenges:
     ```
 
     <pre class=file>
-    guest:x:1000:1000::/home/guest:/bin/bash
+    guest:x:1005:1006::/home/guest:/bin/bash
     </pre>
 
     Next, a password needs to be added to the user account to enable login.
@@ -291,4 +292,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "5241499501362274872"
+checksum: "15282731160163369358"
