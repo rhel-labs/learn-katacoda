@@ -1,7 +1,7 @@
 slug: managing-user-basics
 id: dzzx87yukrib
 type: track
-title: '[Admin101] Managing User Basics'
+title: 'Managing User Basics [Admin 101]'
 teaser: Create users and groups, adjust memberships, and recommended practices for
   disabling accounts.
 description: |-
@@ -21,9 +21,11 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
+- rhel
 - admin101
 owner: rhel
 developers:
+- rhel-tmm@redhat.com
 - ehendric@redhat.com
 private: false
 published: true

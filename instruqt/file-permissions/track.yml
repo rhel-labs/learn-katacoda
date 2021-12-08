@@ -1,7 +1,7 @@
 slug: using-file-permissions
 id: 7sxmpp4hpeoz
 type: track
-title: '[Admin101] Using file permissions'
+title: 'Using file permissions [Admin 101]'
 teaser: Control access to file content using the Linux file permission system.
 description: |-
   # Overview:
@@ -16,12 +16,14 @@ description: |-
   * Use `chmod` to change file permissions
   * Test out `chown` with example user accounts and groups
   * Learn how to use `find` to filter files based on their permissions
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
+- rhel
 - admin101
 owner: rhel
 developers:
+- rhel-tmm@redhat.com
 - ehendric@redhat.com
 private: false
 published: true
@@ -183,10 +185,17 @@ challenges:
 
     >_NOTE:_ Just as `o+rx` added read and execute permissions for others, `chmod` accepts the `-` argument to take away permissions. For example, `o-w` would remove write privileges from others while leaving the read and execute values untouched. The `=` argument can be used to explicitly set all permissions symbolically.
 
-    Now the __rhel__ user will be able to read and execute __status.sh__. Switch back to the rhel terminal and re-run the status script:
+    Now the __guest__ user will be able to read and execute __status.sh__. Switch back to the guest terminal:
 
     ```
-    cat /srv/status.sh
+    su - guest
+    ```
+
+    and re-run the status script:
+
+    ```
+    cd /srv
+    ./status.sh
     ```
 
     <pre class=file>
@@ -196,7 +205,7 @@ challenges:
     Since you added read and execute permissions, you can do more than just execute this file as __guest__. Use the `cat` command to verify that you can read this file as __guest__.
 
     ```
-    cat /srv/status.sh
+    cat status.sh
     ```
 
     <pre class=file>
@@ -444,4 +453,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "14626605702510564504"
+checksum: "1433870280637278507"
