@@ -10,3 +10,5 @@ yum install -y mlocate
 
 # update locate db
 updatedb
+
+
