@@ -1,414 +1,558 @@
+slug: sql-server-ubi
+id: vfvrxw17lxrs
+type: track
+title: Microsoft SQL Server on Red Hat Enterprise Linux using Red Hat Universal Base
+  Image (UBI)
+description: |+
+  # Goal:
+  After completing this scenario, users will be able to run Microsoft SQL Server
+  on Red Hat Enterprise Linux(RHEL) using UBI and Red Hat container tools.
+
+  # Concepts included in this scenario:
+  * Download the container image that contains Microsoft SQL Server
+  * Deploy root and rootless container instances of SQL Server on RHEL
+  * Query data in SQL Server running in a container on RHEL
+  * Take a checkpoint of the container, and restore the container from the checkpoint
+  * Generate systemd scripts to automatically start the SQL Server containers at system boot
+
+  # Example Use case:
+  Your infrastructure team is planning on using containerized applications, and this also means
+  containerized databases. They have learnt that Microsoft SQL Server 2019 offers a container image
+  for Red Hat Enterprise Linux (RHEL), and they want to start using it for building applications.
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- dopinto@redhat.com
+private: false
+published: true
 challenges:
-- assignment: "# Verify the environment\n\nContainers are an extremely popular way\
-    \ for developers to deliver software today.  They are more portable and lightweight\
-    \ than the VM images traditionally used to package software in the cloud,  while\
-    \ at the same time, more consistent and efficient to deploy and patch than traditional\
-    \ software packages used on-premises.  Microsoft delivers SQL Server 2019 for\
-    \ Linux containers which are supported on Red Hat Enterprise Linux (RHEL) 8 and\
-    \ OpenShift 4.  These containers are built using the Red Hat Universal Base Image\
-    \ (UBI) runtime.  In this lab, we will demonstrate how to deploy these images\
-    \ on RHEL 8.\n\n> **NOTE:** In this scenario we assume that you understand the\
-    \ fundamentals about UBI and RHEL container tools. If you are not familiar with\
-    \ RHEL container tools (such as *podman*), you should consider reviewing the [Podman\
-    \ lab](https://lab.redhat.com/podman-deploy)\n\nThere are 3 terminal tabs that\
-    \ will be used in this lab - a terminal on the container host (indicated by *Terminal*),\
-    \ a terminal where we will run the SQL Server container (indicated by *Terminal\
-    \ SQL Server*), and a terminal where we will run the SQL Server client tools (indicated\
-    \ by *Terminal SQL Client*).\n\nIn this lab, we will be spinning up 3 instances\
-    \ of SQL Server, each running in a container. \n\nOn the host system, create a\
-    \ directory to store the script to be used for SQL Server In-memory OLTP dataset\n\
-    \n`mkdir -p /var/mssql/scripts`\n\nCopy the script file from the\
-    \ /root directory to the newly created scripts directory\n\n`cp ./imoltp.sql /var/mssql/scripts/`{{execute\
-    \ T1}}\n\n> **NOTE:** In SQL Server 2019, the container runs using a non-root\
-    \ user by default. The default user is *mssql* with uid *10001*. Modify and \n\
-    set the appropriate user ownership for the script directory created to uid:10001\
-    \ that maps to the *mssql* user. \n\n`chown -R 10001:0 /var/mssql/scripts`{{execute\
-    \ T1}}\n\nUse *podman* to list the container images available on the host system\n\
-    \n`podman images`\n\n```\nREPOSITORY          \
-    \    TAG      IMAGE ID       CREATED       SIZE\nlocalhost/rhel8-httpd   latest\
-    \   69aac470f62d   3 months ago   617 MB\n```\n\n*Podman* is available on the\
-    \ host system, and there is only a single RHEL 8 apache image available to use.\n\
-    \nTo run SQL Server in a container, download the SQL Server container images.\n"
-  difficulty: basic
+- slug: step1
+  id: hdtuervk24zt
+  type: challenge
+  title: Step 1
   notes:
-  - contents: "# Goal:\nAfter completing this scenario, users will be able to run\
-      \ Microsoft SQL Server \non Red Hat Enterprise Linux(RHEL) using UBI and Red\
-      \ Hat container tools.\n\n# Concepts included in this scenario:\n* Download\
-      \ the container image that contains Microsoft SQL Server \n* Deploy root and\
-      \ rootless container instances of SQL Server on RHEL\n* Query data in SQL Server\
-      \ running in a container on RHEL\n* Take a checkpoint of the container, and\
-      \ restore the container from the checkpoint\n* Generate systemd scripts to automatically\
-      \ start the SQL Server containers at system boot\n\n# Example Use case:\nYour\
-      \ infrastructure team is planning on using containerized applications, and this\
-      \ also means\ncontainerized databases. They have learnt that Microsoft SQL Server\
-      \ 2019 offers a container image\nfor Red Hat Enterprise Linux (RHEL), and they\
-      \ want to start using it for building applications.\n\n"
-    type: text
-  slug: step1
+  - type: text
+    contents: |+
+      # Goal:
+      After completing this scenario, users will be able to run Microsoft SQL Server
+      on Red Hat Enterprise Linux(RHEL) using UBI and Red Hat container tools.
+
+      # Concepts included in this scenario:
+      * Download the container image that contains Microsoft SQL Server
+      * Deploy root and rootless container instances of SQL Server on RHEL
+      * Query data in SQL Server running in a container on RHEL
+      * Take a checkpoint of the container, and restore the container from the checkpoint
+      * Generate systemd scripts to automatically start the SQL Server containers at system boot
+
+      # Example Use case:
+      Your infrastructure team is planning on using containerized applications, and this also means
+      containerized databases. They have learnt that Microsoft SQL Server 2019 offers a container image
+      for Red Hat Enterprise Linux (RHEL), and they want to start using it for building applications.
+
+  assignment: |
+    # Verify the environment
+
+    Containers are an extremely popular way for developers to deliver software today.  They are more portable and lightweight than the VM images traditionally used to package software in the cloud,  while at the same time, more consistent and efficient to deploy and patch than traditional software packages used on-premises.  Microsoft delivers SQL Server 2019 for Linux containers which are supported on Red Hat Enterprise Linux (RHEL) 8 and OpenShift 4.  These containers are built using the Red Hat Universal Base Image (UBI) runtime.  In this lab, we will demonstrate how to deploy these images on RHEL 8.
+
+    > **NOTE:** In this scenario we assume that you understand the fundamentals about UBI and RHEL container tools. If you are not familiar with RHEL container tools (such as *podman*), you should consider reviewing the [Podman lab](https://lab.redhat.com/podman-deploy)
+
+    There are 3 terminal tabs that will be used in this lab - a terminal on the container host (indicated by *Terminal*), a terminal where we will run the SQL Server container (indicated by *Terminal SQL Server*), and a terminal where we will run the SQL Server client tools (indicated by *Terminal SQL Client*).
+
+    In this lab, we will be spinning up 3 instances of SQL Server, each running in a container.
+
+    On the host system, create a directory to store the script to be used for SQL Server In-memory OLTP dataset
+
+    ```mkdir -p /var/mssql/scripts`
+
+    Copy the script file from the /root directory to the newly created scripts directory
+
+    ```cp ./imoltp.sql /var/mssql/scripts/```
+
+    > **NOTE:** In SQL Server 2019, the container runs using a non-root user by default. The default user is *mssql* with uid *10001*. Modify and
+    set the appropriate user ownership for the script directory created to uid:10001 that maps to the *mssql* user.
+
+    ```chown -R 10001:0 /var/mssql/scripts```
+
+    Use *podman* to list the container images available on the host system
+
+    ```podman images```
+
+    ```
+    REPOSITORY              TAG      IMAGE ID       CREATED       SIZE
+    localhost/rhel8-httpd   latest   69aac470f62d   3 months ago   617 MB
+    ```
+
+    *Podman* is available on the host system, and there is only a single RHEL 8 apache image available to use.
+
+    To run SQL Server in a container, download the SQL Server container images.
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
-  title: Step 1
+- slug: step2
+  id: srxzsmnyyljt
   type: challenge
-- assignment: '# Download the Microsoft SQL Server container image
+  title: Step 2
+  assignment: |
+    # Download the Microsoft SQL Server container image
 
+    With the new container image for SQL Server on Linux for RHEL 8  from Microsoft, you get the reliability, security features, and performance of SQL Server running fully supported on RHEL regardless of whether you are running on baremetal or virtual servers in private or public clouds.
 
-    With the new container image for SQL Server on Linux for RHEL 8  from Microsoft,
-    you get the reliability, security features, and performance of SQL Server running
-    fully supported on RHEL regardless of whether you are running on baremetal or
-    virtual servers in private or public clouds.
+    In the context of the *rhel* user, use *podman* to get the container image that includes SQL Server. The server image also includes the client tools necessary to connect to SQL Server.
 
-
-    In the context of the *rhel* user, use *podman* to get the container image that
-    includes SQL Server. The server image also includes the client tools necessary
-    to connect to SQL Server.
-
-
-    `podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest`
-
+    ```podman pull mcr.microsoft.com/mssql/rhel/server:2019-latest```
 
     Verify that the SQL Server container image is now available on the host system
 
+    ```podman images```
 
-    `podman images`
-
-
-    In the output, you will notice that we have a new image in the repository which
-    is SQL Server container image (*mcr.microsoft.com/mssql/rhel/server*)
-
+    In the output, you will notice that we have a new image in the repository which is SQL Server container image (*mcr.microsoft.com/mssql/rhel/server*)
 
     ```
-
     REPOSITORY                            TAG           IMAGE ID       CREATED       SIZE
+    mcr.microsoft.com/mssql/rhel/server   2019-latest   c9ce21305ef5   3 weeks ago    1.58 GB
+    localhost/rhel8-httpd                 latest        69aac470f62d   3 months ago   617 MB
+    ```
+  tabs:
+  - title: Terminal
+    type: terminal
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
+    path: /
+    port: 9090
+  - title: Visual Editor
+    type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
+  timelimit: 37
+- slug: step3
+  id: tw6yy8pyo2jw
+  type: challenge
+  title: Step 3
+  assignment: |
+    # Multiple container instances of SQL Server
 
-    mcr.microsoft.com/mssql/rhel/server   2019-latest   c9ce21305ef5   3 weeks ago    1.58
-    GB
 
-    localhost/rhel8-httpd                 latest        69aac470f62d   3 months ago   617
-    MB
+    ### Deploying a container as root user
+
+    In the *Terminal Server* tab of the lab interface, create a container runtime using podman in the root user context - passing in-container
+    access to the created script directory, and mapping the host port (1400) to the container's port (1433). TCP port *1433* is the default
+    port for SQL Server.
+
+    Pass in the flag to programatically accept the EULA agreement, and setup SQL Server with the provided sa account password.
+    Set the hostname of the container to *mssqlcontainer0*
+
+    ```podman run --name mssqlDB0 --hostname=mssqlcontainer0 -d -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service --cap-add CAP_SYS_ADMIN -p 1400:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest```
+
+    At this point, there should be a container up and running, and SQL Server should also be running using non-root (*mssql*) inside this container.
+
+    To confirm this, run the *podman ps* command in the root context -
+
+    ```podman ps```
 
     ```
+    CONTAINER ID  IMAGE                                            COMMAND               CREATED        STATUS        PORTS                   NAMES
+    9df179d4e116  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  4 seconds ago  Up 4 seconds ago  0.0.0.0:1400->1433/tcp  mssqlDB0
+    ```
 
-    '
-  difficulty: basic
-  slug: step2
+    The output of podman shows 1 running container named *mssqlDB0*
+
+    Get the top 2 lines of the container logs for database instance 0
+
+    ```podman logs -t mssqlDB0 | head -2```
+
+    ```
+    SQL Server 2019 will run as non-root by default.
+    This container is running as user mssql.
+    << OUTPUT ABRIDGED >>
+    ```
+
+    > **NOTE:** We have instantiated the container runtime using the __root__ user. However, in SQL Server 2019, the container runs using a non-root user
+    (*mssql*) by default.
+
+
+    ### Deploying a container as a non-root user
+
+    Now, switch user context from the root user to the non-root __rhel__ user so that you don't use root privileges for the podman commands.
+
+    Recall that the __rhel__ user's password is __redhat__.
+
+    ```ssh rhel@localhost```
+
+    Create a container runtime using podman which port maps the host port (1401) to the container's port (1433), passes the EULA flag, and sets up SQL Server with the provided sa account password. TCP port *1433* is the default port for SQL Server. The hostname of the container is set to *mssqlcontainer1*
+
+    ```podman run --name mssqlDB1 --hostname=mssqlcontainer1 -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1401:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest```
+
+    Similarly, spin up database instance 2 of SQL Server using podman which port maps the host port (1402) to the container's port (1433), passes the EULA flag, and sets up SQL Server with the provided sa account password. TCP port *1433* is the default port for SQL Server. The hostname of the container is set to *mssqlcontainer2*
+
+    ```podman run --name mssqlDB2 --hostname=mssqlcontainer2 -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`
+
+    > **NOTE:** We have instantiated multiple container instances using a non-root *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root user (*mssql*) by default.
+
+    Get the top 2 lines of the container logs for database instance 1
+
+    ```podman logs -t mssqlDB1 | head -2```
+
+    ```
+    SQL Server 2019 will run as non-root by default.
+    This container is running as user mssql.
+    ```
+
+    Get the top 2 lines of the container logs for database instance 2
+
+    ```podman logs -t mssqlDB2 | head -2```
+
+    ```
+    SQL Server 2019 will run as non-root by default.
+    This container is running as user mssql.
+    ```
+
+    At this point, there should be 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server should also be running using non-root (*mssql*) user inside each of the containers.
+
+    To confirm this, run the *podman ps* command -
+
+    ```podman ps```
+
+    ```
+    CONTAINER ID  IMAGE                                            COMMAND               CREATED         STATUS          PORTS                   NAMES
+    9eaffcd5350f  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  17 seconds ago  Up 16 seconds ago  0.0.0.0:1402->1433/tcp  mssqlDB2
+    9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1
+    ```
+
+    The output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*
+
+    Exit the ssh session to go back to the root context on the host machine-
+
+    ```exit```
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
-  title: Step 2
+- slug: step4
+  id: uuby50d1zgzd
   type: challenge
-- assignment: "# Multiple container instances of SQL Server\n\n\n### Deploying a container\
-    \ as root user\n\nIn the *Terminal Server* tab of the lab interface, create a\
-    \ container runtime using podman in the root user context - passing in-container\
-    \ \naccess to the created script directory, and mapping the host port (1400) to\
-    \ the container's port (1433). TCP port *1433* is the default \nport for SQL Server.\n\
-    \nPass in the flag to programatically accept the EULA agreement, and setup SQL\
-    \ Server with the provided sa account password. \nSet the hostname of the container\
-    \ to *mssqlcontainer0*\n\n`podman run --name mssqlDB0 --hostname=mssqlcontainer0\
-    \ -d -v /var/mssql/scripts:/var/opt/mssql/scripts:Z -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!'\
-    \ --cap-add cap_net_bind_service --cap-add CAP_SYS_ADMIN -p 1400:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute\
-    \ T2}}\n\nAt this point, there should be a container up and running, and SQL Server\
-    \ should also be running using non-root (*mssql*) inside this container.\n\nTo\
-    \ confirm this, run the *podman ps* command in the root context - \n\n`podman\
-    \ ps`\n\n```\nCONTAINER ID  IMAGE             \
-    \                               COMMAND               CREATED        STATUS  \
-    \      PORTS                   NAMES\n9df179d4e116  mcr.microsoft.com/mssql/rhel/server:2019-latest\
-    \  /opt/mssql/bin/sq...  4 seconds ago  Up 4 seconds ago  0.0.0.0:1400->1433/tcp\
-    \  mssqlDB0\n```\n\nThe output of podman shows 1 running container named *mssqlDB0*\n\
-    \nGet the top 2 lines of the container logs for database instance 0\n\n`podman\
-    \ logs -t mssqlDB0 | head -2`\n\n```\nSQL Server\
-    \ 2019 will run as non-root by default.\nThis container is running as user mssql.\n\
-    << OUTPUT ABRIDGED >>\n```\n\n> **NOTE:** We have instantiated the container\
-    \ runtime using the __root__ user. However, in SQL Server 2019, the container\
-    \ runs using a non-root user \n(*mssql*) by default. \n\n\n### Deploying a container\
-    \ as a non-root user\n\nNow, switch user context from the root user to the non-root\
-    \ __rhel__ user so that you don't use root privileges for the podman commands.\n\
-    \nRecall that the __rhel__ user's password is __redhat__.\n\n`ssh rhel@localhost`{{execute\
-    \ T2}}\n\nCreate a container runtime using podman which port maps the host port\
-    \ (1401) to the container's port (1433), passes the EULA flag, and sets up SQL\
-    \ Server with the provided sa account password. TCP port *1433* is the default\
-    \ port for SQL Server. The hostname of the container is set to *mssqlcontainer1*\n\
-    \n`podman run --name mssqlDB1 --hostname=mssqlcontainer1 -d -e 'ACCEPT_EULA=Y'\
-    \ -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service -p 1401:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`{{execute\
-    \ T2}}\n\nSimilarly, spin up database instance 2 of SQL Server using podman which\
-    \ port maps the host port (1402) to the container's port (1433), passes the EULA\
-    \ flag, and sets up SQL Server with the provided sa account password. TCP port\
-    \ *1433* is the default port for SQL Server. The hostname of the container is\
-    \ set to *mssqlcontainer2*\n\n`podman run --name mssqlDB2 --hostname=mssqlcontainer2\
-    \ -d -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RedHat1!' --cap-add cap_net_bind_service\
-    \ -p 1402:1433 -it mcr.microsoft.com/mssql/rhel/server:2019-latest`\n\
-    \n> **NOTE:** We have instantiated multiple container instances using a non-root\
-    \ *rhel* user. Additionally, in SQL Server 2019, the container runs using a non-root\
-    \ user (*mssql*) by default. \n\nGet the top 2 lines of the container logs for\
-    \ database instance 1\n\n`podman logs -t mssqlDB1 | head -2`\n\n\
-    ```\nSQL Server 2019 will run as non-root by default.\nThis container\
-    \ is running as user mssql.\n```\n\nGet the top 2 lines of the container logs\
-    \ for database instance 2\n\n`podman logs -t mssqlDB2 | head -2`\n\
-    \n```\nSQL Server 2019 will run as non-root by default.\nThis\
-    \ container is running as user mssql.\n```\n\nAt this point, there should be\
-    \ 2 non-root containers spinned up using a non-root user (*rhel*), and SQL Server\
-    \ should also be running using non-root (*mssql*) user inside each of the containers.\n\
-    \nTo confirm this, run the *podman ps* command - \n\n`podman ps`\n\
-    \n```\nCONTAINER ID  IMAGE                                  \
-    \          COMMAND               CREATED         STATUS          PORTS       \
-    \            NAMES\n9eaffcd5350f  mcr.microsoft.com/mssql/rhel/server:2019-latest\
-    \  /opt/mssql/bin/sq...  17 seconds ago  Up 16 seconds ago  0.0.0.0:1402->1433/tcp\
-    \  mssqlDB2\n9aee201922e6  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...\
-    \  25 seconds ago  Up 24 seconds ago  0.0.0.0:1401->1433/tcp  mssqlDB1\n```\n\
-    \nThe output of podman shows 2 running containers named *mssqlDB1* and *mssqlDB2*\n\
-    \nExit the ssh session to go back to the root context on the host machine-\n\n\
-    `exit`\n"
-  difficulty: basic
-  slug: step3
-  tabs:
-  - hostname: rhel
-    title: Terminal
-    type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
-    type: code
-  timelimit: 37
-  title: Step 3
-  type: challenge
-- assignment: "# Connect to SQL Server running in the container\n\nLaunch an interactive\
-    \ bash shell in the container connecting to database instance 0 (*mssqlDB0*)\n\
-    \n`podman exec -it mssqlDB0 \"/bin/bash\"`\n\nConnect with *sqlcmd*\
-    \ and run a T-SQL statement to get the servername and the version of SQL Server\
-    \ running on the server\n\n> **NOTE:** sqlcmd is not in the path by default, so\
-    \ you have to specify the full path\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost\
-    \ -U SA -P 'RedHat1!' -Q \"select @@servername, @@version\"`\n \n\
-    ```\n--------------------------------------------------------------------------------------------------------------------------------\
-    \ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\
-    mssqlcontainer0                    Microsoft SQL Server 2019 (RTM-CU8) (KB4577194)\
-    \ - 15.0.4073.23 (X64)\n        Sep 23 2020 16:03:08\n        Copyright (C) 2019\
-    \ Microsoft Corporation\n        Developer Edition (64-bit) on Linux (Red Hat\
-    \ Enterprise Linux 8.2 (Ootpa)) <X64>\n\n(1 rows affected)\n```\n\nVerify that\
-    \ the hostname of the running container is *mssqlcontainer0*, and the version\
-    \ of SQL Server running is 2019.\n"
-  difficulty: basic
-  slug: step4
-  tabs:
-  - hostname: rhel
-    title: Terminal
-    type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
-    type: code
-  timelimit: 37
   title: Step 4
-  type: challenge
-- assignment: "# Query In-Memory OLTP data in SQL Server\n\nRun the script to create\
-    \ the in-memory table and load data\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost\
-    \ -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql`\n\
-    \n\n> Let's find out the number of total sessions in the UserSession table\n\n\
-    `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C\
-    \ -Q \"SELECT count(sessionID) FROM dbo.UserSession\"` \n\n<pre\
-    \ class=\"file\">\n          6\n\n(1 rows affected)\n</pre>\n\n> Let's find out\
-    \ the UserID of the user who has the highest total price items in their shopping\
-    \ cart  \n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp\
-    \ -N -C -Q \"SELECT top 1 UserID FROM dbo.ShoppingCart order by TotalPrice desc\"\
-    \n` \n\n<pre class=\"file\">\nUserID\n-----------\n        342\n\
-    \n(1 rows affected)\n</pre>\n\nExit the bash session\n\n`exit`\n\
-    \n"
-  difficulty: basic
-  slug: step5
+  assignment: |
+    # Connect to SQL Server running in the container
+
+    Launch an interactive bash shell in the container connecting to database instance 0 (*mssqlDB0*)
+
+    `podman exec -it mssqlDB0 "/bin/bash"`
+
+    Connect with *sqlcmd* and run a T-SQL statement to get the servername and the version of SQL Server running on the server
+
+    > **NOTE:** sqlcmd is not in the path by default, so you have to specify the full path
+
+    ```/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -Q "select @@servername, @@version"```
+
+    ```
+    -------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    mssqlcontainer0                    Microsoft SQL Server 2019 (RTM-CU8) (KB4577194) - 15.0.4073.23 (X64)
+            Sep 23 2020 16:03:08
+            Copyright (C) 2019 Microsoft Corporation
+            Developer Edition (64-bit) on Linux (Red Hat Enterprise Linux 8.2 (Ootpa)) <X64>
+
+    (1 rows affected)
+    ```
+
+    Verify that the hostname of the running container is *mssqlcontainer0*, and the version of SQL Server running is 2019.
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
+- slug: step5
+  id: y17w8n3pjxsv
+  type: challenge
   title: Step 5
-  type: challenge
-- assignment: "# Checkpoint and restore the SQL Server container\n\nPodman can be\
-    \ used to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore\
-    \ In Userspace) to save the contents of the memory of a container (in a checkpoint\
-    \ file) and launch a container from the saved checkpoint file (restore). This\
-    \ greatly improves container portability, and reduces  application start up or\
-    \ cache warming time.\n\nTo install the CRIU dependency package (__criu__) that\
-    \ is needed for checkpoint-restore podman functionality execute -\n\n`yum -y install\
-    \ criu`\n\n<pre class=\"file\">\n<< OUTPUT ABRIDGED >>\n\nUpdating\
-    \ Subscription Management repositories.\nLast metadata expiration check: 0:16:23\
-    \ ago on Thu 19 Nov 2020 03:26:20 PM EST.\nPackage criu-3.14-2.module+el8.3.0+8221+97165c3f.x86_64\
-    \ is already installed.\nComplete!\n</pre>\n\nAfter installing the criu package,\
-    \ create a configuration file to adjust the maximum ghost file limit. By default,\
-    \ 1MB is the maximum size of a deleted file that criu can handle, but in the case\
-    \ of SQL Server, temporary files might exceed this limit and hence the ghost-file\
-    \ size must be adjusted.\n\n`echo ghost-limit = 40000000 > /etc/criu.conf`{{execute\
-    \ T2}}\n\nIn the *Terminal Server* tab of the lab interface, checkpoint the running\
-    \ SQL Server container and export the checkpoint to a compressed file\n\n`podman\
-    \ container checkpoint -l --export=/tmp/checkpoint1.tar.gz`\n\n\
-    <pre class=\"file\">\ncb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27\n\
-    </pre>\n\nTaking a checkpoint without the *--leave-running* option will stop the\
-    \ running container. At this point, confirm that there is no running container\
-    \ -\n\n`podman ps`\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE\
-    \  COMMAND  CREATED  STATUS  PORTS  NAMES\n</pre>\n\nNow, restore the container\
-    \ from the stored checkpoint file. This capability can be quite useful in the\
-    \ case of a migration or debugging scenario. \n\n`podman container restore --import=/tmp/checkpoint1.tar.gz\
-    \ --name mssqlserver-restored`\n\n<pre class=\"file\">\nea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c\n\
-    </pre>\n\nFinally, verify that the container restored from the checkpoint file\
-    \ is running - The name of the container should be *mssqlserver-restored*\n\n\
-    `podman ps`\n\n<pre class=\"file\">\nCONTAINER ID  IMAGE       \
-    \                                     COMMAND               CREATED          \
-    \   STATUS                 PORTS                   NAMES\nea72c83f945a  mcr.microsoft.com/mssql/rhel/server:2019-latest\
-    \  /opt/mssql/bin/sq...  About a minute ago  Up About a minute ago  0.0.0.0:1400->1433/tcp\
-    \  mssqlserver-restored\n</pre>\n\nAlso, notice that the port mapping matches\
-    \ the original port mapping (Host port *1400* maps to container port *1433*).\
-    \ \n"
-  difficulty: basic
-  slug: step6
+  assignment: |+
+    # Query In-Memory OLTP data in SQL Server
+
+    Run the script to create the in-memory table and load data
+
+    ```/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -N -C -i /var/opt/mssql/scripts/imoltp.sql```
+
+
+    > Let's find out the number of total sessions in the UserSession table
+
+    ```/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT count(sessionID) FROM dbo.UserSession"```
+
+    <pre class="file">
+              6
+
+    (1 rows affected)
+    </pre>
+
+    > Let's find out the UserID of the user who has the highest total price items in their shopping cart
+
+    `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT top 1 UserID FROM dbo.ShoppingCart order by TotalPrice desc"
+    `
+
+    <pre class="file">
+    UserID
+    -----------
+            342
+
+    (1 rows affected)
+    </pre>
+
+    Exit the bash session
+
+    `exit`
+
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
+- slug: step6
+  id: xa9ezsvgogtf
+  type: challenge
   title: Step 6
-  type: challenge
-- assignment: "# Re-query In-Memory OLTP data in SQL Server\n\nLaunch an interactive\
-    \ bash shell in the *mssqlserver-restored* container -\n\n`podman exec -it mssqlserver-restored\
-    \ \"/bin/bash\"`\n\n> Let's find out the number of total sessions\
-    \ in the UserSession table\n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA\
-    \ -P 'RedHat1!' -d imoltp -N -C -Q \"SELECT count(sessionID) FROM dbo.UserSession\"\
-    ` \n\n<pre class=\"file\">\n          6\n\n(1 rows affected)\n</pre>\n\
-    \n> Let's find out the UserID of the user who has the highest total price items\
-    \ in their shopping cart  \n\n`/opt/mssql-tools/bin/sqlcmd -S localhost -U SA\
-    \ -P 'RedHat1!' -d imoltp -N -C -Q \"SELECT top 1 UserID FROM dbo.ShoppingCart\
-    \ order by TotalPrice desc\"\n` \n\n<pre class=\"file\">\nUserID\n\
-    -----------\n        342\n\n(1 rows affected)\n</pre>\n\nThe T-SQL query answers\
-    \ on the restored container are same as the T-SQL query answers on the container\
-    \ before the checkpoint was taken.\n"
-  difficulty: basic
-  slug: step7
+  assignment: |
+    # Checkpoint and restore the SQL Server container
+
+    Podman can be used to checkpoint and restore running containers. Podman uses CRIU (Checkpoint/Restore In Userspace) to save the contents of the memory of a container (in a checkpoint file) and launch a container from the saved checkpoint file (restore). This greatly improves container portability, and reduces  application start up or cache warming time.
+
+    To install the CRIU dependency package (__criu__) that is needed for checkpoint-restore podman functionality execute -
+
+    ```yum -y install criu```
+
+    <pre class="file">
+    << OUTPUT ABRIDGED >>
+
+    Updating Subscription Management repositories.
+    Last metadata expiration check: 0:16:23 ago on Thu 19 Nov 2020 03:26:20 PM EST.
+    Package criu-3.14-2.module+el8.3.0+8221+97165c3f.x86_64 is already installed.
+    Complete!
+    </pre>
+
+    After installing the criu package, create a configuration file to adjust the maximum ghost file limit. By default, 1MB is the maximum size of a deleted file that criu can handle, but in the case of SQL Server, temporary files might exceed this limit and hence the ghost-file size must be adjusted.
+
+    ```echo ghost-limit = 40000000 > /etc/criu.conf```
+
+    In the *Terminal Server* tab of the lab interface, checkpoint the running SQL Server container and export the checkpoint to a compressed file
+
+    ```podman container checkpoint -l --export=/tmp/checkpoint1.tar.gz```
+
+    <pre class="file">
+    cb88e6ff3f5e671211b000c7fa4f2006951302145885d87d50e7bbadefd85f27
+    </pre>
+
+    Taking a checkpoint without the *--leave-running* option will stop the running container. At this point, confirm that there is no running container -
+
+    ```podman ps```
+
+    <pre class="file">
+    CONTAINER ID  IMAGE  COMMAND  CREATED  STATUS  PORTS  NAMES
+    </pre>
+
+    Now, restore the container from the stored checkpoint file. This capability can be quite useful in the case of a migration or debugging scenario.
+
+    ```podman container restore --import=/tmp/checkpoint1.tar.gz --name mssqlserver-restored```
+
+    <pre class="file">
+    ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c
+    </pre>
+
+    Finally, verify that the container restored from the checkpoint file is running - The name of the container should be *mssqlserver-restored*
+
+    ```podman ps```
+
+    <pre class="file">
+    CONTAINER ID  IMAGE                                            COMMAND               CREATED             STATUS                 PORTS                   NAMES
+    ea72c83f945a  mcr.microsoft.com/mssql/rhel/server:2019-latest  /opt/mssql/bin/sq...  About a minute ago  Up About a minute ago  0.0.0.0:1400->1433/tcp  mssqlserver-restored
+    </pre>
+
+    Also, notice that the port mapping matches the original port mapping (Host port *1400* maps to container port *1433*).
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
+- slug: step7
+  id: gsgahfsjy0mq
+  type: challenge
   title: Step 7
-  type: challenge
-- assignment: "# Use systemd to control and manage container processes\n\nPodman makes\
-    \ putting a container into *systemd* service simple. To generate a service for\
-    \ a container -\n\n`podman generate systemd mssqlserver-restored > container-mssql.service`{{execute\
-    \ T2}}\n\nNow, let us take a brief look at the service file that was generated\n\
-    \n`cat container-mssql.service`\n\n<pre class=\"file\">\n# container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service\n\
-    # autogenerated by Podman 1.6.4\n# Wed Aug 19 04:11:19 EDT 2020\n\n[Unit]\nDescription=Podman\
-    \ container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service\n\
-    Documentation=man:podman-generate-systemd(1)\n\n[Service]\nRestart=on-failure\n\
-    ExecStart=/usr/bin/podman start ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c\n\
-    ExecStop=/usr/bin/podman stop -t 10 ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c\n\
-    KillMode=none\nType=forking\nPIDFile=/var/run/containers/storage/overlay-containers/ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c/userdata/conmon.pid\n\
-    \n[Install]\nWantedBy=multi-user.target\n</pre>\n\nBefore we can use systemd to\
-    \ manage the container, lets copy over the generated service file to systemd config\n\
-    \n`cp container-mssql.service /etc/systemd/system`\n\nThe generated\
-    \ systemd service file can now be used to manage the container via systemd.\n\n\
-    Before we proceed further, reload the systemd daemon so that it picks up the newly\
-    \ generated service file -\n\n`systemctl daemon-reload`\n\nStop\
-    \ the SQL Server container using the `systemctl` utility - \n\n`systemctl stop\
-    \ container-mssql.service`\n\nNow, enable and start the SQL Server\
-    \ container service using the `systemctl` utility -\n\n```\nsystemctl --now enable\
-    \ container-mssql.service\n```\n\nAt any point, you may also check the status\
-    \ of the SQL Server container service.\n\n```\nsystemctl status container-mssql.service\
-    \ --no-pager\n```\n"
-  difficulty: basic
-  slug: step8
+  assignment: |
+    # Re-query In-Memory OLTP data in SQL Server
+
+    Launch an interactive bash shell in the *mssqlserver-restored* container -
+
+    ```podman exec -it mssqlserver-restored "/bin/bash"```
+
+    > Let's find out the number of total sessions in the UserSession table
+
+    ```/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT count(sessionID) FROM dbo.UserSession"```
+
+    <pre class="file">
+              6
+
+    (1 rows affected)
+    </pre>
+
+    > Let's find out the UserID of the user who has the highest total price items in their shopping cart
+
+    ```/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'RedHat1!' -d imoltp -N -C -Q "SELECT top 1 UserID FROM dbo.ShoppingCart order by TotalPrice desc"```
+    
+
+    <pre class="file">
+    UserID
+    -----------
+            342
+
+    (1 rows affected)
+    </pre>
+
+    The T-SQL query answers on the restored container are same as the T-SQL query answers on the container before the checkpoint was taken.
   tabs:
-  - hostname: rhel
-    title: Terminal
+  - title: Terminal
     type: terminal
-  - hostname: rhel
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
     path: /
     port: 9090
-    title: RHEL Web Console
-    type: service
-  - hostname: rhel
-    path: /root
-    title: Visual Editor
+  - title: Visual Editor
     type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
   timelimit: 37
-  title: Step 8
+- slug: step8
+  id: hjsq1vsot4tb
   type: challenge
-description: "# Goal:\nAfter completing this scenario, users will be able to run Microsoft\
-  \ SQL Server \non Red Hat Enterprise Linux(RHEL) using UBI and Red Hat container\
-  \ tools.\n\n# Concepts included in this scenario:\n* Download the container image\
-  \ that contains Microsoft SQL Server \n* Deploy root and rootless container instances\
-  \ of SQL Server on RHEL\n* Query data in SQL Server running in a container on RHEL\n\
-  * Take a checkpoint of the container, and restore the container from the checkpoint\n\
-  * Generate systemd scripts to automatically start the SQL Server containers at system\
-  \ boot\n\n# Example Use case:\nYour infrastructure team is planning on using containerized\
-  \ applications, and this also means\ncontainerized databases. They have learnt that\
-  \ Microsoft SQL Server 2019 offers a container image\nfor Red Hat Enterprise Linux\
-  \ (RHEL), and they want to start using it for building applications.\n\n"
-developers:
-- dopinto@redhat.com
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-level: beginner
-owner: rhel
-private: false
-published: true
-skipping_enabled: false
-slug: sql-server-ubi
-tags:
-- rhel
-title: Microsoft SQL Server on Red Hat Enterprise Linux using Red Hat Universal Base
-  Image (UBI)
-type: track
+  title: Step 8
+  assignment: |
+    # Use systemd to control and manage container processes
+
+    Podman makes putting a container into *systemd* service simple. To generate a service for a container -
+
+    ```podman generate systemd mssqlserver-restored > container-mssql.service```
+
+    Now, let us take a brief look at the service file that was generated
+
+    ```cat container-mssql.service```
+
+    <pre class="file">
+    # container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service
+    # autogenerated by Podman 1.6.4
+    # Wed Aug 19 04:11:19 EDT 2020
+
+    [Unit]
+    Description=Podman container-ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c.service
+    Documentation=man:podman-generate-systemd(1)
+
+    [Service]
+    Restart=on-failure
+    ExecStart=/usr/bin/podman start ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c
+    ExecStop=/usr/bin/podman stop -t 10 ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c
+    KillMode=none
+    Type=forking
+    PIDFile=/var/run/containers/storage/overlay-containers/ea72c83f945af03d2b03fedd21c3b6743310b7cacc77d6152f453c37cc8cf56c/userdata/conmon.pid
+
+    [Install]
+    WantedBy=multi-user.target
+    </pre>
+
+    Before we can use systemd to manage the container, lets copy over the generated service file to systemd config
+
+    ```cp container-mssql.service /etc/systemd/system```
+
+    The generated systemd service file can now be used to manage the container via systemd.
+
+    Before we proceed further, reload the systemd daemon so that it picks up the newly generated service file -
+
+    ```systemctl daemon-reload```
+
+    Stop the SQL Server container using the `systemctl` utility -
+
+    ```systemctl stop container-mssql.service```
+
+    Now, enable and start the SQL Server container service using the `systemctl` utility -
+
+    ```
+    systemctl --now enable container-mssql.service
+    ```
+
+    At any point, you may also check the status of the SQL Server container service.
+
+    ```
+    systemctl status container-mssql.service --no-pager
+    ```
+  tabs:
+  - title: Terminal
+    type: terminal
+    hostname: rhel
+  - title: RHEL Web Console
+    type: service
+    hostname: rhel
+    path: /
+    port: 9090
+  - title: Visual Editor
+    type: code
+    hostname: rhel
+    path: /root
+  difficulty: basic
+  timelimit: 37
+checksum: "602405987231894012"
