@@ -4,7 +4,7 @@ useradd guest
 groupadd team
 
 # Create track files
-cd /root
+cd /srv
 tee -a status.sh << EOF
 #!/bin/bash
 echo -n "status.sh successfully executed by "
