@@ -16,7 +16,7 @@ description: |-
   * Use `chmod` to change file permissions
   * Test out `chown` with example user accounts and groups
   * Learn how to use `find` to filter files based on their permissions
-icon: hhttps://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
 level: beginner
 tags:
 - admin101
@@ -66,7 +66,7 @@ challenges:
 
     The first column of the output above is a string conveying the access mode. The access mode __-rwxr-x---__, seen here for the __status.sh__ file, conveys the following information:
 
-    ![permission string breakdown](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/lsExplanation.png)
+    ![permission string breakdown](https://github.com/rhel-labs/learn-katacoda/raw/master/instruqt/file-permissions/assets/lsExplanation.png)
 
     The middle columns of the `ls` output give information about the user ownership and group ownership of the files, their size, the time last modified, and finally the file/directory name itself. The next steps will walk you through the importance of the file ownership fields.
   tabs:
@@ -151,7 +151,7 @@ challenges:
     contents: |-
       The `chmod` command is how you modify the permissions associated with files and directories. The `chmod` command has two different ways to modify permissions: symbolic and absolute. Symbolic permissions have the same format as the access mode output of `ls -l`.  In this mode, you use the characters `r`, `w`, and `x` to set the read, write, and execute permissions. The other mode, absolute, instead uses a series of three numbers to correspond to the permissions for the owner, group, and others. These numbers are identical in meaning to the symbolic mode breakdown, they are just more compact and therefore quicker to type. Here is an example of how the two modes relate from Boolean World:
 
-      ![Absolute vs Symbolic permissions](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/absVsSym.png)
+      ![Absolute vs Symbolic permissions](https://github.com/rhel-labs/learn-katacoda/raw/master/instruqt/file-permissions/assets/absVsSym.png)
 
       Image credit: Boolean World, ["An Introduction to Linux File Permissions"](https://www.booleanworld.com/introduction-linux-file-permissions/)
 
@@ -220,7 +220,7 @@ challenges:
 
       The number you would use to do this with `chmod` is __774__. The image below explains how the absolute permission of __774__ relates to the access mode string that is output by `ls -l`.
 
-      ![Absolute permission breakdown](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/absBreakdown.png)
+      ![Absolute permission breakdown](https://github.com/rhel-labs/learn-katacoda/raw/master/instruqt/file-permissions/assets/absBreakdown.png)
   assignment: |-
     The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
 
