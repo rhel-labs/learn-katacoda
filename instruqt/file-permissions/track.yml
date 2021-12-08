@@ -16,7 +16,7 @@ description: |-
   * Use `chmod` to change file permissions
   * Test out `chown` with example user accounts and groups
   * Learn how to use `find` to filter files based on their permissions
-icon: hhttps://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 tags:
 - admin101
@@ -50,11 +50,7 @@ challenges:
 
     # Displaying files and their permissions
 
-    For this lab, several files have been created for you to work with in the `/srv` directory. Change to it using the `cd` (change directory) command:
-
-    ```
-    cd /srv
-    ```
+    For this lab, several files have been created for you to work within Root's home directory (/root) directory.
 
     The command `ls -l` can be used to look at the permissions associated with each file in the directory. The output for this can be cryptic at first, so this step will walk you through what each character means. Take a look at the contents of the current directory. Use the long listing option (`-l`) to display information about permissions for each item.
 
@@ -97,7 +93,6 @@ challenges:
     Therefore, __root__ has permission to execute this script.
 
     ```
-    cd /srv
     ./status.sh
     ```
 
@@ -122,7 +117,7 @@ challenges:
     Navigate back to the directory containing the __status.sh__ script so that you can run it as this new user.
 
     ```
-    cd /srv
+    cd ..
     ```
 
     Try executing the status script as __guest__. Since the guest account is not the user owner of the file and is not part of any owner groups, you are unable to execute this script from this user account.
@@ -251,7 +246,7 @@ challenges:
     However, if you try to read this file, you will see you do have read access as __guest__:
 
     ```
-    cat /srv/status.sh
+    cat status.sh
     ```
 
     <pre class=file>
@@ -419,11 +414,11 @@ challenges:
     To verify that access has been removed, try to read one of the files as the guest account. Switch to the __guest__ terminal and run this command:
 
     ```
-    cat /srv/proprietary/contract01.txt
+    cat proprietary/contract01.txt
     ```
 
     <pre class=file>
-    cat: /srv/proprietary/contract01.txt: Permission denied
+    cat: proprietary/contract01.txt: Permission denied
     </pre>
 
     >_NOTE:_ You may be tempted to use `chmod` with the recursive option (`-R`) to make this change instead of using `find`. The `chmod -R` command modifies subdirectories  as well as files, however. Since you are removing execute permissions, using `chmod` recursively would lead to a situation where you could not `cd` into any of the subdirectories that you just modified. This would also prevent you from running any recursive operations to fix this issue, and you would have to manually change the permissions on each subdirectory individually.
