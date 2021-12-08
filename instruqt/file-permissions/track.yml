@@ -16,7 +16,7 @@ description: |-
   * Use `chmod` to change file permissions
   * Test out `chown` with example user accounts and groups
   * Learn how to use `find` to filter files based on their permissions
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+icon: hhttps://storage.googleapis.com/instruqt-frontend/img/tracks/redhat.png
 level: beginner
 tags:
 - admin101
@@ -50,7 +50,7 @@ challenges:
 
     # Displaying files and their permissions
 
-    For this lab, several files have been created for you to work within Root's home directory (/root) directory.
+    For this lab, several files have been created for you to work with in Root's hoome directory (/root).
 
     The command `ls -l` can be used to look at the permissions associated with each file in the directory. The output for this can be cryptic at first, so this step will walk you through what each character means. Take a look at the contents of the current directory. Use the long listing option (`-l`) to display information about permissions for each item.
 
@@ -66,7 +66,7 @@ challenges:
 
     The first column of the output above is a string conveying the access mode. The access mode __-rwxr-x---__, seen here for the __status.sh__ file, conveys the following information:
 
-    ![permission string breakdown](lsExplanation.png)
+    ![permission string breakdown](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/lsExplanation.png)
 
     The middle columns of the `ls` output give information about the user ownership and group ownership of the files, their size, the time last modified, and finally the file/directory name itself. The next steps will walk you through the importance of the file ownership fields.
   tabs:
@@ -82,7 +82,11 @@ challenges:
   teaser: Working with user permissions
   notes:
   - type: text
-    contents: 'In this step, you will be executing the `status.sh` script as two different user accounts: __root__, which owns the file, and __guest__, who falls into the _other users_ permissions category. This script prints the user who executed it, so you will be able to clearly see whether or not a specific user can execute the script.'
+    contents: 'In this step, you will be executing the `status.sh` script as two different
+      user accounts: __root__, which owns the file, and __guest__, who falls into
+      the _other users_ permissions category. This script prints the user who executed
+      it, so you will be able to clearly see whether or not a specific user can execute
+      the script.'
   assignment: |-
     Recall from the previous step that __status.sh__ has the following permissions:
 
@@ -147,7 +151,7 @@ challenges:
     contents: |-
       The `chmod` command is how you modify the permissions associated with files and directories. The `chmod` command has two different ways to modify permissions: symbolic and absolute. Symbolic permissions have the same format as the access mode output of `ls -l`.  In this mode, you use the characters `r`, `w`, and `x` to set the read, write, and execute permissions. The other mode, absolute, instead uses a series of three numbers to correspond to the permissions for the owner, group, and others. These numbers are identical in meaning to the symbolic mode breakdown, they are just more compact and therefore quicker to type. Here is an example of how the two modes relate from Boolean World:
 
-      ![Absolute vs Symbolic permissions](./assets/absVsSym.png)
+      ![Absolute vs Symbolic permissions](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/absVsSym.png)
 
       Image credit: Boolean World, ["An Introduction to Linux File Permissions"](https://www.booleanworld.com/introduction-linux-file-permissions/)
 
@@ -216,7 +220,7 @@ challenges:
 
       The number you would use to do this with `chmod` is __774__. The image below explains how the absolute permission of __774__ relates to the access mode string that is output by `ls -l`.
 
-      ![Absolute permission breakdown](./assets/absBreakdown.png)
+      ![Absolute permission breakdown](https://github.com/rhel-labs/learn-katacoda/blob/800a306dbe07ab7659f90a3bb7a79258b3c0f651/instruqt/file-permissions/assets/absBreakdown.png)
   assignment: |-
     The owner user and owner group will have full permissions, but others will only be able to read the file. Return to the first terminal where you are logged in as __root__. Use `chmod` to modify the permissions on __status.sh__ as discussed above:
 
@@ -273,7 +277,9 @@ challenges:
   teaser: Using the `chown` command
   notes:
   - type: text
-    contents: Sometimes it is useful to change who owns a file so that permissions can align with the purpose of the file. The `chown` command can do this very easily. Just specify the new owner and the file you would like to change.
+    contents: Sometimes it is useful to change who owns a file so that permissions
+      can align with the purpose of the file. The `chown` command can do this very
+      easily. Just specify the new owner and the file you would like to change.
   assignment: |-
     From the root terminal, confirm that __root__ is the initial owner of the file __tasks.txt__:
 
@@ -337,7 +343,8 @@ challenges:
   teaser: Using the `chgrp` command
   notes:
   - type: text
-    contents: Changing group ownership can be much more efficient than manually assigning owners, when there are many users that should have the same access to a file.
+    contents: Changing group ownership can be much more efficient than manually assigning
+      owners, when there are many users that should have the same access to a file.
   assignment: |-
     Group ownership can be changed with the `chgrp` command by adding a colon before the name of the group. Return to the root terminal to execute this command:
 
@@ -373,7 +380,8 @@ challenges:
   teaser: Using `find` to audit permissions
   notes:
   - type: text
-    contents: The `find` command is highly versatile, but in this case you will be using it to locate files that have permissions that may pose security risks.
+    contents: The `find` command is highly versatile, but in this case you will be
+      using it to locate files that have permissions that may pose security risks.
   assignment: |-
     The `-perm` option causes the `find` command to look at the access modes for each file. In this case you are calling `find` without a path, which means it will start looking in the current directory. First, check for files that have the permission level __755__.
 
@@ -432,4 +440,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "14610437699971287514"
+checksum: "9243196366209735690"

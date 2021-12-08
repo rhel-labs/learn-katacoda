@@ -1,10 +1,10 @@
 #!/bin/bash
-
 # Create needed user and group
 useradd guest
 groupadd team
 
 # Create track files
+cd /root
 tee -a status.sh << EOF
 #!/bin/bash
 echo -n "status.sh successfully executed by "
