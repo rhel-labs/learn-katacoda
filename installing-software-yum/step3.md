@@ -22,7 +22,7 @@ ID| Command                  | Date and time    | Action(s)| Altered
 This subcommand is also useful for rolling back transactions if you erroneously
 install or update a package, as it cleans up all of the dependencies associated
 with the package. Rollback the state of your system to before you uninstalled
-__crontabs__:
+__httpd__:
 
 `yum -y history rollback 6 `{{execute}}
 
