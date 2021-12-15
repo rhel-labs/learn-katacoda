@@ -17,7 +17,7 @@ this application was picked simply because it serves as a good test subject for
 the upcoming examples.
 
 
-`yum -y install wireshark`{{execute}}
+`yum install -y wireshark`{{execute}}
 
 >_Note:_ The `-y` option will automatically answer yes to any prompts during the
 installation. Using this option is not best practice when installing software

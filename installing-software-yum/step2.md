@@ -25,7 +25,7 @@ packages on your system (including YUM itself).
 For this example, just update the __bash__ package. Once again, use the `-y`
 option to automatically say yes to any prompts for the purposes of this lab.
 
-`yum -y update bash`{{execute}}
+`yum update -y bash`{{execute}}
 
 <pre class=file>
 << OUTPUT ABRIDGED >>
@@ -51,7 +51,7 @@ is such that these subcommands will both carry out the `upgrade` operation.
 
 Removing a package follows the same theme of simplicity.
 
-`yum -y remove httpd`{{execute}}
+`yum remove -y httpd`{{execute}}
 
 The extensive output shows you information about which dependent RPMs were
 removed as part of this transaction.
