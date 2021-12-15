@@ -36,7 +36,7 @@ section to the node-app-server.toml file adding `nodejs` to the build.
 The `printf` command appends the following formatted stanza to the node-app-server.toml file.
 
 <pre class='file'>
-[[modules]]
+[[packages]]
 name = "nodejs"
 version = "*"
 </pre>
