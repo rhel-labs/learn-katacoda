@@ -167,12 +167,15 @@ challenges:
   id: jkqa10tzpfkv
   type: challenge
   title: Step 2
+  notes:
+  - type: text
+    contents: |
+      # What is the `~` directory?
+      Linux is filled with shortcuts, and learning these shortcuts is a crucial step to speeding up your work. One such shortcut is the tilde `~`.
   assignment: |
     # What is the `~` directory?
 
-    Linux is filled with shortcuts, and learning these shortcuts
-    is a crucial step to speeding up your work. One such shortcut
-    is that `~` is aliased to the current user's home directory. To test out some
+    The tilde `~` is aliased to the current user's home directory. To test out some
     applications of this, change directories to the root directory of the system:
 
     ```
@@ -207,13 +210,13 @@ challenges:
     You will see that your current directory has changed from
 
     <pre class=file>
-    [root@dd2f5f5596bf /]#
+    [root@rhel /]#
     </pre>
 
     to
 
     <pre class=file>
-    [root@dd2f5f5596bf ~]#
+    [root@rhel ~]#
     </pre>
 
     >_NOTE:_ The `cd` command contains yet another shortcut, where
@@ -262,11 +265,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: RHEL Web Console
-    type: service
-    hostname: rhel
-    path: /
-    port: 9090
   difficulty: basic
   timelimit: 60
 - slug: step3
@@ -527,4 +525,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 60
-checksum: "16627601884215918274"
+checksum: "7247106201470313797"
