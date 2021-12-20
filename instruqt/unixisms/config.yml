@@ -1,8 +1,13 @@
 version: "2"
-virtualmachines:
+containers:
 - name: rhel
-  image: instruqt-redhat/rhel-latest
+  image: redhat/ubi8
   shell: /bin/bash
-  environment:
-    TERM: xterm
-  machine_type: n1-standard-2
+  memory: 2048
+#virtualmachines:
+#- name: rhel
+#  image: instruqt-redhat/rhel-latest
+#  shell: /bin/bash
+#  environment:
+#    TERM: xterm
+#  machine_type: n1-standard-2

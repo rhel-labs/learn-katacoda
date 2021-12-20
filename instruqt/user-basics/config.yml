@@ -3,4 +3,4 @@ containers:
 - name: rhel
   image: redhat/ubi8
   shell: /bin/bash
-  memory: 1024
+  memory: 2048
