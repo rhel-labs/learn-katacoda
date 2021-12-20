@@ -134,7 +134,7 @@ challenges:
     `man` supports a `--regex` option that lets you search through all man pages
     using regular expressions. This will then open each page that contains a match
     sequentially. If you instead wish to just output the location of the matches,
-    you can use the `-wK` options to return __w__here __k__eywords are
+    you can use the `-wK` options to return where keywords are
     located. Say you were looking for information on the chrony daemon:
 
     ```
@@ -527,4 +527,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 60
-checksum: "7247106201470313797"
+checksum: "16627601884215918274"
