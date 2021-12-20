@@ -26,6 +26,7 @@ developers:
 - ehendric@redhat.com
 private: false
 published: true
+skipping_enabled: true
 challenges:
 - slug: step1
   id: 02ju0hwncacd
@@ -66,7 +67,9 @@ challenges:
     The first time you try to list `man` pages, you will need to update your `man`
     database. Use the following command:
 
-    `mandb`{{execute T1}}
+    ```
+    mandb
+    ```
 
     <pre class=file>
     << OUTPUT ABRIDGED >>
@@ -83,7 +86,9 @@ challenges:
     Once you have updated the `man` database, the following command
     will list all `man` pages available on your system:
 
-    `man -k .`{{execute T1}}
+    ```
+    man -k .
+    ```
 
     <pre class=file>
     << OUTPUT ABRIDGED >>
@@ -102,7 +107,9 @@ challenges:
     If you aren't sure exactly what a page contains, the `-f` option will
     print a short description for the specified page.
 
-    `man -f grep`{{execute T1}}
+    ```
+    man -f grep
+    ```
 
     <pre class=file>
     grep (1)             - print lines matching a pattern
@@ -130,7 +137,9 @@ challenges:
     you can use the `-wK` options to return __w__here __k__eywords are
     located. Say you were looking for information on the chrony daemon:
 
-    `man -wK chronyd`{{execute T1}}
+    ```
+    man -wK chronyd
+    ```
 
     <pre class=file>
     /usr/share/man/man1/chronyc.1.gz
@@ -166,14 +175,18 @@ challenges:
     is that `~` is aliased to the current user's home directory. To test out some
     applications of this, change directories to the root directory of the system:
 
-    `cd /`{{execute T1}}
+    ```
+    cd /
+    ```
 
     The `~` alias works in any case where you have to specify a path.
     If you wanted to list the contents of the _openscap_data_ subdirectory
     located in the home directory of __root__, the following command is
     valid:
 
-    `ls ~/openscap_data`{{execute T1}}
+    ```
+    ls ~/openscap_data
+    ```
 
     <pre class=file>
     eval_remediate_report.html  eval_remediate_results.xml
@@ -187,7 +200,9 @@ challenges:
     This means that running `cd ~` will always change directories to
     the home directory of the user that you are logged in as.
 
-    `cd ~`{{execute T1}}
+    ```
+    cd ~
+    ```
 
     You will see that your current directory has changed from
 
@@ -208,7 +223,9 @@ challenges:
     Print the full path to the directory you are currently in,
     the `~` directory, using the "print working directory" command:
 
-    `pwd`{{execute T1}}
+    ```
+    pwd
+    ```
 
     <pre class=file>
     /root
@@ -219,12 +236,16 @@ challenges:
     on this system, __rhel__. Switch to __rhel__ in the second terminal
     tab:
 
-    `su - rhel`{{execute T2}}
+    ```
+    su - rhel
+    ```
 
     Adding the `-` after `su` will automatically change directories into
     the __rhel__ user's home directory, so print the full directory again:
 
-    `pwd`{{execute T2}}
+    ```
+    pwd
+    ```
 
     <pre class=file>
     /home/rhel
@@ -263,7 +284,9 @@ challenges:
 
     List the files in your current directory:
 
-    `ls`{{execute T1}}
+    ```
+    ls
+    ```
 
     <pre class=file>
     anaconda-ks.cfg  openscap_data  original-ks.cfg
@@ -272,7 +295,9 @@ challenges:
     Now, try it again with the `-a` option. Many more files and directories will
     show up, even though you have not changed where you are looking.
 
-    `ls -a`{{execute T1}}
+    ```
+    ls -a
+    ```
 
     <pre class=file>
     .   anaconda-ks.cfg  .bash_profile  .cshrc  .hushlogin     original-ks.cfg  .tcshrc
@@ -293,17 +318,23 @@ challenges:
     Creating a new hidden file or directory is quite simple, just start the name with
     a `.`
 
-    `touch .hidden-file`{{execute T1}}
+    ```
+    touch .hidden-file
+    ```
 
     Now that this file is created, confirm that it only shows up when using `ls -a`:
 
-    `ls`{{execute T1}}
+    ```
+    ls
+    ```
 
     <pre class=file>
     anaconda-ks.cfg  openscap_data  original-ks.cfg
     </pre>
 
-    `ls -a`{{execute T1}}
+    ```
+    ls -a
+    ```
 
     <pre class=file>
     .   anaconda-ks.cfg  .bash_profile  .cshrc  .hidden-file  openscap_data    .ssh     .viminfo
@@ -343,7 +374,9 @@ challenges:
     In the second terminal, where you are logged in as the __rhel__ user,
     try to access the following file:
 
-    `cat /etc/tcsd.conf`{{execute T2}}
+    ```
+    cat /etc/tcsd.conf
+    ```
 
     <pre class=file>
     cat: /etc/tcsd.conf: Permission denied
@@ -353,7 +386,9 @@ challenges:
     However, __rhel__ is part of the _wheel_ group, so you can circumvent this
     permissions issue temporarily by prepending `sudo` to your previous command:
 
-    `sudo cat /etc/tcsd.conf`{{execute T2}}
+    ```
+    sudo cat /etc/tcsd.conf
+    ```
 
     <pre class=file>
     << OUTPUT ABRIDGED >>
@@ -418,7 +453,9 @@ challenges:
     If you run `date` without any arguments, it will print the date and time
     in the following format:
 
-    `date`{{execute T1}}
+    ```
+    date
+    ```
 
     <pre class=file>
     Mon Aug  9 20:46:56 EDT 2021
@@ -432,7 +469,9 @@ challenges:
     with `date`. You can also specify the `-d` option to input a datetime instead of
     using the current one.
 
-    `date -d "Dec 12 2014 20:00:00" +%s`{{execute T1}}
+    ```
+    date -d "Dec 12 2014 20:00:00" +%s
+    ```
 
     This will show you the epoch time corresponding to the string you input:
 
@@ -445,7 +484,9 @@ challenges:
     This syntax specifies that you would like to know the date at the given epoch time.
     Try this using the epoch time you just received from the previous command:
 
-    `date --date @1418432400`{{execute T1}}
+    ```
+    date --date @1418432400
+    ```
 
     <pre class=file>
     Fri Dec 12 20:00:00 EST 2014
@@ -468,7 +509,9 @@ challenges:
     that ten digit number as a unix timestamp. To confirm, convert it to a standard
     date:
 
-    `date --date @1600796109`{{execute T1}}
+    ```
+    date --date @1600796109
+    ```
 
     <pre class=file>
     Tue Sep 22 13:35:09 EDT 2020
@@ -482,11 +525,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: RHEL Web Console
-    type: service
-    hostname: rhel
-    path: /
-    port: 9090
   difficulty: basic
   timelimit: 60
-checksum: "13410171798693908553"
+checksum: "7247106201470313797"
