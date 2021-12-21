@@ -156,11 +156,7 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: RHEL Web Console
-    type: service
-    hostname: rhel
-    path: /
-    port: 9090
+
   difficulty: basic
   timelimit: 60
 - slug: step2
@@ -271,12 +267,15 @@ challenges:
   id: dzcwlj6nyiyh
   type: challenge
   title: Step 3
+  notes:
+  - type: text
+    contents: |
+      # Accessing Hidden Files
+
+      Sometimes it is useful to have a file or directory that it hidden, meaning it does not show up when running `ls` normally. This may be because the file is not often used, or because the file shouldn't be tampered with by inexperienced users.
   assignment: |
     # Accessing hidden files
 
-    Sometimes it is useful to have a file or directory that it hidden, meaning it
-    does not show up when running `ls` normally. This may be because the file is not
-    often used, or because the file shouldn't be tampered with by inexperienced users.
     Any file or directory that begins with a `.` in the name will be interpreted as
     hidden, and will only show up when using the `-a` option with `ls`.
 
@@ -298,8 +297,7 @@ challenges:
     ```
 
     <pre class=file>
-    .   anaconda-ks.cfg  .bash_profile  .cshrc  .hushlogin     original-ks.cfg  .tcshrc
-    ..  .bash_logout     .bashrc        .gnupg  openscap_data  .ssh             .viminfo
+    .  ..  anaconda-ks.cfg  .bash_history  .bash_logout  .bash_profile  .bashrc  .cshrc  openscap_data  original-ks.cfg  .ssh  .tcshrc  .vimrc
     </pre>
 
     Adding the `-a` option reveals that there are numerous hidden files and directories
@@ -335,30 +333,26 @@ challenges:
     ```
 
     <pre class=file>
-    .   anaconda-ks.cfg  .bash_profile  .cshrc  .hidden-file  openscap_data    .ssh     .viminfo
-    ..  .bash_logout     .bashrc        .gnupg  .hushlogin    original-ks.cfg  .tcshrc
+    .   anaconda-ks.cfg  .bash_logout   .bashrc  .hidden-file   original-ks.cfg  .tcshrc
+    ..  .bash_history    .bash_profile  .cshrc   openscap_data  .ssh             .vimrc
     <pre class=file>
   tabs:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: RHEL Web Console
-    type: service
-    hostname: rhel
-    path: /
-    port: 9090
   difficulty: basic
   timelimit: 60
 - slug: step4
   id: qbziwlyf9y9n
   type: challenge
   title: Step 4
+    notes:
+  - type: text
+    contents: |
+      # Running commands as __root__ vs using `sudo`
+      __root__ is the name of the administrator account. This account has the highest amount of control of any account on the system. If a person has the root password, they can access and make changes to any part of the system.  
   assignment: |
     # Running commands as __root__ vs using `sudo`
-
-    __root__ is the name of the administrator account. This account has the highest
-    amount of control of any account on the system. If a person has the root password,
-    they can access and make changes to any part of the system.
 
     `sudo`, on the other hand, is a command which allows non-root users to
     perform administrative tasks. Users in the _wheel_ group have access to the
@@ -418,11 +412,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: RHEL Web Console
-    type: service
-    hostname: rhel
-    path: /
-    port: 9090
   difficulty: basic
   timelimit: 60
 - slug: step5
@@ -525,4 +514,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 60
-checksum: "7247106201470313797"
+checksum: "3744959496038229572"
