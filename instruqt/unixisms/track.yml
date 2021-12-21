@@ -156,7 +156,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-
   difficulty: basic
   timelimit: 60
 - slug: step2
@@ -346,11 +345,11 @@ challenges:
   id: qbziwlyf9y9n
   type: challenge
   title: Step 4
-    notes:
+  notes:
   - type: text
     contents: |
       # Running commands as __root__ vs using `sudo`
-      __root__ is the name of the administrator account. This account has the highest amount of control of any account on the system. If a person has the root password, they can access and make changes to any part of the system.  
+      __root__ is the name of the administrator account. This account has the highest amount of control of any account on the system. If a person has the root password, they can access and make changes to any part of the system.
   assignment: |
     # Running commands as __root__ vs using `sudo`
 
@@ -514,4 +513,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 60
-checksum: "3744959496038229572"
+checksum: "7260290553456772998"
