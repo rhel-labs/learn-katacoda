@@ -403,7 +403,7 @@ challenges:
     type: terminal
     hostname: rhel
   difficulty: basic
-  timelimit: 6000
+  timelimit: 600
 - slug: step5
   id: zwuvqotz9gf1
   type: challenge
