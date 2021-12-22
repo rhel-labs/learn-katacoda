@@ -3,6 +3,7 @@
 # Create an output file
 touch /root/post-run.log
 # Download the configuration
-wget https://github.com/rhel-labs/learn-katacoda/blame/master/instruqt/imagebuilder-cli/assets/node-app-server.toml
+dnf install -y wget
+wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/instruqt/imagebuilder-cli/assets/node-app-server.toml
 # Create a done file to signal we have finished
 touch /root/post-run.log.done
