@@ -69,12 +69,7 @@ challenges:
   - hostname: rhel
     title: Terminal
     type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  timelimit: 60
+  timelimit: 600
   title: Step 1
   type: challenge
 - assignment: "# Updating a package\n\nThe `list` subcommand is useful for finding\
@@ -120,12 +115,7 @@ challenges:
   - hostname: rhel
     title: Terminal
     type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  timelimit: 60
+  timelimit: 600
   title: Step 2
   type: challenge
 - assignment: "# Using `yum history` to roll back a transaction\n\nThe `history` subcommand\
@@ -165,12 +155,7 @@ challenges:
   - hostname: rhel
     title: Terminal
     type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  timelimit: 60
+  timelimit: 600
   title: Step 3
   type: challenge
 - assignment: "# Using RPM to run detailed queries\n\nYUM is the standard package\
@@ -208,12 +193,7 @@ challenges:
   - hostname: rhel
     title: Terminal
     type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  timelimit: 60
+  timelimit: 600
   title: Step 4
   type: challenge
 - assignment: '# Validating package files using `rpm`
@@ -309,9 +289,7 @@ challenges:
 
 
     ```
-
     rpm -V pam
-
     ```
 
 
@@ -343,12 +321,7 @@ challenges:
   - hostname: rhel
     title: Terminal
     type: terminal
-  - hostname: rhel
-    path: /
-    port: 9090
-    title: RHEL Web Console
-    type: service
-  timelimit: 60
+  timelimit: 600
   title: Step 5
   type: challenge
 description: '# Overview:
@@ -358,12 +331,9 @@ description: '# Overview:
   for user error and automates numerous installation steps. On RHEL, YUM is the default
   package manager, but you will also see RPM.
 
-
   # Goal:
 
-  After completing this lab, users will feel comfortable adding, removing, and updating
-  packages.
-
+  After completing this lab, users will feel comfortable adding, removing, and updating packages.
 
   # Concepts included in this scenario:
 
@@ -374,18 +344,18 @@ description: '# Overview:
   * Roll back a transaction with `yum history`
 
   * Use `rpm` for detailed queries
-
   '
 developers:
-- rhel-tmm@redhat.com
+- ehendric@redhat.com
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
 level: beginner
 owner: rhel
 private: false
 published: true
-skipping_enabled: false
+skipping_enabled: true
 slug: installing-software-yum
 tags:
+- admin101
 - rhel
 title: Installing Software using Package Managers [Admin 101]
 type: track
