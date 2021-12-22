@@ -1,10 +1,17 @@
 #!/bin/bash
 
-#Create an output file
+# Create an output file
 touch /root/post-run.log
-
-#Download the SQL Query script
+# Download the SQL Query script
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/imagebuilder-cli/node-app-server.toml
-
-#Create a done file to signal we have finished
+# Create a done file to signal we have finished
 touch /root/post-run.log.done
+
+# Create a TOML file
+#cat << EOF >> node-app-server.toml
+#name = "node-app-server"
+#description = "Sample image for the node.js application server"
+#version = "0.0.1"
+#modules = []
+#groups = []
+#EOF
