@@ -142,9 +142,6 @@ challenges:
     There is no output, but switching back to Terminal 2
     reveals that the `dd` process has been terminated.
 
-    ```
-    ```
-
     <pre class=file>
     Terminated
     </pre>
@@ -195,7 +192,9 @@ challenges:
     __firewalld__ is a service which manages what network traffic to let into the system.
     Check the status of the __firewalld__ service with the following command:
 
-    `systemctl status firewalld.service --no-pager`{{execute T1}}
+    ```
+    systemctl status firewalld.service --no-pager
+    ```
 
     <pre class=file>
     ● firewalld.service - firewalld - dynamic firewall daemon
@@ -227,9 +226,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: Terminal 2
-    type: terminal
-    hostname: rhel
   difficulty: basic
   timelimit: 600
 - slug: step4
@@ -247,7 +243,9 @@ challenges:
 
     To begin, run the command to show the export list for the NFS server:
 
-    `showmount -e```
+    ```
+    showmount -e
+    ```
 
     This throws an error, because the NFS service is not running.
 
@@ -259,7 +257,9 @@ challenges:
     to start each time you boot the system, you need to enable the service. You can
     do both of these operations in one line:
 
-    `systemctl enable --now nfs-server```
+    ```
+    systemctl enable --now nfs-server
+    ```
 
     <pre class=file>
     Created symlink /etc/systemd/system/multi-user.target.wants/nfs-server.service → /usr/lib/systemd/system/nfs-server.service
@@ -273,10 +273,12 @@ challenges:
     system starts as well. Run the `showmount` command again now that the service
     is active:
 
-    `showmount -e```
+    ```
+    showmount -e
+    ```
 
     <pre class=file>
-    Export list for b02029791f2d:
+    Export list for rhel:
     </pre>
 
     The export list is currently blank, which is something controlled by a
@@ -286,9 +288,6 @@ challenges:
     files.
   tabs:
   - title: Terminal
-    type: terminal
-    hostname: rhel
-  - title: Terminal 2
     type: terminal
     hostname: rhel
   difficulty: basic
@@ -303,16 +302,20 @@ challenges:
     To demonstrate how configuration changes behave when a service is already running,
     add an export directory to the NFS service on this system:
 
-    ``` echo "/home" >> /etc/exports ```
+    ```
+    echo "/home" >> /etc/exports
+    ```
 
     This command adds the home directory to the export list configuration file for
     NFS. Changing this config file does not lead to any immediate changes in the
     NFS service, though. Print the export list again to confirm this:
 
-    ``` showmount -e ```
+    ```
+    showmount -e
+    ```
 
     <pre class=file>
-    Export list for b02029791f2d:
+    Export list for rhel:
     </pre>
 
     To bring configuration changes into the service, you must first use `systemctl`
@@ -323,10 +326,12 @@ challenges:
     Now the configuration files have been re-read and NFS reflects the
     configuration change.
 
-    ``` showmount -e ```
+    ```
+    showmount -e
+    ```
 
     <pre class=file>
-    Export list for b02029791f2d:
+    Export list for rhel:
     /home *
     </pre>
 
@@ -344,9 +349,6 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: rhel
-  - title: Terminal 2
-    type: terminal
-    hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "1133634520464209133"
+checksum: "1258384342260803903"
