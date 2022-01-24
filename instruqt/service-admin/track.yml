@@ -321,7 +321,9 @@ challenges:
     To bring configuration changes into the service, you must first use `systemctl`
     to restart it:
 
-    ``` systemctl restart nfs-server ```
+    ```
+    systemctl restart nfs-server
+    ```
 
     Now the configuration files have been re-read and NFS reflects the
     configuration change.
@@ -351,4 +353,4 @@ challenges:
     hostname: rhel
   difficulty: basic
   timelimit: 600
-checksum: "1258384342260803903"
+checksum: "12745815533413686629"
