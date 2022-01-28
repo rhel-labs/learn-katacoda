@@ -37,7 +37,7 @@ perform the tasks must be installed on the system.  Specifically, the
 the virtual machine images.
 
 ```
-yum -y install composer-cli osbuild-composer
+dnf install -y composer-cli osbuild-composer
 ```
 
 <pre class='file'>
