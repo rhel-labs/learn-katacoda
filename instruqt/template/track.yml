@@ -1,0 +1,15 @@
+slug: template
+type: track
+title: template
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: rhel
+developers:
+- ehendric@redhat.com
+private: false
+published: false
