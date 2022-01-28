@@ -2,3 +2,5 @@
 
 # install nfs-utils package for showmount
 yum install -y nfs-utils 
+# dd running in background
+dd if=/dev/zero of=/dev/null &
