@@ -2,9 +2,7 @@
 
 # Create an output file
 touch /root/post-run.log
-# dd running in background
-nohup /usr/bin/dd if=/dev/zero of=/dev/null &
 # install nfs-utils package for showmount
-#yum install -y nfs-utils
+yum install -y nfs-utils
 # Create a done file to signal we have finished
 touch /root/post-run.log.done
