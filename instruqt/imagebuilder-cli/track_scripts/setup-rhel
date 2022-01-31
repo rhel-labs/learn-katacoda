@@ -4,6 +4,7 @@
 touch /root/post-run.log
 # register host
 yum remove -y google-rhui-client-rhel8.noarch
+rm /etc/yum.repos.d/google.repo
 yum clean all
 subscription-manager config --rhsm.manage_repos=1
 subscription-manager register --force --name=rhel --org=12451665 --activationkey=Instruqt_system_registration
