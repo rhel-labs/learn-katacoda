@@ -2,6 +2,11 @@
 
 # Create an output file
 touch /root/post-run.log
+# register host
+yum remove -y google-rhui-client-rhel8.noarch
+yum clean all
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --force --name=rhel --org=12451665 --activationkey=Instruqt_system_registration
 # Download the configuration
 dnf install -y wget
 wget https://raw.githubusercontent.com/rhel-labs/learn-katacoda/master/instruqt/imagebuilder-cli/assets/node-app-server.toml
