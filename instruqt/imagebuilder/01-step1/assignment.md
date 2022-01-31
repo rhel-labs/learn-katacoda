@@ -23,13 +23,8 @@ tabs:
 - title: Terminal
   type: terminal
   hostname: rhel
-- title: RHEL Web Console
-  type: service
-  hostname: rhel
-  path: /
-  port: 9090
 difficulty: basic
-timelimit: 500
+timelimit: 300
 ---
 # Software installation and configuration
 Prior to getting started with image builder, the software must first be

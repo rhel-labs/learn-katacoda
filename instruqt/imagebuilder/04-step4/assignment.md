@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 500
+timelimit: 300
 ---
 # Creating a blueprint
 

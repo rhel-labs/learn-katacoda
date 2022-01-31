@@ -13,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 500
+timelimit: 300
 ---
 # Navigate to Image Builder application
 After logging into the Web Console, you are probably already looking at the
