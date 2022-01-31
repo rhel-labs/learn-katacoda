@@ -1,5 +1,6 @@
 ---
 slug: step1
+id: cof3ptr2xueq
 type: challenge
 title: Step 1
 notes:
@@ -28,10 +29,10 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 50
+timelimit: 500
 ---
 # Software installation and configuration
-Prior to getting started with image builder, the software must first be 
+Prior to getting started with image builder, the software must first be
 installed.  By installing the plugin for Web Console, all of the other
 required packages will also be installed.
 
@@ -45,4 +46,3 @@ the newly installed plugin for image builder.
 ```
 systemctl restart cockpit
 ```
-

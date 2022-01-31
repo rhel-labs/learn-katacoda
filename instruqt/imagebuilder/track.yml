@@ -1,4 +1,5 @@
 slug: imagebuilder
+id: 9rqv9exrm3nw
 type: track
 title: Using Web Console to build virtual machine images [Image Builder]
 description: |+
@@ -21,6 +22,7 @@ tags:
 - rhel
 owner: rhel
 developers:
-- rhel-tmm@redhat.com
+- ehendric@redhat.com
 private: false
 published: true
+checksum: "1329389191308433512"

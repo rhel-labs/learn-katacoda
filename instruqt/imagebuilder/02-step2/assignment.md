@@ -1,5 +1,6 @@
 ---
 slug: step2
+id: ptrlnjxwtjcx
 type: challenge
 title: Step 2
 tabs:
@@ -12,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 50
+timelimit: 500
 ---
 # Log in to the Web Console
 
@@ -21,7 +22,7 @@ Selecting this tab will pop out the lab system's web console.
 
 Once the login page is presented, use the following credentials to log into the web console:
 
-Username: __rhel__   
+Username: __rhel__
 Password: __redhat__
 
-![Web Console Login](./assets/Web-console-login.png)
+![Web Console Login](../assets/Web-console-login.png)

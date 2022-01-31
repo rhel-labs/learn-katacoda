@@ -1,5 +1,6 @@
 ---
 slug: step5
+id: xodrmeueh9af
 type: challenge
 title: Step 5
 tabs:
@@ -12,7 +13,7 @@ tabs:
   path: /
   port: 9090
 difficulty: basic
-timelimit: 50
+timelimit: 500
 ---
 # Building an Image
 
@@ -20,9 +21,9 @@ You are now ready to build your first image of this new Red Hat Enterprise
 Linux build with Node.js and NGINX packages installed.  Click the *Create image*
 button near the top of the interface.
 
-![Create image](./assets/Create-Image.png)
+![Create image](../assets/Create-Image.png)
 
-The resulting dialog will ask several questions about how to build the image.  
+The resulting dialog will ask several questions about how to build the image.
 The first, and most important question is *Type*.  There are several different
 output types supported by Image Builder:
 * Amazon Web Services (.raw)
@@ -41,12 +42,12 @@ provided as part of Red Hat Enterprise Linux. However, you can see from the
 list that you can make images for cloud providers or other virtualization
 hypervisors.
 
-![Selecting a format](./assets/image-create.png)
+![Selecting a format](../assets/image-create.png)
 
 Once you have specified the __QEMU Image (.qcow2)__ as the *Type* select
 the *Create* button to create an image of this output format.
 
-![Clicking Create](./assets/image-create-confirm.png)
+![Clicking Create](../assets/image-create-confirm.png)
 
 Depending on the output format selected in this step, there may be additional
 options available.  For example, when a cloud provider format is selected,
