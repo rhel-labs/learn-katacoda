@@ -8,6 +8,6 @@ echo redhat | passwd --stdin rhel
 yum -y install cockpit
 firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
-systemctl enable --now cockpit
+systemctl enable --now cockpit.socket
 # Create a done file to signal we have finished
 touch /root/post-run.log.done

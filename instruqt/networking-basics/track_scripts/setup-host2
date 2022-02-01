@@ -1,0 +1,7 @@
+#!/bin/bash
+# Create an output file
+touch /root/post-run.log
+# install tree
+dnf install -y tree
+# Create a done file to signal we have finished
+touch /root/post-run.log.done
