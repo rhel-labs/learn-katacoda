@@ -53,19 +53,17 @@ is available for you to use. To show what network devices this system has with
 nmcli device
 ```
 
->_NOTE:_ You may need to wait a few seconds and retry the command above if the terminal for __host01__ is still loading.
-
 This will show a list of network interfaces available on the system as well as
 how they are configured, similar to the following:
 
 <pre class=file>
 DEVICE  TYPE      STATE                                  CONNECTION
-ens3    ethernet  connected                              System ens3
-ens5    ethernet  connecting (getting IP configuration)  Wired connection 1
+eth0    ethernet  connected                              Wired connection 1
+eth1    ethernet  connecting (getting IP configuration)  Wired connection 2
 lo      loopback  unmanaged                              --
 </pre>
 
-This output shows that there are three devices: __ens3__ and __ens5__ (ethernet devices)
+This output shows that there are three devices: __eth0__ and __eth1__ (ethernet devices)
 as well as __lo__ (the loopback device).
 
 Next, you will make your own connection on this host.
