@@ -15,22 +15,24 @@ timelimit: 300
 ---
 # Recording a session
 
-Create a shell as the __rhel__ user so that the session can be recorded.
-Recall that the __rhel__ user's password is __redhat__.
+Change user to the __rhel__ user so that the session can be recorded.
 
 ```
-ssh rhel@localhost
+su - rhel
 ```
 
-You will notice that when the `ssh` session starts, the __rhel__ user receives
+You will notice that when the `bash` session starts, the __rhel__ user receives
 the notice message configured in the __tlog__ configuration.
 
 <pre class=file>
-rhel@localhost's password: <b>redhat</b>
+root@rhel:~# su - rhel
+Last login: Thu Feb  3 19:21:21 UTC 2022 from ::ffff:136.32.60.35 on web console
+Locale charset is ANSI_X3.4-1968 (ASCII)
+Assuming locale environment is lost and charset is UTF-8
 
 ATTENTION! Your session is being recorded!
 
-[rhel@somehost ~]$
+[rhel@rhel ~]$
 </pre>
 
 Run some commands in the __rhel__ user's session.
@@ -51,8 +53,7 @@ df -hP
 yum list installed
 ```
 
-Now that you have some data in a recorded session, you can log out of the
-user's `ssh` session.
+Now that you have some data in a recorded session, you can log out of the user's terminal session.
 ```
 exit
 ```

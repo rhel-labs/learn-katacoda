@@ -36,14 +36,15 @@ timelimit: 300
 Install two rpm packages, __cockpit-session-recording__ and __tlog__.
 
 ```
-yum -y install cockpit-session-recording tlog
+yum install -y cockpit-session-recording tlog
 ```
 
 <pre class="file">
 << OUTPUT ABRIDGED >>
 
 Installed:
-  cockpit-session-recording-4-2.el8.noarch                                       tlog-8-2.el8.x86_64
+  cockpit-session-recording-4-2.el8.noarch
+  tlog-8-2.el8.x86_64
 
 Complete!
 </pre>

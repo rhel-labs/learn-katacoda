@@ -46,6 +46,5 @@ cat /etc/tlog/tlog-rec-session.conf
 <pre class=file>
 <<OUTPUT ABRIDGED>>
 
-// "notice" : "\nATTENTION! Your session is being recorded!\n\n",
-
+"notice" : "ATTENTION! Your session is being recorded!",
 </pre>
