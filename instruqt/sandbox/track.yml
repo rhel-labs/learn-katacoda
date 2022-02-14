@@ -65,5 +65,5 @@ challenges:
     path: /
     port: 9090
   difficulty: basic
-  timelimit: 3000
-checksum: "13311006741276895507"
+  timelimit: 3400
+checksum: "18219056459936556955"
