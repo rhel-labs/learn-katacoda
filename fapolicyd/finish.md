@@ -1,7 +1,7 @@
 # In this lab you have:
 * Installed the File Access Policy Daemon (fapolicyd)
-* Verified fapolicyd configuration
-* Created a file-based trust database to list known-trusted applications
+* Verified fapolicyd configuration and blocked unauthorized applications
+* Created a file-backed trust database to allow trusted applications
 * Configured SHA-256 hash integrity checking for fapolicyd
 
 # Report an issue with the lab:
