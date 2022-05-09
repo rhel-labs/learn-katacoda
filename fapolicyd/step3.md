@@ -1,10 +1,10 @@
 Let's take a quick look at fapolicyd and integrity. The `more` command is installed via the RPM database, so it's trusted to execute on the system:
 
-`rpm -qf /bin/more` {{ execute T1 }}
+`sudo rpm -qf /bin/more` {{ execute T1 }}
 
 What if the more command was substituted out for something malicious? First, let's verify that fapolicyd is still running:
 
-`systemctl status fapolicyd`
+`sudo systemctl status fapolicyd`
 
 Now let's substitute the `more` command for the `cowsay` binary in our user's home directory:
 
