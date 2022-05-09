@@ -1,6 +1,7 @@
 {
   "title": "Application control with fapolicyd",
   "description": "Goal: After completing this scenario, users will understand how to manage application control with the File Access Policy Daemon (fapolicyd)",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
@@ -17,7 +18,9 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits": "__Author:__ Shane Boulden, Solution Architect (Red Hat)",
+      "courseData": "background.sh"
     },
     "finish": {
       "text": "finish.md"
