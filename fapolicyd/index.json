@@ -1,0 +1,33 @@
+{
+  "title": "Application control with fapolicyd",
+  "description": "Goal: After completing this scenario, users will understand how to manage application control with the File Access Policy Daemon (fapolicyd)",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "terminals": [{"name": "fapolicyd", "target":"host01"}]
+  },
+  "backend": {
+    "imageid": "rhel8-5"
+  }
+}
